@@ -192,8 +192,8 @@ export default function App() {
             <FooterLink href="https://reicon.dev" label="reicon.dev" />
             <FooterLink href="mailto:hello@reicon.dev" label="Contact" />
           </div>
-          <span className="text-[11.5px] text-white/10">
-            Designed & developed by <FooterLink href="https://devchauhan.in" label="@devchauhan" className="text-[11.5px] text-white/30" />
+          <span className="text-[11.5px] text-white/30">
+            Designed & developed by <FooterLink href="https://devchauhan.in" label="@devchauhan" className="text-[11.5px] text-white/50" />
           </span>
         </footer>
       </main>
