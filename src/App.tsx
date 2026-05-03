@@ -149,7 +149,7 @@ export default function App() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 onSubmit={handleJoin}
-                className="w-full flex flex-col sm:flex-row bg-white/10 border border-white/20 rounded-[20px] sm:rounded-full backdrop-blur-xl overflow-hidden focus-within:border-white/45 focus-within:bg-white/15 transition-all p-1"
+                className="w-full flex flex-col sm:flex-row bg-white/10 border border-white/20 rounded-xl sm:rounded-full backdrop-blur-xl overflow-hidden focus-within:border-white/45 focus-within:bg-white/15 transition-all p-1"
               >
                 <input ref={honeypotRef} type="text" name="website" className="hidden" tabIndex={-1} aria-hidden="true" />
                 <input
@@ -163,7 +163,7 @@ export default function App() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="shrink-0 bg-white text-[#09090b] px-6 py-3 sm:py-2.5 rounded-xl sm:rounded-full font-medium text-[13.5px] hover:bg-white/90 active:scale-95 transition-all disabled:opacity-50"
+                  className="shrink-0 bg-white text-[#09090b] px-6 py-3 sm:py-2.5 rounded-[8px] sm:rounded-full font-medium text-[13.5px] hover:bg-white/90 active:scale-95 transition-all disabled:opacity-50"
                 >
                   {isLoading ? 'Saving...' : 'Join Waitlist →'}
                 </button>
