@@ -1,49 +1,66 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en" dir="ltr">
 
-    <!-- ── Primary Meta ─────────────────────────────────────────────────────── -->
-    <title>Reicon — Free Open-Source Icon Library for Designers & Developers</title>
-    <meta name="description" content="Reicon is a free, open-source icon library built with obsessive precision. Pixel-perfect, handcrafted SVG icons for UI design, web development, Figma, and React. No auto-generation. Just beautiful, consistent icons." />
-    <meta name="keywords" content="free icon library, open source icons, SVG icons, UI icons, icon set, pixel perfect icons, handcrafted icons, React icons, Figma icons, web icons, design system icons, outline icons, reicon, free SVG icons, icon pack, developer icons" />
-    <meta name="author" content="reicon" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://reicon.dev/" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- ── Open Graph (Facebook, LinkedIn, Discord) ──────────────────────────── -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://reicon.dev/" />
-    <meta property="og:site_name" content="Reicon" />
-    <meta property="og:title" content="Reicon — Free Open-Source Icon Library for Designers & Developers" />
-    <meta property="og:description" content="Free, open-source SVG icon library built with obsessive precision. Pixel-perfect, handcrafted icons for UI design, React, Figma, and the web." />
-    <meta property="og:image" content="https://reicon.dev/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Reicon — Free Open-Source Icon Library" />
-    <meta property="og:locale" content="en_US" />
+  <!-- ── Primary Meta ─────────────────────────────────────────────────────── -->
+  <title>Reicon — Free Open-Source Icon Library for Designers & Developers</title>
+  <meta name="description"
+    content="Reicon is a free, open-source icon library built with obsessive precision. Pixel-perfect, handcrafted SVG icons for UI design, web development, Figma, and React. No auto-generation. Just beautiful, consistent icons." />
+  <meta name="keywords"
+    content="free icon library, open source icons, SVG icons, UI icons, icon set, pixel perfect icons, handcrafted icons, React icons, Figma icons, web icons, design system icons, outline icons, reicon, free SVG icons, icon pack, developer icons, icon toolkit, design resources" />
+  <meta name="author" content="Reicon" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <link rel="canonical" href="https://reicon.dev/" />
+  <meta name="rating" content="general" />
+  <meta name="referrer" content="origin-when-cross-origin" />
 
-    <!-- ── Twitter / X Card ─────────────────────────────────────────────────── -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@reicon_dev" />
-    <meta name="twitter:creator" content="@reicon_dev" />
-    <meta name="twitter:title" content="Reicon — Free Open-Source Icon Library" />
-    <meta name="twitter:description" content="Free, open-source SVG icon library built with obsessive precision. Pixel-perfect, handcrafted icons for UI design, React, Figma, and the web." />
-    <meta name="twitter:image" content="https://reicon.dev/og-image.png" />
-    <meta name="twitter:image:alt" content="Reicon — Free Open-Source Icon Library" />
+  <!-- ── Open Graph (Facebook, LinkedIn, Discord) ──────────────────────────── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://reicon.dev/" />
+  <meta property="og:site_name" content="Reicon" />
+  <meta property="og:title" content="Reicon — Free Open-Source Icon Library for Designers & Developers" />
+  <meta property="og:description"
+    content="Free, open-source SVG icon library built with obsessive precision. Pixel-perfect, handcrafted icons for UI design, React, Figma, and the web." />
+  <meta property="og:image" content="https://reicon.dev/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Reicon — Free Open-Source Icon Library" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:locale" content="en_US" />
 
-    <!-- ── Favicon ───────────────────────────────────────────────────────────── -->
-    <link rel="icon" type="image/x-icon" href="/public/favicon.svg" />
-    <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/public/favicon-96x96.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png" />
-    <link rel="manifest" href="/public/site.webmanifest" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="msapplication-TileColor" content="#000000" />
+  <!-- ── Twitter / X Card ─────────────────────────────────────────────────── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@reicon_dev" />
+  <meta name="twitter:creator" content="@reicon_dev" />
+  <meta name="twitter:title" content="Reicon — Free Open-Source Icon Library" />
+  <meta name="twitter:description"
+    content="Free, open-source SVG icon library built with obsessive precision. Pixel-perfect, handcrafted icons for UI design, React, Figma, and the web." />
+  <meta name="twitter:image" content="https://reicon.dev/og-image.png" />
+  <meta name="twitter:image:alt" content="Reicon — Free Open-Source Icon Library" />
 
-    <!-- ── Structured Data (JSON-LD) ─────────────────────────────────────────── -->
-    <script type="application/ld+json">
+  <!-- ── Favicon ───────────────────────────────────────────────────────────── -->
+  <link rel="icon" type="image/x-icon" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#09090b" />
+  <meta name="msapplication-TileColor" content="#09090b" />
+  <meta name="msapplication-TileImage" content="/favicon-96x96.png" />
+  <meta name="application-name" content="Reicon" />
+  <meta name="apple-mobile-web-app-title" content="Reicon" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <!-- ── Structured Data: SoftwareApplication ──────────────────────────────── -->
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
@@ -65,13 +82,124 @@
     }
     </script>
 
-    <!-- ── Fonts ─────────────────────────────────────────────────────────────── -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <!-- ── Structured Data: Organization ──────────────────────────────────────── -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Reicon",
+      "url": "https://reicon.dev",
+      "logo": "https://reicon.dev/favicon.svg",
+      "description": "Free, open-source icon library built with obsessive precision.",
+      "sameAs": [
+        "https://github.com/reicon-dev"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "hello@reicon.dev",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+
+  <!-- ── Structured Data: WebSite ───────────────────────────────────────────── -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Reicon",
+      "url": "https://reicon.dev",
+      "description": "Free, open-source SVG icon library built with obsessive precision for designers and developers.",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Reicon",
+        "url": "https://reicon.dev"
+      }
+    }
+    </script>
+
+  <!-- ── Structured Data: FAQPage (boosts rich snippets) ────────────────────── -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Reicon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reicon is a free, open-source icon library built with obsessive precision. Every icon is pixel-perfect and handcrafted — no auto-generation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Reicon free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Reicon is completely free and open-source under the MIT license. You can use it in personal and commercial projects."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Reicon work with React and Figma?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Reicon icons are available as SVGs and will have first-class support for React, Figma, and other popular design and development tools."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I join the Reicon waitlist?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Visit reicon.dev and enter your email address to join the waitlist. You'll be notified as soon as the icon library launches."
+          }
+        }
+      ]
+    }
+    </script>
+
+  <!-- ── DNS Prefetch & Preconnect ──────────────────────────────────────────── -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- ── Fonts (with display=swap for CLS) ─────────────────────────────────── -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <!-- ── Noscript fallback for SEO crawlers that don't execute JS ──────────── -->
+  <noscript>
+    <div
+      style="background:#09090b;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;font-family:'DM Sans',system-ui,sans-serif">
+      <h1 style="font-family:'Instrument Serif',serif;font-size:3rem;line-height:1.1;margin-bottom:1rem">Reicon — The
+        Icon Library Designers Actually Want</h1>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,0.6);max-width:500px;margin-bottom:2rem">Precision-crafted,
+        open-source SVG icons. Pixel-perfect, handcrafted, and built right. Free for UI design, web development, React,
+        and Figma.</p>
+      <h2 style="font-size:1.5rem;margin-bottom:0.5rem">Features</h2>
+      <ul style="list-style:none;padding:0;color:rgba(255,255,255,0.5)">
+        <li>Pixel Perfect — Every icon aligned to the grid</li>
+        <li>Handcrafted — No auto-generation, built with care</li>
+        <li>Open Source — MIT licensed, free forever</li>
+      </ul>
+      <p style="margin-top:2rem;color:rgba(255,255,255,0.4);font-size:0.875rem">Join the waitlist at <a
+          href="https://reicon.dev" style="color:rgba(255,255,255,0.7)">reicon.dev</a></p>
+      <footer style="margin-top:3rem;color:rgba(255,255,255,0.25);font-size:0.75rem">
+        <a href="https://github.com/reicon-dev" style="color:rgba(255,255,255,0.35);margin:0 0.5rem">GitHub</a>
+        <a href="mailto:hello@reicon.dev" style="color:rgba(255,255,255,0.35);margin:0 0.5rem">Contact</a>
+      </footer>
+    </div>
+  </noscript>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

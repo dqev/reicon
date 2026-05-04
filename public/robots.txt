@@ -1,0 +1,16 @@
+# Reicon — robots.txt
+# https://reicon.dev
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://reicon.dev/sitemap.xml
+
+# Crawl-delay (optional, respected by some bots)
+Crawl-delay: 1
+
+# Block crawlers from internal/API paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /__/
