@@ -1,0 +1,6 @@
+# Reicon Security Policy
+# https://reicon.dev
+
+Contact: mailto:hello@reicon.dev
+Preferred-Languages: en
+Canonical: https://reicon.dev/.well-known/security.txt
