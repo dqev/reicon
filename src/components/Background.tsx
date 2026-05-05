@@ -1,4 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+const CACHE_KEY = 'reicon-bg-v1';
 
 const VS = `attribute vec4 p;void main(){gl_Position=p;}`;
 const FS = `
@@ -55,8 +57,17 @@ const FS = `
   }
 `;
 
+function getCachedBg(): string | null {
+  try { return localStorage.getItem(CACHE_KEY); } catch { return null; }
+}
+
+function setCachedBg(data: string) {
+  try { localStorage.setItem(CACHE_KEY, data); } catch { }
+}
+
 export default function Background() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [cached, setCached] = useState<string | null>(getCachedBg);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -94,6 +105,7 @@ export default function Background() {
     const t0 = Date.now();
 
     let animationId: number;
+    let frames = 0;
 
     function draw() {
       if (!canvas || !gl) return;
@@ -109,6 +121,14 @@ export default function Background() {
       gl.uniform2f(ur, canvas.width, canvas.height);
       gl.uniform1f(ut, (Date.now() - t0) / 1000);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+      frames++;
+      if (frames === 5) {
+        const data = canvas.toDataURL('image/png');
+        setCachedBg(data);
+        setCached(data);
+      }
+
       animationId = requestAnimationFrame(draw);
     }
 
@@ -116,7 +136,6 @@ export default function Background() {
 
     return () => {
       cancelAnimationFrame(animationId);
-      // gl.deleteProgram(program); // Optional cleanup
     };
   }, []);
 
@@ -125,7 +144,9 @@ export default function Background() {
       ref={canvasRef}
       id="c"
       className="fixed inset-0 w-full h-full z-0"
-      style={{ background: '#09090b' }}
+      style={{
+        background: cached ? `url(${cached}) center / cover no-repeat #09090b` : '#09090b',
+      }}
     />
   );
 }
