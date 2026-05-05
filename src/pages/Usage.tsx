@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { BsChevronExpand } from 'react-icons/bs';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ReactUsage from './usage/ReactUsage';
@@ -168,17 +169,7 @@ export default function UsagePage() {
                   <FrameworkIcon id={selectedFw.id} size={18} />
                   <span className="text-[13px] text-white/80 font-medium">{selectedFw.label}</span>
                 </div>
-                <svg
-                  className={`w-3.5 h-3.5 text-white/30 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="m7 10 5 5 5-5" />
-                </svg>
+                <BsChevronExpand className="w-3.5 h-3.5 text-white/30" />
               </button>
 
               {dropdownOpen && (
@@ -243,17 +234,7 @@ export default function UsagePage() {
               <FrameworkIcon id={framework} size={16} />
               <span className="text-white/80 font-medium">{selectedFw.label}</span>
             </div>
-            <svg
-              className={`w-4 h-4 transition-transform ${mobileNavOpen ? 'rotate-180' : ''}`}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m6 9 6 6 6-6" />
-            </svg>
+            <BsChevronExpand className="w-4 h-4" />
           </button>
           {mobileNavOpen && (
             <div className="px-4 pb-4 max-h-[60vh] overflow-y-auto">
