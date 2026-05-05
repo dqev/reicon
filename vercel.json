@@ -62,11 +62,15 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=3600, stale-while-revalidate=86400"
+          "value": "public, max-age=0, must-revalidate"
         },
         {
           "key": "X-Robots-Tag",
           "value": "index, follow"
+        },
+        {
+          "key": "CDN-Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
         }
       ]
     },
@@ -106,9 +110,14 @@
       ]
     }
   ],
+  "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/icon/:name",
+      "destination": "/icon/:name/index.html"
+    },
+    {
+      "source": "/((?!assets|og|favicon|sitemap|robots|humans|llms|site\\.webmanifest).*)",
       "destination": "/index.html"
     }
   ]
