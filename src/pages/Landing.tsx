@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, ShieldCheck, Code, Palette, Layers, Copy, Box, Star, AltArrowRight, AltArrowDown, Download, Figma, HandHeart, MapArrowRight, Magnifier, RoundedMagnifier, Book, Book2, BookMinimalistic, Restart } from 'reicon-react';
+import { Home, ShieldCheck, Code, Palette, Layers, Copy, Box, Star, ArrowRight2, ArrowDown2, Download, Figma, HandHeart, MapArrowRight, Magnifier, Search3, Book, Book2, Book3, Restart } from 'reicon-react';
 import Background from '../components/Background';
 import ClayButton from '../components/ClayButton';
 import Footer from '../components/Footer';
@@ -105,14 +105,14 @@ export default function Landing() {
               </p>
               <div className="flex items-center justify-center gap-[10px] flex-wrap">
                 <ClayButton to="/icons" variant="primary">
-                  <RoundedMagnifier size={16} />
+                  <Search3 size={16} />
                   Browse Icons
                 </ClayButton>
                 <Link
                   to="/usage"
                   className="bg-white/10 text-white text-[14px] px-6 py-3 rounded-full border border-white/[0.24] backdrop-blur-lg flex items-center gap-[6px] hover:bg-white/18 transition-colors"
                 >
-                  <BookMinimalistic size={16} />
+                  <Book3 size={16} />
                   Usage Guide
                 </Link>
               </div>
@@ -134,7 +134,7 @@ export default function Landing() {
               </div>
               <div className="hidden sm:flex items-center gap-[5px] text-[11px] text-white/40">
                 Scroll to explore
-                <span className="animate-bounce"><AltArrowDown size={14} /></span>
+                <span className="animate-bounce"><ArrowDown2 size={14} /></span>
               </div>
             </div>
           </div>
@@ -324,7 +324,7 @@ export default function Landing() {
           </div>
           <div className="flex flex-col items-center md:items-end gap-3 mt-6 md:mt-0 shrink-0">
             <ClayButton to="/icons" variant="primary" className="w-full justify-center">
-              <RoundedMagnifier size={16} />
+              <Search3 size={16} />
               Browse Icons
             </ClayButton>
             <a

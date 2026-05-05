@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { BsChevronExpand } from 'react-icons/bs';
+import { ChevronExpandY } from 'reicon-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ReactUsage from './usage/ReactUsage';
@@ -169,7 +169,7 @@ export default function UsagePage() {
                   <FrameworkIcon id={selectedFw.id} size={18} />
                   <span className="text-[13px] text-white/80 font-medium">{selectedFw.label}</span>
                 </div>
-                <BsChevronExpand className="w-3.5 h-3.5 text-white/30" />
+                <ChevronExpandY className="w-3.5 h-3.5 text-white/30" />
               </button>
 
               {dropdownOpen && (
@@ -234,7 +234,7 @@ export default function UsagePage() {
               <FrameworkIcon id={framework} size={16} />
               <span className="text-white/80 font-medium">{selectedFw.label}</span>
             </div>
-            <BsChevronExpand className="w-4 h-4" />
+            <ChevronExpandY className="w-4 h-4" />
           </button>
           {mobileNavOpen && (
             <div className="px-4 pb-4 max-h-[60vh] overflow-y-auto">
