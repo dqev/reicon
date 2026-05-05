@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Home, ShieldCheck, Code, Palette, Layers, Copy, Box, Star, AltArrowRight, AltArrowDown, Download, Figma, HandHeart, MapArrowRight, Magnifier, RoundedMagnifier, Book, Book2, BookMinimalistic, Restart } from 'reicon-react';
 import Background from '../components/Background';
+import ClayButton from '../components/ClayButton';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import { SiJavascript, SiReact } from 'react-icons/si';
@@ -84,12 +85,9 @@ export default function Landing() {
                 >
                   GitHub
                 </a>
-                <Link
-                  to="/icons"
-                  className="text-[13px] font-medium text-[#1a1a1a] bg-white rounded-full px-5 py-[7px] hover:bg-white/90 transition-colors"
-                >
+                <ClayButton to="/icons" variant="primary" size="sm">
                   Browse Icons
-                </Link>
+                </ClayButton>
               </div>
             </div>
 
@@ -106,13 +104,10 @@ export default function Landing() {
                 Precision-crafted, open-source SVG icons for React, Figma, and the web. Pixel-perfect. No auto-generation.
               </p>
               <div className="flex items-center justify-center gap-[10px] flex-wrap">
-                <Link
-                  to="/icons"
-                  className="bg-white text-[#1a1a1a] font-semibold text-[14px] px-6 py-3 rounded-full flex items-center gap-[6px] hover:bg-[#eee] hover:-translate-y-[2px] transition-all"
-                >
+                <ClayButton to="/icons" variant="primary">
                   <RoundedMagnifier size={16} />
                   Browse Icons
-                </Link>
+                </ClayButton>
                 <Link
                   to="/usage"
                   className="bg-white/10 text-white text-[14px] px-6 py-3 rounded-full border border-white/[0.24] backdrop-blur-lg flex items-center gap-[6px] hover:bg-white/18 transition-colors"
@@ -178,56 +173,60 @@ export default function Landing() {
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-[14px]">
-          <IntegrationCard icon={<SiReact size={18} color='#61dafb' />} title="React" lines={
-            <>
-              <div>
-                <span className="text-[#c678dd]">import</span>
-                <span className="text-white/70"> {'{ '}</span>
-                <span className="text-[#e5c07b]">Home</span>
-                <span className="text-white/70">{' }'} </span>
-                <span className="text-[#c678dd]">from</span>
-                <span className="text-[#98c379]"> 'reicon-react'</span>
-                <span className="text-white/30">;</span>
-              </div>
-              <div className="h-3" />
-              <div>
-                <span className="text-white/20">&lt;</span>
-                <span className="text-[#e06c75]">Home</span>
-                <span className="text-[#d19a66]"> size</span>
-                <span className="text-white/30">=</span>
-                <span className="text-white/70">{'{'}24{'}'}</span>
-                <span className="text-[#d19a66]"> weight</span>
-                <span className="text-white/30">=</span>
-                <span className="text-[#98c379]">"outline"</span>
-                <span className="text-white/20"> /&gt;</span>
-              </div>
-            </>
-          } />
-          <IntegrationCard icon={<SiJavascript size={18} color='#f7df1e' />} title="JavaScript (CDN)" lines={
-            <>
-              <div>
-                <span className="text-white/20">&lt;</span>
-                <span className="text-[#e06c75]">script</span>
-                <span className="text-[#d19a66]"> src</span>
-                <span className="text-white/30">=</span>
-                <span className="text-[#98c379]">"https://cdn.reicon.dev/cdn/reicon.min.js"</span>
-                <span className="text-white/20">&gt;&lt;/</span>
-                <span className="text-[#e06c75]">script</span>
-                <span className="text-white/20">&gt;</span>
-              </div>
-              <div className="h-3" />
-              <div>
-                <span className="text-white/20">&lt;</span>
-                <span className="text-[#e06c75]">re-icon</span>
-                <span className="text-[#d19a66]"> icon</span>
-                <span className="text-white/30">=</span>
-                <span className="text-[#98c379]">"home"</span>
-                <span className="text-white/20">&gt;&lt;/</span>
-                <span className="text-[#e06c75]">re-icon</span>
-                <span className="text-white/20">&gt;</span>
-              </div>
-            </>
-          } />
+          <IntegrationCard icon={<SiReact size={18} color='#61dafb' />} title="React" copyText={`import { Home } from 'reicon-react';
+
+<Home size={24} weight="outline" />`} lines={
+              <>
+                <div>
+                  <span className="text-[#c678dd]">import</span>
+                  <span className="text-white/70"> {'{ '}</span>
+                  <span className="text-[#e5c07b]">Home</span>
+                  <span className="text-white/70">{' }'} </span>
+                  <span className="text-[#c678dd]">from</span>
+                  <span className="text-[#98c379]"> 'reicon-react'</span>
+                  <span className="text-white/30">;</span>
+                </div>
+                <div className="h-3" />
+                <div>
+                  <span className="text-white/20">&lt;</span>
+                  <span className="text-[#e06c75]">Home</span>
+                  <span className="text-[#d19a66]"> size</span>
+                  <span className="text-white/30">=</span>
+                  <span className="text-white/70">{'{'}24{'}'}</span>
+                  <span className="text-[#d19a66]"> weight</span>
+                  <span className="text-white/30">=</span>
+                  <span className="text-[#98c379]">"outline"</span>
+                  <span className="text-white/20"> /&gt;</span>
+                </div>
+              </>
+            } />
+          <IntegrationCard icon={<SiJavascript size={18} color='#f7df1e' />} title="JavaScript (CDN)" copyText={`<script src="https://cdn.reicon.dev/cdn/reicon.min.js"></script>
+
+<re-icon icon="home"></re-icon>`} lines={
+              <>
+                <div>
+                  <span className="text-white/20">&lt;</span>
+                  <span className="text-[#e06c75]">script</span>
+                  <span className="text-[#d19a66]"> src</span>
+                  <span className="text-white/30">=</span>
+                  <span className="text-[#98c379]">"https://cdn.reicon.dev/cdn/reicon.min.js"</span>
+                  <span className="text-white/20">&gt;&lt;/</span>
+                  <span className="text-[#e06c75]">script</span>
+                  <span className="text-white/20">&gt;</span>
+                </div>
+                <div className="h-3" />
+                <div>
+                  <span className="text-white/20">&lt;</span>
+                  <span className="text-[#e06c75]">re-icon</span>
+                  <span className="text-[#d19a66]"> icon</span>
+                  <span className="text-white/30">=</span>
+                  <span className="text-[#98c379]">"home"</span>
+                  <span className="text-white/20">&gt;&lt;/</span>
+                  <span className="text-[#e06c75]">re-icon</span>
+                  <span className="text-white/20">&gt;</span>
+                </div>
+              </>
+            } />
         </div>
       </section>
 
@@ -324,13 +323,10 @@ export default function Landing() {
             <p className="text-[15px] text-white/45 leading-[1.6]">Join thousands of designers and developers using Reicon in production.</p>
           </div>
           <div className="flex flex-col items-center md:items-end gap-3 mt-6 md:mt-0 shrink-0">
-            <Link
-              to="/icons"
-              className="w-full justify-center bg-white text-[#09090b] px-7 py-3 rounded-full font-medium text-[14px] hover:bg-white/90 active:scale-[0.97] transition-all inline-flex items-center gap-2"
-            >
+            <ClayButton to="/icons" variant="primary" className="w-full justify-center">
               <RoundedMagnifier size={16} />
               Browse Icons
-            </Link>
+            </ClayButton>
             <a
               href="https://github.com/reicon-dev/reicon"
               target="_blank"
@@ -362,14 +358,35 @@ function FeatureBlock({ icon, title, description }: { icon: React.ReactNode; tit
   );
 }
 
-function IntegrationCard({ icon, title, lines }: { icon: React.ReactNode; title: string; lines: React.ReactNode }) {
+function IntegrationCard({ icon, title, lines, copyText }: { icon: React.ReactNode; title: string; lines: React.ReactNode; copyText: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(copyText).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    });
+  };
+
   return (
     <div className="bg-[#0e0e10] rounded-[14px] overflow-hidden">
-      <div className="flex items-center gap-2 px-5 py-3 border-b border-white/[0.06]">
-        <div className="w-6 h-6 flex items-center justify-center">
-          {icon}
+      <div className="flex items-center justify-between px-5 py-3 border-b border-white/[0.06]">
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 flex items-center justify-center">
+            {icon}
+          </div>
+          <h3 className="text-[14px] font-semibold text-white">{title}</h3>
         </div>
-        <h3 className="text-[14px] font-semibold text-white">{title}</h3>
+        <button
+          onClick={handleCopy}
+          className="flex items-center gap-1.5 text-[12px] text-white/30 hover:text-white/60 transition-colors"
+        >
+          {copied ? (
+            <><svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>Copied</>
+          ) : (
+            <><Copy size={14} />Copy</>
+          )}
+        </button>
       </div>
       <div className="p-5 font-mono text-[13px] leading-[1.85] overflow-x-auto">
         {lines}

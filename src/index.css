@@ -78,3 +78,62 @@ body {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* ═══ Clay Button ═══ */
+.clay-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: box-shadow 0.25s ease, filter 0.2s ease;
+}
+
+.clay-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.45), transparent 40%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.clay-btn:active {
+  filter: brightness(0.95);
+}
+
+.clay-sm {
+  padding: 8px 16px;
+  font-size: 13px;
+}
+
+/* Primary — white body, dark text */
+.clay-primary {
+  color: #111;
+  background: linear-gradient(145deg, #ffffff, #e8e8e8);
+}
+
+/* Secondary — glass/transparent */
+.clay-secondary {
+  color: #fff;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.clay-secondary::before {
+  opacity: 0.15;
+}
+
+/* Accent — purple */
+.clay-accent {
+  color: #fff;
+  background: linear-gradient(145deg, #7c6cf0, #5a4bd1);
+}

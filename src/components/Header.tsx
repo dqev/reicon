@@ -2,6 +2,7 @@ import { useState, useEffect, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Star } from 'reicon-react';
 import Logo from '../components/Logo';
+import ClayButton from '../components/ClayButton';
 
 interface HeaderProps {
   className?: string;
@@ -59,13 +60,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ className 
           >
             GitHub
           </a>
-          <Link
-            to="/icons"
-            className="bg-[#6C5CE7] hover:bg-[#5A4BD1] text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors flex items-center gap-1.5"
-          >
+          <ClayButton to="/icons" variant="accent" size="sm">
             <Star size={14} />
             Browse Icons
-          </Link>
+          </ClayButton>
         </div>
 
         {/* Mobile hamburger */}
@@ -119,14 +117,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ className 
           >
             GitHub
           </a>
-          <Link
-            to="/icons"
-            onClick={() => setMenuOpen(false)}
-            className="bg-[#6C5CE7] hover:bg-[#5A4BD1] text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-1.5 mt-1"
-          >
+          <ClayButton to="/icons" variant="accent" size="sm" onClick={() => setMenuOpen(false)} className="w-full justify-center mt-1">
             <Star size={14} />
             Browse Icons
-          </Link>
+          </ClayButton>
         </div>
       )}
     </header>
