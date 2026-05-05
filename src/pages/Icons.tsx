@@ -66,7 +66,7 @@ export default function IconsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeSet, setActiveSet] = useState('all');
   const [activeStyle, setActiveStyle] = useState('All');
-  const [activeSize, setActiveSize] = useState('All');
+  const [activeSize, setActiveSize] = useState('32');
   const [categoryMap, setCategoryMap] = useState<Record<string, string>>({});
 
   useEffect(() => {
@@ -102,7 +102,7 @@ export default function IconsPage() {
     }
   }, [filteredIcons]);
 
-  const displaySize = activeSize === 'All' ? 32 : parseInt(activeSize);
+  const displaySize = parseInt(activeSize) || 32;
   const displayWeight = activeStyle === 'Filled' ? 'filled' : 'outline';
 
   return (

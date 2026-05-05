@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const STYLE_OPTIONS = ['All', 'Outline', 'Filled'] as const;
-const SIZE_OPTIONS = ['All', '12px', '18px', '24px', '32px'] as const;
+const SIZE_OPTIONS = ['12', '18', '24', '32'] as const;
 
 interface SidebarProps {
   activeSet: string;
@@ -80,7 +80,7 @@ export default function Sidebar({
               {activeSize === size && (
                 <span className="w-1.5 h-1.5 rounded-full bg-[#6C5CE7] shrink-0" />
               )}
-              <span>{size}</span>
+              <span>{size}px</span>
             </button>
           ))}
         </div>
