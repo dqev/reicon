@@ -11,36 +11,14 @@ declare global {
       categories: string[];
       ready: Promise<void>;
       preload: (names: string[]) => void;
+      categoryOf: (name: string) => string | null;
+      categoryMap: Record<string, string>;
     };
   }
 }
 
 const LS_ICONS = 'reicon-icons-cache';
 const LS_CATS = 'reicon-cats-cache';
-const LS_CAT_MAP = 'reicon-cat-map-cache';
-
-async function buildCategoryMap(categories: string[]): Promise<Record<string, string>> {
-  try {
-    const cached = localStorage.getItem(LS_CAT_MAP);
-    if (cached) {
-      const map = JSON.parse(cached);
-      if (Object.keys(map).length > 0) return map;
-    }
-  } catch { }
-  const map: Record<string, string> = {};
-  try {
-    const resp = await fetch('https://cdn.reicon.dev/cdn/reicon.min.js');
-    const text = await resp.text();
-    const regex = /"([^"]+)":\[(\d+),\{/g;
-    let match;
-    while ((match = regex.exec(text)) !== null) {
-      const catIndex = parseInt(match[2], 10);
-      if (catIndex < categories.length) map[match[1]] = categories[catIndex];
-    }
-    localStorage.setItem(LS_CAT_MAP, JSON.stringify(map));
-  } catch { }
-  return map;
-}
 
 function loadCache(): { icons: string[]; categories: string[] } {
   try {
@@ -75,7 +53,7 @@ export default function IconsPage() {
         setAllIcons(window.Reicon.icons);
         setCategories(window.Reicon.categories);
         saveCache(window.Reicon.icons, window.Reicon.categories);
-        buildCategoryMap(window.Reicon.categories).then(setCategoryMap);
+        setCategoryMap(window.Reicon.categoryMap);
       } else {
         setTimeout(loadIcons, 100);
       }
