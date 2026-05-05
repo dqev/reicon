@@ -122,7 +122,7 @@ export default function Landing() {
             <div className="flex items-end justify-center sm:justify-between">
               <div className="flex gap-[26px]">
                 {[
-                  { num: '1246+', label: 'Icons' },
+                  { num: '1585+', label: 'Icons' },
                   { num: '2', label: 'Weights' },
                   { num: 'MIT', label: 'License' },
                 ].map((s) => (
@@ -396,10 +396,10 @@ function IntegrationCard({ icon, title, lines, copyText }: { icon: React.ReactNo
 }
 
 const PLAYGROUND_ICONS = [
-  'home', 'star', 'heart', 'magnifier', 'settings', 'bell',
+  'home', 'star', 'heart', 'search', 'settings', 'bell',
   'user', 'lock', 'camera', 'map-point', 'music-note', 'download',
   'cloud', 'lightning', 'palette', 'code', 'eye', 'bookmark',
-  'gift', 'shield', 'compass', 'microphone', 'wi-fi-router', 'battery-charge',
+  'gift', 'shield', 'compass', 'mic', 'wifi', 'battery-charge',
   'pen', 'folder', 'chat-round', 'lamp',
 ];
 
