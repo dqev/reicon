@@ -7,6 +7,5 @@ Allow: /
 # Sitemap
 Sitemap: https://reicon.dev/sitemap.xml
 
-# Block crawlers from build artifacts and internal paths
-Disallow: /assets/
+# Block crawlers from internal paths
 Disallow: /api/
