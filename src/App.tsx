@@ -5,6 +5,7 @@ import IconsPage from './pages/Icons';
 import IconDetail from './pages/IconDetail';
 import UsagePage from './pages/Usage';
 import PackagesPage from './pages/Packages';
+import NotFound from './pages/NotFound';
 import SmoothScroll from './components/SmoothScroll';
 
 function ScrollToTop() {
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/icon/:name" element={<IconDetail />} />
           <Route path="/usage" element={<UsagePage />} />
           <Route path="/packages" element={<PackagesPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </SmoothScroll>
     </BrowserRouter>

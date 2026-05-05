@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ChevronExpandY } from 'reicon-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -140,6 +141,11 @@ export default function UsagePage() {
 
   return (
     <div className="min-h-screen bg-[#09090b] flex flex-col">
+      <Helmet>
+        <title>Usage Guide — Reicon | React & CDN Icon Library</title>
+        <meta name="description" content="Learn how to install and use Reicon icons in React and vanilla JavaScript. Props reference, TypeScript support, icon weights, and code examples." />
+        <link rel="canonical" href="https://reicon.dev/usage" />
+      </Helmet>
       <Header />
 
       <div className="flex flex-1 pt-14">

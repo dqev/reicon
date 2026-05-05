@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import IconCard from '../components/IconCard';
@@ -86,6 +87,11 @@ export default function IconsPage() {
 
   return (
     <div className="min-h-screen bg-[#09090b] flex flex-col">
+      <Helmet>
+        <title>Browse 1700+ Free Icons — Reicon Icon Library</title>
+        <meta name="description" content="Browse and search 1700+ free, open-source SVG icons. Filter by category, weight, and size. Copy React or HTML code instantly." />
+        <link rel="canonical" href="https://reicon.dev/icons" />
+      </Helmet>
       <Header />
 
       <div className="flex flex-1 pt-14">

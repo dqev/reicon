@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Home, ShieldCheck, Code, Palette, Layers, Copy, Box, Star, ArrowRight2, ArrowDown2, Download, Figma, HandHeart, MapArrowRight, Magnifier, Search3, Book, Book2, Book3, Restart } from 'reicon-react';
 import Background from '../components/Background';
@@ -48,6 +49,11 @@ export default function Landing() {
 
   return (
     <div className="bg-[#09090b] min-h-screen">
+      <Helmet>
+        <title>Reicon — Free Open-Source Icon Library for Designers & Developers</title>
+        <meta name="description" content="Reicon is a free, open-source icon library with 1700+ handcrafted, pixel-perfect SVG icons. Available for React, Figma, and the web. MIT licensed." />
+        <link rel="canonical" href="https://reicon.dev/" />
+      </Helmet>
       {/* ═══ FIXED NAV — fades in after scrolling past hero ═══ */}
       <Header
         ref={fixedNavRef}
@@ -72,9 +78,9 @@ export default function Landing() {
                 Reicon
               </Link>
               <nav className="hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2">
-                <a href="/usage" className="text-[13px] text-white/60 hover:text-white transition-colors">Usage</a>
+                <Link to="/usage" className="text-[13px] text-white/60 hover:text-white transition-colors">Usage</Link>
                 <a href="#integrations" className="text-[13px] text-white/60 hover:text-white transition-colors">Integrations</a>
-                <a href="/icons" className="text-[13px] text-white/60 hover:text-white transition-colors">Icons</a>
+                <Link to="/icons" className="text-[13px] text-white/60 hover:text-white transition-colors">Icons</Link>
               </nav>
               <div className="hidden md:flex gap-2">
                 <a
@@ -122,7 +128,7 @@ export default function Landing() {
             <div className="flex items-end justify-center sm:justify-between">
               <div className="flex gap-[26px]">
                 {[
-                  { num: '1585+', label: 'Icons' },
+                  { num: '1700+', label: 'Icons' },
                   { num: '2', label: 'Weights' },
                   { num: 'MIT', label: 'License' },
                 ].map((s) => (

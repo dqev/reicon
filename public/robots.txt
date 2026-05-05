@@ -7,10 +7,6 @@ Allow: /
 # Sitemap
 Sitemap: https://reicon.dev/sitemap.xml
 
-# Crawl-delay (optional, respected by some bots)
-Crawl-delay: 1
-
-# Block crawlers from internal/API paths
+# Block crawlers from build artifacts and internal paths
+Disallow: /assets/
 Disallow: /api/
-Disallow: /_next/
-Disallow: /__/

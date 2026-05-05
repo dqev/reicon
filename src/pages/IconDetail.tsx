@@ -1,5 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { Helmet } from 'react-helmet-async';
+import iconNamesData from '../../scripts/icon-names.json';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -42,8 +44,62 @@ export default function IconDetail() {
   const directImportRaw = `import ${pascalName} from 'reicon-react/icons/${pascalName}';`;
   const htmlCdnRaw = `<script src="https://cdn.reicon.dev/cdn/reicon.min.js"><\/script>\n<re-icon icon="${name}"${activeWeight === 'filled' ? ' weight="filled"' : ''}></re-icon>`;
 
+  const pageTitle = `${pascalName} Icon — Reicon | Free SVG Icon`;
+  const pageDesc = `Download the ${pascalName} icon from Reicon. Available in Outline and Filled weights. Free, open-source SVG icon for React, Figma, and the web.`;
+  const pageUrl = `https://reicon.dev/icon/${name}`;
+  const ogImage = `https://cdn.reicon.dev/og/icons/${name}.png`;
+
+  const relatedIcons = useMemo(() => {
+    if (!name) return [];
+    const allNames = Object.keys(iconNamesData) as string[];
+    const prefix = name.replace(/-?\d+$/, '').replace(/-[^-]+$/, '');
+    const related = allNames.filter(
+      (n) => n !== name && (n.startsWith(prefix + '-') || n.startsWith(prefix) || name.startsWith(n.replace(/-?\d+$/, '')))
+    );
+    const shuffled = related.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 12);
+  }, [name]);
+
   return (
     <div className="min-h-screen bg-[#09090b] flex flex-col">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDesc} />
+        <meta property="og:image" content={ogImage} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDesc} />
+        <meta name="twitter:image" content={ogImage} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ImageObject",
+          "name": `${pascalName} Icon`,
+          "description": pageDesc,
+          "contentUrl": `https://cdn.reicon.dev/svg/${name}.svg`,
+          "thumbnailUrl": ogImage,
+          "encodingFormat": "image/svg+xml",
+          "license": "https://opensource.org/licenses/MIT",
+          "acquireLicensePage": "https://reicon.dev/usage",
+          "isPartOf": {
+            "@type": "CreativeWork",
+            "name": "Reicon Icon Library",
+            "url": "https://reicon.dev"
+          }
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Icons", "item": "https://reicon.dev/icons" },
+            { "@type": "ListItem", "position": 2, "name": `${pascalName} Icon`, "item": pageUrl }
+          ]
+        })}</script>
+      </Helmet>
       <Header />
 
       <main className="flex-1 pt-14 px-4 md:px-8 py-8 max-w-5xl mx-auto w-full">
@@ -54,7 +110,7 @@ export default function IconDetail() {
           <span className="text-white/70">{pascalName}</span>
         </nav>
 
-        
+        <h1 className="sr-only">{pascalName} Icon — Reicon</h1>
 
         <div className="grid md:grid-cols-[280px_1fr] gap-8">
           {/* Preview card */}
@@ -65,6 +121,7 @@ export default function IconDetail() {
                 weight={activeWeight}
                 size={previewSize}
                 color="white"
+                aria-label={`${pascalName} icon preview`}
               />
             </div>
 
@@ -364,6 +421,26 @@ export default function IconDetail() {
             {toast}
           </div>
         </div>
+      )}
+
+      {/* ═══ RELATED ICONS ═══ */}
+      {relatedIcons.length > 0 && (
+        <section className="max-w-5xl mx-auto w-full px-4 md:px-8 pb-12">
+          <h2 className="text-lg font-serif text-white font-semibold mb-4">Related Icons</h2>
+          <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-1.5">
+            {relatedIcons.map((iconName) => (
+              <Link
+                key={iconName}
+                to={`/icon/${iconName}`}
+                className="flex flex-col items-center gap-1.5 p-3 rounded-xl hover:bg-white/[0.04] transition-colors group"
+                title={`${(iconNamesData as Record<string, string>)[iconName] || iconName} icon`}
+              >
+                <re-icon icon={iconName} size={24} color="rgba(255,255,255,0.6)" aria-label={`${iconName} icon`} />
+                <span className="text-[10px] text-white/30 group-hover:text-white/50 truncate w-full text-center transition-colors">{iconName}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
       )}
 
       <Footer />

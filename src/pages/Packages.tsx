@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { FaReact } from 'react-icons/fa';
@@ -30,6 +31,11 @@ const PACKAGES = [
 export default function PackagesPage() {
   return (
     <div className="min-h-screen bg-[#09090b] flex flex-col">
+      <Helmet>
+        <title>Packages — Reicon | React & JavaScript Icon Packages</title>
+        <meta name="description" content="Install Reicon icon packages for React and JavaScript. Tree-shakeable, zero dependencies, MIT licensed." />
+        <link rel="canonical" href="https://reicon.dev/packages" />
+      </Helmet>
       <Header />
 
       <main className="flex-1 pt-14">
