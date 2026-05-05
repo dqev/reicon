@@ -158,11 +158,10 @@ export default function IconsPage() {
                 onChange={(e) => setActiveSize(e.target.value)}
                 className="w-full appearance-none bg-white/5 border border-white/10 rounded-lg px-3 pr-8 py-2 text-sm text-white outline-none"
               >
-                <option value="All">All Sizes</option>
-                <option value="12px">12px</option>
-                <option value="18px">18px</option>
-                <option value="24px">24px</option>
-                <option value="32px">32px</option>
+                <option value="12">12px</option>
+                <option value="18">18px</option>
+                <option value="24">24px</option>
+                <option value="32">32px</option>
               </select>
               <svg className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
             </div>
