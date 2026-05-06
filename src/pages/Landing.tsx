@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Code, Palette, Layers, Copy, Box, Star, ArrowDown2, HandHeart, Search3, Book3, Restart } from 'reicon-react';
+import { ShieldCheck, Code, Palette, Layers, Copy, Box, Star, ArrowDown2, HandHeart, Search3, Book3, Restart, Pointer } from 'reicon-react';
 import Background from '../components/Background';
 import ClayButton from '../components/ClayButton';
 import Footer from '../components/Footer';
@@ -184,6 +184,8 @@ export default function Landing() {
 <Home size={24} weight="outline" />`} lines={
               <>
                 <div>
+                  <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-white/70"> i reicon-react</span></div>
+                  <div className="h-2" />
                   <span className="text-[#c678dd]">import</span>
                   <span className="text-white/70"> {'{ '}</span>
                   <span className="text-[#e5c07b]">Home</span>
@@ -236,121 +238,197 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ═══ HOW TO USE ═══ */}
-      <section className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13">
-        <div className="text-center mb-14">
-          <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Quick Start</div>
-          <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] font-semibold text-white leading-[1.15] tracking-[-0.02em] mb-3">Up and running in 30 seconds.</h2>
-          <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
-            Install the package, import an icon, and you're done. It's that simple.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-[280px_1fr] gap-6 items-stretch">
-          {/* Left — Steps timeline */}
-          <div className="flex flex-col justify-between py-4">
-            {[
-              { num: '1', title: 'Install the package', desc: 'Add reicon-react to your project via npm, yarn, or pnpm.' },
-              { num: '2', title: 'Import an icon', desc: 'Tree-shakeable — only the icons you use end up in your bundle.' },
-              { num: '3', title: 'Use it anywhere', desc: 'Drop it into JSX with full prop control: size, weight, color.' },
-            ].map((step, i) => (
-              <div key={step.num} className="flex gap-4">
-                {/* Connector line + dot */}
-                <div className="flex flex-col items-center">
-                  <div className="w-8 h-8 rounded-full bg-[#6C5CE7]/15 border border-[#6C5CE7]/30 flex items-center justify-center text-[#6C5CE7] text-[13px] font-semibold shrink-0">
-                    {step.num}
-                  </div>
-                  {i < 2 && <div className="w-px flex-1 bg-white/[0.06] my-1" />}
-                </div>
-                {/* Content */}
-                <div className="pt-1">
-                  <h3 className="text-white font-medium text-[14px] mb-1">{step.title}</h3>
-                  <p className="text-white/40 text-[13px] leading-[1.6]">{step.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Right — Terminal-style code block */}
-          <div className="bg-[#0e0e10] rounded-[14px] overflow-hidden">
-            {/* Terminal title bar */}
-            <div className="flex items-center gap-2 px-5 py-3 border-b border-white/[0.06]">
-              <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-              <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
-              <span className="w-3 h-3 rounded-full bg-[#28c840]" />
-              <span className="ml-3 text-[12px] text-white/25 font-mono">App.tsx</span>
-            </div>
-            {/* Code content */}
-            <div className="p-5 font-mono text-[13px] leading-[1.85] overflow-x-auto">
-              <div className="text-white/25">{'// Step 1: Install'}</div>
-              <div><span className="text-[#ffbd2e]">$</span> <span className="text-white/70">npm i reicon-react</span></div>
-              <div className="h-4" />
-              <div className="text-white/25">{'// Step 2: Import'}</div>
-              <div>
-                <span className="text-[#c678dd]">import</span>
-                <span className="text-white/70"> {'{ '}</span>
-                <span className="text-[#e5c07b]">Home</span>
-                <span className="text-white/70">{' }'} </span>
-                <span className="text-[#c678dd]">from</span>
-                <span className="text-[#98c379]"> 'reicon-react'</span>
-                <span className="text-white/30">;</span>
-              </div>
-              <div className="h-4" />
-              <div className="text-white/25">{'// Step 3: Use'}</div>
-              <div>
-                <span className="text-[#c678dd]">export default</span>
-                <span className="text-[#61afef]"> function</span>
-                <span className="text-[#e5c07b]"> App</span>
-                <span className="text-white/70">() {'{'}</span>
-              </div>
-              <div>
-                <span className="text-white/70">{'  '}return {'<'}</span>
-                <span className="text-[#e06c75]">Home</span>
-                <span className="text-[#d19a66]"> size</span>
-                <span className="text-white/50">=</span>
-                <span className="text-white/70">{'{'}24{'}'}</span>
-                <span className="text-[#d19a66]"> weight</span>
-                <span className="text-white/50">=</span>
-                <span className="text-[#98c379]">"Filled"</span>
-                <span className="text-white/70"> /{'>'}</span>
-              </div>
-              <div><span className="text-white/70">{'}'}</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      {/* ═══ ICON SHOWCASE ═══ */}
+      <IconShowcase />
 
       {/* ═══ CTA ═══ */}
       <section className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13">
-        <div className="bg-[#0e0e10] rounded-[14px] p-10 md:p-[60px_52px] text-center md:text-left md:grid md:grid-cols-[1fr_auto] md:gap-11 md:items-center">
-          <div>
-            <h2 className="font-serif text-[clamp(22px,2.8vw,40px)] font-semibold text-white leading-[1.15] tracking-[-0.02em] mb-3">Ready to get started?</h2>
-            <p className="text-[15px] text-white/45 leading-[1.6]">Join thousands of designers and developers using Reicon in production.</p>
+        <div className="relative bg-[#0e0e10] rounded-[14px] overflow-hidden">
+          {/* Watermark scribbles */}
+          <div className="absolute -top-10 -left-10 md:-top-14 md:-left-14 pointer-events-none select-none opacity-[0.04] rotate-[195deg]">
+            <re-icon icon="scribble" size={180} color="#fff" weight="outline" className="block md:hidden" />
+            <re-icon icon="scribble" size={300} color="#fff" weight="outline" className="hidden md:block" />
           </div>
-          <div className="flex flex-col items-center md:items-end gap-3 mt-6 md:mt-0 shrink-0">
-            <ClayButton to="/icons" variant="primary" className="w-full justify-center">
-              <Search3 size={16} />
-              Browse Icons
-            </ClayButton>
-            <a
-              href="https://github.com/devchauhann/reicon"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full justify-center bg-white/10 text-white border border-white/20 px-7 py-3 rounded-full font-medium text-[14px] hover:bg-white/20 active:scale-[0.97] transition-all inline-flex items-center gap-2"
-            >
-              <Star size={15} />
-              Star on GitHub
-            </a>
+          <div className="absolute -bottom-10 -right-10 md:-bottom-14 md:-right-14 pointer-events-none select-none opacity-[0.04] rotate-[15deg]">
+            <re-icon icon="scribble" size={180} color="#fff" weight="outline" className="block md:hidden" />
+            <re-icon icon="scribble" size={300} color="#fff" weight="outline" className="hidden md:block" />
+          </div>
+
+          <div className="relative z-10 py-14 md:py-20 px-6 md:px-14 flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            {/* Left — text */}
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="font-serif text-[clamp(24px,3.2vw,42px)] font-semibold text-white leading-[1.12] tracking-[-0.02em] mb-3">
+                Your next project<br className="hidden md:block" /> deserves better icons.
+              </h2>
+              <p className="text-[15px] text-white/40 leading-[1.65] max-w-[420px] mx-auto md:mx-0 mb-6">
+                1700+ handcrafted, pixel-perfect SVG icons. MIT licensed. Zero dependencies. Two weights. Ready to ship.
+              </p>
+
+              {/* Install command */}
+              <div className="inline-flex items-center gap-3 bg-white/[0.04] border border-white/[0.06] rounded-xl px-4 py-2.5">
+                <span className="text-[#6C5CE7] text-[13px] font-mono font-medium">$</span>
+                <code className="text-[13px] font-mono text-white/50">npm i reicon-react</code>
+                <CopyButton text="npm i reicon-react" />
+              </div>
+            </div>
+
+            {/* Right — actions */}
+            <div className="flex flex-col items-center md:items-end gap-3 shrink-0">
+              <ClayButton to="/icons" variant="primary" className="w-full justify-center">
+                <Search3 size={16} />
+                Browse 1700+ Icons
+              </ClayButton>
+              <a
+                href="https://github.com/devchauhann/reicon"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full justify-center bg-white/[0.05] text-white border border-white/[0.1] px-7 py-3 rounded-full font-medium text-[14px] hover:bg-white/[0.1] active:scale-[0.97] transition-all inline-flex items-center gap-2"
+              >
+                <Star size={15} />
+                Star on GitHub
+              </a>
+              <Link
+                to="/usage"
+                className="w-full justify-center inline-flex items-center gap-1.5 text-[13px] text-white/30 hover:text-white/60 transition-colors mt-1"
+              >
+                Read the docs
+                <Pointer size={13} className="-rotate-10" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
+
+      <div className="h-5 md:h-12" />
 
       <Footer />
     </div>
   );
 }
 
+function CopyButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    });
+  };
+  return (
+    <button onClick={handleCopy} className="text-white/30 hover:text-white/60 transition-colors">
+      {copied ? (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+      ) : (
+        <Copy size={14} />
+      )}
+    </button>
+  );
+}
+
+const ORBIT_INNER = ['home', 'star', 'heart', 'search', 'settings', 'bell'];
+const ORBIT_MIDDLE = ['camera', 'cloud', 'lightning', 'palette', 'code', 'eye', 'bookmark', 'gift'];
+const ORBIT_OUTER = ['compass', 'mic', 'wifi', 'pen', 'folder', 'lamp', 'clock', 'calendar', 'flag', 'rocket'];
+
+function IconShowcase() {
+  return (
+    <section className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13 overflow-hidden">
+      <div className="text-center mb-10 px-5">
+        <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Icon Library</div>
+        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] font-semibold text-white leading-[1.15] tracking-[-0.02em] mb-3">1700+ icons. Every one handcrafted.</h2>
+        <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
+          From UI essentials to expressive details — find exactly what you need.
+        </p>
+      </div>
+
+      {/* Orbit container */}
+      <div className="relative w-full aspect-square max-w-[520px] mx-auto [mask-image:radial-gradient(circle,black_40%,transparent_72%)]">
+        {/* Center logo */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+          <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
+            <img src="/reicon.png" alt="Reicon" className="w-8 h-8 md:w-10 md:h-10" />
+          </div>
+        </div>
+
+        {/* Orbit rings (visual) */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-[38%] aspect-square rounded-full border border-[#6C5CE7]/[0.12]" />
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-[62%] aspect-square rounded-full border border-[#6C5CE7]/[0.08]" />
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-[88%] aspect-square rounded-full border border-[#6C5CE7]/[0.05]" />
+        </div>
+
+        {/* Inner orbit — 6 icons */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative w-[38%] aspect-square animate-orbit-slow">
+            {ORBIT_INNER.map((name, i) => {
+              const rad = ((360 / ORBIT_INNER.length) * i * Math.PI) / 180;
+              const x = 50 + 50 * Math.cos(rad);
+              const y = 50 + 50 * Math.sin(rad);
+              return (
+                <div
+                  key={name}
+                  className="absolute -translate-x-1/2 -translate-y-1/2"
+                  style={{ top: `${y}%`, left: `${x}%` }}
+                >
+                  <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center animate-orbit-counter-slow">
+                    <re-icon icon={name} size={18} color="rgba(255,255,255,0.5)" weight="outline" />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Middle orbit — 8 icons */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative w-[62%] aspect-square animate-orbit-mid">
+            {ORBIT_MIDDLE.map((name, i) => {
+              const rad = ((360 / ORBIT_MIDDLE.length) * i * Math.PI) / 180;
+              const x = 50 + 50 * Math.cos(rad);
+              const y = 50 + 50 * Math.sin(rad);
+              return (
+                <div
+                  key={name}
+                  className="absolute -translate-x-1/2 -translate-y-1/2"
+                  style={{ top: `${y}%`, left: `${x}%` }}
+                >
+                  <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center animate-orbit-counter-mid">
+                    <re-icon icon={name} size={18} color="rgba(255,255,255,0.4)" weight="outline" />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Outer orbit — 10 icons */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative w-[88%] aspect-square animate-orbit-fast">
+            {ORBIT_OUTER.map((name, i) => {
+              const rad = ((360 / ORBIT_OUTER.length) * i * Math.PI) / 180;
+              const x = 50 + 50 * Math.cos(rad);
+              const y = 50 + 50 * Math.sin(rad);
+              return (
+                <div
+                  key={name}
+                  className="absolute -translate-x-1/2 -translate-y-1/2"
+                  style={{ top: `${y}%`, left: `${x}%` }}
+                >
+                  <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-center animate-orbit-counter-fast">
+                    <re-icon icon={name} size={18} color="rgba(255,255,255,0.3)" weight="outline" />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function FeatureBlock({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (

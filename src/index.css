@@ -33,6 +33,89 @@ body {
   font-family: var(--font-sans);
 }
 
+/* ═══ Hide Scrollbar ═══ */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+/* ═══ Marquee ═══ */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse linear infinite;
+}
+
+/* ═══ Orbit Animations ═══ */
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-orbit-slow {
+  animation: orbit 60s linear infinite;
+}
+
+.animate-orbit-counter-slow {
+  animation: orbit-reverse 60s linear infinite;
+}
+
+.animate-orbit-mid {
+  animation: orbit-reverse 80s linear infinite;
+}
+
+.animate-orbit-counter-mid {
+  animation: orbit 80s linear infinite;
+}
+
+.animate-orbit-fast {
+  animation: orbit 100s linear infinite;
+}
+
+.animate-orbit-counter-fast {
+  animation: orbit-reverse 100s linear infinite;
+}
+
 @keyframes fadeUp {
   to {
     opacity: 1;
