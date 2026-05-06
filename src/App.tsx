@@ -10,6 +10,7 @@ import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import LicensePage from './pages/LicensePage';
 import SmoothScroll from './components/SmoothScroll';
+import CookieConsent from './components/CookieConsent';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/license" element={<LicensePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CookieConsent />
       </SmoothScroll>
     </BrowserRouter>
   );
