@@ -334,7 +334,7 @@ export default function Landing() {
               Browse Icons
             </ClayButton>
             <a
-              href="https://github.com/reicon-dev/reicon"
+              href="https://github.com/devchauhann/reicon"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full justify-center bg-white/10 text-white border border-white/20 px-7 py-3 rounded-full font-medium text-[14px] hover:bg-white/20 active:scale-[0.97] transition-all inline-flex items-center gap-2"
