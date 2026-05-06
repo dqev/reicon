@@ -66,21 +66,16 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ className 
           </ClayButton>
         </div>
 
-        {/* Mobile hamburger */}
+        {/* Mobile hamburger — 2 lines → X */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="sm:hidden w-10 h-10 flex items-center justify-center text-white/60 hover:text-white transition-colors"
           aria-label="Toggle menu"
         >
-          {menuOpen ? (
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="w-6 h-6">
-              <path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6L6.4 19z" />
-            </svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="w-6 h-6">
-              <path fill="currentColor" d="M9 18v-1.5h12v1.5H9Zm0-5.25v-1.5h12v1.5H9ZM3 7.5v-1.5h18v1.5H3Z" strokeWidth="0.5" />
-            </svg>
-          )}
+          <div className="w-5 h-4 flex flex-col justify-center gap-[5px]">
+            <span className={`block h-[1.5px] bg-current rounded-full transition-all duration-300 origin-center ${menuOpen ? 'translate-y-[3.25px] rotate-45' : ''}`} />
+            <span className={`block h-[1.5px] bg-current rounded-full transition-all duration-300 origin-center ${menuOpen ? '-translate-y-[3.25px] -rotate-45' : ''}`} />
+          </div>
         </button>
       </div>
 

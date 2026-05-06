@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Home, ShieldCheck, Code, Palette, Layers, Copy, Box, Star, ArrowRight2, ArrowDown2, Download, Figma, HandHeart, MapArrowRight, Magnifier, Search3, Book, Book2, Book3, Restart } from 'reicon-react';
+import { ShieldCheck, Code, Palette, Layers, Copy, Box, Star, ArrowDown2, HandHeart, Search3, Book3, Restart } from 'reicon-react';
 import Background from '../components/Background';
 import ClayButton from '../components/ClayButton';
 import Footer from '../components/Footer';

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Ghost } from 'reicon-react';
 
 export default function NotFound() {
   return (
@@ -12,7 +13,8 @@ export default function NotFound() {
       </Helmet>
       <Header />
       <main className="flex-1 flex flex-col items-center justify-center px-4 text-center pt-14">
-        <h1 className="text-[clamp(60px,12vw,120px)] font-serif font-bold text-white/10 leading-none">404</h1>
+        <Ghost size={74} color="#ffffff" className="mt-4" />
+
         <p className="text-white/60 text-lg mt-2 mb-6">This page doesn't exist.</p>
         <div className="flex items-center gap-3">
           <Link
