@@ -6,6 +6,9 @@ import IconDetail from './pages/IconDetail';
 import UsagePage from './pages/Usage';
 import PackagesPage from './pages/Packages';
 import NotFound from './pages/NotFound';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
+import LicensePage from './pages/LicensePage';
 import SmoothScroll from './components/SmoothScroll';
 
 function ScrollToTop() {
@@ -27,6 +30,9 @@ export default function App() {
           <Route path="/icon/:name" element={<IconDetail />} />
           <Route path="/usage" element={<UsagePage />} />
           <Route path="/packages" element={<PackagesPage />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/license" element={<LicensePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </SmoothScroll>

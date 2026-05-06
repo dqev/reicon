@@ -272,7 +272,7 @@ export default function Landing() {
           </div>
 
           {/* Right — Terminal-style code block */}
-          <div className="bg-[#0e0e10] border border-white/[0.06] rounded-[14px] overflow-hidden">
+          <div className="bg-[#0e0e10] rounded-[14px] overflow-hidden">
             {/* Terminal title bar */}
             <div className="flex items-center gap-2 px-5 py-3 border-b border-white/[0.06]">
               <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
@@ -424,7 +424,7 @@ function PlaygroundSection() {
         </p>
       </div>
 
-      <div className="bg-[#0e0e10] rounded-[14px] border border-white/[0.06] overflow-hidden">
+      <div className="bg-[#0e0e10] rounded-[14px] overflow-hidden">
         <div className="grid lg:grid-cols-[260px_1fr]">
           {/* Controls */}
           <div className="p-4 lg:p-5 lg:border-r border-b lg:border-b-0 border-white/[0.06] flex flex-col gap-4">

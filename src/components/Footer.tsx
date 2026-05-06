@@ -1,5 +1,14 @@
 import { Link } from 'react-router-dom';
+import { SiGithub, SiNpm, SiBluesky } from 'react-icons/si';
 import Logo from '../components/Logo';
+import { BsLinkedin } from 'react-icons/bs';
+
+const socials = [
+  { href: 'https://github.com/devchauhann/reicon', label: 'GitHub', icon: SiGithub },
+  { href: 'https://www.linkedin.com/company/reicon-dev', label: 'LinkedIn', icon: BsLinkedin },
+  { href: 'https://www.npmjs.com/package/reicon-react', label: 'npm', icon: SiNpm },
+  { href: 'https://bsky.app/profile/reicondev.bsky.social', label: 'Bluesky', icon: SiBluesky },
+];
 
 export default function Footer() {
   return (
@@ -26,14 +35,31 @@ export default function Footer() {
           <nav aria-label="Footer navigation" className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-[13px]">
             <Link to="/icons" className="text-white/70 hover:text-white transition-colors">Icons</Link>
             <Link to="/usage" className="text-white/70 hover:text-white transition-colors">Usage</Link>
-            <a href="https://github.com/reicon-dev/reicon" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">GitHub</a>
-            <a href="https://www.npmjs.com/package/reicon-react" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">npm</a>
+            <Link to="/terms" className="text-white/70 hover:text-white transition-colors">Terms</Link>
+            <Link to="/privacy" className="text-white/70 hover:text-white transition-colors">Privacy</Link>
+            <Link to="/license" className="text-white/70 hover:text-white transition-colors">License</Link>
             <a href="mailto:hello@reicon.dev" className="text-white/70 hover:text-white transition-colors">Contact</a>
           </nav>
 
-          {/* Right — copyright */}
-          <div className="text-[11px] text-white/50">
-            © {new Date().getFullYear()} Reicon. MIT License.
+          {/* Right — copyright + socials */}
+          <div className="flex flex-col items-center md:items-end gap-3">
+            <div className="flex items-center gap-3">
+              {socials.map(({ href, label, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="text-white/40 hover:text-white transition-colors"
+                >
+                  <Icon size={15} />
+                </a>
+              ))}
+            </div>
+            <div className="text-[11px] text-white/50">
+              © {new Date().getFullYear()} Reicon. MIT License.
+            </div>
           </div>
         </div>
       </div>
