@@ -9,6 +9,22 @@ export default function Privacy() {
         <title>Privacy Policy — Reicon</title>
         <meta name="description" content="Privacy Policy for Reicon, the free open-source icon library. Learn how we handle your data." />
         <link rel="canonical" href="https://reicon.dev/privacy" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://reicon.dev/privacy" />
+        <meta property="og:site_name" content="Reicon" />
+        <meta property="og:title" content="Privacy Policy — Reicon" />
+        <meta property="og:description" content="Privacy Policy for Reicon, the free open-source icon library." />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@reicon_dev" />
+        <meta name="twitter:title" content="Privacy Policy — Reicon" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Reicon", "item": "https://reicon.dev" },
+            { "@type": "ListItem", "position": 2, "name": "Privacy", "item": "https://reicon.dev/privacy" }
+          ]
+        })}</script>
       </Helmet>
       <Header />
 

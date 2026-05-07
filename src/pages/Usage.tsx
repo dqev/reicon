@@ -145,6 +145,28 @@ export default function UsagePage() {
         <title>Usage Guide — Reicon | React & CDN Icon Library</title>
         <meta name="description" content="Learn how to install and use Reicon icons in React and vanilla JavaScript. Props reference, TypeScript support, icon weights, and code examples." />
         <link rel="canonical" href="https://reicon.dev/usage" />
+        <meta name="keywords" content="reicon usage, install reicon, React icons setup, CDN icons, icon library guide, SVG icons tutorial" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://reicon.dev/usage" />
+        <meta property="og:site_name" content="Reicon" />
+        <meta property="og:title" content="Usage Guide — Reicon" />
+        <meta property="og:description" content="Learn how to install and use Reicon icons in React and vanilla JavaScript." />
+        <meta property="og:image" content="https://reicon.dev/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@reicon_dev" />
+        <meta name="twitter:title" content="Usage Guide — Reicon" />
+        <meta name="twitter:description" content="Learn how to install and use Reicon icons in React and vanilla JavaScript." />
+        <meta name="twitter:image" content="https://reicon.dev/og-image.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Reicon", "item": "https://reicon.dev" },
+            { "@type": "ListItem", "position": 2, "name": "Usage", "item": "https://reicon.dev/usage" }
+          ]
+        })}</script>
       </Helmet>
       <Header />
 

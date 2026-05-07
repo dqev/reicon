@@ -9,6 +9,22 @@ export default function Terms() {
         <title>Terms of Service — Reicon</title>
         <meta name="description" content="Terms of Service for Reicon, the free open-source icon library." />
         <link rel="canonical" href="https://reicon.dev/terms" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://reicon.dev/terms" />
+        <meta property="og:site_name" content="Reicon" />
+        <meta property="og:title" content="Terms of Service — Reicon" />
+        <meta property="og:description" content="Terms of Service for Reicon, the free open-source icon library." />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@reicon_dev" />
+        <meta name="twitter:title" content="Terms of Service — Reicon" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Reicon", "item": "https://reicon.dev" },
+            { "@type": "ListItem", "position": 2, "name": "Terms", "item": "https://reicon.dev/terms" }
+          ]
+        })}</script>
       </Helmet>
       <Header />
 

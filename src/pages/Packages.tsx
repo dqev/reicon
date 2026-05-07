@@ -35,6 +35,28 @@ export default function PackagesPage() {
         <title>Packages — Reicon | React & JavaScript Icon Packages</title>
         <meta name="description" content="Install Reicon icon packages for React and JavaScript. Tree-shakeable, zero dependencies, MIT licensed." />
         <link rel="canonical" href="https://reicon.dev/packages" />
+        <meta name="keywords" content="reicon packages, reicon-react, npm icon package, React icon library, JavaScript icons" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://reicon.dev/packages" />
+        <meta property="og:site_name" content="Reicon" />
+        <meta property="og:title" content="Packages — Reicon" />
+        <meta property="og:description" content="Install Reicon icon packages for React and JavaScript. Tree-shakeable, zero dependencies, MIT licensed." />
+        <meta property="og:image" content="https://reicon.dev/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@reicon_dev" />
+        <meta name="twitter:title" content="Packages — Reicon" />
+        <meta name="twitter:description" content="Install Reicon icon packages for React and JavaScript." />
+        <meta name="twitter:image" content="https://reicon.dev/og-image.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Reicon", "item": "https://reicon.dev" },
+            { "@type": "ListItem", "position": 2, "name": "Packages", "item": "https://reicon.dev/packages" }
+          ]
+        })}</script>
       </Helmet>
       <Header />
 

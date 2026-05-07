@@ -53,10 +53,10 @@
   <meta name="twitter:image:alt" content="Reicon — Free Open-Source Icon Library" />
 
   <!-- ── Favicon ───────────────────────────────────────────────────────────── -->
-  <link rel="icon" type="image/x-icon" href="/favicon.svg" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.svg?v=2" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=2" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#09090b" />
@@ -134,6 +134,14 @@
         "@type": "Organization",
         "name": "Reicon",
         "url": "https://reicon.dev"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://reicon.dev/icons?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
       }
     }
     </script>

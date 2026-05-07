@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import iconNamesData from '../../scripts/icon-names.json';
 import Header from '../components/Header';
@@ -146,10 +146,25 @@ export default function IconDetail() {
   const directImportRaw = `import ${pascalName} from 'reicon-react/icons/${pascalName}';`;
   const htmlCdnRaw = `<script src="https://cdn.reicon.dev/cdn/reicon.min.js"><\/script>\n<re-icon icon="${name}"${activeWeight === 'filled' ? ' weight="filled"' : ''}></re-icon>`;
 
-  const pageTitle = `${pascalName} Icon — Reicon | Free SVG Icon`;
-  const pageDesc = `Download the ${pascalName} icon from Reicon. Available in Outline and Filled weights. Free, open-source SVG icon for React, Figma, and the web.`;
+  const [iconCategory, setIconCategory] = useState('');
+
+  useEffect(() => {
+    if (!name) return;
+    function loadCategory() {
+      if (window.Reicon?.categoryOf) {
+        const cat = window.Reicon.categoryOf(name);
+        if (cat) setIconCategory(cat.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' '));
+      } else {
+        setTimeout(loadCategory, 100);
+      }
+    }
+    loadCategory();
+  }, [name]);
+
+  const pageTitle = `${name} icon details — Reicon`;
+  const pageDesc = `Details and related icons for ${name} icon. Available in Outline and Filled weights. Free, open-source SVG icon.`;
   const pageUrl = `https://reicon.dev/icon/${name}`;
-  const ogImage = `https://cdn.reicon.dev/og/icons/${name}.png`;
+  const ogImage = `https://reicon.dev/og/icons/${name}.png`;
 
   const relatedIcons = useMemo(() => {
     if (!name) return [];
@@ -168,12 +183,17 @@ export default function IconDetail() {
         <title>{pageTitle}</title>
         <meta name="description" content={pageDesc} />
         <link rel="canonical" href={pageUrl} />
+        <meta name="keywords" content={`${name}, ${iconCategory || 'icon'}, svg icon, react icon, free icon, reicon`} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={pageUrl} />
+        <meta property="og:site_name" content="Reicon" />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDesc} />
         <meta property="og:image" content={ogImage} />
-        <meta name="twitter:card" content="summary" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@reicon_dev" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDesc} />
         <meta name="twitter:image" content={ogImage} />
@@ -187,6 +207,7 @@ export default function IconDetail() {
           "encodingFormat": "image/svg+xml",
           "license": "https://opensource.org/licenses/MIT",
           "acquireLicensePage": "https://reicon.dev/usage",
+          ...(iconCategory && { "category": iconCategory }),
           "isPartOf": {
             "@type": "CreativeWork",
             "name": "Reicon Icon Library",
@@ -197,8 +218,9 @@ export default function IconDetail() {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Icons", "item": "https://reicon.dev/icons" },
-            { "@type": "ListItem", "position": 2, "name": `${pascalName} Icon`, "item": pageUrl }
+            { "@type": "ListItem", "position": 1, "name": "Reicon", "item": "https://reicon.dev" },
+            { "@type": "ListItem", "position": 2, "name": "Icons", "item": "https://reicon.dev/icons" },
+            { "@type": "ListItem", "position": 3, "name": `${name}`, "item": pageUrl }
           ]
         })}</script>
       </Helmet>
