@@ -11,6 +11,7 @@ export default function IconDetail() {
   const [activeWeight, setActiveWeight] = useState<'outline' | 'filled'>('outline');
   const [previewSize, setPreviewSize] = useState(64);
   const [toast, setToast] = useState<string | null>(null);
+  const [exportSize, setExportSize] = useState(24);
 
   const pascalName = name
     ? name.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join('')
@@ -39,6 +40,107 @@ export default function IconDetail() {
       setTimeout(() => setToast(null), 2500);
     }
   };
+
+  const getSvgString = async (iconName: string, weight: string, size: number = exportSize): Promise<string> => {
+    const el = document.createElement('re-icon') as HTMLElement & { icon: string; weight: string; size: number };
+    el.setAttribute('icon', iconName);
+    el.setAttribute('weight', weight);
+    el.setAttribute('size', String(size));
+    el.style.position = 'absolute';
+    el.style.opacity = '0';
+    el.style.pointerEvents = 'none';
+    document.body.appendChild(el);
+
+    // Wait for the web component to render (retry up to 1s)
+    let svg: SVGElement | null = null;
+    for (let i = 0; i < 10; i++) {
+      await new Promise((r) => setTimeout(r, 100));
+      svg = el.querySelector('svg') || el.shadowRoot?.querySelector('svg') || null;
+      if (svg) break;
+    }
+
+    // Also try to find SVG from an existing rendered icon on the page as fallback
+    if (!svg) {
+      const existing = document.querySelector(`re-icon[icon="${iconName}"]`);
+      if (existing) {
+        svg = existing.querySelector('svg') || existing.shadowRoot?.querySelector('svg') || null;
+      }
+    }
+
+    let svgStr = '';
+    if (svg) {
+      const clone = svg.cloneNode(true) as SVGElement;
+      clone.setAttribute('width', String(size));
+      clone.setAttribute('height', String(size));
+      svgStr = clone.outerHTML;
+    }
+
+    document.body.removeChild(el);
+    return svgStr;
+  };
+
+  const copySvg = async (iconName: string, weight: string) => {
+    try {
+      const svgStr = await getSvgString(iconName, weight);
+      if (!svgStr) { setToast('SVG not found'); setTimeout(() => setToast(null), 2500); return; }
+      await navigator.clipboard.writeText(svgStr);
+      setCopiedField('svg');
+      setToast('SVG copied to clipboard');
+      setTimeout(() => setCopiedField(null), 2000);
+      setTimeout(() => setToast(null), 2500);
+    } catch {
+      setToast('Copy failed');
+      setTimeout(() => setToast(null), 2500);
+    }
+  };
+
+  const downloadSvg = async (iconName: string, weight: string) => {
+    const svgStr = await getSvgString(iconName, weight);
+    if (!svgStr) { setToast('SVG not found'); setTimeout(() => setToast(null), 2500); return; }
+    const blob = new Blob([svgStr], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${iconName}-${weight}.svg`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const downloadAsRaster = async (iconName: string, weight: string, size: number, format: 'png' | 'webp') => {
+    const svgStr = await getSvgString(iconName, weight);
+    if (!svgStr) { setToast('SVG not found'); setTimeout(() => setToast(null), 2500); return; }
+    const scale = 2;
+    const canvas = document.createElement('canvas');
+    canvas.width = size * scale;
+    canvas.height = size * scale;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    const img = new Image();
+    const svgBlob = new Blob([svgStr], { type: 'image/svg+xml' });
+    const svgUrl = URL.createObjectURL(svgBlob);
+    await new Promise<void>((resolve, reject) => {
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, size * scale, size * scale);
+        resolve();
+      };
+      img.onerror = reject;
+      img.src = svgUrl;
+    });
+    URL.revokeObjectURL(svgUrl);
+    const mime = format === 'png' ? 'image/png' : 'image/webp';
+    canvas.toBlob((blob) => {
+      if (!blob) return;
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${iconName}-${weight}-${size * scale}x${size * scale}.${format}`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }, mime, 1);
+  };
+
+  const downloadAsPng = (iconName: string, weight: string) => downloadAsRaster(iconName, weight, exportSize, 'png');
+  const downloadAsWebp = (iconName: string, weight: string) => downloadAsRaster(iconName, weight, exportSize, 'webp');
 
   const reactImportRaw = `import { ${pascalName} } from 'reicon-react';\n\n<${pascalName} size={24} ${activeWeight === 'filled' ? 'weight="Filled" ' : ''}/>`;
   const directImportRaw = `import ${pascalName} from 'reicon-react/icons/${pascalName}';`;
@@ -183,6 +285,77 @@ export default function IconDetail() {
               >
                 {copiedField === 'name' ? 'Copied!' : 'Copy Name'}
               </button>
+            </div>
+
+            {/* Export size selector */}
+            <div className="w-full">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[11px] text-white/30 uppercase tracking-wider font-medium">Export Size</span>
+                <span className="text-[12px] text-white/50 font-mono">{exportSize}px</span>
+              </div>
+              <div className="flex gap-1.5">
+                {[16, 24, 32, 48, 64, 128, 256, 512].map((s) => (
+                  <button
+                    key={s}
+                    onClick={() => setExportSize(s)}
+                    className={`flex-1 text-[11px] font-medium py-1.5 rounded-lg border transition-colors ${exportSize === s
+                      ? 'bg-[#6C5CE7]/15 border-[#6C5CE7]/30 text-[#6C5CE7]'
+                      : 'bg-white/[0.03] border-white/[0.06] text-white/35 hover:text-white/60 hover:bg-white/[0.06]'
+                      }`}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Copy SVG */}
+            <button
+              onClick={() => copySvg(name || '', activeWeight)}
+              className={`w-full text-[12px] font-medium py-2.5 rounded-lg border transition-colors flex items-center justify-center gap-1.5 ${copiedField === 'svg'
+                ? 'bg-[#6C5CE7]/20 border-[#6C5CE7]/40 text-[#6C5CE7]'
+                : 'bg-white/5 border-white/10 text-white/50 hover:text-white hover:bg-white/10'
+                }`}
+            >
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+              </svg>
+              {copiedField === 'svg' ? 'SVG Copied!' : 'Copy SVG'}
+            </button>
+
+            {/* Download buttons */}
+            <div className="w-full">
+              <p className="text-[11px] text-white/30 uppercase tracking-wider font-medium mb-2">Download</p>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => downloadSvg(name || '', activeWeight)}
+                  className="flex-1 text-[12px] font-medium py-2 rounded-lg border bg-white/5 border-white/10 text-white/50 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-1.5"
+                >
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" />
+                  </svg>
+                  SVG
+                </button>
+                <button
+                  onClick={() => downloadAsPng(name || '', activeWeight)}
+                  className="flex-1 text-[12px] font-medium py-2 rounded-lg border bg-white/5 border-white/10 text-white/50 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-1.5"
+                >
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" />
+                  </svg>
+                  PNG
+                </button>
+                <button
+                  onClick={() => downloadAsWebp(name || '', activeWeight)}
+                  className="flex-1 text-[12px] font-medium py-2 rounded-lg border bg-white/5 border-white/10 text-white/50 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-1.5"
+                >
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" />
+                  </svg>
+                  WebP
+                </button>
+              </div>
             </div>
           </div>
 
