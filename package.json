@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "node scripts/generate-sitemap.mjs && vite build && node scripts/prerender-meta.mjs",
+    "build": "node scripts/generate-sitemap.mjs && vite build && node scripts/prerender-meta.mjs && node scripts/generate-og-images.mjs",
     "postbuild": "node scripts/ping-search-engines.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "ping": "node scripts/ping-search-engines.mjs",
@@ -24,6 +24,7 @@
     "react-icons": "^5.6.0",
     "react-router-dom": "^7.6.0",
     "reicon-react": "^1.0.4",
+    "sharp": "^0.34.5",
     "vite": "^6.2.3"
   },
   "devDependencies": {

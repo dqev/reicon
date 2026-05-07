@@ -16,6 +16,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, '../dist');
 const ICON_NAMES_JSON = resolve(__dirname, 'icon-names.json');
+const NEWDATA_JSON = resolve(__dirname, '../src/data/newdata.json');
 const SITE = 'https://reicon.dev';
 
 // ── Page definitions ────────────────────────────────────────────────
@@ -25,24 +26,116 @@ const STATIC_PAGES = [
     title: 'Reicon — Free Open-Source Icon Library for Designers & Developers',
     desc: 'Reicon is a free, open-source icon library with 1700+ handcrafted, pixel-perfect SVG icons for React, Figma, and the web. MIT licensed.',
     url: `${SITE}/`,
+    ogImage: `${SITE}/og-image.png`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE }
+      ]
+    },
   },
   {
     path: '/icons',
     title: 'Browse 1700+ Free Icons — Reicon Icon Library',
     desc: 'Browse and search 1700+ free, open-source SVG icons. Filter by category, weight, and size. Copy React or HTML code instantly.',
     url: `${SITE}/icons`,
+    ogImage: `${SITE}/og-image.png`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "Icons", "item": `${SITE}/icons` }
+      ]
+    },
   },
   {
     path: '/usage',
     title: 'Usage Guide — Reicon | React & CDN Icon Library',
     desc: 'Learn how to install and use Reicon icons in React and vanilla JavaScript. Props reference, TypeScript support, icon weights, and code examples.',
     url: `${SITE}/usage`,
+    ogImage: `${SITE}/og-image.png`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "Usage", "item": `${SITE}/usage` }
+      ]
+    },
   },
   {
     path: '/packages',
     title: 'Packages — Reicon | React & JavaScript Icon Packages',
     desc: 'Install Reicon icon packages for React and JavaScript. Tree-shakeable, zero dependencies, MIT licensed.',
     url: `${SITE}/packages`,
+    ogImage: `${SITE}/og-image.png`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "Packages", "item": `${SITE}/packages` }
+      ]
+    },
+  },
+  {
+    path: '/pack',
+    title: 'Icon Pack Builder — Reicon | Custom Icon Packs',
+    desc: 'Select and export custom icon packs from Reicon. Download as SVG, PNG, or WebP ZIP files. Build your own icon set.',
+    url: `${SITE}/pack`,
+    ogImage: `${SITE}/og-image.png`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "Icon Pack", "item": `${SITE}/pack` }
+      ]
+    },
+  },
+  {
+    path: '/terms',
+    title: 'Terms of Service — Reicon',
+    desc: 'Terms of service for using Reicon, the free open-source icon library.',
+    url: `${SITE}/terms`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "Terms", "item": `${SITE}/terms` }
+      ]
+    },
+  },
+  {
+    path: '/privacy',
+    title: 'Privacy Policy — Reicon',
+    desc: 'Privacy policy for Reicon, the free open-source icon library. Learn how we handle your data.',
+    url: `${SITE}/privacy`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "Privacy", "item": `${SITE}/privacy` }
+      ]
+    },
+  },
+  {
+    path: '/license',
+    title: 'License — Reicon | MIT License',
+    desc: 'Reicon is free and open-source under the MIT license. Use it in personal and commercial projects.',
+    url: `${SITE}/license`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "License", "item": `${SITE}/license` }
+      ]
+    },
   },
 ];
 
@@ -50,26 +143,42 @@ function toPascalCase(str) {
   return str.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join('');
 }
 
-function buildMetaTags({ title, desc, url, ogImage, jsonLd }) {
+function buildMetaTags({ title, desc, url, ogImage, keywords, jsonLd, breadcrumb }) {
   let tags = '';
   tags += `<title>${title}</title>\n`;
   tags += `    <meta name="description" content="${desc}" />\n`;
   tags += `    <link rel="canonical" href="${url}" />\n`;
+  if (keywords) {
+    tags += `    <meta name="keywords" content="${keywords}" />\n`;
+  }
   tags += `    <meta property="og:type" content="website" />\n`;
   tags += `    <meta property="og:url" content="${url}" />\n`;
+  tags += `    <meta property="og:site_name" content="Reicon" />\n`;
   tags += `    <meta property="og:title" content="${title}" />\n`;
   tags += `    <meta property="og:description" content="${desc}" />\n`;
   if (ogImage) {
     tags += `    <meta property="og:image" content="${ogImage}" />\n`;
+    tags += `    <meta property="og:image:width" content="1200" />\n`;
+    tags += `    <meta property="og:image:height" content="630" />\n`;
   }
-  tags += `    <meta name="twitter:card" content="summary" />\n`;
+  tags += `    <meta name="twitter:card" content="summary_large_image" />\n`;
+  tags += `    <meta name="twitter:site" content="@reicon_dev" />\n`;
   tags += `    <meta name="twitter:title" content="${title}" />\n`;
   tags += `    <meta name="twitter:description" content="${desc}" />\n`;
   if (ogImage) {
     tags += `    <meta name="twitter:image" content="${ogImage}" />\n`;
   }
   if (jsonLd) {
-    tags += `    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>\n`;
+    if (Array.isArray(jsonLd)) {
+      for (const ld of jsonLd) {
+        tags += `    <script type="application/ld+json">${JSON.stringify(ld)}</script>\n`;
+      }
+    } else {
+      tags += `    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>\n`;
+    }
+  }
+  if (breadcrumb) {
+    tags += `    <script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>\n`;
   }
   return tags;
 }
@@ -122,52 +231,74 @@ function main() {
 
   // 2. Icon detail pages
   const iconNames = JSON.parse(readFileSync(ICON_NAMES_JSON, 'utf-8'));
+  const newdata = JSON.parse(readFileSync(NEWDATA_JSON, 'utf-8'));
   const allIcons = Object.keys(iconNames);
   let count = 0;
 
+  // Build icon→tags and icon→category lookup from newdata
+  const iconTagsMap = {};
+  const iconCategoryMap = {};
+  for (const [catName, cat] of Object.entries(newdata.categories)) {
+    for (const [iconName, iconData] of Object.entries(cat.icons)) {
+      if (iconData.description) iconTagsMap[iconName] = iconData.description;
+      iconCategoryMap[iconName] = catName.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    }
+  }
+
   for (const name of allIcons) {
     const pascal = toPascalCase(name);
-    const title = `${pascal} Icon — Reicon | Free SVG Icon`;
-    const desc = `Download the ${pascal} icon from Reicon. Available in Outline and Filled weights. Free, open-source SVG icon for React, Figma, and the web.`;
-    const url = `${SITE}/icon/${name}`;
-    const ogImage = `https://cdn.reicon.dev/og/icons/${name}.png`;
+    const tags = iconTagsMap[name] || [];
+    const tagString = tags.join(', ');
+    const category = iconCategoryMap[name] || '';
 
-    const jsonLd = [
-      {
-        "@context": "https://schema.org",
-        "@type": "ImageObject",
-        "name": `${pascal} Icon`,
-        "description": desc,
-        "contentUrl": `https://cdn.reicon.dev/svg/${name}.svg`,
-        "thumbnailUrl": ogImage,
-        "encodingFormat": "image/svg+xml",
-        "license": "https://opensource.org/licenses/MIT",
-        "isPartOf": {
-          "@type": "CreativeWork",
-          "name": "Reicon Icon Library",
-          "url": SITE
-        }
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Icons", "item": `${SITE}/icons` },
-          { "@type": "ListItem", "position": 2, "name": `${pascal} Icon`, "item": url }
-        ]
+    const title = `${name} icon details — Reicon`;
+    const desc = tags.length > 0
+      ? `Details and related icons for ${name} icon. Tagged as: ${tagString}.`
+      : `Details and related icons for ${name} icon. Available in Outline and Filled weights. Free, open-source SVG icon.`;
+    const url = `${SITE}/icon/${name}`;
+    const ogImage = `${SITE}/og/icons/${name}.png`;
+    const keywords = tags.length > 0
+      ? `${name}, ${tagString}, icon, svg icon, react icon, free icon, reicon`
+      : `${name}, icon, svg icon, react icon, free icon, reicon`;
+
+    const imageObjectLd = {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "name": `${pascal} Icon`,
+      "description": desc,
+      "contentUrl": `https://cdn.reicon.dev/svg/${name}.svg`,
+      "thumbnailUrl": ogImage,
+      "encodingFormat": "image/svg+xml",
+      "license": "https://opensource.org/licenses/MIT",
+      "acquireLicensePage": `${SITE}/usage`,
+      "keywords": tagString,
+      ...(category && { "category": category }),
+      "isPartOf": {
+        "@type": "CreativeWork",
+        "name": "Reicon Icon Library",
+        "url": SITE
       }
-    ];
+    };
+
+    const breadcrumbLd = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "Icons", "item": `${SITE}/icons` },
+        { "@type": "ListItem", "position": 3, "name": name, "item": url }
+      ]
+    };
 
     const outDir = resolve(DIST, 'icon', name);
     mkdirSync(outDir, { recursive: true });
 
-    const metaTags = buildMetaTags({ title, desc, url, ogImage });
-    // Add both JSON-LD blocks
-    const jsonLdTags = jsonLd.map((ld) => `    <script type="application/ld+json">${JSON.stringify(ld)}</script>`).join('\n');
-    const html = injectMeta(baseHtml, metaTags + jsonLdTags + '\n');
+    const metaTags = buildMetaTags({ title, desc, url, ogImage, keywords, jsonLd: imageObjectLd, breadcrumb: breadcrumbLd });
+    const html = injectMeta(baseHtml, metaTags);
 
     // Add noscript fallback with semantic content for this specific icon
-    const noscriptBlock = `<noscript><div style="background:#09090b;color:#fff;padding:2rem;font-family:system-ui,sans-serif;text-align:center;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center"><h1>${pascal} Icon — Reicon</h1><p style="color:rgba(255,255,255,0.6);max-width:500px">${desc}</p><p style="margin-top:1rem"><a href="/icons" style="color:#6C5CE7">Browse all icons</a> · <a href="/usage" style="color:#6C5CE7">Usage guide</a></p></div></noscript>`;
+    const tagHtml = tags.length > 0 ? `<p style="color:rgba(255,255,255,0.4);margin-top:0.5rem">Tagged as: ${tagString}</p>` : '';
+    const noscriptBlock = `<noscript><div style="background:#09090b;color:#fff;padding:2rem;font-family:system-ui,sans-serif;text-align:center;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center"><nav style="margin-bottom:1rem;color:rgba(255,255,255,0.4);font-size:0.875rem"><a href="/" style="color:rgba(255,255,255,0.5)">Reicon</a> › <a href="/icons" style="color:rgba(255,255,255,0.5)">Icons</a> › ${name}</nav><h1>${name} icon details</h1><p style="color:rgba(255,255,255,0.6);max-width:500px">${desc}</p>${tagHtml}<p style="margin-top:1rem"><a href="/icons" style="color:#6C5CE7">Browse all icons</a> · <a href="/usage" style="color:#6C5CE7">Usage guide</a></p></div></noscript>`;
 
     const finalHtml = html.replace('</body>', `${noscriptBlock}\n</body>`);
     writeFileSync(resolve(outDir, 'index.html'), finalHtml, 'utf-8');
