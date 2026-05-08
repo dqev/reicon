@@ -188,8 +188,10 @@ function injectMeta(baseHtml, metaTags) {
   // Remove existing generic tags that we're replacing
   html = html.replace(/<title>[^<]*<\/title>/, '');
   html = html.replace(/<link rel="canonical"[^>]*\/?>[\n]?/g, '');
-  html = html.replace(/<meta property="og:[^>]*\/?>[\n]?/g, '');
-  html = html.replace(/<meta name="twitter:[^>]*\/?>[\n]?/g, '');
+  html = html.replace(/<meta name="description"[\s\S]*?\/?>[\n]?/g, '');
+  html = html.replace(/<meta name="keywords"[\s\S]*?\/?>[\n]?/g, '');
+  html = html.replace(/<meta property="og:[\s\S]*?\/?>[\n]?/g, '');
+  html = html.replace(/<meta name="twitter:[\s\S]*?\/?>[\n]?/g, '');
   // Inject our page-specific tags before </head>
   html = html.replace('</head>', `    ${metaTags}  </head>`);
   return html;
