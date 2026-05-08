@@ -41,7 +41,7 @@ export default function Sidebar({
   }
 
   return (
-    <aside className="w-52 shrink-0 hidden lg:block overflow-y-auto h-[calc(100vh-3.5rem)] sticky top-14 border-r border-white/[0.06] p-4">
+    <aside className="w-52 shrink-0 hidden lg:block overflow-y-auto h-[calc(100vh-3.5rem)] sticky top-14 p-4">
       {/* Style Filter */}
       <div className="mb-6">
         <h3 className="text-[11px] font-medium text-white/40 uppercase tracking-wider mb-2">Style</h3>

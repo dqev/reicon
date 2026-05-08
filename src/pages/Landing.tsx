@@ -159,10 +159,14 @@ export default function Landing() {
                   </div>
                 ))}
               </div>
-              <div className="hidden sm:flex items-center gap-[5px] text-[11px] text-white/40">
-                Scroll to explore
-                <span className="animate-bounce"><ArrowDown2 size={14} /></span>
-              </div>
+              <a
+                href="https://fluidshader.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:flex items-center gap-1.5 text-[15px] text-white/50 hover:text-white/70 transition-colors"
+              >
+                Shader by <re-icon icon="palette" size={13}></re-icon> Fluid Shader
+              </a>
             </div>
           </div>
         </div>
