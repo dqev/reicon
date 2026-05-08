@@ -41,14 +41,14 @@ export default function PackagesPage() {
         <meta property="og:site_name" content="Reicon" />
         <meta property="og:title" content="Packages — Reicon" />
         <meta property="og:description" content="Install Reicon icon packages for React and JavaScript. Tree-shakeable, zero dependencies, MIT licensed." />
-        <meta property="og:image" content="https://reicon.dev/og-image.png" />
+        <meta property="og:image" content="https://reicon.dev/og-image-v2.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@reicon_dev" />
         <meta name="twitter:title" content="Packages — Reicon" />
         <meta name="twitter:description" content="Install Reicon icon packages for React and JavaScript." />
-        <meta name="twitter:image" content="https://reicon.dev/og-image.png" />
+        <meta name="twitter:image" content="https://reicon.dev/og-image-v2.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

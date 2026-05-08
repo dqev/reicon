@@ -26,7 +26,7 @@ const STATIC_PAGES = [
     title: 'Reicon — Free Open-Source Icon Library for Designers & Developers',
     desc: 'Reicon is a free, open-source icon library with 1700+ handcrafted, pixel-perfect SVG icons for React, Figma, and the web. MIT licensed.',
     url: `${SITE}/`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: `${SITE}/og-image-v2.png`,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -40,7 +40,7 @@ const STATIC_PAGES = [
     title: 'Browse 1700+ Free Icons — Reicon Icon Library',
     desc: 'Browse and search 1700+ free, open-source SVG icons. Filter by category, weight, and size. Copy React or HTML code instantly.',
     url: `${SITE}/icons`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: `${SITE}/og-image-v2.png`,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -55,7 +55,7 @@ const STATIC_PAGES = [
     title: 'Usage Guide — Reicon | React & CDN Icon Library',
     desc: 'Learn how to install and use Reicon icons in React and vanilla JavaScript. Props reference, TypeScript support, icon weights, and code examples.',
     url: `${SITE}/usage`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: `${SITE}/og-image-v2.png`,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -70,7 +70,7 @@ const STATIC_PAGES = [
     title: 'Packages — Reicon | React & JavaScript Icon Packages',
     desc: 'Install Reicon icon packages for React and JavaScript. Tree-shakeable, zero dependencies, MIT licensed.',
     url: `${SITE}/packages`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: `${SITE}/og-image-v2.png`,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -85,7 +85,7 @@ const STATIC_PAGES = [
     title: 'Icon Pack Builder — Reicon | Custom Icon Packs',
     desc: 'Select and export custom icon packs from Reicon. Download as SVG, PNG, or WebP ZIP files. Build your own icon set.',
     url: `${SITE}/pack`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: `${SITE}/og-image-v2.png`,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
