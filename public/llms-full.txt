@@ -11,12 +11,12 @@ Reicon (https://reicon.dev) is a free, open-source SVG icon library built with o
 - **Name**: Reicon
 - **Type**: Open-source SVG icon library
 - **Website**: https://reicon.dev
-- **GitHub**: https://github.com/reicon-dev/reicon
+- **GitHub**: https://github.com/devchauhann/reicon
 - **License**: MIT
 - **Price**: Free
 - **Creator**: Dev Chauhan
 - **Contact**: hello@reicon.dev
-- **Status**: In development (waitlist open)
+- **Status**: Launched
 
 ## Design Philosophy
 
@@ -71,7 +71,7 @@ A: Yes, completely free and open-source under the MIT license.
 A: No. Reicon (reicon.dev) is an SVG icon library for designers. ReIcon by Sordum is a Windows desktop icon layout tool. They are unrelated.
 
 **Q: How do I use Reicon?**
-A: Reicon is currently in development. Join the waitlist at reicon.dev to get notified at launch.
+A: Reicon is currently launched. Visit reicon.dev to explore the icon library and get started.
 
 **Q: Who created Reicon?**
 A: Reicon was created by Dev Chauhan (devchauhan.in).

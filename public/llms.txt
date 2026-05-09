@@ -7,7 +7,7 @@
 Reicon is a precision-crafted, open-source SVG icon library. Every icon is handcrafted — no auto-generation. Icons are pixel-perfect and designed for modern UI/UX design systems.
 
 - Website: https://reicon.dev
-- GitHub: https://github.com/reicon-dev/reicon
+- GitHub: https://github.com/devchauhann/reicon
 - License: MIT (free for personal and commercial use)
 - Creator: Dev Chauhan (https://devchauhan.in)
 - Contact: hello@reicon.dev
