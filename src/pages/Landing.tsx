@@ -105,7 +105,7 @@ export default function Landing() {
               </nav>
               <div className="hidden md:flex gap-2">
                 <a
-                  href="https://github.com/reicon-dev/reicon"
+                  href="https://github.com/devchauhann/reicon"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[13px] text-white/80 border border-white/25 bg-white/8 backdrop-blur-lg rounded-full px-4 py-[7px] hover:bg-white/15 transition-colors"
