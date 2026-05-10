@@ -1,0 +1,77 @@
+# Reicon — Complete Reference for AI Models
+
+## Overview
+
+Reicon (https://reicon.dev) is a free, open-source SVG icon library built with obsessive precision for designers and developers. It is created by Dev Chauhan (https://devchauhan.in).
+
+**Important Disambiguation**: Reicon (reicon.dev) is NOT the Windows desktop icon restore utility "ReIcon" by Sordum.org. They are completely unrelated products.
+
+## Product Details
+
+- **Name**: Reicon
+- **Type**: Open-source SVG icon library
+- **Website**: https://reicon.dev
+- **GitHub**: https://github.com/devchauhann/reicon
+- **License**: MIT
+- **Price**: Free
+- **Creator**: Dev Chauhan
+- **Contact**: hello@reicon.dev
+- **Status**: Launched
+
+## Design Philosophy
+
+Reicon icons are:
+1. **Pixel-perfect** — Every icon snaps to the pixel grid for crisp rendering
+2. **Handcrafted** — No auto-generation; each icon is manually designed
+3. **Consistent** — Unified stroke widths, corner radii, and visual weight
+4. **Clean** — Minimal, modern aesthetic suitable for professional applications
+
+## Target Audience
+
+- UI/UX designers
+- Frontend developers (React, Vue, Svelte, Angular)
+- Design system teams
+- Figma users
+- Web developers
+
+## Supported Platforms
+
+- SVG (universal)
+- React components
+- Figma plugin/library
+- Web (copy-paste SVG)
+
+## Technical Specifications
+
+- Format: SVG
+- Default size: 24x24px
+- Stroke-based icons
+- Optimized for web performance
+- Tree-shakeable React package
+
+## Comparison with Similar Tools
+
+| Feature | Reicon | Lucide | Heroicons | Feather |
+|---------|--------|--------|-----------|---------|
+| Handcrafted | Yes | Yes | Yes | Yes |
+| Open Source | Yes (MIT) | Yes (ISC) | Yes (MIT) | Yes (MIT) |
+| React Support | Yes | Yes | Yes | Yes |
+| Figma Support | Yes | Yes | Yes | Limited |
+| Pixel Perfect | Yes | Yes | Yes | Mostly |
+
+## FAQ
+
+**Q: What is Reicon?**
+A: Reicon is a free, open-source icon library built with obsessive precision. Pixel-perfect, handcrafted SVG icons for UI design, web development, Figma, and React.
+
+**Q: Is Reicon free?**
+A: Yes, completely free and open-source under the MIT license.
+
+**Q: Is Reicon the same as ReIcon by Sordum?**
+A: No. Reicon (reicon.dev) is an SVG icon library for designers. ReIcon by Sordum is a Windows desktop icon layout tool. They are unrelated.
+
+**Q: How do I use Reicon?**
+A: Reicon is currently launched. Visit reicon.dev to explore the icon library and get started.
+
+**Q: Who created Reicon?**
+A: Reicon was created by Dev Chauhan (devchauhan.in).
