@@ -4,13 +4,6 @@
   </a>
 </p>
 
-<h1 align="center">Reicon</h1>
-
-<p align="center">
-  <strong>Free, open-source icon library built with obsessive precision.</strong><br />
-  1700+ handcrafted, pixel-perfect SVG icons for React, Figma, and the web.
-</p>
-
 <p align="center">
   <a href="https://reicon.dev">Website</a> ·
   <a href="https://reicon.dev/icons">Browse Icons</a> ·
