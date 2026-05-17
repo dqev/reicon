@@ -298,11 +298,27 @@ function main() {
     const metaTags = buildMetaTags({ title, desc, url, ogImage, keywords, jsonLd: imageObjectLd, breadcrumb: breadcrumbLd });
     const html = injectMeta(baseHtml, metaTags);
 
-    // Add noscript fallback with semantic content for this specific icon
-    const tagHtml = tags.length > 0 ? `<p style="color:rgba(255,255,255,0.4);margin-top:0.5rem">Tagged as: ${tagString}</p>` : '';
-    const noscriptBlock = `<noscript><div style="background:#09090b;color:#fff;padding:2rem;font-family:system-ui,sans-serif;text-align:center;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center"><nav style="margin-bottom:1rem;color:rgba(255,255,255,0.4);font-size:0.875rem"><a href="/" style="color:rgba(255,255,255,0.5)">Reicon</a> › <a href="/icons" style="color:rgba(255,255,255,0.5)">Icons</a> › ${name}</nav><h1>${name} icon details</h1><p style="color:rgba(255,255,255,0.6);max-width:500px">${desc}</p>${tagHtml}<p style="margin-top:1rem"><a href="/icons" style="color:#6C5CE7">Browse all icons</a> · <a href="/usage" style="color:#6C5CE7">Usage guide</a></p></div></noscript>`;
+    // Inject visible SSR content into <div id="root"> so Google indexes real content
+    const tagList = tags.length > 0
+      ? `<ul style="list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;margin-top:1rem">${tags.map(t => `<li style="background:rgba(255,255,255,0.06);border-radius:6px;padding:4px 12px;font-size:0.8rem;color:rgba(255,255,255,0.5)">${t}</li>`).join('')}</ul>`
+      : '';
+    const categoryLine = category ? `<p style="color:rgba(108,92,231,0.8);font-size:0.8rem;margin-top:0.5rem">Category: ${category}</p>` : '';
 
-    const finalHtml = html.replace('</body>', `${noscriptBlock}\n</body>`);
+    const ssrContent = `<div style="background:#09090b;color:#fff;min-height:100vh;font-family:'DM Sans',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center">
+<nav aria-label="breadcrumb" style="margin-bottom:1.5rem;font-size:0.875rem;color:rgba(255,255,255,0.4)"><a href="/" style="color:rgba(255,255,255,0.5);text-decoration:none">Reicon</a> <span style="margin:0 0.25rem">›</span> <a href="/icons" style="color:rgba(255,255,255,0.5);text-decoration:none">Icons</a> <span style="margin:0 0.25rem">›</span> <span style="color:rgba(255,255,255,0.7)">${name}</span></nav>
+<img src="https://cdn.reicon.dev/svg/${name}.svg" alt="${name} icon" width="64" height="64" style="filter:invert(1);margin-bottom:1rem" loading="eager" />
+<h1 style="font-size:1.75rem;font-weight:600;margin:0 0 0.5rem">${pascal} Icon</h1>
+<p style="color:rgba(255,255,255,0.6);max-width:520px;line-height:1.6;margin:0 auto">${desc}</p>
+${categoryLine}${tagList}
+<div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
+<a href="/icons" style="color:#6C5CE7;text-decoration:none;font-size:0.9rem">← Browse all icons</a>
+<a href="/usage" style="color:#6C5CE7;text-decoration:none;font-size:0.9rem">Usage guide</a>
+<a href="/packages" style="color:#6C5CE7;text-decoration:none;font-size:0.9rem">Packages</a>
+</div>
+<p style="margin-top:2rem;font-size:0.8rem;color:rgba(255,255,255,0.3)">Available in Outline and Filled weights · Free SVG icon · MIT License</p>
+</div>`;
+
+    const finalHtml = html.replace('<div id="root"></div>', `<div id="root">${ssrContent}</div>`);
     writeFileSync(resolve(outDir, 'index.html'), finalHtml, 'utf-8');
     count++;
   }
