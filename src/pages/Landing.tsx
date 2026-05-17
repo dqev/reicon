@@ -59,14 +59,14 @@ export default function Landing() {
         <meta property="og:site_name" content="Reicon" />
         <meta property="og:title" content="Reicon — Free Open-Source Icon Library" />
         <meta property="og:description" content="Free, open-source SVG icon library with 1700+ handcrafted icons for React, Figma, and the web." />
-        <meta property="og:image" content="https://reicon.dev/og-image-v2.png" />
+        <meta property="og:image" content="https://reicon.dev/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@reicon_dev" />
         <meta name="twitter:title" content="Reicon — Free Open-Source Icon Library" />
         <meta name="twitter:description" content="Free, open-source SVG icon library with 1700+ handcrafted icons for React, Figma, and the web." />
-        <meta name="twitter:image" content="https://reicon.dev/og-image-v2.png" />
+        <meta name="twitter:image" content="https://reicon.dev/og-image.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
