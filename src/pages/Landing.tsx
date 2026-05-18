@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Code, Palette, Layers, Copy, Box, Star, ArrowDown2, HandHeart, Search3, Book3, Restart, Pointer } from 'reicon-react';
@@ -7,6 +7,7 @@ import ClayButton from '../components/ClayButton';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import { SiJavascript, SiReact } from 'react-icons/si';
+import iconNamesData from '../../scripts/icon-names.json';
 
 export default function Landing() {
   const heroCardRef = useRef<HTMLDivElement>(null);
@@ -190,6 +191,9 @@ export default function Landing() {
           <FeatureBlock icon={<Box size={20} />} title="Zero Dependencies" description="Lightweight and self-contained. No external runtime dependencies to worry about." />
         </div>
       </section>
+
+      {/* ═══ CONSISTENCY GRID ═══ */}
+      <ConsistencyGrid />
 
       {/* ═══ PLAYGROUND ═══ */}
       <PlaygroundSection />
@@ -530,6 +534,133 @@ function IntegrationCard({ icon, title, lines, copyText }: { icon: React.ReactNo
         {lines}
       </div>
     </div>
+  );
+}
+
+const ALL_ICON_NAMES = Object.keys(iconNamesData);
+const CONSISTENCY_COUNT = 70;
+
+function getShuffledIcons() {
+  const shuffled = [...ALL_ICON_NAMES];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled.slice(0, CONSISTENCY_COUNT);
+}
+
+function ConsistencyGrid() {
+  const icons = useMemo(() => getShuffledIcons(), []);
+  const [selected, setSelected] = useState(() => icons[0]);
+  const [weight, setWeight] = useState<'outline' | 'filled'>('outline');
+
+  const pascalName = (iconNamesData as Record<string, string>)[selected] || selected;
+
+  return (
+    <section className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13">
+      <div className="text-center mb-10">
+        <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Consistency</div>
+        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] font-semibold text-white leading-[1.15] tracking-[-0.02em] mb-3">Every icon, one rhythm.</h2>
+        <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
+          Same stroke width, same optical weight, same grid. Click any icon to inspect it.
+        </p>
+      </div>
+
+      <div className="bg-[#0e0e10] rounded-[14px] overflow-hidden">
+        <div className="grid lg:grid-cols-[280px_1fr]">
+          {/* Left — detail panel */}
+          <div className="p-5 lg:p-6 lg:border-r border-b lg:border-b-0 border-white/[0.06] flex flex-col items-center">
+            {/* Weight toggle */}
+            <div className="w-full flex items-center justify-between mb-5">
+              <div className="flex items-center gap-1 bg-white/[0.04] border border-white/[0.06] rounded-lg p-0.5">
+                {(['outline', 'filled'] as const).map((w) => (
+                  <button
+                    key={w}
+                    onClick={() => setWeight(w)}
+                    className={`text-[11px] font-medium px-3 py-1.5 rounded-md transition-colors ${weight === w ? 'bg-white/10 text-white' : 'text-white/35 hover:text-white/55'
+                      }`}
+                  >
+                    {w.charAt(0).toUpperCase() + w.slice(1)}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Large preview with alignment guides */}
+            <div className="relative w-full aspect-square max-w-[200px] bg-white/[0.015] border border-white/[0.06] rounded-xl flex items-center justify-center overflow-hidden">
+              {/* Grid guides */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-1/2 left-0 right-0 h-px bg-[#6C5CE7]/15" />
+                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[#6C5CE7]/15" />
+                <div className="absolute top-[16.67%] left-0 right-0 h-px border-t border-dashed border-white/[0.05]" />
+                <div className="absolute bottom-[16.67%] left-0 right-0 h-px border-t border-dashed border-white/[0.05]" />
+                <div className="absolute left-[16.67%] top-0 bottom-0 w-px border-l border-dashed border-white/[0.05]" />
+                <div className="absolute right-[16.67%] top-0 bottom-0 w-px border-l border-dashed border-white/[0.05]" />
+              </div>
+              {/* Guide labels */}
+              <span className="absolute left-1.5 top-[16.67%] -translate-y-1/2 text-[7px] text-[#6C5CE7]/40 font-mono select-none">cap</span>
+              <span className="absolute left-1.5 bottom-[16.67%] translate-y-1/2 text-[7px] text-[#6C5CE7]/40 font-mono select-none">base</span>
+              <span className="absolute left-1.5 top-1/2 -translate-y-1/2 text-[7px] text-[#6C5CE7]/40 font-mono select-none">mid</span>
+
+              <re-icon icon={selected} size={88} weight={weight} color="rgba(255,255,255,0.85)" />
+            </div>
+
+            {/* Info */}
+            <div className="w-full mt-5 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[14px] text-white font-semibold">{pascalName}</span>
+                <span className="text-[10px] text-white/20 font-mono uppercase">{weight}</span>
+              </div>
+              <span className="inline-block text-[11px] text-white/30 bg-white/[0.04] border border-white/[0.06] rounded px-2 py-0.5 font-mono">
+                {selected}
+              </span>
+            </div>
+
+            {/* Size comparison */}
+            <div className="w-full mt-6 pt-5 border-t border-white/[0.06]">
+              <span className="text-[9px] uppercase tracking-[0.08em] text-white/20 font-semibold">Size comparison</span>
+              <div className="flex items-end gap-3 mt-3">
+                {[14, 18, 24, 32, 48].map((s) => (
+                  <div key={s} className="flex flex-col items-center gap-1">
+                    <div
+                      className="flex items-center justify-center bg-white/[0.025] border border-white/[0.06] rounded-lg"
+                      style={{ width: Math.max(s + 10, 24), height: Math.max(s + 10, 24) }}
+                    >
+                      <re-icon icon={selected} size={s} weight={weight} color="rgba(255,255,255,0.55)" />
+                    </div>
+                    <span className="text-[8px] text-white/15 font-mono">{s}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right — dense glyph grid */}
+          <div className="p-3 sm:p-4">
+            <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 border-l border-t border-white/[0.04]">
+              {icons.map((name) => (
+                <button
+                  key={name}
+                  onClick={() => setSelected(name)}
+                  className={`aspect-square flex items-center justify-center border-r border-b transition-colors cursor-pointer ${name === selected
+                    ? 'bg-[#6C5CE7]/10 border-[#6C5CE7]/25'
+                    : 'border-white/[0.04] hover:bg-white/[0.03]'
+                    }`}
+                  title={(iconNamesData as Record<string, string>)[name] || name}
+                >
+                  <re-icon
+                    icon={name}
+                    size={20}
+                    weight={weight}
+                    color={name === selected ? 'rgba(108,92,231,0.9)' : 'rgba(255,255,255,0.5)'}
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
