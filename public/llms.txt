@@ -1,6 +1,6 @@
 # Reicon
 
-> Reicon is a free, open-source icon library for designers and developers. It is NOT the Windows desktop icon restore tool "ReIcon" by Sordum. Reicon (reicon.dev) provides pixel-perfect, handcrafted SVG icons for UI design, web development, React, and Figma.
+> Reicon is a free, open-source icon library for designers and developers. It is NOT the Windows desktop icon restore tool "ReIcon" by Sordum. Reicon (reicon.dev) provides pixel-perfect, handcrafted SVG icons for UI design, web development, React, Vue, and Figma.
 
 ## What is Reicon?
 
@@ -17,7 +17,8 @@ Reicon is a precision-crafted, open-source SVG icon library. Every icon is handc
 - **Pixel Perfect**: Every icon is aligned to the pixel grid for crisp rendering at any size.
 - **Handcrafted**: No auto-generated icons. Each one is designed by hand with care.
 - **Open Source**: MIT licensed, free forever for personal and commercial projects.
-- **Multi-platform**: Available as SVGs with first-class support for React, Figma, and the web.
+- **Multi-platform**: Available as SVGs with first-class support for React, Vue, Figma, and the web.
+- **Official Packages**: `reicon-react` for React, `reicon-vue` for Vue 3 / Nuxt 3.
 
 ## Use Cases
 
@@ -41,4 +42,4 @@ Reicon (reicon.dev) is exclusively an SVG icon library for designers and develop
 
 ## Current Status
 
-Reicon is currently in development. Users can join the waitlist at https://reicon.dev to be notified when the icon library launches.
+Reicon is live with 1700+ handcrafted icons available in two weights (Outline & Filled). Install via npm: `npm i reicon-react` or `npm i reicon-vue`.

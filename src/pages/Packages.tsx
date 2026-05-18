@@ -5,6 +5,13 @@ import Footer from '../components/Footer';
 import { FaReact } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io5';
 
+const VueIcon = ({ size = 48 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 122.88 106.42" fill="none">
+    <polygon fill="#4DBA87" points="75.63,0 61.44,24.58 47.25,0 0,0 61.44,106.42 122.88,0 75.63,0" />
+    <polygon fill="#425466" points="75.63,0 61.44,24.58 47.25,0 24.58,0 61.44,63.85 98.3,0 75.63,0" />
+  </svg>
+);
+
 const PACKAGES = [
   {
     id: 'vanilla',
@@ -26,21 +33,31 @@ const PACKAGES = [
     sourceUrl: 'https://github.com/reicon-dev/reicon',
     guideUrl: '/usage?framework=react',
   },
+  {
+    id: 'vue',
+    name: 'reicon-vue',
+    npmPkg: 'reicon-vue',
+    description: 'Vue 3 icon components for Reicon. Tree-shakeable, TypeScript-ready, zero config. Works with Nuxt 3.',
+    icon: <VueIcon size={48} />,
+    npmUrl: 'https://www.npmjs.com/package/reicon-vue',
+    sourceUrl: 'https://github.com/reicon-dev/reicon',
+    guideUrl: '/usage?framework=vue',
+  },
 ];
 
 export default function PackagesPage() {
   return (
     <div className="min-h-screen bg-[#09090b] flex flex-col">
       <Helmet>
-        <title>Packages — Reicon | React & JavaScript Icon Packages</title>
-        <meta name="description" content="Install Reicon icon packages for React and JavaScript. Tree-shakeable, zero dependencies, MIT licensed." />
+        <title>Packages — Reicon | React, Vue & JavaScript Icon Packages</title>
+        <meta name="description" content="Install Reicon icon packages for React, Vue, and JavaScript. Tree-shakeable, zero dependencies, MIT licensed." />
         <link rel="canonical" href="https://reicon.dev/packages" />
-        <meta name="keywords" content="reicon packages, reicon-react, npm icon package, React icon library, JavaScript icons" />
+        <meta name="keywords" content="reicon packages, reicon-react, reicon-vue, npm icon package, React icon library, Vue icon library, JavaScript icons" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://reicon.dev/packages" />
         <meta property="og:site_name" content="Reicon" />
         <meta property="og:title" content="Packages — Reicon" />
-        <meta property="og:description" content="Install Reicon icon packages for React and JavaScript. Tree-shakeable, zero dependencies, MIT licensed." />
+        <meta property="og:description" content="Install Reicon icon packages for React, Vue, and JavaScript. Tree-shakeable, zero dependencies, MIT licensed." />
         <meta property="og:image" content="https://reicon.dev/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

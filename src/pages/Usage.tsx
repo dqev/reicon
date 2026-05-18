@@ -5,6 +5,7 @@ import { ChevronExpandY } from 'reicon-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ReactUsage from './usage/ReactUsage';
+import VueUsage from './usage/VueUsage';
 import CdnUsage from './usage/CdnUsage';
 import PropsTable from './usage/PropsTable';
 import Weights from './usage/Weights';
@@ -14,6 +15,7 @@ import { IoLogoJavascript } from 'react-icons/io5';
 
 const FRAMEWORKS = [
   { id: 'react', label: 'React', icon: 'react', color: '#61DAFB' },
+  { id: 'vue', label: 'Vue', icon: 'vue', color: '#4DBA87' },
   { id: 'vanilla', label: 'Vanilla', icon: 'js', color: '#f7df1e' },
 ] as const;
 
@@ -45,8 +47,8 @@ export default function UsagePage() {
   const contentRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const frameworkSectionId = framework === 'react' ? 'react-usage' : 'cdn';
-  const frameworkLabel = framework === 'react' ? 'React' : 'CDN / HTML';
+  const frameworkSectionId = framework === 'react' ? 'react-usage' : framework === 'vue' ? 'vue-usage' : 'cdn';
+  const frameworkLabel = framework === 'react' ? 'React' : framework === 'vue' ? 'Vue' : 'CDN / HTML';
 
   const onThisPage = [
     { id: 'what-is-reicon', label: 'What is Reicon?' },
@@ -115,8 +117,16 @@ export default function UsagePage() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const VueIcon = ({ size = 16 }: { size?: number }) => (
+    <svg width={size} height={size} viewBox="0 0 122.88 106.42" fill="none">
+      <polygon fill="#4DBA87" points="75.63,0 61.44,24.58 47.25,0 0,0 61.44,106.42 122.88,0 75.63,0" />
+      <polygon fill="#425466" points="75.63,0 61.44,24.58 47.25,0 24.58,0 61.44,63.85 98.3,0 75.63,0" />
+    </svg>
+  );
+
   const FrameworkIcon = ({ id, size = 16 }: { id: string; size?: number }) => {
     if (id === 'react') return <FaReact className="text-[#61DAFB]" size={size} />;
+    if (id === 'vue') return <VueIcon size={size} />;
     return <IoLogoJavascript className="text-yellow-400" size={size} />;
   };
 
@@ -142,10 +152,10 @@ export default function UsagePage() {
   return (
     <div className="min-h-screen bg-[#09090b] flex flex-col">
       <Helmet>
-        <title>Usage Guide — Reicon | React & CDN Icon Library</title>
-        <meta name="description" content="Learn how to install and use Reicon icons in React and vanilla JavaScript. Props reference, TypeScript support, icon weights, and code examples." />
+        <title>Usage Guide — Reicon | React, Vue & CDN Icon Library</title>
+        <meta name="description" content="Learn how to install and use Reicon icons in React, Vue, and vanilla JavaScript. Props reference, TypeScript support, icon weights, and code examples." />
         <link rel="canonical" href="https://reicon.dev/usage" />
-        <meta name="keywords" content="reicon usage, install reicon, React icons setup, CDN icons, icon library guide, SVG icons tutorial" />
+        <meta name="keywords" content="reicon usage, install reicon, React icons setup, Vue icons setup, CDN icons, icon library guide, SVG icons tutorial" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://reicon.dev/usage" />
         <meta property="og:site_name" content="Reicon" />
@@ -328,6 +338,8 @@ export default function UsagePage() {
 
           {framework === 'react' ? (
             <ReactUsage copiedField={copiedField} onCopy={copyToClipboard} />
+          ) : framework === 'vue' ? (
+            <VueUsage copiedField={copiedField} onCopy={copyToClipboard} />
           ) : (
             <CdnUsage copiedField={copiedField} onCopy={copyToClipboard} />
           )}

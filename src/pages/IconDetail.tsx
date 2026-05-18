@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet-async';
 import iconNamesData from '../../scripts/icon-names.json';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { FaReact } from 'react-icons/fa';
+import { IoLogoJavascript } from 'react-icons/io5';
 
 export default function IconDetail() {
   const { name } = useParams<{ name: string }>();
@@ -143,6 +145,7 @@ export default function IconDetail() {
   const downloadAsWebp = (iconName: string, weight: string) => downloadAsRaster(iconName, weight, exportSize, 'webp');
 
   const reactImportRaw = `import { ${pascalName} } from 'reicon-react';\n\n<${pascalName} size={24} ${activeWeight === 'filled' ? 'weight="Filled" ' : ''}/>`;
+  const vueImportRaw = `import { ${pascalName} } from 'reicon-vue';\n\n<${pascalName} :size="24" ${activeWeight === 'filled' ? 'weight="Filled" ' : ''}/>`;
   const directImportRaw = `import ${pascalName} from 'reicon-react/icons/${pascalName}';`;
   const htmlCdnRaw = `<script src="https://cdn.reicon.dev/cdn/reicon.min.js"><\/script>\n<re-icon icon="${name}"${activeWeight === 'filled' ? ' weight="filled"' : ''}></re-icon>`;
 
@@ -183,7 +186,7 @@ export default function IconDetail() {
         <title>{pageTitle}</title>
         <meta name="description" content={pageDesc} />
         <link rel="canonical" href={pageUrl} />
-        <meta name="keywords" content={`${name}, ${iconCategory || 'icon'}, svg icon, react icon, free icon, reicon`} />
+        <meta name="keywords" content={`${name}, ${iconCategory || 'icon'}, svg icon, react icon, vue icon, free icon, reicon`} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:site_name" content="Reicon" />
@@ -386,6 +389,7 @@ export default function IconDetail() {
             {/* React */}
             <SyntaxBlock
               title="React"
+              icon={<FaReact className="text-[#61DAFB]" size={14} />}
               onCopy={() => copyToClipboard(reactImportRaw, 'react')}
               copied={copiedField === 'react'}
             >
@@ -412,9 +416,40 @@ export default function IconDetail() {
               <span className="text-white/70"> /{'>'}</span>
             </SyntaxBlock>
 
+            {/* Vue */}
+            <SyntaxBlock
+              title="Vue"
+              icon={<svg className="w-3.5 h-3.5" viewBox="0 0 122.88 106.42" fill="none"><polygon fill="#4DBA87" points="75.63,0 61.44,24.58 47.25,0 0,0 61.44,106.42 122.88,0 75.63,0" /><polygon fill="#425466" points="75.63,0 61.44,24.58 47.25,0 24.58,0 61.44,63.85 98.3,0 75.63,0" /></svg>}
+              onCopy={() => copyToClipboard(vueImportRaw, 'vue')}
+              copied={copiedField === 'vue'}
+            >
+              <span className="text-[#c678dd]">import</span>
+              <span className="text-white/70">{' { '}</span>
+              <span className="text-[#e5c07b]">{pascalName}</span>
+              <span className="text-white/70">{' } '}</span>
+              <span className="text-[#c678dd]">from</span>
+              <span className="text-[#98c379]"> 'reicon-vue'</span>
+              <span className="text-white/30">;</span>
+              {'\n\n'}
+              <span className="text-white/70">{'<'}</span>
+              <span className="text-[#e06c75]">{pascalName}</span>
+              <span className="text-[#d19a66]"> :size</span>
+              <span className="text-white/50">=</span>
+              <span className="text-[#98c379]">"24"</span>
+              {activeWeight === 'filled' && (
+                <>
+                  <span className="text-[#d19a66]"> weight</span>
+                  <span className="text-white/50">=</span>
+                  <span className="text-[#98c379]">"Filled"</span>
+                </>
+              )}
+              <span className="text-white/70"> /{'>'}</span>
+            </SyntaxBlock>
+
             {/* Direct Import */}
             <SyntaxBlock
               title="Direct Import"
+              icon={<FaReact className="text-[#61DAFB]" size={14} />}
               onCopy={() => copyToClipboard(directImportRaw, 'direct')}
               copied={copiedField === 'direct'}
             >
@@ -428,6 +463,7 @@ export default function IconDetail() {
             {/* CDN */}
             <SyntaxBlock
               title="HTML / CDN"
+              icon={<IoLogoJavascript className="text-yellow-400" size={14} />}
               onCopy={() => copyToClipboard(htmlCdnRaw, 'cdn')}
               copied={copiedField === 'cdn'}
             >
@@ -645,11 +681,13 @@ export default function IconDetail() {
 
 function SyntaxBlock({
   title,
+  icon,
   onCopy,
   copied,
   children,
 }: {
   title: string;
+  icon?: React.ReactNode;
   onCopy: () => void;
   copied: boolean;
   children: React.ReactNode;
@@ -657,7 +695,7 @@ function SyntaxBlock({
   return (
     <div className="bg-[#0e0e10] border border-white/[0.06] rounded-xl overflow-hidden">
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06]">
-        <span className="text-[11px] font-medium text-white/40 uppercase tracking-wider">{title}</span>
+        <span className="text-[11px] font-medium text-white/40 uppercase tracking-wider flex items-center gap-1.5">{icon}{title}</span>
         <button
           onClick={onCopy}
           className="text-[11px] text-white/30 hover:text-white/60 transition-colors flex items-center gap-1"

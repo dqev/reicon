@@ -51,21 +51,21 @@ export default function Landing() {
     <div className="bg-[#09090b] min-h-screen">
       <Helmet>
         <title>Reicon — Free Open-Source Icon Library for Designers & Developers</title>
-        <meta name="description" content="Reicon is a free, open-source icon library with 1700+ handcrafted, pixel-perfect SVG icons. Available for React, Figma, and the web. MIT licensed." />
+        <meta name="description" content="Reicon is a free, open-source icon library with 1700+ handcrafted, pixel-perfect SVG icons. Available for React, Vue, Figma, and the web. MIT licensed." />
         <link rel="canonical" href="https://reicon.dev/" />
-        <meta name="keywords" content="free icon library, open source icons, SVG icons, React icons, Figma icons, web icons, pixel perfect icons, reicon" />
+        <meta name="keywords" content="free icon library, open source icons, SVG icons, React icons, Vue icons, Figma icons, web icons, pixel perfect icons, reicon" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://reicon.dev/" />
         <meta property="og:site_name" content="Reicon" />
         <meta property="og:title" content="Reicon — Free Open-Source Icon Library" />
-        <meta property="og:description" content="Free, open-source SVG icon library with 1700+ handcrafted icons for React, Figma, and the web." />
+        <meta property="og:description" content="Free, open-source SVG icon library with 1700+ handcrafted icons for React, Vue, Figma, and the web." />
         <meta property="og:image" content="https://reicon.dev/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@reicon_dev" />
         <meta name="twitter:title" content="Reicon — Free Open-Source Icon Library" />
-        <meta name="twitter:description" content="Free, open-source SVG icon library with 1700+ handcrafted icons for React, Figma, and the web." />
+        <meta name="twitter:description" content="Free, open-source SVG icon library with 1700+ handcrafted icons for React, Vue, Figma, and the web." />
         <meta name="twitter:image" content="https://reicon.dev/og-image.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -128,7 +128,7 @@ export default function Landing() {
                 The icon library<br />designers actually want.
               </h1>
               <p className="text-[clamp(13px,1.45vw,18px)] text-white/60 leading-[1.65] max-w-[480px] mx-auto mb-7">
-                Precision-crafted, open-source SVG icons for React, Figma, and the web. Pixel-perfect. No auto-generation.
+                Precision-crafted, open-source SVG icons for React, Vue, Figma, and the web. Pixel-perfect. No auto-generation.
               </p>
               <div className="flex items-center justify-center gap-[10px] flex-wrap">
                 <ClayButton to="/icons" variant="primary">
@@ -200,10 +200,10 @@ export default function Landing() {
           <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Integrations</div>
           <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] font-semibold text-white leading-[1.15] tracking-[-0.02em] mb-3">Works everywhere you do.</h2>
           <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
-            Easy Integration with React and JavaScript
+            Easy Integration with React, Vue, and JavaScript
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-[14px]">
+        <div className="grid md:grid-cols-3 gap-[14px]">
           <IntegrationCard icon={<SiReact size={18} color='#61dafb' />} title="React" copyText={`import { Home } from 'reicon-react';
 
 <Home size={24} weight="outline" />`} lines={
@@ -229,6 +229,35 @@ export default function Landing() {
                   <span className="text-[#d19a66]"> weight</span>
                   <span className="text-white/30">=</span>
                   <span className="text-[#98c379]">"outline"</span>
+                  <span className="text-white/20"> /&gt;</span>
+                </div>
+              </>
+            } />
+          <IntegrationCard icon={<svg width={18} height={18} viewBox="0 0 122.88 106.42" fill="none"><polygon fill="#4DBA87" points="75.63,0 61.44,24.58 47.25,0 0,0 61.44,106.42 122.88,0 75.63,0" /><polygon fill="#425466" points="75.63,0 61.44,24.58 47.25,0 24.58,0 61.44,63.85 98.3,0 75.63,0" /></svg>} title="Vue" copyText={`import { Home } from 'reicon-vue';
+
+<Home :size="24" weight="Outline" />`} lines={
+              <>
+                <div>
+                  <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-white/70"> i reicon-vue</span></div>
+                  <div className="h-2" />
+                  <span className="text-[#c678dd]">import</span>
+                  <span className="text-white/70"> {'{ '}</span>
+                  <span className="text-[#e5c07b]">Home</span>
+                  <span className="text-white/70">{' }'} </span>
+                  <span className="text-[#c678dd]">from</span>
+                  <span className="text-[#98c379]"> 'reicon-vue'</span>
+                  <span className="text-white/30">;</span>
+                </div>
+                <div className="h-3" />
+                <div>
+                  <span className="text-white/20">&lt;</span>
+                  <span className="text-[#e06c75]">Home</span>
+                  <span className="text-[#d19a66]"> :size</span>
+                  <span className="text-white/30">=</span>
+                  <span className="text-[#98c379]">"24"</span>
+                  <span className="text-[#d19a66]"> weight</span>
+                  <span className="text-white/30">=</span>
+                  <span className="text-[#98c379]">"Outline"</span>
                   <span className="text-white/20"> /&gt;</span>
                 </div>
               </>

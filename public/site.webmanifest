@@ -1,7 +1,7 @@
 {
   "name": "Reicon — Free Open-Source Icon Library",
   "short_name": "Reicon",
-  "description": "Free, open-source SVG icon library built with obsessive precision. Pixel-perfect, handcrafted icons for UI design, React, Figma, and the web.",
+  "description": "Free, open-source SVG icon library built with obsessive precision. Pixel-perfect, handcrafted icons for UI design, React, Vue, Figma, and the web.",
   "start_url": "/",
   "scope": "/",
   "id": "/",

@@ -89,9 +89,9 @@ export default function IconsPage() {
     <div className="min-h-screen bg-[#09090b] flex flex-col">
       <Helmet>
         <title>Browse 1700+ Free Icons — Reicon Icon Library</title>
-        <meta name="description" content="Browse and search 1700+ free, open-source SVG icons. Filter by category, weight, and size. Copy React or HTML code instantly." />
+        <meta name="description" content="Browse and search 1700+ free, open-source SVG icons. Filter by category, weight, and size. Copy React, Vue, or HTML code instantly." />
         <link rel="canonical" href="https://reicon.dev/icons" />
-        <meta name="keywords" content="browse icons, search icons, SVG icons, free icons, icon library, outline icons, filled icons, reicon" />
+        <meta name="keywords" content="browse icons, search icons, SVG icons, free icons, icon library, outline icons, filled icons, Vue icons, React icons, reicon" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://reicon.dev/icons" />
         <meta property="og:site_name" content="Reicon" />

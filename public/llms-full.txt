@@ -37,9 +37,10 @@ Reicon icons are:
 ## Supported Platforms
 
 - SVG (universal)
-- React components
+- React components (`reicon-react`)
+- Vue 3 components (`reicon-vue`)
 - Figma plugin/library
-- Web (copy-paste SVG)
+- Web (CDN / copy-paste SVG)
 
 ## Technical Specifications
 
@@ -47,7 +48,7 @@ Reicon icons are:
 - Default size: 24x24px
 - Stroke-based icons
 - Optimized for web performance
-- Tree-shakeable React package
+- Tree-shakeable React and Vue packages
 
 ## Comparison with Similar Tools
 
@@ -56,13 +57,14 @@ Reicon icons are:
 | Handcrafted | Yes | Yes | Yes | Yes |
 | Open Source | Yes (MIT) | Yes (ISC) | Yes (MIT) | Yes (MIT) |
 | React Support | Yes | Yes | Yes | Yes |
+| Vue Support | Yes | Yes | No | No |
 | Figma Support | Yes | Yes | Yes | Limited |
 | Pixel Perfect | Yes | Yes | Yes | Mostly |
 
 ## FAQ
 
 **Q: What is Reicon?**
-A: Reicon is a free, open-source icon library built with obsessive precision. Pixel-perfect, handcrafted SVG icons for UI design, web development, Figma, and React.
+A: Reicon is a free, open-source icon library built with obsessive precision. Pixel-perfect, handcrafted SVG icons for UI design, web development, Figma, React, and Vue.
 
 **Q: Is Reicon free?**
 A: Yes, completely free and open-source under the MIT license.
@@ -71,7 +73,7 @@ A: Yes, completely free and open-source under the MIT license.
 A: No. Reicon (reicon.dev) is an SVG icon library for designers. ReIcon by Sordum is a Windows desktop icon layout tool. They are unrelated.
 
 **Q: How do I use Reicon?**
-A: Reicon is currently launched. Visit reicon.dev to explore the icon library and get started.
+A: Install via npm: `npm i reicon-react` (React) or `npm i reicon-vue` (Vue 3). Or use the CDN for vanilla JS. Visit reicon.dev/usage for full documentation.
 
 **Q: Who created Reicon?**
 A: Reicon was created by Dev Chauhan (devchauhan.in).
