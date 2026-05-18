@@ -66,6 +66,54 @@ const STATIC_PAGES = [
     },
   },
   {
+    path: '/usage/react',
+    title: 'React Usage Guide — Reicon | React Icon Library',
+    desc: 'Learn how to install and use Reicon icons in React. Import components, customize props, tree-shake unused icons, and use with Tailwind CSS.',
+    url: `${SITE}/usage/react`,
+    ogImage: `${SITE}/og-image.png`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "Usage", "item": `${SITE}/usage` },
+        { "@type": "ListItem", "position": 3, "name": "React", "item": `${SITE}/usage/react` }
+      ]
+    },
+  },
+  {
+    path: '/usage/vue',
+    title: 'Vue Usage Guide — Reicon | Vue 3 Icon Library',
+    desc: 'Learn how to install and use Reicon icons in Vue 3 and Nuxt 3. Import components, customize props, tree-shake unused icons.',
+    url: `${SITE}/usage/vue`,
+    ogImage: `${SITE}/og-image.png`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "Usage", "item": `${SITE}/usage` },
+        { "@type": "ListItem", "position": 3, "name": "Vue", "item": `${SITE}/usage/vue` }
+      ]
+    },
+  },
+  {
+    path: '/usage/vanilla',
+    title: 'CDN / JavaScript Usage Guide — Reicon | Vanilla JS Icons',
+    desc: 'Learn how to use Reicon icons via CDN in vanilla JavaScript and HTML. No build tools needed.',
+    url: `${SITE}/usage/vanilla`,
+    ogImage: `${SITE}/og-image.png`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "Usage", "item": `${SITE}/usage` },
+        { "@type": "ListItem", "position": 3, "name": "Vanilla", "item": `${SITE}/usage/vanilla` }
+      ]
+    },
+  },
+  {
     path: '/packages',
     title: 'Packages — Reicon | React, Vue & JavaScript Icon Packages',
     desc: 'Install Reicon icon packages for React, Vue, and JavaScript. Tree-shakeable, zero dependencies, MIT licensed.',
