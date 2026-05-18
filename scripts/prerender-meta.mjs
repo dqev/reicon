@@ -24,7 +24,7 @@ const STATIC_PAGES = [
   {
     path: '/',
     title: 'Reicon — Free Open-Source Icon Library for Designers & Developers',
-    desc: 'Reicon is a free, open-source icon library with 1700+ handcrafted, pixel-perfect SVG icons for React, Figma, and the web. MIT licensed.',
+    desc: 'Reicon is a free, open-source icon library with 1700+ handcrafted, pixel-perfect SVG icons for React, Vue, Figma, and the web. MIT licensed.',
     url: `${SITE}/`,
     ogImage: `${SITE}/og-image.png`,
     breadcrumb: {
@@ -38,7 +38,7 @@ const STATIC_PAGES = [
   {
     path: '/icons',
     title: 'Browse 1700+ Free Icons — Reicon Icon Library',
-    desc: 'Browse and search 1700+ free, open-source SVG icons. Filter by category, weight, and size. Copy React or HTML code instantly.',
+    desc: 'Browse and search 1700+ free, open-source SVG icons. Filter by category, weight, and size. Copy React, Vue, or HTML code instantly.',
     url: `${SITE}/icons`,
     ogImage: `${SITE}/og-image.png`,
     breadcrumb: {
@@ -52,8 +52,8 @@ const STATIC_PAGES = [
   },
   {
     path: '/usage',
-    title: 'Usage Guide — Reicon | React & CDN Icon Library',
-    desc: 'Learn how to install and use Reicon icons in React and vanilla JavaScript. Props reference, TypeScript support, icon weights, and code examples.',
+    title: 'Usage Guide — Reicon | React, Vue & CDN Icon Library',
+    desc: 'Learn how to install and use Reicon icons in React, Vue, and vanilla JavaScript. Props reference, TypeScript support, icon weights, and code examples.',
     url: `${SITE}/usage`,
     ogImage: `${SITE}/og-image.png`,
     breadcrumb: {
@@ -67,8 +67,8 @@ const STATIC_PAGES = [
   },
   {
     path: '/packages',
-    title: 'Packages — Reicon | React & JavaScript Icon Packages',
-    desc: 'Install Reicon icon packages for React and JavaScript. Tree-shakeable, zero dependencies, MIT licensed.',
+    title: 'Packages — Reicon | React, Vue & JavaScript Icon Packages',
+    desc: 'Install Reicon icon packages for React, Vue, and JavaScript. Tree-shakeable, zero dependencies, MIT licensed.',
     url: `${SITE}/packages`,
     ogImage: `${SITE}/og-image.png`,
     breadcrumb: {
