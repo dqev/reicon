@@ -30,6 +30,7 @@ export default function App() {
           <Route path="/icons" element={<IconsPage />} />
           <Route path="/icon/:name" element={<IconDetail />} />
           <Route path="/usage" element={<UsagePage />} />
+          <Route path="/usage/:framework" element={<UsagePage />} />
           <Route path="/packages" element={<PackagesPage />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />

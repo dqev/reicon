@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ChevronExpandY } from 'reicon-react';
 import Header from '../components/Header';
@@ -35,8 +35,9 @@ const NAV_ITEMS = {
 };
 
 export default function UsagePage() {
-  const [searchParams] = useSearchParams();
-  const initialFw = (searchParams.get('framework') as Framework) || 'react';
+  const { framework: fwParam } = useParams<{ framework?: string }>();
+  const navigate = useNavigate();
+  const initialFw = (fwParam as Framework) || 'react';
   const [activeSection, setActiveSection] = useState('what-is-reicon');
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -46,6 +47,13 @@ export default function UsagePage() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const fw = fwParam as Framework;
+    if (fw && FRAMEWORKS.some((f) => f.id === fw)) {
+      setFramework(fw);
+    }
+  }, [fwParam]);
 
   const frameworkSectionId = framework === 'react' ? 'react-usage' : framework === 'vue' ? 'vue-usage' : 'cdn';
   const frameworkLabel = framework === 'react' ? 'React' : framework === 'vue' ? 'Vue' : 'CDN / HTML';
@@ -114,6 +122,7 @@ export default function UsagePage() {
   const switchFramework = (fw: Framework) => {
     setFramework(fw);
     setDropdownOpen(false);
+    navigate(`/usage/${fw}`, { replace: true });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -154,10 +163,10 @@ export default function UsagePage() {
       <Helmet>
         <title>Usage Guide — Reicon | React, Vue & CDN Icon Library</title>
         <meta name="description" content="Learn how to install and use Reicon icons in React, Vue, and vanilla JavaScript. Props reference, TypeScript support, icon weights, and code examples." />
-        <link rel="canonical" href="https://reicon.dev/usage" />
+        <link rel="canonical" href={`https://reicon.dev/usage/${framework}`} />
         <meta name="keywords" content="reicon usage, install reicon, React icons setup, Vue icons setup, CDN icons, icon library guide, SVG icons tutorial" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://reicon.dev/usage" />
+        <meta property="og:url" content={`https://reicon.dev/usage/${framework}`} />
         <meta property="og:site_name" content="Reicon" />
         <meta property="og:title" content="Usage Guide — Reicon" />
         <meta property="og:description" content="Learn how to install and use Reicon icons in React and vanilla JavaScript." />

@@ -19,6 +19,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://reicon.dev/usage/react</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://reicon.dev/usage/vue</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://reicon.dev/usage/vanilla</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://reicon.dev/packages</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>

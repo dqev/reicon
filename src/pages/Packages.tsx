@@ -21,7 +21,7 @@ const PACKAGES = [
     icon: <IoLogoJavascript className="text-yellow-400" size={48} />,
     npmUrl: 'https://www.npmjs.com/package/reicon-react',
     sourceUrl: 'https://github.com/reicon-dev/reicon',
-    guideUrl: '/usage?framework=vanilla',
+    guideUrl: '/usage/vanilla',
   },
   {
     id: 'react',
@@ -31,7 +31,7 @@ const PACKAGES = [
     icon: <FaReact className="text-[#61DAFB]" size={48} />,
     npmUrl: 'https://www.npmjs.com/package/reicon-react',
     sourceUrl: 'https://github.com/reicon-dev/reicon',
-    guideUrl: '/usage?framework=react',
+    guideUrl: '/usage/react',
   },
   {
     id: 'vue',
@@ -41,7 +41,7 @@ const PACKAGES = [
     icon: <VueIcon size={48} />,
     npmUrl: 'https://www.npmjs.com/package/reicon-vue',
     sourceUrl: 'https://github.com/reicon-dev/reicon',
-    guideUrl: '/usage?framework=vue',
+    guideUrl: '/usage/vue',
   },
 ];
 
