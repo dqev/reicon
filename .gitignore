@@ -7,3 +7,4 @@ coverage/
 .env*
 !.env.example
 .firestore.rules
+.env

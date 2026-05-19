@@ -10,6 +10,7 @@
 import { writeFileSync, readFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { PostHog } from 'posthog-node';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE = 'https://reicon.dev';
@@ -66,7 +67,7 @@ ${entries.join('\n')}
 </sitemapindex>`;
 }
 
-function main() {
+async function main() {
   const icons = loadIconNames();
   const today = new Date().toISOString().split('T')[0];
   const OUT_DIR = resolve(__dirname, '../public');
@@ -104,7 +105,25 @@ function main() {
   ]);
   writeFileSync(resolve(OUT_DIR, 'sitemap.xml'), sitemapIndex, 'utf-8');
 
-  console.log(`Sitemap index written with ${1 + iconSitemaps.length} sub-sitemaps (${STATIC_PAGES.length + icons.length} total URLs)`);
+  const totalUrls = STATIC_PAGES.length + icons.length;
+  console.log(`Sitemap index written with ${1 + iconSitemaps.length} sub-sitemaps (${totalUrls} total URLs)`);
+
+  const posthog = new PostHog(process.env.POSTHOG_API_KEY, {
+    host: process.env.POSTHOG_HOST,
+    flushAt: 1,
+    flushInterval: 0,
+  });
+  posthog.capture({
+    distinctId: 'build-system',
+    event: 'sitemap generated',
+    properties: {
+      icon_count: icons.length,
+      static_page_count: STATIC_PAGES.length,
+      total_urls: totalUrls,
+      sitemap_count: 1 + iconSitemaps.length,
+    },
+  });
+  await posthog.shutdown();
 }
 
 main();
