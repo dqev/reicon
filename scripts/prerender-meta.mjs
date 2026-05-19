@@ -12,6 +12,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { PostHog } from 'posthog-node';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, '../dist');
@@ -263,7 +264,7 @@ function writePageHtml(baseHtml, pageDef) {
   writeFileSync(outFile, html, 'utf-8');
 }
 
-function main() {
+async function main() {
   const baseHtml = readFileSync(resolve(DIST, 'index.html'), 'utf-8');
 
   if (!existsSync(DIST)) {
@@ -371,8 +372,25 @@ ${categoryLine}${tagList}
     count++;
   }
 
+  const totalPages = STATIC_PAGES.length + count;
   console.log(`  ✓ ${count} icon detail pages`);
-  console.log(`Done! ${STATIC_PAGES.length + count} total pages pre-rendered.`);
+  console.log(`Done! ${totalPages} total pages pre-rendered.`);
+
+  const posthog = new PostHog(process.env.POSTHOG_API_KEY, {
+    host: process.env.POSTHOG_HOST,
+    flushAt: 1,
+    flushInterval: 0,
+  });
+  posthog.capture({
+    distinctId: 'build-system',
+    event: 'meta prerendered',
+    properties: {
+      static_page_count: STATIC_PAGES.length,
+      icon_page_count: count,
+      total_pages: totalPages,
+    },
+  });
+  await posthog.shutdown();
 }
 
 main();
