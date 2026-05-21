@@ -20,7 +20,6 @@
   <meta name="referrer" content="origin-when-cross-origin" />
 
   <!-- ── Search Engine Verification (replace YOUR_CODE with actual codes) ───── -->
-  <meta name="google-site-verification" content="hAr2f92lGvrxO7jAFwgnsgzjTsfYwYElJxqdAXwFuu8" />
   <meta name="msvalidate.01" content="AFF4AEBF838644CB3A7BCFF15EE4CD2E" />
   <!-- <meta name="yandex-verification" content="YOUR_YANDEX_CODE" /> -->
 
@@ -43,15 +42,23 @@
   <meta property="og:image:secure_url" content="https://reicon.dev/og-image.png" />
   <meta property="og:locale" content="en_US" />
 
-  <!-- ── Twitter / X Card ─────────────────────────────────────────────────── -->
+  <!-- ── Twitter / X Card (ENHANCED) ─────────────────────────────────────────────────── -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@reicon_dev" />
   <meta name="twitter:creator" content="@reicon_dev" />
+  <meta name="twitter:domain" content="reicon.dev" />
   <meta name="twitter:title" content="Reicon — Free Open-Source Icon Library" />
   <meta name="twitter:description"
     content="Free, open-source SVG icon library built with obsessive precision. Pixel-perfect, handcrafted icons for UI design, React, Vue, Figma, and the web." />
   <meta name="twitter:image" content="https://reicon.dev/og-image.png" />
+  <meta name="twitter:image:src" content="https://reicon.dev/og-image.png" />
   <meta name="twitter:image:alt" content="Reicon — Free Open-Source Icon Library" />
+  <meta name="twitter:image:width" content="1200" />
+  <meta name="twitter:image:height" content="630" />
+  <meta name="twitter:label1" content="Icons" />
+  <meta name="twitter:data1" content="1700+" />
+  <meta name="twitter:label2" content="License" />
+  <meta name="twitter:data2" content="MIT" />
 
   <!-- ── Favicon ───────────────────────────────────────────────────────────── -->
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
@@ -223,8 +230,20 @@
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="dns-prefetch" href="https://cdn.reicon.dev" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://cdn.reicon.dev" crossorigin />
+
+  <!-- ── Resource Preloading ─────────────────────────────────────────────── -->
+  <link rel="preload" as="image" href="/og-image.png" />
+  <link rel="preload" as="image" href="/reicon.png" />
+
+  <!-- ── Security Headers ─────────────────────────────────────────────────── -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
 
   <!-- ── Fonts (with display=swap for CLS) ─────────────────────────────────── -->
   <link
