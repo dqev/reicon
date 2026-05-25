@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import newIconsData from '../data/new-icons-added.json';
 
 const STYLE_OPTIONS = ['All', 'Outline', 'Filled'] as const;
 const SIZE_OPTIONS = ['12', '18', '24', '32'] as const;
+const NEW_ICONS_COUNT = (newIconsData as string[]).length;
 
 interface SidebarProps {
   activeSet: string;
@@ -10,6 +12,8 @@ interface SidebarProps {
   onStyleChange: (style: string) => void;
   activeSize: string;
   onSizeChange: (size: string) => void;
+  showNew: boolean;
+  onNewToggle: (val: boolean) => void;
 }
 
 export default function Sidebar({
@@ -19,6 +23,8 @@ export default function Sidebar({
   onStyleChange,
   activeSize,
   onSizeChange,
+  showNew,
+  onNewToggle,
 }: SidebarProps) {
   const [categories, setCategories] = useState<string[]>([]);
 
@@ -42,6 +48,26 @@ export default function Sidebar({
 
   return (
     <aside className="w-52 shrink-0 hidden lg:block overflow-y-auto h-[calc(100vh-3.5rem)] sticky top-14 p-4">
+      {/* New Icons */}
+      <div className="mb-6">
+        <button
+          onClick={() => onNewToggle(!showNew)}
+          className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${showNew
+              ? 'bg-[#6C5CE7]/15 text-[#6C5CE7] border border-[#6C5CE7]/30'
+              : 'bg-white/[0.04] text-white/60 border border-white/[0.06] hover:bg-white/[0.06] hover:text-white/80'
+            }`}
+        >
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            New Icons
+          </span>
+          <span className={`text-[11px] font-semibold px-1.5 py-0.5 rounded-full ${showNew ? 'bg-[#6C5CE7]/25 text-[#6C5CE7]' : 'bg-white/10 text-white/50'
+            }`}>
+            {NEW_ICONS_COUNT}
+          </span>
+        </button>
+      </div>
+
       {/* Style Filter */}
       <div className="mb-6">
         <h3 className="text-[11px] font-medium text-white/40 uppercase tracking-wider mb-2">Style</h3>

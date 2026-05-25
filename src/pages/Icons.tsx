@@ -1,10 +1,14 @@
 import { useState, useEffect, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import IconCard from '../components/IconCard';
 import { Magnifier } from 'reicon-react';
 import { BsChevronExpand } from 'react-icons/bs';
+import newIconsData from '../data/new-icons-added.json';
+
+const NEW_ICONS_SET = new Set(newIconsData as string[]);
 
 declare global {
   interface Window {
@@ -40,6 +44,7 @@ function saveCache(icons: string[], categories: string[]) {
 }
 
 export default function IconsPage() {
+  const [searchParams] = useSearchParams();
   const cached = loadCache();
   const [allIcons, setAllIcons] = useState<string[]>(cached.icons);
   const [categories, setCategories] = useState<string[]>(cached.categories);
@@ -48,6 +53,7 @@ export default function IconsPage() {
   const [activeStyle, setActiveStyle] = useState('All');
   const [activeSize, setActiveSize] = useState('32');
   const [categoryMap, setCategoryMap] = useState<Record<string, string>>({});
+  const [showNew, setShowNew] = useState(searchParams.get('new') === 'true');
 
   useEffect(() => {
     function loadIcons() {
@@ -65,6 +71,9 @@ export default function IconsPage() {
 
   const filteredIcons = useMemo(() => {
     let icons = allIcons;
+    if (showNew) {
+      icons = icons.filter((name) => NEW_ICONS_SET.has(name));
+    }
     if (activeSet !== 'all' && Object.keys(categoryMap).length > 0) {
       icons = icons.filter((name) => categoryMap[name] === activeSet);
     }
@@ -73,7 +82,7 @@ export default function IconsPage() {
       icons = icons.filter((name) => name.toLowerCase().includes(q));
     }
     return icons;
-  }, [searchQuery, allIcons, activeSet, categoryMap]);
+  }, [searchQuery, allIcons, activeSet, categoryMap, showNew]);
 
   // Batch preload all visible icons so each <re-icon> doesn't fetch individually
   useEffect(() => {
@@ -133,6 +142,8 @@ export default function IconsPage() {
           onStyleChange={setActiveStyle}
           activeSize={activeSize}
           onSizeChange={setActiveSize}
+          showNew={showNew}
+          onNewToggle={setShowNew}
         />
 
         {/* Main content */}
@@ -151,6 +162,26 @@ export default function IconsPage() {
                 className="w-full bg-white/5 border border-white/10 rounded-lg pl-9 pr-4 py-2.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-white/25 focus:bg-white/10 transition-all"
               />
             </div>
+          </div>
+
+          {/* Mobile — New Icons button */}
+          <div className="lg:hidden mb-3">
+            <button
+              onClick={() => setShowNew(!showNew)}
+              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${showNew
+                ? 'bg-[#6C5CE7]/15 text-[#6C5CE7] border border-[#6C5CE7]/30'
+                : 'bg-white/[0.04] text-white/60 border border-white/[0.06]'
+                }`}
+            >
+              <span className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                New Icons
+              </span>
+              <span className={`text-[11px] font-semibold px-1.5 py-0.5 rounded-full ${showNew ? 'bg-[#6C5CE7]/25 text-[#6C5CE7]' : 'bg-white/10 text-white/50'
+                }`}>
+                {(newIconsData as string[]).length}
+              </span>
+            </button>
           </div>
 
           {/* Mobile filters — category, weight, size */}
