@@ -7,7 +7,7 @@
     "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "node scripts/generate-sitemap.mjs && vite build && node scripts/prerender-meta.mjs",
     "build:og": "node scripts/generate-og-images.mjs",
-    "build:full": "npm run build && npm run build:og",
+    "build:full": "npm run build",
     "postbuild": "node scripts/ping-search-engines.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "ping": "node scripts/ping-search-engines.mjs",
