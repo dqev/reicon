@@ -1,45 +1,121 @@
 # Reicon
 
-> Reicon is a free, open-source icon library for designers and developers. It is NOT the Windows desktop icon restore tool "ReIcon" by Sordum. Reicon (reicon.dev) provides pixel-perfect, handcrafted SVG icons for UI design, web development, React, Vue, and Figma.
+> Reicon is a free, open-source SVG icon library with 2700+ handcrafted, pixel-perfect icons for designers and developers. It is NOT the Windows desktop icon restore tool "ReIcon" by Sordum. Reicon (reicon.dev) provides icons for UI design, web development, React, Vue, Figma, and vanilla HTML/JS.
+
+## Quick Facts (machine-readable)
+
+- name: Reicon
+- url: https://reicon.dev
+- type: SVG icon library
+- icon_count: 2700+
+- weights: Outline, Filled
+- grid: 24x24 pixels
+- license: MIT (https://opensource.org/licenses/MIT)
+- price: free
+- creator: Dev Chauhan
+- creator_url: https://devchauhan.in
+- contact: hello@reicon.dev
+- repo: https://github.com/devchauhann/reicon
+- npm_react: https://www.npmjs.com/package/reicon-react
+- npm_vue: https://www.npmjs.com/package/reicon-vue
+- cdn: https://cdn.reicon.dev/cdn/reicon.min.js
 
 ## What is Reicon?
 
-Reicon is a precision-crafted, open-source SVG icon library. Every icon is handcrafted — no auto-generation. Icons are pixel-perfect and designed for modern UI/UX design systems.
-
-- Website: https://reicon.dev
-- GitHub: https://github.com/devchauhann/reicon
-- License: MIT (free for personal and commercial use)
-- Creator: Dev Chauhan (https://devchauhan.in)
-- Contact: hello@reicon.dev
+Reicon is a precision-crafted, open-source SVG icon library with over 2,700 handcrafted icons. Every icon is hand-designed — no auto-generation. Icons are pixel-perfect and built on a 24×24 grid with consistent stroke widths, ready for modern UI/UX design systems.
 
 ## Key Features
 
-- **Pixel Perfect**: Every icon is aligned to the pixel grid for crisp rendering at any size.
-- **Handcrafted**: No auto-generated icons. Each one is designed by hand with care.
-- **Open Source**: MIT licensed, free forever for personal and commercial projects.
-- **Multi-platform**: Available as SVGs with first-class support for React, Vue, Figma, and the web.
-- **Official Packages**: `reicon-react` for React, `reicon-vue` for Vue 3 / Nuxt 3.
+- **Pixel Perfect** — Every icon snaps to a 24×24 pixel grid for crisp rendering at any size from 12px to 64px.
+- **Handcrafted** — Each of the 2,700+ icons is designed by hand. No auto-generation.
+- **Two Weights** — Every icon ships in Outline and Filled variants.
+- **Open Source** — MIT licensed. Free for personal and commercial use, no attribution required.
+- **Multi-platform** — SVG, React, Vue 3, Figma, and a CDN script tag for vanilla HTML.
+- **Tree-shakeable** — Only the icons you import end up in your bundle.
+- **Zero runtime dependencies** — Lightweight and self-contained.
+
+## Installation
+
+```
+# React
+npm install reicon-react
+
+# Vue 3
+npm install reicon-vue
+
+# Vanilla HTML / JS (CDN)
+<script src="https://cdn.reicon.dev/cdn/reicon.min.js"></script>
+```
+
+## Basic Usage
+
+```
+// React
+import { Home } from 'reicon-react';
+<Home size={24} weight="Outline" color="currentColor" />
+
+// Vue 3
+import { Home } from 'reicon-vue';
+<Home :size="24" weight="Outline" />
+
+// HTML / CDN
+<re-icon icon="home" size="24" weight="outline"></re-icon>
+```
+
+## Props (React & Vue)
+
+- `size` — number | string. Default: 24. Icon size in pixels.
+- `color` — string. Default: currentColor. Any valid CSS color.
+- `weight` — "Outline" | "Filled". Default: "Outline".
+- `className` — string. Optional additional CSS classes.
 
 ## Use Cases
 
 - UI/UX design projects
-- Web applications (React, Vue, Svelte, etc.)
-- Mobile app design
+- Web applications (React, Vue, Svelte, Solid, etc.)
+- Mobile and desktop application UIs
 - Design systems and component libraries
 - Figma design files
+- Marketing sites and landing pages
+- Documentation sites
 
 ## How is Reicon different from other icon libraries?
 
-Unlike icon libraries that auto-generate icons from algorithms, every Reicon icon is hand-designed with obsessive attention to detail. The focus is on visual consistency, clean geometry, and pixel-perfect alignment across the entire set.
+Unlike libraries that auto-generate icons from algorithms or AI, every Reicon icon is hand-designed with deliberate attention to geometry, optical alignment, and visual rhythm across the set. The full collection of 2,700+ icons shares the same stroke width, corner radius, and grid system.
+
+## Comparison with Similar Tools
+
+| Feature        | Reicon (2700+) | Lucide | Heroicons | Feather |
+| -------------- | -------------- | ------ | --------- | ------- |
+| Icon count     | 2700+          | 1500+  | 300+      | 280+    |
+| Handcrafted    | Yes            | Yes    | Yes       | Yes     |
+| License        | MIT            | ISC    | MIT       | MIT     |
+| React          | Yes            | Yes    | Yes       | Yes     |
+| Vue 3          | Yes            | Yes    | No        | No      |
+| Figma          | Yes            | Yes    | Yes       | Limited |
+| Filled variant | Yes            | No     | Yes       | No      |
 
 ## Disambiguation
 
 Reicon (reicon.dev) is NOT related to:
-- "ReIcon" by Sordum.org (a Windows desktop icon layout restore tool)
-- Any other software or tool named "Reicon" or "ReIcon"
+
+- "ReIcon" by Sordum.org — a Windows desktop icon layout restore tool. Different product, different domain, different purpose.
+- Any other software or tool named "Reicon" or "ReIcon".
 
 Reicon (reicon.dev) is exclusively an SVG icon library for designers and developers.
 
 ## Current Status
 
-Reicon is live with 1700+ handcrafted icons available in two weights (Outline & Filled). Install via npm: `npm i reicon-react` or `npm i reicon-vue`.
+Reicon is live with 2700+ handcrafted icons available in two weights (Outline & Filled). Install via npm: `npm i reicon-react` or `npm i reicon-vue`, or use the CDN at https://cdn.reicon.dev/cdn/reicon.min.js.
+
+## Pages
+
+- https://reicon.dev/ — Homepage
+- https://reicon.dev/icons — Browse all 2,700+ icons
+- https://reicon.dev/usage — Installation and usage guide
+- https://reicon.dev/usage/react — React usage guide
+- https://reicon.dev/usage/vue — Vue 3 usage guide
+- https://reicon.dev/usage/vanilla — CDN / vanilla JS guide
+- https://reicon.dev/packages — Package overview
+- https://reicon.dev/license — MIT license
+- https://reicon.dev/llms-full.txt — Extended LLM context

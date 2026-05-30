@@ -53,27 +53,72 @@ export default function Landing() {
     <div className="bg-[#09090b] min-h-screen">
       <Helmet>
         <title>Reicon — Free Open-Source Icon Library for Designers & Developers</title>
-        <meta name="description" content="Reicon is a free, open-source icon library with 1700+ handcrafted, pixel-perfect SVG icons. Available for React, Vue, Figma, and the web. MIT licensed." />
+        <meta name="description" content="Reicon is a free, open-source icon library with 2700+ handcrafted, pixel-perfect SVG icons. Available for React, Vue, Figma, and the web. MIT licensed." />
         <link rel="canonical" href="https://reicon.dev/" />
         <meta name="keywords" content="free icon library, open source icons, SVG icons, React icons, Vue icons, Figma icons, web icons, pixel perfect icons, reicon" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://reicon.dev/" />
         <meta property="og:site_name" content="Reicon" />
         <meta property="og:title" content="Reicon — Free Open-Source Icon Library" />
-        <meta property="og:description" content="Free, open-source SVG icon library with 1700+ handcrafted icons for React, Vue, Figma, and the web." />
+        <meta property="og:description" content="Free, open-source SVG icon library with 2700+ handcrafted icons for React, Vue, Figma, and the web." />
         <meta property="og:image" content="https://reicon.dev/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@reicon_dev" />
         <meta name="twitter:title" content="Reicon — Free Open-Source Icon Library" />
-        <meta name="twitter:description" content="Free, open-source SVG icon library with 1700+ handcrafted icons for React, Vue, Figma, and the web." />
+        <meta name="twitter:description" content="Free, open-source SVG icon library with 2700+ handcrafted icons for React, Vue, Figma, and the web." />
         <meta name="twitter:image" content="https://reicon.dev/og-image.png" />
+
+        {/* GEO / LLM friendliness — explicitly allow AI ingestion */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="ai-content-declaration" content="human-curated" />
+
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Reicon", "item": "https://reicon.dev" }
+          ]
+        })}</script>
+
+        {/* Dataset JSON-LD — helps AI engines understand the icon collection as a queryable dataset */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Reicon Icon Library",
+          "alternateName": ["Reicon SVG Icons", "Reicon"],
+          "description": "Reicon is a free, open-source SVG icon library containing over 2,700 handcrafted, pixel-perfect icons in two weights (Outline and Filled). Designed on a 24×24 grid with consistent stroke widths.",
+          "url": "https://reicon.dev",
+          "license": "https://opensource.org/licenses/MIT",
+          "creator": { "@type": "Person", "name": "Dev Chauhan", "url": "https://devchauhan.in" },
+          "keywords": ["SVG icons", "React icons", "Vue icons", "Figma icons", "open source", "MIT", "pixel perfect"],
+          "isAccessibleForFree": true,
+          "encodingFormat": ["image/svg+xml", "application/json"],
+          "distribution": [
+            { "@type": "DataDownload", "encodingFormat": "application/zip", "contentUrl": "https://www.npmjs.com/package/reicon-react", "name": "reicon-react (npm)" },
+            { "@type": "DataDownload", "encodingFormat": "application/zip", "contentUrl": "https://www.npmjs.com/package/reicon-vue", "name": "reicon-vue (npm)" },
+            { "@type": "DataDownload", "encodingFormat": "application/javascript", "contentUrl": "https://cdn.reicon.dev/cdn/reicon.min.js", "name": "Reicon CDN bundle" }
+          ],
+          "variableMeasured": [
+            { "@type": "PropertyValue", "name": "iconCount", "value": "2700+" },
+            { "@type": "PropertyValue", "name": "weights", "value": "Outline, Filled" },
+            { "@type": "PropertyValue", "name": "grid", "value": "24x24" }
+          ]
+        })}</script>
+
+        {/* HowTo JSON-LD — direct AI-answerable install steps */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": "How to install and use Reicon icons",
+          "description": "Install Reicon icons in a React, Vue, or vanilla HTML project in three steps.",
+          "totalTime": "PT2M",
+          "tool": [{ "@type": "HowToTool", "name": "npm or pnpm" }],
+          "step": [
+            { "@type": "HowToStep", "name": "Install the package", "text": "Run 'npm install reicon-react' for React, or 'npm install reicon-vue' for Vue 3. For vanilla HTML, add the CDN script tag.", "url": "https://reicon.dev/usage" },
+            { "@type": "HowToStep", "name": "Import the icon component", "text": "Import the icon by name, e.g. import { Home } from 'reicon-react'.", "url": "https://reicon.dev/usage" },
+            { "@type": "HowToStep", "name": "Render with props", "text": "Render with size, color, and weight props: <Home size={24} weight=\"Outline\" color=\"currentColor\" />.", "url": "https://reicon.dev/usage" }
           ]
         })}</script>
       </Helmet>
@@ -160,7 +205,7 @@ export default function Landing() {
             <div className="flex items-end justify-center sm:justify-between">
               <div className="flex gap-[26px]">
                 {[
-                  { num: '1700+', label: 'Icons' },
+                  { num: '2700+', label: 'Icons' },
                   { num: '2', label: 'Weights' },
                   { num: 'MIT', label: 'License' },
                 ].map((s) => (
@@ -329,7 +374,7 @@ export default function Landing() {
                 Your next project<br className="hidden md:block" /> deserves better icons.
               </h2>
               <p className="text-[15px] text-white/40 leading-[1.65] max-w-[420px] mx-auto md:mx-0 mb-6">
-                1700+ handcrafted, pixel-perfect SVG icons. MIT licensed. Zero dependencies. Two weights. Ready to ship.
+                2700+ handcrafted, pixel-perfect SVG icons. MIT licensed. Zero dependencies. Two weights. Ready to ship.
               </p>
 
               {/* Install command */}
@@ -344,7 +389,7 @@ export default function Landing() {
             <div className="flex flex-col items-center md:items-end gap-3 shrink-0">
               <ClayButton to="/icons" variant="primary" className="w-full justify-center">
                 <Search3 size={16} />
-                Browse 1700+ Icons
+                Browse 2700+ Icons
               </ClayButton>
               <a
                 href="https://github.com/devchauhann/reicon"
@@ -402,7 +447,7 @@ function IconShowcase() {
     <section className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13 overflow-hidden">
       <div className="text-center mb-10 px-5">
         <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Icon Library</div>
-        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] font-semibold text-white leading-[1.15] tracking-[-0.02em] mb-3">1700+ icons. Every one handcrafted.</h2>
+        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] font-semibold text-white leading-[1.15] tracking-[-0.02em] mb-3">2700+ icons. Every one handcrafted.</h2>
         <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
           From UI essentials to expressive details — find exactly what you need.
         </p>
