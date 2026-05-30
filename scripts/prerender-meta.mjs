@@ -25,7 +25,7 @@ const STATIC_PAGES = [
   {
     path: '/',
     title: 'Reicon — Free Open-Source Icon Library for Designers & Developers',
-    desc: 'Reicon is a free, open-source icon library with 1700+ handcrafted, pixel-perfect SVG icons for React, Vue, Figma, and the web. MIT licensed.',
+    desc: 'Reicon is a free, open-source icon library with 2700+ handcrafted, pixel-perfect SVG icons for React, Vue, Figma, and the web. MIT licensed.',
     url: `${SITE}/`,
     ogImage: `${SITE}/og-image.png`,
     breadcrumb: {
@@ -38,8 +38,8 @@ const STATIC_PAGES = [
   },
   {
     path: '/icons',
-    title: 'Browse 1700+ Free Icons — Reicon Icon Library',
-    desc: 'Browse and search 1700+ free, open-source SVG icons. Filter by category, weight, and size. Copy React, Vue, or HTML code instantly.',
+    title: 'Browse 2700+ Free Icons — Reicon Icon Library',
+    desc: 'Browse and search 2700+ free, open-source SVG icons. Filter by category, weight, and size. Copy React, Vue, or HTML code instantly.',
     url: `${SITE}/icons`,
     ogImage: `${SITE}/og-image.png`,
     breadcrumb: {

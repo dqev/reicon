@@ -199,7 +199,7 @@ async function runTests() {
   log('\n🔗 Test 8: Canonical URL', 'magenta');
   log('─'.repeat(60), 'blue');
   
-  const canonicalPattern = /<link rel="canonical" href="([^"]*)">/i;
+  const canonicalPattern = /<link\s+rel="canonical"\s+href="([^"]*)"\s*\/?>/i;
   const canonicalMatch = html.match(canonicalPattern);
   
   if (canonicalMatch) {

@@ -21,7 +21,7 @@
   <a href="https://www.npmjs.com/package/reicon-react"><img src="https://img.shields.io/npm/v/reicon-react?color=6C5CE7&label=reicon-react" alt="reicon-react version" /></a>
   <a href="https://www.npmjs.com/package/reicon-react"><img src="https://img.shields.io/npm/dm/reicon-react?color=6C5CE7&label=downloads" alt="npm downloads" /></a>
   <a href="https://github.com/devchauhann/reicon/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" /></a>
-  <a href="https://reicon.dev/icons"><img src="https://img.shields.io/badge/icons-1700%2B-blue" alt="1700+ Icons" /></a>
+  <a href="https://reicon.dev/icons"><img src="https://img.shields.io/badge/icons-2700%2B-blue" alt="2700+ Icons" /></a>
   <a href="https://www.npmjs.com/package/reicon-react"><img src="https://img.shields.io/bundlephobia/minzip/reicon-react?color=6C5CE7&label=size" alt="bundle size" /></a>
 </p>
 
@@ -49,7 +49,7 @@
 
 This repository contains the source code for [reicon.dev](https://reicon.dev), a modern, performant website showcasing the Reicon icon library. Built with React 19, TypeScript, and Tailwind CSS v4, the site features:
 
-- **1700+ handcrafted icons** with live preview and search
+- **2700+ handcrafted icons** with live preview and search
 - **Interactive playground** for testing icon configurations
 - **Comprehensive documentation** for React, Vue, and vanilla JS
 - **Pixel-perfect design** with smooth animations and transitions
@@ -61,7 +61,7 @@ This repository contains the source code for [reicon.dev](https://reicon.dev), a
 ## ✨ Features
 
 ### Icon Library
-- **1700+ Icons** — Outline and Filled weights for every icon
+- **2700+ Icons** — Outline and Filled weights for every icon
 - **Pixel Perfect** — Every icon snaps to a 24×24 grid
 - **Handcrafted** — No auto-generation, each icon is manually designed
 - **Tree Shakeable** — Import only what you use
