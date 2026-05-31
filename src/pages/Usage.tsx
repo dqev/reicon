@@ -10,6 +10,11 @@ import CdnUsage from './usage/CdnUsage';
 import PropsTable from './usage/PropsTable';
 import Weights from './usage/Weights';
 import TypeScriptSection from './usage/TypeScriptSection';
+import Accessibility from './usage/Accessibility';
+import Styling from './usage/Styling';
+import Performance from './usage/Performance';
+import Troubleshooting from './usage/Troubleshooting';
+import EditOnGitHub from '../components/usage/EditOnGitHub';
 import { FaReact } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io5';
 
@@ -29,8 +34,14 @@ const NAV_ITEMS = {
     { id: 'props', label: 'Props' },
     { id: 'weights', label: 'Icon Weights' },
   ],
+  guides: [
+    { id: 'styling', label: 'Styling & Color' },
+    { id: 'accessibility', label: 'Accessibility' },
+    { id: 'performance', label: 'Performance' },
+  ],
   advanced: [
     { id: 'typescript', label: 'TypeScript' },
+    { id: 'troubleshooting', label: 'Troubleshooting' },
   ],
 };
 
@@ -47,6 +58,8 @@ export default function UsagePage() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [otpIndicatorStyle, setOtpIndicatorStyle] = useState({ top: 0, height: 0, opacity: 0 });
+  const otpListRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const fw = fwParam as Framework;
@@ -63,7 +76,11 @@ export default function UsagePage() {
     { id: frameworkSectionId, label: frameworkLabel },
     { id: 'props', label: 'Props' },
     { id: 'weights', label: 'Icon Weights' },
+    { id: 'styling', label: 'Styling & Color' },
+    { id: 'accessibility', label: 'Accessibility' },
+    { id: 'performance', label: 'Performance' },
     { id: 'typescript', label: 'TypeScript' },
+    { id: 'troubleshooting', label: 'Troubleshooting' },
   ];
 
   const copyToClipboard = async (text: string, field: string) => {
@@ -114,6 +131,20 @@ export default function UsagePage() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    if (!otpListRef.current) return;
+    const activeEl = otpListRef.current.querySelector('.otp-item.active') as HTMLElement;
+    if (activeEl) {
+      setOtpIndicatorStyle({
+        top: activeEl.offsetTop + (activeEl.offsetHeight - 16) / 2,
+        height: 16,
+        opacity: 1
+      });
+    } else {
+      setOtpIndicatorStyle(prev => ({ ...prev, opacity: 0 }));
+    }
+  }, [activeSection, framework]);
+
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     setMobileNavOpen(false);
@@ -141,22 +172,26 @@ export default function UsagePage() {
 
   const selectedFw = FRAMEWORKS.find((f) => f.id === framework)!;
 
-  const renderNavItem = (item: { id: string; label: string }) => (
-    <li key={item.id}>
-      <button
+  const renderNavItem = (item: { id: string; label: string }) => {
+    const isActive = activeSection === item.id;
+    return (
+      <div
+        key={item.id}
         onClick={() => scrollTo(item.id)}
-        className={`w-full text-left px-2.5 py-1.5 rounded-md text-[13px] transition-colors flex items-center gap-2 ${activeSection === item.id
-          ? 'text-[#6C5CE7]'
-          : 'text-white/50 hover:text-white/80'
-          }`}
+        className={`sidebar-item ${isActive ? 'active' : ''}`}
       >
-        {activeSection === item.id && (
-          <span className="w-1.5 h-1.5 rounded-full bg-[#6C5CE7] shrink-0" />
+        <div className="sidebar-item-line" />
+        {isActive ? (
+          <div className="sidebar-item-active-bar" />
+        ) : (
+          <div className="sidebar-item-hover-bar" />
         )}
-        {item.label}
-      </button>
-    </li>
-  );
+        <span className="sidebar-item-text">
+          {item.label}
+        </span>
+      </div>
+    );
+  };
 
   return (
     <div className="min-h-screen bg-[#09090b] flex flex-col">
@@ -190,52 +225,246 @@ export default function UsagePage() {
       <Header />
 
       <div className="flex flex-1 pt-14">
+        {/* Sidebar scoped CSS */}
+        <style>{`
+          #usage-sidebar {
+            width: 13rem;
+            height: calc(100vh - 3.5rem);
+            position: sticky;
+            top: 3.5rem;
+            overflow-y: auto;
+            padding: 1.25rem 0.75rem;
+            z-index: 30;
+            background-color: #09090b;
+            scrollbar-width: none;
+            flex-shrink: 0;
+          }
+          #usage-sidebar::-webkit-scrollbar { display: none; }
+
+          .reicon-sidebar-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            width: 100%;
+          }
+
+          .sidebar-separator {
+            padding: 0.5rem 0.75rem;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+          }
+          .reicon-sidebar-list > div:first-child .sidebar-separator { margin-top: 0; }
+          .sidebar-separator re-icon { color: rgba(255, 255, 255, 0.35); }
+
+          .sidebar-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0.375rem 0.5rem 0.375rem 1.5rem;
+            margin-left: 0.25rem;
+            border-radius: 8px;
+            cursor: pointer;
+            background: transparent;
+            min-height: 2rem;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            transition: color 0.15s ease, background-color 0.15s ease;
+            user-select: none;
+            border: 0;
+            width: calc(100% - 0.25rem);
+            text-align: left;
+          }
+          .sidebar-item:hover {
+            color: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.03);
+          }
+          .sidebar-item.active {
+            color: #ffffff;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.05);
+          }
+
+          .sidebar-item-line {
+            position: absolute;
+            left: 0.625rem;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: rgba(255, 255, 255, 0.08);
+          }
+          .sidebar-item-active-bar {
+            position: absolute;
+            left: 10.5px;
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            height: 56%;
+            width: 3px;
+            border-radius: 9999px;
+            background-color: #6C5CE7;
+            box-shadow: 0 0 8px rgba(108, 92, 231, 0.5);
+          }
+          .sidebar-item-hover-bar {
+            position: absolute;
+            left: 0.625rem;
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            height: 56%;
+            width: 3px;
+            border-radius: 9999px;
+            background-color: rgba(255, 255, 255, 0.4);
+            opacity: 0;
+            transition: opacity 0.15s ease;
+          }
+          .sidebar-item:hover .sidebar-item-hover-bar { opacity: 0.6; }
+
+          .sidebar-item-text {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding-left: 0.375rem;
+          }
+
+          /* ── RIGHT SIDEBAR: ON THIS PAGE ── */
+          #otp-sidebar {
+            width: 13rem;
+            height: calc(100vh - 3.5rem);
+            position: sticky;
+            top: 3.5rem;
+            overflow-y: auto;
+            padding: 1.25rem 0.5rem;
+            z-index: 30;
+            background-color: #09090b;
+            scrollbar-width: none;
+            flex-shrink: 0;
+          }
+          #otp-sidebar::-webkit-scrollbar { display: none; }
+
+          .otp-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+          }
+
+          .otp-list {
+            position: relative;
+            padding-left: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+          }
+
+          .otp-list::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            bottom: 0.5rem;
+            width: 1px;
+            background-color: rgba(255, 255, 255, 0.08);
+            transform: translateX(-50%);
+          }
+
+          .otp-item {
+            position: relative;
+            list-style: none;
+          }
+
+          .otp-indicator {
+            position: absolute;
+            left: 0; /* positions exactly on the 1px track line */
+            transform: translateX(-50%);
+            width: 3px;
+            border-radius: 9999px;
+            background-color: #6C5CE7;
+            transition: top 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), height 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.2s ease;
+            box-shadow: 0 0 8px rgba(108, 92, 231, 0.5);
+            pointer-events: none;
+          }
+
+          .otp-button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.55);
+            cursor: pointer;
+            transition: color 0.15s ease, font-weight 0.15s ease;
+            user-select: none;
+          }
+
+          .otp-button:hover {
+            color: rgba(255, 255, 255, 0.85);
+          }
+
+          .otp-item.active .otp-button {
+            color: #ffffff;
+            font-weight: 600;
+          }
+        `}</style>
+
         {/* ── Left sidebar navigation ── */}
-        <aside className="w-56 shrink-0 hidden lg:block overflow-y-auto h-[calc(100vh-3.5rem)] sticky top-14 border-r border-white/[0.06] py-6 px-4">
+        <aside id="usage-sidebar" className="hidden lg:block" data-lenis-prevent>
           {/* Getting Started */}
           <div>
-            <h3 className="text-[11px] font-semibold text-white/50 uppercase tracking-wider mb-2 px-2">
-              Getting Started
-            </h3>
-            <ul className="space-y-0.5">
+            <div className="sidebar-separator">
+              <re-icon icon="compass" size="12" />
+              <span>Getting Started</span>
+            </div>
+            <div>
               {NAV_ITEMS.intro.map(renderNavItem)}
-            </ul>
+            </div>
           </div>
 
           {/* Framework Dropdown */}
-          <div className="mt-6 pt-4 border-t border-white/[0.06]">
-            <h3 className="text-[11px] font-semibold text-white/50 uppercase tracking-wider mb-2 px-2">
-              Framework
-            </h3>
-            <div ref={dropdownRef} className="relative mb-3">
+          <div className="mt-4">
+            <div className="sidebar-separator">
+              <re-icon icon="code" size="12" />
+              <span>Framework</span>
+            </div>
+            <div ref={dropdownRef} className="relative mb-2 px-3">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 rounded-lg border border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
+                className="w-full flex items-center justify-between px-3 py-1.5 rounded-lg border border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
               >
-                <div className="flex items-center gap-2.5">
-                  <FrameworkIcon id={selectedFw.id} size={18} />
-                  <span className="text-[13px] text-white/80 font-medium">{selectedFw.label}</span>
+                <div className="flex items-center gap-2">
+                  <FrameworkIcon id={selectedFw.id} size={14} />
+                  <span className="text-[12px] text-white/80 font-medium">{selectedFw.label}</span>
                 </div>
                 <ChevronExpandY className="w-3.5 h-3.5 text-white/30" />
               </button>
 
               {dropdownOpen && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-[#141416] border border-white/[0.1] rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-50">
+                <div className="absolute top-full left-3 right-3 mt-1 bg-[#141416] border border-white/[0.1] rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-50">
                   {FRAMEWORKS.map((fw) => (
                     <button
                       key={fw.id}
                       onClick={() => switchFramework(fw.id)}
-                      className={`w-full flex items-center justify-between px-3 py-2.5 text-[13px] transition-colors ${framework === fw.id
+                      className={`w-full flex items-center justify-between px-3 py-2 text-[12px] transition-colors ${framework === fw.id
                         ? 'bg-white/[0.06] text-white'
                         : 'text-white/60 hover:bg-white/[0.04] hover:text-white/80'
                         }`}
                     >
-                      <div className="flex items-center gap-2.5">
-                        <FrameworkIcon id={fw.id} size={18} />
+                      <div className="flex items-center gap-2">
+                        <FrameworkIcon id={fw.id} size={14} />
                         <span className={framework === fw.id ? 'font-medium' : ''}>{fw.label}</span>
                       </div>
                       {framework === fw.id && (
-                        <svg className="w-4 h-4 text-[#6C5CE7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <svg className="w-3.5 h-3.5 text-[#6C5CE7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                           <polyline points="20 6 9 17 4 12" />
                         </svg>
                       )}
@@ -245,29 +474,42 @@ export default function UsagePage() {
               )}
             </div>
 
-            <ul className="space-y-0.5">
+            <div>
               {renderNavItem({ id: frameworkSectionId, label: frameworkLabel })}
-            </ul>
+            </div>
           </div>
 
           {/* Basics */}
-          <div className="mt-6 pt-4 border-t border-white/[0.06]">
-            <h3 className="text-[11px] font-semibold text-white/50 uppercase tracking-wider mb-2 px-2">
-              Basics
-            </h3>
-            <ul className="space-y-0.5">
+          <div className="mt-4">
+            <div className="sidebar-separator">
+              <re-icon icon="settings" size="12" />
+              <span>Basics</span>
+            </div>
+            <div>
               {NAV_ITEMS.basics.map(renderNavItem)}
-            </ul>
+            </div>
+          </div>
+
+          {/* Guides */}
+          <div className="mt-4">
+            <div className="sidebar-separator">
+              <re-icon icon="palette" size="12" />
+              <span>Guides</span>
+            </div>
+            <div>
+              {NAV_ITEMS.guides.map(renderNavItem)}
+            </div>
           </div>
 
           {/* Advanced */}
-          <div className="mt-6 pt-4 border-t border-white/[0.06]">
-            <h3 className="text-[11px] font-semibold text-white/50 uppercase tracking-wider mb-2 px-2">
-              Advanced
-            </h3>
-            <ul className="space-y-0.5">
+          <div className="mt-4">
+            <div className="sidebar-separator">
+              <re-icon icon="help-circle" size="12" />
+              <span>Advanced</span>
+            </div>
+            <div>
               {NAV_ITEMS.advanced.map(renderNavItem)}
-            </ul>
+            </div>
           </div>
         </aside>
 
@@ -329,6 +571,7 @@ export default function UsagePage() {
 
         {/* ── Main content ── */}
         <main ref={contentRef} className="flex-1 min-w-0 px-4 md:px-8 lg:px-12 xl:px-16 py-8 pt-28 lg:pt-8">
+          <div className="max-w-3xl">
           {/* What is Reicon */}
           <section id="what-is-reicon" data-section className="mb-12 scroll-mt-24">
             <h1 className="text-3xl md:text-4xl font-serif text-white mb-6">What is Reicon?</h1>
@@ -364,25 +607,60 @@ export default function UsagePage() {
           <hr className="border-white/[0.06] mb-12" />
 
           <TypeScriptSection copiedField={copiedField} onCopy={copyToClipboard} />
+
+          <hr className="border-white/[0.06] mb-12" />
+
+          <Styling copiedField={copiedField} onCopy={copyToClipboard} />
+
+          <hr className="border-white/[0.06] mb-12" />
+
+          <Accessibility copiedField={copiedField} onCopy={copyToClipboard} />
+
+          <hr className="border-white/[0.06] mb-12" />
+
+          <Performance copiedField={copiedField} onCopy={copyToClipboard} />
+
+          <hr className="border-white/[0.06] mb-12" />
+
+          <Troubleshooting copiedField={copiedField} onCopy={copyToClipboard} />
+
+          <EditOnGitHub filePath="src/pages/Usage.tsx" />
+          </div>
         </main>
 
         {/* ── Right sidebar: On this page ── */}
-        <aside className="w-52 shrink-0 hidden xl:block h-[calc(100vh-3.5rem)] sticky top-14 border-l border-white/[0.06] py-6 px-5">
-          <h3 className="text-[11px] font-semibold text-white/50 uppercase tracking-wider mb-3">On this page</h3>
-          <ul className="space-y-1">
-            {onThisPage.map((s) => (
-              <li key={s.id}>
-                <button
-                  onClick={() => scrollTo(s.id)}
-                  className={`w-full text-left text-[12px] py-1 transition-colors ${activeSection === s.id
-                    ? 'text-[#6C5CE7]'
-                    : 'text-white/40 hover:text-white/60'
-                    }`}
-                >
-                  {s.label}
-                </button>
-              </li>
-            ))}
+        <aside id="otp-sidebar" className="hidden xl:block" data-lenis-prevent>
+          <div className="otp-header">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white/60">
+              <line x1="21" y1="10" x2="3" y2="10" />
+              <line x1="21" y1="6" x2="3" y2="6" />
+              <line x1="21" y1="14" x2="3" y2="14" />
+              <line x1="21" y1="18" x2="3" y2="18" />
+            </svg>
+            <span>On this page</span>
+          </div>
+          <ul className="otp-list" ref={otpListRef}>
+            <div
+              className="otp-indicator"
+              style={{
+                top: `${otpIndicatorStyle.top}px`,
+                height: `${otpIndicatorStyle.height}px`,
+                opacity: otpIndicatorStyle.opacity,
+              }}
+            />
+            {onThisPage.map((s) => {
+              const isActive = activeSection === s.id;
+              return (
+                <li key={s.id} className={`otp-item ${isActive ? 'active' : ''}`}>
+                  <button
+                    onClick={() => scrollTo(s.id)}
+                    className="otp-button"
+                  >
+                    {s.label}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </aside>
       </div>

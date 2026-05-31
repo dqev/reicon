@@ -49,7 +49,7 @@ export default function SyntaxBlock({
       {/* Body — inset card */}
       <div className="px-1.5 pb-1.5">
         <div className="bg-[#09090b] rounded-md">
-          <pre className="p-4 text-[13px] font-mono leading-[1.7] overflow-x-auto whitespace-pre-wrap break-all focus-visible:outline-none">
+          <pre className="p-4 text-[13px] font-mono leading-[1.7] overflow-x-auto whitespace-pre-wrap break-words focus-visible:outline-none">
             {children}
           </pre>
         </div>

@@ -5,6 +5,7 @@ import IconsPage from './pages/Icons';
 import IconDetail from './pages/IconDetail';
 import UsagePage from './pages/Usage';
 import PackagesPage from './pages/Packages';
+import FaqPage from './pages/Faq';
 import NotFound from './pages/NotFound';
 import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/usage" element={<UsagePage />} />
           <Route path="/usage/:framework" element={<UsagePage />} />
           <Route path="/packages" element={<PackagesPage />} />
+          <Route path="/faq" element={<FaqPage />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/license" element={<LicensePage />} />

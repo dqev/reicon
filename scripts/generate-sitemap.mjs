@@ -26,6 +26,7 @@ const STATIC_PAGES = [
   { loc: '/usage/vanilla', priority: '0.8', changefreq: 'monthly' },
   { loc: '/packages', priority: '0.7', changefreq: 'monthly' },
   { loc: '/pack', priority: '0.7', changefreq: 'monthly' },
+  { loc: '/faq', priority: '0.7', changefreq: 'monthly' },
   { loc: '/terms', priority: '0.3', changefreq: 'yearly' },
   { loc: '/privacy', priority: '0.3', changefreq: 'yearly' },
   { loc: '/license', priority: '0.3', changefreq: 'yearly' },

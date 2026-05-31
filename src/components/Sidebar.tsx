@@ -189,7 +189,7 @@ function Sidebar({
       <SidebarStyles />
 
       {/* Desktop sticky panel */}
-      <aside id="nd-sidebar" className="hidden lg:flex">
+      <aside id="nd-sidebar" className="hidden lg:flex" data-lenis-prevent>
         {sidebarContent}
       </aside>
 
@@ -203,7 +203,7 @@ function Sidebar({
       )}
 
       {/* Mobile drawer */}
-      <aside className={`reicon-sidebar-drawer ${isOpen ? 'is-open' : ''}`}>
+      <aside className={`reicon-sidebar-drawer ${isOpen ? 'is-open' : ''}`} data-lenis-prevent>
         <div className="reicon-sidebar-drawer-head">
           <span className="reicon-sidebar-drawer-title">Filters</span>
           {onClose && (
@@ -239,7 +239,6 @@ function SidebarStyles() {
         padding: 1.25rem 0.75rem;
         z-index: 30;
         background-color: #09090b;
-        border-right: 1px solid rgba(255, 255, 255, 0.06);
         scrollbar-width: none;
         flex-shrink: 0;
       }
@@ -308,9 +307,9 @@ function SidebarStyles() {
       }
       .sidebar-item-active-bar {
         position: absolute;
-        left: 0.5rem;
+        left: 10.5px;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-50%) translateX(-50%);
         height: 56%;
         width: 3px;
         border-radius: 9999px;
@@ -319,9 +318,9 @@ function SidebarStyles() {
       }
       .sidebar-item-hover-bar {
         position: absolute;
-        left: 0.5rem;
+        left: 10.5px;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-50%) translateX(-50%);
         height: 56%;
         width: 3px;
         border-radius: 9999px;

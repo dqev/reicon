@@ -33,7 +33,7 @@ export default function CodeBlock({ code, onCopy, copied }: CodeBlockProps) {
       {/* Body — inset card */}
       <div className="p-1.5">
         <div className="bg-[#09090b] rounded-md">
-          <pre className="p-4 text-[13px] font-mono text-white/75 overflow-x-auto whitespace-pre-wrap break-all leading-[1.7] focus-visible:outline-none">
+          <pre className="p-4 text-[13px] font-mono text-white/75 overflow-x-auto whitespace-pre-wrap break-words leading-[1.7] focus-visible:outline-none">
             {code}
           </pre>
         </div>

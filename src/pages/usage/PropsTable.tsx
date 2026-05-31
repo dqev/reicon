@@ -20,10 +20,28 @@ const ROWS = [
     description: 'Icon weight variant',
   },
   {
+    prop: 'strokeWidth?',
+    type: 'number | string',
+    default: null,
+    description: 'Override stroke width on outline icons',
+  },
+  {
+    prop: 'secondaryColor?',
+    type: 'string',
+    default: 'same as color',
+    description: 'Secondary color for dual-tone icons',
+  },
+  {
     prop: 'className?',
     type: 'string',
     default: null,
     description: 'Additional CSS classes',
+  },
+  {
+    prop: 'ref?',
+    type: 'Ref<SVGSVGElement>',
+    default: null,
+    description: 'Ref forwarded to the SVG element',
   },
 ];
 

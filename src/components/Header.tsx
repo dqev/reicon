@@ -52,6 +52,9 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ className 
           <Link to="/packages" className="text-white/60 hover:text-white text-sm transition-colors px-3 py-1.5">
             Packages
           </Link>
+          <Link to="/faq" className="text-white/60 hover:text-white text-sm transition-colors px-3 py-1.5">
+            FAQ
+          </Link>
           <a
             href="https://github.com/devchauhann/reicon"
             target="_blank"
@@ -102,6 +105,13 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ className 
             className="text-white/60 hover:text-white text-sm py-2 transition-colors"
           >
             Packages
+          </Link>
+          <Link
+            to="/faq"
+            onClick={() => setMenuOpen(false)}
+            className="text-white/60 hover:text-white text-sm py-2 transition-colors"
+          >
+            FAQ
           </Link>
           <a
             href="https://github.com/devchauhann/reicon"

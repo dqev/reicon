@@ -130,6 +130,21 @@ const STATIC_PAGES = [
     },
   },
   {
+    path: '/faq',
+    title: 'Frequently Asked Questions — Reicon | Free Open-Source Icons',
+    desc: 'Frequently asked questions about Reicon icon library. License, Figma integration, React/Vue support, custom request, and contribution guidelines.',
+    url: `${SITE}/faq`,
+    ogImage: `${SITE}/og-image.png`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "FAQ", "item": `${SITE}/faq` }
+      ]
+    },
+  },
+  {
     path: '/pack',
     title: 'Icon Pack Builder — Reicon | Custom Icon Packs',
     desc: 'Select and export custom icon packs from Reicon. Download as SVG, PNG, or WebP ZIP files. Build your own icon set.',
