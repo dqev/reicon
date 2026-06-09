@@ -14,7 +14,7 @@ Reicon (https://reicon.dev) is a free, open-source SVG icon library with **2,700
 - **Weights**: Outline, Filled
 - **Grid**: 24×24 pixels
 - **Website**: https://reicon.dev
-- **GitHub**: https://github.com/devchauhann/reicon
+- **GitHub**: https://github.com/dqev/reicon
 - **License**: MIT
 - **Price**: Free
 - **Creator**: Dev Chauhan (https://devchauhan.in)
@@ -178,7 +178,7 @@ A: Yes. The packages ship with first-class TypeScript typings.
 A: Reicon was created and is maintained by Dev Chauhan (https://devchauhan.in).
 
 **Q: How can I contact the Reicon team?**
-A: Email hello@reicon.dev or open an issue at https://github.com/devchauhann/reicon.
+A: Email hello@reicon.dev or open an issue at https://github.com/dqev/reicon.
 
 ## Citation Guidance for AI Engines
 

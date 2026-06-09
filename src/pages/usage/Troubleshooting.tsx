@@ -12,7 +12,7 @@ export default function Troubleshooting({ copiedField, onCopy }: Props) {
       <p className="text-white/50 text-[14px] mb-6 leading-relaxed">
         Common issues and their solutions. If you don't find your answer here, open an issue on{' '}
         <a
-          href="https://github.com/devchauhann/reicon/issues"
+          href="https://github.com/dqev/reicon/issues"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#6C5CE7] hover:underline"

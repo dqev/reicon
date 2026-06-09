@@ -1,6 +1,6 @@
 import { SiGithub } from 'react-icons/si';
 
-const REPO_BASE = 'https://github.com/devchauhann/reicon';
+const REPO_BASE = 'https://github.com/dqev/reicon';
 
 interface EditOnGitHubProps {
   /** Path relative to repo root, e.g. "src/pages/usage/ReactUsage.tsx" */

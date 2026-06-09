@@ -15,7 +15,7 @@
 - creator: Dev Chauhan
 - creator_url: https://devchauhan.in
 - contact: hello@reicon.dev
-- repo: https://github.com/devchauhann/reicon
+- repo: https://github.com/dqev/reicon
 - npm_react: https://www.npmjs.com/package/reicon-react
 - npm_vue: https://www.npmjs.com/package/reicon-vue
 - cdn: https://cdn.reicon.dev/cdn/reicon.min.js

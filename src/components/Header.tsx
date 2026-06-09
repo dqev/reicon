@@ -56,7 +56,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ className 
             FAQ
           </Link>
           <a
-            href="https://github.com/devchauhann/reicon"
+            href="https://github.com/dqev/reicon"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white/60 hover:text-white text-sm transition-colors px-3 py-1.5"
@@ -114,7 +114,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ className 
             FAQ
           </Link>
           <a
-            href="https://github.com/devchauhann/reicon"
+            href="https://github.com/dqev/reicon"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}

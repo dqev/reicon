@@ -20,7 +20,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/reicon-react"><img src="https://img.shields.io/npm/v/reicon-react?color=6C5CE7&label=reicon-react" alt="reicon-react version" /></a>
   <a href="https://www.npmjs.com/package/reicon-react"><img src="https://img.shields.io/npm/dm/reicon-react?color=6C5CE7&label=downloads" alt="npm downloads" /></a>
-  <a href="https://github.com/devchauhann/reicon/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" /></a>
+  <a href="https://github.com/dqev/reicon/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" /></a>
   <a href="https://reicon.dev/icons"><img src="https://img.shields.io/badge/icons-2700%2B-blue" alt="2700+ Icons" /></a>
   <a href="https://www.npmjs.com/package/reicon-react"><img src="https://img.shields.io/bundlephobia/minzip/reicon-react?color=6C5CE7&label=size" alt="bundle size" /></a>
 </p>
@@ -90,7 +90,7 @@ This repository contains the source code for [reicon.dev](https://reicon.dev), a
 
 ```bash
 # Clone the repository
-git clone https://github.com/devchauhann/reicon.git
+git clone https://github.com/dqev/reicon.git
 cd reicon
 
 # Install dependencies
@@ -568,7 +568,7 @@ Contributions are welcome! Please follow these guidelines:
 - **Icon Browser:** [reicon.dev/icons](https://reicon.dev/icons)
 - **Documentation:** [reicon.dev/usage](https://reicon.dev/usage)
 - **npm Package:** [npmjs.com/package/reicon-react](https://www.npmjs.com/package/reicon-react)
-- **GitHub:** [github.com/devchauhann/reicon](https://github.com/devchauhann/reicon)
+- **GitHub:** [github.com/dqev/reicon](https://github.com/dqev/reicon)
 - **LinkedIn:** [linkedin.com/company/reicon-dev](https://www.linkedin.com/company/reicon-dev)
 - **Bluesky:** [bsky.app/profile/reicondev.bsky.social](https://bsky.app/profile/reicondev.bsky.social)
 

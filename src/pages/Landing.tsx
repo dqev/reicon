@@ -152,7 +152,7 @@ export default function Landing() {
               </nav>
               <div className="hidden md:flex gap-2">
                 <a
-                  href="https://github.com/devchauhann/reicon"
+                  href="https://github.com/dqev/reicon"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[13px] text-white/80 border border-white/25 bg-white/8 backdrop-blur-lg rounded-full px-4 py-[7px] hover:bg-white/15 transition-colors"
@@ -392,7 +392,7 @@ export default function Landing() {
                 Browse 2700+ Icons
               </ClayButton>
               <a
-                href="https://github.com/devchauhann/reicon"
+                href="https://github.com/dqev/reicon"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full justify-center bg-white/[0.05] text-white border border-white/[0.1] px-7 py-3 rounded-full font-medium text-[14px] hover:bg-white/[0.1] active:scale-[0.97] transition-all inline-flex items-center gap-2"

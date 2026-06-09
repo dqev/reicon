@@ -4,7 +4,7 @@ import Logo from '../components/Logo';
 import { BsLinkedin } from 'react-icons/bs';
 
 const socials = [
-  { href: 'https://github.com/devchauhann/reicon', label: 'GitHub', icon: SiGithub },
+  { href: 'https://github.com/dqev/reicon', label: 'GitHub', icon: SiGithub },
   { href: 'https://www.linkedin.com/company/reicon-dev', label: 'LinkedIn', icon: BsLinkedin },
   { href: 'https://www.npmjs.com/package/reicon-react', label: 'npm', icon: SiNpm },
   { href: 'https://bsky.app/profile/reicondev.bsky.social', label: 'Bluesky', icon: SiBluesky },

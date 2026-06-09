@@ -339,7 +339,7 @@ export default function FaqPage() {
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl font-serif text-white mb-6">Frequently Asked Questions</h1>
             <p className="text-white/50 text-[15px] leading-[1.8] mb-12">
-              Everything you need to know about Reicon. If you have a question that isn't answered here, please open a discussion on <a href="https://github.com/devchauhann/reicon" target="_blank" rel="noopener noreferrer" className="text-[#6C5CE7] hover:underline">GitHub</a> or contact us directly.
+              Everything you need to know about Reicon. If you have a question that isn't answered here, please open a discussion on <a href="https://github.com/dqev/reicon" target="_blank" rel="noopener noreferrer" className="text-[#6C5CE7] hover:underline">GitHub</a> or contact us directly.
             </p>
 
             <hr className="border-white/[0.06] mb-12" />
@@ -417,7 +417,7 @@ export default function FaqPage() {
             <section id="request-icon" data-section className="mb-16 scroll-mt-24">
               <h2 className="text-xl font-serif text-white mb-4">How do I request a new icon?</h2>
               <p className="text-white/60 text-[15px] leading-[1.8]">
-                If there is an icon or industry category missing, please open an Issue on our <a href="https://github.com/devchauhann/reicon/issues" target="_blank" rel="noopener noreferrer" className="text-[#6C5CE7] hover:underline">GitHub Issues tracker</a> using the "Icon Request" template. We review requests weekly and design new sets based on user popularity and request volume.
+                If there is an icon or industry category missing, please open an Issue on our <a href="https://github.com/dqev/reicon/issues" target="_blank" rel="noopener noreferrer" className="text-[#6C5CE7] hover:underline">GitHub Issues tracker</a> using the "Icon Request" template. We review requests weekly and design new sets based on user popularity and request volume.
               </p>
             </section>
 
