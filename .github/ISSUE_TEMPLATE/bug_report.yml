@@ -1,0 +1,64 @@
+name: 🐛 Bug report
+description: Report something broken on the website or in a package.
+title: "[Bug]: "
+labels: ["bug", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug report! Please search
+        [existing issues](https://github.com/dqev/reicon/issues) first to avoid duplicates.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug, including what you expected to happen.
+      placeholder: When I render <Home />, the icon appears off-center…
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: How can we reproduce this? A link to a minimal reproduction (StackBlitz/CodeSandbox) is ideal.
+      placeholder: |
+        1. Install reicon-react@x.y.z
+        2. Render <Home size={24} />
+        3. See …
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where does this happen?
+      options:
+        - Website (reicon.dev)
+        - reicon-react (React package)
+        - reicon-vue (Vue package)
+        - CDN / <re-icon> custom element
+        - A specific icon (visual issue)
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package / version
+      placeholder: "reicon-react@1.0.0"
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: "Chrome 126, macOS 14, Node 20"
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If the bug is visual, drag and drop a screenshot here.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched existing issues and this is not a duplicate.
+          required: true

@@ -1,0 +1,3 @@
+# Default owner for everything in the repo.
+# These users are requested for review automatically on every PR.
+*       @dqev

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussions
+    url: https://github.com/dqev/reicon/discussions
+    about: Ask questions, share ideas, request feedback, or show what you built.
+  - name: 📖 Documentation
+    url: https://reicon.dev/usage
+    about: Installation and usage guides for React, Vue, and the CDN.
+  - name: 📧 Email
+    url: mailto:hello@reicon.dev
+    about: For private or security-related matters.

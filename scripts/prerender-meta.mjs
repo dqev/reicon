@@ -17,7 +17,7 @@ import { PostHog } from 'posthog-node';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, '../dist');
 const ICON_NAMES_JSON = resolve(__dirname, 'icon-names.json');
-const NEWDATA_JSON = resolve(__dirname, '../src/data/newdata.json');
+const ICON_DATA_JSON = resolve(__dirname, '../data/icon-data.json');
 const SITE = 'https://reicon.dev';
 
 // ── Page definitions ────────────────────────────────────────────────
@@ -297,16 +297,16 @@ async function main() {
 
   // 2. Icon detail pages
   const iconNames = JSON.parse(readFileSync(ICON_NAMES_JSON, 'utf-8'));
-  const newdata = JSON.parse(readFileSync(NEWDATA_JSON, 'utf-8'));
+  const iconData = JSON.parse(readFileSync(ICON_DATA_JSON, 'utf-8'));
   const allIcons = Object.keys(iconNames);
   let count = 0;
 
-  // Build icon→tags and icon→category lookup from newdata
+  // Build icon→tags and icon→category lookup from icon-data
   const iconTagsMap = {};
   const iconCategoryMap = {};
-  for (const [catName, cat] of Object.entries(newdata.categories)) {
-    for (const [iconName, iconData] of Object.entries(cat.icons)) {
-      if (iconData.description) iconTagsMap[iconName] = iconData.description;
+  for (const [catName, cat] of Object.entries(iconData.categories)) {
+    for (const [iconName, iconInfo] of Object.entries(cat.icons)) {
+      if (iconInfo.description) iconTagsMap[iconName] = iconInfo.description;
       iconCategoryMap[iconName] = catName.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
     }
   }

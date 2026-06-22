@@ -125,65 +125,88 @@ The site will be available at `http://localhost:3000`
 
 ```
 reicon/
+├── data/                        # ⭐ Single source of truth
+│   ├── icon-data.json          # Every icon (Outline + Filled) lives here
+│   └── README.md               # Dataset schema & build pipeline
+│
+├── packages/                    # Generated npm packages (git-ignored)
+│   ├── reicon-react/           # reicon-react  (React)
+│   ├── reicon-vue/             # reicon-vue    (Vue 3)
+│   └── reiconjs/               # reiconjs      (vanilla JS)
+│
+├── cdn/                         # Generated CDN bundles (git-ignored)
+│   ├── reicon.js / .min.js     # Main icon runtime (<re-icon>)
+│   └── reicon-brands.js / .min.js
+│
 ├── public/                      # Static assets
-│   ├── .well-known/            # Security & verification files
 │   ├── favicon.ico             # Favicons
 │   ├── og-image.png            # Open Graph image
 │   ├── robots.txt              # SEO robots file
 │   ├── sitemap.xml             # Generated sitemap
 │   └── llms.txt                # LLM context file
 │
-├── scripts/                     # Build & utility scripts
+├── scripts/
+│   ├── build/                  # Package + CDN builders (read data/icon-data.json)
+│   │   ├── build-react.cjs     # → packages/reicon-react
+│   │   ├── build-vue.cjs       # → packages/reicon-vue
+│   │   ├── build-js.cjs        # → packages/reiconjs
+│   │   └── build-cdn.cjs       # → cdn/reicon.js
 │   ├── generate-sitemap.mjs    # Sitemap generator
 │   ├── generate-og-images.mjs  # OG image generator
 │   ├── prerender-meta.mjs      # Meta tag prerendering
-│   ├── ping-search-engines.mjs # Search engine notification
-│   └── icon-names.json         # Icon metadata
+│   ├── ping-search-engines.mjs # Search engine notification (IndexNow)
+│   ├── test-seo.mjs            # SEO audit
+│   ├── setup-labels.sh         # GitHub label setup
+│   └── icon-names.json         # Icon name map
 │
 ├── src/
 │   ├── components/             # Reusable components
-│   │   ├── Background.tsx      # Animated background
+│   │   ├── Background.tsx      # Animated WebGL background
 │   │   ├── ClayButton.tsx      # Custom button component
 │   │   ├── CookieConsent.tsx   # Cookie consent banner
-│   │   ├── FeatureCard.tsx     # Feature display card
 │   │   ├── Footer.tsx          # Site footer
 │   │   ├── Header.tsx          # Site header/navigation
-│   │   ├── IconCard.tsx        # Icon display card
-│   │   ├── Logo.tsx            # Reicon logo
-│   │   ├── Sidebar.tsx         # Mobile sidebar
+│   │   ├── IconCard.tsx        # Icon display card (+ skeleton)
+│   │   ├── Sidebar.tsx         # Icons page sidebar
 │   │   ├── SmoothScroll.tsx    # Lenis scroll wrapper
 │   │   └── usage/              # Usage guide components
 │   │       ├── CodeBlock.tsx
 │   │       ├── InstallTabs.tsx
-│   │       └── SyntaxBlock.tsx
+│   │       ├── SyntaxBlock.tsx
+│   │       └── TypeTable.tsx
 │   │
-│   ├── data/                   # Data files
-│   │   ├── icons.ts            # Icon data & metadata
-│   │   └── newdata.json        # Additional icon data
-│   │
-│   ├── pages/                  # Page components
+│   ├── pages/                  # Route pages
 │   │   ├── Landing.tsx         # Homepage
 │   │   ├── Icons.tsx           # Icon browser
 │   │   ├── IconDetail.tsx      # Individual icon page
 │   │   ├── Usage.tsx           # Usage documentation
 │   │   ├── Packages.tsx        # Package information
-│   │   ├── Terms.tsx           # Terms of service
-│   │   ├── Privacy.tsx         # Privacy policy
-│   │   ├── LicensePage.tsx     # License information
+│   │   ├── Faq.tsx             # FAQ
+│   │   ├── Terms.tsx / Privacy.tsx / LicensePage.tsx
 │   │   └── NotFound.tsx        # 404 page
 │   │
-│   ├── App.tsx                 # Main app component
+│   ├── App.tsx                 # Routes (lazy-loaded)
 │   ├── main.tsx                # App entry point
-│   └── index.css               # Global styles
+│   └── index.css               # Global styles (Tailwind v4)
 │
-├── .env                        # Environment variables
-├── .gitignore                  # Git ignore rules
-├── index.html                  # HTML entry point
-├── package.json                # Dependencies & scripts
-├── tsconfig.json               # TypeScript config
-├── vite.config.ts              # Vite configuration
-└── README.md                   # This file
+├── .github/                     # Community files, issue/PR templates
+│   ├── CONTRIBUTING.md  CODE_OF_CONDUCT.md  SECURITY.md  SUPPORT.md
+│   ├── CODEOWNERS  FUNDING.yml  dependabot.yml
+│   └── ISSUE_TEMPLATE/ · PULL_REQUEST_TEMPLATE.md
+│
+├── CHANGELOG.md                 # Release history
+├── LICENSE                      # MIT
+├── index.html                   # Vite HTML entry point
+├── package.json                 # Dependencies & scripts
+├── tsconfig.json                # TypeScript config
+├── vite.config.ts               # Vite configuration
+├── vercel.json                  # Vercel deploy config
+└── README.md                    # This file
 ```
+
+> **Note:** `packages/` and `cdn/` are generated from `data/icon-data.json` and
+> are git-ignored. Build them with `npm run build:packages`. Never edit those
+> outputs by hand.
 
 ---
 
@@ -420,10 +443,16 @@ npm run format
 
 ### Adding New Icons
 
-1. Add icon metadata to `scripts/icon-names.json`
-2. Update icon data in `src/data/icons.ts`
-3. Regenerate sitemap: `npm run sitemap`
-4. Build OG images: `npm run build:og`
+All icons live in **`data/icon-data.json`** — the single source of truth for the
+packages, the CDN bundle, and the website.
+
+1. Add the icon to `data/icon-data.json` under the right category, with `Outline`
+   and `Filled` weights (see [`data/README.md`](data/README.md) for the schema).
+2. Rebuild the packages and CDN: `npm run build:packages`
+3. Verify on the dev site: `npm run dev`
+4. (For production) regenerate the sitemap and OG images: `npm run sitemap` and `npm run build:og`
+
+> Don't edit anything in `packages/` or `cdn/` — those are generated.
 
 ### Adding New Pages
 
@@ -500,6 +529,11 @@ vercel --prod
 | `npm run build` | Build for production (includes sitemap & prerender) |
 | `npm run build:og` | Generate Open Graph images for all icons |
 | `npm run build:full` | Full build with OG images and search engine ping |
+| `npm run build:react` | Build the `reicon-react` package from `data/icon-data.json` |
+| `npm run build:vue` | Build the `reicon-vue` package |
+| `npm run build:js` | Build the `reiconjs` (vanilla) package |
+| `npm run build:cdn` | Build the CDN bundle (`cdn/reicon.js`) |
+| `npm run build:packages` | Build all packages + the CDN bundle |
 | `npm run preview` | Preview production build locally |
 | `npm run sitemap` | Generate sitemap.xml |
 | `npm run ping` | Notify search engines of sitemap updates |
