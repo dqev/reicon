@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Code, Palette, Layers, Copy, Box, Star, ArrowDown2, HandHeart, Search3, Book3, Restart, Pointer } from 'reicon-react';
+import { ShieldCheck, Code, Palette, Layers, Copy, Box, Star, HandHeart, Search3, Book3, Restart, Pointer } from 'reicon-react';
 import Background from '../components/Background';
 import ClayButton from '../components/ClayButton';
 import Footer from '../components/Footer';
@@ -147,7 +147,6 @@ export default function Landing() {
               </Link>
               <nav className="hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2">
                 <Link to="/usage" className="text-[13px] text-white/60 hover:text-white transition-colors">Usage</Link>
-                <a href="#integrations" className="text-[13px] text-white/60 hover:text-white transition-colors">Integrations</a>
                 <Link to="/icons" className="text-[13px] text-white/60 hover:text-white transition-colors">Icons</Link>
               </nav>
               <div className="hidden md:flex gap-2">
@@ -247,11 +246,8 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ═══ CONSISTENCY GRID ═══ */}
-      <ConsistencyGrid />
-
-      {/* ═══ PLAYGROUND ═══ */}
-      <PlaygroundSection />
+      {/* ═══ PLAYGROUND (browse + customize, unified) ═══ */}
+      <IconPlayground />
 
       {/* ═══ INTEGRATIONS ═══ */}
       <section id="integrations" className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13">
@@ -593,7 +589,7 @@ function IntegrationCard({ icon, title, lines, copyText }: { icon: React.ReactNo
 }
 
 const ALL_ICON_NAMES = Object.keys(iconNamesData);
-const CONSISTENCY_COUNT = 70;
+const CONSISTENCY_COUNT = 80;
 
 function getShuffledIcons() {
   const shuffled = [...ALL_ICON_NAMES];
@@ -604,232 +600,217 @@ function getShuffledIcons() {
   return shuffled.slice(0, CONSISTENCY_COUNT);
 }
 
-function ConsistencyGrid() {
-  const icons = useMemo(() => getShuffledIcons(), []);
-  const [selected, setSelected] = useState(() => icons[0]);
-  const [weight, setWeight] = useState<'outline' | 'filled'>('outline');
+const COLOR_PRESETS = [
+  '#ffffff', '#6C5CE7', '#ef4444', '#f59e0b',
+  '#22c55e', '#3b82f6', '#ec4899', '#06b6d4',
+];
 
-  const pascalName = (iconNamesData as Record<string, string>)[selected] || selected;
+const HEX_RE = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
 
+function ColorPicker({ color, onChange }: { color: string; onChange: (c: string) => void }) {
+  const safeColor = HEX_RE.test(color) ? color : '#ffffff';
   return (
-    <section className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13">
-      <div className="text-center mb-10">
-        <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Consistency</div>
-        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] font-semibold text-white leading-[1.15] tracking-[-0.02em] mb-3">Every icon, one rhythm.</h2>
-        <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
-          Same stroke width, same optical weight, same grid. Click any icon to inspect it.
-        </p>
+    <div>
+      <label className="text-[13px] text-white/50 mb-2 block">Color</label>
+
+      {/* Preset swatches — full-width 8-col grid, aligns with the row below */}
+      <div className="grid grid-cols-8 gap-1.5 mb-2">
+        {COLOR_PRESETS.map((c) => {
+          const active = color.toLowerCase() === c.toLowerCase();
+          return (
+            <button
+              key={c}
+              onClick={() => onChange(c)}
+              aria-label={`Set color ${c}`}
+              title={c}
+              className={`w-full aspect-square rounded-md transition-transform hover:scale-110 ${active ? 'ring-2 ring-white/70 ring-offset-2 ring-offset-[#0e0e10]' : 'border border-white/15'
+                }`}
+              style={{ backgroundColor: c }}
+            />
+          );
+        })}
       </div>
 
-      <div className="bg-[#0e0e10] rounded-[14px] overflow-hidden">
-        <div className="grid lg:grid-cols-[280px_1fr]">
-          {/* Left — detail panel */}
-          <div className="p-5 lg:p-6 lg:border-r border-b lg:border-b-0 border-white/[0.06] flex flex-col items-center">
-            {/* Weight toggle */}
-            <div className="w-full flex items-center justify-between mb-5">
-              <div className="flex items-center gap-1 bg-white/[0.04] border border-white/[0.06] rounded-lg p-0.5">
-                {(['outline', 'filled'] as const).map((w) => (
-                  <button
-                    key={w}
-                    onClick={() => setWeight(w)}
-                    className={`text-[11px] font-medium px-3 py-1.5 rounded-md transition-colors ${weight === w ? 'bg-white/10 text-white' : 'text-white/35 hover:text-white/55'
-                      }`}
-                  >
-                    {w.charAt(0).toUpperCase() + w.slice(1)}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Large preview with alignment guides */}
-            <div className="relative w-full aspect-square max-w-[200px] bg-white/[0.015] border border-white/[0.06] rounded-xl flex items-center justify-center overflow-hidden">
-              {/* Grid guides */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/2 left-0 right-0 h-px bg-[#6C5CE7]/15" />
-                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[#6C5CE7]/15" />
-                <div className="absolute top-[16.67%] left-0 right-0 h-px border-t border-dashed border-white/[0.05]" />
-                <div className="absolute bottom-[16.67%] left-0 right-0 h-px border-t border-dashed border-white/[0.05]" />
-                <div className="absolute left-[16.67%] top-0 bottom-0 w-px border-l border-dashed border-white/[0.05]" />
-                <div className="absolute right-[16.67%] top-0 bottom-0 w-px border-l border-dashed border-white/[0.05]" />
-              </div>
-              {/* Guide labels */}
-              <span className="absolute left-1.5 top-[16.67%] -translate-y-1/2 text-[7px] text-[#6C5CE7]/40 font-mono select-none">cap</span>
-              <span className="absolute left-1.5 bottom-[16.67%] translate-y-1/2 text-[7px] text-[#6C5CE7]/40 font-mono select-none">base</span>
-              <span className="absolute left-1.5 top-1/2 -translate-y-1/2 text-[7px] text-[#6C5CE7]/40 font-mono select-none">mid</span>
-
-              <re-icon icon={selected} size={88} weight={weight} color="rgba(255,255,255,0.85)" />
-            </div>
-
-            {/* Info */}
-            <div className="w-full mt-5 space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="text-[14px] text-white font-semibold">{pascalName}</span>
-                <span className="text-[10px] text-white/20 font-mono uppercase">{weight}</span>
-              </div>
-              <span className="inline-block text-[11px] text-white/30 bg-white/[0.04] border border-white/[0.06] rounded px-2 py-0.5 font-mono">
-                {selected}
-              </span>
-            </div>
-
-            {/* Size comparison */}
-            <div className="w-full mt-6 pt-5 border-t border-white/[0.06]">
-              <span className="text-[9px] uppercase tracking-[0.08em] text-white/20 font-semibold">Size comparison</span>
-              <div className="flex items-end gap-3 mt-3">
-                {[14, 18, 24, 32, 48].map((s) => (
-                  <div key={s} className="flex flex-col items-center gap-1">
-                    <div
-                      className="flex items-center justify-center bg-white/[0.025] border border-white/[0.06] rounded-lg"
-                      style={{ width: Math.max(s + 10, 24), height: Math.max(s + 10, 24) }}
-                    >
-                      <re-icon icon={selected} size={s} weight={weight} color="rgba(255,255,255,0.55)" />
-                    </div>
-                    <span className="text-[8px] text-white/15 font-mono">{s}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right — dense glyph grid */}
-          <div className="p-3 sm:p-4">
-            <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 border-l border-t border-white/[0.04]">
-              {icons.map((name) => (
-                <button
-                  key={name}
-                  onClick={() => setSelected(name)}
-                  className={`aspect-square flex items-center justify-center border-r border-b transition-colors cursor-pointer ${name === selected
-                    ? 'bg-[#6C5CE7]/10 border-[#6C5CE7]/25'
-                    : 'border-white/[0.04] hover:bg-white/[0.03]'
-                    }`}
-                  title={(iconNamesData as Record<string, string>)[name] || name}
-                >
-                  <re-icon
-                    icon={name}
-                    size={20}
-                    weight={weight}
-                    color={name === selected ? 'rgba(108,92,231,0.9)' : 'rgba(255,255,255,0.5)'}
-                  />
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
+      {/* Native eyedropper + hex input */}
+      <div className="flex items-center gap-1.5">
+        <input
+          type="color"
+          value={safeColor}
+          onChange={(e) => onChange(e.target.value)}
+          aria-label="Pick a custom color"
+          className="w-9 h-9 shrink-0 rounded-lg border border-white/10 cursor-pointer bg-transparent appearance-none [&::-webkit-color-swatch-wrapper]:p-1 [&::-webkit-color-swatch]:rounded-[5px] [&::-webkit-color-swatch]:border-0"
+        />
+        <input
+          type="text"
+          value={color}
+          onChange={(e) => onChange(e.target.value)}
+          spellCheck={false}
+          className="flex-1 min-w-0 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-[13px] text-white/70 font-mono outline-none focus:border-white/20 uppercase"
+        />
       </div>
-    </section>
+    </div>
   );
 }
 
-const PLAYGROUND_ICONS = [
-  'home', 'star', 'heart', 'search', 'settings', 'bell',
-  'user', 'lock', 'camera', 'map-point', 'music-note', 'download',
-  'cloud', 'lightning', 'palette', 'code', 'eye', 'bookmark',
-  'gift', 'shield', 'compass', 'mic', 'wifi', 'battery-charge',
-  'pen', 'folder', 'chat-round', 'lamp',
-];
-
-function PlaygroundSection() {
+function IconPlayground() {
+  const icons = useMemo(() => getShuffledIcons(), []);
+  const [selected, setSelected] = useState(() => icons[0]);
   const [color, setColor] = useState('#ffffff');
   const [size, setSize] = useState(32);
   const [weight, setWeight] = useState<'outline' | 'filled'>('outline');
 
+  const displayColor = HEX_RE.test(color) ? color : '#ffffff';
+  const pascalName = (iconNamesData as Record<string, string>)[selected] || selected;
+
+  const reset = () => {
+    setColor('#ffffff');
+    setSize(32);
+    setWeight('outline');
+  };
+
   return (
     <section className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13">
-      <div className="text-center mb-8">
+      <div className="text-center mb-10">
         <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Playground</div>
-        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] font-semibold text-white leading-[1.15] tracking-[-0.02em] mb-3">Customize to your taste.</h2>
+        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] font-semibold text-white leading-[1.15] tracking-[-0.02em] mb-3">Pick one. Make it yours.</h2>
         <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
-          Tweak color, size, and weight — see every icon update live.
+          Same grid, same rhythm across every icon. Choose one, then tweak color, size, and weight — and watch the whole set update live.
         </p>
       </div>
 
       <div className="bg-[#0e0e10] rounded-[14px] overflow-hidden">
-        <div className="grid lg:grid-cols-[260px_1fr]">
-          {/* Controls */}
-          <div className="p-4 lg:p-5 lg:border-r border-b lg:border-b-0 border-white/[0.06] flex flex-col gap-4">
-            <div className="flex items-center justify-between">
-              <span className="text-[13px] text-white/50 font-medium">Controls</span>
-              <button
-                onClick={() => { setColor('#ffffff'); setSize(32); setWeight('outline'); }}
-                className="w-7 h-7 flex items-center justify-center rounded-md text-white/30 hover:text-white/60 hover:bg-white/5 transition-colors"
-                title="Reset"
-              >
-                <Restart size={18} />
-              </button>
+        <div className="grid lg:grid-cols-[300px_1fr]">
+          {/* Left — preview + controls */}
+          <div className="p-5 lg:p-6 lg:border-r border-b lg:border-b-0 border-white/[0.06] flex flex-col">
+            {/* Large preview — real icon design keyline canvas */}
+            <div className="relative w-full aspect-square max-w-[220px] mx-auto bg-[#0a0a0c] border border-white/[0.06] rounded-xl flex items-center justify-center overflow-hidden">
+              {/* Graph-paper grid (24-unit) */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  backgroundImage:
+                    'linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px)',
+                  backgroundSize: 'calc(100%/12) calc(100%/12)',
+                  maskImage: 'radial-gradient(circle at center, #000 62%, transparent 92%)',
+                  WebkitMaskImage: 'radial-gradient(circle at center, #000 62%, transparent 92%)',
+                }}
+              />
+
+              {/* Accent glow behind the glyph */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: 'radial-gradient(circle at center, rgba(108,92,231,0.12), transparent 58%)' }}
+              />
+
+              {/* Keyline shapes — the recognizable icon design grid */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" fill="none">
+                {/* dashed safe area */}
+                <rect x="9" y="9" width="82" height="82" rx="7" stroke="rgba(255,255,255,0.08)" strokeWidth="0.5" strokeDasharray="2.5 2.5" />
+                {/* portrait + landscape keylines */}
+                <rect x="32" y="14" width="36" height="72" rx="7" stroke="#6C5CE7" strokeOpacity="0.16" strokeWidth="0.5" />
+                <rect x="14" y="32" width="72" height="36" rx="7" stroke="#6C5CE7" strokeOpacity="0.16" strokeWidth="0.5" />
+                {/* center crosshair */}
+                <line x1="50" y1="5" x2="50" y2="95" stroke="#6C5CE7" strokeOpacity="0.28" strokeWidth="0.4" />
+                <line x1="5" y1="50" x2="95" y2="50" stroke="#6C5CE7" strokeOpacity="0.28" strokeWidth="0.4" />
+              </svg>
+
+              {/* Corner crop marks */}
+              <div className="absolute top-2 left-2 w-2.5 h-2.5 border-t border-l border-[#6C5CE7]/35" />
+              <div className="absolute top-2 right-2 w-2.5 h-2.5 border-t border-r border-[#6C5CE7]/35" />
+              <div className="absolute bottom-2 left-2 w-2.5 h-2.5 border-b border-l border-[#6C5CE7]/35" />
+              <div className="absolute bottom-2 right-2 w-2.5 h-2.5 border-b border-r border-[#6C5CE7]/35" />
+
+              {/* Spec labels */}
+              <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[7.5px] font-mono text-[#6C5CE7]/45 select-none tracking-wider">24<span className="text-white/20"> × </span>24</span>
+              <span className="absolute bottom-2 right-3 text-[8px] font-mono text-white/30 tabular-nums select-none">{size}px</span>
+              <span className="absolute bottom-2 left-3 text-[8px] font-mono text-white/25 select-none lowercase">{weight}</span>
+
+              <re-icon icon={selected} size={96} weight={weight} color={displayColor} />
             </div>
-            {/* Color */}
-            <div>
-              <label className="text-[13px] text-white/50 mb-2 block">Color</label>
-              <div className="flex items-center gap-3">
-                <div className="relative">
-                  <input
-                    type="color"
-                    value={color}
-                    onChange={(e) => setColor(e.target.value)}
-                    className="w-10 h-10 rounded-lg border border-white/10 cursor-pointer bg-transparent appearance-none [&::-webkit-color-swatch-wrapper]:p-1 [&::-webkit-color-swatch]:rounded-[5px] [&::-webkit-color-swatch]:border-0"
-                  />
+
+            {/* Name + code */}
+            <div className="w-full mt-5 flex items-center justify-between">
+              <span className="text-[14px] text-white font-semibold">{pascalName}</span>
+              <span className="text-[11px] text-white/30 bg-white/[0.04] border border-white/[0.06] rounded px-2 py-0.5 font-mono">{selected}</span>
+            </div>
+
+            {/* Controls */}
+            <div className="w-full mt-6 pt-5 border-t border-white/[0.06] flex flex-col gap-4">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] uppercase tracking-[0.08em] text-white/30 font-semibold">Controls</span>
+                <button
+                  onClick={reset}
+                  className="w-7 h-7 flex items-center justify-center rounded-md text-white/30 hover:text-white/60 hover:bg-white/5 transition-colors"
+                  title="Reset"
+                  aria-label="Reset controls"
+                >
+                  <Restart size={16} />
+                </button>
+              </div>
+
+              <ColorPicker color={color} onChange={setColor} />
+
+              {/* Size */}
+              <div>
+                <div className="flex justify-between mb-2">
+                  <label className="text-[13px] text-white/50">Size</label>
+                  <span className="text-[13px] text-white/30 font-mono">{size}px</span>
                 </div>
                 <input
-                  type="text"
-                  value={color}
-                  onChange={(e) => setColor(e.target.value)}
-                  className="flex-1 min-w-0 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-[13px] text-white/70 font-mono outline-none focus:border-white/20"
+                  type="range"
+                  min={16}
+                  max={48}
+                  value={size}
+                  onChange={(e) => setSize(Number(e.target.value))}
+                  className="w-full h-1.5 rounded-full appearance-none bg-white/10 accent-[#6C5CE7] cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#6C5CE7] [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(108,92,231,0.5)]"
                 />
               </div>
-            </div>
 
-            {/* Size */}
-            <div>
-              <div className="flex justify-between mb-2">
-                <label className="text-[13px] text-white/50">Size</label>
-                <span className="text-[13px] text-white/30 font-mono">{size}px</span>
-              </div>
-              <input
-                type="range"
-                min={16}
-                max={48}
-                value={size}
-                onChange={(e) => setSize(Number(e.target.value))}
-                className="w-full h-1.5 rounded-full appearance-none bg-white/10 accent-[#6C5CE7] cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#6C5CE7] [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(108,92,231,0.5)]"
-              />
-            </div>
-
-            {/* Weight */}
-            <div>
-              <label className="text-[13px] text-white/50 mb-2 block">Weight</label>
-              <div className="flex gap-2">
-                {(['outline', 'filled'] as const).map((w) => (
-                  <button
-                    key={w}
-                    onClick={() => setWeight(w)}
-                    className={`flex-1 px-3 py-2 rounded-lg text-[13px] font-medium transition-all ${weight === w
-                      ? 'bg-[#6C5CE7]/15 text-[#6C5CE7] border border-[#6C5CE7]/30'
-                      : 'bg-white/5 text-white/40 border border-white/10 hover:text-white/60'
-                      }`}
-                  >
-                    {w.charAt(0).toUpperCase() + w.slice(1)}
-                  </button>
-                ))}
+              {/* Weight */}
+              <div>
+                <label className="text-[13px] text-white/50 mb-2 block">Weight</label>
+                <div className="flex gap-2">
+                  {(['outline', 'filled'] as const).map((w) => (
+                    <button
+                      key={w}
+                      onClick={() => setWeight(w)}
+                      className={`flex-1 px-3 py-2 rounded-lg text-[13px] font-medium transition-all ${weight === w
+                        ? 'bg-[#6C5CE7]/15 text-[#6C5CE7] border border-[#6C5CE7]/30'
+                        : 'bg-white/5 text-white/40 border border-white/10 hover:text-white/60'
+                        }`}
+                    >
+                      {w.charAt(0).toUpperCase() + w.slice(1)}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
-
           </div>
 
-          {/* Icon grid */}
-          <div className="p-4 lg:p-5 flex items-center justify-center">
-            <div className="w-full grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-7 gap-0">
-              {PLAYGROUND_ICONS.map((name) => (
-                <div
-                  key={name}
-                  className="h-14 flex items-center justify-center rounded-lg hover:bg-white/5 transition-colors cursor-default"
-                >
-                  <re-icon
-                    icon={name}
-                    size={size}
-                    color={color}
-                    weight={weight}
-                  />
-                </div>
-              ))}
+          {/* Right — live glyph grid (click to select) */}
+          <div className="p-3 sm:p-4">
+            <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 border-l border-t border-white/[0.04]">
+              {icons.map((name) => {
+                const isSelected = name === selected;
+                return (
+                  <button
+                    key={name}
+                    onClick={() => setSelected(name)}
+                    className={`aspect-square flex items-center justify-center border-r border-b transition-colors cursor-pointer ${isSelected
+                      ? 'bg-[#6C5CE7]/10 border-[#6C5CE7]/25'
+                      : 'border-white/[0.04] hover:bg-white/[0.03]'
+                      }`}
+                    title={(iconNamesData as Record<string, string>)[name] || name}
+                  >
+                    <re-icon
+                      icon={name}
+                      size={size}
+                      weight={weight}
+                      color={displayColor}
+                    />
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
