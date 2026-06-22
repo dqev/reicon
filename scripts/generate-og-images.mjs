@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Generates OG images (1200×630 PNG) for each icon using SVG data from newdata.json.
+ * Generates OG images (1200×630 PNG) for each icon using SVG data from data/icon-data.json.
  * Uses sharp to convert SVG → PNG for full social platform compatibility.
  * Outputs to dist/og/icons/{name}.png
  *
@@ -14,7 +14,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, '../dist');
-const NEWDATA_JSON = resolve(__dirname, '../src/data/newdata.json');
+const ICON_DATA_JSON = resolve(__dirname, '../data/icon-data.json');
 const OG_DIR = resolve(DIST, 'og/icons');
 
 const CONCURRENCY = 20;
@@ -74,16 +74,16 @@ async function processIcon(iconName, svgCode, tags, category) {
 }
 
 async function main() {
-  const newdata = JSON.parse(readFileSync(NEWDATA_JSON, 'utf-8'));
+  const iconData = JSON.parse(readFileSync(ICON_DATA_JSON, 'utf-8'));
   mkdirSync(OG_DIR, { recursive: true });
 
   // Collect all icons
   const tasks = [];
-  for (const [catName, cat] of Object.entries(newdata.categories)) {
+  for (const [catName, cat] of Object.entries(iconData.categories)) {
     const category = catName.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-    for (const [iconName, iconData] of Object.entries(cat.icons)) {
-      const tags = iconData.description || [];
-      const svgCode = iconData.weights?.Outline?.code || iconData.weights?.Filled?.code || '';
+    for (const [iconName, iconInfo] of Object.entries(cat.icons)) {
+      const tags = iconInfo.description || [];
+      const svgCode = iconInfo.weights?.Outline?.code || iconInfo.weights?.Filled?.code || '';
       if (!svgCode) continue;
       tasks.push({ iconName, svgCode, tags, category });
     }

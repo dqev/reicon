@@ -12,8 +12,14 @@
     "sitemap": "node scripts/generate-sitemap.mjs",
     "ping": "node scripts/ping-search-engines.mjs",
     "seo:check": "node scripts/test-seo.mjs",
+    "build:react": "node scripts/build/build-react.cjs",
+    "build:vue": "node scripts/build/build-vue.cjs",
+    "build:js": "node scripts/build/build-js.cjs",
+    "build:cdn": "node scripts/build/build-cdn.cjs",
+    "build:cdn:min": "npm run build:cdn && npx terser cdn/reicon.js --compress --mangle -o cdn/reicon.min.js",
+    "build:packages": "npm run build:react && npm run build:vue && npm run build:js && npm run build:cdn",
     "preview": "vite preview",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist packages cdn",
     "lint": "tsc --noEmit"
   },
   "dependencies": {

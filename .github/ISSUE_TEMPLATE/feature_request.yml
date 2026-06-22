@@ -1,0 +1,43 @@
+name: 💡 Feature request
+description: Suggest an idea for the website, packages, or tooling.
+title: "[Feature]: "
+labels: ["enhancement", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea to make Reicon better? We'd love to hear it.
+        For new *icons*, please use the **Icon request** template instead.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the problem or limitation you're running into.
+      placeholder: "It's hard to … because …"
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: What would you like to happen?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Website (reicon.dev)
+        - reicon-react (React package)
+        - reicon-vue (Vue package)
+        - CDN / custom element
+        - Tooling / build
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any other approaches you've thought about (optional).
