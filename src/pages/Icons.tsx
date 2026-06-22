@@ -1,9 +1,9 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useDeferredValue } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
-import IconCard from '../components/IconCard';
+import IconCard, { IconCardSkeleton } from '../components/IconCard';
 import { Magnifier } from 'reicon-react';
 import { BsChevronExpand } from 'react-icons/bs';
 import newIconsData from '../data/new-icons-added.json';
@@ -45,15 +45,22 @@ function saveCache(icons: string[], categories: string[]) {
 
 export default function IconsPage() {
   const [searchParams] = useSearchParams();
-  const cached = loadCache();
-  const [allIcons, setAllIcons] = useState<string[]>(cached.icons);
-  const [categories, setCategories] = useState<string[]>(cached.categories);
+  // Lazy initializer → reads localStorage + JSON.parse ONCE on mount, not on
+  // every render (previously `loadCache()` ran in the render body each keystroke).
+  const [allIcons, setAllIcons] = useState<string[]>(() => loadCache().icons);
+  const [categories, setCategories] = useState<string[]>(() => loadCache().categories);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeSet, setActiveSet] = useState('all');
   const [activeStyle, setActiveStyle] = useState('All');
   const [activeSize, setActiveSize] = useState('32');
   const [categoryMap, setCategoryMap] = useState<Record<string, string>>({});
   const [showNew, setShowNew] = useState(searchParams.get('new') === 'true');
+  // True once the CDN icon runtime (window.Reicon) is available and glyphs can render.
+  const [ready, setReady] = useState(false);
+
+  // Keep the input instant while de-prioritizing the expensive filter + grid
+  // re-render. No behavior change — search still works, just stays smooth.
+  const deferredQuery = useDeferredValue(searchQuery);
 
   useEffect(() => {
     function loadIcons() {
@@ -62,6 +69,7 @@ export default function IconsPage() {
         setCategories(window.Reicon.categories);
         saveCache(window.Reicon.icons, window.Reicon.categories);
         setCategoryMap(window.Reicon.categoryMap);
+        setReady(true);
       } else {
         setTimeout(loadIcons, 100);
       }
@@ -77,12 +85,12 @@ export default function IconsPage() {
     if (activeSet !== 'all' && Object.keys(categoryMap).length > 0) {
       icons = icons.filter((name) => categoryMap[name] === activeSet);
     }
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
+    const q = deferredQuery.trim().toLowerCase();
+    if (q) {
       icons = icons.filter((name) => name.toLowerCase().includes(q));
     }
     return icons;
-  }, [searchQuery, allIcons, activeSet, categoryMap, showNew]);
+  }, [deferredQuery, allIcons, activeSet, categoryMap, showNew]);
 
   // Batch preload all visible icons so each <re-icon> doesn't fetch individually
   useEffect(() => {
@@ -93,6 +101,20 @@ export default function IconsPage() {
 
   const displaySize = parseInt(activeSize) || 32;
   const displayWeight = activeStyle === 'Filled' ? 'filled' : 'outline';
+
+  // Memoize the rendered cards so the (large) list is only rebuilt when the
+  // filtered set / size / weight actually changes — not on every parent render.
+  const gridCards = useMemo(() => {
+    if (activeStyle === 'All') {
+      return filteredIcons.flatMap((name) => [
+        <IconCard key={`${name}-outline`} name={name} weight="outline" size={displaySize} />,
+        <IconCard key={`${name}-filled`} name={name} weight="filled" size={displaySize} />,
+      ]);
+    }
+    return filteredIcons.map((name) => (
+      <IconCard key={name} name={name} weight={displayWeight} size={displaySize} />
+    ));
+  }, [filteredIcons, activeStyle, displaySize, displayWeight]);
 
   return (
     <div className="min-h-screen bg-[#09090b] flex flex-col">
@@ -230,25 +252,24 @@ export default function IconsPage() {
 
           {/* Icon count */}
           <div className="text-[12px] text-white/30 mb-4">
-            {filteredIcons.length} icon{filteredIcons.length !== 1 ? 's' : ''}
+            {ready ? (
+              <>{filteredIcons.length} icon{filteredIcons.length !== 1 ? 's' : ''}</>
+            ) : (
+              <span className="inline-block h-3 w-16 rounded bg-white/[0.07] animate-pulse align-middle" />
+            )}
           </div>
 
           {/* Icon grid */}
-          {filteredIcons.length > 0 ? (
+          {!ready ? (
+            /* Skeleton grid — same layout as the real grid, shown until the CDN loads */
             <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-1.5">
-              {activeStyle === 'All'
-                ? filteredIcons.flatMap((name) => [
-                  <IconCard key={`${name}-outline`} name={name} weight="outline" size={displaySize} />,
-                  <IconCard key={`${name}-filled`} name={name} weight="filled" size={displaySize} />,
-                ])
-                : filteredIcons.map((name) => (
-                  <IconCard
-                    key={name}
-                    name={name}
-                    weight={displayWeight}
-                    size={displaySize}
-                  />
-                ))}
+              {Array.from({ length: 96 }).map((_, i) => (
+                <IconCardSkeleton key={i} size={displaySize} />
+              ))}
+            </div>
+          ) : filteredIcons.length > 0 ? (
+            <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-1.5">
+              {gridCards}
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center py-20 text-white/30">

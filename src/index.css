@@ -179,6 +179,14 @@ body {
   border-width: 0;
 }
 
+/* ═══ Off-screen render skipping for large grids ═══ */
+/* Skips layout/paint for cards outside the viewport while preserving scroll
+   height. Zero visual change; massively cuts work for the 2,700+ icon grid. */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 72px;
+}
+
 /* ═══ Clay Button ═══ */
 .clay-btn {
   position: relative;
