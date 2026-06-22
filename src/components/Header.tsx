@@ -1,7 +1,6 @@
 import { useState, useEffect, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Star } from 'reicon-react';
-import Logo from '../components/Logo';
 import ClayButton from '../components/ClayButton';
 
 interface HeaderProps {
