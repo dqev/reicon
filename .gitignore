@@ -8,3 +8,7 @@ coverage/
 !.env.example
 .firestore.rules
 .env
+
+# Generated package build outputs (built from data/icon-data.json)
+packages/*/dist/
+cdn/*.js

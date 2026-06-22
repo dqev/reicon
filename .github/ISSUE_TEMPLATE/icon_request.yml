@@ -1,0 +1,49 @@
+name: 🎨 Icon request
+description: Request a new icon to be added to Reicon.
+title: "[Icon]: "
+labels: ["icon request", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Want an icon that doesn't exist yet? Tell us about it!
+        Please [browse the existing icons](https://reicon.dev/icons) and
+        [search open requests](https://github.com/dqev/reicon/labels/icon%20request) first.
+  - type: input
+    id: name
+    attributes:
+      label: Icon name / concept
+      placeholder: "split-screen, ai-sparkle, qr-code"
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case
+      description: What would you use this icon for? Context helps us draw it well.
+    validations:
+      required: true
+  - type: dropdown
+    id: weight
+    attributes:
+      label: Which weight(s) do you need?
+      options:
+        - Both (Outline + Filled)
+        - Outline only
+        - Filled only
+    validations:
+      required: true
+  - type: textarea
+    id: reference
+    attributes:
+      label: Reference
+      description: A screenshot, link, or rough sketch of what you have in mind (optional but helpful).
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmation
+      options:
+        - label: I checked that this icon doesn't already exist on reicon.dev.
+          required: true
+        - label: I searched existing requests and this is not a duplicate.
+          required: true
