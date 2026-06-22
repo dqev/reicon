@@ -1,7 +1,4 @@
-# Funding options for Reicon.
-# Uncomment and fill in the platforms you use.
-
+# These power the "Sponsor" button on the Reicon repo.
 github: [dqev]
-custom: ["https://reicon.dev"]
 buy_me_a_coffee: dev3
-# open_collective: later
+custom: ["https://reicon.dev"]

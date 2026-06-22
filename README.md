@@ -608,6 +608,18 @@ Contributions are welcome! Please follow these guidelines:
 
 ---
 
+## 💖 Sponsor
+
+Reicon is free and open source, maintained in the open. If it saves you time,
+consider sponsoring its development:
+
+- **GitHub Sponsors:** [github.com/sponsors/dqev](https://github.com/sponsors/dqev)
+- **Buy Me a Coffee:** [buymeacoffee.com/dev3](https://www.buymeacoffee.com/dev3)
+
+Every bit helps keep the icons coming. Thank you! 🙏
+
+---
+
 ## 📄 License
 
 MIT License - Copyright (c) 2024 [Dev Chauhan](https://devchauhan.in)
