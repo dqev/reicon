@@ -122,6 +122,9 @@ reicon/
 
 ## Submitting changes
 
+> New to Git or our branch workflow? Read the **[Branching & Git Workflow guide](./BRANCHING.md)**
+> for a step-by-step walkthrough (including forks and keeping your branch in sync).
+
 1. **Create a branch** from `main`:
    ```bash
    git checkout -b fix/short-description
