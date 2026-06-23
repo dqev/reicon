@@ -422,7 +422,7 @@ function SidebarStyles() {
         border: 1px solid rgba(255, 255, 255, 0.08);
         color: rgba(255, 255, 255, 0.6);
         cursor: pointer;
-        transition: all 0.15s ease;
+        transition: color 0.15s ease, background-color 0.15s ease;
       }
       .reicon-sidebar-close:hover {
         background: rgba(255, 255, 255, 0.08);

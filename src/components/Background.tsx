@@ -134,8 +134,18 @@ export default function Background() {
 
     draw();
 
+    function handleVisibility() {
+      if (document.hidden) {
+        cancelAnimationFrame(animationId);
+      } else {
+        animationId = requestAnimationFrame(draw);
+      }
+    }
+    document.addEventListener('visibilitychange', handleVisibility);
+
     return () => {
       cancelAnimationFrame(animationId);
+      document.removeEventListener('visibilitychange', handleVisibility);
     };
   }, []);
 
