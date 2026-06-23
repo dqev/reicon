@@ -7,9 +7,11 @@ interface IconCardProps {
 }
 
 export default function IconCard({ name, weight = 'outline', size = 32 }: IconCardProps) {
+  // Carry the clicked weight so the detail page opens on the same weight.
+  const to = weight === 'filled' ? `/icon/${name}?weight=filled` : `/icon/${name}`;
   return (
     <Link
-      to={`/icon/${name}`}
+      to={to}
       className="group flex items-center justify-center aspect-square bg-white/[0.03] border border-white/[0.06] rounded-xl hover:bg-white/[0.08] hover:border-white/[0.12] transition-all cursor-pointer"
       title={name}
     >

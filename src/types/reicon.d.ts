@@ -15,3 +15,18 @@ declare module 'react' {
     }
   }
 }
+
+declare global {
+  interface Window {
+    Reicon?: {
+      icons: string[];
+      categories: string[];
+      ready: Promise<void>;
+      preload: (names: string[]) => void;
+      categoryOf: (name: string) => string | null;
+      categoryMap: Record<string, string>;
+    };
+  }
+}
+
+export {};
