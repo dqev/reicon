@@ -10,19 +10,6 @@ import newIconsData from '../data/new-icons-added.json';
 
 const NEW_ICONS_SET = new Set(newIconsData as string[]);
 
-declare global {
-  interface Window {
-    Reicon?: {
-      icons: string[];
-      categories: string[];
-      ready: Promise<void>;
-      preload: (names: string[]) => void;
-      categoryOf: (name: string) => string | null;
-      categoryMap: Record<string, string>;
-    };
-  }
-}
-
 const LS_ICONS = 'reicon-icons-cache';
 const LS_CATS = 'reicon-cats-cache';
 
