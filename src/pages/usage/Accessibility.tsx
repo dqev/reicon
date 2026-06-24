@@ -1,14 +1,16 @@
 import SyntaxBlock from '../../components/usage/SyntaxBlock';
+import SectionHeader from '../../components/usage/SectionHeader';
 
 interface Props {
+  markdownContent: string;
   copiedField: string | null;
   onCopy: (text: string, field: string) => void;
 }
 
-export default function Accessibility({ copiedField, onCopy }: Props) {
+export default function Accessibility({ markdownContent, copiedField, onCopy }: Props) {
   return (
     <section id="accessibility" data-section className="mb-16 scroll-mt-24">
-      <h2 className="text-xl font-serif text-white mb-4">Accessibility</h2>
+      <SectionHeader id="accessibility" title="Accessibility" level="h2" markdownContent={markdownContent} />
       <p className="text-white/50 text-[14px] mb-6 leading-relaxed">
         Reicon components pass all extra props (including ARIA attributes) directly to the
         underlying <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">{'<svg>'}</code> element. Use these patterns to make your icons accessible.

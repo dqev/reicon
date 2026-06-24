@@ -335,7 +335,7 @@ export default function FaqPage() {
         </aside>
 
         {/* ── Main content ── */}
-        <main ref={contentRef} className="flex-1 min-w-0 px-4 md:px-8 lg:px-12 xl:px-16 py-8 pt-28 lg:pt-8">
+        <main ref={contentRef} className="flex-1 min-w-0 px-4 md:px-8 lg:px-12 xl:px-16 py-8 pt-28 lg:pt-8 overflow-x-hidden">
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl font-serif text-white mb-6">Frequently Asked Questions</h1>
             <p className="text-white/50 text-[15px] leading-[1.8] mb-12">

@@ -12,7 +12,7 @@ export default function NotFound() {
         <meta name="robots" content="noindex" />
       </Helmet>
       <Header />
-      <main className="flex-1 flex flex-col items-center justify-center px-4 text-center pt-14">
+      <main className="flex-1 flex flex-col items-center justify-center px-4 text-center pt-14 overflow-x-hidden">
         <Ghost size={74} color="#ffffff" className="mt-4" />
 
         <p className="text-white/60 text-lg mt-2 mb-6">This page doesn't exist.</p>

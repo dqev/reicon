@@ -1,14 +1,16 @@
 import SyntaxBlock from '../../components/usage/SyntaxBlock';
+import SectionHeader from '../../components/usage/SectionHeader';
 
 interface Props {
+  markdownContent: string;
   copiedField: string | null;
   onCopy: (text: string, field: string) => void;
 }
 
-export default function TypeScriptSection({ copiedField, onCopy }: Props) {
+export default function TypeScriptSection({ markdownContent, copiedField, onCopy }: Props) {
   return (
     <section id="typescript" data-section className="mb-16 scroll-mt-24">
-      <h2 className="text-xl font-serif text-white mb-4">TypeScript</h2>
+      <SectionHeader id="typescript" title="TypeScript" level="h2" markdownContent={markdownContent} />
       <p className="text-white/50 text-[14px] mb-6 leading-relaxed">
         Reicon ships with full TypeScript support out of the box. All icon components are typed with the following interface:
       </p>

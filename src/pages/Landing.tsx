@@ -96,6 +96,7 @@ export default function Landing() {
           "isAccessibleForFree": true,
           "encodingFormat": ["image/svg+xml", "application/json"],
           "distribution": [
+            { "@type": "DataDownload", "encodingFormat": "application/zip", "contentUrl": "https://www.npmjs.com/package/reicon", "name": "reicon (npm)" },
             { "@type": "DataDownload", "encodingFormat": "application/zip", "contentUrl": "https://www.npmjs.com/package/reicon-react", "name": "reicon-react (npm)" },
             { "@type": "DataDownload", "encodingFormat": "application/zip", "contentUrl": "https://www.npmjs.com/package/reicon-vue", "name": "reicon-vue (npm)" },
             { "@type": "DataDownload", "encodingFormat": "application/javascript", "contentUrl": "https://unpkg.com/reicon/cdn/reicon.min.js", "name": "Reicon CDN bundle" }
@@ -116,7 +117,7 @@ export default function Landing() {
           "totalTime": "PT2M",
           "tool": [{ "@type": "HowToTool", "name": "npm or pnpm" }],
           "step": [
-            { "@type": "HowToStep", "name": "Install the package", "text": "Run 'npm install reicon-react' for React, or 'npm install reicon-vue' for Vue 3. For vanilla HTML, add the CDN script tag.", "url": "https://reicon.dev/usage" },
+            { "@type": "HowToStep", "name": "Install the package", "text": "Run 'npm install reicon' for core JavaScript, 'npm install reicon-react' for React, or 'npm install reicon-vue' for Vue 3.", "url": "https://reicon.dev/usage" },
             { "@type": "HowToStep", "name": "Import the icon component", "text": "Import the icon by name, e.g. import { Home } from 'reicon-react'.", "url": "https://reicon.dev/usage" },
             { "@type": "HowToStep", "name": "Render with props", "text": "Render with size, color, and weight props: <Home size={24} weight=\"Outline\" color=\"currentColor\" />.", "url": "https://reicon.dev/usage" }
           ]
@@ -127,6 +128,9 @@ export default function Landing() {
         ref={fixedNavRef}
         className="opacity-0 pointer-events-none transition-opacity duration-300 z-[200]"
       />
+
+      {/* ═══ LAUNCH BANNER ═══ */}
+      <LaunchBanner />
 
       {/* ═══ HERO WRAPPER ═══ */}
       <div className="relative min-h-screen flex items-start justify-center pt-[10px]">
@@ -259,6 +263,33 @@ export default function Landing() {
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-[14px]">
+          <IntegrationCard icon={<SiJavascript size={18} color='#f7df1e' />} title="Vanilla JS" copyText={`import { Home } from 'reicon';
+
+const icon = Home({ size: 24 });
+document.body.appendChild(icon);`} lines={
+              <>
+                <div>
+                  <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-white/70"> i reicon</span></div>
+                  <div className="h-2" />
+                  <span className="text-[#c678dd]">import</span>
+                  <span className="text-white/70"> {'{ '}</span>
+                  <span className="text-[#e5c07b]">Home</span>
+                  <span className="text-white/70">{' }'} </span>
+                  <span className="text-[#c678dd]">from</span>
+                  <span className="text-[#98c379]"> 'reicon'</span>
+                  <span className="text-white/30">;</span>
+                </div>
+                <div className="h-3" />
+                <div>
+                  <span className="text-[#c678dd]">const</span>
+                  <span className="text-white/70"> home = </span>
+                  <span className="text-[#61afef]">Home</span>
+                  <span className="text-white/70">({'{'} size: </span>
+                  <span className="text-[#d19a66]">24</span>
+                  <span className="text-white/70"> {'}'});</span>
+                </div>
+              </>
+            } />
           <IntegrationCard icon={<SiReact size={18} color='#61dafb' />} title="React" copyText={`import { Home } from 'reicon-react';
 
 <Home size={24} weight="outline" />`} lines={
@@ -317,33 +348,6 @@ export default function Landing() {
                 </div>
               </>
             } />
-          <IntegrationCard icon={<SiJavascript size={18} color='#f7df1e' />} title="JavaScript (CDN)" copyText={`<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>
-
-<re-icon icon="home"></re-icon>`} lines={
-              <>
-                <div>
-                  <span className="text-white/20">&lt;</span>
-                  <span className="text-[#e06c75]">script</span>
-                  <span className="text-[#d19a66]"> src</span>
-                  <span className="text-white/30">=</span>
-                  <span className="text-[#98c379]">"https://unpkg.com/reicon/cdn/reicon.min.js"</span>
-                  <span className="text-white/20">&gt;&lt;/</span>
-                  <span className="text-[#e06c75]">script</span>
-                  <span className="text-white/20">&gt;</span>
-                </div>
-                <div className="h-3" />
-                <div>
-                  <span className="text-white/20">&lt;</span>
-                  <span className="text-[#e06c75]">re-icon</span>
-                  <span className="text-[#d19a66]"> icon</span>
-                  <span className="text-white/30">=</span>
-                  <span className="text-[#98c379]">"home"</span>
-                  <span className="text-white/20">&gt;&lt;/</span>
-                  <span className="text-[#e06c75]">re-icon</span>
-                  <span className="text-white/20">&gt;</span>
-                </div>
-              </>
-            } />
         </div>
       </section>
 
@@ -376,8 +380,8 @@ export default function Landing() {
               {/* Install command */}
               <div className="inline-flex items-center gap-3 bg-white/[0.04] border border-white/[0.06] rounded-xl px-4 py-2.5">
                 <span className="text-[#6C5CE7] text-[13px] font-mono font-medium">$</span>
-                <code className="text-[13px] font-mono text-white/50">npm i reicon-react</code>
-                <CopyButton text="npm i reicon-react" />
+                <code className="text-[13px] font-mono text-white/50">npm i reicon</code>
+                <CopyButton text="npm i reicon" />
               </div>
             </div>
 
@@ -819,3 +823,70 @@ function IconPlayground() {
   );
 }
 
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Launch Banner
+// ─────────────────────────────────────────────────────────────────────────────
+function LaunchBanner() {
+  const [dismissed, setDismissed] = useState(() => {
+    try { return localStorage.getItem('reicon-launch-banner-v1') === 'dismissed'; }
+    catch { return false; }
+  });
+
+  if (dismissed) return null;
+
+  const dismiss = () => {
+    setDismissed(true);
+    try { localStorage.setItem('reicon-launch-banner-v1', 'dismissed'); } catch { }
+  };
+
+  return (
+    <div
+      className="relative z-[300] flex items-center justify-center px-10 py-1.5"
+      style={{ background: '#09090b' }}
+    >
+      {/* Desktop */}
+      <span className="hidden sm:inline-flex items-center gap-1.5 text-[13px] text-white/45">
+        <img src="/rocket.webp" alt="" aria-hidden width={28} height={28} style={{ display: 'inline', verticalAlign: 'middle', flexShrink: 0 }} />
+        We launched our core package —
+        <code className="font-mono text-white/75 font-semibold text-[12px] bg-white/[0.06] px-1.5 py-0.5 rounded-md">npm i reicon</code>
+        <span className="text-white/15">·</span>
+        <a
+          href="https://www.npmjs.com/package/reicon"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white/50 hover:text-white/80 transition-colors underline underline-offset-2 decoration-white/20"
+        >
+          npm
+        </a>
+        <span className="text-white/15">·</span>
+        <Link
+          to="/usage"
+          className="text-white/50 hover:text-white/80 transition-colors underline underline-offset-2 decoration-white/20"
+        >
+          Docs
+        </Link>
+      </span>
+
+      {/* Mobile — rocket + tappable code pill → docs */}
+      <Link
+        to="/usage"
+        className="inline-flex sm:hidden items-center gap-1.5 text-[12px] text-white/45"
+      >
+        <img src="/rocket.webp" alt="" aria-hidden width={20} height={20} style={{ display: 'inline', verticalAlign: 'middle', flexShrink: 0 }} />
+        We have launched —
+        <code className="font-mono text-white/70 font-semibold bg-white/[0.06] px-1.5 py-0.5 rounded-md">npm i reicon</code>
+      </Link>
+
+      {/* Dismiss */}
+      <button
+        onClick={dismiss}
+        aria-label="Dismiss"
+        className="absolute right-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white/55 transition-colors"
+        style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', padding: '4px' }}
+      >
+        <re-icon icon="x" size="12" color="currentColor" />
+      </button>
+    </div>
+  );
+}

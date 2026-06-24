@@ -1,13 +1,15 @@
 import SyntaxBlock from '../../components/usage/SyntaxBlock';
 import InstallTabs from '../../components/usage/InstallTabs';
 import { FaReact } from 'react-icons/fa';
+import SectionHeader from '../../components/usage/SectionHeader';
 
 interface Props {
+  markdownContent: string;
   copiedField: string | null;
   onCopy: (text: string, field: string) => void;
 }
 
-export default function ReactUsage({ copiedField, onCopy }: Props) {
+export default function ReactUsage({ markdownContent, copiedField, onCopy }: Props) {
   return (
     <section id="react-usage" data-section className="mb-16 scroll-mt-24">
       {/* Header */}
@@ -15,8 +17,8 @@ export default function ReactUsage({ copiedField, onCopy }: Props) {
         <div className="w-12 h-12 flex items-center justify-center">
           <FaReact className="text-[#61DAFB]" size={34} />
         </div>
-        <div>
-          <h2 className="text-2xl font-serif text-white">Usage of Reicon React</h2>
+        <div className="flex-1">
+          <SectionHeader id="react-usage" title="Usage of Reicon React" level="h2" markdownContent={markdownContent} />
         </div>
       </div>
 

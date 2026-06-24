@@ -28,7 +28,7 @@ export default function Terms() {
       </Helmet>
       <Header />
 
-      <main className="flex-1 pt-24 px-4 md:px-8 pb-12 max-w-3xl mx-auto w-full">
+      <main className="flex-1 pt-24 px-4 md:px-8 pb-12 max-w-3xl mx-auto w-full overflow-x-hidden">
         <h1 className="text-3xl font-serif font-semibold text-white mb-8">Terms of Service</h1>
         <p className="text-sm text-white/40 mb-8">Last updated: May 6, 2025</p>
 
