@@ -16,10 +16,10 @@ const PACKAGES = [
   {
     id: 'vanilla',
     name: 'reicon',
-    npmPkg: 'reicon-react',
+    npmPkg: 'reicon',
     description: 'A Reicon icon library package for web and JavaScript applications.',
     icon: <IoLogoJavascript className="text-yellow-400" size={48} />,
-    npmUrl: 'https://www.npmjs.com/package/reicon-react',
+    npmUrl: 'https://www.npmjs.com/package/reicon',
     sourceUrl: 'https://github.com/reicon-dev/reicon',
     guideUrl: '/usage/vanilla',
   },
