@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name AnglesLeft
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![AnglesLeft](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIuNTMwMyA0LjUzMDMzQzEyLjgyMzIgNC4yMzc0NCAxMi44MjMyIDMuNzYyNTYgMTIuNTMwMyAzLjQ2OTY3QzEyLjIzNzQgMy4xNzY3OCAxMS43NjI2IDMuMTc2NzggMTEuNDY5NyAzLjQ2OTY3TDMuNDY5NjcgMTEuNDY5N0MzLjE3Njc4IDExLjc2MjYgMy4xNzY3OCAxMi4yMzc0IDMuNDY5NjcgMTIuNTMwM0wxMS40Njk3IDIwLjUzMDNDMTEuNzYyNiAyMC44MjMyIDEyLjIzNzQgMjAuODIzMiAxMi41MzAzIDIwLjUzMDNDMTIuODIzMiAyMC4yMzc0IDEyLjgyMzIgMTkuNzYyNiAxMi41MzAzIDE5LjQ2OTdMNS4wNjA2NiAxMkwxMi41MzAzIDQuNTMwMzNaIiBmaWxsPSIjZTRlNGU3Ii8+CjxwYXRoIGQ9Ik0yMC41MzAzIDQuNTMwMzNDMjAuODIzMiA0LjIzNzQ0IDIwLjgyMzIgMy43NjI1NiAyMC41MzAzIDMuNDY5NjdDMjAuMjM3NCAzLjE3Njc4IDE5Ljc2MjYgMy4xNzY3OCAxOS40Njk3IDMuNDY5NjdMMTEuNDY5NyAxMS40Njk3QzExLjE3NjggMTEuNzYyNiAxMS4xNzY4IDEyLjIzNzQgMTEuNDY5NyAxMi41MzAzTDE5LjQ2OTcgMjAuNTMwM0MxOS43NjI2IDIwLjgyMzIgMjAuMjM3NCAyMC44MjMyIDIwLjUzMDMgMjAuNTMwM0MyMC44MjMyIDIwLjIzNzQgMjAuODIzMiAxOS43NjI2IDIwLjUzMDMgMTkuNDY5N0wxMy4wNjA3IDEyTDIwLjUzMDMgNC41MzAzM1oiIGZpbGw9IiNlNGU0ZTciLz48L3N2Zz4=) - https://reicon.dev/icons/angles-left
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const AnglesLeft: IconFunction;
+export { AnglesLeft };
+export default AnglesLeft;

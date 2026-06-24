@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name HeartSearch2
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![HeartSearch2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMjEuNDkgMTJDMjEuODEgMTAuOTggMjIgOS44OCAyMiA4LjY5QzIyIDUuNiAxOS41MSAzLjA5OTk4IDE2LjQ0IDMuMDk5OThDMTQuNjIgMy4wOTk5OCAxMy4wMSAzLjk4MDAzIDEyIDUuMzQwMDNDMTAuOTkgMy45ODAwMyA5LjM3IDMuMDk5OTggNy41NiAzLjA5OTk4QzQuNDkgMy4wOTk5OCAyIDUuNiAyIDguNjlDMiAxNS42OSA4LjQ4IDE5LjgyIDExLjM4IDIwLjgyQzExLjU1IDIwLjg4IDExLjc3IDIwLjkxIDEyIDIwLjkxIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTcuNzQgMjFDMTkuNTA3MyAyMSAyMC45NCAxOS41NjczIDIwLjk0IDE3LjhDMjAuOTQgMTYuMDMyNyAxOS41MDczIDE0LjYgMTcuNzQgMTQuNkMxNS45NzI3IDE0LjYgMTQuNTQgMTYuMDMyNyAxNC41NCAxNy44QzE0LjU0IDE5LjU2NzMgMTUuOTcyNyAyMSAxNy43NCAyMVoiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0yMS41NCAyMS42TDIwLjU0IDIwLjYiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/heart-search2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const HeartSearch2: IconFunction;
+export { HeartSearch2 };
+export default HeartSearch2;

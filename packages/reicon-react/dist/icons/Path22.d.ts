@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Path22
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Path22](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNOS44NzAwMSAyMi4wMDAxSDE0LjE2QzE1Ljc4IDIyLjAwMDEgMTYuODUgMjAuODQwMSAxNi41MyAxOS40MzAxTDE1Ljg0IDE2LjM1MDFIOC4yMDAwMUw3LjUxMDAxIDE5LjQzMDFDNy4yMDAwMSAyMC43NjAxIDguMzQwMDEgMjIuMDAwMSA5Ljg3MDAxIDIyLjAwMDFaIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTUuODMgMTYuMzUwMUwxOC43NyAxMy43NDAxQzIwLjQxIDEyLjI4MDEgMjAuNDggMTEuMjYwMSAxOS4xOCA5LjYxMDEyTDEzLjk5IDMuMDMwMTJDMTIuOSAxLjY1MDEyIDExLjEyIDEuNjUwMTIgMTAuMDIgMy4wMzAxMkw0Ljg0IDkuNjEwMTJDMy41NCAxMS4yNjAxIDMuNTQgMTIuMzMwMSA1LjI1IDEzLjc0MDFMOC4xOSAxNi4zNTAxIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTIuMDEgMi42Njk5MlY2Ljk2OTkyIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/path-22
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const Path22: IconComponent;
+export { Path22 };
+export default Path22;

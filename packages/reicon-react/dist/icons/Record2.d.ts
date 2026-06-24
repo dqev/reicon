@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Record2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Record2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTkuNDY0MTIgMTUuMjVDMTAuMjYxNiAxNC40MDAzIDEwLjc1IDEzLjI1NzIgMTAuNzUgMTJDMTAuNzUgOS4zNzY2NSA4LjYyMzM1IDcuMjUgNiA3LjI1QzMuMzc2NjUgNy4yNSAxLjI1IDkuMzc2NjUgMS4yNSAxMkMxLjI1IDE0LjYyMzQgMy4zNzY2NSAxNi43NSA2IDE2Ljc1SDE4QzIwLjYyMzQgMTYuNzUgMjIuNzUgMTQuNjIzNCAyMi43NSAxMkMyMi43NSA5LjM3NjY1IDIwLjYyMzQgNy4yNSAxOCA3LjI1QzE1LjM3NjYgNy4yNSAxMy4yNSA5LjM3NjY1IDEzLjI1IDEyQzEzLjI1IDEzLjI1NzIgMTMuNzM4NCAxNC40MDAzIDE0LjUzNTkgMTUuMjVIOS40NjQxMlpNNiA4Ljc1QzQuMjA1MDcgOC43NSAyLjc1IDEwLjIwNTEgMi43NSAxMkMyLjc1IDEzLjc5NDkgNC4yMDUwNyAxNS4yNSA2IDE1LjI1QzcuNzk0OTMgMTUuMjUgOS4yNSAxMy43OTQ5IDkuMjUgMTJDOS4yNSAxMC4yMDUxIDcuNzk0OTMgOC43NSA2IDguNzVaTTE4IDE1LjI1QzE5Ljc5NDkgMTUuMjUgMjEuMjUgMTMuNzk0OSAyMS4yNSAxMkMyMS4yNSAxMC4yMDUxIDE5Ljc5NDkgOC43NSAxOCA4Ljc1QzE2LjIwNTEgOC43NSAxNC43NSAxMC4yMDUxIDE0Ljc1IDEyQzE0Ljc1IDEzLjc5NDkgMTYuMjA1MSAxNS4yNSAxOCAxNS4yNVoiIGZpbGw9IiNlNGU0ZTciLz48L3N2Zz4=) - https://reicon.dev/icons/record2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const Record2: IconComponent;
+export { Record2 };
+export default Record2;

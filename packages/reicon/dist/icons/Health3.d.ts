@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name Health3
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![Health3](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNOC45Njk5NyAyMkgxNC45N0MxOS45NyAyMiAyMS45NyAyMCAyMS45NyAxNVY5QzIxLjk3IDQgMTkuOTcgMiAxNC45NyAySDguOTY5OTdDMy45Njk5NyAyIDEuOTY5OTcgNCAxLjk2OTk3IDlWMTVDMS45Njk5NyAyMCAzLjk2OTk3IDIyIDguOTY5OTcgMjJaIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMS45Njk5NyAxMi43MDAxTDcuOTY5OTcgMTIuNjgwMUM4LjcxOTk3IDEyLjY4MDEgOS41NTk5NyAxMy4yNTAxIDkuODM5OTcgMTMuOTUwMUwxMC45OCAxNi44MzAxQzExLjI0IDE3LjQ4MDEgMTEuNjUgMTcuNDgwMSAxMS45MSAxNi44MzAxTDE0LjIgMTEuMDIwMUMxNC40MiAxMC40NjAxIDE0LjgzIDEwLjQ0MDEgMTUuMTEgMTAuOTcwMUwxNi4xNSAxMi45NDAxQzE2LjQ2IDEzLjUzMDEgMTcuMjYgMTQuMDEwMSAxNy45MiAxNC4wMTAxSDIxLjk4IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/health3
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const Health3: IconFunction;
+export { Health3 };
+export default Health3;

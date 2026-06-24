@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Ram2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Ram2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMy41IDdWMTdDMy41IDIwIDQuOTcgMjIgOC41IDIySDE1LjVDMTguOTcgMjIgMjAuNSAyMCAyMC41IDE3VjE1LjgzQzIwLjUgMTUuMyAyMC4yOSAxNC43OSAxOS45MSAxNC40MkwxOS4wOCAxMy41OUMxOC43IDEzLjIxIDE4LjQ5IDEyLjcxIDE4LjQ5IDEyLjE4VjEwQzE4LjQ5IDkuNDUgMTguOTQgOSAxOS40OSA5QzIwLjA0IDkgMjAuNDkgOC41NSAyMC40OSA4VjdDMjAuNDkgNCAxOC45NiAyIDE1LjQ5IDJIOC40OUM0Ljk3IDIgMy41IDQgMy41IDdaIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNy45ODk5OCAyMS45N0w3Ljk3OTk4IDE5QzcuOTc5OTggMTcuODkgOC44Njk5OCAxNyA5Ljk3OTk4IDE3SDEzLjk5QzE1LjA5IDE3IDE1Ljk4IDE3Ljg5IDE1Ljk5IDE4Ljk5TDE2LjAyIDIxLjk4IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTMuOTcgNy43ODAwM0g3Ljk2OTk3IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/ram2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const Ram2: IconComponent;
+export { Ram2 };
+export default Ram2;

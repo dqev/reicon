@@ -1,0 +1,17 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @name FolderConnection2
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![FolderConnection2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIgMTZWMTkiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTEyIDIzQzEzLjEwNDYgMjMgMTQgMjIuMTA0NiAxNCAyMUMxNCAxOS44OTU0IDEzLjEwNDYgMTkgMTIgMTlDMTAuODk1NCAxOSAxMCAxOS44OTU0IDEwIDIxQzEwIDIyLjEwNDYgMTAuODk1NCAyMyAxMiAyM1oiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTE4IDIxSDE0IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMCAyMUg2IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xOSA4LjMwMDA1VjEyLjVDMTkgMTUuMyAxOC4zIDE2IDE1LjUgMTZIOC41QzUuNyAxNiA1IDE1LjMgNSAxMi41VjUuNUM1IDIuNyA1LjcgMiA4LjUgMkg5LjU0OTk5QzEwLjYgMiAxMC44MyAyLjMwOTk3IDExLjIzIDIuODM5OTdMMTIuMjggNC4yMzk5OUMxMi41NSA0LjU4OTk5IDEyLjcgNC44MDAwNSAxMy40IDQuODAwMDVIMTUuNUMxOC4zIDQuODAwMDUgMTkgNS41MDAwNSAxOSA4LjMwMDA1WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIi8+PC9zdmc+) - https://reicon.dev/icons/folder-connection2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+const FolderConnection2 = createIcon('FolderConnection2', {
+  O: `<path d="M12 16V19" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 23C13.1046 23 14 22.1046 14 21C14 19.8954 13.1046 19 12 19C10.8954 19 10 19.8954 10 21C10 22.1046 10.8954 23 12 23Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 21H14" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 21H6" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 8.30005V12.5C19 15.3 18.3 16 15.5 16H8.5C5.7 16 5 15.3 5 12.5V5.5C5 2.7 5.7 2 8.5 2H9.54999C10.6 2 10.83 2.30997 11.23 2.83997L12.28 4.23999C12.55 4.58999 12.7 4.80005 13.4 4.80005H15.5C18.3 4.80005 19 5.50005 19 8.30005Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"/>`,
+  F: `<path d="M12.75 16H15.5C18.3 16 19 15.3 19 12.5V8.3C19 5.5 18.3 4.8 15.5 4.8H13.4C12.7 4.8 12.55 4.59 12.28 4.24L11.23 2.84C10.83 2.31 10.6 2 9.55 2H8.5C5.7 2 5 2.7 5 5.5V12.5C5 15.3 5.7 16 8.5 16H11.25V19C11.25 19.05 11.27 19.09 11.28 19.14C10.76 19.34 10.34 19.76 10.14 20.28C10.09 20.27 10.05 20.25 10 20.25H6C5.59 20.25 5.25 20.59 5.25 21C5.25 21.41 5.59 21.75 6 21.75H10C10.05 21.75 10.09 21.73 10.14 21.72C10.43 22.47 11.15 23 12 23C12.85 23 13.57 22.47 13.86 21.72C13.91 21.73 13.95 21.75 14 21.75H18C18.41 21.75 18.75 21.41 18.75 21C18.75 20.59 18.41 20.25 18 20.25H14C13.95 20.25 13.91 20.27 13.86 20.28C13.66 19.76 13.24 19.34 12.72 19.14C12.73 19.09 12.75 19.05 12.75 19V16Z" fill="currentColor"/>`
+});
+
+export { FolderConnection2 };
+export default FolderConnection2;

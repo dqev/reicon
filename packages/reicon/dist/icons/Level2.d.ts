@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name Level2
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![Level2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMi4xOTk5NSAxNC4wMkMzLjEyOTk1IDE4LjU4IDcuMTU5OTUgMjIgMTIgMjJDMTYuODIgMjIgMjAuODM5OSAxOC41OSAyMS43ODk5IDE0LjA1IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMjEuODEgMTAuMDZDMjAuOTEgNS40NiAxNi44NiAyIDEyIDJDNy4xNjk5NSAyIDMuMTM5OTUgNS40MzAwMSAyLjE5OTk1IDkuOTgwMDEiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMiAxMy41QzEyLjgyODQgMTMuNSAxMy41IDEyLjgyODQgMTMuNSAxMkMxMy41IDExLjE3MTYgMTIuODI4NCAxMC41IDEyIDEwLjVDMTEuMTcxNiAxMC41IDEwLjUgMTEuMTcxNiAxMC41IDEyQzEwLjUgMTIuODI4NCAxMS4xNzE2IDEzLjUgMTIgMTMuNVoiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/level2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const Level2: IconFunction;
+export { Level2 };
+export default Level2;

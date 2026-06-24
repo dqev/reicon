@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name TimerPause2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![TimerPause2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIgMjJDNy4xNyAyMiAzLjI1IDE4LjA4IDMuMjUgMTMuMjVDMy4yNSA4LjQyIDcuMTcgNC41IDEyIDQuNUMxNi44MyA0LjUgMjAuNzUgOC40MiAyMC43NSAxMy4yNSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTEyIDhWMTMiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik05IDJIMTUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTE5IDE3VjIxIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTYgMTdWMjEiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/timer-pause2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const TimerPause2: IconComponent;
+export { TimerPause2 };
+export default TimerPause2;

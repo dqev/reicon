@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name Convert2
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![Convert2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIuMDA1MSAyMS45ODQzQzE3LjUxNjUgMjEuOTg0MyAyMS45ODQzIDE3LjUxNjUgMjEuOTg0MyAxMi4wMDUxQzIxLjk4NDMgNi40OTM3MiAxNy41MTY1IDIuMDI1ODggMTIuMDA1MSAyLjAyNTg4QzYuNDkzNzIgMi4wMjU4OCAyLjAyNTg4IDYuNDkzNzIgMi4wMjU4OCAxMi4wMDUxQzIuMDI1ODggMTcuNTE2NSA2LjQ5MzcyIDIxLjk4NDMgMTIuMDA1MSAyMS45ODQzWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTYuMTM3MjEgNC4wMjE3M0wxNC4zMDAyIDEyLjIwNDdMMTQuMzIwMiA3LjY2NDE0IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTcuODYyOSAxOS45Nzg0TDkuNjk5ODkgMTEuODA1NEw5LjY3OTkzIDE2LjMzNiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/convert2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const Convert2: IconFunction;
+export { Convert2 };
+export default Convert2;

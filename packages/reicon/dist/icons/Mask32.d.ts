@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name Mask32
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![Mask32](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMjEuOTcgMTJDMjEuOTcgMTQuOTQgMjAuNjkgMTcuNiAxOC42NSAxOS40MUMxNi44OSAyMS4wMSAxNC41NiAyMS45NyAxMiAyMS45N0M2LjUgMjEuOTcgMi4wMyAxNy41IDIuMDMgMTJDMi4wMyA2LjUwMDAzIDYuNSAyLjAzMDAzIDEyIDIuMDMwMDNDMTQuNTYgMi4wMzAwMyAxNi44OSAyLjk5MDAzIDE4LjY1IDQuNTkwMDNDMjAuNjkgNi40MDAwMyAyMS45NyA5LjA2MDAzIDIxLjk3IDEyWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTExLjk3IDE2LjM5QzExLjk1IDE4LjA0IDEwLjcyIDE4LjQ0IDkuNTcgMTcuOThDNy4yIDE3LjAzIDUuNTMgMTQuNzEgNS41MyAxMkM1LjUzIDkuMjg5OTkgNy4yIDYuOTcgOS41NyA2LjAxQzEwLjcyIDUuNTUgMTEuOTUgNS45NTk5OSAxMS45NyA3LjU5OTk5VjE2LjM5WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/mask-32
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const Mask32: IconFunction;
+export { Mask32 };
+export default Mask32;

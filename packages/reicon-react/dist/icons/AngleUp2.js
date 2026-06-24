@@ -1,0 +1,18 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @component
+ * @name AngleUp2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![AngleUp2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNNi40Njk2NyAxNC41MzAzQzYuNzYyNTYgMTQuODIzMiA3LjIzNzQ0IDE0LjgyMzIgNy41MzAzMyAxNC41MzAzTDEyIDEwLjA2MDdMMTYuNDY5NyAxNC41MzAzQzE2Ljc2MjYgMTQuODIzMiAxNy4yMzc0IDE0LjgyMzIgMTcuNTMwMyAxNC41MzAzQzE3LjgyMzIgMTQuMjM3NCAxNy44MjMyIDEzLjc2MjYgMTcuNTMwMyAxMy40Njk3TDEyLjUzMDMgOC40Njk2N0MxMi4yMzc0IDguMTc2NzggMTEuNzYyNiA4LjE3Njc4IDExLjQ2OTcgOC40Njk2N0w2LjQ2OTY3IDEzLjQ2OTdDNi4xNzY3OCAxMy43NjI2IDYuMTc2NzggMTQuMjM3NCA2LjQ2OTY3IDE0LjUzMDNaIiBmaWxsPSIjZTRlNGU3Ii8+PC9zdmc+) - https://reicon.dev/icons/angle-up2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+const AngleUp2 = createIcon('AngleUp2', {
+  O: `<path d="M6.46967 14.5303C6.76256 14.8232 7.23744 14.8232 7.53033 14.5303L12 10.0607L16.4697 14.5303C16.7626 14.8232 17.2374 14.8232 17.5303 14.5303C17.8232 14.2374 17.8232 13.7626 17.5303 13.4697L12.5303 8.46967C12.2374 8.17678 11.7626 8.17678 11.4697 8.46967L6.46967 13.4697C6.17678 13.7626 6.17678 14.2374 6.46967 14.5303Z" fill="currentColor"/>`,
+  F: `<path d="M6.29289 14.7071C6.68342 15.0976 7.31658 15.0976 7.70711 14.7071L12 10.4142L16.2929 14.7071C16.6834 15.0976 17.3166 15.0976 17.7071 14.7071C18.0976 14.3166 18.0976 13.6834 17.7071 13.2929L12.7071 8.29289C12.3166 7.90237 11.6834 7.90237 11.2929 8.29289L6.29289 13.2929C5.90237 13.6834 5.90237 14.3166 6.29289 14.7071Z" fill="currentColor"/>`
+});
+
+export { AngleUp2 };
+export default AngleUp2;

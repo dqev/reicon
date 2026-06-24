@@ -1,0 +1,18 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @component
+ * @name Milk2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Milk2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTggMTVWMTlDMTggMjAuNjUgMTYuNjUgMjIgMTUgMjJIOUM3LjM1IDIyIDYgMjAuNjUgNiAxOVYxMy45OEw5Ljg5MDAxIDE0QzEwLjYyIDE0IDExLjM0IDE0LjE3IDEyIDE0LjVDMTIuNjYgMTQuODMgMTMuMzggMTUgMTQuMTIgMTVIMThaIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTggMTAuODNWMTVIMTQuMTJDMTMuMzggMTUgMTIuNjYgMTQuODMgMTIgMTQuNUMxMS4zNCAxNC4xNyAxMC42MiAxNCA5Ljg5MDAxIDE0TDYgMTMuOThWMTAuODNDNiAxMC4zNyA2LjI2MDAzIDkuNzQgNi41OTAwMyA5LjQxTDguNzEwMDIgNy4yODk5OUM4Ljg5MDAyIDcuMTA5OTkgOSA2Ljg1IDkgNi41OVY1SDE1VjYuNTlDMTUgNi44NSAxNS4xMSA3LjEwOTk5IDE1LjI5IDcuMjg5OTlMMTcuNDEgOS40MUMxNy43NCA5Ljc0IDE4IDEwLjM3IDE4IDEwLjgzWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTE4IDE2VjE1IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNiAxNC45OFYxMy45OCIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTE0LjUgNUg5LjVDOC42NyA1IDggNC4zMiA4IDMuNUM4IDIuNjggOC42NyAyIDkuNSAySDE0LjVDMTUuMzMgMiAxNiAyLjY4IDE2IDMuNUMxNiA0LjMyIDE1LjMzIDUgMTQuNSA1WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/milk2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+const Milk2 = createIcon('Milk2', {
+  O: `<path d="M18 15V19C18 20.65 16.65 22 15 22H9C7.35 22 6 20.65 6 19V13.98L9.89001 14C10.62 14 11.34 14.17 12 14.5C12.66 14.83 13.38 15 14.12 15H18Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 10.83V15H14.12C13.38 15 12.66 14.83 12 14.5C11.34 14.17 10.62 14 9.89001 14L6 13.98V10.83C6 10.37 6.26003 9.74 6.59003 9.41L8.71002 7.28999C8.89002 7.10999 9 6.85 9 6.59V5H15V6.59C15 6.85 15.11 7.10999 15.29 7.28999L17.41 9.41C17.74 9.74 18 10.37 18 10.83Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 16V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 14.98V13.98" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.5 5H9.5C8.67 5 8 4.32 8 3.5C8 2.68 8.67 2 9.5 2H14.5C15.33 2 16 2.68 16 3.5C16 4.32 15.33 5 14.5 5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  F: `<path d="M18 15.9983V18.9983C18 20.6483 16.65 21.9983 15 21.9983H9C7.35 21.9983 6 20.6483 6 18.9983V14.9883C6 14.4383 6.45 13.9883 7.01 13.9883L9.89 13.9983C10.58 13.9983 11.26 14.1483 11.89 14.4483C12.58 14.7683 13.31 14.9983 14.08 14.9983H17C17.55 14.9983 18 15.4483 18 15.9983Z" fill="currentColor"/><path d="M17.41 9.41L15.29 7.29C15.1 7.1 15 6.85 15 6.59V4.91C15.58 4.71 16 4.15 16 3.5C16 2.67 15.33 2 14.5 2H9.5C8.67 2 8 2.67 8 3.5C8 4.15 8.42 4.71 9 4.91V6.59C9 6.85 8.9 7.1 8.71 7.29L6.59 9.41C6.27 9.73 6 10.38 6 10.83V11.48C6 12.03 6.44 12.48 6.99 12.48L9.9 12.5C10.88 12.5 11.87 12.74 12.75 13.2C13.17 13.42 13.65 13.5 14.12 13.5H17C17.55 13.5 18 13.05 18 12.5V10.83C18 10.38 17.73 9.73 17.41 9.41Z" fill="currentColor"/>`
+});
+
+export { Milk2 };
+export default Milk2;

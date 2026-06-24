@@ -1,0 +1,12 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Send12
+ * @description Reicon Vue icon component, renders an SVG Element.
+ * @preview ![Send12](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNOS41MTAwMiA0LjIzMDAxTDE4LjA3IDguNTEwMDFDMjEuOTEgMTAuNDMgMjEuOTEgMTMuNTcgMTguMDcgMTUuNDlMOS41MTAwMiAxOS43N0MzLjc1MDAyIDIyLjY1IDEuNDAwMDIgMjAuMjkgNC4yODAwMiAxNC41NEw1LjE1MDAyIDEyLjgxQzUuMzcwMDIgMTIuMzcgNS4zNzAwMiAxMS42NCA1LjE1MDAyIDExLjJMNC4yODAwMiA5LjQ2MDAxQzEuNDAwMDIgMy43MTAwMSAzLjc2MDAyIDEuMzUwMDEgOS41MTAwMiA0LjIzMDAxWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTUuNDQgMTJIMTAuODQiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/send-12
+ * @see https://reicon.dev/docs — Documentation
+ */
+declare const Send12: IconComponent;
+export { Send12 };
+export default Send12;

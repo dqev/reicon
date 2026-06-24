@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name DocumentSketch2
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![DocumentSketch2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMjIgMTBWMTVDMjIgMjAgMjAgMjIgMTUgMjJIOUM0IDIyIDIgMjAgMiAxNVY5QzIgNCA0IDIgOSAySDE0IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMjIgMTBIMThDMTUgMTAgMTQgOSAxNCA2VjJMMjIgMTBaIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTguMzIgMTJIMTAuOTdDMTEuMjQgMTIgMTEuNTggMTIuMTggMTEuNzIgMTIuNEwxMi44NSAxNC4xQzEzLjA4IDE0LjQ0IDEzLjAzIDE0Ljk1IDEyLjc0IDE1LjI0TDEwLjI4IDE3LjdDOS45MyAxOC4wNSA5LjM1IDE4LjA1IDkgMTcuN0w2LjU0IDE1LjI0QzYuMjUgMTQuOTUgNi4yIDE0LjQ0IDYuNDMgMTQuMUw3LjU2IDEyLjRDNy43MiAxMi4xOCA4LjA2IDEyIDguMzIgMTJaIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/document-sketch2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const DocumentSketch2: IconFunction;
+export { DocumentSketch2 };
+export default DocumentSketch2;

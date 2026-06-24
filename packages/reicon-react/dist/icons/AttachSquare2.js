@@ -1,0 +1,18 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @component
+ * @name AttachSquare2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![AttachSquare2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIuMTk5OSAxMS44TDEwLjc4OTkgMTMuMjFDMTAuMDA5OSAxMy45OSAxMC4wMDk5IDE1LjI2IDEwLjc4OTkgMTYuMDRDMTEuNTY5OSAxNi44MiAxMi44Mzk5IDE2LjgyIDEzLjYxOTkgMTYuMDRMMTUuODM5OSAxMy44MkMxNy4zOTk5IDEyLjI2IDE3LjM5OTkgOS43Mjk5OSAxNS44Mzk5IDguMTU5OTlDMTQuMjc5OSA2LjU5OTk5IDExLjc0OTkgNi41OTk5OSAxMC4xNzk5IDguMTU5OTlMNy43NTk4OCAxMC41OEM2LjQxOTg4IDExLjkyIDYuNDE5ODggMTQuMDkgNy43NTk4OCAxNS40MyIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTkgMjJIMTVDMjAgMjIgMjIgMjAgMjIgMTVWOUMyMiA0IDIwIDIgMTUgMkg5QzQgMiAyIDQgMiA5VjE1QzIgMjAgNCAyMiA5IDIyWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/attach-square2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+const AttachSquare2 = createIcon('AttachSquare2', {
+  O: `<path d="M12.1999 11.8L10.7899 13.21C10.0099 13.99 10.0099 15.26 10.7899 16.04C11.5699 16.82 12.8399 16.82 13.6199 16.04L15.8399 13.82C17.3999 12.26 17.3999 9.72999 15.8399 8.15999C14.2799 6.59999 11.7499 6.59999 10.1799 8.15999L7.75988 10.58C6.41988 11.92 6.41988 14.09 7.75988 15.43" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  F: `<path d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.18C2 19.83 4.17 22 7.81 22H16.18C19.82 22 21.99 19.83 21.99 16.19V7.81C22 4.17 19.83 2 16.19 2ZM16.37 14.35L14.15 16.57C13.61 17.11 12.91 17.37 12.21 17.37C11.51 17.37 10.8 17.1 10.27 16.57C9.75 16.05 9.46 15.36 9.46 14.63C9.46 13.9 9.75 13.2 10.27 12.69L11.68 11.28C11.97 10.99 12.45 10.99 12.74 11.28C13.03 11.57 13.03 12.05 12.74 12.34L11.33 13.75C11.09 13.99 10.96 14.3 10.96 14.63C10.96 14.96 11.09 15.28 11.33 15.51C11.82 16 12.61 16 13.1 15.51L15.32 13.29C16.59 12.02 16.59 9.96 15.32 8.69C14.05 7.42 11.99 7.42 10.72 8.69L8.3 11.11C7.79 11.62 7.51 12.29 7.51 13C7.51 13.71 7.79 14.39 8.3 14.89C8.59 15.18 8.59 15.66 8.3 15.95C8.01 16.24 7.53 16.24 7.24 15.95C6.44 15.18 6 14.13 6 13.01C6 11.89 6.43 10.84 7.22 10.05L9.64 7.63C11.49 5.78 14.51 5.78 16.36 7.63C18.22 9.48 18.22 12.5 16.37 14.35Z" fill="currentColor"/>`
+});
+
+export { AttachSquare2 };
+export default AttachSquare2;

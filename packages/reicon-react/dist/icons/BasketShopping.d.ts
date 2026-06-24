@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name BasketShopping
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![BasketShopping](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48bGluZSB4MT0iNC43NSIgeTE9IjYuMjUiIHgyPSI3LjI1IiB5Mj0iMS43NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij48L2xpbmU+PGxpbmUgeDE9IjEzLjI1IiB5MT0iNi4yNSIgeDI9IjEwLjc1IiB5Mj0iMS43NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij48L2xpbmU+PHBhdGggZD0iTTE1LDYuMjVsLS41OTcsNy4xNjZjLS4wODYsMS4wMzctLjk1MywxLjgzNC0xLjk5MywxLjgzNEg1LjU5Yy0xLjA0LDAtMS45MDctLjc5Ny0xLjk5My0xLjgzNGwtLjU5Ny03LjE2NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij48L3BhdGg+PGxpbmUgeDE9IjEuNzUiIHkxPSI2LjI1IiB4Mj0iMTYuMjUiIHkyPSI2LjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjwvbGluZT48L2c+PC9zdmc+) - https://reicon.dev/icons/basket-shopping
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const BasketShopping: IconComponent;
+export { BasketShopping };
+export default BasketShopping;

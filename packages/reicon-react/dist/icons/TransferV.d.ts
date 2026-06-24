@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name TransferV
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![TransferV](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTEzLjY5OCAzLjMxMzVDMTMuOTcwMyAzLjE5Mzc0IDE0LjI4NzUgMy4yNDYxNyAxNC41MDY4IDMuNDQ3MTVMMjAuNTA2OCA4Ljk0NzE1QzIwLjgxMjEgOS4yMjcwNCAyMC44MzI4IDkuNzAxNDcgMjAuNTUyOSAxMC4wMDY4QzIwLjI3MyAxMC4zMTIxIDE5Ljc5ODUgMTAuMzMyOCAxOS40OTMyIDEwLjA1MjlMMTQuNzUgNS43MDQ5NEwxNC43NSAyMEMxNC43NSAyMC40MTQyIDE0LjQxNDIgMjAuNzUgMTQgMjAuNzVDMTMuNTg1OCAyMC43NSAxMy4yNSAyMC40MTQyIDEzLjI1IDIwTDEzLjI1IDQuMDAwMDJDMTMuMjUgMy43MDI1OSAxMy40MjU4IDMuNDMzMjcgMTMuNjk4IDMuMzEzNVpNMTAgMy4yNTAwMkMxMC40MTQyIDMuMjUwMDIgMTAuNzUgMy41ODU4IDEwLjc1IDQuMDAwMDJMMTAuNzUgMjBDMTAuNzUgMjAuMjk3NCAxMC41NzQzIDIwLjU2NjggMTAuMzAyIDIwLjY4NjVDMTAuMDI5OCAyMC44MDYzIDkuNzEyNDYgMjAuNzUzOSA5LjQ5MzIxIDIwLjU1MjlMMy40OTMyMSAxNS4wNTI5QzMuMTg3ODcgMTQuNzczIDMuMTY3MjQgMTQuMjk4NiAzLjQ0NzE0IDEzLjk5MzJDMy43MjcwMyAxMy42ODc5IDQuMjAxNDYgMTMuNjY3MyA0LjUwNjggMTMuOTQ3MUw5LjI1MDAxIDE4LjI5NTFMOS4yNSA0LjAwMDAyQzkuMjUgMy41ODU4IDkuNTg1NzkgMy4yNTAwMiAxMCAzLjI1MDAyWiIgZmlsbD0iI2U0ZTRlNyIvPjwvc3ZnPg==) - https://reicon.dev/icons/transfer-v
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const TransferV: IconComponent;
+export { TransferV };
+export default TransferV;

@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name LampOn2
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![LampOn2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNOC4zMDAxMSAxOC4wMzk5VjE2Ljg3OTlDNi4wMDAxMSAxNS40ODk5IDQuMTEwMTEgMTIuNzc5OSA0LjExMDExIDkuODk5OTNDNC4xMTAxMSA0Ljk0OTkzIDguNjYwMTEgMS4wNjk5MyAxMy44MDAxIDIuMTg5OTNDMTYuMDYwMSAyLjY4OTkzIDE4LjA0MDEgNC4xODk5MyAxOS4wNzAxIDYuMjU5OTNDMjEuMTYwMSAxMC40NTk5IDE4Ljk2MDEgMTQuOTE5OSAxNS43MzAxIDE2Ljg2OTlWMTguMDI5OUMxNS43MzAxIDE4LjMxOTkgMTUuODQwMSAxOC45ODk5IDE0Ljc3MDEgMTguOTg5OUg5LjI2MDExQzguMTYwMTEgMTguOTk5OSA4LjMwMDExIDE4LjU2OTkgOC4zMDAxMSAxOC4wMzk5WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTguNSAyMkMxMC43OSAyMS4zNSAxMy4yMSAyMS4zNSAxNS41IDIyIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/lamp-on2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const LampOn2: IconFunction;
+export { LampOn2 };
+export default LampOn2;

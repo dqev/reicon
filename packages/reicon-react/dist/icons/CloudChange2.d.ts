@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name CloudChange2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![CloudChange2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNOC4xMTAwMyAxMS44NUM1LjI5MDAzIDEyLjA1IDUuMzAwMDMgMTYuMTUgOC4xMTAwMyAxNi4zNUgxNC43OEMxNS41OSAxNi4zNiAxNi4zNyAxNi4wNSAxNi45NyAxNS41MUMxOC45NSAxMy43OCAxNy44OTAxIDEwLjMxIDE1LjI5MDEgOS45ODAwMUMxNC4zNjAxIDQuMzQwMDEgNi4yMTAwNiA2LjQ4IDguMTQwMDYgMTEuODUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTIgMTVDMiAxOC44NyA1LjEzIDIyIDkgMjJMNy45NTAwMSAyMC4yNSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTIyIDlDMjIgNS4xMyAxOC44NyAyIDE1IDJMMTYuMDUgMy43NSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/cloud-change2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const CloudChange2: IconComponent;
+export { CloudChange2 };
+export default CloudChange2;

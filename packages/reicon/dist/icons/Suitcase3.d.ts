@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name Suitcase3
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![Suitcase3](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48cGF0aCBkPSJNMS43NSw4Ljc1YzEuNDIxLC42MTYsMy45NjYsMS41MDMsNy4yNSwxLjUwM3M1LjgyOS0uODg3LDcuMjUtMS41MDMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSI+PC9wYXRoPjxsaW5lIHgxPSI5IiB5MT0iOS4yNSIgeDI9IjkiIHkyPSIxMS41IiBmaWxsPSJub25lIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjwvbGluZT48cGF0aCBkPSJNNi4yNSw0Ljc1VjIuMjVjMC0uNTUyLC40NDgtMSwxLTFoMy41Yy41NTIsMCwxLC40NDgsMSwxdjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij48L3BhdGg+PHJlY3QgeD0iMS43NSIgeT0iNC43NSIgd2lkdGg9IjE0LjUiIGhlaWdodD0iMTAuNSIgcng9IjIiIHJ5PSIyIiBmaWxsPSJub25lIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjwvcmVjdD48L2c+PC9zdmc+) - https://reicon.dev/icons/suitcase-3
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const Suitcase3: IconFunction;
+export { Suitcase3 };
+export default Suitcase3;

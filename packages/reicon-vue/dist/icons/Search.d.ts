@@ -1,0 +1,12 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Search
+ * @description Reicon Vue icon component, renders an SVG Element.
+ * @preview ![Search](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTExLjUgMi43NUM2LjY2NzUxIDIuNzUgMi43NSA2LjY2NzUxIDIuNzUgMTEuNUMyLjc1IDE2LjMzMjUgNi42Njc1MSAyMC4yNSAxMS41IDIwLjI1QzE2LjMzMjUgMjAuMjUgMjAuMjUgMTYuMzMyNSAyMC4yNSAxMS41QzIwLjI1IDYuNjY3NTEgMTYuMzMyNSAyLjc1IDExLjUgMi43NVpNMS4yNSAxMS41QzEuMjUgNS44MzkwOCA1LjgzOTA4IDEuMjUgMTEuNSAxLjI1QzE3LjE2MDkgMS4yNSAyMS43NSA1LjgzOTA4IDIxLjc1IDExLjVDMjEuNzUgMTQuMDYwNSAyMC44MTExIDE2LjQwMTcgMTkuMjU4OSAxOC4xOTgyTDIyLjUzMDMgMjEuNDY5N0MyMi44MjMyIDIxLjc2MjYgMjIuODIzMiAyMi4yMzc0IDIyLjUzMDMgMjIuNTMwM0MyMi4yMzc0IDIyLjgyMzIgMjEuNzYyNiAyMi44MjMyIDIxLjQ2OTcgMjIuNTMwM0wxOC4xOTgyIDE5LjI1ODlDMTYuNDAxNyAyMC44MTExIDE0LjA2MDUgMjEuNzUgMTEuNSAyMS43NUM1LjgzOTA4IDIxLjc1IDEuMjUgMTcuMTYwOSAxLjI1IDExLjVaIiBmaWxsPSIjZTRlNGU3Ii8+PC9zdmc+) - https://reicon.dev/icons/search
+ * @see https://reicon.dev/docs — Documentation
+ */
+declare const Search: IconComponent;
+export { Search };
+export default Search;

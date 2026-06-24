@@ -1,0 +1,12 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name CircleInfo
+ * @description Reicon Vue icon component, renders an SVG Element.
+ * @preview ![CircleInfo](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48cGF0aCBkPSJNOSAxNi4yNUMxMy4wMDQgMTYuMjUgMTYuMjUgMTMuMDA0IDE2LjI1IDlDMTYuMjUgNC45OTYgMTMuMDA0IDEuNzUgOSAxLjc1QzQuOTk2IDEuNzUgMS43NSA0Ljk5NiAxLjc1IDlDMS43NSAxMy4wMDQgNC45OTYgMTYuMjUgOSAxNi4yNVoiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSI+PC9wYXRoPiA8cGF0aCBkPSJNOSAxMi43NVY5LjI1QzkgOC45NzM5IDguNzc2MSA4Ljc1IDguNSA4Ljc1SDcuNzUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSI+PC9wYXRoPiA8cGF0aCBkPSJNOSA2Ljc1QzguNDQ4IDYuNzUgOCA2LjMwMSA4IDUuNzVDOCA1LjE5OSA4LjQ0OCA0Ljc1IDkgNC43NUM5LjU1MiA0Ljc1IDEwIDUuMTk5IDEwIDUuNzVDMTAgNi4zMDEgOS41NTIgNi43NSA5IDYuNzVaIiBmaWxsPSIjZTRlNGU3Ij48L3BhdGg+PC9nPjwvc3ZnPg==) - https://reicon.dev/icons/circle-info
+ * @see https://reicon.dev/docs — Documentation
+ */
+declare const CircleInfo: IconComponent;
+export { CircleInfo };
+export default CircleInfo;

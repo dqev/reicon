@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name SearchFavorite12
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![SearchFavorite12](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMjEgMTEuNUMyMSAxNi43NSAxNi43NSAyMSAxMS41IDIxQzYuMjUgMjEgMiAxNi43NSAyIDExLjVDMiA2LjI1IDYuMjUgMiAxMS41IDIiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0yMiAyMkwyMCAyMCIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTE0LjQ5OTkgNi4xMjk5NkMxNC4xNDk5IDUuMDI5OTYgMTQuNTU5OSAzLjY1OTk2IDE1LjcxOTkgMy4yODk5NkMxNi4zMjk5IDMuMDg5OTYgMTcuMDc5OSAzLjI1OTk2IDE3LjUwOTkgMy44NDk5NkMxNy45MDk5IDMuMjM5OTYgMTguNjg5OSAzLjA5OTk2IDE5LjI4OTkgMy4yODk5NkMyMC40NDk5IDMuNjU5OTYgMjAuODU5OSA1LjAyOTk2IDIwLjUwOTkgNi4xMjk5NkMxOS45NTk5IDcuODc5OTYgMTguMDM5OSA4Ljc4OTk2IDE3LjUwOTkgOC43ODk5NkMxNi45Njk5IDguNzg5OTYgMTUuMDY5OSA3Ljg5OTk2IDE0LjQ5OTkgNi4xMjk5NloiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/search-favorite-12
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const SearchFavorite12: IconComponent;
+export { SearchFavorite12 };
+export default SearchFavorite12;

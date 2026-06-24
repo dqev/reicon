@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name ThreeSquare
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![ThreeSquare](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIgMTdWMTkuMzhDMTIgMjEuMjUgMTEuMjUgMjIgOS4zNyAyMkg0LjYyQzIuNzUgMjIgMiAyMS4yNSAyIDE5LjM4VjE0LjYzQzIgMTIuNzUgMi43NSAxMiA0LjYyIDEySDdWMTQuMzdDNyAxNi4yNSA3Ljc1IDE3IDkuNjIgMTdIMTJaIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTcgMTJWMTQuMzdDMTcgMTYuMjUgMTYuMjUgMTcgMTQuMzcgMTdIOS42MkM3Ljc1IDE3IDcgMTYuMjUgNyAxNC4zN1Y5LjYyQzcgNy43NSA3Ljc1IDcgOS42MiA3SDEyVjkuMzdDMTIgMTEuMjUgMTIuNzUgMTIgMTQuNjIgMTJIMTdaIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMjIgNC42MlY5LjM3QzIyIDExLjI1IDIxLjI1IDEyIDE5LjM3IDEySDE0LjYyQzEyLjc1IDEyIDEyIDExLjI1IDEyIDkuMzdWNC42MkMxMiAyLjc1IDEyLjc1IDIgMTQuNjIgMkgxOS4zN0MyMS4yNSAyIDIyIDIuNzUgMjIgNC42MloiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/three-square
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const ThreeSquare: IconFunction;
+export { ThreeSquare };
+export default ThreeSquare;

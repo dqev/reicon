@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name HeartSlash2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![HeartSlash2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNNi4xMDk5OSAxNy41QzMuODk5OTkgMTUuNDMgMiAxMi40OCAyIDguNjc5OTlDMiA1LjU4OTk5IDQuNDkgMy4wOTAwMyA3LjU2IDMuMDkwMDNDOS4zOCAzLjA5MDAzIDEwLjk5IDMuOTcwMDIgMTIgNS4zMzAwMkMxMy4wMSAzLjk3MDAyIDE0LjYzIDMuMDkwMDMgMTYuNDQgMy4wOTAwM0MxNy41OSAzLjA5MDAzIDE4LjY2IDMuNDM5OTkgMTkuNTUgNC4wNDk5OSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTIxLjc0IDdDMjEuOTEgNy41MyAyMiA4LjEgMjIgOC42OUMyMiAxNS42OSAxNS41MiAxOS44MiAxMi42MiAyMC44MkMxMi4yOCAyMC45NCAxMS43MiAyMC45NCAxMS4zOCAyMC44MkMxMC43MyAyMC42IDkuOTEwMDIgMjAuMjIgOS4wMjAwMiAxOS42OSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTIyIDJMMiAyMiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/heart-slash2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const HeartSlash2: IconComponent;
+export { HeartSlash2 };
+export default HeartSlash2;

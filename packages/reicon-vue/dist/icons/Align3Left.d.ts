@@ -1,0 +1,12 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Align3Left
+ * @description Reicon Vue icon component, renders an SVG Element.
+ * @preview ![Align3Left](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48cmVjdCB4PSI2Ljc1IiB5PSItMS4yNSIgd2lkdGg9IjQuNSIgaGVpZ2h0PSIxMi41IiByeD0iMS41IiByeT0iMS41IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNCAtNCkgcm90YXRlKDkwKSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij48L3JlY3Q+PHJlY3QgeD0iMy43NSIgeT0iOS43NSIgd2lkdGg9IjQuNSIgaGVpZ2h0PSI2LjUiIHJ4PSIxLjUiIHJ5PSIxLjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE5IDcpIHJvdGF0ZSg5MCkiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSI+PC9yZWN0PjwvZz48L3N2Zz4=) - https://reicon.dev/icons/align-3-left
+ * @see https://reicon.dev/docs — Documentation
+ */
+declare const Align3Left: IconComponent;
+export { Align3Left };
+export default Align3Left;

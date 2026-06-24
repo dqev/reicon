@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name MagicWand
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![MagicWand](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48cGF0aCBkPSJNMi41IDE1LjVMOS43NTQ0OSA4LjI0NTQyIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGZpbGw9Im5vbmUiPjwvcGF0aD4gPHBhdGggZD0iTTguODQyOCAyTDExLjYzMjkgMy44MjE0N0wxNC43MTUzIDIuNTU3MTNMMTMuODQ0NSA1Ljc3MzA3TDE2IDguMzEyNjhMMTIuNjczMSA4LjQ3ODUyTDEwLjkyMzEgMTEuMzE0TDkuNzM3NCA4LjIwMDYyTDYuNSA3LjQxMzMzTDkuMDk0NTEgNS4zMjIwOEw4Ljg0MjggMloiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSI+PC9wYXRoPjwvZz48L3N2Zz4=) - https://reicon.dev/icons/magic-wand
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const MagicWand: IconFunction;
+export { MagicWand };
+export default MagicWand;

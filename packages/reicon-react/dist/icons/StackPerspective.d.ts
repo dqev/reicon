@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name StackPerspective
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![StackPerspective](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48cGF0aCBkPSJNMy4yNSwxMi4yNWwtLjg0MiwuMjgxYy0uMzI0LC4xMDgtLjY1OC0uMTMzLS42NTgtLjQ3NFY1Ljk0NGMwLS4zNDEsLjMzNC0uNTgyLC42NTgtLjQ3NGwuODQyLC4yODEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSI+PC9wYXRoPjxwYXRoIGQ9Ik03LjI1LDE0LjEyNWwtLjgwOCwuMzM3Yy0uMzI5LC4xMzctLjY5Mi0uMTA1LS42OTItLjQ2MlY0YzAtLjM1NywuMzYzLS41OTksLjY5Mi0uNDYybC44MDgsLjMzNyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij48L3BhdGg+PHBhdGggZD0iTTEwLjQ2LDEuODI3bDUuMjEsMi40MDRjLjM1NCwuMTYzLC41ODEsLjUxOCwuNTgxLC45MDh2Ny43MmMwLC4zOS0uMjI3LC43NDUtLjU4MSwuOTA4bC01LjIxLDIuNDA0Yy0uMzMxLC4xNTMtLjcxLS4wODktLjcxLS40NTRWMi4yODFjMC0uMzY1LC4zNzgtLjYwNywuNzEtLjQ1NFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSI+PC9wYXRoPjwvZz48L3N2Zz4=) - https://reicon.dev/icons/stack-perspective
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const StackPerspective: IconComponent;
+export { StackPerspective };
+export default StackPerspective;

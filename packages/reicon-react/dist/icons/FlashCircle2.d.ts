@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name FlashCircle2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![FlashCircle2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIgMjJDMTcuNTIyOCAyMiAyMiAxNy41MjI4IDIyIDEyQzIyIDYuNDc3MTUgMTcuNTIyOCAyIDEyIDJDNi40NzcxNSAyIDIgNi40NzcxNSAyIDEyQzIgMTcuNTIyOCA2LjQ3NzE1IDIyIDEyIDIyWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTguNjc5OTkgMTEuOTEwMUwxMC4zMyAxMi4zMkw5LjM4IDE2LjE2MDFDOS4xNiAxNy4wNjAxIDkuNTk5OTggMTcuMzYgMTAuMzYgMTYuODNMMTUuNTQgMTMuMjQwMUMxNi4xNyAxMi44MDAxIDE2LjA4IDEyLjI5MDEgMTUuMzMgMTIuMTAwMUwxMy42OCAxMS42OTAxTDE0LjYzIDcuODUwMDZDMTQuODUgNi45NTAwNiAxNC40MSA2LjY1MDA3IDEzLjY1IDcuMTgwMDdMOC40NyAxMC43NzAxQzcuODQgMTEuMjEwMSA3LjkyOTk5IDExLjcyMDEgOC42Nzk5OSAxMS45MTAxWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/flash-circle2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const FlashCircle2: IconComponent;
+export { FlashCircle2 };
+export default FlashCircle2;

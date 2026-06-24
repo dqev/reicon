@@ -1,0 +1,17 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @name FlashCircle12
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![FlashCircle12](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIgMjJDMTcuNTIyOCAyMiAyMiAxNy41MjI4IDIyIDEyQzIyIDYuNDc3MTUgMTcuNTIyOCAyIDEyIDJDNi40NzcxNSAyIDIgNi40NzcxNSAyIDEyQzIgMTcuNTIyOCA2LjQ3NzE1IDIyIDEyIDIyWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTguNjc5OTkgMTEuOTEwMUwxMC4zMyAxMi4zMkw5LjM4IDE2LjE2MDFDOS4xNiAxNy4wNjAxIDkuNTk5OTggMTcuMzYgMTAuMzYgMTYuODNMMTUuNTQgMTMuMjQwMUMxNi4xNyAxMi44MDAxIDE2LjA4IDEyLjI5MDEgMTUuMzMgMTIuMTAwMUwxMy42OCAxMS42OTAxTDE0LjYzIDcuODUwMDZDMTQuODUgNi45NTAwNiAxNC40MSA2LjY1MDA3IDEzLjY1IDcuMTgwMDdMOC40NyAxMC43NzAxQzcuODQgMTEuMjEwMSA3LjkyOTk5IDExLjcyMDEgOC42Nzk5OSAxMS45MTAxWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/flash-circle-12
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+const FlashCircle12 = createIcon('FlashCircle12', {
+  O: `<path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.67999 11.9101L10.33 12.32L9.38 16.1601C9.16 17.0601 9.59998 17.36 10.36 16.83L15.54 13.2401C16.17 12.8001 16.08 12.2901 15.33 12.1001L13.68 11.6901L14.63 7.85006C14.85 6.95006 14.41 6.65007 13.65 7.18007L8.47 10.7701C7.84 11.2101 7.92999 11.7201 8.67999 11.9101Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>`,
+  F: `<path d="M11.9707 2C6.4507 2 1.9707 6.48 1.9707 12C1.9707 17.52 6.4507 22 11.9707 22C17.4907 22 21.9707 17.52 21.9707 12C21.9707 6.48 17.5007 2 11.9707 2ZM15.7207 12.35L12.0007 16.58L11.5607 17.08C10.9507 17.77 10.4507 17.59 10.4507 16.66V12.7H8.7507C7.9807 12.7 7.7707 12.23 8.2807 11.65L12.0007 7.42L12.4407 6.92C13.0507 6.23 13.5507 6.41 13.5507 7.34V11.3H15.2507C16.0207 11.3 16.2307 11.77 15.7207 12.35Z" fill="currentColor"/>`
+});
+
+export { FlashCircle12 };
+export default FlashCircle12;

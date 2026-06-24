@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name Warning22
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![Warning22](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIgNy43NVYxMyIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTIxLjA4IDguNTgwMDNWMTUuNDJDMjEuMDggMTYuNTQgMjAuNDggMTcuNTggMTkuNTEgMTguMTVMMTMuNTcgMjEuNThDMTIuNiAyMi4xNCAxMS40IDIyLjE0IDEwLjQyIDIxLjU4TDQuNDc5OTggMTguMTVDMy41MDk5OCAxNy41OSAyLjkwOTk3IDE2LjU1IDIuOTA5OTcgMTUuNDJWOC41ODAwM0MyLjkwOTk3IDcuNDYwMDMgMy41MDk5OCA2LjQxOTk5IDQuNDc5OTggNS44NDk5OUwxMC40MiAyLjQyQzExLjM5IDEuODYgMTIuNTkgMS44NiAxMy41NyAyLjQyTDE5LjUxIDUuODQ5OTlDMjAuNDggNi40MTk5OSAyMS4wOCA3LjQ1MDAzIDIxLjA4IDguNTgwMDNaIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTIgMTYuMlYxNi4yOTk5IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/warning-22
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const Warning22: IconFunction;
+export { Warning22 };
+export default Warning22;

@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name OmegaCircle2
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![OmegaCircle2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIgMjJDMTcuNTIyOCAyMiAyMiAxNy41MjI4IDIyIDEyQzIyIDYuNDc3MTUgMTcuNTIyOCAyIDEyIDJDNi40NzcxNSAyIDIgNi40NzcxNSAyIDEyQzIgMTcuNTIyOCA2LjQ3NzE1IDIyIDEyIDIyWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTE3IDE2LjVIMTMuOUwxNS41MiAxNC43MUMxNi4zMiAxMy44MiAxNi43NiAxMi42OSAxNi43NiAxMS41M0MxNi43NiAxMC4zMyAxNi4yNiA5LjE4MDAyIDE1LjM3IDguMzMwMDJDMTQuNDggNy40ODAwMiAxMy4yNyA3IDEyIDdDMTAuNzQgNyA5LjUzIDcuNDgwMDIgOC42MyA4LjMzMDAyQzcuNzQgOS4xODAwMiA3LjIzOTk5IDEwLjMzIDcuMjM5OTkgMTEuNTNDNy4yMzk5OSAxMi43IDcuNjc5OTggMTMuODMgOC40Nzk5OCAxNC43MUwxMC4xIDE2LjVINyIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/omega-circle2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const OmegaCircle2: IconFunction;
+export { OmegaCircle2 };
+export default OmegaCircle2;

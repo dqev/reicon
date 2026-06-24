@@ -1,0 +1,16 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @component
+ * @name FileContent
+ * @description Reicon Vue icon component, renders an SVG Element.
+ * @preview ![FileContent](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48bGluZSB4MT0iNS43NSIgeTE9IjYuNzUiIHgyPSI3Ljc1IiB5Mj0iNi43NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij48L2xpbmU+PGxpbmUgeDE9IjUuNzUiIHkxPSI5Ljc1IiB4Mj0iMTIuMjUiIHkyPSI5Ljc1IiBmaWxsPSJub25lIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjwvbGluZT48bGluZSB4MT0iNS43NSIgeTE9IjEyLjc1IiB4Mj0iMTIuMjUiIHkyPSIxMi43NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij48L2xpbmU+PHBhdGggZD0iTTIuNzUsMTQuMjVWMy43NWMwLTEuMTA1LC44OTUtMiwyLTJoNS41ODZjLjI2NSwwLC41MiwuMTA1LC43MDcsLjI5M2wzLjkxNCwzLjkxNGMuMTg4LC4xODgsLjI5MywuNDQyLC4yOTMsLjcwN3Y3LjU4NmMwLDEuMTA1LS44OTUsMi0yLDJINC43NWMtMS4xMDUsMC0yLS44OTUtMi0yWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij48L3BhdGg+PHBhdGggZD0iTTE1LjE2LDYuMjVoLTMuNDFjLS41NTIsMC0xLS40NDgtMS0xVjEuODUyIiBmaWxsPSJub25lIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjwvcGF0aD48L2c+PC9zdmc+) - https://reicon.dev/icons/file-content
+ * @see https://reicon.dev/docs — Documentation
+ */
+const FileContent = createIcon('FileContent', {
+  F: `<g transform="scale(1.33333)"><path d="M15.487,5.427l-3.914-3.914c-.331-.331-.77-.513-1.237-.513H4.75c-1.517,0-2.75,1.233-2.75,2.75V14.25c0,1.517,1.233,2.75,2.75,2.75H13.25c1.517,0,2.75-1.233,2.75-2.75V6.664c0-.467-.182-.907-.513-1.237Zm-9.737,.573h2c.414,0,.75,.336,.75,.75s-.336,.75-.75,.75h-2c-.414,0-.75-.336-.75-.75s.336-.75,.75-.75Zm6.5,7.5H5.75c-.414,0-.75-.336-.75-.75s.336-.75,.75-.75h6.5c.414,0,.75,.336,.75,.75s-.336,.75-.75,.75Zm0-3H5.75c-.414,0-.75-.336-.75-.75s.336-.75,.75-.75h6.5c.414,0,.75,.336,.75,.75s-.336,.75-.75,.75Zm2.182-4h-2.932c-.55,0-1-.45-1-1V2.579l.013-.005,3.922,3.921-.002,.005Z" fill="currentColor"></path></g>`,
+  O: `<g transform="scale(1.33333)"><line x1="5.75" y1="6.75" x2="7.75" y2="6.75" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></line><line x1="5.75" y1="9.75" x2="12.25" y2="9.75" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></line><line x1="5.75" y1="12.75" x2="12.25" y2="12.75" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></line><path d="M2.75,14.25V3.75c0-1.105,.895-2,2-2h5.586c.265,0,.52,.105,.707,.293l3.914,3.914c.188,.188,.293,.442,.293,.707v7.586c0,1.105-.895,2-2,2H4.75c-1.105,0-2-.895-2-2Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M15.16,6.25h-3.41c-.552,0-1-.448-1-1V1.852" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g>`
+});
+
+export { FileContent };
+export default FileContent;

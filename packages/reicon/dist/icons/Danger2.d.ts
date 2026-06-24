@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name Danger2
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![Danger2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIgOVYxNCIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTEyLjAwMDEgMjEuNDFINS45NDAwNUMyLjQ3MDA1IDIxLjQxIDEuMDIwMDUgMTguOTMgMi43MDAwNSAxNS45TDUuODIwMDYgMTAuMjhMOC43NjAwNiA1LjAwMDAzQzEwLjU0MDEgMS43OTAwMyAxMy40NjAxIDEuNzkwMDMgMTUuMjQwMSA1LjAwMDAzTDE4LjE4MDEgMTAuMjlMMjEuMzAwMSAxNS45MUMyMi45ODAxIDE4Ljk0IDIxLjUyMDEgMjEuNDIgMTguMDYwMSAyMS40MkgxMi4wMDAxVjIxLjQxWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTExLjk5NDUgMTdIMTIuMDAzNSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/danger2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const Danger2: IconFunction;
+export { Danger2 };
+export default Danger2;

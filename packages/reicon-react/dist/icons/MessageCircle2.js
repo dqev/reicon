@@ -1,0 +1,18 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @component
+ * @name MessageCircle2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![MessageCircle2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTcuMjUgMTAuMThWMTIuODFDMTcuMjUgMTIuOTggMTcuMjQgMTMuMTQgMTcuMjIgMTMuM0MxNy4wNyAxNS4wNyAxNi4wMiAxNS45NSAxNC4xIDE1Ljk1SDEzLjg0QzEzLjY4IDE1Ljk1IDEzLjUyIDE2LjAzIDEzLjQyIDE2LjE2TDEyLjYzIDE3LjIxQzEyLjI4IDE3LjY4IDExLjcyIDE3LjY4IDExLjM3IDE3LjIxTDEwLjU4IDE2LjE2QzEwLjQ5IDE2LjA1IDEwLjMgMTUuOTUgMTAuMTYgMTUuOTVIOS44OTk5OUM3Ljc5OTk5IDE1Ljk1IDYuNzUgMTUuNDMgNi43NSAxMi44VjEwLjE3QzYuNzUgOC4yNTAwNCA3LjYzOTk5IDcuMjAwMDIgOS4zOTk5OSA3LjA1MDAyQzkuNTU5OTkgNy4wMzAwMiA5LjcyMDAxIDcuMDIwMDIgOS44OTAwMSA3LjAyMDAySDE0LjA5QzE2LjIgNy4wNDAwMiAxNy4yNSA4LjA5MDAyIDE3LjI1IDEwLjE4WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTIgMjJDMTcuNTIyOCAyMiAyMiAxNy41MjI4IDIyIDEyQzIyIDYuNDc3MTUgMTcuNTIyOCAyIDEyIDJDNi40NzcxNSAyIDIgNi40NzcxNSAyIDEyQzIgMTcuNTIyOCA2LjQ3NzE1IDIyIDEyIDIyWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/message-circle2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+const MessageCircle2 = createIcon('MessageCircle2', {
+  O: `<path d="M17.25 10.18V12.81C17.25 12.98 17.24 13.14 17.22 13.3C17.07 15.07 16.02 15.95 14.1 15.95H13.84C13.68 15.95 13.52 16.03 13.42 16.16L12.63 17.21C12.28 17.68 11.72 17.68 11.37 17.21L10.58 16.16C10.49 16.05 10.3 15.95 10.16 15.95H9.89999C7.79999 15.95 6.75 15.43 6.75 12.8V10.17C6.75 8.25004 7.63999 7.20002 9.39999 7.05002C9.55999 7.03002 9.72001 7.02002 9.89001 7.02002H14.09C16.2 7.04002 17.25 8.09002 17.25 10.18Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>`,
+  F: `<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM17.25 12.81C17.25 12.98 17.24 13.14 17.22 13.3C17.07 15.07 16.02 15.95 14.1 15.95H13.84C13.68 15.95 13.52 16.03 13.42 16.16L12.63 17.21C12.28 17.68 11.72 17.68 11.37 17.21L10.58 16.16C10.49 16.05 10.3 15.95 10.16 15.95H9.9C7.81 15.95 6.75 15.43 6.75 12.8V10.17C6.75 8.25 7.64 7.2 9.4 7.05C9.56 7.04 9.73 7.04 9.9 7.04H14.1C16.19 7.04 17.25 8.09 17.25 10.19V12.81Z" fill="currentColor"/>`
+});
+
+export { MessageCircle2 };
+export default MessageCircle2;

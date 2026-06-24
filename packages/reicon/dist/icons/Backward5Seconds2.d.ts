@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name Backward5Seconds2
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![Backward5Seconds2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTMuOTEgMTAuODMwMUgxMC44NUwxMC4wOSAxMy4xMjAxSDEyLjM4QzEzLjIyIDEzLjEyMDEgMTMuOTEgMTMuODAwMSAxMy45MSAxNC42NTAxQzEzLjkxIDE1LjQ5MDEgMTMuMjMgMTYuMTgwMSAxMi4zOCAxNi4xODAxSDEwLjA5IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTAuMDIgNC40Njk5N0wxMiAyIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNC45MSA3Ljc5OTk5QzMuOCA5LjI3OTk5IDMuMTA5OTkgMTEuMTEgMy4xMDk5OSAxMy4xMUMzLjEwOTk5IDE4LjAyIDcuMDkgMjIgMTIgMjJDMTYuOTEgMjIgMjAuODkgMTguMDIgMjAuODkgMTMuMTFDMjAuODkgOC4xOTk5OSAxNi45MSA0LjIxOTk3IDEyIDQuMjE5OTdDMTEuMzIgNC4yMTk5NyAxMC42NiA0LjMxMDAyIDEwLjAyIDQuNDYwMDIiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/backward-5-seconds2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const Backward5Seconds2: IconFunction;
+export { Backward5Seconds2 };
+export default Backward5Seconds2;

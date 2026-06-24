@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name AlignLeft3
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![AlignLeft3](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNNS4xIDE5LjI1SDE2LjlDMTguNCAxOS4yNSAxOSAxOC42MSAxOSAxNy4wMlYxNS45OEMxOSAxNC4zOSAxOC40IDEzLjc1IDE2LjkgMTMuNzVINS4xIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNS4xIDUuMjVIMTEuOUMxMy40IDUuMjUgMTQgNS44OSAxNCA3LjQ4VjguNTJDMTQgMTAuMTEgMTMuNCAxMC43NSAxMS45IDEwLjc1SDUuMSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTUgMS45ODk5OVYyMS45OSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/align-left3
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const AlignLeft3: IconComponent;
+export { AlignLeft3 };
+export default AlignLeft3;

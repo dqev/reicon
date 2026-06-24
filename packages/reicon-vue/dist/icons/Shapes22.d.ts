@@ -1,0 +1,12 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Shapes22
+ * @description Reicon Vue icon component, renders an SVG Element.
+ * @preview ![Shapes22](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTYuOTcgMTIuMjVWMTYuNzVDMTYuOTcgMjAuNSAxNS40NyAyMiAxMS43MiAyMkg3LjIyQzMuNDcgMjIgMS45NyAyMC41IDEuOTcgMTYuNzVWMTIuMjVDMS45NyA4LjUgMy40NyA3IDcuMjIgN0gxMS43MkMxNS40NyA3IDE2Ljk3IDguNSAxNi45NyAxMi4yNVoiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0yMS45NyA3LjVDMjEuOTcgMTAuMzcgMTkuNzggMTIuNzIgMTYuOTcgMTIuOTdWMTIuMjVDMTYuOTcgOC41IDE1LjQ3IDcgMTEuNzIgN0gxMUMxMS4yNSA0LjE5IDEzLjYgMiAxNi40NyAyQzE5LjI2IDIgMjEuNTYgNC4wNyAyMS45MSA2Ljc3QzIxLjk1IDcgMjEuOTcgNy4yNSAyMS45NyA3LjVaIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/shapes-22
+ * @see https://reicon.dev/docs — Documentation
+ */
+declare const Shapes22: IconComponent;
+export { Shapes22 };
+export default Shapes22;

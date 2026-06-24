@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name PresentationScreen
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![PresentationScreen](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48bGluZSB4MT0iNS43NSIgeTE9IjE2LjI1IiB4Mj0iNi43NSIgeTI9IjEzLjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjwvbGluZT48bGluZSB4MT0iMTIuMjUiIHkxPSIxNi4yNSIgeDI9IjExLjI1IiB5Mj0iMTMuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSI+PC9saW5lPjxyZWN0IHg9IjEuNzUiIHk9IjIuNzUiIHdpZHRoPSIxNC41IiBoZWlnaHQ9IjEwLjUiIHJ4PSIyIiByeT0iMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij48L3JlY3Q+PGxpbmUgeDE9IjkiIHkxPSIyLjc1IiB4Mj0iOSIgeTI9IjEuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij48L2xpbmU+PC9nPjwvc3ZnPg==) - https://reicon.dev/icons/presentation-screen
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const PresentationScreen: IconFunction;
+export { PresentationScreen };
+export default PresentationScreen;

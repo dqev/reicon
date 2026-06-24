@@ -1,0 +1,18 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @component
+ * @name DirectRight2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![DirectRight2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTkuMjkwMSA5LjE2OThMNy43MDAxNSAzLjA2OThDNC45NTAxNSAxLjYxOTggMS45NjAxNSA0LjU0OTggMy4zNTAxNSA3LjMyOThMNC45NzAxNSAxMC41Njk4QzUuNDIwMTUgMTEuNDY5OCA1LjQyMDE1IDEyLjUyOTggNC45NzAxNSAxMy40Mjk4TDMuMzUwMTUgMTYuNjY5OEMxLjk2MDE1IDE5LjQ0OTggNC45NTAxNSAyMi4zNjk4IDcuNzAwMTUgMjAuOTI5OEwxOS4yOTAxIDE0LjgyOThDMjEuNTcwMSAxMy42Mjk4IDIxLjU3MDEgMTAuMzY5OCAxOS4yOTAxIDkuMTY5OFoiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/direct-right2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+const DirectRight2 = createIcon('DirectRight2', {
+  O: `<path d="M19.2901 9.1698L7.70015 3.0698C4.95015 1.6198 1.96015 4.5498 3.35015 7.3298L4.97015 10.5698C5.42015 11.4698 5.42015 12.5298 4.97015 13.4298L3.35015 16.6698C1.96015 19.4498 4.95015 22.3698 7.70015 20.9298L19.2901 14.8298C21.5701 13.6298 21.5701 10.3698 19.2901 9.1698Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  F: `<path d="M2.70911 17.0192L4.44911 13.5392C4.92911 12.5692 4.92911 11.4392 4.44911 10.4692L2.70911 6.97924C1.21911 3.99924 4.42911 0.849241 7.37911 2.40924L8.91911 3.22924C9.13911 3.33924 9.30911 3.51924 9.39911 3.73924L15.0891 16.3892C15.3191 16.9092 15.1091 17.5192 14.6091 17.7792L7.36911 21.5892C4.42911 23.1492 1.21911 19.9992 2.70911 17.0192Z" fill="currentColor"/><path d="M16.3093 15.6004L12.5793 7.32045C12.1593 6.39045 13.1593 5.45045 14.0593 5.93045L19.8293 8.97045C22.2793 10.2604 22.2793 13.7604 19.8293 15.0504L17.7893 16.1204C17.2393 16.4004 16.5693 16.1704 16.3093 15.6004Z" fill="currentColor"/>`
+});
+
+export { DirectRight2 };
+export default DirectRight2;
