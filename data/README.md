@@ -45,7 +45,7 @@ inline `description`.
 |--------|----------|---------|
 | `packages/reicon-react/dist` | `scripts/build/build-react.cjs` | `npm run build:react` |
 | `packages/reicon-vue/dist`   | `scripts/build/build-vue.cjs`   | `npm run build:vue` |
-| `packages/reiconjs/dist`     | `scripts/build/build-js.cjs`    | `npm run build:js` |
+| `packages/reicon/dist`       | `scripts/build/build-js.cjs`    | `npm run build:js` |
 | `cdn/reicon.js`              | `scripts/build/build-cdn.cjs`   | `npm run build:cdn` |
 | Website SEO pages & OG images | `scripts/prerender-meta.mjs`, `scripts/generate-og-images.mjs` | `npm run build` |
 
