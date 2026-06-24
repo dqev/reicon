@@ -159,7 +159,7 @@ export default function IconDetail() {
   const reactRaw = `import { ${pascalName} } from 'reicon-react';\n\n<${pascalName} size={24}${fw ? ' weight="Filled"' : ''} />`;
   const vueRaw = `import { ${pascalName} } from 'reicon-vue';\n\n<${pascalName} :size="24"${fw ? ' weight="Filled"' : ''} />`;
   const directRaw = `import ${pascalName} from 'reicon-react/icons/${pascalName}';`;
-  const cdnRaw = `<script src="https://cdn.reicon.dev/cdn/reicon.min.js"><\/script>\n<re-icon icon="${name}"${fw ? ' weight="filled"' : ''}></re-icon>`;
+  const cdnRaw = `<script src="https://unpkg.com/reicon@latest/cdn/reicon.min.js"><\/script>\n<re-icon icon="${name}"${fw ? ' weight="filled"' : ''}></re-icon>`;
 
   const CODE_TABS = [
     { id: 'react' as const, label: 'React', icon: <FaReact className="text-[#61DAFB]" size={14} />, raw: reactRaw },
@@ -697,7 +697,7 @@ function CdnSnippet({ name, filled }: { name: string; filled: boolean }) {
     <>
       <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">script</span>
       <span className="text-[#d19a66]"> src</span><span className="text-white/50">=</span>
-      <span className="text-[#98c379]">"https://cdn.reicon.dev/cdn/reicon.min.js"</span>
+      <span className="text-[#98c379]">"https://unpkg.com/reicon@latest/cdn/reicon.min.js"</span>
       <span className="text-white/70">{'></'}</span><span className="text-[#e06c75]">script</span><span className="text-white/70">{'>'}</span>
       {'\n'}
       <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">re-icon</span>

@@ -132,7 +132,7 @@ reicon/
 ├── packages/                    # Generated npm packages (git-ignored)
 │   ├── reicon-react/           # reicon-react  (React)
 │   ├── reicon-vue/             # reicon-vue    (Vue 3)
-│   └── reiconjs/               # reiconjs      (vanilla JS)
+│   └── reicon/                 # reicon        (vanilla JS)
 │
 ├── cdn/                         # Generated CDN bundles (git-ignored)
 │   ├── reicon.js / .min.js     # Main icon runtime (<re-icon>)
@@ -149,7 +149,7 @@ reicon/
 │   ├── build/                  # Package + CDN builders (read data/icon-data.json)
 │   │   ├── build-react.cjs     # → packages/reicon-react
 │   │   ├── build-vue.cjs       # → packages/reicon-vue
-│   │   ├── build-js.cjs        # → packages/reiconjs
+│   │   ├── build-js.cjs        # → packages/reicon
 │   │   └── build-cdn.cjs       # → cdn/reicon.js
 │   ├── generate-sitemap.mjs    # Sitemap generator
 │   ├── generate-og-images.mjs  # OG image generator
@@ -531,7 +531,7 @@ vercel --prod
 | `npm run build:full` | Full build with OG images and search engine ping |
 | `npm run build:react` | Build the `reicon-react` package from `data/icon-data.json` |
 | `npm run build:vue` | Build the `reicon-vue` package |
-| `npm run build:js` | Build the `reiconjs` (vanilla) package |
+| `npm run build:js` | Build the `reicon` (vanilla) package |
 | `npm run build:cdn` | Build the CDN bundle (`cdn/reicon.js`) |
 | `npm run build:packages` | Build all packages + the CDN bundle |
 | `npm run preview` | Preview production build locally |

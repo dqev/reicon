@@ -69,7 +69,7 @@ export default function UsagePage() {
   }, [fwParam]);
 
   const frameworkSectionId = framework === 'react' ? 'react-usage' : framework === 'vue' ? 'vue-usage' : 'cdn';
-  const frameworkLabel = framework === 'react' ? 'React' : framework === 'vue' ? 'Vue' : 'CDN / HTML';
+  const frameworkLabel = framework === 'react' ? 'React' : framework === 'vue' ? 'Vue' : 'Vanilla JS / CDN';
 
   const onThisPage = [
     { id: 'what-is-reicon', label: 'What is Reicon?' },
