@@ -1,7 +1,9 @@
 import SyntaxBlock from '../../components/usage/SyntaxBlock';
 import InstallTabs from '../../components/usage/InstallTabs';
+import SectionHeader from '../../components/usage/SectionHeader';
 
 interface Props {
+  markdownContent: string;
   copiedField: string | null;
   onCopy: (text: string, field: string) => void;
 }
@@ -13,7 +15,7 @@ const VueIcon = ({ size = 34 }: { size?: number }) => (
   </svg>
 );
 
-export default function VueUsage({ copiedField, onCopy }: Props) {
+export default function VueUsage({ markdownContent, copiedField, onCopy }: Props) {
   return (
     <section id="vue-usage" data-section className="mb-16 scroll-mt-24">
       {/* Header */}
@@ -21,8 +23,8 @@ export default function VueUsage({ copiedField, onCopy }: Props) {
         <div className="w-12 h-12 flex items-center justify-center">
           <VueIcon size={34} />
         </div>
-        <div>
-          <h2 className="text-2xl font-serif text-white">Usage of Reicon Vue</h2>
+        <div className="flex-1">
+          <SectionHeader id="vue-usage" title="Usage of Reicon Vue" level="h2" markdownContent={markdownContent} />
         </div>
       </div>
 

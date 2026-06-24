@@ -77,7 +77,7 @@ export default function PackagesPage() {
       </Helmet>
       <Header />
 
-      <main className="flex-1 pt-14">
+      <main className="flex-1 pt-14 overflow-x-hidden">
         <div className="max-w-4xl mx-auto px-4 md:px-8 py-12 md:py-20">
           <h1 className="text-3xl md:text-4xl font-serif text-white text-center mb-12">Packages</h1>
 

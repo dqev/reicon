@@ -1,14 +1,16 @@
 import SyntaxBlock from '../../components/usage/SyntaxBlock';
+import SectionHeader from '../../components/usage/SectionHeader';
 
 interface Props {
+  markdownContent: string;
   copiedField: string | null;
   onCopy: (text: string, field: string) => void;
 }
 
-export default function Troubleshooting({ copiedField, onCopy }: Props) {
+export default function Troubleshooting({ markdownContent, copiedField, onCopy }: Props) {
   return (
     <section id="troubleshooting" data-section className="mb-16 scroll-mt-24">
-      <h2 className="text-xl font-serif text-white mb-4">Troubleshooting</h2>
+      <SectionHeader id="troubleshooting" title="Troubleshooting" level="h2" markdownContent={markdownContent} />
       <p className="text-white/50 text-[14px] mb-6 leading-relaxed">
         Common issues and their solutions. If you don't find your answer here, open an issue on{' '}
         <a
@@ -139,17 +141,16 @@ export default function Troubleshooting({ copiedField, onCopy }: Props) {
         <span className="text-white/70"> /{'>'}</span>
       </SyntaxBlock>
 
-      {/* Item 4 */}
       <h3 className="text-lg font-serif text-white mb-4 mt-10">TypeScript can't find icon names</h3>
       <p className="text-white/60 text-[15px] leading-[1.8] mb-4">
-        Make sure you're importing from <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">"reicon-react"</code> (not "reicon"). The package ships with full type definitions. If autocomplete isn't working, restart your TypeScript server.
+        Make sure you're importing from the correct package depending on your environment (e.g. <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">"reicon"</code> for vanilla JS or <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">"reicon-react"</code> for React). Both packages ship with full type definitions. If autocomplete isn't working, restart your TypeScript server.
       </p>
       <SyntaxBlock
         title="Fix"
-        onCopy={() => onCopy('// ✅ Correct package name\nimport { Home } from \'reicon-react\';\n\n// ❌ Wrong package\nimport { Home } from \'reicon\';', 'faq-ts')}
+        onCopy={() => onCopy('// ✅ For React projects\nimport { Home } from \'reicon-react\';\n\n// ✅ For vanilla JS projects\nimport { Home } from \'reicon\';', 'faq-ts')}
         copied={copiedField === 'faq-ts'}
       >
-        <span className="text-emerald-400/60">{'// ✅ Correct package name'}</span>
+        <span className="text-emerald-400/60">{'// ✅ For React projects'}</span>
         {'\n'}
         <span className="text-[#c678dd]">import</span>
         <span className="text-white/70">{' { '}</span>
@@ -159,7 +160,7 @@ export default function Troubleshooting({ copiedField, onCopy }: Props) {
         <span className="text-[#98c379]"> 'reicon-react'</span>
         <span className="text-white/30">;</span>
         {'\n\n'}
-        <span className="text-red-400/60">{'// ❌ Wrong package'}</span>
+        <span className="text-emerald-400/60">{'// ✅ For vanilla JS projects'}</span>
         {'\n'}
         <span className="text-[#c678dd]">import</span>
         <span className="text-white/70">{' { '}</span>

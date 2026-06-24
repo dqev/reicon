@@ -1,14 +1,16 @@
 import SyntaxBlock from '../../components/usage/SyntaxBlock';
+import SectionHeader from '../../components/usage/SectionHeader';
 
 interface Props {
+  markdownContent: string;
   copiedField: string | null;
   onCopy: (text: string, field: string) => void;
 }
 
-export default function Styling({ copiedField, onCopy }: Props) {
+export default function Styling({ markdownContent, copiedField, onCopy }: Props) {
   return (
     <section id="styling" data-section className="mb-16 scroll-mt-24">
-      <h2 className="text-xl font-serif text-white mb-4">Styling & Color</h2>
+      <SectionHeader id="styling" title="Styling & Color" level="h2" markdownContent={markdownContent} />
       <p className="text-white/50 text-[14px] mb-6 leading-relaxed">
         Reicon icons render as inline SVGs that inherit <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">currentColor</code> by
         default. You can control appearance via props, CSS, or Tailwind utilities.

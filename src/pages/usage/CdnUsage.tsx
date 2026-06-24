@@ -1,13 +1,15 @@
 import SyntaxBlock from '../../components/usage/SyntaxBlock';
 import InstallTabs from '../../components/usage/InstallTabs';
 import { IoLogoJavascript } from 'react-icons/io5';
+import SectionHeader from '../../components/usage/SectionHeader';
 
 interface Props {
+  markdownContent: string;
   copiedField: string | null;
   onCopy: (text: string, field: string) => void;
 }
 
-export default function CdnUsage({ copiedField, onCopy }: Props) {
+export default function CdnUsage({ markdownContent, copiedField, onCopy }: Props) {
   return (
     <section id="cdn" data-section className="mb-16 scroll-mt-24">
       {/* Header */}
@@ -15,8 +17,8 @@ export default function CdnUsage({ copiedField, onCopy }: Props) {
         <div className="w-12 h-12 flex items-center justify-center">
           <IoLogoJavascript className="text-yellow-400" size={34} />
         </div>
-        <div>
-          <h2 className="text-2xl font-serif text-white">Usage of Reicon Vanilla JS & CDN</h2>
+        <div className="flex-1">
+          <SectionHeader id="cdn" title="Usage of Reicon Vanilla JS & CDN" level="h2" markdownContent={markdownContent} />
         </div>
       </div>
 
@@ -206,7 +208,7 @@ export default function CdnUsage({ copiedField, onCopy }: Props) {
 
       <div className="mt-4 mb-8">
         <p className="text-white/40 text-[13px]">
-          Or load a specific version: <code className="text-white/60 bg-white/[0.04] px-1 py-0.5 rounded font-mono">https://unpkg.com/reicon@latest/cdn/reicon.min.js</code>
+          Or load a specific version: <code className="text-white/60 bg-white/[0.04] px-1 py-0.5 rounded font-mono break-all">https://unpkg.com/reicon@latest/cdn/reicon.min.js</code>
         </p>
       </div>
 

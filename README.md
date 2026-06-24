@@ -14,15 +14,15 @@
   <a href="https://reicon.dev">Website</a> ·
   <a href="https://reicon.dev/icons">Browse Icons</a> ·
   <a href="https://reicon.dev/usage">Usage Guide</a> ·
-  <a href="https://www.npmjs.com/package/reicon-react">npm</a>
+  <a href="https://www.npmjs.com/package/reicon">npm</a>
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/reicon-react"><img src="https://img.shields.io/npm/v/reicon-react?color=6C5CE7&label=reicon-react" alt="reicon-react version" /></a>
-  <a href="https://www.npmjs.com/package/reicon-react"><img src="https://img.shields.io/npm/dm/reicon-react?color=6C5CE7&label=downloads" alt="npm downloads" /></a>
+  <a href="https://www.npmjs.com/package/reicon"><img src="https://img.shields.io/npm/v/reicon?color=6C5CE7&label=reicon" alt="reicon version" /></a>
+  <a href="https://www.npmjs.com/package/reicon"><img src="https://img.shields.io/npm/dm/reicon?color=6C5CE7&label=downloads" alt="npm downloads" /></a>
   <a href="https://github.com/dqev/reicon/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" /></a>
   <a href="https://reicon.dev/icons"><img src="https://img.shields.io/badge/icons-2700%2B-blue" alt="2700+ Icons" /></a>
-  <a href="https://www.npmjs.com/package/reicon-react"><img src="https://img.shields.io/bundlephobia/minzip/reicon-react?color=6C5CE7&label=size" alt="bundle size" /></a>
+  <a href="https://www.npmjs.com/package/reicon"><img src="https://img.shields.io/bundlephobia/minzip/reicon?color=6C5CE7&label=size" alt="bundle size" /></a>
 </p>
 
 ---

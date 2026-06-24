@@ -14,14 +14,29 @@ import Accessibility from './usage/Accessibility';
 import Styling from './usage/Styling';
 import Performance from './usage/Performance';
 import Troubleshooting from './usage/Troubleshooting';
-import EditOnGitHub from '../components/usage/EditOnGitHub';
+
 import { FaReact } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io5';
+import SectionHeader from '../components/usage/SectionHeader';
+
+// Import raw markdown files
+import vanillaDocs from '../../docs/javascript/usage.md?raw';
+import reactDocs from '../../docs/react/usage.md?raw';
+import vueDocs from '../../docs/vue/usage.md?raw';
+import propsDocs from '../../docs/shared/props.md?raw';
+import weightsDocs from '../../docs/shared/weights.md?raw';
+import typescriptDocs from '../../docs/shared/typescript.md?raw';
+import stylingDocs from '../../docs/shared/styling.md?raw';
+import accessibilityDocs from '../../docs/shared/accessibility.md?raw';
+import performanceDocs from '../../docs/shared/performance.md?raw';
+import troubleshootingDocs from '../../docs/shared/troubleshooting.md?raw';
+
+import { SiClaude, SiGithub, SiOpenai } from 'react-icons/si';
 
 const FRAMEWORKS = [
+  { id: 'vanilla', label: 'Vanilla', icon: 'js', color: '#f7df1e' },
   { id: 'react', label: 'React', icon: 'react', color: '#61DAFB' },
   { id: 'vue', label: 'Vue', icon: 'vue', color: '#4DBA87' },
-  { id: 'vanilla', label: 'Vanilla', icon: 'js', color: '#f7df1e' },
 ] as const;
 
 type Framework = typeof FRAMEWORKS[number]['id'];
@@ -48,18 +63,25 @@ const NAV_ITEMS = {
 export default function UsagePage() {
   const { framework: fwParam } = useParams<{ framework?: string }>();
   const navigate = useNavigate();
-  const initialFw = (fwParam as Framework) || 'react';
+  const initialFw = (fwParam as Framework) || 'vanilla';
   const [activeSection, setActiveSection] = useState('what-is-reicon');
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [framework, setFramework] = useState<Framework>(
-    FRAMEWORKS.some((f) => f.id === initialFw) ? initialFw : 'react'
+    FRAMEWORKS.some((f) => f.id === initialFw) ? initialFw : 'vanilla'
   );
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [otpIndicatorStyle, setOtpIndicatorStyle] = useState({ top: 0, height: 0, opacity: 0 });
   const otpListRef = useRef<HTMLUListElement>(null);
+
+  // Markdown / Actions Bar States
+  const [copiedPage, setCopiedPage] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(false);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const openDropdownRef = useRef<HTMLDivElement>(null);
+  const mobileNavRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fw = fwParam as Framework;
@@ -126,10 +148,71 @@ export default function UsagePage() {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setDropdownOpen(false);
       }
+      if (openDropdownRef.current && !openDropdownRef.current.contains(e.target as Node)) {
+        setOpenDropdown(false);
+      }
+      if (mobileNavRef.current && !mobileNavRef.current.contains(e.target as Node)) {
+        setMobileNavOpen(false);
+      }
+    };
+    const handleScroll = () => {
+      setMobileNavOpen(false);
     };
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
+
+  const showToast = (msg: string) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(null), 3000);
+  };
+
+  const handleCopyPageMarkdown = async () => {
+    const activeFwDocs = framework === 'vanilla' ? vanillaDocs : framework === 'react' ? reactDocs : vueDocs;
+    const fullMarkdown = `${activeFwDocs}\n\n${propsDocs}\n\n${weightsDocs}\n\n${stylingDocs}\n\n${accessibilityDocs}\n\n${performanceDocs}\n\n${typescriptDocs}\n\n${troubleshootingDocs}`;
+    try {
+      await navigator.clipboard.writeText(fullMarkdown);
+      setCopiedPage(true);
+      showToast('Full page markdown copied!');
+      setTimeout(() => setCopiedPage(false), 2000);
+    } catch (e) {
+      showToast('Failed to copy');
+    }
+  };
+
+  const openInLLM = async (platform: 'chatgpt' | 'claude' | 't3') => {
+    const activeFwDocs = framework === 'vanilla' ? vanillaDocs : framework === 'react' ? reactDocs : vueDocs;
+    const fullMarkdown = `${activeFwDocs}\n\n${propsDocs}\n\n${weightsDocs}\n\n${stylingDocs}\n\n${accessibilityDocs}\n\n${performanceDocs}\n\n${typescriptDocs}\n\n${troubleshootingDocs}`;
+    
+    try {
+      await navigator.clipboard.writeText(fullMarkdown);
+    } catch (e) {
+      console.error('Failed to copy to clipboard', e);
+    }
+
+    const promptText = `Here is the Reicon documentation for ${framework === 'vanilla' ? 'Vanilla JS / CDN' : framework === 'react' ? 'React' : 'Vue'}. Please read it and help me use the library:\n\n${fullMarkdown}`;
+    
+    let url = '';
+    if (platform === 'chatgpt') {
+      url = `https://chatgpt.com/?hints=search&q=${encodeURIComponent(promptText)}`;
+    } else if (platform === 'claude') {
+      url = `https://claude.ai/new?q=${encodeURIComponent(promptText)}`;
+    } else if (platform === 't3') {
+      url = `https://t3.chat/new?q=${encodeURIComponent(promptText)}`;
+    }
+
+    setOpenDropdown(false);
+    showToast('Markdown copied! Opening AI Chat...');
+    window.open(url, '_blank');
+  };
+
+  const githubUrl = 'https://github.com/reicon-dev/reicon';
+  const activePath = framework === 'vanilla' ? 'javascript/usage.md' : framework === 'react' ? 'react/usage.md' : 'vue/usage.md';
+  const githubEditUrl = `https://github.com/reicon-dev/reicon/edit/main/docs/${activePath}`;
 
   useEffect(() => {
     if (!otpListRef.current) return;
@@ -514,10 +597,10 @@ export default function UsagePage() {
         </aside>
 
         {/* ── Mobile nav toggle ── */}
-        <div className="lg:hidden fixed top-14 left-0 right-0 z-40 bg-[#09090b]/95 backdrop-blur-lg border-b border-white/[0.06]">
+        <div ref={mobileNavRef} className="lg:hidden fixed top-14 left-0 right-0 z-40 bg-[#09090b]/95 backdrop-blur-lg border-b border-white/[0.06]">
           <button
             onClick={() => setMobileNavOpen(!mobileNavOpen)}
-            className="w-full flex items-center justify-between px-4 py-3 text-sm text-white/60"
+            className="w-full flex items-center justify-between pl-4 pr-[26px] py-3 text-sm text-white/60"
           >
             <div className="flex items-center gap-2">
               <FrameworkIcon id={framework} size={16} />
@@ -528,21 +611,21 @@ export default function UsagePage() {
           {mobileNavOpen && (
             <div className="px-4 pb-4 max-h-[60vh] overflow-y-auto">
               {/* Framework switch */}
-              <div className="mb-3">
+              <div className="mb-4">
                 <h3 className="text-[10px] font-semibold text-white/40 uppercase tracking-wider mb-1.5 px-1">
                   Framework
                 </h3>
-                <div className="flex gap-1.5">
+                <div className="flex gap-2">
                   {FRAMEWORKS.map((fw) => (
                     <button
                       key={fw.id}
                       onClick={() => switchFramework(fw.id)}
-                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium transition-colors ${framework === fw.id
+                      className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors ${framework === fw.id
                         ? 'bg-white/[0.1] text-white'
                         : 'text-white/40 hover:text-white/60'
                         }`}
                     >
-                      <FrameworkIcon id={fw.id} size={14} />
+                      <FrameworkIcon id={fw.id} size={16} />
                       {fw.label}
                     </button>
                   ))}
@@ -550,81 +633,175 @@ export default function UsagePage() {
               </div>
 
               {/* Nav items */}
-              {onThisPage.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollTo(item.id)}
-                  className={`w-full text-left px-2 py-1.5 rounded text-[13px] transition-colors flex items-center gap-2 ${activeSection === item.id
-                    ? 'text-[#6C5CE7]'
-                    : 'text-white/50'
-                    }`}
-                >
-                  {activeSection === item.id && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6C5CE7] shrink-0" />
-                  )}
-                  {item.label}
-                </button>
-              ))}
+              <div className="flex flex-col gap-1">
+                {onThisPage.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollTo(item.id)}
+                    className={`w-full text-left px-3 py-2.5 rounded-xl text-[14px] font-medium transition-colors flex items-center gap-2.5 ${activeSection === item.id
+                      ? 'text-[#6C5CE7] bg-white/[0.04]'
+                      : 'text-white/50 hover:text-white/70 hover:bg-white/[0.02]'
+                      }`}
+                  >
+                    {activeSection === item.id && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#6C5CE7] shrink-0" />
+                    )}
+                    {item.label}
+                  </button>
+                ))}
+              </div>
             </div>
           )}
         </div>
 
-        {/* ── Main content ── */}
-        <main ref={contentRef} className="flex-1 min-w-0 px-4 md:px-8 lg:px-12 xl:px-16 py-8 pt-28 lg:pt-8">
+        <main ref={contentRef} className="flex-1 min-w-0 px-4 md:px-8 lg:px-12 xl:px-16 py-8 pt-28 lg:pt-8 overflow-x-hidden">
           <div className="max-w-3xl">
+            {/* Actions Bar */}
+            <div className="relative grid grid-cols-2 gap-2.5 w-full sm:flex sm:w-auto sm:items-center mb-8 pb-6 border-b border-white/[0.06]">
+              <div className="flex justify-end sm:justify-start w-full sm:w-auto">
+                <a
+                  href={githubEditUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-[13px] font-medium text-white/70 hover:text-white bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors whitespace-nowrap"
+                >
+                  <re-icon icon="pen" size={14}></re-icon>
+                  Edit on GitHub
+                </a>
+              </div>
+              <div className="flex justify-start w-full sm:w-auto">
+                <button
+                  onClick={handleCopyPageMarkdown}
+                  className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-[13px] font-medium text-white/70 hover:text-white bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors cursor-pointer whitespace-nowrap"
+                >
+                  {copiedPage ? (
+                    <svg className="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+                  ) : (
+                    <re-icon icon="copy" size={14}></re-icon>
+                  )}
+                  Copy Markdown
+                </button>
+              </div>
+              
+              {/* Open dropdown wrapper */}
+              <div ref={openDropdownRef} className="col-span-2 flex justify-center sm:block relative">
+                <button
+                  onClick={() => setOpenDropdown(!openDropdown)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-[13px] font-medium text-white/70 hover:text-white bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors cursor-pointer whitespace-nowrap"
+                >
+                  Open
+                  <ChevronExpandY size={14} className="text-white/40" />
+                </button>
+                {openDropdown && (
+                  <div
+                    className="absolute left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-auto sm:right-0 mt-2 top-full w-52 bg-[#0e0e10] border border-white/[0.08] rounded-xl shadow-xl z-50 overflow-hidden py-1"
+                  >
+                    <a
+                      href={githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between px-4 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/[0.04] transition-colors"
+                    >
+                      <span className="flex items-center gap-2">
+                        <SiGithub size={14}></SiGithub>
+                        Open in GitHub
+                      </span>
+                      <re-icon icon="arrow-up-right2" size={12} className="text-white/30"></re-icon>
+                    </a>
+                    <button
+                      onClick={() => openInLLM('chatgpt')}
+                      className="w-full flex items-center justify-between px-4 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/[0.04] transition-colors text-left cursor-pointer"
+                    >
+                      <span className="flex items-center gap-2">
+                        <SiOpenai size={14}></SiOpenai>
+                        Open in ChatGPT
+                      </span>
+                      <re-icon icon="arrow-up-right2" size={12} className="text-white/30"></re-icon>
+                    </button>
+                    <button
+                      onClick={() => openInLLM('claude')}
+                      className="w-full flex items-center justify-between px-4 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/[0.04] transition-colors text-left cursor-pointer"
+                    >
+                      <span className="flex items-center gap-2">
+                        <SiClaude size={14}></SiClaude>
+                        Open in Claude
+                      </span>
+                      <re-icon icon="arrow-up-right2" size={12} className="text-white/30"></re-icon>
+                    </button>
+                    <button
+                      onClick={() => openInLLM('t3')}
+                      className="w-full flex items-center justify-between px-4 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/[0.04] transition-colors text-left cursor-pointer"
+                      >
+                        <span className="flex items-center gap-2">
+                          <re-icon icon="chat" size={14}></re-icon>
+                          Open in T3 Chat
+                        </span>
+                        <re-icon icon="arrow-up-right2" size={12} className="text-white/30"></re-icon>
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+
           {/* What is Reicon */}
           <section id="what-is-reicon" data-section className="mb-12 scroll-mt-24">
-            <h1 className="text-3xl md:text-4xl font-serif text-white mb-6">What is Reicon?</h1>
+            <SectionHeader id="what-is-reicon" title="What is Reicon?" level="h2" markdownContent={framework === 'vanilla' ? vanillaDocs : framework === 'react' ? reactDocs : vueDocs} />
             <p className="text-white/60 text-[15px] leading-[1.8] mb-6">
               Reicon is an open-source icon library that provides beautifully crafted vector (SVG) icons for displaying
               icons and symbols in digital projects. The library aims to make it easier for designers and developers to
-              incorporate icons into their projects by providing official packages for React and a CDN for vanilla HTML.
+              incorporate icons into their projects by providing the core <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon</code> package for JavaScript and CDN usage, along with framework-specific packages for React (<code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-react</code>) and Vue (<code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-vue</code>).
             </p>
             <p className="text-white/60 text-[15px] leading-[1.8]">
               Every icon comes in two weights — Outline and Filled — and is fully customizable with size, color, and
-              className props. Icons are tree-shakeable when used with the React package, ensuring minimal bundle size.
+              custom attributes/props. Icons are tree-shakeable when used with bundlers or framework packages, ensuring minimal bundle size.
             </p>
           </section>
 
           <hr className="border-white/[0.06] mb-12" />
 
           {framework === 'react' ? (
-            <ReactUsage copiedField={copiedField} onCopy={copyToClipboard} />
+            <ReactUsage markdownContent={reactDocs} copiedField={copiedField} onCopy={copyToClipboard} />
           ) : framework === 'vue' ? (
-            <VueUsage copiedField={copiedField} onCopy={copyToClipboard} />
+            <VueUsage markdownContent={vueDocs} copiedField={copiedField} onCopy={copyToClipboard} />
           ) : (
-            <CdnUsage copiedField={copiedField} onCopy={copyToClipboard} />
+            <CdnUsage markdownContent={vanillaDocs} copiedField={copiedField} onCopy={copyToClipboard} />
           )}
 
           <hr className="border-white/[0.06] mb-12" />
 
-          <PropsTable />
+          <PropsTable markdownContent={propsDocs} />
 
           <hr className="border-white/[0.06] mb-12" />
 
-          <Weights copiedField={copiedField} onCopy={copyToClipboard} />
+          <Weights markdownContent={weightsDocs} copiedField={copiedField} onCopy={copyToClipboard} />
 
           <hr className="border-white/[0.06] mb-12" />
 
-          <TypeScriptSection copiedField={copiedField} onCopy={copyToClipboard} />
+          <TypeScriptSection markdownContent={typescriptDocs} copiedField={copiedField} onCopy={copyToClipboard} />
 
           <hr className="border-white/[0.06] mb-12" />
 
-          <Styling copiedField={copiedField} onCopy={copyToClipboard} />
+          <Styling markdownContent={stylingDocs} copiedField={copiedField} onCopy={copyToClipboard} />
 
           <hr className="border-white/[0.06] mb-12" />
 
-          <Accessibility copiedField={copiedField} onCopy={copyToClipboard} />
+          <Accessibility markdownContent={accessibilityDocs} copiedField={copiedField} onCopy={copyToClipboard} />
 
           <hr className="border-white/[0.06] mb-12" />
 
-          <Performance copiedField={copiedField} onCopy={copyToClipboard} />
+          <Performance markdownContent={performanceDocs} copiedField={copiedField} onCopy={copyToClipboard} />
 
           <hr className="border-white/[0.06] mb-12" />
 
-          <Troubleshooting copiedField={copiedField} onCopy={copyToClipboard} />
-
-          <EditOnGitHub filePath="src/pages/Usage.tsx" />
+          <Troubleshooting markdownContent={troubleshootingDocs} copiedField={copiedField} onCopy={copyToClipboard} />
+          
+          {/* Toast Notification */}
+          {toastMessage && (
+            <div className="fixed bottom-6 right-6 z-[999] bg-[#0e0e10] border border-white/[0.08] text-white text-sm px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 transition-all duration-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>{toastMessage}</span>
+            </div>
+          )}
           </div>
         </main>
 

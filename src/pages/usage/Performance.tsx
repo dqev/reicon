@@ -1,14 +1,16 @@
 import SyntaxBlock from '../../components/usage/SyntaxBlock';
+import SectionHeader from '../../components/usage/SectionHeader';
 
 interface Props {
+  markdownContent: string;
   copiedField: string | null;
   onCopy: (text: string, field: string) => void;
 }
 
-export default function Performance({ copiedField, onCopy }: Props) {
+export default function Performance({ markdownContent, copiedField, onCopy }: Props) {
   return (
     <section id="performance" data-section className="mb-16 scroll-mt-24">
-      <h2 className="text-xl font-serif text-white mb-4">Performance & Tree-Shaking</h2>
+      <SectionHeader id="performance" title="Performance & Tree-Shaking" level="h2" markdownContent={markdownContent} />
       <p className="text-white/50 text-[14px] mb-6 leading-relaxed">
         Reicon is built with <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">sideEffects: false</code> in
         its package.json. Modern bundlers (Vite, webpack, Rollup) will automatically eliminate unused icons from your production bundle.

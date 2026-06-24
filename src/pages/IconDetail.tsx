@@ -22,7 +22,7 @@ export default function IconDetail() {
   const [previewSize, setPreviewSize] = useState(96);
   const [toast, setToast] = useState<string | null>(null);
   const [exportSize, setExportSize] = useState(64);
-  const [codeTab, setCodeTab] = useState<'react' | 'vue' | 'direct' | 'cdn'>('react');
+  const [codeTab, setCodeTab] = useState<'vanilla' | 'cdn' | 'react' | 'vue' | 'direct'>('vanilla');
   const [iconCategory, setIconCategory] = useState('');
 
   const pascalName = name
@@ -156,16 +156,18 @@ export default function IconDetail() {
 
   // ── raw code strings ──────────────────────────────────────────────────────
   const fw = activeWeight === 'filled';
+  const vanillaRaw = `import { ${pascalName} } from 'reicon';\n\nconst icon = ${pascalName}({ size: 24${fw ? ", weight: 'Filled'" : ''} });\ndocument.body.appendChild(icon);`;
+  const cdnRaw = `<script src="https://unpkg.com/reicon@latest/cdn/reicon.min.js"><\/script>\n<re-icon icon="${name}"${fw ? ' weight="filled"' : ''}></re-icon>`;
   const reactRaw = `import { ${pascalName} } from 'reicon-react';\n\n<${pascalName} size={24}${fw ? ' weight="Filled"' : ''} />`;
   const vueRaw = `import { ${pascalName} } from 'reicon-vue';\n\n<${pascalName} :size="24"${fw ? ' weight="Filled"' : ''} />`;
   const directRaw = `import ${pascalName} from 'reicon-react/icons/${pascalName}';`;
-  const cdnRaw = `<script src="https://unpkg.com/reicon@latest/cdn/reicon.min.js"><\/script>\n<re-icon icon="${name}"${fw ? ' weight="filled"' : ''}></re-icon>`;
 
   const CODE_TABS = [
+    { id: 'vanilla' as const, label: 'Vanilla JS', icon: <IoLogoJavascript className="text-yellow-400" size={14} />, raw: vanillaRaw },
+    { id: 'cdn' as const, label: 'CDN', icon: <IoLogoJavascript className="text-yellow-400" size={14} />, raw: cdnRaw },
     { id: 'react' as const, label: 'React', icon: <FaReact className="text-[#61DAFB]" size={14} />, raw: reactRaw },
     { id: 'vue' as const, label: 'Vue', icon: <VueLogo />, raw: vueRaw },
     { id: 'direct' as const, label: 'Direct', icon: <FaReact className="text-[#61DAFB]" size={14} />, raw: directRaw },
-    { id: 'cdn' as const, label: 'CDN', icon: <IoLogoJavascript className="text-yellow-400" size={14} />, raw: cdnRaw },
   ];
   const activeTab = CODE_TABS.find((t) => t.id === codeTab)!;
 
@@ -243,7 +245,7 @@ export default function IconDetail() {
 
       <Header />
 
-      <main className="flex-1 pt-14 w-full">
+      <main className="flex-1 pt-14 w-full overflow-x-hidden">
         <div className="max-w-[1160px] mx-auto px-5 md:px-10 py-8 md:py-10">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-[13px] text-white/40 mb-6">
@@ -427,10 +429,11 @@ export default function IconDetail() {
                         transition={{ duration: 0.18, ease: EASE }}
                         className="p-4 text-[13px] font-mono leading-[1.7] overflow-x-auto whitespace-pre-wrap break-all focus-visible:outline-none"
                       >
+                        {codeTab === 'vanilla' && <VanillaSnippet pascalName={pascalName} filled={fw} />}
+                        {codeTab === 'cdn' && <CdnSnippet name={name || ''} filled={fw} />}
                         {codeTab === 'react' && <ReactSnippet pascalName={pascalName} filled={fw} />}
                         {codeTab === 'vue' && <VueSnippet pascalName={pascalName} filled={fw} />}
                         {codeTab === 'direct' && <DirectSnippet pascalName={pascalName} />}
-                        {codeTab === 'cdn' && <CdnSnippet name={name || ''} filled={fw} />}
                       </motion.pre>
                     </AnimatePresence>
                   </div>
@@ -650,6 +653,22 @@ function VueLogo() {
       <polygon fill="#4DBA87" points="75.63,0 61.44,24.58 47.25,0 0,0 61.44,106.42 122.88,0 75.63,0" />
       <polygon fill="#425466" points="75.63,0 61.44,24.58 47.25,0 24.58,0 61.44,63.85 98.3,0 75.63,0" />
     </svg>
+  );
+}
+
+function VanillaSnippet({ pascalName, filled }: { pascalName: string; filled: boolean }) {
+  return (
+    <>
+      <span className="text-[#c678dd]">import</span><span className="text-white/70">{' { '}</span>
+      <span className="text-[#e5c07b]">{pascalName}</span><span className="text-white/70">{' } '}</span>
+      <span className="text-[#c678dd]">from</span><span className="text-[#98c379]"> 'reicon'</span><span className="text-white/30">;</span>
+      {'\n\n'}
+      <span className="text-[#c678dd]">const</span><span className="text-white/70"> icon = </span><span className="text-[#61afef]">{pascalName}</span><span className="text-white/70">({'{'} size: </span><span className="text-[#d19a66]">24</span>
+      {filled && (<><span className="text-white/70">, weight: </span><span className="text-[#98c379]">'Filled'</span></>)}
+      <span className="text-white/70"> {'}'});</span>
+      {'\n'}
+      <span className="text-white/70">document.body.</span><span className="text-[#61afef]">appendChild</span><span className="text-white/70">(icon);</span>
+    </>
   );
 }
 

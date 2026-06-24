@@ -1,17 +1,23 @@
-import { useState, useEffect, useMemo, useDeferredValue } from 'react';
+import { useState, useEffect, useMemo, useDeferredValue, useRef, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import IconCard, { IconCardSkeleton } from '../components/IconCard';
 import { Magnifier } from 'reicon-react';
-import { BsChevronExpand } from 'react-icons/bs';
+
 import newIconsData from '../data/new-icons-added.json';
 
 const NEW_ICONS_SET = new Set(newIconsData as string[]);
 
 const LS_ICONS = 'reicon-icons-cache';
 const LS_CATS = 'reicon-cats-cache';
+
+/**
+ * How many icon *cards* (not icon names) to render per page.
+ * In "All" mode each name produces 2 cards, so 120 cards ≈ 60 names.
+ */
+const BATCH_SIZE = 120;
 
 function loadCache(): { icons: string[]; categories: string[] } {
   try {
@@ -32,8 +38,6 @@ function saveCache(icons: string[], categories: string[]) {
 
 export default function IconsPage() {
   const [searchParams] = useSearchParams();
-  // Lazy initializer → reads localStorage + JSON.parse ONCE on mount, not on
-  // every render (previously `loadCache()` ran in the render body each keystroke).
   const [allIcons, setAllIcons] = useState<string[]>(() => loadCache().icons);
   const [categories, setCategories] = useState<string[]>(() => loadCache().categories);
   const [searchQuery, setSearchQuery] = useState('');
@@ -42,11 +46,15 @@ export default function IconsPage() {
   const [activeSize, setActiveSize] = useState('32');
   const [categoryMap, setCategoryMap] = useState<Record<string, string>>({});
   const [showNew, setShowNew] = useState(searchParams.get('new') === 'true');
-  // True once the CDN icon runtime (window.Reicon) is available and glyphs can render.
   const [ready, setReady] = useState(false);
 
-  // Keep the input instant while de-prioritizing the expensive filter + grid
-  // re-render. No behavior change — search still works, just stays smooth.
+  // Number of cards currently shown — grows as user scrolls
+  const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
+
+  // Sentinel element at bottom of list — triggers loading more cards
+  const sentinelRef = useRef<HTMLDivElement>(null);
+
+  // Instant input, deferred expensive filter
   const deferredQuery = useDeferredValue(searchQuery);
 
   useEffect(() => {
@@ -64,6 +72,7 @@ export default function IconsPage() {
     loadIcons();
   }, []);
 
+  // All matching icon *names* (cheap list)
   const filteredIcons = useMemo(() => {
     let icons = allIcons;
     if (showNew) {
@@ -79,29 +88,63 @@ export default function IconsPage() {
     return icons;
   }, [deferredQuery, allIcons, activeSet, categoryMap, showNew]);
 
-  // Batch preload all visible icons so each <re-icon> doesn't fetch individually
+  // Reset visible count whenever the filtered set changes
+  useEffect(() => {
+    setVisibleCount(BATCH_SIZE);
+  }, [filteredIcons]);
+
+  // Preload just the first batch
   useEffect(() => {
     if (window.Reicon?.preload && filteredIcons.length > 0) {
-      window.Reicon.preload(filteredIcons.slice(0, 200));
+      const namesToPreload = activeStyle === 'All'
+        ? filteredIcons.slice(0, BATCH_SIZE / 2)
+        : filteredIcons.slice(0, BATCH_SIZE);
+      window.Reicon.preload(namesToPreload);
     }
-  }, [filteredIcons]);
+  }, [filteredIcons, activeStyle]);
 
   const displaySize = parseInt(activeSize) || 32;
   const displayWeight = activeStyle === 'Filled' ? 'filled' : 'outline';
 
-  // Memoize the rendered cards so the (large) list is only rebuilt when the
-  // filtered set / size / weight actually changes — not on every parent render.
-  const gridCards = useMemo(() => {
+  // Expand the flat card list — but only up to visibleCount
+  const visibleCards = useMemo(() => {
     if (activeStyle === 'All') {
-      return filteredIcons.flatMap((name) => [
+      // Each name produces 2 cards; slice by card count
+      const nameSliceCount = Math.ceil(visibleCount / 2);
+      return filteredIcons.slice(0, nameSliceCount).flatMap((name) => [
         <IconCard key={`${name}-outline`} name={name} weight="outline" size={displaySize} />,
         <IconCard key={`${name}-filled`} name={name} weight="filled" size={displaySize} />,
       ]);
     }
-    return filteredIcons.map((name) => (
+    return filteredIcons.slice(0, visibleCount).map((name) => (
       <IconCard key={name} name={name} weight={displayWeight} size={displaySize} />
     ));
-  }, [filteredIcons, activeStyle, displaySize, displayWeight]);
+  }, [filteredIcons, visibleCount, activeStyle, displaySize, displayWeight]);
+
+  // Total card count (for sentinel logic)
+  const totalCards = activeStyle === 'All' ? filteredIcons.length * 2 : filteredIcons.length;
+  const hasMore = visibleCount < totalCards;
+
+  const loadMore = useCallback(() => {
+    setVisibleCount((prev) => Math.min(prev + BATCH_SIZE, totalCards));
+  }, [totalCards]);
+
+  // IntersectionObserver watches the sentinel div and fires loadMore
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el || !hasMore) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) loadMore();
+      },
+      { rootMargin: '300px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [hasMore, loadMore]);
+
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#09090b] flex flex-col">
@@ -143,7 +186,7 @@ export default function IconsPage() {
       <Header />
 
       <div className="flex flex-1 pt-14">
-        {/* Sidebar — desktop only */}
+        {/* Sidebar — desktop sticky + mobile drawer */}
         <Sidebar
           activeSet={activeSet}
           onSetChange={setActiveSet}
@@ -153,13 +196,15 @@ export default function IconsPage() {
           onSizeChange={setActiveSize}
           showNew={showNew}
           onNewToggle={setShowNew}
+          isOpen={sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
         />
 
         {/* Main content */}
-        <main className="flex-1 p-4 md:p-6 overflow-y-auto">
-          {/* Search bar */}
-          <div className="mb-4">
-            <div className="relative">
+        <main className="flex-1 p-4 md:p-6 overflow-y-auto overflow-x-hidden">
+          {/* Search bar + Filters button (right-aligned, mobile only) */}
+          <div className="mb-4 flex items-center gap-2">
+            <div className="relative flex-1">
               <div className="absolute left-3 top-1/2 -translate-y-1/2 text-white/30">
                 <Magnifier size={16} />
               </div>
@@ -171,70 +216,15 @@ export default function IconsPage() {
                 className="w-full bg-white/5 border border-white/10 rounded-lg pl-9 pr-4 py-2.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-white/25 focus:bg-white/10 transition-all"
               />
             </div>
-          </div>
-
-          {/* Mobile — New Icons button */}
-          <div className="lg:hidden mb-3">
+            {/* Filters button — mobile only, pushed to right */}
             <button
-              onClick={() => setShowNew(!showNew)}
-              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${showNew
-                ? 'bg-[#6C5CE7]/15 text-[#6C5CE7] border border-[#6C5CE7]/30'
-                : 'bg-white/[0.04] text-white/60 border border-white/[0.06]'
-                }`}
+              onClick={() => setSidebarOpen(true)}
+              className="lg:hidden ml-auto flex items-center gap-1.5 px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-white text-sm font-medium transition-colors shrink-0"
+              aria-label="Open filters"
             >
-              <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                New Icons
-              </span>
-              <span className={`text-[11px] font-semibold px-1.5 py-0.5 rounded-full ${showNew ? 'bg-[#6C5CE7]/25 text-[#6C5CE7]' : 'bg-white/10 text-white/50'
-                }`}>
-                {(newIconsData as string[]).length}
-              </span>
+              <re-icon icon="filter" size="15" />
+              Filters
             </button>
-          </div>
-
-          {/* Mobile filters — category, weight, size */}
-          <div className="lg:hidden grid grid-cols-2 gap-2 mb-4">
-            <div className="relative">
-              <select
-                value={activeStyle}
-                onChange={(e) => setActiveStyle(e.target.value)}
-                className="w-full appearance-none bg-white/5 border border-white/10 rounded-lg px-3 pr-8 py-2 text-sm text-white outline-none"
-              >
-                <option value="All">All Styles</option>
-                <option value="Outline">Outline</option>
-                <option value="Filled">Filled</option>
-              </select>
-              <span className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-white/30"><BsChevronExpand size={16} /></span>
-            </div>
-            <div className="relative">
-              <select
-                value={activeSize}
-                onChange={(e) => setActiveSize(e.target.value)}
-                className="w-full appearance-none bg-white/5 border border-white/10 rounded-lg px-3 pr-8 py-2 text-sm text-white outline-none"
-              >
-                <option value="12">12px</option>
-                <option value="18">18px</option>
-                <option value="24">24px</option>
-                <option value="32">32px</option>
-              </select>
-              <span className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-white/30"><BsChevronExpand size={16} /></span>
-            </div>
-            <div className="relative col-span-2">
-              <select
-                value={activeSet}
-                onChange={(e) => setActiveSet(e.target.value)}
-                className="w-full appearance-none bg-white/5 border border-white/10 rounded-lg px-3 pr-8 py-2 text-sm text-white outline-none"
-              >
-                <option value="all">All Categories</option>
-                {categories.map((cat) => (
-                  <option key={cat} value={cat}>
-                    {cat.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
-                  </option>
-                ))}
-              </select>
-              <span className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-white/30"><BsChevronExpand size={16} /></span>
-            </div>
           </div>
 
           {/* Icon count */}
@@ -248,16 +238,28 @@ export default function IconsPage() {
 
           {/* Icon grid */}
           {!ready ? (
-            /* Skeleton grid — same layout as the real grid, shown until the CDN loads */
+            /* Skeleton — shown while CDN runtime loads */
             <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-1.5">
               {Array.from({ length: 96 }).map((_, i) => (
                 <IconCardSkeleton key={i} size={displaySize} />
               ))}
             </div>
           ) : filteredIcons.length > 0 ? (
-            <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-1.5">
-              {gridCards}
-            </div>
+            <>
+              <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-1.5">
+                {visibleCards}
+              </div>
+
+              {/* Load-more sentinel — observed by IntersectionObserver */}
+              {hasMore && (
+                <div ref={sentinelRef} className="flex justify-center py-8">
+                  <div className="flex items-center gap-2 text-white/30 text-xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/20 animate-pulse" />
+                    Loading more icons…
+                  </div>
+                </div>
+              )}
+            </>
           ) : (
             <div className="flex flex-col items-center justify-center py-20 text-white/30">
               <re-icon icon="ghost" size={48} color="rgba(255,255,255,0.1)" />
