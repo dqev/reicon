@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name TriangleWarning
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![TriangleWarning](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48cGF0aCBkPSJNNy42Mzc5NiAzLjQ4OTk2TDIuMjEyOTUgMTIuODlDMS42MDc5NSAxMy45Mzk5IDIuMzYzOTUgMTUuMjUgMy41NzQ5NSAxNS4yNUgxNC40MjVDMTUuNjM2IDE1LjI1IDE2LjM5MiAxMy45Mzk5IDE1Ljc4NyAxMi44OUwxMC4zNjIgMy40ODk5NkM5Ljc1Njk2IDIuNDQ5OTYgOC4yNDI5NiAyLjQ0OTk2IDcuNjM3OTYgMy40ODk5NloiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSI+PC9wYXRoPiA8cGF0aCBkPSJNOSA2Ljc1VjkuNzUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSI+PC9wYXRoPiA8cGF0aCBkPSJNOSAxMy41QzguNDQ4IDEzLjUgOCAxMy4wNSA4IDEyLjVDOCAxMS45NSA4LjQ0OCAxMS41IDkgMTEuNUM5LjU1MiAxMS41IDEwIDExLjk1MDEgMTAgMTIuNUMxMCAxMy4wNDk5IDkuNTUyIDEzLjUgOSAxMy41WiIgZmlsbD0iI2U0ZTRlNyI+PC9wYXRoPjwvZz48L3N2Zz4=) - https://reicon.dev/icons/triangle-warning
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const TriangleWarning: IconComponent;
+export { TriangleWarning };
+export default TriangleWarning;

@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name TicketDiscount2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![TicketDiscount2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTkuNSAxMi41QzE5LjUgMTEuMTIgMjAuNjIgMTAgMjIgMTBWOUMyMiA1IDIxIDQgMTcgNEg3QzMgNCAyIDUgMiA5VjkuNUMzLjM4IDkuNSA0LjUgMTAuNjIgNC41IDEyQzQuNSAxMy4zOCAzLjM4IDE0LjUgMiAxNC41VjE1QzIgMTkgMyAyMCA3IDIwSDE3QzIxIDIwIDIyIDE5IDIyIDE1QzIwLjYyIDE1IDE5LjUgMTMuODggMTkuNSAxMi41WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTkgMTQuNzVMMTUgOC43NSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTE0Ljk5NDUgMTQuNzVIMTUuMDAzNSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTguOTk0NTEgOS4yNUg5LjAwMzQ5IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/ticket-discount2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const TicketDiscount2: IconComponent;
+export { TicketDiscount2 };
+export default TicketDiscount2;

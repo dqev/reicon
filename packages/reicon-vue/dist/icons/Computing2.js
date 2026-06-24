@@ -1,0 +1,16 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @component
+ * @name Computing2
+ * @description Reicon Vue icon component, renders an SVG Element.
+ * @preview ![Computing2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMjEuOTcgMTVWOUMyMS45NyA0IDE5Ljk3IDIgMTQuOTcgMkg4Ljk2OTk3QzMuOTY5OTcgMiAxLjk2OTk3IDQgMS45Njk5NyA5VjE1QzEuOTY5OTcgMjAgMy45Njk5NyAyMiA4Ljk2OTk3IDIySDE0Ljk3QzE5Ljk3IDIyIDIxLjk3IDIwIDIxLjk3IDE1WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTE5LjcyIDMuMjVMMy4yNzAwMiAxOS43IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTYuMDYwMSAxOFYxMyIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTguNSAxNS41SDEzLjUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTEwLjUgNy41SDUuNSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/computing2
+ * @see https://reicon.dev/docs — Documentation
+ */
+const Computing2 = createIcon('Computing2', {
+  O: `<path d="M21.97 15V9C21.97 4 19.97 2 14.97 2H8.96997C3.96997 2 1.96997 4 1.96997 9V15C1.96997 20 3.96997 22 8.96997 22H14.97C19.97 22 21.97 20 21.97 15Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M19.72 3.25L3.27002 19.7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.0601 18V13" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 15.5H13.5" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 7.5H5.5" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>`,
+  F: `<path d="M20.9509 4.12891L4.13086 20.9489C5.08086 21.6389 6.32086 21.9989 7.81086 21.9989H16.1909C19.8309 21.9989 22.0009 19.8289 22.0009 16.1889V7.80891C22.0009 6.31891 21.6409 5.07891 20.9509 4.12891ZM18.5009 16.2489H16.8109V17.9989C16.8109 18.4089 16.4709 18.7489 16.0609 18.7489C15.6509 18.7489 15.3109 18.4089 15.3109 17.9989V16.2489H13.5009C13.0909 16.2489 12.7509 15.9089 12.7509 15.4989C12.7509 15.0889 13.0909 14.7489 13.5009 14.7489H15.3109V12.9989C15.3109 12.5889 15.6509 12.2489 16.0609 12.2489C16.4709 12.2489 16.8109 12.5889 16.8109 12.9989V14.7489H18.5009C18.9109 14.7489 19.2509 15.0889 19.2509 15.4989C19.2509 15.9089 18.9109 16.2489 18.5009 16.2489Z" fill="currentColor"/><path d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.19C2 17.68 2.36 18.92 3.05 19.87L19.87 3.05C18.92 2.36 17.68 2 16.19 2ZM10.5 8.25H5.5C5.09 8.25 4.75 7.91 4.75 7.5C4.75 7.09 5.09 6.75 5.5 6.75H10.5C10.91 6.75 11.25 7.09 11.25 7.5C11.25 7.91 10.91 8.25 10.5 8.25Z" fill="currentColor"/>`
+});
+
+export { Computing2 };
+export default Computing2;

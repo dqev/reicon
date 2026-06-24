@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name MusicNoteVariant
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![MusicNoteVariant](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNNy45Njk5NyAyMkMxMC4xNzkxIDIyIDExLjk3IDIwLjIwOTEgMTEuOTcgMThDMTEuOTcgMTUuNzkwOSAxMC4xNzkxIDE0IDcuOTY5OTcgMTRDNS43NjA4MyAxNCAzLjk2OTk3IDE1Ljc5MDkgMy45Njk5NyAxOEMzLjk2OTk3IDIwLjIwOTEgNS43NjA4MyAyMiA3Ljk2OTk3IDIyWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTExLjk3IDE4VjQiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xNC42MSAyLjExTDE5LjAzIDMuNThDMjAuMSAzLjk0IDIwLjk4IDUuMTUgMjAuOTggNi4yOFY3LjQ1QzIwLjk4IDguOTggMTkuOCA5LjgzIDE4LjM1IDkuMzVMMTMuOTMgNy44OEMxMi44NiA3LjUyIDExLjk4IDYuMzEgMTEuOTggNS4xOFY0QzExLjk3IDIuNDggMTMuMTYgMS42MiAxNC42MSAyLjExWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/music-note-variant
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const MusicNoteVariant: IconComponent;
+export { MusicNoteVariant };
+export default MusicNoteVariant;

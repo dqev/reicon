@@ -1,0 +1,18 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @component
+ * @name BagTick2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![BagTick2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNOS42MiAxNkwxMS4xMiAxNy41TDE0LjM3IDE0LjUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik04LjgxIDJMNS4xOSA1LjYzIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xNS4xOSAyTDE4LjgxIDUuNjMiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTIgNy44NDk5OEMyIDUuOTk5OTggMi45OSA1Ljg0OTk4IDQuMjIgNS44NDk5OEgxOS43OEMyMS4wMSA1Ljg0OTk4IDIyIDUuOTk5OTggMjIgNy44NDk5OEMyMiA5Ljk5OTk4IDIxLjAxIDkuODQ5OTggMTkuNzggOS44NDk5OEg0LjIyQzIuOTkgOS44NDk5OCAyIDkuOTk5OTggMiA3Ljg0OTk4WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIvPjxwYXRoIGQ9Ik0zLjUgMTBMNC45MSAxOC42NEM1LjIzIDIwLjU4IDYgMjIgOC44NiAyMkgxNC44OUMxOCAyMiAxOC40NiAyMC42NCAxOC44MiAxOC43NkwyMC41IDEwIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/bag-tick2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+const BagTick2 = createIcon('BagTick2', {
+  O: `<path d="M9.62 16L11.12 17.5L14.37 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.81 2L5.19 5.63" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.19 2L18.81 5.63" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 7.84998C2 5.99998 2.99 5.84998 4.22 5.84998H19.78C21.01 5.84998 22 5.99998 22 7.84998C22 9.99998 21.01 9.84998 19.78 9.84998H4.22C2.99 9.84998 2 9.99998 2 7.84998Z" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 10L4.91 18.64C5.23 20.58 6 22 8.86 22H14.89C18 22 18.46 20.64 18.82 18.76L20.5 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>`,
+  F: `<path d="M19.24 5.57859H18.84L15.46 2.19859C15.19 1.92859 14.75 1.92859 14.47 2.19859C14.2 2.46859 14.2 2.90859 14.47 3.18859L16.86 5.57859H7.14L9.53 3.18859C9.8 2.91859 9.8 2.47859 9.53 2.19859C9.26 1.92859 8.82 1.92859 8.54 2.19859L5.17 5.57859H4.77C3.87 5.57859 2 5.57859 2 8.13859C2 9.10859 2.2 9.74859 2.62 10.1686C2.86 10.4186 3.15 10.5486 3.46 10.6186C3.75 10.6886 4.06 10.6986 4.36 10.6986H19.64C19.95 10.6986 20.24 10.6786 20.52 10.6186C21.36 10.4186 22 9.81859 22 8.13859C22 5.57859 20.13 5.57859 19.24 5.57859Z" fill="currentColor"/><path d="M19.0897 12H4.90971C4.28971 12 3.81971 12.55 3.91971 13.16L4.75971 18.3C5.03971 20.02 5.78971 22 9.11971 22H14.7297C18.0997 22 18.6997 20.31 19.0597 18.42L20.0697 13.19C20.1897 12.57 19.7197 12 19.0897 12ZM14.8797 16.05L11.6297 19.05C11.4897 19.18 11.3097 19.25 11.1197 19.25C10.9297 19.25 10.7397 19.18 10.5897 19.03L9.08971 17.53C8.79971 17.24 8.79971 16.76 9.08971 16.47C9.38971 16.18 9.85971 16.18 10.1597 16.47L11.1497 17.46L13.8697 14.95C14.1697 14.67 14.6497 14.69 14.9297 14.99C15.2097 15.3 15.1897 15.77 14.8797 16.05Z" fill="currentColor"/>`
+});
+
+export { BagTick2 };
+export default BagTick2;

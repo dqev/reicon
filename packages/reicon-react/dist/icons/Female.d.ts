@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Female
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Female](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDIuNzVDOC41NDgyMiAyLjc1IDUuNzUgNS41NDgyMiA1Ljc1IDlDNS43NSAxMi40NTE4IDguNTQ4MDIgMTUuMjUgMTEuOTk5OCAxNS4yNUMxNS40NTE2IDE1LjI1IDE4LjI1IDEyLjQ1MTcgMTguMjUgOUMxOC4yNSA1LjU0ODIyIDE1LjQ1MTggMi43NSAxMiAyLjc1Wk00LjI1IDlDNC4yNSA0LjcxOTc5IDcuNzE5NzkgMS4yNSAxMiAxLjI1QzE2LjI4MDIgMS4yNSAxOS43NSA0LjcxOTc5IDE5Ljc1IDlDMTkuNzUgMTMuMDI3MiAxNi42NzgxIDE2LjMzNyAxMi43NDk4IDE2LjcxNDJWMTcuNzVIMTQuNUMxNC45MTQyIDE3Ljc1IDE1LjI1IDE4LjA4NTggMTUuMjUgMTguNUMxNS4yNSAxOC45MTQyIDE0LjkxNDIgMTkuMjUgMTQuNSAxOS4yNUgxMi43NDk4TDEyLjc1IDIxLjk5OTlDMTIuNzUwMSAyMi40MTQyIDEyLjQxNDMgMjIuNzUgMTIuMDAwMSAyMi43NUMxMS41ODU5IDIyLjc1IDExLjI1MDEgMjIuNDE0MyAxMS4yNSAyMi4wMDAxTDExLjI0OTggMTkuMjVIOS41MDAwM0M5LjA4NTgyIDE5LjI1IDguNzUwMDMgMTguOTE0MiA4Ljc1MDAzIDE4LjVDOC43NTAwMyAxOC4wODU4IDkuMDg1ODIgMTcuNzUgOS41MDAwMyAxNy43NUgxMS4yNDk4VjE2LjcxNDJDNy4zMjE0NyAxNi4zMzY5IDQuMjUgMTMuMDI3MiA0LjI1IDlaIiBmaWxsPSIjZTRlNGU3Ii8+PC9zdmc+) - https://reicon.dev/icons/female
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const Female: IconComponent;
+export { Female };
+export default Female;

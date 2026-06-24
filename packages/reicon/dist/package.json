@@ -1,0 +1,71 @@
+{
+  "name": "reicon",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Vanilla JS SVG icon functions for 2680+ icons in 2 weights (Outline & Filled). Zero dependencies, tree-shakeable, TypeScript-ready.",
+  "main": "./index.js",
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "unpkg": "./umd/reicon.js",
+  "jsdelivr": "./umd/reicon.js",
+  "browser": "./umd/reicon.js",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "types": "./index.d.ts"
+    },
+    "./icons/*": {
+      "import": "./icons/*.js",
+      "types": "./icons/*.d.ts"
+    },
+    "./createIcon": {
+      "import": "./createIcon.js",
+      "types": "./createIcon.d.ts"
+    },
+    "./element": {
+      "import": "./cdn/reicon.js"
+    },
+    "./cdn/*": {
+      "import": "./cdn/*.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "createIcon.js",
+    "createIcon.d.ts",
+    "icons/",
+    "umd/",
+    "cdn/",
+    "README.md"
+  ],
+  "keywords": [
+    "icons",
+    "svg-icons",
+    "vanilla-js",
+    "javascript",
+    "icon-library",
+    "reicon",
+    "outline",
+    "filled",
+    "tree-shakeable",
+    "typescript",
+    "no-dependencies",
+    "cdn"
+  ],
+  "author": {
+    "name": "devchauhan",
+    "email": "dev@devchauhan.in",
+    "url": "https://devchauhan.in"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dqev/reicon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dqev/reicon/issues"
+  },
+  "homepage": "https://reicon.dev"
+}

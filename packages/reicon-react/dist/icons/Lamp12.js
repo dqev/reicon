@@ -1,0 +1,18 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @component
+ * @name Lamp12
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Lamp12](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMjAuNzggMTMuNjQ5OVYxOC41ODk5SDMuMjE5OTdWMTMuNjQ5OUMzLjIxOTk3IDguODI5OTMgNy4xMTk5NyA0LjkyOTkzIDExLjk0IDQuOTI5OTNIMTIuMDZDMTYuODggNC45Mjk5MyAyMC43OCA4LjgyOTkzIDIwLjc4IDEzLjY0OTlaIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTIgMlY0LjkyOTk5IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTUuNjUgMTguNTlDMTUuNTIgMjAuNSAxMy45MyAyMiAxMiAyMkMxMC4wNyAyMiA4LjQ3OTk4IDIwLjUgOC4zNDk5OCAxOC41OUgxNS42NVoiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/lamp-12
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+const Lamp12 = createIcon('Lamp12', {
+  O: `<path d="M20.78 13.6499V18.5899H3.21997V13.6499C3.21997 8.82993 7.11997 4.92993 11.94 4.92993H12.06C16.88 4.92993 20.78 8.82993 20.78 13.6499Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 2V4.92999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.65 18.59C15.52 20.5 13.93 22 12 22C10.07 22 8.47998 20.5 8.34998 18.59H15.65Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  F: `<path d="M12.5007 5.48125C12.5807 5.48125 12.6607 5.48125 12.7507 5.49125V2.53125C12.7507 2.12125 12.4107 1.78125 12.0007 1.78125C11.5907 1.78125 11.2507 2.12125 11.2507 2.53125V5.49125C11.3307 5.48125 11.4107 5.48125 11.5007 5.48125C6.8907 5.71125 3.2207 9.51125 3.2207 14.1813V16.1213C3.2207 17.2213 4.1207 18.1213 5.2207 18.1213H18.7807C19.8807 18.1213 20.7807 17.2213 20.7807 16.1213V14.1813C20.7807 9.51125 17.1107 5.71125 12.5007 5.48125Z" fill="currentColor"/><path d="M14.7292 19.1094C15.0592 19.1094 15.2992 19.4194 15.2192 19.7394C14.8392 21.1694 13.5392 22.2194 11.9992 22.2194C10.4592 22.2194 9.15915 21.1694 8.77915 19.7394C8.69915 19.4194 8.93916 19.1094 9.26916 19.1094H14.7292Z" fill="currentColor"/>`
+});
+
+export { Lamp12 };
+export default Lamp12;

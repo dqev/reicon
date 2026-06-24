@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name Bold
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![Bold](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTcuNjA4NyAxLjI1QzUuNzUzNzQgMS4yNSA0LjI1IDIuNzUzNzQgNC4yNSA0LjYwODdWMTkuOTQxMkM0LjI1IDIxLjQ5MjQgNS41MDc1NSAyMi43NSA3LjA1ODgyIDIyLjc1SDE0QzE3LjE3NTYgMjIuNzUgMTkuNzUgMjAuMTc1NiAxOS43NSAxN0MxOS43NSAxNC4zODI0IDE4LjAwMDggMTIuMTczMiAxNS42MDc2IDExLjQ3NzdDMTYuOTE0MiAxMC40MjM3IDE3Ljc1IDguODA5NDYgMTcuNzUgN0MxNy43NSAzLjgyNDM2IDE1LjE3NTYgMS4yNSAxMiAxLjI1SDcuNjA4N1pNMTIgMTEuMjVDMTQuMzQ3MiAxMS4yNSAxNi4yNSA5LjM0NzIxIDE2LjI1IDdDMTYuMjUgNC42NTI3OSAxNC4zNDcyIDIuNzUgMTIgMi43NUg3LjYwODdDNi41ODIxNyAyLjc1IDUuNzUgMy41ODIxNyA1Ljc1IDQuNjA4N1YxMS4yNUgxMlpNNS43NSAxMi43NVYxOS45NDEyQzUuNzUgMjAuNjY0IDYuMzM1OTggMjEuMjUgNy4wNTg4MiAyMS4yNUgxNEMxNi4zNDcyIDIxLjI1IDE4LjI1IDE5LjM0NzIgMTguMjUgMTdDMTguMjUgMTQuNjUyOCAxNi4zNDcyIDEyLjc1IDE0IDEyLjc1SDUuNzVaIiBmaWxsPSIjZTRlNGU3Ii8+PC9zdmc+) - https://reicon.dev/icons/bold
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const Bold: IconFunction;
+export { Bold };
+export default Bold;

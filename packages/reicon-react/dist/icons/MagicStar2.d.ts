@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name MagicStar2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![MagicStar2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTcuMjkgNC4xMzk5OUwxNy4yMiA3LjkyOTk3QzE3LjIxIDguNDQ5OTcgMTcuNTQgOS4xMzk5OSAxNy45NiA5LjQ0OTk5TDIwLjQ0IDExLjMzQzIyLjAzIDEyLjUzIDIxLjc3IDE0IDE5Ljg3IDE0LjZMMTYuNjQgMTUuNjFDMTYuMSAxNS43OCAxNS41MyAxNi4zNyAxNS4zOSAxNi45MkwxNC42MiAxOS44NkMxNC4wMSAyMi4xOCAxMi40OSAyMi40MSAxMS4yMyAyMC4zN0w5LjQ2OTk5IDE3LjUyQzkuMTQ5OTkgMTcgOC4zOSAxNi42MSA3Ljc5IDE2LjY0TDQuNDUwMDMgMTYuODFDMi4wNjAwMyAxNi45MyAxLjM4MDAyIDE1LjU1IDIuOTQwMDIgMTMuNzNMNC45MiAxMS40M0M1LjI5IDExIDUuNDYgMTAuMiA1LjI5IDkuNjU5OThMNC4yODAwNSA2LjQyOTk3QzMuNjkwMDUgNC41Mjk5NyA0Ljc1MDA0IDMuNDc5OTkgNi42NDAwNCA0LjA5OTk5TDkuNTkwMDUgNS4wNjk5OUMxMC4wOSA1LjIyOTk5IDEwLjg0IDUuMTE5OTggMTEuMjYgNC44MDk5OEwxNC4zNCAyLjU4OTk4QzE2IDEuMzg5OTggMTcuMzMgMi4wODk5OSAxNy4yOSA0LjEzOTk5WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTIxLjkxIDIyTDE4Ljg4IDE4Ljk3IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/magic-star2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const MagicStar2: IconComponent;
+export { MagicStar2 };
+export default MagicStar2;

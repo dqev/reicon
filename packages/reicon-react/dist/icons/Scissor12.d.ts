@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Scissor12
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Scissor12](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNNS41IDEwQzcuNDMzIDEwIDkgOC40MzMgOSA2LjVDOSA0LjU2NyA3LjQzMyAzIDUuNSAzQzMuNTY3IDMgMiA0LjU2NyAyIDYuNUMyIDguNDMzIDMuNTY3IDEwIDUuNSAxMFoiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik01LjUgMjFDNy40MzMgMjEgOSAxOS40MzMgOSAxNy41QzkgMTUuNTY3IDcuNDMzIDE0IDUuNSAxNEMzLjU2NyAxNCAyIDE1LjU2NyAyIDE3LjVDMiAxOS40MzMgMy41NjcgMjEgNS41IDIxWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTIyIDZMOC42NDk5OSAxNS45OCIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTIyIDE3Ljk3TDguNjQ5OTkgNy45Nzk5OCIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/scissor-12
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const Scissor12: IconComponent;
+export { Scissor12 };
+export default Scissor12;

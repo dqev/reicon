@@ -1,0 +1,17 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @name StackPerspective
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![StackPerspective](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48cGF0aCBkPSJNMy4yNSwxMi4yNWwtLjg0MiwuMjgxYy0uMzI0LC4xMDgtLjY1OC0uMTMzLS42NTgtLjQ3NFY1Ljk0NGMwLS4zNDEsLjMzNC0uNTgyLC42NTgtLjQ3NGwuODQyLC4yODEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSI+PC9wYXRoPjxwYXRoIGQ9Ik03LjI1LDE0LjEyNWwtLjgwOCwuMzM3Yy0uMzI5LC4xMzctLjY5Mi0uMTA1LS42OTItLjQ2MlY0YzAtLjM1NywuMzYzLS41OTksLjY5Mi0uNDYybC44MDgsLjMzNyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij48L3BhdGg+PHBhdGggZD0iTTEwLjQ2LDEuODI3bDUuMjEsMi40MDRjLjM1NCwuMTYzLC41ODEsLjUxOCwuNTgxLC45MDh2Ny43MmMwLC4zOS0uMjI3LC43NDUtLjU4MSwuOTA4bC01LjIxLDIuNDA0Yy0uMzMxLC4xNTMtLjcxLS4wODktLjcxLS40NTRWMi4yODFjMC0uMzY1LC4zNzgtLjYwNywuNzEtLjQ1NFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSI+PC9wYXRoPjwvZz48L3N2Zz4=) - https://reicon.dev/icons/stack-perspective
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+const StackPerspective = createIcon('StackPerspective', {
+  F: `<g transform="scale(1.33333)"><path d="M2.251,13.306c-.26,0-.517-.081-.732-.236-.325-.234-.519-.613-.519-1.014V5.944c0-.401,.194-.78,.519-1.014,.325-.234,.747-.299,1.126-.172l.842,.281c.393,.131,.605,.556,.474,.949-.131,.392-.556,.604-.949,.474l-.513-.171v5.419l.513-.171c.394-.131,.818,.081,.949,.474,.131,.393-.081,.818-.474,.949l-.842,.281c-.128,.043-.262,.064-.394,.064Z" fill="currentColor"></path><path d="M6.25,15.25c-.243,0-.484-.071-.693-.21-.348-.232-.556-.621-.556-1.04V4c0-.419,.208-.808,.556-1.04,.35-.232,.789-.273,1.174-.114l.808,.336c.382,.159,.563,.599,.404,.981s-.598,.562-.981,.404l-.461-.192V13.625l.461-.192c.384-.159,.822,.022,.981,.404,.159,.382-.021,.822-.404,.981l-.808,.336c-.155,.064-.319,.096-.481,.096Z" fill="currentColor"></path><path d="M15.983,3.551L10.774,1.146c-.389-.179-.836-.148-1.198,.082-.361,.231-.576,.625-.576,1.053V15.719c0,.428,.215,.822,.576,1.053,.205,.131,.438,.198,.673,.198,.178,0,.357-.039,.525-.116l5.209-2.404c.618-.285,1.017-.909,1.017-1.589V5.14c0-.68-.399-1.304-1.017-1.589Z" fill="currentColor"></path></g>`,
+  O: `<g transform="scale(1.33333)"><path d="M3.25,12.25l-.842,.281c-.324,.108-.658-.133-.658-.474V5.944c0-.341,.334-.582,.658-.474l.842,.281" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M7.25,14.125l-.808,.337c-.329,.137-.692-.105-.692-.462V4c0-.357,.363-.599,.692-.462l.808,.337" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M10.46,1.827l5.21,2.404c.354,.163,.581,.518,.581,.908v7.72c0,.39-.227,.745-.581,.908l-5.21,2.404c-.331,.153-.71-.089-.71-.454V2.281c0-.365,.378-.607,.71-.454Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g>`
+});
+
+export { StackPerspective };
+export default StackPerspective;

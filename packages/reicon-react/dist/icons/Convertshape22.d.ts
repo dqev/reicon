@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Convertshape22
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Convertshape22](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTEgMTYuMTVWMTguODVDMTEgMjEuMSAxMC4xIDIyIDcuODUgMjJINS4xNUMyLjkgMjIgMiAyMS4xIDIgMTguODVWMTYuMTVDMiAxMy45IDIuOSAxMyA1LjE1IDEzSDcuODVDMTAuMSAxMyAxMSAxMy45IDExIDE2LjE1WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTIyIDE1QzIyIDE4Ljg3IDE4Ljg3IDIyIDE1IDIyTDE2LjA1IDIwLjI1IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMiA5QzIgNS4xMyA1LjEzIDIgOSAyTDcuOTUgMy43NSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTE3LjUgMTFDMTkuOTg1MyAxMSAyMiA4Ljk4NTI4IDIyIDYuNUMyMiA0LjAxNDcyIDE5Ljk4NTMgMiAxNy41IDJDMTUuMDE0NyAyIDEzIDQuMDE0NzIgMTMgNi41QzEzIDguOTg1MjggMTUuMDE0NyAxMSAxNy41IDExWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/convertshape-22
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const Convertshape22: IconComponent;
+export { Convertshape22 };
+export default Convertshape22;

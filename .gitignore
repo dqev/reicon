@@ -1,6 +1,6 @@
 node_modules/
-build/
-dist/
+/build/
+/dist/
 coverage/
 .DS_Store
 *.log
@@ -10,5 +10,4 @@ coverage/
 .env
 
 # Generated package build outputs (built from data/icon-data.json)
-packages/*/dist/
 cdn/*.js

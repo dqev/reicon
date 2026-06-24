@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name SortAsc
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![SortAsc](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE2Ljc2MjggMy4yODg1NEMxNy4wNjkxIDMuMTg2NDUgMTcuNDA2MyAzLjI5MTc5IDE3LjYgMy41NTAwNUwyMC42IDcuNTUwMDVDMjAuODQ4NSA3Ljg4MTQyIDIwLjc4MTQgOC4zNTE1MiAyMC40NSA4LjYwMDA1QzIwLjExODYgOC44NDg1OCAxOS42NDg1IDguNzgxNDIgMTkuNCA4LjQ1MDA1TDE3Ljc1IDYuMjUwMDVWMjBDMTcuNzUgMjAuNDE0MyAxNy40MTQyIDIwLjc1IDE3IDIwLjc1QzE2LjU4NTggMjAuNzUgMTYuMjUgMjAuNDE0MyAxNi4yNSAyMFY0LjAwMDA1QzE2LjI1IDMuNjc3MjMgMTYuNDU2NiAzLjM5MDYyIDE2Ljc2MjggMy4yODg1NFpNMTMgOC43NTAwNUg0VjcuMjUwMDVIMTNWOC43NTAwNVpNMTMgMTMuNzVINlYxMi4yNUgxM1YxMy43NVpNMTMgMTguNzVIOFYxNy4yNUgxM1YxOC43NVoiIGZpbGw9IiNlNGU0ZTciLz48L3N2Zz4=) - https://reicon.dev/icons/sort-asc
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const SortAsc: IconFunction;
+export { SortAsc };
+export default SortAsc;

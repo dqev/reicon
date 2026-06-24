@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name FlashCircle12
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![FlashCircle12](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIgMjJDMTcuNTIyOCAyMiAyMiAxNy41MjI4IDIyIDEyQzIyIDYuNDc3MTUgMTcuNTIyOCAyIDEyIDJDNi40NzcxNSAyIDIgNi40NzcxNSAyIDEyQzIgMTcuNTIyOCA2LjQ3NzE1IDIyIDEyIDIyWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTguNjc5OTkgMTEuOTEwMUwxMC4zMyAxMi4zMkw5LjM4IDE2LjE2MDFDOS4xNiAxNy4wNjAxIDkuNTk5OTggMTcuMzYgMTAuMzYgMTYuODNMMTUuNTQgMTMuMjQwMUMxNi4xNyAxMi44MDAxIDE2LjA4IDEyLjI5MDEgMTUuMzMgMTIuMTAwMUwxMy42OCAxMS42OTAxTDE0LjYzIDcuODUwMDZDMTQuODUgNi45NTAwNiAxNC40MSA2LjY1MDA3IDEzLjY1IDcuMTgwMDdMOC40NyAxMC43NzAxQzcuODQgMTEuMjEwMSA3LjkyOTk5IDExLjcyMDEgOC42Nzk5OSAxMS45MTAxWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/flash-circle-12
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const FlashCircle12: IconFunction;
+export { FlashCircle12 };
+export default FlashCircle12;

@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name Ticket4
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![Ticket4](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48Y2lyY2xlIGN4PSI2Ljc1IiBjeT0iNy41NjMiIHI9Ii43NSIgZmlsbD0iI2U0ZTRlNyI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iNi43NSIgY3k9IjEwLjQzNyIgcj0iLjc1IiBmaWxsPSIjZTRlNGU3Ij48L2NpcmNsZT48cGF0aCBkPSJNMTQuMjUsMy43NWgtNmMwLC44MjgtLjY3MiwxLjUtMS41LDEuNXMtMS41LS42NzItMS41LTEuNWgtMS41Yy0xLjEwNSwwLTIsLjg5Ni0yLDJ2Ni41YzAsMS4xMDQsLjg5NSwyLDIsMmgxLjVjMC0uODI4LC42NzItMS41LDEuNS0xLjVzMS41LC42NzIsMS41LDEuNWg2YzEuMTA1LDAsMi0uODk2LDItMlY1Ljc1YzAtMS4xMDQtLjg5NS0yLTItMloiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSI+PC9wYXRoPjwvZz48L3N2Zz4=) - https://reicon.dev/icons/ticket-4
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const Ticket4: IconFunction;
+export { Ticket4 };
+export default Ticket4;

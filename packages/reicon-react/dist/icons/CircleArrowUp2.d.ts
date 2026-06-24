@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name CircleArrowUp2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![CircleArrowUp2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDIuNzVDNi44OTEzNyAyLjc1IDIuNzUgNi44OTEzNyAyLjc1IDEyQzIuNzUgMTcuMTA4NiA2Ljg5MTM3IDIxLjI1IDEyIDIxLjI1QzE3LjEwODYgMjEuMjUgMjEuMjUgMTcuMTA4NiAyMS4yNSAxMkMyMS4yNSA2Ljg5MTM3IDE3LjEwODYgMi43NSAxMiAyLjc1Wk0xLjI1IDEyQzEuMjUgNi4wNjI5NCA2LjA2Mjk0IDEuMjUgMTIgMS4yNUMxNy45MzcxIDEuMjUgMjIuNzUgNi4wNjI5NCAyMi43NSAxMkMyMi43NSAxNy45MzcxIDE3LjkzNzEgMjIuNzUgMTIgMjIuNzVDNi4wNjI5NCAyMi43NSAxLjI1IDE3LjkzNzEgMS4yNSAxMlpNOC40Njk2NyAxMi45Njk3TDExLjQ2OTcgOS45Njk2N0MxMS43NjI2IDkuNjc2NzggMTIuMjM3NCA5LjY3Njc4IDEyLjUzMDMgOS45Njk2N0wxNS41MzAzIDEyLjk2OTdDMTUuODIzMiAxMy4yNjI2IDE1LjgyMzIgMTMuNzM3NCAxNS41MzAzIDE0LjAzMDNDMTUuMjM3NCAxNC4zMjMyIDE0Ljc2MjYgMTQuMzIzMiAxNC40Njk3IDE0LjAzMDNMMTIgMTEuNTYwN0w5LjUzMDMzIDE0LjAzMDNDOS4yMzc0NCAxNC4zMjMyIDguNzYyNTYgMTQuMzIzMiA4LjQ2OTY3IDE0LjAzMDNDOC4xNzY3OCAxMy43Mzc0IDguMTc2NzggMTMuMjYyNiA4LjQ2OTY3IDEyLjk2OTdaIiBmaWxsPSIjZTRlNGU3Ii8+PC9zdmc+) - https://reicon.dev/icons/circle-arrow-up2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const CircleArrowUp2: IconComponent;
+export { CircleArrowUp2 };
+export default CircleArrowUp2;

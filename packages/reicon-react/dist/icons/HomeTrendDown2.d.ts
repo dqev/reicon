@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name HomeTrendDown2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![HomeTrendDown2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNOS4wMiAyLjgzOTkyTDMuNjMgNy4wMzk5MkMyLjczIDcuNzM5OTIgMiA5LjIyOTkyIDIgMTAuMzU5OVYxNy43Njk5QzIgMjAuMDg5OSAzLjg5IDIxLjk4OTkgNi4yMSAyMS45ODk5SDE3Ljc5QzIwLjExIDIxLjk4OTkgMjIgMjAuMDg5OSAyMiAxNy43Nzk5VjEwLjQ5OTlDMjIgOS4yODk5MiAyMS4xOSA3LjczOTkyIDIwLjIgNy4wNDk5MkwxNC4wMiAyLjcxOTkyQzEyLjYyIDEuNzM5OTIgMTAuMzcgMS43ODk5MiA5LjAyIDIuODM5OTJaIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTYuNSAxNi41TDEyLjMgMTIuM0wxMC43IDE0LjdMNy41IDExLjUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xNC41IDE2LjVIMTYuNVYxNC41IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/home-trend-down2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const HomeTrendDown2: IconComponent;
+export { HomeTrendDown2 };
+export default HomeTrendDown2;

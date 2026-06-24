@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name ProfileRemove2
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![ProfileRemove2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTkuNSAxOUgxNS41IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTIuMTUgMTAuODdDMTIuMDUgMTAuODYgMTEuOTMgMTAuODYgMTEuODIgMTAuODdDOS40NDAwNSAxMC43OSA3LjU1MDA1IDguODQgNy41NTAwNSA2LjQ0QzcuNTUwMDUgMy45OSA5LjUzMDA1IDIgMTEuOTkgMkMxNC40NCAyIDE2LjQzIDMuOTkgMTYuNDMgNi40NEMxNi40MiA4Ljg0IDE0LjUzIDEwLjc5IDEyLjE1IDEwLjg3WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTExLjk5IDIxLjgxMDFDMTAuMTcgMjEuODEwMSA4LjM2MDA0IDIxLjM1MDEgNi45ODAwNCAyMC40MzAxQzQuNTYwMDQgMTguODEwMSA0LjU2MDA0IDE2LjE3MDEgNi45ODAwNCAxNC41NjAxQzkuNzMwMDQgMTIuNzIwMSAxNC4yNCAxMi43MjAxIDE2Ljk5IDE0LjU2MDEiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/profile-remove2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const ProfileRemove2: IconFunction;
+export { ProfileRemove2 };
+export default ProfileRemove2;

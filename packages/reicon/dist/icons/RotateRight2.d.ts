@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name RotateRight2
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![RotateRight2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTQuODkgNS4wNzk5QzE0LjAyIDQuODE5OSAxMy4wNiA0LjY0OTkgMTIgNC42NDk5QzcuMjA5OTYgNC42NDk5IDMuMzI5OTYgOC41Mjk5IDMuMzI5OTYgMTMuMzE5OUMzLjMyOTk2IDE4LjExOTkgNy4yMDk5NiAyMS45OTk5IDEyIDIxLjk5OTlDMTYuNzkgMjEuOTk5OSAyMC42NyAxOC4xMTk5IDIwLjY3IDEzLjMyOTlDMjAuNjcgMTEuNTQ5OSAyMC4xMyA5Ljg4OTkgMTkuMjEgOC41MDk5IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTYuMTMgNS4zMkwxMy4yNCAyIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTYuMTMgNS4zMjAwN0wxMi43NiA3Ljc4MDA3IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/rotate-right2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const RotateRight2: IconFunction;
+export { RotateRight2 };
+export default RotateRight2;

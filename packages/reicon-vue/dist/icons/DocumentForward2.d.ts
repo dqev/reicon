@@ -1,0 +1,12 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name DocumentForward2
+ * @description Reicon Vue icon component, renders an SVG Element.
+ * @preview ![DocumentForward2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTEgMTdMMTMgMTVMMTEgMTNMMTMgMTVINyIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTIyIDEwVjE1QzIyIDIwIDIwIDIyIDE1IDIySDlDNCAyMiAyIDIwIDIgMTVWOUMyIDQgNCAyIDkgMkgxNCIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTIyIDEwSDE4QzE1IDEwIDE0IDkgMTQgNlYyTDIyIDEwWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/document-forward2
+ * @see https://reicon.dev/docs — Documentation
+ */
+declare const DocumentForward2: IconComponent;
+export { DocumentForward2 };
+export default DocumentForward2;

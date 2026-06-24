@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name DirectInbox2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![DirectInbox2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIgMlY5TDE0IDciIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMiA5TDEwIDciIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xLjk3OTk4IDEzSDYuMzg5OThDNi43Njk5OCAxMyA3LjEwOTk4IDEzLjIxIDcuMjc5OTggMTMuNTVMOC40NDk5OCAxNS44OUM4Ljc4OTk4IDE2LjU3IDkuNDc5OTggMTcgMTAuMjQgMTdIMTMuNzdDMTQuNTMgMTcgMTUuMjIgMTYuNTcgMTUuNTYgMTUuODlMMTYuNzMgMTMuNTVDMTYuOSAxMy4yMSAxNy4yNSAxMyAxNy42MiAxM0gyMS45OCIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTcgNC4xMjk4OEMzLjQ2IDQuNjQ5ODggMiA2LjcyOTg4IDIgMTAuOTk5OVYxNC45OTk5QzIgMTkuOTk5OSA0IDIxLjk5OTkgOSAyMS45OTk5SDE1QzIwIDIxLjk5OTkgMjIgMTkuOTk5OSAyMiAxNC45OTk5VjEwLjk5OTlDMjIgNi43Mjk4OCAyMC41NCA0LjY0OTg4IDE3IDQuMTI5ODgiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/direct-inbox2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const DirectInbox2: IconComponent;
+export { DirectInbox2 };
+export default DirectInbox2;

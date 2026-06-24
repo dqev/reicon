@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name WifiSquare2
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![WifiSquare2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNNiA5Ljk2MDA0QzkuNjMgNy4xNTAwNCAxNC4zNyA3LjE1MDA0IDE4IDkuOTYwMDQiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik03LjU5OTk4IDEzLjA1QzEwLjI3IDEwLjk5IDEzLjc0IDEwLjk5IDE2LjQxIDEzLjA1IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNOS43OTk5OSAxNi4xNDAxQzExLjEzIDE1LjExMDEgMTIuODcgMTUuMTEwMSAxNC4yIDE2LjE0MDEiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik05IDIySDE1QzIwIDIyIDIyIDIwIDIyIDE1VjlDMjIgNCAyMCAyIDE1IDJIOUM0IDIgMiA0IDIgOVYxNUMyIDIwIDQgMjIgOSAyMloiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/wifi-square2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const WifiSquare2: IconFunction;
+export { WifiSquare2 };
+export default WifiSquare2;

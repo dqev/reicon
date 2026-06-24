@@ -1,0 +1,17 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @name PenWriting4
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![PenWriting4](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48cGF0aCBkPSJNMy44MzU0OSAxMC4yNUgzLjI1QzIuNDIyIDEwLjI1IDEuNzUgMTAuOTIyIDEuNzUgMTEuNzVDMS43NSAxMi41NzggMi40MjIgMTMuMjUgMy4yNSAxMy4yNUgxNC43NUMxNS41NzggMTMuMjUgMTYuMjUgMTMuOTIyIDE2LjI1IDE0Ljc1QzE2LjI1IDE1LjU3OCAxNS41NzggMTYuMjUgMTQuNzUgMTYuMjVIMTIuNzUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSI+PC9wYXRoPiA8cGF0aCBkPSJNNi43NSAxMC4yNUM2Ljc1IDEwLjI1IDkuMDgzOCAxMC4xNjYyIDkuOTA5IDkuMzQxMDFMMTQuNzg0IDQuNDY2MDFDMTUuNDA1MyAzLjg0NDcxIDE1LjQwNTMgMi44MzczMSAxNC43ODQgMi4yMTYwMUMxNC4xNjI3IDEuNTk0NzEgMTMuMTU1MyAxLjU5NDcxIDEyLjUzNCAyLjIxNjAxTDcuNjU5IDcuMDkxMDFDNi44ODA5IDcuODY5MTEgNi43NSAxMC4yNSA2Ljc1IDEwLjI1WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBmaWxsPSJub25lIj48L3BhdGg+PC9nPjwvc3ZnPg==) - https://reicon.dev/icons/pen-writing-4
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+const PenWriting4 = createIcon('PenWriting4', {
+  F: `<g transform="scale(1.33333)"><path d="M6.836 10.914C7.226 10.908 9.23 10.831 10.117 9.94401L15.367 4.694C16.21 3.85 16.21 2.477 15.367 1.633C14.548 0.816005 13.122 0.817005 12.306 1.633L7.056 6.884C6.169 7.77 6.093 9.762 6.086 10.152C6.083 10.355 6.162 10.551 6.306 10.694C6.447 10.835 6.638 10.914 6.836 10.914Z" fill="currentColor"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M1 11.75C1 10.5078 2.00779 9.5 3.25 9.5H3.83549C4.2497 9.5 4.58549 9.83579 4.58549 10.25C4.58549 10.6642 4.2497 11 3.83549 11H3.25C2.83621 11 2.5 11.3362 2.5 11.75C2.5 12.1638 2.83621 12.5 3.25 12.5H14.75C15.9922 12.5 17 13.5078 17 14.75C17 15.9922 15.9922 17 14.75 17H12.75C12.3358 17 12 16.6642 12 16.25C12 15.8358 12.3358 15.5 12.75 15.5H14.75C15.1638 15.5 15.5 15.1638 15.5 14.75C15.5 14.3362 15.1638 14 14.75 14H3.25C2.00779 14 1 12.9922 1 11.75Z" fill="currentColor"></path></g>`,
+  O: `<g transform="scale(1.33333)"><path d="M3.83549 10.25H3.25C2.422 10.25 1.75 10.922 1.75 11.75C1.75 12.578 2.422 13.25 3.25 13.25H14.75C15.578 13.25 16.25 13.922 16.25 14.75C16.25 15.578 15.578 16.25 14.75 16.25H12.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path> <path d="M6.75 10.25C6.75 10.25 9.0838 10.1662 9.909 9.34101L14.784 4.46601C15.4053 3.84471 15.4053 2.83731 14.784 2.21601C14.1627 1.59471 13.1553 1.59471 12.534 2.21601L7.659 7.09101C6.8809 7.86911 6.75 10.25 6.75 10.25Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path></g>`
+});
+
+export { PenWriting4 };
+export default PenWriting4;

@@ -1,0 +1,12 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name SidebarBottom2
+ * @description Reicon Vue icon component, renders an SVG Element.
+ * @preview ![SidebarBottom2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMjEuOTcgMTVWOUMyMS45NyA0IDE5Ljk3IDIgMTQuOTcgMkg4Ljk2OTk3QzMuOTY5OTcgMiAxLjk2OTk3IDQgMS45Njk5NyA5VjE1QzEuOTY5OTcgMjAgMy45Njk5NyAyMiA4Ljk2OTk3IDIySDE0Ljk3QzE5Ljk3IDIyIDIxLjk3IDIwIDIxLjk3IDE1WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTIyIDE1LjVIMiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTE0LjU2IDguNUwxMiAxMS4wNkw5LjQ0IDguNSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/sidebar-bottom2
+ * @see https://reicon.dev/docs — Documentation
+ */
+declare const SidebarBottom2: IconComponent;
+export { SidebarBottom2 };
+export default SidebarBottom2;

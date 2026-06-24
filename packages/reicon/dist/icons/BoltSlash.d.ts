@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name BoltSlash
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![BoltSlash](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48cGF0aCBkPSJNOC4zMTI3OSAxMy45Mjk0TDguMTg5MzkgMTYuMDEzMkM4LjE3Njc5IDE2LjIyNjggOC40NDkxOCAxNi4zMjY2IDguNTc3NDggMTYuMTU1NEwxNC45NTA0IDcuNjQ5OTFDMTUuMDMyMSA3LjU0MDkxIDE1LjAwODMgNy40MDExMSAxNC45MjMyIDcuMzE4OTEiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSI+PC9wYXRoPiA8cGF0aCBkPSJNMTAuNzUgNy4yNUg5LjQ5OTA0TDkuODEwNjQgMS45ODY4QzkuODIzMjQgMS43NzMyIDkuNTUwODUgMS42NzM0IDkuNDIyNTUgMS44NDQ2TDMuMDQ5NjYgMTAuMzUwMUMyLjkyNjE2IDEwLjUxNDkgMy4wNDM3NCAxMC43NSAzLjI0OTc0IDEwLjc1SDcuMjUwMTYiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSI+PC9wYXRoPiA8cGF0aCBkPSJNMiAxNkwxNiAyIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGZpbGw9Im5vbmUiPjwvcGF0aD48L2c+PC9zdmc+) - https://reicon.dev/icons/bolt-slash
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const BoltSlash: IconFunction;
+export { BoltSlash };
+export default BoltSlash;

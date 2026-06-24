@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Power
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Power](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIuNzUgMkMxMi43NSAxLjU4NTc5IDEyLjQxNDIgMS4yNSAxMiAxLjI1QzExLjU4NTggMS4yNSAxMS4yNSAxLjU4NTc5IDExLjI1IDJWNkMxMS4yNSA2LjQxNDIxIDExLjU4NTggNi43NSAxMiA2Ljc1QzEyLjQxNDIgNi43NSAxMi43NSA2LjQxNDIxIDEyLjc1IDZWMloiIGZpbGw9IiNlNGU0ZTciLz48cGF0aCBkPSJNOC43OTE5IDQuMzk2NzhDOS4xNzM0NSA0LjIzNTU3IDkuMzUyMDggMy43OTU1NyA5LjE5MDg3IDMuNDE0MDJDOS4wMjk2NiAzLjAzMjQ2IDguNTg5NjYgMi44NTM4NCA4LjIwODEgMy4wMTUwNUM0LjcwODMyIDQuNDkzNzIgMi4yNSA3Ljk1ODkxIDIuMjUgMTJDMi4yNSAxNy4zODQ4IDYuNjE1MjIgMjEuNzUgMTIgMjEuNzVDMTcuMzg0OCAyMS43NSAyMS43NSAxNy4zODQ4IDIxLjc1IDEyQzIxLjc1IDcuOTU4OTEgMTkuMjkxNyA0LjQ5MzcyIDE1Ljc5MTkgMy4wMTUwNUMxNS40MTAzIDIuODUzODQgMTQuOTcwMyAzLjAzMjQ2IDE0LjgwOTEgMy40MTQwMkMxNC42NDc5IDMuNzk1NTcgMTQuODI2NSA0LjIzNTU3IDE1LjIwODEgNC4zOTY3OEMxOC4xNzIyIDUuNjQ5MTMgMjAuMjUgOC41ODI3OSAyMC4yNSAxMkMyMC4yNSAxNi41NTY0IDE2LjU1NjMgMjAuMjUgMTIgMjAuMjVDNy40NDM2NSAyMC4yNSAzLjc1IDE2LjU1NjQgMy43NSAxMkMzLjc1IDguNTgyNzkgNS44Mjc3OSA1LjY0OTEzIDguNzkxOSA0LjM5Njc4WiIgZmlsbD0iI2U0ZTRlNyIvPjwvc3ZnPg==) - https://reicon.dev/icons/power
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const Power: IconComponent;
+export { Power };
+export default Power;

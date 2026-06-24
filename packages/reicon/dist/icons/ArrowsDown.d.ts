@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name ArrowsDown
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![ArrowsDown](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTQuNDMwNTcgNi41MTE5MkM0LjcwMDE0IDYuMTk3NDMgNS4xNzM2MSA2LjE2MSA1LjQ4ODExIDYuNDMwNTdMMTIgMTIuMDEyMkwxOC41MTE5IDYuNDMwNTdDMTguODI2NCA2LjE2MSAxOS4yOTk5IDYuMTk3NDMgMTkuNTY5NSA2LjUxMTkyQzE5LjgzOSA2LjgyNjQxIDE5LjgwMjYgNy4yOTk4OSAxOS40ODgxIDcuNTY5NDZMMTIuNDg4MSAxMy41Njk1QzEyLjIwNzIgMTMuODEwMiAxMS43OTI4IDEzLjgxMDIgMTEuNTExOSAxMy41Njk1TDQuNTExOTIgNy41Njk0NkM0LjE5NzQzIDcuMjk5ODkgNC4xNjEgNi44MjY0MSA0LjQzMDU3IDYuNTExOTJaTTQuNDMwNTcgMTAuNTExOUM0LjcwMDE0IDEwLjE5NzQgNS4xNzM2MSAxMC4xNjEgNS40ODgxMSAxMC40MzA2TDEyIDE2LjAxMjJMMTguNTExOSAxMC40MzA2QzE4LjgyNjQgMTAuMTYxIDE5LjI5OTkgMTAuMTk3NCAxOS41Njk1IDEwLjUxMTlDMTkuODM5IDEwLjgyNjQgMTkuODAyNiAxMS4yOTk5IDE5LjQ4ODEgMTEuNTY5NUwxMi40ODgxIDE3LjU2OTVDMTIuMjA3MiAxNy44MTAyIDExLjc5MjggMTcuODEwMiAxMS41MTE5IDE3LjU2OTVMNC41MTE5MiAxMS41Njk1QzQuMTk3NDMgMTEuMjk5OSA0LjE2MSAxMC44MjY0IDQuNDMwNTcgMTAuNTExOVoiIGZpbGw9IiNlNGU0ZTciLz48L3N2Zz4=) - https://reicon.dev/icons/arrows-down
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const ArrowsDown: IconFunction;
+export { ArrowsDown };
+export default ArrowsDown;

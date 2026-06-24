@@ -1,0 +1,18 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @component
+ * @name Trade2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Trade2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMjIgOC41QzIyIDEyLjA5IDE5LjA5IDE1IDE1LjUgMTVDMTUuMzMgMTUgMTUuMTUgMTQuOTkgMTQuOTggMTQuOThDMTQuNzMgMTEuODEgMTIuMTkgOS4yNjk5OSA5LjAxOTk5IDkuMDE5OTlDOS4wMDk5OSA4Ljg0OTk5IDkgOC42NyA5IDguNUM5IDQuOTEgMTEuOTEgMiAxNS41IDJDMTkuMDkgMiAyMiA0LjkxIDIyIDguNVoiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xNSAxNS41QzE1IDE5LjA5IDEyLjA5IDIyIDguNSAyMkM0LjkxIDIyIDIgMTkuMDkgMiAxNS41QzIgMTEuOTEgNC45MSA5IDguNSA5QzguNjcgOSA4Ljg0OTk5IDkuMDA5OTkgOS4wMTk5OSA5LjAxOTk5QzEyLjE5IDkuMjY5OTkgMTQuNzMgMTEuODEgMTQuOTggMTQuOThDMTQuOTkgMTUuMTUgMTUgMTUuMzMgMTUgMTUuNVoiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik01LjU5IDJIM0MyLjQ1IDIgMiAyLjQ1IDIgM1Y1LjU5QzIgNi40OCAzLjA3OTk5IDYuOTI5OTkgMy43MDk5OSA2LjI5OTk5TDYuMjk5OTkgMy43MDk5OUM2LjkxOTk5IDMuMDc5OTkgNi40OCAyIDUuNTkgMloiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xOC40MSAyMkgyMUMyMS41NSAyMiAyMiAyMS41NSAyMiAyMVYxOC40MUMyMiAxNy41MiAyMC45MiAxNy4wNyAyMC4yOSAxNy43TDE3LjcgMjAuMjlDMTcuMDggMjAuOTIgMTcuNTIgMjIgMTguNDEgMjJaIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/trade2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+const Trade2 = createIcon('Trade2', {
+  O: `<path d="M22 8.5C22 12.09 19.09 15 15.5 15C15.33 15 15.15 14.99 14.98 14.98C14.73 11.81 12.19 9.26999 9.01999 9.01999C9.00999 8.84999 9 8.67 9 8.5C9 4.91 11.91 2 15.5 2C19.09 2 22 4.91 22 8.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 15.5C15 19.09 12.09 22 8.5 22C4.91 22 2 19.09 2 15.5C2 11.91 4.91 9 8.5 9C8.67 9 8.84999 9.00999 9.01999 9.01999C12.19 9.26999 14.73 11.81 14.98 14.98C14.99 15.15 15 15.33 15 15.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.59 2H3C2.45 2 2 2.45 2 3V5.59C2 6.48 3.07999 6.92999 3.70999 6.29999L6.29999 3.70999C6.91999 3.07999 6.48 2 5.59 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.41 22H21C21.55 22 22 21.55 22 21V18.41C22 17.52 20.92 17.07 20.29 17.7L17.7 20.29C17.08 20.92 17.52 22 18.41 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  F: `<path d="M15 15.5C15 19.09 12.09 22 8.5 22C4.91 22 2 19.09 2 15.5C2 11.91 4.91 9 8.5 9C8.67 9 8.85 9.01 9.02 9.02C12.19 9.27 14.73 11.81 14.98 14.98C14.99 15.15 15 15.33 15 15.5Z" fill="currentColor"/><path d="M22.0001 8.5C22.0001 11.76 19.6001 14.45 16.4801 14.92V14.86C16.1701 10.98 13.0201 7.83 9.11008 7.52H9.08008C9.55008 4.4 12.2401 2 15.5001 2C19.0901 2 22.0001 4.91 22.0001 8.5Z" fill="currentColor"/><path d="M5.59 2H3C2.45 2 2 2.45 2 3V5.59C2 6.48 3.08 6.93 3.71 6.3L6.3 3.71C6.92 3.08 6.48 2 5.59 2Z" fill="currentColor"/><path d="M18.4097 22.0003H20.9997C21.5497 22.0003 21.9997 21.5503 21.9997 21.0003V18.4103C21.9997 17.5203 20.9197 17.0703 20.2897 17.7003L17.6997 20.2903C17.0797 20.9203 17.5197 22.0003 18.4097 22.0003Z" fill="currentColor"/>`
+});
+
+export { Trade2 };
+export default Trade2;

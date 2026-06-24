@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name MsgBubbleUser
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![MsgBubbleUser](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48cGF0aCBkPSJNMTMuMjUsMS4yNWMtMi4yMDksMC00LDEuNzkxLTQsNCwwLC43MjgsLjE5NywxLjQwOCwuNTM3LDEuOTk2LC4yMzcsLjQ0NS0uMDI5LDEuNDk2LS41MzcsMi4wMDQsLjY5LC4wMzcsMS41OTgtLjI3NCwyLjAwNC0uNTM3LC4yNywuMTU2LC42OTgsLjM2MiwxLjI1OCwuNDY4LC4yMzksLjA0NSwuNDg2LC4wNjksLjczOCwuMDY5LDIuMjA5LDAsNC0xLjc5MSw0LTRTMTUuNDU5LDEuMjUsMTMuMjUsMS4yNVoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSI+PC9wYXRoPjxjaXJjbGUgY3g9IjQuNTUxIiBjeT0iOC43NSIgcj0iMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij48L2NpcmNsZT48cGF0aCBkPSJNLjc1LDE2Yy41MjUtMS41OTcsMi4wMjgtMi43NSwzLjgwMS0yLjc1czMuMjc2LDEuMTUzLDMuODAxLDIuNzUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSI+PC9wYXRoPjwvZz48L3N2Zz4=) - https://reicon.dev/icons/msg-bubble-user
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const MsgBubbleUser: IconFunction;
+export { MsgBubbleUser };
+export default MsgBubbleUser;

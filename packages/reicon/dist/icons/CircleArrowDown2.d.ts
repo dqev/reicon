@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name CircleArrowDown2
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![CircleArrowDown2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTEyIDIuNzVDNi44OTEzNyAyLjc1IDIuNzUgNi44OTEzNyAyLjc1IDEyQzIuNzUgMTcuMTA4NiA2Ljg5MTM3IDIxLjI1IDEyIDIxLjI1QzE3LjEwODYgMjEuMjUgMjEuMjUgMTcuMTA4NiAyMS4yNSAxMkMyMS4yNSA2Ljg5MTM3IDE3LjEwODYgMi43NSAxMiAyLjc1Wk0xLjI1IDEyQzEuMjUgNi4wNjI5NCA2LjA2Mjk0IDEuMjUgMTIgMS4yNUMxNy45MzcxIDEuMjUgMjIuNzUgNi4wNjI5NCAyMi43NSAxMkMyMi43NSAxNy45MzcxIDE3LjkzNzEgMjIuNzUgMTIgMjIuNzVDNi4wNjI5NCAyMi43NSAxLjI1IDE3LjkzNzEgMS4yNSAxMlpNOC40Njk2NyA5Ljk2OTY3QzguNzYyNTYgOS42NzY3OCA5LjIzNzQ0IDkuNjc2NzggOS41MzAzMyA5Ljk2OTY3TDEyIDEyLjQzOTNMMTQuNDY5NyA5Ljk2OTY3QzE0Ljc2MjYgOS42NzY3OCAxNS4yMzc0IDkuNjc2NzggMTUuNTMwMyA5Ljk2OTY3QzE1LjgyMzIgMTAuMjYyNiAxNS44MjMyIDEwLjczNzQgMTUuNTMwMyAxMS4wMzAzTDEyLjUzMDMgMTQuMDMwM0MxMi4yMzc0IDE0LjMyMzIgMTEuNzYyNiAxNC4zMjMyIDExLjQ2OTcgMTQuMDMwM0w4LjQ2OTY3IDExLjAzMDNDOC4xNzY3OCAxMC43Mzc0IDguMTc2NzggMTAuMjYyNiA4LjQ2OTY3IDkuOTY5NjdaIiBmaWxsPSIjZTRlNGU3Ii8+PC9zdmc+) - https://reicon.dev/icons/circle-arrow-down2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const CircleArrowDown2: IconFunction;
+export { CircleArrowDown2 };
+export default CircleArrowDown2;

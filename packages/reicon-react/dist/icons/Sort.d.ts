@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Sort
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Sort](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTIyLjc1IDdDMjIuNzUgNy40MTQyMSAyMi40MTQyIDcuNzUgMjIgNy43NUwyIDcuNzVDMS41ODU3OSA3Ljc1IDEuMjUgNy40MTQyMSAxLjI1IDdDMS4yNSA2LjU4NTc5IDEuNTg1NzkgNi4yNSAyIDYuMjVMMjIgNi4yNUMyMi40MTQyIDYuMjUgMjIuNzUgNi41ODU3OSAyMi43NSA3WiIgZmlsbD0iI2U0ZTRlNyIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTkuNzUgMTJDMTkuNzUgMTIuNDE0MiAxOS40MTQyIDEyLjc1IDE5IDEyLjc1TDUgMTIuNzVDNC41ODU3OSAxMi43NSA0LjI1IDEyLjQxNDIgNC4yNSAxMkM0LjI1IDExLjU4NTggNC41ODU3OSAxMS4yNSA1IDExLjI1TDE5IDExLjI1QzE5LjQxNDIgMTEuMjUgMTkuNzUgMTEuNTg1OCAxOS43NSAxMloiIGZpbGw9IiNlNGU0ZTciLz48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE2Ljc1IDE3QzE2Ljc1IDE3LjQxNDIgMTYuNDE0MiAxNy43NSAxNiAxNy43NUg4QzcuNTg1NzkgMTcuNzUgNy4yNSAxNy40MTQyIDcuMjUgMTdDNy4yNSAxNi41ODU4IDcuNTg1NzkgMTYuMjUgOCAxNi4yNUgxNkMxNi40MTQyIDE2LjI1IDE2Ljc1IDE2LjU4NTggMTYuNzUgMTdaIiBmaWxsPSIjZTRlNGU3Ii8+PC9zdmc+) - https://reicon.dev/icons/sort
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const Sort: IconComponent;
+export { Sort };
+export default Sort;

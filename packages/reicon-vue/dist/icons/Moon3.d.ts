@@ -1,0 +1,12 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Moon3
+ * @description Reicon Vue icon component, renders an SVG Element.
+ * @preview ![Moon3](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMi4wMjkxMSAxMi40MkMyLjM4OTExIDE3LjU3IDYuNzU5MTEgMjEuNzYgMTEuOTg5MSAyMS45OUMxNS42NzkxIDIyLjE1IDE4Ljk3OTEgMjAuNDMgMjAuOTU5MSAxNy43MkMyMS43NzkxIDE2LjYxIDIxLjMzOTEgMTUuODcgMTkuOTY5MSAxNi4xMkMxOS4yOTkxIDE2LjI0IDE4LjYwOTEgMTYuMjkgMTcuODg5MSAxNi4yNkMxMi45OTkxIDE2LjA2IDguOTk5MTEgMTEuOTcgOC45NzkxMSA3LjEzOTk2QzguOTY5MTEgNS44Mzk5NiA5LjIzOTExIDQuNjA5OTYgOS43MjkxMSAzLjQ4OTk2QzEwLjI2OTEgMi4yNDk5NiA5LjYxOTExIDEuNjU5OTYgOC4zNjkxMSAyLjE4OTk2QzQuNDA5MTEgMy44NTk5NiAxLjY5OTExIDcuODQ5OTYgMi4wMjkxMSAxMi40MloiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/moon3
+ * @see https://reicon.dev/docs — Documentation
+ */
+declare const Moon3: IconComponent;
+export { Moon3 };
+export default Moon3;

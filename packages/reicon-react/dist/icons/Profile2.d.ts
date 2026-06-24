@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Profile2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Profile2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTIuMTYwMSAxMC44N0MxMi4wNjAxIDEwLjg2IDExLjk0MDEgMTAuODYgMTEuODMwMSAxMC44N0M5LjQ1MDA2IDEwLjc5IDcuNTYwMDYgOC44NCA3LjU2MDA2IDYuNDRDNy41NjAwNiAzLjk5IDkuNTQwMDYgMiAxMi4wMDAxIDJDMTQuNDUwMSAyIDE2LjQ0MDEgMy45OSAxNi40NDAxIDYuNDRDMTYuNDMwMSA4Ljg0IDE0LjU0MDEgMTAuNzkgMTIuMTYwMSAxMC44N1oiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik03LjE1OTk3IDE0LjU2QzQuNzM5OTcgMTYuMTggNC43Mzk5NyAxOC44MiA3LjE1OTk3IDIwLjQzQzkuOTA5OTcgMjIuMjcgMTQuNDIgMjIuMjcgMTcuMTcgMjAuNDNDMTkuNTkgMTguODEgMTkuNTkgMTYuMTcgMTcuMTcgMTQuNTZDMTQuNDMgMTIuNzMgOS45MTk5NyAxMi43MyA3LjE1OTk3IDE0LjU2WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/profile2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const Profile2: IconComponent;
+export { Profile2 };
+export default Profile2;

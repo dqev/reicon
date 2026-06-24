@@ -43,10 +43,10 @@ inline `description`.
 
 | Output | Built by | Command |
 |--------|----------|---------|
-| `packages/reicon-react/dist` | `scripts/build/build-react.cjs` | `npm run build:react` |
-| `packages/reicon-vue/dist`   | `scripts/build/build-vue.cjs`   | `npm run build:vue` |
-| `packages/reicon/dist`       | `scripts/build/build-js.cjs`    | `npm run build:js` |
-| `cdn/reicon.js`              | `scripts/build/build-cdn.cjs`   | `npm run build:cdn` |
+| `packages/reicon-react/dist` | `packages/reicon-react/scripts/build.cjs` | `npm run build:react` |
+| `packages/reicon-vue/dist`   | `packages/reicon-vue/scripts/build.cjs`   | `npm run build:vue` |
+| `packages/reicon/dist`       | `packages/reicon/scripts/build.cjs`       | `npm run build:js` |
+| `cdn/reicon.js`              | `packages/reicon/scripts/build-cdn.cjs`   | `npm run build:cdn` |
 | Website SEO pages & OG images | `scripts/prerender-meta.mjs`, `scripts/generate-og-images.mjs` | `npm run build` |
 
 Build everything at once:
@@ -55,5 +55,5 @@ Build everything at once:
 npm run build:packages
 ```
 
-> ⚠️ Generated outputs (`packages/*/dist`, `cdn/*.js`) are git-ignored —
-> they're rebuilt from this dataset. Edit icons **here**, never in the output.
+> ⚠️ Edit icons here in data, never in the package outputs. Builds are run to keep packages in sync.
+

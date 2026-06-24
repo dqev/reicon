@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Like12
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Like12](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNNy40Nzk5OCAxOC4zNUwxMC41OCAyMC43NUMxMC45OCAyMS4xNSAxMS44OCAyMS4zNSAxMi40OCAyMS4zNUgxNi4yOEMxNy40OCAyMS4zNSAxOC43OCAyMC40NSAxOS4wOCAxOS4yNUwyMS40OCAxMS45NUMyMS45OCAxMC41NSAyMS4wOCA5LjM0OTk3IDE5LjU4IDkuMzQ5OTdIMTUuNThDMTQuOTggOS4zNDk5NyAxNC40OCA4Ljg0OTk3IDE0LjU4IDguMTQ5OTdMMTUuMDggNC45NDk5N0MxNS4yOCA0LjA0OTk3IDE0LjY4IDMuMDQ5OTcgMTMuNzggMi43NDk5N0MxMi45OCAyLjQ0OTk3IDExLjk4IDIuODQ5OTcgMTEuNTggMy40NDk5N0w3LjQ3OTk4IDkuNTQ5OTciIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIvPjxwYXRoIGQ9Ik0yLjM4IDE4LjM1VjguNTUwMDJDMi4zOCA3LjE1MDAyIDIuOTggNi42NTAwMiA0LjM4IDYuNjUwMDJINS4zOEM2Ljc4IDYuNjUwMDIgNy4zOCA3LjE1MDAyIDcuMzggOC41NTAwMlYxOC4zNUM3LjM4IDE5Ljc1IDYuNzggMjAuMjUgNS4zOCAyMC4yNUg0LjM4QzIuOTggMjAuMjUgMi4zOCAxOS43NSAyLjM4IDE4LjM1WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/like-12
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const Like12: IconComponent;
+export { Like12 };
+export default Like12;

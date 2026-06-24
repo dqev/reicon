@@ -18,7 +18,7 @@
 - repo: https://github.com/dqev/reicon
 - npm_react: https://www.npmjs.com/package/reicon-react
 - npm_vue: https://www.npmjs.com/package/reicon-vue
-- cdn: https://cdn.reicon.dev/cdn/reicon.min.js
+- cdn: https://unpkg.com/reicon/cdn/reicon.min.js
 
 ## What is Reicon?
 
@@ -44,7 +44,7 @@ npm install reicon-react
 npm install reicon-vue
 
 # Vanilla HTML / JS (CDN)
-<script src="https://cdn.reicon.dev/cdn/reicon.min.js"></script>
+<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>
 ```
 
 ## Basic Usage
@@ -106,7 +106,7 @@ Reicon (reicon.dev) is exclusively an SVG icon library for designers and develop
 
 ## Current Status
 
-Reicon is live with 2700+ handcrafted icons available in two weights (Outline & Filled). Install via npm: `npm i reicon-react` or `npm i reicon-vue`, or use the CDN at https://cdn.reicon.dev/cdn/reicon.min.js.
+Reicon is live with 2700+ handcrafted icons available in two weights (Outline & Filled). Install via npm: `npm i reicon-react` or `npm i reicon-vue`, or use the CDN at https://unpkg.com/reicon/cdn/reicon.min.js.
 
 ## Pages
 

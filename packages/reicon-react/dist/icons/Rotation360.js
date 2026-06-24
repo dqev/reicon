@@ -1,0 +1,18 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @component
+ * @name Rotation360
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Rotation360](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48Y2lyY2xlIGN4PSI5IiBjeT0iOSIgcj0iMS43NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij48L2NpcmNsZT48cGF0aCBkPSJtMTAuNTAyNSwxNi4wNTA5Yy0uNDY4Ni4yOTA2LS45NzQ0LjQ0OTEtMS41MDI1LjQ0OTEtMi40MjgsMC00LjM5Ny0zLjM1OC00LjM5Ny03LjVTNi41NzIsMS41LDksMS41czQuMzk3LDMuMzU4LDQuMzk3LDcuNWMwLDEuMzg0LS4yMiwyLjY4MS0uNjAzLDMuNzkzIiBmaWxsPSJub25lIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiPjwvcGF0aD48cGF0aCBkPSJtOC41NzM1LDQuNjEwOWMuMTQxMy0uMDA0Ni4yODM2LS4wMDY5LjQyNjUtLjAwNjksNC4xNDIsMCw3LjUsMS45NjgsNy41LDQuMzk3cy0zLjM1OCw0LjM5Ny03LjUsNC4zOTctNy41LTEuOTctNy41LTQuMzk4YzAtMS42MTcsMS40ODktMy4wMywzLjcwNy0zLjc5NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij48L3BhdGg+PC9nPjwvc3ZnPg==) - https://reicon.dev/icons/rotation-360
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+const Rotation360 = createIcon('Rotation360', {
+  F: `<g transform="scale(1.33333)"><path d="m11,9c0-1.103-.897-2-2-2s-2,.897-2,2,.897,2,2,2,2-.897,2-2Z" fill="currentColor" ></path><path d="m9,17.25c-2.8867,0-5.1475-3.624-5.1475-8.25S6.1133.75,9,.75s5.1475,3.624,5.1475,8.25c0,1.417-.2227,2.813-.6445,4.0371-.1338.3921-.5586.6011-.9531.4648-.3916-.1348-.5996-.5615-.4648-.9531.3682-1.0693.5625-2.2964.5625-3.5488,0-3.6587-1.6699-6.75-3.6475-6.75s-3.6475,3.0913-3.6475,6.75,1.6699,6.75,3.6475,6.75c.375,0,.7471-.1133,1.1074-.3369.3525-.2178.8145-.1089,1.0332.2427.2178.3521.1094.8145-.2422,1.0327-.6016.3726-1.2402.5615-1.8984.5615Z" fill="currentColor"></path><path d="m9,14.1479C4.374,14.1479.75,11.8867.75,9c0-1.9106,1.5752-3.5942,4.2129-4.5029.3945-.1343.8184.0732.9531.4648s-.0732.8184-.4648.9531c-1.9746.6807-3.2012,1.8623-3.2012,3.085,0,1.9775,3.0908,3.6479,6.75,3.6479s6.75-1.6699,6.75-3.647-3.0908-3.647-6.75-3.647c-.1348,0-.2695.0024-.4033.0063-.4258.0283-.7607-.313-.7734-.7261-.0127-.4141.3125-.7603.7266-.7729.1494-.0049.2998-.0073.4502-.0073,4.626,0,8.25,2.2607,8.25,5.147s-3.624,5.147-8.25,5.147Z" fill="currentColor"></path></g>`,
+  O: `<g transform="scale(1.33333)"><circle cx="9" cy="9" r="1.75" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></circle><path d="m10.5025,16.0509c-.4686.2906-.9744.4491-1.5025.4491-2.428,0-4.397-3.358-4.397-7.5S6.572,1.5,9,1.5s4.397,3.358,4.397,7.5c0,1.384-.22,2.681-.603,3.793" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="m8.5735,4.6109c.1413-.0046.2836-.0069.4265-.0069,4.142,0,7.5,1.968,7.5,4.397s-3.358,4.397-7.5,4.397-7.5-1.97-7.5-4.398c0-1.617,1.489-3.03,3.707-3.794" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g>`
+});
+
+export { Rotation360 };
+export default Rotation360;

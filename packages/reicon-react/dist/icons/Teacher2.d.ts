@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Teacher2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Teacher2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTAuMDUgMi41MzAwNEw0LjAzMDAyIDYuNDYwMDRDMi4xMDAwMiA3LjcyMDA0IDIuMTAwMDIgMTAuNTQgNC4wMzAwMiAxMS44TDEwLjA1IDE1LjczQzExLjEzIDE2LjQ0IDEyLjkxIDE2LjQ0IDEzLjk5IDE1LjczTDE5Ljk4IDExLjhDMjEuOSAxMC41NCAyMS45IDcuNzMwMDQgMTkuOTggNi40NzAwNEwxMy45OSAyLjU0MDA0QzEyLjkxIDEuODIwMDQgMTEuMTMgMS44MjAwNCAxMC4wNSAyLjUzMDA0WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTUuNjMgMTMuMDhMNS42MiAxNy43N0M1LjYyIDE5LjA0IDYuNiAyMC40IDcuOCAyMC44TDEwLjk5IDIxLjg2QzExLjU0IDIyLjA0IDEyLjQ1IDIyLjA0IDEzLjAxIDIxLjg2TDE2LjIgMjAuOEMxNy40IDIwLjQgMTguMzggMTkuMDQgMTguMzggMTcuNzdWMTMuMTMiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0yMS40IDE1VjkiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/teacher2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const Teacher2: IconComponent;
+export { Teacher2 };
+export default Teacher2;

@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name Crown12
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![Crown12](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTYuNyAxOC45OEg3LjMwMDAyQzYuODgwMDIgMTguOTggNi40MTAwMiAxOC42NSA2LjI3MDAyIDE4LjI1TDIuMTMwMDIgNi42Njk5OUMxLjU0MDAyIDUuMDA5OTkgMi4yMzAwMiA0LjQ5OTk5IDMuNjUwMDIgNS41MTk5OUw3LjU1MDAyIDguMzA5OTlDOC4yMDAwMiA4Ljc1OTk5IDguOTQwMDIgOC41Mjk5OSA5LjIyMDAyIDcuNzk5OTlMMTAuOTggMy4xMDk5OUMxMS41NCAxLjYwOTk5IDEyLjQ3IDEuNjA5OTkgMTMuMDMgMy4xMDk5OUwxNC43OSA3Ljc5OTk5QzE1LjA3IDguNTI5OTkgMTUuODEgOC43NTk5OSAxNi40NSA4LjMwOTk5TDIwLjExIDUuNjk5OTlDMjEuNjcgNC41Nzk5OSAyMi40MiA1LjE0OTk5IDIxLjc4IDYuOTU5OTlMMTcuNzQgMTguMjdDMTcuNTkgMTguNjUgMTcuMTIgMTguOTggMTYuNyAxOC45OFoiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik02LjUgMjJIMTcuNSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTkuNSAxNEgxNC41IiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/crown-12
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const Crown12: IconFunction;
+export { Crown12 };
+export default Crown12;

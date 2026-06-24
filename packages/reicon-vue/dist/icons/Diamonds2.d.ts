@@ -1,0 +1,12 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Diamonds2
+ * @description Reicon Vue icon component, renders an SVG Element.
+ * @preview ![Diamonds2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTYuMjkgMi4xNTAwMkg3LjY5OTk1QzUuOTk5OTUgMi4xNTAwMiA1LjI0OTk1IDMuMDAwMDIgNC43ODk5NSA0LjA0MDAyTDIuMjI5OTUgOS44MDAwMkMxLjc2OTk1IDEwLjg0IDIuMDE5OTUgMTIuMzkgMi43ODk5NSAxMy4yM0w5LjY0OTk1IDIwLjc3QzEwLjk1IDIyLjE5IDEzLjA3IDIyLjE5IDE0LjM2IDIwLjc3TDIxLjIxIDEzLjIyQzIxLjk4IDEyLjM3IDIyLjIzIDEwLjgzIDIxLjc2IDkuNzkwMDJMMTkuMiA0LjAzMDAyQzE4Ljc0IDMuMDAwMDIgMTcuOTkgMi4xNTAwMiAxNi4yOSAyLjE1MDAyWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTMuNSA4SDIwLjUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==) - https://reicon.dev/icons/diamonds2
+ * @see https://reicon.dev/docs — Documentation
+ */
+declare const Diamonds2: IconComponent;
+export { Diamonds2 };
+export default Diamonds2;

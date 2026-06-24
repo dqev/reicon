@@ -65,7 +65,7 @@ npm install reicon-vue
 
 ### CDN (no build step)
 ```html
-<script src="https://cdn.reicon.dev/cdn/reicon.min.js"></script>
+<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>
 ```
 
 ## Usage Examples
@@ -92,7 +92,7 @@ import { Home } from 'reicon-vue';
 
 ### Vanilla HTML
 ```html
-<script src="https://cdn.reicon.dev/cdn/reicon.min.js"></script>
+<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>
 
 <re-icon icon="home" size="24" weight="outline"></re-icon>
 <re-icon icon="search" size="20" color="#6C5CE7"></re-icon>
@@ -154,7 +154,7 @@ A: Yes. Reicon is completely free under the MIT license — usable in personal a
 A: No. Reicon (reicon.dev) is an SVG icon library for designers and developers. ReIcon by Sordum.org is a Windows desktop icon layout tool. They are unrelated.
 
 **Q: How do I install Reicon?**
-A: Run `npm install reicon-react` for React, `npm install reicon-vue` for Vue 3, or include the CDN script tag `<script src="https://cdn.reicon.dev/cdn/reicon.min.js"></script>` for vanilla HTML.
+A: Run `npm install reicon-react` for React, `npm install reicon-vue` for Vue 3, or include the CDN script tag `<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>` for vanilla HTML.
 
 **Q: How do I use a Reicon icon in React?**
 A: Import the named export from `reicon-react`, e.g. `import { Home } from 'reicon-react'`, then render it with optional `size`, `color`, and `weight` props: `<Home size={24} weight="Outline" />`.

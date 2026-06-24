@@ -1,0 +1,17 @@
+import createIcon from '../createIcon.js';
+
+/**
+ * @name PlayCircle3
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![PlayCircle3](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMTEuOTcgMjJDMTcuNDkyOCAyMiAyMS45NyAxNy41MjI4IDIxLjk3IDEyQzIxLjk3IDYuNDc3MTUgMTcuNDkyOCAyIDExLjk3IDJDNi40NDcxMiAyIDEuOTY5OTcgNi40NzcxNSAxLjk2OTk3IDEyQzEuOTY5OTcgMTcuNTIyOCA2LjQ0NzEyIDIyIDExLjk3IDIyWiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTguNzM5OTkgMTIuMjI5OVYxMC41NTk5QzguNzM5OTkgOC40Nzk4OCAxMC4yMSA3LjYyOTg4IDEyLjAxIDguNjY5ODhMMTMuNDYgOS41MDk4OEwxNC45MSAxMC4zNDk5QzE2LjcxIDExLjM4OTkgMTYuNzEgMTMuMDg5OSAxNC45MSAxNC4xMjk5TDEzLjQ2IDE0Ljk2OTlMMTIuMDEgMTUuODA5OUMxMC4yMSAxNi44NDk5IDguNzM5OTkgMTUuOTk5OSA4LjczOTk5IDEzLjkxOTlWMTIuMjI5OVoiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/play-circle3
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+const PlayCircle3 = createIcon('PlayCircle3', {
+  O: `<path d="M11.97 22C17.4928 22 21.97 17.5228 21.97 12C21.97 6.47715 17.4928 2 11.97 2C6.44712 2 1.96997 6.47715 1.96997 12C1.96997 17.5228 6.44712 22 11.97 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.73999 12.2299V10.5599C8.73999 8.47988 10.21 7.62988 12.01 8.66988L13.46 9.50988L14.91 10.3499C16.71 11.3899 16.71 13.0899 14.91 14.1299L13.46 14.9699L12.01 15.8099C10.21 16.8499 8.73999 15.9999 8.73999 13.9199V12.2299Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>`,
+  F: `<path d="M11.9688 2C6.44875 2 1.96875 6.48 1.96875 12C1.96875 17.52 6.44875 22 11.9688 22C17.4888 22 21.9688 17.52 21.9688 12C21.9688 6.48 17.4988 2 11.9688 2ZM14.9688 14.23L12.0687 15.9C11.7087 16.11 11.3088 16.21 10.9187 16.21C10.5188 16.21 10.1287 16.11 9.76875 15.9C9.04875 15.48 8.61875 14.74 8.61875 13.9V10.55C8.61875 9.72 9.04875 8.97 9.76875 8.55C10.4888 8.13 11.3487 8.13 12.0787 8.55L14.9787 10.22C15.6987 10.64 16.1287 11.38 16.1287 12.22C16.1287 13.06 15.6987 13.81 14.9688 14.23Z" fill="currentColor"/>`
+});
+
+export { PlayCircle3 };
+export default PlayCircle3;

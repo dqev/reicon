@@ -1,0 +1,61 @@
+{
+  "name": "reicon-react",
+  "version": "1.1.1",
+  "type": "module",
+  "description": "React icon components for 2680+ icons in 2 weights (Outline & Filled). Tree-shakeable, TypeScript-ready.",
+  "main": "./index.js",
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "types": "./index.d.ts"
+    },
+    "./icons/*": {
+      "import": "./icons/*.js",
+      "types": "./icons/*.d.ts"
+    },
+    "./createIcon": {
+      "import": "./createIcon.js",
+      "types": "./createIcon.d.ts"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "createIcon.js",
+    "createIcon.d.ts",
+    "icons/",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "keywords": [
+    "icons",
+    "react",
+    "react-icons",
+    "svg-icons",
+    "icon-library",
+    "reicon",
+    "outline",
+    "filled",
+    "tree-shakeable",
+    "typescript"
+  ],
+  "author": {
+    "name": "devchauhan",
+    "email": "dev@devchauhan.in",
+    "url": "https://devchauhan.in"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dqev/reicon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dqev/reicon/issues"
+  },
+  "homepage": "https://reicon.dev"
+}

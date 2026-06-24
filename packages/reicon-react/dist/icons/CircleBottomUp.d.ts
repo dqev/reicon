@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name CircleBottomUp
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![CircleBottomUp](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMi43NSAxMkMyLjc1IDYuODkxMzcgNi44OTEzNyAyLjc1IDEyIDIuNzVDMTcuMTA4NiAyLjc1IDIxLjI1IDYuODkxMzcgMjEuMjUgMTJDMjEuMjUgMTcuMTA4NiAxNy4xMDg2IDIxLjI1IDEyIDIxLjI1QzExLjU4NTggMjEuMjUgMTEuMjUgMjEuNTg1OCAxMS4yNSAyMkMxMS4yNSAyMi40MTQyIDExLjU4NTggMjIuNzUgMTIgMjIuNzVDMTcuOTM3MSAyMi43NSAyMi43NSAxNy45MzcxIDIyLjc1IDEyQzIyLjc1IDYuMDYyOTQgMTcuOTM3MSAxLjI1IDEyIDEuMjVDNi4wNjI5NCAxLjI1IDEuMjUgNi4wNjI5NCAxLjI1IDEyQzEuMjUgMTIuNDE0MiAxLjU4NTc5IDEyLjc1IDIgMTIuNzVDMi40MTQyMSAxMi43NSAyLjc1IDEyLjQxNDIgMi43NSAxMloiIGZpbGw9IiNlNGU0ZTciLz48cGF0aCBkPSJNNSAxMi4yNUM0LjU4NTc5IDEyLjI1IDQuMjUgMTIuNTg1OCA0LjI1IDEzQzQuMjUgMTMuNDE0MiA0LjU4NTc5IDEzLjc1IDUgMTMuNzVIOS4xODkzNEwyLjQ2OTY3IDIwLjQ2OTdDMi4xNzY3OCAyMC43NjI2IDIuMTc2NzggMjEuMjM3NCAyLjQ2OTY3IDIxLjUzMDNDMi43NjI1NiAyMS44MjMyIDMuMjM3NDQgMjEuODIzMiAzLjUzMDMzIDIxLjUzMDNMMTAuMjUgMTQuODEwN1YxOUMxMC4yNSAxOS40MTQyIDEwLjU4NTggMTkuNzUgMTEgMTkuNzVDMTEuNDE0MiAxOS43NSAxMS43NSAxOS40MTQyIDExLjc1IDE5VjEzQzExLjc1IDEyLjU4NTggMTEuNDE0MiAxMi4yNSAxMSAxMi4yNUg1WiIgZmlsbD0iI2U0ZTRlNyIvPjwvc3ZnPg==) - https://reicon.dev/icons/circle-bottom-up
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const CircleBottomUp: IconComponent;
+export { CircleBottomUp };
+export default CircleBottomUp;

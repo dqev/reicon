@@ -98,7 +98,7 @@ export default function Landing() {
           "distribution": [
             { "@type": "DataDownload", "encodingFormat": "application/zip", "contentUrl": "https://www.npmjs.com/package/reicon-react", "name": "reicon-react (npm)" },
             { "@type": "DataDownload", "encodingFormat": "application/zip", "contentUrl": "https://www.npmjs.com/package/reicon-vue", "name": "reicon-vue (npm)" },
-            { "@type": "DataDownload", "encodingFormat": "application/javascript", "contentUrl": "https://cdn.reicon.dev/cdn/reicon.min.js", "name": "Reicon CDN bundle" }
+            { "@type": "DataDownload", "encodingFormat": "application/javascript", "contentUrl": "https://unpkg.com/reicon/cdn/reicon.min.js", "name": "Reicon CDN bundle" }
           ],
           "variableMeasured": [
             { "@type": "PropertyValue", "name": "iconCount", "value": "2700+" },
@@ -317,7 +317,7 @@ export default function Landing() {
                 </div>
               </>
             } />
-          <IntegrationCard icon={<SiJavascript size={18} color='#f7df1e' />} title="JavaScript (CDN)" copyText={`<script src="https://cdn.reicon.dev/cdn/reicon.min.js"></script>
+          <IntegrationCard icon={<SiJavascript size={18} color='#f7df1e' />} title="JavaScript (CDN)" copyText={`<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>
 
 <re-icon icon="home"></re-icon>`} lines={
               <>
@@ -326,7 +326,7 @@ export default function Landing() {
                   <span className="text-[#e06c75]">script</span>
                   <span className="text-[#d19a66]"> src</span>
                   <span className="text-white/30">=</span>
-                  <span className="text-[#98c379]">"https://cdn.reicon.dev/cdn/reicon.min.js"</span>
+                  <span className="text-[#98c379]">"https://unpkg.com/reicon/cdn/reicon.min.js"</span>
                   <span className="text-white/20">&gt;&lt;/</span>
                   <span className="text-[#e06c75]">script</span>
                   <span className="text-white/20">&gt;</span>

@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name DirectboxNotif2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![DirectboxNotif2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNNyAxMkMzIDEyIDMgMTMuNzkgMyAxNlYxN0MzIDE5Ljc2IDMgMjIgOCAyMkgxNkMyMCAyMiAyMSAxOS43NiAyMSAxN1YxNkMyMSAxMy43OSAyMSAxMiAxNyAxMkMxNiAxMiAxNS43MiAxMi4yMSAxNS4yIDEyLjZMMTQuMTggMTMuNjhDMTMgMTQuOTQgMTEgMTQuOTQgOS44MSAxMy42OEw4LjggMTIuNkM4LjI4IDEyLjIxIDggMTIgNyAxMloiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTE5IDEyVjZDMTkgMy43OSAxOSAyIDE1IDJIOUM1IDIgNSAzLjc5IDUgNlYxMiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTAuNTUgOS4yMjk5OEgxMy44OCIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTkuNzE5OTcgNi4yMjk5OEgxNC43MiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+) - https://reicon.dev/icons/directbox-notif2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const DirectboxNotif2: IconComponent;
+export { DirectboxNotif2 };
+export default DirectboxNotif2;

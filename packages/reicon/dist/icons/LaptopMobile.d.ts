@@ -1,0 +1,13 @@
+import { IconFunction } from '../createIcon';
+
+/**
+ * @name LaptopMobile
+ * @description Reicon SVG icon function, creates an SVG element.
+ * @preview ![LaptopMobile](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48cGF0aCBkPSJNMTYuMjUgMTQuNzVWOS4yNUMxNi4yNSA4LjQyMiAxNS41NzggNy43NSAxNC43NSA3Ljc1SDEyLjI1QzExLjQyMiA3Ljc1IDEwLjc1IDguNDIyIDEwLjc1IDkuMjVWMTQuNzVDMTAuNzUgMTUuNTc4IDExLjQyMiAxNi4yNSAxMi4yNSAxNi4yNUgxNC43NUMxNS41NzggMTYuMjUgMTYuMjUgMTUuNTc4IDE2LjI1IDE0Ljc1WiIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBmaWxsPSJub25lIj48L3BhdGg+IDxwYXRoIGQ9Ik0xLjc1IDEzLjI1SDcuNzUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSI+PC9wYXRoPiA8cGF0aCBkPSJNMTUuMjUgNC43NUMxNS4yNSAzLjY0NSAxNC4zNTUgMi43NSAxMy4yNSAyLjc1SDQuNzVDMy42NDUgMi43NSAyLjc1IDMuNjQ1IDIuNzUgNC43NVYxMS4zNzVDMi43NSAxMi40MTEgMy41ODkgMTMuMjUgNC42MjUgMTMuMjUiIHN0cm9rZT0iI2U0ZTRlNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSI+PC9wYXRoPjwvZz48L3N2Zz4=) - https://reicon.dev/icons/laptop-mobile
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @returns {SVGSVGElement} SVG Element
+ */
+declare const LaptopMobile: IconFunction;
+export { LaptopMobile };
+export default LaptopMobile;

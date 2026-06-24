@@ -1,0 +1,12 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name MouseSquare2
+ * @description Reicon Vue icon component, renders an SVG Element.
+ * @preview ![MouseSquare2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMjIgMTJWOUMyMiA0IDIwIDIgMTUgMkg5QzQgMiAyIDQgMiA5VjE1QzIgMjAgNCAyMiA5IDIySDEyIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMjAuOTYgMTcuODRMMTkuMzMgMTguMzlDMTguODggMTguNTQgMTguNTIgMTguODkgMTguMzcgMTkuMzVMMTcuODIgMjAuOThDMTcuMzUgMjIuMzkgMTUuMzcgMjIuMzYgMTQuOTMgMjAuOTVMMTMuMDggMTVDMTIuNzIgMTMuODIgMTMuODEgMTIuNzIgMTQuOTggMTMuMDlMMjAuOTQgMTQuOTRDMjIuMzQgMTUuMzggMjIuMzYgMTcuMzcgMjAuOTYgMTcuODRaIiBzdHJva2U9IiNlNGU0ZTciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=) - https://reicon.dev/icons/mouse-square2
+ * @see https://reicon.dev/docs — Documentation
+ */
+declare const MouseSquare2: IconComponent;
+export { MouseSquare2 };
+export default MouseSquare2;

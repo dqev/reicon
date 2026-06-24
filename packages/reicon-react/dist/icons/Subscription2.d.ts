@@ -1,0 +1,14 @@
+import { IconComponent } from '../createIcon';
+
+/**
+ * @component
+ * @name Subscription2
+ * @description Reicon SVG icon component, renders SVG Element with children.
+ * @preview ![Subscription2](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48ZyB0cmFuc2Zvcm09InNjYWxlKDEuMzMzMzMpIj48cGF0aCBkPSJNMTYuMjUgMy4yNUwxNS43MSA2LjI1QzE0LjYyNyAzLjYxIDEyLjAzMSAxLjc1IDguOTk5OTggMS43NUM1LjA2MzI4IDEuNzUgMS44NTkyOSA0Ljg5MTY1IDEuNzUyNjkgOC43OTg5NSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBmaWxsPSJub25lIj48L3BhdGg+IDxwYXRoIGQ9Ik0xLjc1IDE0Ljc1TDIuMjg5OTkgMTEuNzVDMy4zNzI5OSAxNC4zOSA1Ljk2OSAxNi4yNSA5IDE2LjI1QzEyLjkzNjcgMTYuMjUgMTYuMTQwNyAxMy4xMDgzIDE2LjI0NzMgOS4yMDA5MyIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBmaWxsPSJub25lIj48L3BhdGg+IDxwYXRoIGQ9Ik0xMC43NSA2LjI1SDguMzc1QzcuNjE1IDYuMjUgNyA2Ljg3IDcgNy42MkM3IDguMzggNy42MTUgOSA4LjM3NSA5SDkuNjI1QzEwLjM4NCA5IDExIDkuNjIgMTEgMTAuMzdDMTEgMTEuMTMgMTAuMzg0IDExLjc1IDkuNjI1IDExLjc1SDcuMjVNOSA1LjI1VjYuMjVNOSAxMi43NVYxMS43NSIgc3Ryb2tlPSIjZTRlNGU3IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBmaWxsPSJub25lIj48L3BhdGg+PC9nPjwvc3ZnPg==) - https://reicon.dev/icons/subscription-2
+ * @see https://reicon.dev/docs — Documentation
+ * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ */
+declare const Subscription2: IconComponent;
+export { Subscription2 };
+export default Subscription2;
