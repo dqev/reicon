@@ -47,8 +47,8 @@ export default function Installation({ copiedField, onCopy }: Props) {
             <span className="text-white/70 text-sm font-medium">CDN Script</span>
           </div>
           <CodeBlock
-            code='<script src="https://cdn.reicon.dev/cdn/reicon.min.js"></script>'
-            onCopy={() => onCopy('<script src="https://cdn.reicon.dev/cdn/reicon.min.js"></script>', 'cdn-install')}
+            code='<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>'
+            onCopy={() => onCopy('<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>', 'cdn-install')}
             copied={copiedField === 'cdn-install'}
           />
         </div>

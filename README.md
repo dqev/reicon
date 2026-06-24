@@ -129,10 +129,18 @@ reicon/
 │   ├── icon-data.json          # Every icon (Outline + Filled) lives here
 │   └── README.md               # Dataset schema & build pipeline
 │
-├── packages/                    # Generated npm packages (git-ignored)
-│   ├── reicon-react/           # reicon-react  (React)
-│   ├── reicon-vue/             # reicon-vue    (Vue 3)
-│   └── reicon/                 # reicon        (vanilla JS)
+├── packages/                    # Local npm packages
+│   ├── reicon-react/            # reicon-react  (React)
+│   │   ├── scripts/build.cjs    # React package builder
+│   │   └── dist/                # Package compilation output
+│   ├── reicon-vue/              # reicon-vue    (Vue 3)
+│   │   ├── scripts/build.cjs    # Vue package builder
+│   │   └── dist/                # Package compilation output
+│   └── reicon/                  # reicon        (vanilla JS)
+│       ├── scripts/             # Vanilla JS + CDN builders
+│       │   ├── build.cjs        # Main package builder
+│       │   └── build-cdn.cjs    # CDN web component builder
+│       └── dist/                # Package compilation output
 │
 ├── cdn/                         # Generated CDN bundles (git-ignored)
 │   ├── reicon.js / .min.js     # Main icon runtime (<re-icon>)
@@ -146,11 +154,6 @@ reicon/
 │   └── llms.txt                # LLM context file
 │
 ├── scripts/
-│   ├── build/                  # Package + CDN builders (read data/icon-data.json)
-│   │   ├── build-react.cjs     # → packages/reicon-react
-│   │   ├── build-vue.cjs       # → packages/reicon-vue
-│   │   ├── build-js.cjs        # → packages/reicon
-│   │   └── build-cdn.cjs       # → cdn/reicon.js
 │   ├── generate-sitemap.mjs    # Sitemap generator
 │   ├── generate-og-images.mjs  # OG image generator
 │   ├── prerender-meta.mjs      # Meta tag prerendering
@@ -204,9 +207,9 @@ reicon/
 └── README.md                    # This file
 ```
 
-> **Note:** `packages/` and `cdn/` are generated from `data/icon-data.json` and
-> are git-ignored. Build them with `npm run build:packages`. Never edit those
-> outputs by hand.
+> **Note:** `packages/` and `cdn/` are generated from `data/icon-data.json`.
+> While `cdn/` is git-ignored, `packages/` is committed and tracked. Build them with
+> `npm run build:packages`. Never edit those outputs by hand.
 
 ---
 

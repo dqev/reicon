@@ -28,7 +28,7 @@ export default function Troubleshooting({ copiedField, onCopy }: Props) {
       </p>
       <SyntaxBlock
         title="Fix"
-        onCopy={() => onCopy('<!-- ✅ Place in <head> -->\n<script src="https://cdn.reicon.dev/cdn/reicon.min.js"></script>', 'faq-cdn')}
+        onCopy={() => onCopy('<!-- ✅ Place in <head> -->\n<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>', 'faq-cdn')}
         copied={copiedField === 'faq-cdn'}
       >
         <span className="text-emerald-400/60">{'<!-- ✅ Place in <head> -->'}</span>
@@ -37,7 +37,7 @@ export default function Troubleshooting({ copiedField, onCopy }: Props) {
         <span className="text-[#e06c75]">script</span>
         <span className="text-[#d19a66]"> src</span>
         <span className="text-white/50">=</span>
-        <span className="text-[#98c379]">"https://cdn.reicon.dev/cdn/reicon.min.js"</span>
+        <span className="text-[#98c379]">"https://unpkg.com/reicon/cdn/reicon.min.js"</span>
         <span className="text-white/70">{'></'}</span>
         <span className="text-[#e06c75]">script</span>
         <span className="text-white/70">{'>'}</span>

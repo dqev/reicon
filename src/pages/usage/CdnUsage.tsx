@@ -191,14 +191,14 @@ export default function CdnUsage({ copiedField, onCopy }: Props) {
 
       <SyntaxBlock
         title="HTML (UNPKG CDN)"
-        onCopy={() => onCopy('<script src="https://unpkg.com/reicon@latest/cdn/reicon.min.js"></script>', 'cdn-script')}
+        onCopy={() => onCopy('<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>', 'cdn-script')}
         copied={copiedField === 'cdn-script'}
       >
         <span className="text-white/70">{'<'}</span>
         <span className="text-[#e06c75]">script</span>
         <span className="text-[#d19a66]"> src</span>
         <span className="text-white/50">=</span>
-        <span className="text-[#98c379]">"https://unpkg.com/reicon@latest/cdn/reicon.min.js"</span>
+        <span className="text-[#98c379]">"https://unpkg.com/reicon/cdn/reicon.min.js"</span>
         <span className="text-white/70">{'></'}</span>
         <span className="text-[#e06c75]">script</span>
         <span className="text-white/70">{'>'}</span>
@@ -206,7 +206,7 @@ export default function CdnUsage({ copiedField, onCopy }: Props) {
 
       <div className="mt-4 mb-8">
         <p className="text-white/40 text-[13px]">
-          Or use your custom domain CDN: <code className="text-white/60 bg-white/[0.04] px-1 py-0.5 rounded font-mono">https://cdn.reicon.dev/cdn/reicon.min.js</code>
+          Or load a specific version: <code className="text-white/60 bg-white/[0.04] px-1 py-0.5 rounded font-mono">https://unpkg.com/reicon@latest/cdn/reicon.min.js</code>
         </p>
       </div>
 
