@@ -236,7 +236,7 @@ export default function Landing() {
       <section id="features" className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13">
         <div className="text-center mb-14">
           <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Why Reicon</div>
-          <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] font-semibold text-white leading-[1.15] tracking-[-0.02em] mb-3">Built different. By design.</h2>
+          <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] text-white leading-[1.15] tracking-[-0.02em] mb-3">Built different. By design.</h2>
           <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
             Every icon is hand-drawn on a precise grid. No auto-tracing, no AI shortcuts — just obsessive attention to detail.
           </p>
@@ -258,7 +258,7 @@ export default function Landing() {
       <section id="integrations" className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13">
         <div className="text-center mb-14">
           <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Integrations</div>
-          <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] font-semibold text-white leading-[1.15] tracking-[-0.02em] mb-3">Works everywhere you do.</h2>
+          <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] text-white leading-[1.15] tracking-[-0.02em] mb-3">Works everywhere you do.</h2>
           <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
             Easy Integration with React, Vue, and JavaScript
           </p>
@@ -371,7 +371,7 @@ document.body.appendChild(icon);`} lines={
           <div className="relative z-10 py-14 md:py-20 px-6 md:px-14 flex flex-col md:flex-row items-center gap-10 md:gap-16">
             {/* Left — text */}
             <div className="flex-1 text-center md:text-left">
-              <h2 className="font-serif text-[clamp(24px,3.2vw,42px)] font-semibold text-white leading-[1.12] tracking-[-0.02em] mb-3">
+              <h2 className="font-serif text-[clamp(24px,3.2vw,42px)] text-white leading-[1.12] tracking-[-0.02em] mb-3">
                 Your next project<br className="hidden md:block" /> deserves better icons.
               </h2>
               <p className="text-[15px] text-white/40 leading-[1.65] max-w-[420px] mx-auto md:mx-0 mb-6">
@@ -448,7 +448,7 @@ function IconShowcase() {
     <section className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13 overflow-hidden">
       <div className="text-center mb-10 px-5">
         <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Icon Library</div>
-        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] font-semibold text-white leading-[1.15] tracking-[-0.02em] mb-3">2700+ icons. Every one handcrafted.</h2>
+        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] text-white leading-[1.15] tracking-[-0.02em] mb-3">2700+ icons. Every one handcrafted.</h2>
         <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
           From UI essentials to expressive details — find exactly what you need.
         </p>
@@ -677,7 +677,7 @@ function IconPlayground() {
     <section className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13">
       <div className="text-center mb-10">
         <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Playground</div>
-        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] font-semibold text-white leading-[1.15] tracking-[-0.02em] mb-3">Pick one. Make it yours.</h2>
+        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] text-white leading-[1.15] tracking-[-0.02em] mb-3">Pick one. Make it yours.</h2>
         <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
           Same grid, same rhythm across every icon. Choose one, then tweak color, size, and weight — and watch the whole set update live.
         </p>

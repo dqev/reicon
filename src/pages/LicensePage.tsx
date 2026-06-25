@@ -61,7 +61,7 @@ export default function LicensePage() {
       <Header />
 
       <main className="flex-1 pt-24 px-4 md:px-8 pb-12 max-w-3xl mx-auto w-full overflow-x-hidden">
-        <h1 className="text-3xl font-serif font-semibold text-white mb-8">License</h1>
+        <h1 className="text-3xl font-serif text-white mb-8">License</h1>
 
         <div className="space-y-8 text-[15px] text-white/60 leading-relaxed">
           <section>

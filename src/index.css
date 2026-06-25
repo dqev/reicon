@@ -2,12 +2,12 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "DM Sans", sans-serif;
+  --font-serif: "Cooper", serif;
   --font-sans: "DM Sans", sans-serif;
 }
 
 .font-serif {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 html.lenis,
