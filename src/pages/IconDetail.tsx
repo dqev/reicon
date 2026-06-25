@@ -309,7 +309,7 @@ export default function IconDetail() {
               {/* Name + meta */}
               <div className="flex items-center justify-between gap-3">
                 <div className="min-w-0">
-                  <h2 className="text-[18px] font-serif font-semibold text-white truncate">{pascalName}</h2>
+                  <h2 className="text-[18px] font-serif text-white truncate">{pascalName}</h2>
                   {iconCategory && <p className="text-[12px] text-white/40 mt-0.5">{iconCategory}</p>}
                 </div>
                 <code className="shrink-0 text-[11px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-md px-2 py-1 font-mono">{name}</code>
@@ -457,7 +457,7 @@ export default function IconDetail() {
           <section className="mt-16">
             <div className="border-t border-white/[0.06] pt-12 mb-8 text-center">
               <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">In context</div>
-              <h2 className="font-serif text-[clamp(20px,2.6vw,30px)] text-white font-semibold">See the {pascalName} icon in real UI</h2>
+              <h2 className="font-serif text-[clamp(20px,2.6vw,30px)] text-white">See the {pascalName} icon in real UI</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -474,7 +474,7 @@ export default function IconDetail() {
         {/* ═══ RELATED ICONS ═══ */}
         {relatedIcons.length > 0 && (
           <section className="max-w-[1160px] mx-auto w-full px-5 md:px-10 pb-16">
-            <h2 className="text-lg font-serif text-white font-semibold mb-4">Related icons</h2>
+            <h2 className="text-lg font-serif text-white mb-4">Related icons</h2>
             <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-1.5">
               {relatedIcons.map((iconName, i) => (
                 <motion.div key={iconName}
@@ -580,7 +580,7 @@ function StatMockup({ name, weight }: { name?: string; weight: string }) {
           <re-icon icon={name} weight={weight} size={20} color="#6C5CE7" />
         </div>
         <div>
-          <div className="text-[22px] font-serif font-semibold text-white leading-tight">12,480</div>
+          <div className="text-[22px] font-serif text-white leading-tight">12,480</div>
           <div className="text-[12px] text-white/40">Total this month</div>
         </div>
       </div>

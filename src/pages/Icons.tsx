@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet-async';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import IconCard, { IconCardSkeleton } from '../components/IconCard';
+import { Highlight } from '../components/Highlight';
+import { IconTooltipProvider } from '../components/IconTooltip';
 import { Magnifier } from 'reicon-react';
 
 import newIconsData from '../data/new-icons-added.json';
@@ -222,7 +224,7 @@ export default function IconsPage() {
           onClose={() => setSidebarOpen(false)}
         />
 
-        <main className="flex-1 p-4 md:p-6 overflow-x-hidden">
+        <main className="flex-1 p-4 md:p-6">
           <div className="mb-4 flex items-center gap-2">
             <div className="relative flex-1">
               <div className="absolute left-3 top-1/2 -translate-y-1/2 text-white/30">
@@ -262,9 +264,15 @@ export default function IconsPage() {
             </div>
           ) : filteredIcons.length > 0 ? (
             <>
-              <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-1.5">
-                {visibleCards}
-              </div>
+              <IconTooltipProvider openDelay={500} closeDelay={200}>
+                <Highlight
+                  className="absolute inset-0 rounded-xl ring-1 ring-white/20 bg-white/[0.07] pointer-events-none"
+                >
+                  <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-1.5">
+                    {visibleCards}
+                  </div>
+                </Highlight>
+              </IconTooltipProvider>
 
               {/* Sentinel — always rendered when hasMore, attached via ref callback */}
               {hasMore && (
