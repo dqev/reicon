@@ -18,15 +18,13 @@ const VueIcon = ({ size = 34 }: { size?: number }) => (
 export default function VueUsage({ markdownContent, copiedField, onCopy }: Props) {
   return (
     <section id="vue-usage" data-section className="mb-16 scroll-mt-24">
-      {/* Header */}
-      <div className="flex items-center gap-2 mb-6">
-        <div className="w-12 h-12 flex items-center justify-center">
-          <VueIcon size={34} />
-        </div>
-        <div className="flex-1">
-          <SectionHeader id="vue-usage" title="Usage of Reicon Vue" level="h2" markdownContent={markdownContent} />
-        </div>
-      </div>
+      <SectionHeader
+        id="vue-usage"
+        title="Usage of Reicon Vue"
+        level="h2"
+        markdownContent={markdownContent}
+        icon={<VueIcon size={30} />}
+      />
 
       <p className="text-white/60 text-[15px] leading-[1.8] mb-6">
         The official Vue 3 package for Reicon. Import beautifully crafted icons as Vue components with full TypeScript support. All icons are tree-shakeable, ensuring only the icons you actually use end up in your bundle.

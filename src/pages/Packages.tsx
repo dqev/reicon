@@ -20,7 +20,7 @@ const PACKAGES = [
     description: 'A Reicon icon library package for web and JavaScript applications.',
     icon: <IoLogoJavascript className="text-yellow-400" size={48} />,
     npmUrl: 'https://www.npmjs.com/package/reicon',
-    sourceUrl: 'https://github.com/reicon-dev/reicon',
+    sourceUrl: 'https://github.com/dqev/reicon',
     guideUrl: '/usage/vanilla',
   },
   {
@@ -30,7 +30,7 @@ const PACKAGES = [
     description: 'A Reicon icon library package for React applications.',
     icon: <FaReact className="text-[#61DAFB]" size={48} />,
     npmUrl: 'https://www.npmjs.com/package/reicon-react',
-    sourceUrl: 'https://github.com/reicon-dev/reicon',
+    sourceUrl: 'https://github.com/dqev/reicon',
     guideUrl: '/usage/react',
   },
   {
@@ -40,7 +40,7 @@ const PACKAGES = [
     description: 'Vue 3 icon components for Reicon. Tree-shakeable, TypeScript-ready, zero config. Works with Nuxt 3.',
     icon: <VueIcon size={48} />,
     npmUrl: 'https://www.npmjs.com/package/reicon-vue',
-    sourceUrl: 'https://github.com/reicon-dev/reicon',
+    sourceUrl: 'https://github.com/dqev/reicon',
     guideUrl: '/usage/vue',
   },
 ];

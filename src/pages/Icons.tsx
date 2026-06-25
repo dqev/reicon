@@ -12,37 +12,45 @@ const NEW_ICONS_SET = new Set(newIconsData as string[]);
 
 const LS_ICONS = 'reicon-icons-cache';
 const LS_CATS = 'reicon-cats-cache';
+const LS_MAP = 'reicon-map-cache';
 
 const BATCH_SIZE = 60;
 
-function loadCache(): { icons: string[]; categories: string[] } {
+function loadCache(): { icons: string[]; categories: string[]; categoryMap: Record<string, string> } {
   try {
     const i = localStorage.getItem(LS_ICONS);
     const c = localStorage.getItem(LS_CATS);
-    return { icons: i ? JSON.parse(i) : [], categories: c ? JSON.parse(c) : [] };
+    const m = localStorage.getItem(LS_MAP);
+    return {
+      icons: i ? JSON.parse(i) : [],
+      categories: c ? JSON.parse(c) : [],
+      categoryMap: m ? JSON.parse(m) : {},
+    };
   } catch {
-    return { icons: [], categories: [] };
+    return { icons: [], categories: [], categoryMap: {} };
   }
 }
 
-function saveCache(icons: string[], categories: string[]) {
+function saveCache(icons: string[], categories: string[], categoryMap: Record<string, string>) {
   try {
     localStorage.setItem(LS_ICONS, JSON.stringify(icons));
     localStorage.setItem(LS_CATS, JSON.stringify(categories));
+    localStorage.setItem(LS_MAP, JSON.stringify(categoryMap));
   } catch { }
 }
 
 export default function IconsPage() {
   const [searchParams] = useSearchParams();
-  const [allIcons, setAllIcons] = useState<string[]>(() => loadCache().icons);
-  const [categories, setCategories] = useState<string[]>(() => loadCache().categories);
+  const cached = useMemo(() => loadCache(), []);
+  const [allIcons, setAllIcons] = useState<string[]>(() => cached.icons);
+  const [categories, setCategories] = useState<string[]>(() => cached.categories);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeSet, setActiveSet] = useState('all');
   const [activeStyle, setActiveStyle] = useState('All');
   const [activeSize, setActiveSize] = useState('32');
-  const [categoryMap, setCategoryMap] = useState<Record<string, string>>({});
+  const [categoryMap, setCategoryMap] = useState<Record<string, string>>(() => cached.categoryMap);
   const [showNew, setShowNew] = useState(searchParams.get('new') === 'true');
-  const [ready, setReady] = useState(false);
+  const [ready, setReady] = useState(() => cached.icons.length > 0 && cached.categories.length > 0);
 
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
 
@@ -59,7 +67,7 @@ export default function IconsPage() {
       if (window.Reicon?.icons && window.Reicon?.categories) {
         setAllIcons(window.Reicon.icons);
         setCategories(window.Reicon.categories);
-        saveCache(window.Reicon.icons, window.Reicon.categories);
+        saveCache(window.Reicon.icons, window.Reicon.categories, window.Reicon.categoryMap);
         setCategoryMap(window.Reicon.categoryMap);
         setReady(true);
       } else {
@@ -214,7 +222,7 @@ export default function IconsPage() {
           onClose={() => setSidebarOpen(false)}
         />
 
-        <main className="flex-1 p-4 md:p-6 overflow-y-auto overflow-x-hidden">
+        <main className="flex-1 p-4 md:p-6 overflow-x-hidden">
           <div className="mb-4 flex items-center gap-2">
             <div className="relative flex-1">
               <div className="absolute left-3 top-1/2 -translate-y-1/2 text-white/30">
@@ -260,7 +268,7 @@ export default function IconsPage() {
 
               {/* Sentinel — always rendered when hasMore, attached via ref callback */}
               {hasMore && (
-                <div ref={sentinelRef} className="flex justify-center py-8">
+                <div key={visibleCount} ref={sentinelRef} className="flex justify-center py-8">
                   <div className="flex items-center gap-2 text-white/30 text-xs">
                     <span className="w-1.5 h-1.5 rounded-full bg-white/20 animate-pulse" />
                     Loading more icons…

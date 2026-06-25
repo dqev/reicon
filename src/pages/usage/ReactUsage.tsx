@@ -12,15 +12,13 @@ interface Props {
 export default function ReactUsage({ markdownContent, copiedField, onCopy }: Props) {
   return (
     <section id="react-usage" data-section className="mb-16 scroll-mt-24">
-      {/* Header */}
-      <div className="flex items-center gap-2 mb-6">
-        <div className="w-12 h-12 flex items-center justify-center">
-          <FaReact className="text-[#61DAFB]" size={34} />
-        </div>
-        <div className="flex-1">
-          <SectionHeader id="react-usage" title="Usage of Reicon React" level="h2" markdownContent={markdownContent} />
-        </div>
-      </div>
+      <SectionHeader
+        id="react-usage"
+        title="Usage of Reicon React"
+        level="h2"
+        markdownContent={markdownContent}
+        icon={<FaReact className="text-[#61DAFB]" size={30} />}
+      />
 
       <p className="text-white/60 text-[15px] leading-[1.8] mb-6">
         The official React package for Reicon. Import beautifully crafted icons as React components with full TypeScript support. All icons are tree-shakeable, ensuring only the icons you actually use end up in your bundle.

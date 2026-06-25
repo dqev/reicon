@@ -6,9 +6,10 @@ interface Props {
   title: string;
   level?: 'h2' | 'h3' | 'h4';
   markdownContent: string;
+  icon?: React.ReactNode;
 }
 
-export default function SectionHeader({ id, title, level = 'h3', markdownContent }: Props) {
+export default function SectionHeader({ id, title, level = 'h3', markdownContent, icon }: Props) {
   const [copiedLink, setCopiedLink] = useState(false);
   const [copiedMd, setCopiedMd] = useState(false);
 
@@ -36,7 +37,7 @@ export default function SectionHeader({ id, title, level = 'h3', markdownContent
   const buttonClasses = "p-1 rounded-md bg-white/[0.04] border border-white/10 text-white/40 hover:text-white/80 hover:bg-white/[0.08] transition-all duration-150 cursor-pointer flex items-center justify-center relative group/btn";
 
   const actions = (
-    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 ml-3 inline-flex items-center gap-1.5 align-middle select-none">
+    <span className="ml-3 inline-flex items-center gap-1.5 align-middle select-none">
       {/* Copy deep link */}
       <button
         onClick={copyLink}
@@ -73,10 +74,19 @@ export default function SectionHeader({ id, title, level = 'h3', markdownContent
     </span>
   );
 
+  const iconWrapper = icon ? (
+    <div className="shrink-0 flex items-center justify-center">
+      {icon}
+    </div>
+  ) : null;
+
   if (level === 'h2') {
     return (
-      <h2 id={id} className="text-2xl font-serif text-white mb-6 scroll-mt-24 group flex items-center">
-        <span>{title}</span>
+      <h2 id={id} className="text-2xl font-serif text-white mb-6 scroll-mt-24 group flex items-center justify-between w-full gap-3">
+        <span className="flex items-center gap-3">
+          {iconWrapper}
+          <span>{title}</span>
+        </span>
         {actions}
       </h2>
     );
@@ -84,16 +94,22 @@ export default function SectionHeader({ id, title, level = 'h3', markdownContent
 
   if (level === 'h4') {
     return (
-      <h4 id={id} className="text-md font-medium text-white mb-4 mt-8 scroll-mt-24 group flex items-center">
-        <span>{title}</span>
+      <h4 id={id} className="text-md font-medium text-white mb-4 mt-8 scroll-mt-24 group flex items-center justify-between w-full gap-3">
+        <span className="flex items-center gap-3">
+          {iconWrapper}
+          <span>{title}</span>
+        </span>
         {actions}
       </h4>
     );
   }
 
   return (
-    <h3 id={id} className="text-lg font-serif text-white mb-4 mt-10 scroll-mt-24 group flex items-center">
-      <span>{title}</span>
+    <h3 id={id} className="text-lg font-serif text-white mb-4 mt-10 scroll-mt-24 group flex items-center justify-between w-full gap-3">
+      <span className="flex items-center gap-3">
+        {iconWrapper}
+        <span>{title}</span>
+      </span>
       {actions}
     </h3>
   );
