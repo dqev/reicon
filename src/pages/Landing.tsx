@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Code, Palette, Layers, Copy, Box, Star, HandHeart, Search3, Book3, Restart, Pointer } from 'reicon-react';
+import { ShieldCheck, Code, Palette, Layers, Copy, Box, Star, HandHeart, Search3, Book3, Restart, Pointer, Confetti2 } from 'reicon-react';
 import Background from '../components/Background';
 import ClayButton from '../components/ClayButton';
 import Footer from '../components/Footer';
@@ -172,7 +172,7 @@ export default function Landing() {
             <div className="text-center px-3">
               <div className="flex items-center justify-center gap-2 mb-5 flex-wrap">
                 <div className="inline-flex items-center gap-[6px] bg-white/[0.08] backdrop-blur-lg border border-white/[0.15] rounded-full px-[14px] py-[6px] text-[12px] text-white/90">
-                  <span className="w-[6px] h-[6px] bg-[#7fff7f] rounded-full shrink-0" />
+                  <HandHeart size={16} />
                   Handcrafted & Open Source
                 </div>
                 <Link
@@ -181,6 +181,7 @@ export default function Landing() {
                 >
                   <span className="w-[6px] h-[6px] bg-[#6C5CE7] rounded-full shrink-0 animate-pulse" />
                   {(newIconsData as string[]).length} New Icons Added
+                  <Confetti2 size={15} />
                 </Link>
               </div>
               <h1 className="font-serif text-[clamp(30px,6.2vw,76px)] font-semibold text-white leading-[1.08] tracking-[-0.02em] mb-4">

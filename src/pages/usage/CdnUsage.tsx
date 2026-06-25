@@ -12,15 +12,13 @@ interface Props {
 export default function CdnUsage({ markdownContent, copiedField, onCopy }: Props) {
   return (
     <section id="cdn" data-section className="mb-16 scroll-mt-24">
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-12 h-12 flex items-center justify-center">
-          <IoLogoJavascript className="text-yellow-400" size={34} />
-        </div>
-        <div className="flex-1">
-          <SectionHeader id="cdn" title="Usage of Reicon Vanilla JS & CDN" level="h2" markdownContent={markdownContent} />
-        </div>
-      </div>
+      <SectionHeader
+        id="cdn"
+        title="Usage of Reicon Vanilla JS & CDN"
+        level="h2"
+        markdownContent={markdownContent}
+        icon={<IoLogoJavascript className="text-yellow-400" size={30} />}
+      />
 
       <p className="text-white/60 text-[15px] leading-[1.8] mb-6">
         The official vanilla JavaScript package and CDN web components for Reicon. This package allows you to easily add precise, vector-based SVG icons to any JavaScript project or web application without framework dependencies.

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import newIconsData from '../data/new-icons-added.json';
+import ClayButton from './ClayButton';
+import { Star, Check } from 'reicon-react';
 
 const STYLE_OPTIONS = ['All', 'Outline', 'Filled'] as const;
 const SIZE_OPTIONS = ['12', '18', '24', '32'] as const;
@@ -59,23 +61,37 @@ function Sidebar({
         </div>
 
         {/* New Icons */}
-        <div
-          onClick={() => onNewToggle(!showNew)}
-          className={`sidebar-item ${showNew ? 'active' : ''}`}
-        >
-          <div className="sidebar-item-line" />
-          {showNew ? (
-            <div className="sidebar-item-active-bar" />
-          ) : (
-            <div className="sidebar-item-hover-bar" />
-          )}
-          <span className="sidebar-item-text sidebar-item-text-row">
-            <span className="sidebar-item-label">
-              <span className="sidebar-pulse-dot" />
-              New Icons
+        <div className="px-2 py-1">
+          <button
+            onClick={() => onNewToggle(!showNew)}
+            className={`w-full flex items-center justify-between p-2 rounded-xl border transition-all duration-200 cursor-pointer ${
+              showNew 
+                ? 'bg-[#6C5CE7]/5 border-[#6C5CE7]/50 shadow-[0_0_12px_rgba(108,92,231,0.15)]' 
+                : 'bg-transparent border-white/10 hover:border-white/20'
+            }`}
+          >
+            {/* Left side: purple dot and text */}
+            <span className="flex items-center gap-2">
+              <span className={showNew 
+                ? 'w-2.5 h-2.5 rounded-full shrink-0 bg-gradient-to-tr from-[#5a4bd1] to-[#7c6cf0] shadow-[0_0_8px_rgba(124,108,240,0.8)]' 
+                : 'sidebar-pulse-dot shrink-0'
+              } />
+              <span className={`text-[13px] font-medium transition-colors duration-200 ${
+                showNew ? 'text-[#b3a8ff]' : 'text-white/60'
+              }`}>
+                Added {NEW_ICONS_COUNT} icons
+              </span>
             </span>
-            <span className="sidebar-badge-new">{NEW_ICONS_COUNT}</span>
-          </span>
+
+            {/* Right side: checkmark box */}
+            <span className={`w-6 h-6 rounded-md flex items-center justify-center shrink-0 border transition-all duration-200 ${
+              showNew 
+                ? 'bg-white/[0.08] border-white/10 text-white' 
+                : 'bg-transparent border-white/5 text-transparent'
+            }`}>
+              <Check size={14} />
+            </span>
+          </button>
         </div>
       </div>
 
@@ -343,8 +359,8 @@ function SidebarStyles() {
         width: 6px;
         height: 6px;
         border-radius: 9999px;
-        background: #4ade80;
-        box-shadow: 0 0 6px rgba(74, 222, 128, 0.6);
+        background: #6C5CE7;
+        box-shadow: 0 0 6px rgba(108, 92, 231, 0.6);
         animation: sidebar-pulse 2s ease-in-out infinite;
       }
       @keyframes sidebar-pulse {

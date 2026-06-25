@@ -210,9 +210,9 @@ export default function UsagePage() {
     window.open(url, '_blank');
   };
 
-  const githubUrl = 'https://github.com/reicon-dev/reicon';
+  const githubUrl = 'https://github.com/dqev/reicon';
   const activePath = framework === 'vanilla' ? 'javascript/usage.md' : framework === 'react' ? 'react/usage.md' : 'vue/usage.md';
-  const githubEditUrl = `https://github.com/reicon-dev/reicon/edit/main/docs/${activePath}`;
+  const githubEditUrl = `https://github.com/dqev/reicon/edit/main/docs/${activePath}`;
 
   useEffect(() => {
     if (!otpListRef.current) return;
