@@ -125,6 +125,31 @@ Contributions to the codebase, packages, or documentation are welcome. Please re
 
 
 
+## <img src="./public/readme-assets/stargazers.svg" width="22" height="22" align="center" alt="" />&nbsp; Stargazers
+
+Thanks to everyone who has supported the project!
+
+<a href="https://github.com/dqev/reicon/stargazers">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://reporoster.com/stars/dark/dqev/reicon">
+    <img src="https://reporoster.com/stars/dqev/reicon" alt="Stargazers" />
+  </picture>
+</a>
+
+
+
+## <img src="./public/readme-assets/star-history.svg" width="22" height="22" align="center" alt="" />&nbsp; Star History
+
+<a href="https://www.star-history.com/?repos=dqev%2Freicon&type=date&legend=bottom-right">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=dqev/reicon&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=dqev/reicon&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=dqev/reicon&type=date&legend=top-left" />
+ </picture>
+</a>
+
+
+
 ## <img src="./public/readme-assets/license.svg" width="22" height="22" align="center" alt="" />&nbsp; License
 
-MIT License - Copyright (c) 2026
+MIT License - Copyright (c) 2026 [Dev Chauhan](https://devchauhan.in).
