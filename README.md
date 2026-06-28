@@ -26,7 +26,7 @@
 
 
 
-## <img src="./public/readme-assets/overview.svg" width="20" height="20" align="center" alt="" /> Overview
+## <img src="./public/readme-assets/overview.svg" width="22" height="22" align="center" alt="" />&nbsp; Overview
 
 Reicon provides a comprehensive set of SVG icons designed on a strict 24×24 pixel grid. The library is built for high-performance web applications, offering complete tree-shakeability, zero external dependencies, and optimized wrappers for multiple frameworks.
 
@@ -36,7 +36,7 @@ All icons are maintained in two weights:
 
 
 
-## <img src="./public/readme-assets/packages.svg" width="20" height="20" align="center" alt="" /> Packages & Ecosystem
+## <img src="./public/readme-assets/packages.svg" width="22" height="22" align="center" alt="" />&nbsp; Packages & Ecosystem
 
 | Logo | Package | Version | Downloads | Links |
 | :---: | :--- | :--- | :--- | :--- |
@@ -46,7 +46,7 @@ All icons are maintained in two weights:
 
 
 
-## <img src="./public/readme-assets/quick-start.svg" width="20" height="20" align="center" alt="" /> Quick Start
+## <img src="./public/readme-assets/quick-start.svg" width="22" height="22" align="center" alt="" />&nbsp; Quick Start
 
 ### React Usage
 
@@ -81,14 +81,14 @@ import { Heart } from 'reicon-vue';
 ```
 
 
-## <img src="./public/readme-assets/structure.svg" width="20" height="20" align="center" alt="" /> Project Structure
+## <img src="./public/readme-assets/structure.svg" width="22" height="22" align="center" alt="" />&nbsp; Project Structure
 
 This project is organized as a monorepo holding the core dataset, package compilations, build scripts, and the showcase documentation site.
 
 For a detailed file-by-file breakdown of the directory layout and file responsibilities, see the [Project Structure Guide](docs/project-structure.md).
 
 
-## <img src="./public/readme-assets/design.svg" width="20" height="20" align="center" alt="" /> Design System
+## <img src="./public/readme-assets/design.svg" width="22" height="22" align="center" alt="" />&nbsp; Design System
 
 The documentation site uses a custom layout system built using CSS custom variables and Tailwind CSS utility tokens.
 
@@ -96,7 +96,7 @@ For the specifications on typography scales, responsive breakpoints, animations,
 
 ---
 
-## <img src="./public/readme-assets/development.svg" width="20" height="20" align="center" alt="" /> Development & Building
+## <img src="./public/readme-assets/development.svg" width="22" height="22" align="center" alt="" />&nbsp; Development & Building
 
 ### Running the Documentation Site
 To start the React/Vite development server locally for the documentation website:
@@ -119,12 +119,12 @@ The core icons are maintained in `data/icon-data.json`, which acts as the single
 
 
 
-## <img src="./public/readme-assets/contributing.svg" width="20" height="20" align="center" alt="" /> Contributing
+## <img src="./public/readme-assets/contributing.svg" width="22" height="22" align="center" alt="" />&nbsp; Contributing
 
 Contributions to the codebase, packages, or documentation are welcome. Please refer to our [Contributing Guidelines](.github/CONTRIBUTING.md) for conventions on pull requests, testing, and formatting.
 
 
 
-## <img src="./public/readme-assets/license.svg" width="20" height="20" align="center" alt="" /> License
+## <img src="./public/readme-assets/license.svg" width="22" height="22" align="center" alt="" />&nbsp; License
 
 MIT License - Copyright (c) 2026
