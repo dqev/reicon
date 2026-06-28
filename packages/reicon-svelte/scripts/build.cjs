@@ -208,6 +208,7 @@ fs.mkdirSync(path.join(DIST, 'icons'), { recursive: true });
 
 // ── copy src files to dist ─────────────────────────────────────────────────
 fs.copyFileSync(path.join(SRC, 'Icon.svelte'), path.join(DIST, 'Icon.svelte'));
+fs.copyFileSync(path.join(SRC, 'Icon.svelte.d.ts'), path.join(DIST, 'Icon.svelte.d.ts'));
 fs.copyFileSync(path.join(SRC, 'index.js'), path.join(DIST, 'index.js'));
 fs.copyFileSync(path.join(SRC, 'index.d.ts'), path.join(DIST, 'index.d.ts'));
 
@@ -244,13 +245,13 @@ const pkg = {
       default: './icons/*.svelte'
     },
     './Icon.svelte': {
-      types: './index.d.ts',
+      types: './Icon.svelte.d.ts',
       svelte: './Icon.svelte',
       default: './Icon.svelte'
     }
   },
   sideEffects: false,
-  files: ['index.js', 'index.d.ts', 'Icon.svelte', 'icons/', 'README.md'],
+  files: ['index.js', 'index.d.ts', 'Icon.svelte', 'Icon.svelte.d.ts', 'icons/', 'README.md'],
   peerDependencies: {
     svelte: '>=3.0.0',
   },
