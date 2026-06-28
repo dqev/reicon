@@ -7,7 +7,11 @@
     "noEmit": true,
     "allowJs": true,
     "checkJs": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "vue": ["../../node_modules/vue"]
+    }
   },
   "include": ["src/**/*"]
 }
