@@ -95,6 +95,7 @@ console.log(`Found ${icons.length} icons`);
 // ── clean & prepare src ────────────────────────────────────────────────────
 fs.rmSync(SRC, { recursive: true, force: true });
 fs.mkdirSync(path.join(SRC, 'icons'), { recursive: true });
+fs.writeFileSync(path.join(SRC, 'icons', '.gitkeep'), '# Keep directory in Git\n');
 
 // ── individual icon files ──────────────────────────────────────────────────
 console.log('Generating Angular icon files …');
