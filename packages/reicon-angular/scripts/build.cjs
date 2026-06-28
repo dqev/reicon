@@ -175,9 +175,24 @@ ${apiExports.join('\n')}
 fs.writeFileSync(path.join(SRC, 'public-api.ts'), publicAPI);
 
 // ── README.md ──────────────────────────────────────────────────────────────
-const readme = `# Reicon Angular
+const readme = `<p align="center">
+  <a href="https://npmjs.com/package/reicon-angular"><img src="https://img.shields.io/npm/v/reicon-angular?color=black&label=npm" alt="npm version" /></a>
+  <a href="https://npmjs.com/package/reicon-angular"><img src="https://img.shields.io/npm/dm/reicon-angular?color=black&label=downloads" alt="npm downloads" /></a>
+  <a href="https://github.com/dqev/reicon/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-black" alt="MIT License" /></a>
+  <a href="https://reicon.dev"><img src="https://img.shields.io/badge/docs-reicon.dev-black" alt="Documentation" /></a>
+</p>
 
-Angular icon components for **${icons.length}+** icons in **2 weights** (Outline & Filled) — tree-shakeable, TypeScript-ready, zero config.
+# Reicon Angular
+
+> ${icons.length}+ pixel-perfect SVG icons • Outline & Filled weights • Angular component wrapper • Zero dependencies • MIT Licensed
+
+**Reicon Angular** is the official Angular package for Reicon — a free, open-source SVG icon library with ${icons.length}+ handcrafted, grid-aligned icons built for developers and designers. Every component is optimized for tree-shaking and fully TypeScript-ready.
+
+- 🔗 **Website & icon browser:** [reicon.dev](https://reicon.dev)
+- 📦 **Core package:** [reicon](https://npmjs.com/package/reicon)
+- 🎨 **Figma plugin:** [reicon.dev/figma](https://reicon.dev/figma)
+
+---
 
 ## Install
 
@@ -185,7 +200,11 @@ Angular icon components for **${icons.length}+** icons in **2 weights** (Outline
 npm i reicon-angular
 # or
 bun add reicon-angular
+# or
+yarn add reicon-angular
 \`\`\`
+
+---
 
 ## Usage
 
@@ -236,19 +255,73 @@ Standard Angular 'class' and 'style' bindings work natively directly on the host
 <reicon-home weight="Filled" color="red"></reicon-home>
 \`\`\`
 
+---
+
 ## Icon Names
 
-Icons use PascalCase class names derived from their kebab-case originals:
+Icons use **PascalCase** class names derived from their original kebab-case names:
 
-| Original | Class Component | Selector |
-|----------|-----------------|----------|
+| Original name | Class Component | Selector |
+|---------------|-----------------|----------|
 | \`home\` | \`Home\` | \`reicon-home\` |
 | \`shield-check\` | \`ShieldCheck\` | \`reicon-shield-check\` |
 | \`alt-arrow-down\` | \`AltArrowDown\` | \`reicon-alt-arrow-down\` |
+| \`user-circle\` | \`UserCircle\` | \`reicon-user-circle\` |
+
+Browse all ${icons.length}+ icons at [reicon.dev](https://reicon.dev).
+
+---
+
+## TypeScript
+
+Full TypeScript support out of the box.
+
+---
+
+## Why Reicon?
+
+| | Reicon | Lucide | Heroicons | Phosphor |
+|--|--------|--------|-----------|---------|
+| **Icons** | ${icons.length}+ | 1600+ | 292 | 7700+ |
+| **Weights** | Outline + Filled | Outline only | Outline + Solid | 6 weights |
+| **Vanilla JS** | ✅ Native | ❌ | ❌ | ❌ |
+| **React** | ✅ reicon-react | ✅ | ✅ | ✅ |
+| **Vue** | ✅ reicon-vue | ✅ | ✅ | ✅ |
+| **CDN / script tag** | ✅ | ❌ | ❌ | ❌ |
+| **Zero dependencies** | ✅ | ✅ | ✅ | ✅ |
+| **TypeScript** | ✅ | ✅ | ✅ | ✅ |
+| **MIT License** | ✅ | ✅ | ✅ | ✅ |
+| **Figma plugin** | ✅ | ✅ | ❌ | ✅ |
+
+---
+
+## Related packages
+
+| Package | Description |
+|---------|-------------|
+| [\`reicon\`](https://npmjs.com/package/reicon) | Core vanilla JS + CDN |
+| [\`reicon-react\`](https://npmjs.com/package/reicon-react) | React components for all ${icons.length}+ icons |
+| [\`reicon-vue\`](https://npmjs.com/package/reicon-vue) | Vue 3 components for all ${icons.length}+ icons |
+| [\`reicon-svelte\`](https://npmjs.com/package/reicon-svelte) | Svelte components for all ${icons.length}+ icons |
+| [\`reicon-angular\`](https://npmjs.com/package/reicon-angular) | **This package.** Angular components for all ${icons.length}+ icons |
+
+---
+
+## Links
+
+- 🌐 Website: [reicon.dev](https://reicon.dev)
+- 📖 Documentation: [reicon.dev/usage](https://reicon.dev/usage)
+- 📦 npm (React): [npmjs.com/package/reicon-react](https://npmjs.com/package/reicon-react)
+- 🐙 GitHub: [github.com/dqev/reicon](https://github.com/dqev/reicon)
+- 🐛 Issues: [github.com/dqev/reicon/issues](https://github.com/dqev/reicon/issues)
+
+---
 
 ## License
 
-MIT © [devchauhan](https://devchauhan.in)
+MIT © [Dev Chauhan](https://devchauhan.in)
+
+Free to use in personal and commercial projects.
 `;
 
 fs.writeFileSync(path.join(__dirname, '..', 'README.md'), readme);
