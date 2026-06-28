@@ -1,0 +1,3 @@
+# Generated files by script/build.cjs
+node_modules/
+dist/
