@@ -1,0 +1,6 @@
+# Generated files by script/build.cjs
+node_modules/
+dist/
+src/icons/
+src/public-api.ts
+README.md
