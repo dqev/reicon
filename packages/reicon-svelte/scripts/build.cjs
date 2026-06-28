@@ -4,16 +4,11 @@
  *
  * Usage:  node packages/reicon-svelte/scripts/build.cjs  (or: npm run build:svelte)
  *
- * Output (dist/):
- *   package.json, README.md
- *   index.js          ESM barrel — named exports for every icon
- *   index.d.ts        TypeScript declarations
- *   Icon.svelte       Internal Svelte base component
- *   icons/<Name>.svelte   One Svelte component per icon (tree-shakeable)
- *   icons/<Name>.svelte.d.ts TypeScript declaration per icon
- *
- * Weights: Outline (O) and Filled (F)
- * Each icon file includes JSDoc with @preview (inline SVG).
+ * Output:
+ *   src/icons/        Individual Svelte components and Svelte type declarations (git-ignored)
+ *   src/index.js      Barrel ESM exports (git-ignored)
+ *   src/index.d.ts    Barrel TypeScript declarations (git-ignored)
+ *   dist/             Standard NPM package ready to publish (git-ignored)
  */
 
 const fs = require('fs');
@@ -22,6 +17,7 @@ const path = require('path');
 // ── paths ──────────────────────────────────────────────────────────────────
 const DATA_PATH = path.join(__dirname, '..', '..', '..', 'data', 'icon-data.json');
 const TAGS_PATH = path.join(__dirname, '..', '..', '..', 'data', 'icon-tags.json');
+const SRC = path.join(__dirname, '..', 'src');
 const DIST = path.join(__dirname, '..', 'dist');
 
 // ── weight short keys ──────────────────────────────────────────────────────
@@ -106,54 +102,12 @@ for (const [catKey, catData] of Object.entries(data.categories || {})) {
 icons.sort((a, b) => a.pascal.localeCompare(b.pascal));
 console.log(`Found ${icons.length} icons`);
 
-// ── clean & prepare dist ───────────────────────────────────────────────────
-fs.rmSync(DIST, { recursive: true, force: true });
-fs.mkdirSync(path.join(DIST, 'icons'), { recursive: true });
-
-// ── Icon.svelte (ESM base component) ──────────────────────────────────────
-const baseIconSvelte = `<script>
-  export let size = 24;
-  export let color = 'currentColor';
-  export let weight = 'Outline';
-  export let strokeWidth = undefined;
-  export let iconData = {};
-
-  let className = '';
-  export { className as class };
-
-  let customStyle = '';
-  export { customStyle as style };
-
-  const W_MAP = { Filled: 'F', Outline: 'O' };
-
-  $: key = W_MAP[weight] || 'O';
-  $: rawHtml = (() => {
-    let html = iconData[key] || iconData[Object.keys(iconData)[0]] || '';
-    if (strokeWidth != null) {
-      html = html.replace(/stroke-width="[^"]*"/g, 'stroke-width="' + strokeWidth + '"');
-    }
-    return html;
-  })();
-</script>
-
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  width={size}
-  height={size}
-  viewBox="0 0 24 24"
-  fill="none"
-  class="reicon {className}"
-  style="color: {color}; {customStyle}"
-  {...$$restProps}
->
-  {@html rawHtml}
-</svg>
-`;
-
-fs.writeFileSync(path.join(DIST, 'Icon.svelte'), baseIconSvelte);
+// ── clean & prepare src ────────────────────────────────────────────────────
+fs.rmSync(path.join(SRC, 'icons'), { recursive: true, force: true });
+fs.mkdirSync(path.join(SRC, 'icons'), { recursive: true });
 
 // ── individual icon files ──────────────────────────────────────────────────
-console.log('Generating icon files …');
+console.log('Generating Svelte components in src/icons/ …');
 
 const barrelExports = [];
 const dtsExports = [];
@@ -189,7 +143,7 @@ ${wEntries}
 <Icon {size} {color} {weight} {strokeWidth} {iconData} {...$$restProps} />
 `;
 
-  fs.writeFileSync(path.join(DIST, 'icons', `${icon.pascal}.svelte`), iconSvelte);
+  fs.writeFileSync(path.join(SRC, 'icons', `${icon.pascal}.svelte`), iconSvelte);
 
   // ── icon .svelte.d.ts file ──
   const iconDTS = `import { SvelteComponent } from 'svelte';
@@ -205,22 +159,22 @@ import { IconProps } from '../index';
 export default class ${icon.pascal} extends SvelteComponent<IconProps, any, any> {}
 `;
 
-  fs.writeFileSync(path.join(DIST, 'icons', `${icon.pascal}.svelte.d.ts`), iconDTS);
+  fs.writeFileSync(path.join(SRC, 'icons', `${icon.pascal}.svelte.d.ts`), iconDTS);
 
   barrelExports.push(`export { default as ${icon.pascal} } from './icons/${icon.pascal}.svelte';`);
   dtsExports.push(`export { default as ${icon.pascal} } from './icons/${icon.pascal}.svelte';`);
 }
 
-// ── index.js (ESM barrel) ──────────────────────────────────────────────────
+// ── index.js (ESM barrel in src/) ──────────────────────────────────────────
 const indexJS = `// Auto-generated barrel — do not edit
 export { default as Icon } from './Icon.svelte';
 
 ${barrelExports.join('\n')}
 `;
 
-fs.writeFileSync(path.join(DIST, 'index.js'), indexJS);
+fs.writeFileSync(path.join(SRC, 'index.js'), indexJS);
 
-// ── index.d.ts ─────────────────────────────────────────────────────────────
+// ── index.d.ts (types in src/) ─────────────────────────────────────────────
 const indexDTS = `// Auto-generated — do not edit
 import { SvelteComponent } from 'svelte';
 
@@ -242,7 +196,25 @@ export declare class Icon extends SvelteComponent<IconProps, any, any> {}
 ${dtsExports.join('\n')}
 `;
 
-fs.writeFileSync(path.join(DIST, 'index.d.ts'), indexDTS);
+fs.writeFileSync(path.join(SRC, 'index.d.ts'), indexDTS);
+
+// ── recreate src/icons/.gitkeep ────────────────────────────────────────────
+fs.writeFileSync(path.join(SRC, 'icons', '.gitkeep'), '# Keep directory in Git\n');
+
+// ── clean & prepare dist ───────────────────────────────────────────────────
+console.log('Preparing production build in dist/ …');
+fs.rmSync(DIST, { recursive: true, force: true });
+fs.mkdirSync(path.join(DIST, 'icons'), { recursive: true });
+
+// ── copy src files to dist ─────────────────────────────────────────────────
+fs.copyFileSync(path.join(SRC, 'Icon.svelte'), path.join(DIST, 'Icon.svelte'));
+fs.copyFileSync(path.join(SRC, 'index.js'), path.join(DIST, 'index.js'));
+fs.copyFileSync(path.join(SRC, 'index.d.ts'), path.join(DIST, 'index.d.ts'));
+
+for (const icon of icons) {
+  fs.copyFileSync(path.join(SRC, 'icons', `${icon.pascal}.svelte`), path.join(DIST, 'icons', `${icon.pascal}.svelte`));
+  fs.copyFileSync(path.join(SRC, 'icons', `${icon.pascal}.svelte.d.ts`), path.join(DIST, 'icons', `${icon.pascal}.svelte.d.ts`));
+}
 
 // ── package.json ───────────────────────────────────────────────────────────
 const pkg = {
