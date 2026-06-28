@@ -164,6 +164,7 @@ const STATIC_PAGES = [
     title: 'Terms of Service — Reicon',
     desc: 'Terms of service for using Reicon, the free open-source icon library.',
     url: `${SITE}/terms`,
+    ogImage: `${SITE}/og-image.png`,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -178,6 +179,7 @@ const STATIC_PAGES = [
     title: 'Privacy Policy — Reicon',
     desc: 'Privacy policy for Reicon, the free open-source icon library. Learn how we handle your data.',
     url: `${SITE}/privacy`,
+    ogImage: `${SITE}/og-image.png`,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -192,6 +194,7 @@ const STATIC_PAGES = [
     title: 'License — Reicon | MIT License',
     desc: 'Reicon is free and open-source under the MIT license. Use it in personal and commercial projects.',
     url: `${SITE}/license`,
+    ogImage: `${SITE}/og-image.png`,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -221,7 +224,8 @@ function buildMetaTags({ title, desc, url, ogImage, keywords, jsonLd, breadcrumb
   tags += `    <meta property="og:title" content="${title}" />\n`;
   tags += `    <meta property="og:description" content="${desc}" />\n`;
   if (ogImage) {
-    tags += `    <meta property="og:image" content="${ogImage}" />\n`;
+    const targetOgImage = ogImage.endsWith('og-image.png') ? `${ogImage}?v=2` : ogImage;
+    tags += `    <meta property="og:image" content="${targetOgImage}" />\n`;
     tags += `    <meta property="og:image:width" content="1200" />\n`;
     tags += `    <meta property="og:image:height" content="630" />\n`;
   }
@@ -230,7 +234,8 @@ function buildMetaTags({ title, desc, url, ogImage, keywords, jsonLd, breadcrumb
   tags += `    <meta name="twitter:title" content="${title}" />\n`;
   tags += `    <meta name="twitter:description" content="${desc}" />\n`;
   if (ogImage) {
-    tags += `    <meta name="twitter:image" content="${ogImage}" />\n`;
+    const targetOgImage = ogImage.endsWith('og-image.png') ? `${ogImage}?v=2` : ogImage;
+    tags += `    <meta name="twitter:image" content="${targetOgImage}" />\n`;
   }
   if (jsonLd) {
     if (Array.isArray(jsonLd)) {
