@@ -4,4 +4,3 @@ dist/
 src/icons/*
 !src/icons/.gitkeep
 src/public-api.ts
-README.md
