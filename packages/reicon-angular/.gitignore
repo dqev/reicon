@@ -1,6 +1,7 @@
 # Generated files by script/build.cjs
 node_modules/
 dist/
-src/icons/
+src/icons/*
+!src/icons/.gitkeep
 src/public-api.ts
 README.md
