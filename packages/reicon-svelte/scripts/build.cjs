@@ -220,7 +220,7 @@ for (const icon of icons) {
 // ── package.json ───────────────────────────────────────────────────────────
 const pkg = {
   name: 'reicon-svelte',
-  version: '1.1.1',
+  version: '1.0.0',
   type: 'module',
   description:
     `Svelte icon components for ${icons.length}+ icons in 2 weights (Outline & Filled). Tree-shakeable, TypeScript-ready.`,
