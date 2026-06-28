@@ -125,19 +125,6 @@ Contributions to the codebase, packages, or documentation are welcome. Please re
 
 
 
-## <img src="./public/readme-assets/stargazers.svg" width="22" height="22" align="center" alt="" />&nbsp; Stargazers
-
-Thanks to everyone who has supported the project!
-
-<a href="https://github.com/dqev/reicon/stargazers">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://reporoster.com/stars/dark/dqev/reicon">
-    <img src="https://reporoster.com/stars/dqev/reicon" alt="Stargazers" />
-  </picture>
-</a>
-
-
-
 ## <img src="./public/readme-assets/star-history.svg" width="22" height="22" align="center" alt="" />&nbsp; Star History
 
 <a href="https://www.star-history.com/?repos=dqev%2Freicon&type=date&legend=bottom-right">
