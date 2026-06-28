@@ -288,14 +288,14 @@ export default function UsagePage() {
         <meta property="og:site_name" content="Reicon" />
         <meta property="og:title" content="Usage Guide — Reicon" />
         <meta property="og:description" content="Learn how to install and use Reicon icons in React and vanilla JavaScript." />
-        <meta property="og:image" content="https://reicon.dev/og-image.png" />
+        <meta property="og:image" content="https://reicon.dev/og-image.png?v=2" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@reicon_dev" />
         <meta name="twitter:title" content="Usage Guide — Reicon" />
         <meta name="twitter:description" content="Learn how to install and use Reicon icons in React and vanilla JavaScript." />
-        <meta name="twitter:image" content="https://reicon.dev/og-image.png" />
+        <meta name="twitter:image" content="https://reicon.dev/og-image.png?v=2" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
