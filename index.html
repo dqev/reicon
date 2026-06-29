@@ -162,6 +162,21 @@
     gtag('config', 'G-09W3508CC9');
   </script>
 
+  <!-- OpenPanel Analytics -->
+  <script>
+    window.op=window.op||function(){var n=[];return new Proxy(function(){arguments.length&&n.push([].slice.call(arguments))},{get:function(t,r){return"q"===r?n:function(){n.push([r].concat([].slice.call(arguments)))}} ,has:function(t,r){return"q"===r}}) }();
+    window.op('init', {
+      clientId: '41d1d4c6-d2fc-4b1c-8f30-a11e84771c80',
+      trackScreenViews: true,
+      trackOutgoingLinks: true,
+      trackAttributes: true,
+      // sessionReplay: {
+      //   enabled: true,
+      // },
+    });
+  </script>
+  <script src="https://openpanel.dev/op1.js" defer async></script>
+
   <!-- ── Structured Data: FAQPage (boosts rich snippets) ────────────────────── -->
   <script type="application/ld+json">
     {
