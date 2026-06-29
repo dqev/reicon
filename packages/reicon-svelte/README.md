@@ -129,7 +129,6 @@ Full TypeScript support out of the box.
 | [`reicon-react`](https://npmjs.com/package/reicon-react) | React components for all 2680+ icons |
 | [`reicon-vue`](https://npmjs.com/package/reicon-vue) | Vue 3 components for all 2680+ icons |
 | [`reicon-svelte`](https://npmjs.com/package/reicon-svelte) | **This package.** Svelte components for all 2680+ icons |
-| [`reicon-angular`](https://npmjs.com/package/reicon-angular) | Angular components for all 2680+ icons |
 
 ---
 

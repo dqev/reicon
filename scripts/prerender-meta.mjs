@@ -25,7 +25,7 @@ const STATIC_PAGES = [
   {
     path: '/',
     title: 'Reicon — Free Open-Source Icon Library for Designers & Developers',
-    desc: 'Reicon is a free, open-source icon library with 2700+ handcrafted, pixel-perfect SVG icons for React, Vue, Figma, and the web. MIT licensed.',
+    desc: 'Reicon is a free, open-source icon library with 2700+ handcrafted, pixel-perfect SVG icons for React, Vue, Svelte, Figma, and the web. MIT licensed.',
     url: `${SITE}/`,
     ogImage: `${SITE}/og-image.png`,
     breadcrumb: {
@@ -39,7 +39,7 @@ const STATIC_PAGES = [
   {
     path: '/icons',
     title: 'Browse 2700+ Free Icons — Reicon Icon Library',
-    desc: 'Browse and search 2700+ free, open-source SVG icons. Filter by category, weight, and size. Copy React, Vue, or HTML code instantly.',
+    desc: 'Browse and search 2700+ free, open-source SVG icons. Filter by category, weight, and size. Copy React, Vue, Svelte, or HTML code instantly.',
     url: `${SITE}/icons`,
     ogImage: `${SITE}/og-image.png`,
     breadcrumb: {
@@ -53,8 +53,8 @@ const STATIC_PAGES = [
   },
   {
     path: '/usage',
-    title: 'Usage Guide — Reicon | React, Vue & CDN Icon Library',
-    desc: 'Learn how to install and use Reicon icons in React, Vue, and vanilla JavaScript. Props reference, TypeScript support, icon weights, and code examples.',
+    title: 'Usage Guide — Reicon | React, Vue, Svelte & CDN Icon Library',
+    desc: 'Learn how to install and use Reicon icons in React, Vue, Svelte, and vanilla JavaScript. Props reference, TypeScript support, icon weights, and code examples.',
     url: `${SITE}/usage`,
     ogImage: `${SITE}/og-image.png`,
     breadcrumb: {
@@ -99,6 +99,22 @@ const STATIC_PAGES = [
     },
   },
   {
+    path: '/usage/svelte',
+    title: 'Svelte Usage Guide — Reicon | Svelte Icon Library',
+    desc: 'Learn how to install and use Reicon icons in Svelte. Import components, customize props, and integrate with SvelteKit.',
+    url: `${SITE}/usage/svelte`,
+    ogImage: `${SITE}/og-image.png`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "Usage", "item": `${SITE}/usage` },
+        { "@type": "ListItem", "position": 3, "name": "Svelte", "item": `${SITE}/usage/svelte` }
+      ]
+    },
+  },
+  {
     path: '/usage/vanilla',
     title: 'CDN / JavaScript Usage Guide — Reicon | Vanilla JS Icons',
     desc: 'Learn how to use Reicon icons via CDN in vanilla JavaScript and HTML. No build tools needed.',
@@ -116,8 +132,8 @@ const STATIC_PAGES = [
   },
   {
     path: '/packages',
-    title: 'Packages — Reicon | React, Vue & JavaScript Icon Packages',
-    desc: 'Install Reicon icon packages for React, Vue, and JavaScript. Tree-shakeable, zero dependencies, MIT licensed.',
+    title: 'Packages — Reicon | React, Vue, Svelte & JavaScript Icon Packages',
+    desc: 'Install Reicon icon packages for React, Vue, Svelte, and JavaScript. Tree-shakeable, zero dependencies, MIT licensed.',
     url: `${SITE}/packages`,
     ogImage: `${SITE}/og-image.png`,
     breadcrumb: {
@@ -132,7 +148,7 @@ const STATIC_PAGES = [
   {
     path: '/faq',
     title: 'Frequently Asked Questions — Reicon | Free Open-Source Icons',
-    desc: 'Frequently asked questions about Reicon icon library. License, Figma integration, React/Vue support, custom request, and contribution guidelines.',
+    desc: 'Frequently asked questions about Reicon icon library. License, Figma integration, React/Vue/Svelte support, custom request, and contribution guidelines.',
     url: `${SITE}/faq`,
     ogImage: `${SITE}/og-image.png`,
     breadcrumb: {

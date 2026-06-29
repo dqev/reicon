@@ -23,6 +23,7 @@ const STATIC_PAGES = [
   { loc: '/usage', priority: '0.8', changefreq: 'monthly' },
   { loc: '/usage/react', priority: '0.8', changefreq: 'monthly' },
   { loc: '/usage/vue', priority: '0.8', changefreq: 'monthly' },
+  { loc: '/usage/svelte', priority: '0.8', changefreq: 'monthly' },
   { loc: '/usage/vanilla', priority: '0.8', changefreq: 'monthly' },
   { loc: '/packages', priority: '0.7', changefreq: 'monthly' },
   { loc: '/pack', priority: '0.7', changefreq: 'monthly' },
@@ -121,7 +122,7 @@ async function main() {
   // 1. Static pages sitemap.
   //    Marketing/static pages legitimately change with each deploy, so they
   //    keep today's date; legal pages rarely change so they stay stable.
-  const VOLATILE = new Set(['/', '/icons', '/usage', '/usage/react', '/usage/vue', '/usage/vanilla', '/packages', '/pack']);
+  const VOLATILE = new Set(['/', '/icons', '/usage', '/usage/react', '/usage/vue', '/usage/svelte', '/usage/vanilla', '/packages', '/pack']);
   const staticEntries = STATIC_PAGES.map((p) => ({
     loc: `${SITE}${p.loc}`,
     lastmod: VOLATILE.has(p.loc) ? today : resolveLastmod(lastmodCache, `${SITE}${p.loc}`, today),
