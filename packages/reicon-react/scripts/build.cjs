@@ -418,7 +418,6 @@ const props: IconProps = { size: 32, color: '#d97757', weight };
 | [\`reicon-react\`](https://npmjs.com/package/reicon-react) | **This package.** React components for all ${icons.length}+ icons |
 | [\`reicon-vue\`](https://npmjs.com/package/reicon-vue) | Vue 3 components for all ${icons.length}+ icons |
 | [\`reicon-svelte\`](https://npmjs.com/package/reicon-svelte) | Svelte components for all ${icons.length}+ icons |
-| [\`reicon-angular\`](https://npmjs.com/package/reicon-angular) | Angular components for all ${icons.length}+ icons |
 
 ---
 

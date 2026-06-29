@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reicon Figma Plugin</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ── Design System Variables ── */
+    :root {
+      --bg-primary: #09090b;
+      --bg-secondary: #0e0e10;
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.6);
+      --text-tertiary: rgba(255, 255, 255, 0.35);
+      --accent-primary: #6C5CE7;
+      --accent-hover: #5a4bd1;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --border-medium: rgba(255, 255, 255, 0.12);
+      --overlay-light: rgba(255, 255, 255, 0.04);
+      --overlay-medium: rgba(255, 255, 255, 0.08);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'DM Sans', sans-serif;
+      scrollbar-width: none;
+    }
+
+    *::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      font-size: 13px;
+      position: relative;
+    }
+
+    /* ── Top Brand Row ── */
+    .top-brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px 6px 16px;
+      z-index: 10;
+    }
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-logo {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .results-badge {
+      font-size: 11px;
+      color: var(--text-secondary);
+      background-color: var(--overlay-medium);
+      border: 1px solid var(--border-subtle);
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-weight: 500;
+    }
+
+    .menu-toggle-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .menu-toggle-btn:hover {
+      background: var(--overlay-light);
+      color: var(--text-primary);
+    }
+
+    /* ── Main Container ── */
+    .app-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      height: calc(100vh - 92px); /* Subtract top row + footer */
+      overflow: hidden;
+    }
+
+    /* ── Search & Weight Bar ── */
+    .search-control-bar {
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-wrapper {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 38px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 99px; /* Pill search like Hugeicons */
+      color: var(--text-primary);
+      padding: 0 68px 0 36px; /* Added right padding for count badge */
+      font-size: 13px;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-count-badge {
+      position: absolute;
+      right: 12px;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background-color: var(--overlay-medium);
+      border: 1px solid var(--border-subtle);
+      padding: 2px 8px;
+      border-radius: 99px;
+      pointer-events: none;
+    }
+
+    .search-input:focus {
+      border-color: rgba(255, 255, 255, 0.25);
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      color: rgba(255, 255, 255, 0.3);
+      pointer-events: none;
+    }
+
+    /* Segmented Control Pill */
+    .segmented-control {
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 99px;
+      padding: 2px;
+      flex-shrink: 0;
+    }
+
+    .segment-button {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .segment-button.active {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: var(--text-primary);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ── Horizontal Scrolling Categories ── */
+    .category-scroller {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 16px 10px 16px;
+      overflow-x: auto;
+      flex-shrink: 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .category-pill {
+      padding: 5px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .category-pill:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-primary);
+    }
+
+    .category-pill.active {
+      background: rgba(108, 92, 231, 0.1);
+      border-color: var(--accent-primary);
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(108, 92, 231, 0.15);
+    }
+
+    /* Pulse dot inside category pill for new icons */
+    .new-icons-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #6C5CE7;
+      box-shadow: 0 0 6px rgba(108, 92, 231, 0.6);
+      animation: category-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes category-pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+
+    /* ── Dense Icon Grid ── */
+    .grid-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: grid;
+      /* Dynamic columns based on --grid-icon-size custom property */
+      grid-template-columns: repeat(auto-fill, minmax(calc(var(--grid-icon-size, 24px) + 24px), 1fr));
+      gap: 6px;
+      align-content: start;
+    }
+
+    /* Borderless Card Grid items with subtle rounded circle hover */
+    .icon-card {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      border-radius: 50%; /* Circle highlights like Hugeicons */
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .icon-card:hover {
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+
+    .icon-card.selected {
+      background-color: rgba(108, 92, 231, 0.15);
+      box-shadow: inset 0 0 0 1.5px var(--accent-primary);
+    }
+
+    .icon-card-svg {
+      width: var(--grid-icon-size, 24px);
+      height: var(--grid-icon-size, 24px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s ease;
+    }
+
+    .icon-card-svg svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ── Dropdown Menu Styling ── */
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 6px;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+      width: 190px;
+      display: none;
+      flex-direction: column;
+      z-index: 1000;
+      overflow: hidden;
+      animation: dropdown-fade-in 0.15s ease-out;
+    }
+
+    .dropdown-menu.show {
+      display: flex;
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 12px;
+      color: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      font-size: 11.5px;
+      font-weight: 500;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .dropdown-item:hover {
+      background-color: rgba(255, 255, 255, 0.04);
+      color: #ffffff;
+    }
+
+    .dropdown-item svg {
+      opacity: 0.6;
+      flex-shrink: 0;
+      transition: opacity 0.15s ease;
+      color: var(--text-secondary);
+    }
+
+    .dropdown-item:hover svg {
+      opacity: 1;
+      color: #ffffff;
+    }
+
+    .dropdown-divider {
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.06);
+      margin: 4px 0;
+    }
+
+    @keyframes dropdown-fade-in {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Status Bar / Footer ── */
+    .status-bar {
+      height: 48px;
+      border-top: 1px solid var(--border-subtle);
+      background-color: var(--bg-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    .selected-icon-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .selected-icon-name {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Customizer strip inside Footer */
+    .footer-customizer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .customizer-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .customizer-label {
+      color: var(--text-tertiary);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .color-swatches {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .color-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .color-swatch:hover, .color-swatch.active {
+      transform: scale(1.15);
+      border-color: var(--text-primary);
+    }
+
+    .custom-color-input {
+      width: 58px;
+      height: 22px;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 5px;
+      color: var(--text-primary);
+      padding: 0 4px;
+      font-size: 10px;
+      outline: none;
+      text-align: center;
+    }
+
+    .custom-size-input {
+      width: 38px;
+      height: 22px;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 5px;
+      color: var(--text-primary);
+      padding: 0 4px;
+      font-size: 10px;
+      outline: none;
+      text-align: center;
+    }
+
+    /* Clay Button */
+    .clay-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 14px;
+      font-size: 11px;
+      font-weight: 600;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: box-shadow 0.25s ease, filter 0.2s ease;
+      color: #fff;
+      background: linear-gradient(145deg, #7c6cf0, #5a4bd1);
+      box-shadow: 0 2px 4px rgba(108, 92, 231, 0.2);
+    }
+
+    .clay-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.45), transparent 40%);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .clay-btn:active {
+      filter: brightness(0.95);
+    }
+
+    /* Empty State */
+    .empty-state {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      text-align: center;
+      color: var(--text-tertiary);
+    }
+
+    .empty-state svg {
+      width: 32px;
+      height: 32px;
+      opacity: 0.2;
+      margin-bottom: 8px;
+    }
+
+    /* ── Floating Toast ── */
+    .toast-notification {
+      position: absolute;
+      bottom: 64px; /* Float just above the footer */
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background-color: #1e1e20;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 99px;
+      display: flex;
+      align-items: center;
+      padding: 6px 14px 6px 6px;
+      gap: 12px;
+      z-index: 10000;
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.1), opacity 0.2s ease;
+    }
+
+    .toast-notification.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast-icon-wrapper {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background-color: rgba(108, 92, 231, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .toast-brand-logo {
+      width: 14px;
+      height: 14px;
+      object-fit: contain;
+    }
+
+    .toast-message {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .toast-divider {
+      width: 1px;
+      height: 16px;
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .toast-close-btn {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      transition: color 0.15s, background-color 0.15s;
+    }
+
+    .toast-close-btn:hover {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    /* ── Resizer Handle ── */
+    .window-resizer {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 18px;
+      height: 18px;
+      cursor: nwse-resize;
+      z-index: 100000;
+      color: rgba(255, 255, 255, 0.45); /* Increased contrast */
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 0 1px 1px 0;
+      user-select: none;
+      transition: color 0.15s ease;
+    }
+
+    .window-resizer:hover {
+      color: var(--accent-primary); /* Glow purple on hover */
+    }
+  </style>
+
+  <!-- ── Injected Icons Database ── -->
+  <!-- INJECT_ICONS_DATA -->
+</head>
+<body>
+
+  <!-- Top Brand Row (Clean, minimal branding like Hugeicons) -->
+  <div class="top-brand-row">
+    <img class="brand-logo" src="__REICON_LOGO_BASE64__" alt="Reicon logo">
+    <div style="position: relative; display: inline-block;">
+      <button class="menu-toggle-btn" id="menu-toggle-btn" title="Menu" onclick="toggleMenu(event)">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" id="Menu--Streamline-Tabler" height="16" width="16">
+            <path d="m4 8 16 0" stroke-width="2"></path>
+            <path d="m4 16 16 0" stroke-width="2"></path>
+          </svg>
+        </button>
+        
+        <!-- Dropdown Menu -->
+        <div class="dropdown-menu" id="dropdown-menu">
+          <div class="dropdown-item" onclick="changePreviewSize(-2)">
+            <span>Decrease preview size</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+          </div>
+          <div class="dropdown-item" onclick="changePreviewSize(2)">
+            <span>Increase preview size</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+          </div>
+          
+          <div class="dropdown-divider"></div>
+          
+          <div class="dropdown-item" onclick="openExternalUrl('https://reicon.dev')">
+            <span>Visit Reicon.dev</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </div>
+          <div class="dropdown-item" onclick="openExternalUrl('https://github.com/dqev/reicon')">
+            <span>Star on GitHub</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          </div>
+          
+          <div class="dropdown-divider"></div>
+          
+          <div class="dropdown-item" onclick="openExternalUrl('https://x.com/reicon_dev')">
+            <span>Follow us on X</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </div>
+          <div class="dropdown-item" onclick="openExternalUrl('mailto:hello@reicon.dev')">
+            <span>Contact Support</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- App Layout -->
+  <div class="app-container">
+    
+    <!-- Search & Weight Control Row -->
+    <section class="search-control-bar">
+      <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="search-input" id="search-input" placeholder="Search icons... (⌘F to focus)">
+        <span class="search-count-badge" id="results-count-text">0 icons</span>
+      </div>
+      
+      <!-- Weight Segmented Toggle -->
+      <div class="segmented-control">
+        <button class="segment-button active" id="weight-outline" onclick="selectStyle('Outline', this)">Outline</button>
+        <button class="segment-button" id="weight-filled" onclick="selectStyle('Filled', this)">Filled</button>
+      </div>
+    </section>
+
+    <!-- Horizontal Category scroller -->
+    <div class="category-scroller" id="category-scroller-bar">
+      <div class="category-pill active" id="cat-all-pill" onclick="selectCategory('all', this)">All</div>
+      <div class="category-pill new-icons-pill" id="new-icons-pill" onclick="toggleNewIcons(this)">
+        <span class="pulse-dot"></span>
+        <span>Added __NEW_ICONS_COUNT__</span>
+      </div>
+      <!-- Dynamically filled categories -->
+    </div>
+
+    <!-- Icons Grid (Dense glyphs) -->
+    <section class="grid-container" id="icons-grid">
+      <!-- Dynamically rendered icon cards -->
+    </section>
+      
+  </div>
+
+  <!-- Status Bar / Customizer Footer -->
+  <footer class="status-bar">
+    
+    <!-- Info -->
+    <div class="selected-icon-info">
+      <span id="selection-placeholder">Hover or select an icon</span>
+      <span class="selected-icon-name" id="selected-icon-name" style="display: none;">home</span>
+    </div>
+
+    <!-- Options and Button -->
+    <div class="footer-customizer">
+      
+      <!-- Custom Color -->
+      <div class="customizer-item">
+        <span class="customizer-label">Color</span>
+        <div class="color-swatches">
+          <div class="color-swatch active" style="background-color: #ffffff;" onclick="selectColorSwatch('#ffffff', this)"></div>
+          <div class="color-swatch" style="background-color: #9CA3AF;" onclick="selectColorSwatch('#9CA3AF', this)"></div>
+          <div class="color-swatch" style="background-color: #6C5CE7;" onclick="selectColorSwatch('#6C5CE7', this)"></div>
+        </div>
+        <input type="text" class="custom-color-input" id="custom-color" value="#ffffff" oninput="customColorInput(this.value)">
+      </div>
+
+      <!-- Custom Size -->
+      <div class="customizer-item">
+        <span class="customizer-label">Size</span>
+        <input type="text" class="custom-size-input" id="custom-size" value="24" oninput="customSizeInput(this.value)">
+      </div>
+
+      <!-- Clay Button (For manual trigger if selection exists) -->
+      <button class="clay-btn" id="insert-button" style="display: none;" onclick="insertSelectedIcon()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        Insert Icon
+      </button>
+
+    </div>
+
+  </footer>
+
+  <!-- Floating Toast Notification -->
+  <div class="toast-notification" id="toast-notification">
+    <div class="toast-icon-wrapper">
+      <img class="toast-brand-logo" src="__REICON_LOGO_BASE64__" alt="Reicon logo">
+    </div>
+    <span class="toast-message" id="toast-message">Added "home"</span>
+    <div class="toast-divider"></div>
+    <button class="toast-close-btn" onclick="dismissToast(event)">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+  <!-- Resizer Handle -->
+  <div class="window-resizer" id="window-resizer">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="15" y1="5" x2="5" y2="15" />
+      <line x1="15" y1="9" x2="9" y2="15" />
+      <line x1="15" y1="13" x2="13" y2="15" />
+    </svg>
+  </div>
+
+  <script>
+    // State management
+    let activeCategory = 'all';
+    let activeStyle = 'Outline'; // 'Outline' | 'Filled'
+    let activeSize = '24';
+    let showNew = false;
+    let searchQuery = '';
+    
+    let selectedColor = '#ffffff';
+    let selectedIconName = '';
+    
+    let filteredIcons = [];
+    let displayedCount = 0;
+    const BATCH_SIZE = 160;
+
+    // DOM Elements
+    const searchInput = document.getElementById('search-input');
+    const iconsGrid = document.getElementById('icons-grid');
+    const scrollerBarEl = document.getElementById('category-scroller-bar');
+    const resultsCountText = document.getElementById('results-count-text');
+    
+    const statusBarPlaceholder = document.getElementById('selection-placeholder');
+    const selectedIconNameText = document.getElementById('selected-icon-name');
+    const insertButton = document.getElementById('insert-button');
+    const customSizeInputEl = document.getElementById('custom-size');
+    const customColorInputEl = document.getElementById('custom-color');
+
+    // Initialize Plugin
+    function init() {
+      if (!window.REICON_DATA || !window.REICON_CATEGORIES) {
+        iconsGrid.innerHTML = `
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <p>Database failed to load inside Figma.</p>
+          </div>`;
+        return;
+      }
+
+      // 1. Generate category pills in horizontal scroller
+      window.REICON_CATEGORIES.sort((a,b) => a.name.localeCompare(b.name)).forEach(cat => {
+        const pill = document.createElement('div');
+        pill.className = 'category-pill';
+        pill.dataset.category = cat.id;
+        pill.textContent = cat.name;
+        pill.onclick = () => selectCategory(cat.id, pill);
+        scrollerBarEl.appendChild(pill);
+      });
+
+      // 2. Search input handler
+      searchInput.oninput = () => {
+        searchQuery = searchInput.value;
+        applyFilters();
+      };
+
+      // Focus shortcut (Cmd+F / Ctrl+F or Cmd+P like Hugeicons)
+      window.onkeydown = (e) => {
+        if ((e.metaKey || e.ctrlKey) && (e.key === 'f' || e.key === 'p')) {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      };
+
+      // 3. Scroll listener for progressive lazy rendering
+      iconsGrid.onscroll = () => {
+        if (iconsGrid.scrollHeight - iconsGrid.scrollTop <= iconsGrid.clientHeight + 80) {
+          loadMoreIcons();
+        }
+      };
+
+      // 4. Initial filters application
+      applyFilters();
+    }
+
+    // Filter Logic
+    function applyFilters() {
+      const query = searchQuery.toLowerCase().trim();
+      const allKeys = Object.keys(window.REICON_DATA);
+
+      filteredIcons = [];
+
+      allKeys.forEach(name => {
+        const item = window.REICON_DATA[name];
+
+        // 1. Category filter
+        if (activeCategory !== 'all' && item.category !== activeCategory) {
+          return;
+        }
+
+        // 2. Weight match check
+        if (!item.weights[activeStyle]) return;
+
+        // 3. Search text match (matches name, category, or descriptions/tags)
+        if (query) {
+          const matchName = name.toLowerCase().includes(query);
+          const matchCat = item.category.toLowerCase().includes(query);
+          const matchTags = item.description.some(tag => tag.toLowerCase().includes(query));
+          if (!matchName && !matchCat && !matchTags) return;
+        }
+
+        filteredIcons.push({ name: name, weight: activeStyle, data: item.weights[activeStyle] });
+      });
+
+      // Update count text
+      resultsCountText.textContent = `${filteredIcons.length} icon${filteredIcons.length !== 1 ? 's' : ''}`;
+
+      // Reset grid scroll
+      iconsGrid.scrollTop = 0;
+      displayedCount = 0;
+      iconsGrid.innerHTML = '';
+      
+      if (filteredIcons.length === 0) {
+        iconsGrid.innerHTML = `
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <p>No icons found for your filters</p>
+          </div>
+        `;
+        return;
+      }
+
+      loadMoreIcons();
+    }
+
+    // Lazy load icons in groups of BATCH_SIZE
+    function loadMoreIcons() {
+      if (displayedCount >= filteredIcons.length) return;
+
+      const end = Math.min(displayedCount + BATCH_SIZE, filteredIcons.length);
+      const frag = document.createDocumentFragment();
+
+      for (let i = displayedCount; i < end; i++) {
+        const item = filteredIcons[i];
+        const cardId = `${item.name}-${item.weight}`;
+
+        const card = document.createElement('div');
+        card.className = `icon-card ${selectedIconName === cardId ? 'selected' : ''}`;
+        card.dataset.cardId = cardId;
+        card.dataset.name = item.name;
+        card.dataset.weight = item.weight;
+        
+        card.onclick = () => selectIcon(cardId, item.name, item.weight);
+
+        // Colorize the path
+        const colorizedSVG = item.data.replace(/currentColor/g, selectedColor);
+
+        card.innerHTML = `
+          <div class="icon-card-svg" style="color: ${selectedColor};">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">${colorizedSVG}</svg>
+          </div>
+        `;
+
+        // Hover effect displays information in status bar
+        card.onmouseenter = () => {
+          if (!selectedIconName) {
+            statusBarPlaceholder.textContent = 'Inserting option: ';
+            selectedIconNameText.style.display = 'inline';
+            selectedIconNameText.textContent = `${item.name} (${item.weight})`;
+          }
+        };
+        card.onmouseleave = () => {
+          if (!selectedIconName) {
+            statusBarPlaceholder.textContent = 'Hover or select an icon';
+            selectedIconNameText.style.display = 'none';
+          } else {
+            const parts = selectedIconName.split('-');
+            statusBarPlaceholder.textContent = 'Selected: ';
+            selectedIconNameText.style.display = 'inline';
+            selectedIconNameText.textContent = `${parts[0]} (${parts[1]})`;
+          }
+        };
+
+        frag.appendChild(card);
+      }
+
+      iconsGrid.appendChild(frag);
+      displayedCount = end;
+    }
+
+    // Sidebar Category Swapping
+    function selectCategory(catId, element) {
+      // Clear active class from all pills
+      document.querySelectorAll('.category-pill').forEach(el => el.classList.remove('active'));
+      document.getElementById('cat-all-pill').classList.remove('active');
+      document.getElementById('new-icons-pill').classList.remove('active');
+      
+      element.classList.add('active');
+      activeCategory = catId;
+      showNew = false;
+      applyFilters();
+    }
+
+    // Quick Access toggler
+    function toggleNewIcons(element) {
+      showNew = !showNew;
+      
+      // Clear active status on category scroller elements
+      document.querySelectorAll('.category-pill').forEach(el => el.classList.remove('active'));
+      document.getElementById('cat-all-pill').classList.remove('active');
+      
+      if (showNew) {
+        element.classList.add('active');
+        activeCategory = 'all';
+      } else {
+        document.getElementById('cat-all-pill').classList.add('active');
+      }
+      applyFilters();
+    }
+
+    // Style Swapping (Outline / Filled)
+    function selectStyle(styleName, element) {
+      document.querySelectorAll('.segment-button').forEach(el => el.classList.remove('active'));
+      element.classList.add('active');
+      activeStyle = styleName;
+
+      // Reset selection if the item does not support the weight
+      if (selectedIconName) {
+        const parts = selectedIconName.split('-');
+        const name = parts[0];
+        const weight = parts[1];
+        if (activeStyle !== weight) {
+          clearSelection();
+        }
+      }
+
+      applyFilters();
+    }
+
+    function customSizeInput(val) {
+      const num = parseInt(val);
+      if (num > 0) {
+        activeSize = num.toString();
+      }
+    }
+
+    // Color swatches selection
+    function selectColorSwatch(colorHex, element) {
+      document.querySelectorAll('.color-swatch').forEach(el => el.classList.remove('active'));
+      if (element) element.classList.add('active');
+      
+      selectedColor = colorHex;
+      customColorInputEl.value = colorHex;
+
+      // Colorize paths inside current grid items instantly
+      document.querySelectorAll('.icon-card-svg').forEach(svgWrapper => {
+        svgWrapper.style.color = selectedColor;
+        svgWrapper.querySelectorAll('path').forEach(p => {
+          p.setAttribute('fill', selectedColor);
+        });
+      });
+    }
+
+    function customColorInput(val) {
+      if (/^#[0-9A-F]{6}$/i.test(val)) {
+        // Find if it matches a swatch
+        let foundSwatch = false;
+        document.querySelectorAll('.color-swatch').forEach(el => {
+          const swatchBg = el.style.backgroundColor;
+          if (val.toLowerCase() === swatchBg.toLowerCase()) {
+            el.classList.add('active');
+            foundSwatch = true;
+          } else {
+            el.classList.remove('active');
+          }
+        });
+        selectColorSwatch(val, null);
+      }
+    }
+
+    // Icon Selection Action
+    function selectIcon(cardId, name, weight) {
+      selectedIconName = cardId;
+      
+      document.querySelectorAll('.icon-card').forEach(el => {
+        el.classList.toggle('selected', el.dataset.cardId === cardId);
+      });
+
+      updateFooter();
+      insertSelectedIcon();
+    }
+
+    function clearSelection() {
+      selectedIconName = '';
+      updateFooter();
+    }
+
+    function updateFooter() {
+      if (selectedIconName) {
+        const parts = selectedIconName.split('-');
+        statusBarPlaceholder.textContent = 'Selected: ';
+        selectedIconNameText.style.display = 'inline';
+        selectedIconNameText.textContent = `${parts[0]} (${parts[1]})`;
+        insertButton.style.display = 'inline-flex';
+      } else {
+        statusBarPlaceholder.textContent = 'Hover or select an icon';
+        selectedIconNameText.style.display = 'none';
+        insertButton.style.display = 'none';
+      }
+    }
+
+    function insertSelectedIcon() {
+      if (!selectedIconName) return;
+
+      const parts = selectedIconName.split('-');
+      const name = parts[0];
+      const weight = parts[1];
+
+      const item = window.REICON_DATA[name];
+      const rawCode = item.weights[weight];
+      
+      // Colorize the SVG code by replacing currentColor with selectedColor
+      const colorizedCode = rawCode.replace(/currentColor/g, selectedColor);
+      const finalSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">${colorizedCode}</svg>`;
+
+      parent.postMessage({
+        pluginMessage: {
+          type: 'insert-icon',
+          svg: finalSvg,
+          name: `${name} (${weight})`,
+          size: parseInt(activeSize) || 24,
+          color: selectedColor
+        }
+      }, '*');
+
+      // Trigger the custom toast notification
+      showToast(`Added "${name}"`);
+    }
+
+    // ── Dropdown Menu & Preview Sizing Logic ──
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    let currentPreviewSize = 24;
+
+    function toggleMenu(event) {
+      event.stopPropagation();
+      dropdownMenu.classList.toggle('show');
+    }
+
+    // Close menu when clicking outside
+    window.addEventListener('click', (e) => {
+      const toggleBtn = document.getElementById('menu-toggle-btn');
+      if (dropdownMenu.classList.contains('show') && !dropdownMenu.contains(e.target) && e.target !== toggleBtn && !toggleBtn.contains(e.target)) {
+        dropdownMenu.classList.remove('show');
+      }
+    });
+
+    function changePreviewSize(diff) {
+      const nextSize = Math.max(16, Math.min(64, currentPreviewSize + diff));
+      if (nextSize !== currentPreviewSize) {
+        currentPreviewSize = nextSize;
+        iconsGrid.style.setProperty('--grid-icon-size', currentPreviewSize + 'px');
+        
+        // Sync custom sizing inputs with current size
+        customSizeInputEl.value = currentPreviewSize;
+        activeSize = currentPreviewSize.toString();
+      }
+    }
+
+    function openExternalUrl(url) {
+      parent.postMessage({
+        pluginMessage: {
+          type: 'open-url',
+          url: url
+        }
+      }, '*');
+      dropdownMenu.classList.remove('show');
+    }
+
+    // ── Toast Notification Functions ──
+    let toastTimeout;
+
+    function showToast(messageText) {
+      const toastEl = document.getElementById('toast-notification');
+      const toastMsgEl = document.getElementById('toast-message');
+      
+      // Set message text
+      toastMsgEl.textContent = messageText;
+      
+      // Trigger show transition
+      toastEl.classList.add('show');
+      
+      // Clear previous auto-dismiss timeouts
+      clearTimeout(toastTimeout);
+      
+      // Auto-hide after 3 seconds
+      toastTimeout = setTimeout(() => {
+        toastEl.classList.remove('show');
+      }, 3000);
+    }
+
+    function dismissToast(event) {
+      if (event) event.stopPropagation();
+      const toastEl = document.getElementById('toast-notification');
+      toastEl.classList.remove('show');
+      clearTimeout(toastTimeout);
+    }
+
+    // ── Resizer Dragging Logic ──
+    const resizer = document.getElementById('window-resizer');
+    let startWidth = 560;
+    let startHeight = 640;
+
+    resizer.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      const startX = e.clientX;
+      const startY = e.clientY;
+
+      function onMouseMove(moveEvent) {
+        const dx = moveEvent.clientX - startX;
+        const dy = moveEvent.clientY - startY;
+
+        const newWidth = Math.max(320, Math.min(900, startWidth + dx));
+        const newHeight = Math.max(400, Math.min(900, startHeight + dy));
+
+        parent.postMessage({
+          pluginMessage: {
+            type: 'resize-window',
+            width: newWidth,
+            height: newHeight
+          }
+        }, '*');
+      }
+
+      function onMouseUp(upEvent) {
+        const dx = upEvent.clientX - startX;
+        const dy = upEvent.clientY - startY;
+        startWidth = Math.max(320, Math.min(900, startWidth + dx));
+        startHeight = Math.max(400, Math.min(900, startHeight + dy));
+
+        window.removeEventListener('mousemove', onMouseMove);
+        window.removeEventListener('mouseup', onMouseUp);
+      }
+
+      window.addEventListener('mousemove', onMouseMove);
+      window.addEventListener('mouseup', onMouseUp);
+    });
+
+    // Run init
+    window.onload = init;
+  </script>
+</body>
+</html>

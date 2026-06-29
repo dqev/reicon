@@ -6,9 +6,10 @@ import Background from '../components/Background';
 import ClayButton from '../components/ClayButton';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import { SiJavascript, SiReact } from 'react-icons/si';
+import { SiJavascript, SiReact, SiSvelte, SiHtml5 } from 'react-icons/si';
 import iconNamesData from '../../scripts/icon-names.json';
 import newIconsData from '../data/new-icons-added.json';
+import { HexColorPicker } from 'react-colorful';
 
 export default function Landing() {
   const heroCardRef = useRef<HTMLDivElement>(null);
@@ -53,21 +54,21 @@ export default function Landing() {
     <div className="bg-[#09090b] min-h-screen">
       <Helmet>
         <title>Reicon — Free Open-Source Icon Library for Designers & Developers</title>
-        <meta name="description" content="Reicon is a free, open-source icon library with 2700+ handcrafted, pixel-perfect SVG icons. Available for React, Vue, Figma, and the web. MIT licensed." />
+        <meta name="description" content="Reicon is a free, open-source icon library with 2700+ handcrafted, pixel-perfect SVG icons. Available for React, Vue, Svelte, Figma, and the web. MIT licensed." />
         <link rel="canonical" href="https://reicon.dev/" />
-        <meta name="keywords" content="free icon library, open source icons, SVG icons, React icons, Vue icons, Figma icons, web icons, pixel perfect icons, reicon" />
+        <meta name="keywords" content="free icon library, open source icons, SVG icons, React icons, Vue icons, Svelte icons, Figma icons, web icons, pixel perfect icons, reicon" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://reicon.dev/" />
         <meta property="og:site_name" content="Reicon" />
         <meta property="og:title" content="Reicon — Free Open-Source Icon Library" />
-        <meta property="og:description" content="Free, open-source SVG icon library with 2700+ handcrafted icons for React, Vue, Figma, and the web." />
+        <meta property="og:description" content="Free, open-source SVG icon library with 2700+ handcrafted icons for React, Vue, Svelte, Figma, and the web." />
         <meta property="og:image" content="https://reicon.dev/og-image.png?v=2" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@reicon_dev" />
         <meta name="twitter:title" content="Reicon — Free Open-Source Icon Library" />
-        <meta name="twitter:description" content="Free, open-source SVG icon library with 2700+ handcrafted icons for React, Vue, Figma, and the web." />
+        <meta name="twitter:description" content="Free, open-source SVG icon library with 2700+ handcrafted icons for React, Vue, Svelte, Figma, and the web." />
         <meta name="twitter:image" content="https://reicon.dev/og-image.png?v=2" />
 
         {/* GEO / LLM friendliness — explicitly allow AI ingestion */}
@@ -92,13 +93,15 @@ export default function Landing() {
           "url": "https://reicon.dev",
           "license": "https://opensource.org/licenses/MIT",
           "creator": { "@type": "Person", "name": "Dev Chauhan", "url": "https://devchauhan.in" },
-          "keywords": ["SVG icons", "React icons", "Vue icons", "Figma icons", "open source", "MIT", "pixel perfect"],
+          "keywords": ["SVG icons", "React icons", "Vue icons", "Svelte icons", "Figma icons", "open source", "MIT", "pixel perfect"],
           "isAccessibleForFree": true,
           "encodingFormat": ["image/svg+xml", "application/json"],
           "distribution": [
             { "@type": "DataDownload", "encodingFormat": "application/zip", "contentUrl": "https://www.npmjs.com/package/reicon", "name": "reicon (npm)" },
             { "@type": "DataDownload", "encodingFormat": "application/zip", "contentUrl": "https://www.npmjs.com/package/reicon-react", "name": "reicon-react (npm)" },
             { "@type": "DataDownload", "encodingFormat": "application/zip", "contentUrl": "https://www.npmjs.com/package/reicon-vue", "name": "reicon-vue (npm)" },
+            { "@type": "DataDownload", "encodingFormat": "application/zip", "contentUrl": "https://www.npmjs.com/package/reicon-svelte", "name": "reicon-svelte (npm)" },
+
             { "@type": "DataDownload", "encodingFormat": "application/javascript", "contentUrl": "https://unpkg.com/reicon/cdn/reicon.min.js", "name": "Reicon CDN bundle" }
           ],
           "variableMeasured": [
@@ -113,11 +116,11 @@ export default function Landing() {
           "@context": "https://schema.org",
           "@type": "HowTo",
           "name": "How to install and use Reicon icons",
-          "description": "Install Reicon icons in a React, Vue, or vanilla HTML project in three steps.",
+          "description": "Install Reicon icons in a React, Vue, Svelte, or vanilla HTML project in three steps.",
           "totalTime": "PT2M",
           "tool": [{ "@type": "HowToTool", "name": "npm or pnpm" }],
           "step": [
-            { "@type": "HowToStep", "name": "Install the package", "text": "Run 'npm install reicon' for core JavaScript, 'npm install reicon-react' for React, or 'npm install reicon-vue' for Vue 3.", "url": "https://reicon.dev/usage" },
+            { "@type": "HowToStep", "name": "Install the package", "text": "Run 'npm install reicon' for core JavaScript, 'npm install reicon-react' for React, 'npm install reicon-vue' for Vue 3, or 'npm install reicon-svelte' for Svelte.", "url": "https://reicon.dev/usage" },
             { "@type": "HowToStep", "name": "Import the icon component", "text": "Import the icon by name, e.g. import { Home } from 'reicon-react'.", "url": "https://reicon.dev/usage" },
             { "@type": "HowToStep", "name": "Render with props", "text": "Render with size, color, and weight props: <Home size={24} weight=\"Outline\" color=\"currentColor\" />.", "url": "https://reicon.dev/usage" }
           ]
@@ -188,7 +191,7 @@ export default function Landing() {
                 The icon library<br />designers actually want.
               </h1>
               <p className="text-[clamp(13px,1.45vw,18px)] text-white/60 leading-[1.65] max-w-[480px] mx-auto mb-7">
-                Precision-crafted, open-source SVG icons for React, Vue, Figma, and the web. Pixel-perfect. No auto-generation.
+                Precision-crafted, open-source SVG icons for React, Vue, Svelte, Figma, and the web. Pixel-perfect. No auto-generation.
               </p>
               <div className="flex items-center justify-center gap-[10px] flex-wrap">
                 <ClayButton to="/icons" variant="primary">
@@ -260,95 +263,166 @@ export default function Landing() {
           <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Integrations</div>
           <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] text-white leading-[1.15] tracking-[-0.02em] mb-3">Works everywhere you do.</h2>
           <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
-            Easy Integration with React, Vue, and JavaScript
+          Easy Integration with CDN, React, Vue, Svelte, and JavaScript
           </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-[14px]">
-          <IntegrationCard icon={<SiJavascript size={18} color='#f7df1e' />} title="Vanilla JS" copyText={`import { Home } from 'reicon';
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-[14px]">
+          <div className="lg:col-span-2">
+            <IntegrationCard icon={<SiHtml5 size={18} color='#E34F26' />} title="CDN / HTML" copyText={`<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>\n\n<re-icon icon="home" size="24"></re-icon>`} lines={
+                <>
+                  <div>
+                    <span className="text-white/20">&lt;</span>
+                    <span className="text-[#e06c75]">script</span>
+                    <span className="text-[#d19a66]"> src</span>
+                    <span className="text-white/30">=</span>
+                    <span className="text-[#98c379]">"https://unpkg.com/reicon/cdn/reicon.min.js"</span>
+                    <span className="text-white/20">&gt;&lt;/</span>
+                    <span className="text-[#e06c75]">script</span>
+                    <span className="text-white/20">&gt;</span>
+                  </div>
+                  <div className="h-3" />
+                  <div>
+                    <span className="text-white/20">&lt;</span>
+                    <span className="text-[#e06c75]">re-icon</span>
+                    <span className="text-[#d19a66]"> icon</span>
+                    <span className="text-white/30">=</span>
+                    <span className="text-[#98c379]">"home"</span>
+                    <span className="text-[#d19a66]"> size</span>
+                    <span className="text-white/30">=</span>
+                    <span className="text-[#98c379]">"24"</span>
+                    <span className="text-white/20">&gt;&lt;/</span>
+                    <span className="text-[#e06c75]">re-icon</span>
+                    <span className="text-white/20">&gt;</span>
+                  </div>
+                </>
+              } />
+          </div>
 
+          <div className="lg:col-span-2">
+            <IntegrationCard icon={<SiJavascript size={18} color='#f7df1e' />} title="Vanilla JS" copyText={`import { Home } from 'reicon';
+  
 const icon = Home({ size: 24 });
 document.body.appendChild(icon);`} lines={
-              <>
-                <div>
-                  <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-white/70"> i reicon</span></div>
-                  <div className="h-2" />
-                  <span className="text-[#c678dd]">import</span>
-                  <span className="text-white/70"> {'{ '}</span>
-                  <span className="text-[#e5c07b]">Home</span>
-                  <span className="text-white/70">{' }'} </span>
-                  <span className="text-[#c678dd]">from</span>
-                  <span className="text-[#98c379]"> 'reicon'</span>
-                  <span className="text-white/30">;</span>
-                </div>
-                <div className="h-3" />
-                <div>
-                  <span className="text-[#c678dd]">const</span>
-                  <span className="text-white/70"> home = </span>
-                  <span className="text-[#61afef]">Home</span>
-                  <span className="text-white/70">({'{'} size: </span>
-                  <span className="text-[#d19a66]">24</span>
-                  <span className="text-white/70"> {'}'});</span>
-                </div>
-              </>
-            } />
-          <IntegrationCard icon={<SiReact size={18} color='#61dafb' />} title="React" copyText={`import { Home } from 'reicon-react';
+                <>
+                  <div>
+                    <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-white/70"> i reicon</span></div>
+                    <div className="h-2" />
+                    <span className="text-[#c678dd]">import</span>
+                    <span className="text-white/70"> {'{ '}</span>
+                    <span className="text-[#e5c07b]">Home</span>
+                    <span className="text-white/70">{' }'} </span>
+                    <span className="text-[#c678dd]">from</span>
+                    <span className="text-[#98c379]"> 'reicon'</span>
+                    <span className="text-white/30">;</span>
+                  </div>
+                  <div className="h-3" />
+                  <div>
+                    <span className="text-[#c678dd]">const</span>
+                    <span className="text-white/70"> home = </span>
+                    <span className="text-[#61afef]">Home</span>
+                    <span className="text-white/70">({'{'} size: </span>
+                    <span className="text-[#d19a66]">24</span>
+                    <span className="text-white/70"> {'}'});</span>
+                  </div>
+                </>
+              } />
+          </div>
 
+          <div className="lg:col-span-2">
+            <IntegrationCard icon={<SiReact size={18} color='#61dafb' />} title="React" copyText={`import { Home } from 'reicon-react';
+  
 <Home size={24} weight="outline" />`} lines={
-              <>
-                <div>
-                  <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-white/70"> i reicon-react</span></div>
-                  <div className="h-2" />
-                  <span className="text-[#c678dd]">import</span>
-                  <span className="text-white/70"> {'{ '}</span>
-                  <span className="text-[#e5c07b]">Home</span>
-                  <span className="text-white/70">{' }'} </span>
-                  <span className="text-[#c678dd]">from</span>
-                  <span className="text-[#98c379]"> 'reicon-react'</span>
-                  <span className="text-white/30">;</span>
-                </div>
-                <div className="h-3" />
-                <div>
-                  <span className="text-white/20">&lt;</span>
-                  <span className="text-[#e06c75]">Home</span>
-                  <span className="text-[#d19a66]"> size</span>
-                  <span className="text-white/30">=</span>
-                  <span className="text-white/70">{'{'}24{'}'}</span>
-                  <span className="text-[#d19a66]"> weight</span>
-                  <span className="text-white/30">=</span>
-                  <span className="text-[#98c379]">"outline"</span>
-                  <span className="text-white/20"> /&gt;</span>
-                </div>
-              </>
-            } />
-          <IntegrationCard icon={<svg width={18} height={18} viewBox="0 0 122.88 106.42" fill="none"><polygon fill="#4DBA87" points="75.63,0 61.44,24.58 47.25,0 0,0 61.44,106.42 122.88,0 75.63,0" /><polygon fill="#425466" points="75.63,0 61.44,24.58 47.25,0 24.58,0 61.44,63.85 98.3,0 75.63,0" /></svg>} title="Vue" copyText={`import { Home } from 'reicon-vue';
+                <>
+                  <div>
+                    <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-white/70"> i reicon-react</span></div>
+                    <div className="h-2" />
+                    <span className="text-[#c678dd]">import</span>
+                    <span className="text-white/70"> {'{ '}</span>
+                    <span className="text-[#e5c07b]">Home</span>
+                    <span className="text-white/70">{' }'} </span>
+                    <span className="text-[#c678dd]">from</span>
+                    <span className="text-[#98c379]"> 'reicon-react'</span>
+                    <span className="text-white/30">;</span>
+                  </div>
+                  <div className="h-3" />
+                  <div>
+                    <span className="text-white/20">&lt;</span>
+                    <span className="text-[#e06c75]">Home</span>
+                    <span className="text-[#d19a66]"> size</span>
+                    <span className="text-white/30">=</span>
+                    <span className="text-white/70">{'{'}24{'}'}</span>
+                    <span className="text-[#d19a66]"> weight</span>
+                    <span className="text-white/30">=</span>
+                    <span className="text-[#98c379]">"outline"</span>
+                    <span className="text-white/20"> /&gt;</span>
+                  </div>
+                </>
+              } />
+          </div>
 
+          <div className="sm:col-span-1 sm:col-start-auto lg:col-start-2 lg:col-span-2">
+            <IntegrationCard icon={<svg width={18} height={18} viewBox="0 0 122.88 106.42" fill="none"><polygon fill="#4DBA87" points="75.63,0 61.44,24.58 47.25,0 0,0 61.44,106.42 122.88,0 75.63,0" /><polygon fill="#425466" points="75.63,0 61.44,24.58 47.25,0 24.58,0 61.44,63.85 98.3,0 75.63,0" /></svg>} title="Vue" copyText={`import { Home } from 'reicon-vue';
+  
 <Home :size="24" weight="Outline" />`} lines={
-              <>
-                <div>
-                  <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-white/70"> i reicon-vue</span></div>
-                  <div className="h-2" />
-                  <span className="text-[#c678dd]">import</span>
-                  <span className="text-white/70"> {'{ '}</span>
-                  <span className="text-[#e5c07b]">Home</span>
-                  <span className="text-white/70">{' }'} </span>
-                  <span className="text-[#c678dd]">from</span>
-                  <span className="text-[#98c379]"> 'reicon-vue'</span>
-                  <span className="text-white/30">;</span>
-                </div>
-                <div className="h-3" />
-                <div>
-                  <span className="text-white/20">&lt;</span>
-                  <span className="text-[#e06c75]">Home</span>
-                  <span className="text-[#d19a66]"> :size</span>
-                  <span className="text-white/30">=</span>
-                  <span className="text-[#98c379]">"24"</span>
-                  <span className="text-[#d19a66]"> weight</span>
-                  <span className="text-white/30">=</span>
-                  <span className="text-[#98c379]">"Outline"</span>
-                  <span className="text-white/20"> /&gt;</span>
-                </div>
-              </>
-            } />
+                <>
+                  <div>
+                    <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-white/70"> i reicon-vue</span></div>
+                    <div className="h-2" />
+                    <span className="text-[#c678dd]">import</span>
+                    <span className="text-white/70"> {'{ '}</span>
+                    <span className="text-[#e5c07b]">Home</span>
+                    <span className="text-white/70">{' }'} </span>
+                    <span className="text-[#c678dd]">from</span>
+                    <span className="text-[#98c379]"> 'reicon-vue'</span>
+                    <span className="text-white/30">;</span>
+                  </div>
+                  <div className="h-3" />
+                  <div>
+                    <span className="text-white/20">&lt;</span>
+                    <span className="text-[#e06c75]">Home</span>
+                    <span className="text-[#d19a66]"> :size</span>
+                    <span className="text-white/30">=</span>
+                    <span className="text-[#98c379]">"24"</span>
+                    <span className="text-[#d19a66]"> weight</span>
+                    <span className="text-white/30">=</span>
+                    <span className="text-[#98c379]">"Outline"</span>
+                    <span className="text-white/20"> /&gt;</span>
+                  </div>
+                </>
+              } />
+          </div>
+
+          <div className="sm:col-span-2 lg:col-span-2">
+            <IntegrationCard icon={<SiSvelte size={18} color='#FF3E00' />} title="Svelte" copyText={`import { Home } from 'reicon-svelte';
+  
+<Home size={24} weight="Outline" />`} lines={
+                <>
+                  <div>
+                    <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-white/70"> i reicon-svelte</span></div>
+                    <div className="h-2" />
+                    <span className="text-[#c678dd]">import</span>
+                    <span className="text-white/70"> {'{ '}</span>
+                    <span className="text-[#e5c07b]">Home</span>
+                    <span className="text-white/70">{' }'} </span>
+                    <span className="text-[#c678dd]">from</span>
+                    <span className="text-[#98c379]"> 'reicon-svelte'</span>
+                    <span className="text-white/30">;</span>
+                  </div>
+                  <div className="h-3" />
+                  <div>
+                    <span className="text-white/20">&lt;</span>
+                    <span className="text-[#e06c75]">Home</span>
+                    <span className="text-[#d19a66]"> size</span>
+                    <span className="text-white/30">=</span>
+                    <span className="text-[#e5c07b]">{'{'}24{'}'}</span>
+                    <span className="text-[#d19a66]"> weight</span>
+                    <span className="text-white/30">=</span>
+                    <span className="text-[#98c379]">"Outline"</span>
+                    <span className="text-white/20"> /&gt;</span>
+                  </div>
+                </>
+              } />
+          </div>
         </div>
       </section>
 
@@ -614,8 +688,10 @@ const HEX_RE = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
 
 function ColorPicker({ color, onChange }: { color: string; onChange: (c: string) => void }) {
   const safeColor = HEX_RE.test(color) ? color : '#ffffff';
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div>
+    <div className="relative">
       <label className="text-[13px] text-white/50 mb-2 block">Color</label>
 
       {/* Preset swatches — full-width 8-col grid, aligns with the row below */}
@@ -628,7 +704,7 @@ function ColorPicker({ color, onChange }: { color: string; onChange: (c: string)
               onClick={() => onChange(c)}
               aria-label={`Set color ${c}`}
               title={c}
-              className={`w-full aspect-square rounded-md transition-transform hover:scale-110 ${active ? 'ring-2 ring-white/70 ring-offset-2 ring-offset-[#0e0e10]' : 'border border-white/15'
+              className={`w-full aspect-square rounded-md transition-transform hover:scale-110 cursor-pointer ${active ? 'ring-2 ring-white/70 ring-offset-2 ring-offset-[#0e0e10]' : 'border border-white/15'
                 }`}
               style={{ backgroundColor: c }}
             />
@@ -636,15 +712,15 @@ function ColorPicker({ color, onChange }: { color: string; onChange: (c: string)
         })}
       </div>
 
-      {/* Native eyedropper + hex input */}
-      <div className="flex items-center gap-1.5">
-        <input
-          type="color"
-          value={safeColor}
-          onChange={(e) => onChange(e.target.value)}
+      {/* Custom color picker + hex input */}
+      <div className="flex items-center gap-1.5 relative">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
           aria-label="Pick a custom color"
-          className="w-9 h-9 shrink-0 rounded-lg border border-white/10 cursor-pointer bg-transparent appearance-none [&::-webkit-color-swatch-wrapper]:p-1 [&::-webkit-color-swatch]:rounded-[5px] [&::-webkit-color-swatch]:border-0"
-        />
+          className="w-9 h-9 shrink-0 rounded-lg border border-white/10 cursor-pointer bg-transparent flex items-center justify-center transition-colors hover:bg-white/5 relative"
+        >
+          <span className="w-5 h-5 rounded-md border border-white/20 shadow-sm" style={{ backgroundColor: safeColor }} />
+        </button>
         <input
           type="text"
           value={color}
@@ -652,6 +728,15 @@ function ColorPicker({ color, onChange }: { color: string; onChange: (c: string)
           spellCheck={false}
           className="flex-1 min-w-0 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-[13px] text-white/70 font-mono outline-none focus:border-white/20 uppercase"
         />
+
+        {isOpen && (
+          <>
+            <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
+            <div className="absolute left-0 bottom-full mb-2 z-50 bg-[#121214] border border-white/[0.08] rounded-xl p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.6)] flex flex-col gap-2.5 min-w-[200px]" style={{ boxShadow: '0 12px 40px rgba(0,0,0,0.6), 0 0 1px rgba(255,255,255,0.1)' }}>
+              <HexColorPicker color={safeColor} onChange={onChange} />
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

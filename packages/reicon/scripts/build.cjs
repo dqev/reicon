@@ -754,7 +754,7 @@ const readme = `<p align="center">
 
 > ${icons.length}+ pixel-perfect SVG icons • Outline & Filled weights • React, Vue, Vanilla JS, Svelte, Astro • Zero dependencies • MIT Licensed
 
-**Reicon** is a free, open-source SVG icon library with ${icons.length}+ handcrafted, grid-aligned icons built for developers and designers. Every icon ships in two weights — Outline and Filled — and works natively in vanilla JS with no framework required. Official React, Vue, Svelte, and Angular packages are available separately.
+**Reicon** is a free, open-source SVG icon library with ${icons.length}+ handcrafted, grid-aligned icons built for developers and designers. Every icon ships in two weights — Outline and Filled — and works natively in vanilla JS with no framework required. Official React, Vue, and Svelte packages are available separately.
 
 - 🔗 **Website & icon browser:** [reicon.dev](https://reicon.dev)
 - 📦 **React package:** [reicon-react](https://npmjs.com/package/reicon-react)
@@ -975,7 +975,6 @@ Reicon is the only major icon library with a **native vanilla JS API** — no Re
 | [\`reicon-react\`](https://npmjs.com/package/reicon-react) | React components for all ${icons.length}+ icons |
 | [\`reicon-vue\`](https://npmjs.com/package/reicon-vue) | Vue 3 components for all ${icons.length}+ icons |
 | [\`reicon-svelte\`](https://npmjs.com/package/reicon-svelte) | Svelte components for all ${icons.length}+ icons |
-| [\`reicon-angular\`](https://npmjs.com/package/reicon-angular) | Angular components for all ${icons.length}+ icons |
 
 ---
 

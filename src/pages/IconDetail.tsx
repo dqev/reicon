@@ -8,6 +8,8 @@ import Footer from '../components/Footer';
 import TypeTable from '../components/usage/TypeTable';
 import { FaReact } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io5';
+import { SiSvelte } from 'react-icons/si';
+import { HexColorPicker } from 'react-colorful';
 
 const EXPORT_SIZES = [16, 24, 32, 48, 64, 128, 256, 512];
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -22,8 +24,11 @@ export default function IconDetail() {
   const [previewSize, setPreviewSize] = useState(96);
   const [toast, setToast] = useState<string | null>(null);
   const [exportSize, setExportSize] = useState(64);
-  const [codeTab, setCodeTab] = useState<'vanilla' | 'cdn' | 'react' | 'vue' | 'direct'>('vanilla');
+  const [codeTab, setCodeTab] = useState<'vanilla' | 'cdn' | 'react' | 'vue' | 'svelte' | 'direct'>('vanilla');
   const [iconCategory, setIconCategory] = useState('');
+  const [useCustomColor, setUseCustomColor] = useState(false);
+  const [customColor, setCustomColor] = useState('#6C5CE7');
+  const [isColorPickerOpen, setIsColorPickerOpen] = useState(false);
 
   const pascalName = name
     ? name.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join('')
@@ -94,8 +99,11 @@ export default function IconDetail() {
 
   const copySvg = async (iconName: string, weight: string) => {
     try {
-      const svgStr = await getSvgString(iconName, weight);
+      let svgStr = await getSvgString(iconName, weight);
       if (!svgStr) { flashToast('SVG not found'); return; }
+      if (useCustomColor) {
+        svgStr = svgStr.replace(/currentColor/g, customColor);
+      }
       await navigator.clipboard.writeText(svgStr);
       setCopiedField('svg');
       flashToast('SVG copied to clipboard');
@@ -106,8 +114,11 @@ export default function IconDetail() {
   };
 
   const downloadSvg = async (iconName: string, weight: string) => {
-    const svgStr = await getSvgString(iconName, weight);
+    let svgStr = await getSvgString(iconName, weight);
     if (!svgStr) { flashToast('SVG not found'); return; }
+    if (useCustomColor) {
+      svgStr = svgStr.replace(/currentColor/g, customColor);
+    }
     const blob = new Blob([svgStr], { type: 'image/svg+xml' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -126,8 +137,9 @@ export default function IconDetail() {
     canvas.height = size * scale;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-    // currentColor renders black on canvas — paint white so it's visible on any bg
-    const colored = svgStr.replace(/currentColor/g, '#ffffff');
+    // currentColor renders black on canvas — paint white or custom color so it's visible on any bg
+    const colorToUse = useCustomColor ? customColor : '#ffffff';
+    const colored = svgStr.replace(/currentColor/g, colorToUse);
     const img = new Image();
     const svgBlob = new Blob([colored], { type: 'image/svg+xml' });
     const svgUrl = URL.createObjectURL(svgBlob);
@@ -152,7 +164,13 @@ export default function IconDetail() {
   const downloadAsPng = (iconName: string, weight: string) => downloadAsRaster(iconName, weight, exportSize, 'png');
   const downloadAsWebp = (iconName: string, weight: string) => downloadAsRaster(iconName, weight, exportSize, 'webp');
 
-  const reset = () => { setActiveWeight('outline'); setPreviewSize(96); };
+  const reset = () => {
+    setActiveWeight('outline');
+    setPreviewSize(96);
+    setUseCustomColor(false);
+    setCustomColor('#6C5CE7');
+    setIsColorPickerOpen(false);
+  };
 
   // ── raw code strings ──────────────────────────────────────────────────────
   const fw = activeWeight === 'filled';
@@ -160,6 +178,7 @@ export default function IconDetail() {
   const cdnRaw = `<script src="https://unpkg.com/reicon@latest/cdn/reicon.min.js"><\/script>\n<re-icon icon="${name}"${fw ? ' weight="filled"' : ''}></re-icon>`;
   const reactRaw = `import { ${pascalName} } from 'reicon-react';\n\n<${pascalName} size={24}${fw ? ' weight="Filled"' : ''} />`;
   const vueRaw = `import { ${pascalName} } from 'reicon-vue';\n\n<${pascalName} :size="24"${fw ? ' weight="Filled"' : ''} />`;
+  const svelteRaw = `<script>\n  import { ${pascalName} } from 'reicon-svelte';\n</script>\n\n<${pascalName} size={24}${fw ? ' weight="Filled"' : ''} />`;
   const directRaw = `import ${pascalName} from 'reicon-react/icons/${pascalName}';`;
 
   const CODE_TABS = [
@@ -167,6 +186,7 @@ export default function IconDetail() {
     { id: 'cdn' as const, label: 'CDN', icon: <IoLogoJavascript className="text-yellow-400" size={14} />, raw: cdnRaw },
     { id: 'react' as const, label: 'React', icon: <FaReact className="text-[#61DAFB]" size={14} />, raw: reactRaw },
     { id: 'vue' as const, label: 'Vue', icon: <VueLogo />, raw: vueRaw },
+    { id: 'svelte' as const, label: 'Svelte', icon: <SiSvelte className="text-[#FF3E00]" size={14} />, raw: svelteRaw },
     { id: 'direct' as const, label: 'Direct', icon: <FaReact className="text-[#61DAFB]" size={14} />, raw: directRaw },
   ];
   const activeTab = CODE_TABS.find((t) => t.id === codeTab)!;
@@ -190,7 +210,7 @@ export default function IconDetail() {
   }, [name]);
 
   const pageTitle = `${name} icon — Reicon`;
-  const pageDesc = `Download the ${name} icon as SVG, PNG, or WebP. Available in Outline and Filled weights. Free, open-source, MIT-licensed. Copy React, Vue, or CDN code instantly.`;
+  const pageDesc = `Download the ${name} icon as SVG, PNG, or WebP. Available in Outline and Filled weights. Free, open-source, MIT-licensed. Copy React, Vue, Svelte, or CDN code instantly.`;
   const pageUrl = `https://reicon.dev/icon/${name}`;
   const ogImage = `https://reicon.dev/og/icons/${name}.png`;
 
@@ -210,7 +230,7 @@ export default function IconDetail() {
         <title>{pageTitle}</title>
         <meta name="description" content={pageDesc} />
         <link rel="canonical" href={pageUrl} />
-        <meta name="keywords" content={`${name}, ${iconCategory || 'icon'}, svg icon, react icon, vue icon, free icon, reicon`} />
+        <meta name="keywords" content={`${name}, ${iconCategory || 'icon'}, svg icon, react icon, vue icon, svelte icon, free icon, reicon`} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:site_name" content="Reicon" />
@@ -301,7 +321,7 @@ export default function IconDetail() {
                     transition={{ duration: 0.22, ease: EASE }}
                     className="flex items-center justify-center"
                   >
-                    <re-icon icon={name} weight={activeWeight} size={previewSize} color="#ffffff" aria-label={`${pascalName} icon preview`} />
+                    <re-icon icon={name} weight={activeWeight} size={previewSize} color={useCustomColor ? customColor : '#ffffff'} aria-label={`${pascalName} icon preview`} />
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -391,6 +411,57 @@ export default function IconDetail() {
                     </motion.button>
                   ))}
                 </div>
+
+                <div className="flex items-center justify-between border-t border-white/[0.06] pt-3.5 mt-1 relative">
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-[12px] text-white/40 uppercase tracking-wider font-semibold">Custom Color</span>
+                    <button 
+                      onClick={() => setUseCustomColor(!useCustomColor)}
+                      className={`relative w-8 h-4.5 rounded-full transition-colors duration-200 focus:outline-none cursor-pointer ${useCustomColor ? 'bg-[#6C5CE7]' : 'bg-white/10'}`}
+                      aria-label="Toggle custom color"
+                    >
+                      <div className={`w-3.5 h-3.5 rounded-full bg-white transition-transform duration-200 shadow-sm absolute top-0.5 left-0.5 ${useCustomColor ? 'translate-x-3.5' : 'translate-x-0'}`} />
+                    </button>
+                  </div>
+
+                  {useCustomColor && (
+                    <div className="relative">
+                      <button 
+                        onClick={() => setIsColorPickerOpen(!isColorPickerOpen)}
+                        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.06] text-[11px] font-mono text-white/70 hover:text-white transition-colors cursor-pointer"
+                        style={{ borderColor: `${customColor}30` }}
+                      >
+                        <span className="w-3.5 h-3.5 rounded-full border border-white/20 shadow-sm" style={{ backgroundColor: customColor }} />
+                        {customColor.toUpperCase()}
+                      </button>
+
+                      {isColorPickerOpen && (
+                        <>
+                          <div className="fixed inset-0 z-40" onClick={() => setIsColorPickerOpen(false)} />
+                          <div className="absolute right-0 bottom-full mb-2 z-50 bg-[#121214] border border-white/[0.08] rounded-xl p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.6)] flex flex-col gap-2.5 min-w-[200px]" style={{ boxShadow: '0 12px 40px rgba(0,0,0,0.6), 0 0 1px rgba(255,255,255,0.1)' }}>
+                            <HexColorPicker color={customColor} onChange={setCustomColor} />
+                            <div className="flex gap-1.5 items-center">
+                              <span className="text-[10px] text-white/40 font-mono">HEX</span>
+                              <input 
+                                type="text" 
+                                value={customColor} 
+                                onChange={(e) => {
+                                  const val = e.target.value;
+                                  if (val.startsWith('#')) {
+                                    if (val.length <= 7) setCustomColor(val);
+                                  } else {
+                                    if (val.length <= 6) setCustomColor('#' + val);
+                                  }
+                                }}
+                                className="w-full bg-[#09090b] border border-white/[0.08] rounded-lg px-2.5 py-1.5 text-[12px] font-mono text-white text-center focus:outline-none focus:border-[#6C5CE7]/60"
+                              />
+                            </div>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Code tabs */}
@@ -433,6 +504,7 @@ export default function IconDetail() {
                         {codeTab === 'cdn' && <CdnSnippet name={name || ''} filled={fw} />}
                         {codeTab === 'react' && <ReactSnippet pascalName={pascalName} filled={fw} />}
                         {codeTab === 'vue' && <VueSnippet pascalName={pascalName} filled={fw} />}
+                        {codeTab === 'svelte' && <SvelteSnippet pascalName={pascalName} filled={fw} />}
                         {codeTab === 'direct' && <DirectSnippet pascalName={pascalName} />}
                       </motion.pre>
                     </AnimatePresence>
@@ -696,6 +768,25 @@ function VueSnippet({ pascalName, filled }: { pascalName: string; filled: boolea
       {'\n\n'}
       <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">{pascalName}</span>
       <span className="text-[#d19a66]"> :size</span><span className="text-white/50">=</span><span className="text-[#98c379]">"24"</span>
+      {filled && (<><span className="text-[#d19a66]"> weight</span><span className="text-white/50">=</span><span className="text-[#98c379]">"Filled"</span></>)}
+      <span className="text-white/70"> /{'>'}</span>
+    </>
+  );
+}
+
+function SvelteSnippet({ pascalName, filled }: { pascalName: string; filled: boolean }) {
+  return (
+    <>
+      <span className="text-white/30">{'<'}</span><span className="text-[#e06c75]">script</span><span className="text-white/30">{'>'}</span>
+      {'\n'}
+      <span className="text-[#c678dd]">  import</span><span className="text-white/70">{' { '}</span>
+      <span className="text-[#e5c07b]">{pascalName}</span><span className="text-white/70">{' } '}</span>
+      <span className="text-[#c678dd]">from</span><span className="text-[#98c379]"> 'reicon-svelte'</span><span className="text-white/30">;</span>
+      {'\n'}
+      <span className="text-white/30">{'</'}</span><span className="text-[#e06c75]">script</span><span className="text-white/30">{'>'}</span>
+      {'\n\n'}
+      <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">{pascalName}</span>
+      <span className="text-[#d19a66]"> size</span><span className="text-white/50">=</span><span className="text-white/70">{'{'}24{'}'}</span>
       {filled && (<><span className="text-[#d19a66]"> weight</span><span className="text-white/50">=</span><span className="text-[#98c379]">"Filled"</span></>)}
       <span className="text-white/70"> /{'>'}</span>
     </>
