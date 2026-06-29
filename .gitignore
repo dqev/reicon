@@ -11,3 +11,7 @@ coverage/
 
 # Generated package build outputs (built from data/icon-data.json)
 cdn/*.js
+
+# Packages dist/ and node_modules/ directories
+packages/*/dist/
+packages/*/node_modules/

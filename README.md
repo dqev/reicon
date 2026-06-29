@@ -7,7 +7,7 @@
 <h1 align="center">Reicon</h1>
 
 <p align="center">
-  <strong>An open-source SVG icon library featuring 2,700+ icons with dedicated packages for React, Vue 3, vanilla JavaScript, and CDN runtime.</strong>
+  <strong>An open-source SVG icon library featuring 2,700+ icons with dedicated packages for React, Vue 3, Svelte, vanilla JavaScript, and CDN runtime.</strong>
 </p>
 
 <p align="center">
@@ -20,11 +20,13 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/reicon"><img src="https://img.shields.io/npm/v/reicon?color=6C5CE7&label=reicon" alt="reicon version" /></a>
   <a href="https://www.npmjs.com/package/reicon-react"><img src="https://img.shields.io/npm/v/reicon-react?color=6C5CE7&label=reicon-react" alt="reicon-react version" /></a>
+  <a href="https://www.npmjs.com/package/reicon-vue"><img src="https://img.shields.io/npm/v/reicon-vue?color=6C5CE7&label=reicon-vue" alt="reicon-vue version" /></a>
+  <a href="https://www.npmjs.com/package/reicon-svelte"><img src="https://img.shields.io/npm/v/reicon-svelte?color=6C5CE7&label=reicon-svelte" alt="reicon-svelte version" /></a>
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
   <img src="https://img.shields.io/badge/icons-2700%2B-blue" alt="2700+ Icons" />
 </p>
 
-
+<br/>
 
 ## <img src="./public/readme-assets/overview.svg" width="22" height="22" align="center" alt="" />&nbsp; Overview
 
@@ -43,6 +45,7 @@ All icons are maintained in two weights:
 | <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JS logo" width="30"> | **`reicon`** | [![npm](https://img.shields.io/npm/v/reicon?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon) | ![npm downloads](https://img.shields.io/npm/dm/reicon?color=6C5CE7&label=) | [Guide](docs/javascript/usage.md) · [Source](./packages/reicon) |
 | <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React logo" width="30"> | **`reicon-react`** | [![npm](https://img.shields.io/npm/v/reicon-react?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-react) | ![npm downloads](https://img.shields.io/npm/dm/reicon-react?color=6C5CE7&label=) | [Guide](docs/react/usage.md) · [Source](./packages/reicon-react) |
 | <img src="https://cdn.simpleicons.org/vuedotjs/4FC08D" alt="Vue logo" width="30"> | **`reicon-vue`** | [![npm](https://img.shields.io/npm/v/reicon-vue?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-vue) | ![npm downloads](https://img.shields.io/npm/dm/reicon-vue?color=6C5CE7&label=) | [Guide](docs/vue/usage.md) · [Source](./packages/reicon-vue) |
+| <img src="https://cdn.simpleicons.org/svelte/FF3E00" alt="Svelte logo" width="30"> | **`reicon-svelte`** | [![npm](https://img.shields.io/npm/v/reicon-svelte?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-svelte) | ![npm downloads](https://img.shields.io/npm/dm/reicon-svelte?color=6C5CE7&label=) | [Guide](docs/svelte/usage.md) · [Source](./packages/reicon-svelte) |
 
 
 
@@ -69,6 +72,17 @@ import { Heart } from 'reicon-vue';
   <Heart :size="24" weight="Filled" color="#000000" />
 </template>
 ```
+
+### Svelte Usage
+
+```svelte
+<script>
+import { Heart } from 'reicon-svelte';
+</script>
+
+<Heart size={24} weight="Outline" color="#000000" />
+```
+
 
 ### HTML / CDN Usage
 
