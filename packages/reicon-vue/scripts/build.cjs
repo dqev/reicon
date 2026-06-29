@@ -4,17 +4,11 @@
  *
  * Usage:  node packages/reicon-vue/scripts/build.cjs  (or: npm run build:vue)
  *
- * Output (dist/):
- *   package.json, README.md
- *   index.js          ESM barrel — named exports for every icon
- *   index.d.ts        TypeScript declarations
- *   createIcon.js     Internal Vue defineComponent factory
- *   createIcon.d.ts
- *   icons/<Name>.js   One ESM file per icon (tree-shakeable)
- *   icons/<Name>.d.ts TypeScript declaration per icon
- *
- * Weights: Outline (O) and Filled (F)
- * Each icon file includes JSDoc with @preview (inline SVG).
+ * Output:
+ *   src/icons/        Individual Vue icon files and type declarations (git-ignored)
+ *   src/index.js      Barrel ESM exports (git-ignored)
+ *   src/index.d.ts    Barrel TypeScript declarations (git-ignored)
+ *   dist/             Standard NPM package ready to publish (git-ignored)
  */
 
 const fs = require('fs');
@@ -23,6 +17,7 @@ const path = require('path');
 // ── paths ──────────────────────────────────────────────────────────────────
 const DATA_PATH = path.join(__dirname, '..', '..', '..', 'data', 'icon-data.json');
 const TAGS_PATH = path.join(__dirname, '..', '..', '..', 'data', 'icon-tags.json');
+const SRC = path.join(__dirname, '..', 'src');
 const DIST = path.join(__dirname, '..', 'dist');
 
 // ── weight short keys ──────────────────────────────────────────────────────
@@ -107,113 +102,12 @@ for (const [catKey, catData] of Object.entries(data.categories || {})) {
 icons.sort((a, b) => a.pascal.localeCompare(b.pascal));
 console.log(`Found ${icons.length} icons`);
 
-// ── clean & prepare dist ───────────────────────────────────────────────────
-fs.rmSync(DIST, { recursive: true, force: true });
-fs.mkdirSync(path.join(DIST, 'icons'), { recursive: true });
-
-// ── createIcon.js (ESM, Vue 3) ────────────────────────────────────────────
-const createIconJS = `import { defineComponent, h, computed } from 'vue';
-
-const W_MAP = { Filled: 'F', Outline: 'O' };
-
-/**
- * Factory that builds a Vue 3 icon component.
- * @param {string} displayName  PascalCase icon name
- * @param {Object} iconData     { F?: string, O?: string }
- * @returns {import('vue').DefineComponent}
- */
-const createIcon = (displayName, iconData) => {
-  return defineComponent({
-    name: displayName,
-    inheritAttrs: false,
-    props: {
-      /** Primary icon color. Default: \`currentColor\` */
-      color: { type: String, default: 'currentColor' },
-      /** Icon size (number = px, string = any CSS unit). Default: \`24\` */
-      size: { type: [Number, String], default: 24 },
-      /** Icon weight / style: \`'Outline'\` | \`'Filled'\`. Default: \`'Outline'\` */
-      weight: {
-        type: String,
-        default: 'Outline',
-        validator: (v) => ['Outline', 'Filled'].includes(v),
-      },
-      /** Override stroke-width on stroked weights */
-      strokeWidth: { type: [Number, String], default: undefined },
-    },
-    setup(props, { attrs }) {
-      const svgHtml = computed(() => {
-        const key = W_MAP[props.weight] || 'O';
-        let html = iconData[key] || iconData[Object.keys(iconData)[0]] || '';
-        if (props.strokeWidth != null) {
-          html = html.replace(/stroke-width="[^"]*"/g, 'stroke-width="' + props.strokeWidth + '"');
-        }
-        return html;
-      });
-
-      return () => {
-        // Separate class/style from other attrs to avoid duplication
-        const { class: userClass, style: userStyle, ...restAttrs } = attrs;
-
-        return h('svg', {
-          xmlns: 'http://www.w3.org/2000/svg',
-          width: props.size,
-          height: props.size,
-          viewBox: '0 0 24 24',
-          fill: 'none',
-          // Use array syntax so Vue correctly normalises string, array, and object class bindings
-          class: ['reicon', userClass],
-          style: [{ color: props.color }, userStyle],
-          innerHTML: svgHtml.value,
-          ...restAttrs,
-        });
-      };
-    },
-  });
-};
-
-export { createIcon };
-export default createIcon;
-`;
-
-fs.writeFileSync(path.join(DIST, 'createIcon.js'), createIconJS);
-
-// ── createIcon.d.ts ────────────────────────────────────────────────────────
-const createIconDTS = `import { DefineComponent, ExtractPropTypes } from 'vue';
-
-export type IconWeight = 'Filled' | 'Outline';
-
-export declare const iconProps: {
-  color: { type: StringConstructor; default: 'currentColor' };
-  size: { type: (NumberConstructor | StringConstructor)[]; default: 24 };
-  weight: { type: StringConstructor; default: 'Outline'; validator: (v: string) => boolean };
-  strokeWidth: { type: (NumberConstructor | StringConstructor)[]; default: undefined };
-};
-
-export type IconProps = Partial<ExtractPropTypes<typeof iconProps>>;
-
-export type IconComponent = DefineComponent<{
-  /** Primary color. Default: \`currentColor\` */
-  color?: string;
-  /** Icon size (px when number). Default: \`24\` */
-  size?: number | string;
-  /** Icon weight / style. Default: \`Outline\` */
-  weight?: IconWeight;
-  /** Override stroke-width on stroked weights */
-  strokeWidth?: number | string;
-}>;
-
-export declare function createIcon(
-  displayName: string,
-  iconData: Partial<Record<string, string>>,
-): IconComponent;
-
-export default createIcon;
-`;
-
-fs.writeFileSync(path.join(DIST, 'createIcon.d.ts'), createIconDTS);
+// ── clean & prepare src/icons ──────────────────────────────────────────────
+fs.rmSync(path.join(SRC, 'icons'), { recursive: true, force: true });
+fs.mkdirSync(path.join(SRC, 'icons'), { recursive: true });
 
 // ── individual icon files ──────────────────────────────────────────────────
-console.log('Generating icon files …');
+console.log('Generating Vue component files in src/icons/ …');
 
 const barrelExports = [];
 const dtsExports = [];
@@ -244,7 +138,7 @@ export { ${icon.pascal} };
 export default ${icon.pascal};
 `;
 
-  fs.writeFileSync(path.join(DIST, 'icons', `${icon.pascal}.js`), iconJS);
+  fs.writeFileSync(path.join(SRC, 'icons', `${icon.pascal}.js`), iconJS);
 
   // ── icon .d.ts file ──
   const iconDTS = `import { IconComponent } from '../createIcon';
@@ -261,29 +155,48 @@ export { ${icon.pascal} };
 export default ${icon.pascal};
 `;
 
-  fs.writeFileSync(path.join(DIST, 'icons', `${icon.pascal}.d.ts`), iconDTS);
+  fs.writeFileSync(path.join(SRC, 'icons', `${icon.pascal}.d.ts`), iconDTS);
 
   barrelExports.push(`export { ${icon.pascal} } from './icons/${icon.pascal}.js';`);
   dtsExports.push(`export { ${icon.pascal} } from './icons/${icon.pascal}.js';`);
 }
 
-// ── index.js (ESM barrel) ──────────────────────────────────────────────────
+// ── index.js (ESM barrel in src/) ──────────────────────────────────────────
 const indexJS = `// Auto-generated barrel — do not edit
 export { createIcon } from './createIcon.js';
 
 ${barrelExports.join('\n')}
 `;
 
-fs.writeFileSync(path.join(DIST, 'index.js'), indexJS);
+fs.writeFileSync(path.join(SRC, 'index.js'), indexJS);
 
-// ── index.d.ts ─────────────────────────────────────────────────────────────
+// ── index.d.ts (types in src/) ─────────────────────────────────────────────
 const indexDTS = `// Auto-generated — do not edit
 export { createIcon, IconProps, IconWeight, IconComponent } from './createIcon';
 
 ${dtsExports.join('\n')}
 `;
 
-fs.writeFileSync(path.join(DIST, 'index.d.ts'), indexDTS);
+fs.writeFileSync(path.join(SRC, 'index.d.ts'), indexDTS);
+
+// ── recreate src/icons/.gitkeep ────────────────────────────────────────────
+fs.writeFileSync(path.join(SRC, 'icons', '.gitkeep'), '# Keep directory in Git\n');
+
+// ── clean & prepare dist ───────────────────────────────────────────────────
+console.log('Preparing production build in dist/ …');
+fs.rmSync(DIST, { recursive: true, force: true });
+fs.mkdirSync(path.join(DIST, 'icons'), { recursive: true });
+
+// ── copy src files to dist ─────────────────────────────────────────────────
+fs.copyFileSync(path.join(SRC, 'createIcon.js'), path.join(DIST, 'createIcon.js'));
+fs.copyFileSync(path.join(SRC, 'createIcon.d.ts'), path.join(DIST, 'createIcon.d.ts'));
+fs.copyFileSync(path.join(SRC, 'index.js'), path.join(DIST, 'index.js'));
+fs.copyFileSync(path.join(SRC, 'index.d.ts'), path.join(DIST, 'index.d.ts'));
+
+for (const icon of icons) {
+  fs.copyFileSync(path.join(SRC, 'icons', `${icon.pascal}.js`), path.join(DIST, 'icons', `${icon.pascal}.js`));
+  fs.copyFileSync(path.join(SRC, 'icons', `${icon.pascal}.d.ts`), path.join(DIST, 'icons', `${icon.pascal}.d.ts`));
+}
 
 // ── package.json ───────────────────────────────────────────────────────────
 const pkg = {
@@ -312,7 +225,7 @@ const pkg = {
   sideEffects: false,
   files: ['index.js', 'index.d.ts', 'createIcon.js', 'createIcon.d.ts', 'icons/', 'README.md'],
   peerDependencies: {
-    vue: '>=3.2.0',
+    vue: '^3.0.0',
   },
   keywords: [
     'icons',
@@ -341,9 +254,24 @@ const pkg = {
 fs.writeFileSync(path.join(DIST, 'package.json'), JSON.stringify(pkg, null, 2) + '\n');
 
 // ── README.md ──────────────────────────────────────────────────────────────
-const readme = `# Reicon Vue
+const readme = `<p align="center">
+  <a href="https://npmjs.com/package/reicon-vue"><img src="https://img.shields.io/npm/v/reicon-vue?color=black&label=npm" alt="npm version" /></a>
+  <a href="https://npmjs.com/package/reicon-vue"><img src="https://img.shields.io/npm/dm/reicon-vue?color=black&label=downloads" alt="npm downloads" /></a>
+  <a href="https://github.com/dqev/reicon/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-black" alt="MIT License" /></a>
+  <a href="https://reicon.dev"><img src="https://img.shields.io/badge/docs-reicon.dev-black" alt="Documentation" /></a>
+</p>
 
-Vue 3 icon components for **${icons.length}+** icons in **2 weights** (Outline & Filled) — tree-shakeable, TypeScript-ready, zero config.
+# Reicon Vue
+
+> ${icons.length}+ pixel-perfect SVG icons • Outline & Filled weights • Vue 3 component wrapper • Zero dependencies • MIT Licensed
+
+**Reicon Vue** is the official Vue 3 package for Reicon — a free, open-source SVG icon library with ${icons.length}+ handcrafted, grid-aligned icons built for developers and designers. Every component is optimized for tree-shaking and fully TypeScript-ready.
+
+- 🔗 **Website & icon browser:** [reicon.dev](https://reicon.dev)
+- 📦 **Core package:** [reicon](https://npmjs.com/package/reicon)
+- 🎨 **Figma plugin:** [reicon.dev/figma](https://reicon.dev/figma)
+
+---
 
 ## Install
 
@@ -351,44 +279,50 @@ Vue 3 icon components for **${icons.length}+** icons in **2 weights** (Outline &
 npm i reicon-vue
 # or
 bun add reicon-vue
+# or
+yarn add reicon-vue
 \`\`\`
+
+---
 
 ## Usage
 
-\`\`\`vue
+\`\`\`html
+<template>
+  <div>
+    <Home />
+    <ShieldCheck :size="32" color="#d97757" />
+    <AltArrowDown weight="Filled" />
+  </div>
+</template>
+
 <script setup>
 import { Home, ShieldCheck, AltArrowDown } from 'reicon-vue';
 </script>
-
-<template>
-  <Home />
-  <ShieldCheck :size="32" color="#d97757" />
-  <AltArrowDown weight="Filled" />
-</template>
 \`\`\`
 
 ### Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| \`size\` | \`number \\| string\` | \`24\` | Icon size (number = px, string = any CSS unit) |
+| \`size\` | \`number | string\` | \`24\` | Icon size (number = px) |
 | \`color\` | \`string\` | \`currentColor\` | Primary icon color |
-| \`weight\` | \`'Outline' \\| 'Filled'\` | \`Outline\` | Icon weight / style |
-| \`strokeWidth\` | \`number \\| string\` | — | Override stroke width |
+| \`weight\` | \`IconWeight\` | \`Outline\` | Icon weight / style |
+| \`strokeWidth\` | \`number | string\` | — | Override stroke width |
+| \`class\` | \`string | array | object\` | — | Custom SVG classes |
+| \`style\` | \`string | array | object\` | — | Custom SVG styles |
 
-Plus all standard SVG/HTML attributes via \`v-bind\`.
+Plus all standard SVG attributes.
 
 ### Weights
 
 - **Outline** — clean outlined style (default)
 - **Filled** — solid filled style
 
-\`\`\`vue
-<template>
-  <Home />                              <!-- Outline (default) -->
-  <Home weight="Filled" />              <!-- Filled -->
-  <Home weight="Filled" color="red" />
-</template>
+\`\`\`html
+<Home />                           <!-- Outline (default) -->
+<Home weight="Filled" />           <!-- Filled -->
+<Home weight="Filled" color="red" />
 \`\`\`
 
 ### Direct icon import (smallest bundle)
@@ -397,86 +331,90 @@ Plus all standard SVG/HTML attributes via \`v-bind\`.
 import Home from 'reicon-vue/icons/Home';
 \`\`\`
 
-### Styling with classes
+---
 
-\`\`\`vue
-<template>
-  <!-- class is automatically merged with the base 'reicon' class -->
-  <Home class="my-icon" />
+## Tree-shaking — import only what you use
 
-  <!-- inline style is merged too -->
-  <Home :style="{ marginRight: '8px' }" />
+Every icon is a standalone ES module. Bundlers (Vite, Webpack, Rollup, esbuild) will tree-shake unused icons automatically.
 
-  <!-- all native SVG attrs are passed through -->
-  <Home @click="handleClick" aria-label="Home icon" />
-</template>
+\`\`\`js
+// ✅ Only Home is included in your bundle
+import { Home } from 'reicon-vue';
 \`\`\`
 
-### Dynamic icons
-
-\`\`\`vue
-<script setup>
-import { Home, Settings, User } from 'reicon-vue';
-import { shallowRef } from 'vue';
-
-const currentIcon = shallowRef(Home);
-</script>
-
-<template>
-  <component :is="currentIcon" :size="32" />
-</template>
-\`\`\`
+---
 
 ## Icon Names
 
-Icons use PascalCase names derived from their kebab-case originals:
+Icons use **PascalCase**, derived from their original kebab-case names:
 
-| Original | Import |
-|----------|--------|
+| Original name | Import |
+|---------------|--------|
 | \`home\` | \`Home\` |
 | \`shield-check\` | \`ShieldCheck\` |
 | \`alt-arrow-down\` | \`AltArrowDown\` |
 | \`shopping-cart\` | \`ShoppingCart\` |
+| \`user-circle\` | \`UserCircle\` |
+
+Browse all ${icons.length}+ icons at [reicon.dev](https://reicon.dev).
+
+---
 
 ## TypeScript
 
-Full TypeScript support out of the box:
+Full TypeScript support out of the box.
 
-\`\`\`vue
-<script setup lang="ts">
-import { Home } from 'reicon-vue';
-import type { IconWeight } from 'reicon-vue';
+---
 
-const weight: IconWeight = 'Filled';
-</script>
+## Why Reicon?
 
-<template>
-  <Home :size="32" color="#d97757" :weight="weight" />
-</template>
-\`\`\`
+| | Reicon | Lucide | Heroicons | Phosphor |
+|--|--------|--------|-----------|---------|
+| **Icons** | ${icons.length}+ | 1600+ | 292 | 7700+ |
+| **Weights** | Outline + Filled | Outline only | Outline + Solid | 6 weights |
+| **Vanilla JS** | ✅ Native | ❌ | ❌ | ❌ |
+| **React** | ✅ reicon-react | ✅ | ✅ | ✅ |
+| **Vue** | ✅ reicon-vue | ✅ | ✅ | ✅ |
+| **CDN / script tag** | ✅ | ❌ | ❌ | ❌ |
+| **Zero dependencies** | ✅ | ✅ | ✅ | ✅ |
+| **TypeScript** | ✅ | ✅ | ✅ | ✅ |
+| **MIT License** | ✅ | ✅ | ✅ | ✅ |
+| **Figma plugin** | ✅ | ✅ | ❌ | ✅ |
 
-## Nuxt
+---
 
-Works out of the box with Nuxt 3 — just import and use:
+## Related packages
 
-\`\`\`vue
-<script setup>
-import { Home } from 'reicon-vue';
-</script>
+| Package | Description |
+|---------|-------------|
+| [\`reicon\`](https://npmjs.com/package/reicon) | Core vanilla JS + CDN |
+| [\`reicon-react\`](https://npmjs.com/package/reicon-react) | React components for all ${icons.length}+ icons |
+| [\`reicon-vue\`](https://npmjs.com/package/reicon-vue) | **This package.** Vue 3 components for all ${icons.length}+ icons |
+| [\`reicon-svelte\`](https://npmjs.com/package/reicon-svelte) | Svelte components for all ${icons.length}+ icons |
 
-<template>
-  <Home :size="24" />
-</template>
-\`\`\`
+---
+
+## Links
+
+- 🌐 Website: [reicon.dev](https://reicon.dev)
+- 📖 Documentation: [reicon.dev/usage](https://reicon.dev/usage)
+- 📦 npm (React): [npmjs.com/package/reicon-react](https://npmjs.com/package/reicon-react)
+- 🐙 GitHub: [github.com/dqev/reicon](https://github.com/dqev/reicon)
+- 🐛 Issues: [github.com/dqev/reicon/issues](https://github.com/dqev/reicon/issues)
+
+---
 
 ## License
 
-MIT © [devchauhan](https://devchauhan.in)
+MIT © [Dev Chauhan](https://devchauhan.in)
+
+Free to use in personal and commercial projects.
 `;
 
 fs.writeFileSync(path.join(DIST, 'README.md'), readme);
+fs.writeFileSync(path.join(__dirname, '..', 'README.md'), readme);
 
-// ── icon name map ──────────────────────────────────────────────────────────
+// ── icon name map (for documentation / search) ────────────────────────────
 const nameMap = {};
 for (const icon of icons) {
   nameMap[icon.kebab] = icon.pascal;

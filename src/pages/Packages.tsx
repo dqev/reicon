@@ -12,6 +12,13 @@ const VueIcon = ({ size = 48 }: { size?: number }) => (
   </svg>
 );
 
+const SvelteIcon = ({ size = 48 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 98.1 118" fill="none">
+    <path d="M91.8 15.6C80.9-.1 59.2-4.7 43.6 5.2L16.1 22.8C8.6 27.5 3.4 35.2 1.9 43.9c-1.3 7.3-.2 14.8 3.3 21.3-2.4 3.6-4 7.6-4.7 11.8-1.6 8.9.5 18.1 5.7 25.4 11 15.7 32.6 20.3 48.2 10.4l27.5-17.5c7.5-4.7 12.7-12.4 14.2-21.1 1.3-7.3.2-14.8-3.3-21.3 2.4-3.6 4-7.6 4.7-11.8 1.7-9-.4-18.2-5.7-25.5" fill="#FF3E00" />
+    <path d="M40.9 103.9c-8.9 2.3-18.2-1.2-23.4-8.7-3.2-4.4-4.4-9.9-3.5-15.3.2-.9.4-1.7.6-2.6l.5-1.6 1.4 1c3.3 2.4 6.9 4.2 10.8 5.4l1 .3-.1 1c-.1 1.4.3 2.9 1.1 4.1 1.6 2.3 4.4 3.4 7.1 2.7.6-.2 1.2-.4 1.7-.8L65.4 72c1.4-.9 2.3-2.2 2.6-3.8.3-1.6-.1-3.3-1.1-4.6-1.6-2.3-4.4-3.3-7.1-2.6-.6.2-1.2.4-1.7.8l-10.5 6.7c-1.7 1.1-3.6 1.9-5.6 2.4-8.9 2.3-18.2-1.2-23.4-8.7-3.2-4.4-4.4-9.9-3.5-15.3.8-5.3 3.9-10 8.5-12.8l27.5-17.5c1.7-1.1 3.6-1.9 5.6-2.4 8.9-2.3 18.2 1.2 23.4 8.7 3.2 4.4 4.4 9.9 3.5 15.3-.2.9-.4 1.7-.6 2.6l-.5 1.6-1.4-1c-3.3-2.4-6.9-4.2-10.8-5.4l-1-.3.1-1c.1-1.4-.3-2.9-1.1-4.1-1.6-2.3-4.4-3.4-7.1-2.7-.6.2-1.2.4-1.7.8L32.4 46.1c-1.4.9-2.3 2.2-2.6 3.8s.1 3.3 1.1 4.6c1.6 2.3 4.4 3.3 7.1 2.6.6-.2 1.2-.4 1.7-.8l10.5-6.7c1.7-1.1 3.6-1.9 5.6-2.4 8.9-2.3 18.2 1.2 23.4 8.7 3.2 4.4 4.4 9.9 3.5 15.3-.8 5.3-3.9 10-8.5 12.8L47.3 101.6c-1.7 1.1-3.6 1.9-5.6 2.4l-.8-.1z" fill="#fff" />
+  </svg>
+);
+
 const PACKAGES = [
   {
     id: 'vanilla',
@@ -43,21 +50,31 @@ const PACKAGES = [
     sourceUrl: 'https://github.com/dqev/reicon',
     guideUrl: '/usage/vue',
   },
+  {
+    id: 'svelte',
+    name: 'reicon-svelte',
+    npmPkg: 'reicon-svelte',
+    description: 'Svelte icon components for Reicon. Tree-shakeable, TypeScript-ready, zero config. Works with SvelteKit.',
+    icon: <SvelteIcon size={48} />,
+    npmUrl: 'https://www.npmjs.com/package/reicon-svelte',
+    sourceUrl: 'https://github.com/dqev/reicon',
+    guideUrl: '/usage/svelte',
+  },
 ];
 
 export default function PackagesPage() {
   return (
     <div className="min-h-screen bg-[#09090b] flex flex-col">
       <Helmet>
-        <title>Packages — Reicon | React, Vue & JavaScript Icon Packages</title>
-        <meta name="description" content="Install Reicon icon packages for React, Vue, and JavaScript. Tree-shakeable, zero dependencies, MIT licensed." />
+        <title>Packages — Reicon | React, Vue, Svelte & JavaScript Icon Packages</title>
+        <meta name="description" content="Install Reicon icon packages for React, Vue, Svelte, and JavaScript. Tree-shakeable, zero dependencies, MIT licensed." />
         <link rel="canonical" href="https://reicon.dev/packages" />
-        <meta name="keywords" content="reicon packages, reicon-react, reicon-vue, npm icon package, React icon library, Vue icon library, JavaScript icons" />
+        <meta name="keywords" content="reicon packages, reicon-react, reicon-vue, reicon-svelte, npm icon package, React icon library, Vue icon library, Svelte icons, JavaScript icons" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://reicon.dev/packages" />
         <meta property="og:site_name" content="Reicon" />
         <meta property="og:title" content="Packages — Reicon" />
-        <meta property="og:description" content="Install Reicon icon packages for React, Vue, and JavaScript. Tree-shakeable, zero dependencies, MIT licensed." />
+        <meta property="og:description" content="Install Reicon icon packages for React, Vue, Svelte, and JavaScript. Tree-shakeable, zero dependencies, MIT licensed." />
         <meta property="og:image" content="https://reicon.dev/og-image.png?v=2" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

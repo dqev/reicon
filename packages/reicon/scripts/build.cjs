@@ -4,17 +4,11 @@
  *
  * Usage:  node packages/reicon/scripts/build.cjs  (or: npm run build:js)
  *
- * Output (dist/):
- *   package.json, README.md
- *   index.js          ESM barrel — named exports for every icon
- *   index.d.ts        TypeScript declarations
- *   createIcon.js     Internal SVG element factory
- *   createIcon.d.ts
- *   icons/<Name>.js   One ESM file per icon (tree-shakeable)
- *   icons/<Name>.d.ts TypeScript declaration per icon
- *
- * Weights: Outline (O) and Filled (F, sourced from Bold)
- * Each icon file includes JSDoc with @preview (inline SVG).
+ * Output:
+ *   src/icons/        Individual JS icon files and type declarations (git-ignored)
+ *   src/index.js      Barrel ESM exports (git-ignored)
+ *   src/index.d.ts    Barrel TypeScript declarations (git-ignored)
+ *   dist/             Standard NPM package ready to publish (git-ignored)
  */
 
 const fs = require('fs');
@@ -23,6 +17,7 @@ const path = require('path');
 // ── paths ──────────────────────────────────────────────────────────────────
 const DATA_PATH = path.join(__dirname, '..', '..', '..', 'data', 'icon-data.json');
 const TAGS_PATH = path.join(__dirname, '..', '..', '..', 'data', 'icon-tags.json');
+const SRC = path.join(__dirname, '..', 'src');
 const DIST = path.join(__dirname, '..', 'dist');
 
 // ── weight short keys ──────────────────────────────────────────────────────
@@ -34,10 +29,6 @@ function toPascalCase(str) {
     .split('-')
     .map(s => s.charAt(0).toUpperCase() + s.slice(1))
     .join('');
-}
-
-function toKebabDisplay(str) {
-  return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
 }
 
 function stripSvgWrapper(code) {
@@ -112,157 +103,12 @@ for (const [catKey, catData] of Object.entries(data.categories || {})) {
 icons.sort((a, b) => a.pascal.localeCompare(b.pascal));
 console.log(`Found ${icons.length} icons`);
 
-// ── clean & prepare dist ───────────────────────────────────────────────────
-fs.rmSync(DIST, { recursive: true, force: true });
-fs.mkdirSync(path.join(DIST, 'icons'), { recursive: true });
-
-// ── createIcon.js (ESM, vanilla JS) ────────────────────────────────────────
-const createIconJS = `const W_MAP = { Filled: 'F', Outline: 'O' };
-
-/** Escape a value for safe embedding inside an HTML/SVG attribute. */
-const escAttr = (v) => String(v).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
-/**
- * Factory that builds an icon function returning an SVG element.
- * @param {string} displayName  PascalCase icon name
- * @param {Object} iconData     { F?: string, O?: string }
- * @returns {function(IconOptions=): SVGSVGElement}
- */
-const createIcon = (displayName, iconData) => {
-  /**
-   * Create an SVG element for this icon.
-   * @param {Object} [options]
-   * @param {string} [options.color='currentColor'] - Primary icon color
-   * @param {number|string} [options.size=24] - Icon size (px when number)
-   * @param {string} [options.weight='Outline'] - Icon weight: 'Outline' | 'Filled'
-   * @param {number|string} [options.strokeWidth] - Override stroke-width
-   * @param {string} [options.className] - Additional CSS class
-   * @param {Object} [options.attrs] - Extra SVG attributes
-   * @returns {SVGSVGElement}
-   */
-  const icon = (options = {}) => {
-    const {
-      color = 'currentColor',
-      size = 24,
-      weight = 'Outline',
-      strokeWidth,
-      className,
-      attrs = {},
-    } = options;
-
-    const key = W_MAP[weight] || 'O';
-    let html = iconData[key] || iconData[Object.keys(iconData)[0]] || '';
-
-    if (strokeWidth != null) {
-      html = html.replace(/stroke-width="[^"]*"/g, 'stroke-width="' + strokeWidth + '"');
-    }
-
-    if (typeof document === 'undefined') {
-      if (typeof console !== 'undefined' && console.warn) {
-        console.warn('reicon: document is not defined when rendering icon "' + displayName + '". Use toSvg() for Server-Side Rendering (SSR).');
-      }
-      return null;
-    }
-
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-    svg.setAttribute('width', String(size));
-    svg.setAttribute('height', String(size));
-    svg.setAttribute('viewBox', '0 0 24 24');
-    svg.setAttribute('fill', 'none');
-    svg.setAttribute('class', className ? 'reicon ' + className : 'reicon');
-    svg.style.color = color;
-
-    for (const [k, v] of Object.entries(attrs)) {
-      svg.setAttribute(k, String(v));
-    }
-
-    svg.innerHTML = html;
-    return svg;
-  };
-
-  icon.displayName = displayName;
-  icon.iconData = iconData;
-
-  /**
-   * Returns the SVG markup as a string (useful for SSR or innerHTML).
-   * @param {Object} [options] - Same options as the icon function
-   * @returns {string}
-   */
-  icon.toSvg = (options = {}) => {
-    const {
-      color = 'currentColor',
-      size = 24,
-      weight = 'Outline',
-      strokeWidth,
-      className,
-      attrs = {},
-    } = options;
-
-    const key = W_MAP[weight] || 'O';
-    let html = iconData[key] || iconData[Object.keys(iconData)[0]] || '';
-
-    if (strokeWidth != null) {
-      html = html.replace(/stroke-width="[^"]*"/g, 'stroke-width="' + strokeWidth + '"');
-    }
-
-    const extraAttrs = Object.entries(attrs)
-      .map(([k, v]) => \`\${escAttr(k)}="\${escAttr(v)}"\`)
-      .join(' ');
-
-    return \`<svg xmlns="http://www.w3.org/2000/svg" width="\${escAttr(size)}" height="\${escAttr(size)}" viewBox="0 0 24 24" fill="none" class="\${escAttr(className ? 'reicon ' + className : 'reicon')}" style="color: \${escAttr(color)}"\${extraAttrs ? ' ' + extraAttrs : ''}>\${html}</svg>\`;
-  };
-
-  return icon;
-};
-
-export { createIcon };
-export default createIcon;
-`;
-
-fs.writeFileSync(path.join(DIST, 'createIcon.js'), createIconJS);
-
-// ── createIcon.d.ts ────────────────────────────────────────────────────────
-const createIconDTS = `export type IconWeight = 'Filled' | 'Outline';
-
-export interface IconOptions {
-  /** Primary color. Default: \`currentColor\` */
-  color?: string;
-  /** Icon size (px when number). Default: \`24\` */
-  size?: number | string;
-  /** Icon weight / style. Default: \`Outline\` */
-  weight?: IconWeight;
-  /** Override stroke-width on stroked weights */
-  strokeWidth?: number | string;
-  /** Additional CSS class */
-  className?: string;
-  /** Extra SVG attributes */
-  attrs?: Record<string, string | number>;
-}
-
-export interface IconFunction {
-  /** Create an SVG element for this icon */
-  (options?: IconOptions): SVGSVGElement;
-  /** Icon display name */
-  displayName: string;
-  /** Raw icon SVG data */
-  iconData: Partial<Record<string, string>>;
-  /** Returns the SVG markup as a string */
-  toSvg(options?: IconOptions): string;
-}
-
-export declare function createIcon(
-  displayName: string,
-  iconData: Partial<Record<string, string>>,
-): IconFunction;
-
-export default createIcon;
-`;
-
-fs.writeFileSync(path.join(DIST, 'createIcon.d.ts'), createIconDTS);
+// ── clean & prepare src/icons ──────────────────────────────────────────────
+fs.rmSync(path.join(SRC, 'icons'), { recursive: true, force: true });
+fs.mkdirSync(path.join(SRC, 'icons'), { recursive: true });
 
 // ── individual icon files ──────────────────────────────────────────────────
-console.log('Generating icon files …');
+console.log('Generating vanilla JS component files in src/icons/ …');
 
 const barrelExports = [];
 const dtsExports = [];
@@ -282,8 +128,8 @@ for (const icon of icons) {
  * @name ${icon.pascal}
  * @description Reicon SVG icon function, creates an SVG element.
  * @preview ![${icon.pascal}](${previewUri}) - https://reicon.dev/icons/${kebab}
- * @see https://reicon.dev/docs — Documentation
- * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @see https://reicon.dev/docs - Documentation
+ * @param {import('../createIcon').IconOptions} [options] - Icon options
  * @returns {SVGSVGElement} SVG Element
  */
 const ${icon.pascal} = createIcon('${icon.pascal}', {
@@ -294,7 +140,7 @@ export { ${icon.pascal} };
 export default ${icon.pascal};
 `;
 
-  fs.writeFileSync(path.join(DIST, 'icons', `${icon.pascal}.js`), iconJS);
+  fs.writeFileSync(path.join(SRC, 'icons', `${icon.pascal}.js`), iconJS);
 
   // ── icon .d.ts file ──
   const iconDTS = `import { IconFunction } from '../createIcon';
@@ -312,29 +158,48 @@ export { ${icon.pascal} };
 export default ${icon.pascal};
 `;
 
-  fs.writeFileSync(path.join(DIST, 'icons', `${icon.pascal}.d.ts`), iconDTS);
+  fs.writeFileSync(path.join(SRC, 'icons', `${icon.pascal}.d.ts`), iconDTS);
 
   barrelExports.push(`export { ${icon.pascal} } from './icons/${icon.pascal}.js';`);
   dtsExports.push(`export { ${icon.pascal} } from './icons/${icon.pascal}.js';`);
 }
 
-// ── index.js (ESM barrel) ──────────────────────────────────────────────────
+// ── index.js (ESM barrel in src/) ──────────────────────────────────────────
 const indexJS = `// Auto-generated barrel — do not edit
 export { createIcon } from './createIcon.js';
 
 ${barrelExports.join('\n')}
 `;
 
-fs.writeFileSync(path.join(DIST, 'index.js'), indexJS);
+fs.writeFileSync(path.join(SRC, 'index.js'), indexJS);
 
-// ── index.d.ts ─────────────────────────────────────────────────────────────
+// ── index.d.ts (types in src/) ─────────────────────────────────────────────
 const indexDTS = `// Auto-generated — do not edit
 export { createIcon, IconOptions, IconWeight, IconFunction } from './createIcon';
 
 ${dtsExports.join('\n')}
 `;
 
-fs.writeFileSync(path.join(DIST, 'index.d.ts'), indexDTS);
+fs.writeFileSync(path.join(SRC, 'index.d.ts'), indexDTS);
+
+// ── recreate src/icons/.gitkeep ────────────────────────────────────────────
+fs.writeFileSync(path.join(SRC, 'icons', '.gitkeep'), '# Keep directory in Git\n');
+
+// ── clean & prepare dist ───────────────────────────────────────────────────
+console.log('Preparing production build in dist/ …');
+fs.rmSync(DIST, { recursive: true, force: true });
+fs.mkdirSync(path.join(DIST, 'icons'), { recursive: true });
+
+// ── copy src files to dist ─────────────────────────────────────────────────
+fs.copyFileSync(path.join(SRC, 'createIcon.js'), path.join(DIST, 'createIcon.js'));
+fs.copyFileSync(path.join(SRC, 'createIcon.d.ts'), path.join(DIST, 'createIcon.d.ts'));
+fs.copyFileSync(path.join(SRC, 'index.js'), path.join(DIST, 'index.js'));
+fs.copyFileSync(path.join(SRC, 'index.d.ts'), path.join(DIST, 'index.d.ts'));
+
+for (const icon of icons) {
+  fs.copyFileSync(path.join(SRC, 'icons', `${icon.pascal}.js`), path.join(DIST, 'icons', `${icon.pascal}.js`));
+  fs.copyFileSync(path.join(SRC, 'icons', `${icon.pascal}.d.ts`), path.join(DIST, 'icons', `${icon.pascal}.d.ts`));
+}
 
 // ── UMD bundle ─────────────────────────────────────────────────────────────
 console.log('Generating UMD bundle …');
@@ -516,9 +381,6 @@ const runtimeJS = `/*!
     var dash = spec.lastIndexOf('-');
     if (dash > 0) {
       var w = normalizeWeight(spec.substring(dash + 1));
-      // Only treat suffix as a weight if the base name exists as an icon.
-      // This prevents "text-bold" from being parsed as icon "text" + weight "Filled"
-      // when "text-bold" is actually a valid icon name.
       if (w) {
         var base = spec.substring(0, dash);
         if (ICONS[base] && !ICONS[spec]) { name = base; weight = w; }
@@ -547,7 +409,6 @@ const runtimeJS = `/*!
     return '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">' + inner + '</svg>';
   }
 
-  // reicondata.json already has currentColor — just map to CSS vars for color/secondary-color support
   function rewriteSvg(svg) {
     return svg.replace(/currentColor/g, 'var(--ri-primary)');
   }
@@ -595,14 +456,13 @@ const runtimeJS = `/*!
     '<rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.6"/>' +
     '<path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/></svg>';
 
-  // ─── inline data lookup (synchronous — no fetch!) ─────────────────────────
+  // ─── inline data lookup ───────────────────────────────────────────────────
   function lookupIcon(name, weight) {
     var entry = ICONS[name];
     if (!entry) return null;
     var ws = entry[1];
     var short = W_SHORT[weight];
     if (short && ws[short]) return { cat: CATS[entry[0]], inner: ws[short] };
-    // Fall back to any available weight
     var order = ['O', 'F'];
     for (var i = 0; i < order.length; i++) {
       if (ws[order[i]]) return { cat: CATS[entry[0]], inner: ws[order[i]] };
@@ -768,7 +628,7 @@ const runtimeJS = `/*!
   // ─── public JS API ────────────────────────────────────────────────────────
   var Reicon = {
     preload: function (names) {
-      if (!Array.isArray(names)) return;
+      if (!names || !Array.isArray(names)) return;
       for (var i = 0; i < names.length; i++) {
         var n = names[i];
         var entry = ICONS[n];
@@ -817,10 +677,10 @@ console.log(`  CDN bundle:  ${(Buffer.byteLength(runtimeJS) / 1024 / 1024).toFix
 // ── package.json ───────────────────────────────────────────────────────────
 const pkg = {
   name: 'reicon',
-  version: '1.0.0',
+  version: '1.1.1',
   type: 'module',
   description:
-    `Vanilla JS SVG icon functions for ${icons.length}+ icons in 2 weights (Outline & Filled). Zero dependencies, tree-shakeable, TypeScript-ready.`,
+    `Core vanilla JS icon components for ${icons.length}+ icons in 2 weights (Outline & Filled). Tree-shakeable, TypeScript-ready.`,
   main: './index.js',
   module: './index.js',
   types: './index.d.ts',
@@ -840,7 +700,10 @@ const pkg = {
       import: './createIcon.js',
       types: './createIcon.d.ts',
     },
-    './element': {
+    './umd/reicon.js': {
+      import: './umd/reicon.js',
+    },
+    './cdn/reicon.js': {
       import: './cdn/reicon.js',
     },
     './cdn/*': {
@@ -851,17 +714,14 @@ const pkg = {
   files: ['index.js', 'index.d.ts', 'createIcon.js', 'createIcon.d.ts', 'icons/', 'umd/', 'cdn/', 'README.md'],
   keywords: [
     'icons',
-    'svg-icons',
     'vanilla-js',
-    'javascript',
+    'svg-icons',
     'icon-library',
     'reicon',
     'outline',
     'filled',
     'tree-shakeable',
     'typescript',
-    'no-dependencies',
-    'cdn',
   ],
   author: {
     name: 'devchauhan',
@@ -879,31 +739,74 @@ fs.writeFileSync(path.join(DIST, 'package.json'), JSON.stringify(pkg, null, 2) +
 // ── README.md ──────────────────────────────────────────────────────────────
 const readme = `<p align="center">
   <a href="https://reicon.dev">
-    <img src="https://reicon.dev/jspackage.png" alt="Reicon" width="50%" />
+    <img src="https://reicon.dev/jspackage.png" alt="Reicon — SVG Icon Library" width="50%" />
   </a>
 </p>
 
+<p align="center">
+  <a href="https://npmjs.com/package/reicon"><img src="https://img.shields.io/npm/v/reicon?color=black&label=npm" alt="npm version" /></a>
+  <a href="https://npmjs.com/package/reicon"><img src="https://img.shields.io/npm/dm/reicon?color=black&label=downloads" alt="npm downloads" /></a>
+  <a href="https://github.com/dqev/reicon/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-black" alt="MIT License" /></a>
+  <a href="https://reicon.dev"><img src="https://img.shields.io/badge/docs-reicon.dev-black" alt="Documentation" /></a>
+</p>
+
 # Reicon
-**${icons.length}+**+ SVG icons in Outline & Filled weights. Zero dependencies, tree-shakeable, TypeScript-ready.
+
+> ${icons.length}+ pixel-perfect SVG icons • Outline & Filled weights • React, Vue, Vanilla JS, Svelte, Astro • Zero dependencies • MIT Licensed
+
+**Reicon** is a free, open-source SVG icon library with ${icons.length}+ handcrafted, grid-aligned icons built for developers and designers. Every icon ships in two weights — Outline and Filled — and works natively in vanilla JS with no framework required. Official React, Vue, and Svelte packages are available separately.
+
+- 🔗 **Website & icon browser:** [reicon.dev](https://reicon.dev)
+- 📦 **React package:** [reicon-react](https://npmjs.com/package/reicon-react)
+- 🎨 **Figma plugin:** [reicon.dev/figma](https://reicon.dev/figma)
+
+---
+
 ## Install
 
 \`\`\`bash
 npm i reicon
 # or
 bun add reicon
+# or
+yarn add reicon
 \`\`\`
 
-### CDN (script tag)
+### CDN (no build step required)
 
 \`\`\`html
-<!-- Development version -->
-<script src="https://unpkg.com/reicon@latest/umd/reicon.js"></script>
-
-<!-- Production version -->
+<!-- Latest production build -->
 <script src="https://unpkg.com/reicon@latest"></script>
+
+<!-- Development (unminified) -->
+<script src="https://unpkg.com/reicon@latest/umd/reicon.js"></script>
 \`\`\`
 
-All icons are available on the global \`reicon\` object:
+---
+
+## Usage
+
+### Vanilla JS — create SVG elements
+
+\`\`\`js
+import { Home, ShieldCheck, AltArrowDown } from 'reicon';
+
+// Returns an SVGElement, append anywhere
+document.body.appendChild(Home());
+document.body.appendChild(ShieldCheck({ size: 32, color: '#d97757' }));
+document.body.appendChild(AltArrowDown({ weight: 'Filled' }));
+\`\`\`
+
+### Get SVG as a string
+
+\`\`\`js
+import { Home } from 'reicon';
+
+const svgString = Home.toSvg({ size: 32, color: 'red' });
+element.innerHTML = svgString;
+\`\`\`
+
+### CDN / Script tag
 
 \`\`\`html
 <script src="https://unpkg.com/reicon@latest"></script>
@@ -914,72 +817,124 @@ All icons are available on the global \`reicon\` object:
 </script>
 \`\`\`
 
-## Usage
+---
 
-### Create SVG elements
+## Usage with React
 
-\`\`\`js
-import { Home, ShieldCheck, AltArrowDown } from 'reicon';
+Install the official React package:
 
-// Create an SVG element and append to DOM
-document.body.appendChild(Home());
-document.body.appendChild(ShieldCheck({ size: 32, color: '#d97757' }));
-document.body.appendChild(AltArrowDown({ weight: 'Filled' }));
+\`\`\`bash
+npm i reicon-react
 \`\`\`
 
-### Get SVG markup as a string
+\`\`\`tsx
+import { Home, ShieldCheck, AltArrowDown } from 'reicon-react';
 
-\`\`\`js
-import { Home } from 'reicon';
-
-const svgString = Home.toSvg({ size: 32, color: 'red' });
-element.innerHTML = svgString;
+export default function App() {
+  return (
+    <div>
+      <Home />
+      <ShieldCheck size={32} color="#d97757" />
+      <AltArrowDown weight="Filled" />
+    </div>
+  );
+}
 \`\`\`
 
-### Options
+→ Full docs: [reicon.dev/usage](https://reicon.dev/usage) · npm: [reicon-react](https://npmjs.com/package/reicon-react)
+
+---
+
+## Usage with Vue
+
+\`\`\`bash
+npm i reicon-vue
+\`\`\`
+
+\`\`\`vue
+<script setup>
+import { Home, ShieldCheck } from 'reicon-vue';
+</script>
+
+<template>
+  <Home />
+  <ShieldCheck :size="32" color="#d97757" />
+</template>
+\`\`\`
+
+---
+
+## Usage with Svelte / Astro / plain HTML
+
+Any framework that can render SVG strings or DOM elements works with the base \`reicon\` package directly. For Svelte and Astro, use \`Home.toSvg()\` to get the raw SVG markup and inject it with \`{@html}\`:
+
+\`\`\`svelte
+<script>
+  import { Home } from 'reicon';
+  const icon = Home.toSvg({ size: 24 });
+</script>
+
+{@html icon}
+\`\`\`
+
+---
+
+## Options
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
-| \`size\` | \`number \\| string\` | \`24\` | Icon size (number = px) |
-| \`color\` | \`string\` | \`currentColor\` | Primary icon color |
-| \`weight\` | \`IconWeight\` | \`Outline\` | Icon weight / style |
-| \`strokeWidth\` | \`number \\| string\` | — | Override stroke width |
-| \`className\` | \`string\` | — | Additional CSS class |
-| \`attrs\` | \`object\` | — | Extra SVG attributes |
+| \`size\` | \`number | string\` | \`24\` | Icon size (unitless = px) |
+| \`color\` | \`string\` | \`currentColor\` | Icon color — accepts any CSS color value |
+| \`weight\` | \`'Outline' | 'Filled'\` | \`'Outline'\` | Icon style / weight |
+| \`strokeWidth\` | \`number | string\` | — | Override default stroke width |
+| \`className\` | \`string\` | — | Extra CSS class on the \`<svg>\` element |
+| \`attrs\` | \`object\` | — | Any additional SVG attributes |
 
 ### Weights
-
-- **Outline** — clean outlined style (default)
-- **Filled** — solid filled style
 
 \`\`\`js
 import { Home } from 'reicon';
 
-Home()                                  // Outline (default)
-Home({ weight: 'Filled' })              // Filled
-Home({ weight: 'Filled', color: 'red' })
+Home()                                    // Outline (default)
+Home({ weight: 'Filled' })               // Filled
+Home({ weight: 'Filled', color: 'red' }) // Filled + custom color
 \`\`\`
 
-### Direct icon import (smallest bundle)
+---
+
+## Tree-shaking — import only what you use
+
+Every icon is a standalone ES module. Bundlers (Vite, Webpack, Rollup, esbuild) will tree-shake unused icons automatically.
 
 \`\`\`js
+// ✅ Only Home is included in your bundle
+import { Home } from 'reicon';
+
+// ✅ Direct import — smallest possible bundle
 import Home from 'reicon/icons/Home';
 \`\`\`
 
+---
+
 ## Icon Names
 
-Icons use PascalCase names derived from their kebab-case originals:
+Icons use **PascalCase**, derived from their original kebab-case names:
 
-| Original | Import |
-|----------|--------|
+| Original name | Import |
+|---------------|--------|
 | \`home\` | \`Home\` |
 | \`shield-check\` | \`ShieldCheck\` |
 | \`alt-arrow-down\` | \`AltArrowDown\` |
 | \`shopping-cart\` | \`ShoppingCart\` |
+| \`user-circle\` | \`UserCircle\` |
+
+Browse all ${icons.length}+ icons at [reicon.dev](https://reicon.dev).
+
+---
 
 ## TypeScript
 
-Full TypeScript support out of the box:
+Full TypeScript support — types ship with the package, no \`@types/\` install needed.
 
 \`\`\`ts
 import { Home, IconOptions, IconWeight } from 'reicon';
@@ -987,16 +942,61 @@ import { Home, IconOptions, IconWeight } from 'reicon';
 const weight: IconWeight = 'Filled';
 const options: IconOptions = { size: 32, color: '#d97757', weight };
 
-const svg = Home(options);
+const svg: SVGSVGElement = Home(options);
 document.body.appendChild(svg);
 \`\`\`
 
+---
+
+## Why Reicon?
+
+| | Reicon | Lucide | Heroicons | Phosphor |
+|--|--------|--------|-----------|---------|
+| **Icons** | ${icons.length}+ | 1600+ | 292 | 7700+ |
+| **Weights** | Outline + Filled | Outline only | Outline + Solid | 6 weights |
+| **Vanilla JS** | ✅ Native | ❌ | ❌ | ❌ |
+| **React** | ✅ reicon-react | ✅ | ✅ | ✅ |
+| **Vue** | ✅ reicon-vue | ✅ | ✅ | ✅ |
+| **CDN / script tag** | ✅ | ❌ | ❌ | ❌ |
+| **Zero dependencies** | ✅ | ✅ | ✅ | ✅ |
+| **TypeScript** | ✅ | ✅ | ✅ | ✅ |
+| **MIT License** | ✅ | ✅ | ✅ | ✅ |
+| **Figma plugin** | ✅ | ✅ | ❌ | ✅ |
+
+Reicon is the only major icon library with a **native vanilla JS API** — no React, no Vue, no build tools required. Add a \`<script>\` tag and you're done.
+
+---
+
+## Related packages
+
+| Package | Description |
+|---------|-------------|
+| [\`reicon\`](https://npmjs.com/package/reicon) | **This package.** Core vanilla JS + CDN |
+| [\`reicon-react\`](https://npmjs.com/package/reicon-react) | React components for all ${icons.length}+ icons |
+| [\`reicon-vue\`](https://npmjs.com/package/reicon-vue) | Vue 3 components for all ${icons.length}+ icons |
+| [\`reicon-svelte\`](https://npmjs.com/package/reicon-svelte) | Svelte components for all ${icons.length}+ icons |
+
+---
+
+## Links
+
+- 🌐 Website: [reicon.dev](https://reicon.dev)
+- 📖 Documentation: [reicon.dev/usage](https://reicon.dev/usage)
+- 📦 npm (React): [npmjs.com/package/reicon-react](https://npmjs.com/package/reicon-react)
+- 🐙 GitHub: [github.com/dqev/reicon](https://github.com/dqev/reicon)
+- 🐛 Issues: [github.com/dqev/reicon/issues](https://github.com/dqev/reicon/issues)
+
+---
+
 ## License
 
-MIT © [devchauhan](https://devchauhan.in)
+MIT © [Dev Chauhan](https://devchauhan.in)
+
+Free to use in personal and commercial projects.
 `;
 
 fs.writeFileSync(path.join(DIST, 'README.md'), readme);
+fs.writeFileSync(path.join(__dirname, '..', 'README.md'), readme);
 
 // ── icon name map ──────────────────────────────────────────────────────────
 const nameMap = {};
@@ -1006,7 +1006,7 @@ for (const icon of icons) {
 fs.writeFileSync(path.join(DIST, 'icon-names.json'), JSON.stringify(nameMap, null, 2));
 
 // ── summary ────────────────────────────────────────────────────────────────
-const totalFiles = (icons.length * 2) + 6; // +1 for UMD bundle
+const totalFiles = (icons.length * 2) + 6;
 console.log(`\nDone!`);
 console.log(`  Icons:       ${icons.length}`);
 console.log(`  Weights:     Outline + Filled`);

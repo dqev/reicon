@@ -1,0 +1,12 @@
+{
+  "name": "reicon-svelte",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Svelte icon components for Reicon.",
+  "scripts": {
+    "build": "node scripts/build.cjs"
+  },
+  "peerDependencies": {
+    "svelte": ">=3.0.0"
+  }
+}

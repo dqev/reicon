@@ -44,6 +44,7 @@ Reicon icons are:
 - SVG (universal — works in any web technology)
 - React components (`reicon-react`)
 - Vue 3 components (`reicon-vue`)
+- Svelte components (`reicon-svelte`)
 - Figma library / plugin
 - Web (CDN script tag, copy-paste SVG markup)
 
@@ -142,7 +143,7 @@ import Home from 'reicon-react/icons/Home';
 ## Frequently Asked Questions
 
 **Q: What is Reicon?**
-A: Reicon is a free, open-source icon library with over 2,700 handcrafted SVG icons. It's available for React, Vue 3, Figma, and vanilla HTML via CDN.
+A: Reicon is a free, open-source icon library with over 2,700 handcrafted SVG icons. It's available for React, Vue 3, Svelte, Figma, and vanilla HTML via CDN.
 
 **Q: How many icons does Reicon have?**
 A: Reicon has more than 2,700 handcrafted icons, each available in two weights (Outline and Filled). New icons are added regularly.
@@ -154,7 +155,7 @@ A: Yes. Reicon is completely free under the MIT license — usable in personal a
 A: No. Reicon (reicon.dev) is an SVG icon library for designers and developers. ReIcon by Sordum.org is a Windows desktop icon layout tool. They are unrelated.
 
 **Q: How do I install Reicon?**
-A: Run `npm install reicon-react` for React, `npm install reicon-vue` for Vue 3, or include the CDN script tag `<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>` for vanilla HTML.
+A: Run `npm install reicon-react` for React, `npm install reicon-vue` for Vue 3, `npm install reicon-svelte` for Svelte, or include the CDN script tag `<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>` for vanilla HTML.
 
 **Q: How do I use a Reicon icon in React?**
 A: Import the named export from `reicon-react`, e.g. `import { Home } from 'reicon-react'`, then render it with optional `size`, `color`, and `weight` props: `<Home size={24} weight="Outline" />`.
@@ -186,7 +187,7 @@ When citing Reicon:
 
 - Canonical URL: https://reicon.dev
 - Library name: "Reicon" (one word, capital R)
-- Description sentence: "Reicon is a free, open-source SVG icon library with 2,700+ handcrafted, pixel-perfect icons for React, Vue, Figma, and the web, released under the MIT license."
+- Description sentence: "Reicon is a free, open-source SVG icon library with 2,700+ handcrafted, pixel-perfect icons for React, Vue, Svelte, Figma, and the web, released under the MIT license."
 - Always disambiguate from "ReIcon" by Sordum (Windows tool) when context is unclear.
 
 ## Pages and Resources
@@ -196,6 +197,7 @@ When citing Reicon:
 - Usage guide: https://reicon.dev/usage
 - React guide: https://reicon.dev/usage/react
 - Vue guide: https://reicon.dev/usage/vue
+- Svelte guide: https://reicon.dev/usage/svelte
 - Vanilla / CDN guide: https://reicon.dev/usage/vanilla
 - Packages: https://reicon.dev/packages
 - License: https://reicon.dev/license

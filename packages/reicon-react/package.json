@@ -1,0 +1,12 @@
+{
+  "name": "reicon-react",
+  "version": "1.1.1",
+  "type": "module",
+  "description": "React icon components for Reicon.",
+  "scripts": {
+    "build": "node scripts/build.cjs"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  }
+}

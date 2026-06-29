@@ -100,20 +100,20 @@ export default function FaqPage() {
     <div className="min-h-screen bg-[#09090b] flex flex-col">
       <Helmet>
         <title>Frequently Asked Questions — Reicon | Free Open-Source Icons</title>
-        <meta name="description" content="Frequently asked questions about Reicon icon library. License, Figma integration, React/Vue support, custom request, and contribution guidelines." />
+        <meta name="description" content="Frequently asked questions about Reicon icon library. License, Figma integration, React/Vue/Svelte support, custom request, and contribution guidelines." />
         <link rel="canonical" href="https://reicon.dev/faq" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://reicon.dev/faq" />
         <meta property="og:site_name" content="Reicon" />
         <meta property="og:title" content="Frequently Asked Questions — Reicon" />
-        <meta property="og:description" content="Frequently asked questions about Reicon icon library. License, Figma integration, React/Vue support, custom request, and contribution guidelines." />
+        <meta property="og:description" content="Frequently asked questions about Reicon icon library. License, Figma integration, React/Vue/Svelte support, custom request, and contribution guidelines." />
         <meta property="og:image" content="https://reicon.dev/og-image.png?v=2" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@reicon_dev" />
         <meta name="twitter:title" content="Frequently Asked Questions — Reicon" />
-        <meta name="twitter:description" content="Frequently asked questions about Reicon icon library. License, Figma integration, React/Vue support, custom request, and contribution guidelines." />
+        <meta name="twitter:description" content="Frequently asked questions about Reicon icon library. License, Figma integration, React/Vue/Svelte support, custom request, and contribution guidelines." />
         <meta name="twitter:image" content="https://reicon.dev/og-image.png?v=2" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -369,7 +369,7 @@ export default function FaqPage() {
             <section id="what-is-reicon" data-section className="mb-16 scroll-mt-24">
               <h2 className="text-xl font-serif text-white mb-4">What is Reicon?</h2>
               <p className="text-white/60 text-[15px] leading-[1.8]">
-                Reicon is an open-source vector icon library designed specifically for digital interfaces. It includes more than 2,700 handcrafted, pixel-perfect icons structured consistently with Outline and Filled variants. Official packages exist for React and Vue, alongside a high-performance CDN script for standard HTML pages.
+                Reicon is an open-source vector icon library designed specifically for digital interfaces. It includes more than 2,700 handcrafted, pixel-perfect icons structured consistently with Outline and Filled variants. Official packages exist for React, Vue, and Svelte, alongside a high-performance CDN script for standard HTML pages.
               </p>
             </section>
 
@@ -397,7 +397,7 @@ export default function FaqPage() {
             <section id="grid-size" data-section className="mb-16 scroll-mt-24">
               <h2 className="text-xl font-serif text-white mb-4">What grid size is used?</h2>
               <p className="text-white/60 text-[15px] leading-[1.8]">
-                Every single icon is custom-drawn on a strict <strong>24×24 pixel grid</strong> with predefined baseline strokes. This alignment guarantees that the icons stay pixel-perfect, sharp, and highly readable on screens of any pixel density, from small 12px buttons to massive header displays.
+                Every single icon is custom-drawn on a strict <strong>24×24 pixel grid</strong> with predefined baseline strokes. This alignment guarantees that the icons stay pixel-perfect, sharp, and highly readable on screens of any pixel density, from small 12px displays to massive header formats.
               </p>
             </section>
 
@@ -419,7 +419,7 @@ export default function FaqPage() {
             <section id="tree-shaking" data-section className="mb-16 scroll-mt-24">
               <h2 className="text-xl font-serif text-white mb-4">Does it support tree-shaking?</h2>
               <p className="text-white/60 text-[15px] leading-[1.8]">
-                Yes! Both <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-react</code> and <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-vue</code> are bundled with ES modules and declare <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">"sideEffects": false</code> in their package.json. Modern bundlers (Vite, Webpack, Rollup) automatically tree-shake and include only the exact icons imported in your code.
+                Yes! Our packages (<code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-react</code>, <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-vue</code>, and <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-svelte</code>) are bundled with ES modules and declare <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">"sideEffects": false</code> in their package.json. Modern bundlers (Vite, Webpack, Rollup) automatically tree-shake and include only the exact icons imported in your code.
               </p>
             </section>
 

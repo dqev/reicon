@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ReactUsage from './usage/ReactUsage';
 import VueUsage from './usage/VueUsage';
+import SvelteUsage from './usage/SvelteUsage';
 import CdnUsage from './usage/CdnUsage';
 import PropsTable from './usage/PropsTable';
 import Weights from './usage/Weights';
@@ -23,6 +24,7 @@ import SectionHeader from '../components/usage/SectionHeader';
 import vanillaDocs from '../../docs/javascript/usage.md?raw';
 import reactDocs from '../../docs/react/usage.md?raw';
 import vueDocs from '../../docs/vue/usage.md?raw';
+import svelteDocs from '../../docs/svelte/usage.md?raw';
 import propsDocs from '../../docs/shared/props.md?raw';
 import weightsDocs from '../../docs/shared/weights.md?raw';
 import typescriptDocs from '../../docs/shared/typescript.md?raw';
@@ -37,6 +39,7 @@ const FRAMEWORKS = [
   { id: 'vanilla', label: 'Vanilla', icon: 'js', color: '#f7df1e' },
   { id: 'react', label: 'React', icon: 'react', color: '#61DAFB' },
   { id: 'vue', label: 'Vue', icon: 'vue', color: '#4DBA87' },
+  { id: 'svelte', label: 'Svelte', icon: 'svelte', color: '#FF3E00' },
 ] as const;
 
 type Framework = typeof FRAMEWORKS[number]['id'];
@@ -90,8 +93,8 @@ export default function UsagePage() {
     }
   }, [fwParam]);
 
-  const frameworkSectionId = framework === 'react' ? 'react-usage' : framework === 'vue' ? 'vue-usage' : 'cdn';
-  const frameworkLabel = framework === 'react' ? 'React' : framework === 'vue' ? 'Vue' : 'Vanilla JS / CDN';
+  const frameworkSectionId = framework === 'react' ? 'react-usage' : framework === 'vue' ? 'vue-usage' : framework === 'svelte' ? 'svelte-usage' : 'cdn';
+  const frameworkLabel = framework === 'react' ? 'React' : framework === 'vue' ? 'Vue' : framework === 'svelte' ? 'Svelte' : 'Vanilla JS / CDN';
 
   const onThisPage = [
     { id: 'what-is-reicon', label: 'What is Reicon?' },
@@ -172,7 +175,7 @@ export default function UsagePage() {
   };
 
   const handleCopyPageMarkdown = async () => {
-    const activeFwDocs = framework === 'vanilla' ? vanillaDocs : framework === 'react' ? reactDocs : vueDocs;
+    const activeFwDocs = framework === 'vanilla' ? vanillaDocs : framework === 'react' ? reactDocs : framework === 'vue' ? vueDocs : svelteDocs;
     const fullMarkdown = `${activeFwDocs}\n\n${propsDocs}\n\n${weightsDocs}\n\n${stylingDocs}\n\n${accessibilityDocs}\n\n${performanceDocs}\n\n${typescriptDocs}\n\n${troubleshootingDocs}`;
     try {
       await navigator.clipboard.writeText(fullMarkdown);
@@ -185,7 +188,7 @@ export default function UsagePage() {
   };
 
   const openInLLM = async (platform: 'chatgpt' | 'claude' | 't3') => {
-    const activeFwDocs = framework === 'vanilla' ? vanillaDocs : framework === 'react' ? reactDocs : vueDocs;
+    const activeFwDocs = framework === 'vanilla' ? vanillaDocs : framework === 'react' ? reactDocs : framework === 'vue' ? vueDocs : svelteDocs;
     const fullMarkdown = `${activeFwDocs}\n\n${propsDocs}\n\n${weightsDocs}\n\n${stylingDocs}\n\n${accessibilityDocs}\n\n${performanceDocs}\n\n${typescriptDocs}\n\n${troubleshootingDocs}`;
     
     try {
@@ -194,7 +197,7 @@ export default function UsagePage() {
       console.error('Failed to copy to clipboard', e);
     }
 
-    const promptText = `Here is the Reicon documentation for ${framework === 'vanilla' ? 'Vanilla JS / CDN' : framework === 'react' ? 'React' : 'Vue'}. Please read it and help me use the library:\n\n${fullMarkdown}`;
+    const promptText = `Here is the Reicon documentation for ${framework === 'vanilla' ? 'Vanilla JS / CDN' : framework === 'react' ? 'React' : framework === 'vue' ? 'Vue' : 'Svelte'}. Please read it and help me use the library:\n\n${fullMarkdown}`;
     
     let url = '';
     if (platform === 'chatgpt') {
@@ -247,9 +250,17 @@ export default function UsagePage() {
     </svg>
   );
 
+  const SvelteIcon = ({ size = 16 }: { size?: number }) => (
+    <svg width={size} height={size} viewBox="0 0 98.1 118" fill="none">
+      <path d="M91.8 15.6C80.9-.1 59.2-4.7 43.6 5.2L16.1 22.8C8.6 27.5 3.4 35.2 1.9 43.9c-1.3 7.3-.2 14.8 3.3 21.3-2.4 3.6-4 7.6-4.7 11.8-1.6 8.9.5 18.1 5.7 25.4 11 15.7 32.6 20.3 48.2 10.4l27.5-17.5c7.5-4.7 12.7-12.4 14.2-21.1 1.3-7.3.2-14.8-3.3-21.3 2.4-3.6 4-7.6 4.7-11.8 1.7-9-.4-18.2-5.7-25.5" fill="#FF3E00" />
+      <path d="M40.9 103.9c-8.9 2.3-18.2-1.2-23.4-8.7-3.2-4.4-4.4-9.9-3.5-15.3.2-.9.4-1.7.6-2.6l.5-1.6 1.4 1c3.3 2.4 6.9 4.2 10.8 5.4l1 .3-.1 1c-.1 1.4.3 2.9 1.1 4.1 1.6 2.3 4.4 3.4 7.1 2.7.6-.2 1.2-.4 1.7-.8L65.4 72c1.4-.9 2.3-2.2 2.6-3.8.3-1.6-.1-3.3-1.1-4.6-1.6-2.3-4.4-3.3-7.1-2.6-.6.2-1.2.4-1.7.8l-10.5 6.7c-1.7 1.1-3.6 1.9-5.6 2.4-8.9 2.3-18.2-1.2-23.4-8.7-3.2-4.4-4.4-9.9-3.5-15.3.8-5.3 3.9-10 8.5-12.8l27.5-17.5c1.7-1.1 3.6-1.9 5.6-2.4 8.9-2.3 18.2 1.2 23.4 8.7 3.2 4.4 4.4 9.9 3.5 15.3-.2.9-.4 1.7-.6 2.6l-.5 1.6-1.4-1c-3.3-2.4-6.9-4.2-10.8-5.4l-1-.3.1-1c.1-1.4-.3-2.9-1.1-4.1-1.6-2.3-4.4-3.4-7.1-2.7-.6.2-1.2.4-1.7.8L32.4 46.1c-1.4.9-2.3 2.2-2.6 3.8s.1 3.3 1.1 4.6c1.6 2.3 4.4 3.3 7.1 2.6.6-.2 1.2-.4 1.7-.8l10.5-6.7c1.7-1.1 3.6-1.9 5.6-2.4 8.9-2.3 18.2 1.2 23.4 8.7 3.2 4.4 4.4 9.9 3.5 15.3-.8 5.3-3.9 10-8.5 12.8L47.3 101.6c-1.7 1.1-3.6 1.9-5.6 2.4l-.8-.1z" fill="#fff" />
+    </svg>
+  );
+
   const FrameworkIcon = ({ id, size = 16 }: { id: string; size?: number }) => {
     if (id === 'react') return <FaReact className="text-[#61DAFB]" size={size} />;
     if (id === 'vue') return <VueIcon size={size} />;
+    if (id === 'svelte') return <SvelteIcon size={size} />;
     return <IoLogoJavascript className="text-yellow-400" size={size} />;
   };
 
@@ -279,22 +290,22 @@ export default function UsagePage() {
   return (
     <div className="min-h-screen bg-[#09090b] flex flex-col">
       <Helmet>
-        <title>Usage Guide — Reicon | React, Vue & CDN Icon Library</title>
-        <meta name="description" content="Learn how to install and use Reicon icons in React, Vue, and vanilla JavaScript. Props reference, TypeScript support, icon weights, and code examples." />
+        <title>Usage Guide — Reicon | React, Vue, Svelte & CDN Icon Library</title>
+        <meta name="description" content="Learn how to install and use Reicon icons in React, Vue, Svelte, and vanilla JavaScript. Props reference, TypeScript support, icon weights, and code examples." />
         <link rel="canonical" href={`https://reicon.dev/usage/${framework}`} />
-        <meta name="keywords" content="reicon usage, install reicon, React icons setup, Vue icons setup, CDN icons, icon library guide, SVG icons tutorial" />
+        <meta name="keywords" content="reicon usage, install reicon, React icons setup, Vue icons setup, Svelte icons setup, CDN icons, icon library guide, SVG icons tutorial" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://reicon.dev/usage/${framework}`} />
         <meta property="og:site_name" content="Reicon" />
         <meta property="og:title" content="Usage Guide — Reicon" />
-        <meta property="og:description" content="Learn how to install and use Reicon icons in React and vanilla JavaScript." />
+        <meta property="og:description" content="Learn how to install and use Reicon icons in React, Vue, Svelte, and vanilla JavaScript." />
         <meta property="og:image" content="https://reicon.dev/og-image.png?v=2" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@reicon_dev" />
         <meta name="twitter:title" content="Usage Guide — Reicon" />
-        <meta name="twitter:description" content="Learn how to install and use Reicon icons in React and vanilla JavaScript." />
+        <meta name="twitter:description" content="Learn how to install and use Reicon icons in React, Vue, Svelte, and vanilla JavaScript." />
         <meta name="twitter:image" content="https://reicon.dev/og-image.png?v=2" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -749,7 +760,7 @@ export default function UsagePage() {
             <p className="text-white/60 text-[15px] leading-[1.8] mb-6">
               Reicon is an open-source icon library that provides beautifully crafted vector (SVG) icons for displaying
               icons and symbols in digital projects. The library aims to make it easier for designers and developers to
-              incorporate icons into their projects by providing the core <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon</code> package for JavaScript and CDN usage, along with framework-specific packages for React (<code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-react</code>) and Vue (<code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-vue</code>).
+              incorporate icons into their projects by providing the core <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon</code> package for JavaScript and CDN usage, along with framework-specific packages for React (<code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-react</code>), Vue (<code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-vue</code>), and Svelte (<code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-svelte</code>).
             </p>
             <p className="text-white/60 text-[15px] leading-[1.8]">
               Every icon comes in two weights — Outline and Filled — and is fully customizable with size, color, and
@@ -763,6 +774,8 @@ export default function UsagePage() {
             <ReactUsage markdownContent={reactDocs} copiedField={copiedField} onCopy={copyToClipboard} />
           ) : framework === 'vue' ? (
             <VueUsage markdownContent={vueDocs} copiedField={copiedField} onCopy={copyToClipboard} />
+          ) : framework === 'svelte' ? (
+            <SvelteUsage markdownContent={svelteDocs} copiedField={copiedField} onCopy={copyToClipboard} />
           ) : (
             <CdnUsage markdownContent={vanillaDocs} copiedField={copiedField} onCopy={copyToClipboard} />
           )}

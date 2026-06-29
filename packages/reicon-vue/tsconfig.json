@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "target": "es2022",
+    "module": "es2022",
+    "lib": ["es2022", "dom"],
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "vue": ["../../node_modules/vue"]
+    }
+  },
+  "include": ["src/**/*"]
+}
