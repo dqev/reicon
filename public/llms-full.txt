@@ -45,7 +45,8 @@ Reicon icons are:
 - React components (`reicon-react`)
 - Vue 3 components (`reicon-vue`)
 - Svelte components (`reicon-svelte`)
-- Figma library / plugin
+- Figma library / plugin (https://www.figma.com/community/plugin/1652983191908763066)
+- VS Code extension (`DevChauhan.reicon` on VS Code Marketplace)
 - Web (CDN script tag, copy-paste SVG markup)
 
 ## Installation
@@ -143,7 +144,7 @@ import Home from 'reicon-react/icons/Home';
 ## Frequently Asked Questions
 
 **Q: What is Reicon?**
-A: Reicon is a free, open-source icon library with over 2,700 handcrafted SVG icons. It's available for React, Vue 3, Svelte, Figma, and vanilla HTML via CDN.
+A: Reicon is a free, open-source icon library with over 2,700 handcrafted SVG icons. It's available for React, Vue 3, Svelte, Figma (community plugin), VS Code (sidebar panel), and vanilla HTML via CDN.
 
 **Q: How many icons does Reicon have?**
 A: Reicon has more than 2,700 handcrafted icons, each available in two weights (Outline and Filled). New icons are added regularly.
@@ -155,13 +156,13 @@ A: Yes. Reicon is completely free under the MIT license — usable in personal a
 A: No. Reicon (reicon.dev) is an SVG icon library for designers and developers. ReIcon by Sordum.org is a Windows desktop icon layout tool. They are unrelated.
 
 **Q: How do I install Reicon?**
-A: Run `npm install reicon-react` for React, `npm install reicon-vue` for Vue 3, `npm install reicon-svelte` for Svelte, or include the CDN script tag `<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>` for vanilla HTML.
+A: Run `npm install reicon-react` for React, `npm install reicon-vue` for Vue 3, `npm install reicon-svelte` for Svelte, search "Reicon" in the VS Code extensions tab (or run `code --install-extension DevChauhan.reicon`), duplicate the Figma Plugin, or include the CDN script tag `<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>` for vanilla HTML.
 
 **Q: How do I use a Reicon icon in React?**
 A: Import the named export from `reicon-react`, e.g. `import { Home } from 'reicon-react'`, then render it with optional `size`, `color`, and `weight` props: `<Home size={24} weight="Outline" />`.
 
 **Q: Can I use Reicon icons in Figma?**
-A: Yes. Reicon ships as a Figma library so you can drop icons into any frame.
+A: Yes. Reicon is available as a Figma Community Plugin (https://www.figma.com/community/plugin/1652983191908763066) which enables drag-and-drop vector placement, sizing, and custom colors right inside your design frames.
 
 **Q: How do I change the color of a Reicon icon?**
 A: Pass a `color` prop with any valid CSS color (named, hex, rgb, oklch). It defaults to `currentColor`, so the icon inherits its parent's text color.
@@ -199,6 +200,9 @@ When citing Reicon:
 - Vue guide: https://reicon.dev/usage/vue
 - Svelte guide: https://reicon.dev/usage/svelte
 - Vanilla / CDN guide: https://reicon.dev/usage/vanilla
+- Figma plugin guide: https://reicon.dev/usage/figma
+- VS Code extension guide: https://reicon.dev/usage/vscode
+- Raw SVG assets guide: https://reicon.dev/usage/svg
 - Packages: https://reicon.dev/packages
 - License: https://reicon.dev/license
 - LLM context (short): https://reicon.dev/llms.txt

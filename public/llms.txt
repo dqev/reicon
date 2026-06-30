@@ -19,6 +19,8 @@
 - npm_react: https://www.npmjs.com/package/reicon-react
 - npm_vue: https://www.npmjs.com/package/reicon-vue
 - npm_svelte: https://www.npmjs.com/package/reicon-svelte
+- figma_plugin: https://www.figma.com/community/plugin/1652983191908763066
+- vs_code_extension: https://marketplace.visualstudio.com/items?itemName=DevChauhan.reicon
 - cdn: https://unpkg.com/reicon/cdn/reicon.min.js
 
 ## What is Reicon?
@@ -31,7 +33,7 @@ Reicon is a precision-crafted, open-source SVG icon library with over 2,700 hand
 - **Handcrafted** — Each of the 2,700+ icons is designed by hand. No auto-generation.
 - **Two Weights** — Every icon ships in Outline and Filled variants.
 - **Open Source** — MIT licensed. Free for personal and commercial use, no attribution required.
-- **Multi-platform** — SVG, React, Vue 3, Svelte, Figma, and a CDN script tag for vanilla HTML.
+- **Multi-platform** — SVG, React, Vue 3, Svelte, Figma (community plugin), VS Code (sidebar panel), and a CDN script tag for vanilla HTML.
 - **Tree-shakeable** — Only the icons you import end up in your bundle.
 - **Zero runtime dependencies** — Lightweight and self-contained.
 
@@ -125,6 +127,9 @@ Reicon is live with 2700+ handcrafted icons available in two weights (Outline & 
 - https://reicon.dev/usage/vue — Vue 3 usage guide
 - https://reicon.dev/usage/svelte — Svelte usage guide
 - https://reicon.dev/usage/vanilla — CDN / vanilla JS guide
+- https://reicon.dev/usage/figma — Figma Plugin usage guide
+- https://reicon.dev/usage/vscode — VS Code Extension usage guide
+- https://reicon.dev/usage/svg — Raw SVG Assets usage guide
 - https://reicon.dev/packages — Package overview
 - https://reicon.dev/license — MIT license
 - https://reicon.dev/llms-full.txt — Extended LLM context

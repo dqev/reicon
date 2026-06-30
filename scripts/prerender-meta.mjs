@@ -131,6 +131,54 @@ const STATIC_PAGES = [
     },
   },
   {
+    path: '/usage/figma',
+    title: 'Figma Plugin Guide — Reicon | Drag & Drop Figma Icons',
+    desc: 'Learn how to install and use the Reicon Figma Plugin. Search, customize stroke weights, and drag-and-drop vector icons directly onto your active design canvas.',
+    url: `${SITE}/usage/figma`,
+    ogImage: `${SITE}/og-image.png`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "Usage", "item": `${SITE}/usage` },
+        { "@type": "ListItem", "position": 3, "name": "Figma", "item": `${SITE}/usage/figma` }
+      ]
+    },
+  },
+  {
+    path: '/usage/vscode',
+    title: 'VS Code Extension Guide — Reicon | Sidebar Snippet Installer',
+    desc: 'Learn how to install and use the Reicon VS Code Extension. Search, configure defaults, and insert custom React, Vue, Svelte, or raw SVG code directly at your cursor.',
+    url: `${SITE}/usage/vscode`,
+    ogImage: `${SITE}/og-image.png`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "Usage", "item": `${SITE}/usage` },
+        { "@type": "ListItem", "position": 3, "name": "VS Code", "item": `${SITE}/usage/vscode` }
+      ]
+    },
+  },
+  {
+    path: '/usage/svg',
+    title: 'Raw SVG Assets Guide — Reicon | Embed & Style Raw Vector Files',
+    desc: 'Learn how to download and use raw Reicon SVG icons in HTML, static web layouts, or CMS templates. Customize dimensions, weights, and apply CSS currentColor styling.',
+    url: `${SITE}/usage/svg`,
+    ogImage: `${SITE}/og-image.png`,
+    breadcrumb: {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
+        { "@type": "ListItem", "position": 2, "name": "Usage", "item": `${SITE}/usage` },
+        { "@type": "ListItem", "position": 3, "name": "Raw SVGs", "item": `${SITE}/usage/svg` }
+      ]
+    },
+  },
+  {
     path: '/packages',
     title: 'Packages — Reicon | React, Vue, Svelte & JavaScript Icon Packages',
     desc: 'Install Reicon icon packages for React, Vue, Svelte, and JavaScript. Tree-shakeable, zero dependencies, MIT licensed.',
