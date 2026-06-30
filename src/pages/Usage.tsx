@@ -15,9 +15,13 @@ import Accessibility from './usage/Accessibility';
 import Styling from './usage/Styling';
 import Performance from './usage/Performance';
 import Troubleshooting from './usage/Troubleshooting';
+import FigmaUsage from './usage/FigmaUsage';
+import VscodeUsage from './usage/VscodeUsage';
+import SvgUsage from './usage/SvgUsage';
 
 import { FaReact } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io5';
+import { VscVscodeInsiders } from 'react-icons/vsc';
 import SectionHeader from '../components/usage/SectionHeader';
 
 // Import raw markdown files
@@ -25,6 +29,9 @@ import vanillaDocs from '../../docs/javascript/usage.md?raw';
 import reactDocs from '../../docs/react/usage.md?raw';
 import vueDocs from '../../docs/vue/usage.md?raw';
 import svelteDocs from '../../docs/svelte/usage.md?raw';
+import figmaDocs from '../../docs/figma/usage.md?raw';
+import vscodeDocs from '../../docs/vscode/usage.md?raw';
+import svgDocs from '../../docs/svg/usage.md?raw';
 import propsDocs from '../../docs/shared/props.md?raw';
 import weightsDocs from '../../docs/shared/weights.md?raw';
 import typescriptDocs from '../../docs/shared/typescript.md?raw';
@@ -40,6 +47,9 @@ const FRAMEWORKS = [
   { id: 'react', label: 'React', icon: 'react', color: '#61DAFB' },
   { id: 'vue', label: 'Vue', icon: 'vue', color: '#4DBA87' },
   { id: 'svelte', label: 'Svelte', icon: 'svelte', color: '#FF3E00' },
+  { id: 'figma', label: 'Figma', icon: 'figma', color: '#F24E1E' },
+  { id: 'vscode', label: 'VS Code', icon: 'vscode', color: '#007ACC' },
+  { id: 'svg', label: 'Raw SVGs', icon: 'svg', color: '#4285F4' },
 ] as const;
 
 type Framework = typeof FRAMEWORKS[number]['id'];
@@ -93,19 +103,49 @@ export default function UsagePage() {
     }
   }, [fwParam]);
 
-  const frameworkSectionId = framework === 'react' ? 'react-usage' : framework === 'vue' ? 'vue-usage' : framework === 'svelte' ? 'svelte-usage' : 'cdn';
-  const frameworkLabel = framework === 'react' ? 'React' : framework === 'vue' ? 'Vue' : framework === 'svelte' ? 'Svelte' : 'Vanilla JS / CDN';
+  const frameworkSectionId =
+    framework === 'react'
+      ? 'react-usage'
+      : framework === 'vue'
+      ? 'vue-usage'
+      : framework === 'svelte'
+      ? 'svelte-usage'
+      : framework === 'figma'
+      ? 'figma'
+      : framework === 'vscode'
+      ? 'vscode'
+      : framework === 'svg'
+      ? 'svg-usage'
+      : 'cdn';
+  const frameworkLabel =
+    framework === 'react'
+      ? 'React'
+      : framework === 'vue'
+      ? 'Vue'
+      : framework === 'svelte'
+      ? 'Svelte'
+      : framework === 'figma'
+      ? 'Figma'
+      : framework === 'vscode'
+      ? 'VS Code'
+      : framework === 'svg'
+      ? 'Raw SVGs'
+      : 'Vanilla JS / CDN';
 
   const onThisPage = [
     { id: 'what-is-reicon', label: 'What is Reicon?' },
     { id: frameworkSectionId, label: frameworkLabel },
-    { id: 'props', label: 'Props' },
-    { id: 'weights', label: 'Icon Weights' },
-    { id: 'styling', label: 'Styling & Color' },
-    { id: 'accessibility', label: 'Accessibility' },
-    { id: 'performance', label: 'Performance' },
-    { id: 'typescript', label: 'TypeScript' },
-    { id: 'troubleshooting', label: 'Troubleshooting' },
+    ...(framework !== 'figma' && framework !== 'vscode' && framework !== 'svg'
+      ? [
+          { id: 'props', label: 'Props' },
+          { id: 'weights', label: 'Icon Weights' },
+          { id: 'styling', label: 'Styling & Color' },
+          { id: 'accessibility', label: 'Accessibility' },
+          { id: 'performance', label: 'Performance' },
+          { id: 'typescript', label: 'TypeScript' },
+          { id: 'troubleshooting', label: 'Troubleshooting' },
+        ]
+      : []),
   ];
 
   const copyToClipboard = async (text: string, field: string) => {
@@ -257,10 +297,44 @@ export default function UsagePage() {
     </svg>
   );
 
+  const FigmaIcon = ({ size = 16 }: { size?: number }) => (
+    <svg width={size * (54/80)} height={size} viewBox="0 0 54 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clipPath="url(#clip0_912_3)">
+        <path d="M13.3333 80.0002C20.6933 80.0002 26.6667 74.0268 26.6667 66.6668V53.3335H13.3333C5.97333 53.3335 0 59.3068 0 66.6668C0 74.0268 5.97333 80.0002 13.3333 80.0002Z" fill="#0ACF83"/>
+        <path d="M0 39.9998C0 32.6398 5.97333 26.6665 13.3333 26.6665H26.6667V53.3332H13.3333C5.97333 53.3332 0 47.3598 0 39.9998Z" fill="#A259FF"/>
+        <path d="M0 13.3333C0 5.97333 5.97333 0 13.3333 0H26.6667V26.6667H13.3333C5.97333 26.6667 0 20.6933 0 13.3333Z" fill="#F24E1E"/>
+        <path d="M26.6667 0H40.0001C47.3601 0 53.3334 5.97333 53.3334 13.3333C53.3334 20.6933 47.3601 26.6667 40.0001 26.6667H26.6667V0Z" fill="#FF7262"/>
+        <path d="M53.3334 39.9998C53.3334 47.3598 47.3601 53.3332 40.0001 53.3332C32.6401 53.3332 26.6667 47.3598 26.6667 39.9998C26.6667 32.6398 32.6401 26.6665 40.0001 26.6665C47.3601 26.6665 53.3334 32.6398 53.3334 39.9998Z" fill="#1ABCFE"/>
+      </g>
+      <defs>
+        <clipPath id="clip0_912_3">
+          <rect width="53.3333" height="80" fill="white"/>
+        </clipPath>
+      </defs>
+    </svg>
+  );
+
+  const SvgIcon = ({ size = 16 }: { size?: number }) => (
+    <svg width={size} height={size} viewBox="0 0 300 300">
+      <g stroke="#000" strokeWidth="38.009">
+        <g id="svgstar-usage" transform="translate(150 150)">
+          <path id="svgbar-usage" fill="#ffb13b" d="M-84.149-15.851a22.417 22.417 0 1 0 0 31.702H84.15a22.417 22.417 0 1 0 0-31.702Z"/>
+          <use href="#svgbar-usage" transform="rotate(45)"/>
+          <use href="#svgbar-usage" transform="rotate(90)"/>
+          <use href="#svgbar-usage" transform="rotate(135)"/>
+        </g>
+      </g>
+      <use href="#svgstar-usage"/>
+    </svg>
+  );
+
   const FrameworkIcon = ({ id, size = 16 }: { id: string; size?: number }) => {
     if (id === 'react') return <FaReact className="text-[#61DAFB]" size={size} />;
     if (id === 'vue') return <VueIcon size={size} />;
     if (id === 'svelte') return <SvelteIcon size={size} />;
+    if (id === 'figma') return <FigmaIcon size={size} />;
+    if (id === 'vscode') return <VscVscodeInsiders className="text-[#007ACC]" size={size} />;
+    if (id === 'svg') return <SvgIcon size={size} />;
     return <IoLogoJavascript className="text-yellow-400" size={size} />;
   };
 
@@ -290,22 +364,22 @@ export default function UsagePage() {
   return (
     <div className="min-h-screen bg-[#09090b] flex flex-col">
       <Helmet>
-        <title>Usage Guide — Reicon | React, Vue, Svelte & CDN Icon Library</title>
-        <meta name="description" content="Learn how to install and use Reicon icons in React, Vue, Svelte, and vanilla JavaScript. Props reference, TypeScript support, icon weights, and code examples." />
+        <title>Usage Guide — Reicon | React, Vue, Svelte, Figma, VS Code & CDN</title>
+        <meta name="description" content="Learn how to install and use Reicon icons in React, Vue, Svelte, Figma, VS Code, and vanilla JavaScript. Props reference, TypeScript support, and design tools." />
         <link rel="canonical" href={`https://reicon.dev/usage/${framework}`} />
-        <meta name="keywords" content="reicon usage, install reicon, React icons setup, Vue icons setup, Svelte icons setup, CDN icons, icon library guide, SVG icons tutorial" />
+        <meta name="keywords" content="reicon usage, install reicon, React icons setup, Vue icons setup, Svelte icons setup, Figma icons setup, VS Code icons setup, CDN icons, icon library guide, SVG icons tutorial" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://reicon.dev/usage/${framework}`} />
         <meta property="og:site_name" content="Reicon" />
         <meta property="og:title" content="Usage Guide — Reicon" />
-        <meta property="og:description" content="Learn how to install and use Reicon icons in React, Vue, Svelte, and vanilla JavaScript." />
+        <meta property="og:description" content="Learn how to install and use Reicon icons in React, Vue, Svelte, Figma, VS Code, and vanilla JavaScript." />
         <meta property="og:image" content="https://reicon.dev/og-image.png?v=2" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@reicon_dev" />
         <meta name="twitter:title" content="Usage Guide — Reicon" />
-        <meta name="twitter:description" content="Learn how to install and use Reicon icons in React, Vue, Svelte, and vanilla JavaScript." />
+        <meta name="twitter:description" content="Learn how to install and use Reicon icons in React, Vue, Svelte, Figma, VS Code, and vanilla JavaScript." />
         <meta name="twitter:image" content="https://reicon.dev/og-image.png?v=2" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -626,12 +700,12 @@ export default function UsagePage() {
                 <h3 className="text-[10px] font-semibold text-white/40 uppercase tracking-wider mb-1.5 px-1">
                   Framework
                 </h3>
-                <div className="flex gap-2">
+                <div className="flex gap-2 overflow-x-auto pb-3 whitespace-nowrap scrollbar-none">
                   {FRAMEWORKS.map((fw) => (
                     <button
                       key={fw.id}
                       onClick={() => switchFramework(fw.id)}
-                      className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors ${framework === fw.id
+                      className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors shrink-0 ${framework === fw.id
                         ? 'bg-white/[0.1] text-white'
                         : 'text-white/40 hover:text-white/60'
                         }`}
@@ -776,37 +850,40 @@ export default function UsagePage() {
             <VueUsage markdownContent={vueDocs} copiedField={copiedField} onCopy={copyToClipboard} />
           ) : framework === 'svelte' ? (
             <SvelteUsage markdownContent={svelteDocs} copiedField={copiedField} onCopy={copyToClipboard} />
+          ) : framework === 'figma' ? (
+            <FigmaUsage markdownContent={figmaDocs} />
+          ) : framework === 'vscode' ? (
+            <VscodeUsage markdownContent={vscodeDocs} copiedField={copiedField} onCopy={copyToClipboard} />
+          ) : framework === 'svg' ? (
+            <SvgUsage markdownContent={svgDocs} copiedField={copiedField} onCopy={copyToClipboard} />
           ) : (
             <CdnUsage markdownContent={vanillaDocs} copiedField={copiedField} onCopy={copyToClipboard} />
           )}
 
-          <hr className="border-white/[0.06] mb-12" />
+          {framework !== 'figma' && framework !== 'vscode' && framework !== 'svg' && (
+            <>
+              <hr className="border-white/[0.06] mb-12" />
+              <PropsTable markdownContent={propsDocs} />
 
-          <PropsTable markdownContent={propsDocs} />
+              <hr className="border-white/[0.06] mb-12" />
+              <Weights markdownContent={weightsDocs} copiedField={copiedField} onCopy={copyToClipboard} />
 
-          <hr className="border-white/[0.06] mb-12" />
+              <hr className="border-white/[0.06] mb-12" />
+              <TypeScriptSection markdownContent={typescriptDocs} copiedField={copiedField} onCopy={copyToClipboard} />
 
-          <Weights markdownContent={weightsDocs} copiedField={copiedField} onCopy={copyToClipboard} />
+              <hr className="border-white/[0.06] mb-12" />
+              <Styling markdownContent={stylingDocs} copiedField={copiedField} onCopy={copyToClipboard} />
 
-          <hr className="border-white/[0.06] mb-12" />
+              <hr className="border-white/[0.06] mb-12" />
+              <Accessibility markdownContent={accessibilityDocs} copiedField={copiedField} onCopy={copyToClipboard} />
 
-          <TypeScriptSection markdownContent={typescriptDocs} copiedField={copiedField} onCopy={copyToClipboard} />
+              <hr className="border-white/[0.06] mb-12" />
+              <Performance markdownContent={performanceDocs} copiedField={copiedField} onCopy={copyToClipboard} />
 
-          <hr className="border-white/[0.06] mb-12" />
-
-          <Styling markdownContent={stylingDocs} copiedField={copiedField} onCopy={copyToClipboard} />
-
-          <hr className="border-white/[0.06] mb-12" />
-
-          <Accessibility markdownContent={accessibilityDocs} copiedField={copiedField} onCopy={copyToClipboard} />
-
-          <hr className="border-white/[0.06] mb-12" />
-
-          <Performance markdownContent={performanceDocs} copiedField={copiedField} onCopy={copyToClipboard} />
-
-          <hr className="border-white/[0.06] mb-12" />
-
-          <Troubleshooting markdownContent={troubleshootingDocs} copiedField={copiedField} onCopy={copyToClipboard} />
+              <hr className="border-white/[0.06] mb-12" />
+              <Troubleshooting markdownContent={troubleshootingDocs} copiedField={copiedField} onCopy={copyToClipboard} />
+            </>
+          )}
           
           {/* Toast Notification */}
           {toastMessage && (

@@ -210,7 +210,7 @@ export default function IconDetail() {
   }, [name]);
 
   const pageTitle = `${name} icon — Reicon`;
-  const pageDesc = `Download the ${name} icon as SVG, PNG, or WebP. Available in Outline and Filled weights. Free, open-source, MIT-licensed. Copy React, Vue, Svelte, or CDN code instantly.`;
+  const pageDesc = `Download the ${name} icon as SVG, PNG, or WebP. Available in Outline and Filled weights. Free, open-source, MIT-licensed. Copy React, Vue, Svelte, Figma, or VS Code code instantly.`;
   const pageUrl = `https://reicon.dev/icon/${name}`;
   const ogImage = `https://reicon.dev/og/icons/${name}.png`;
 
@@ -230,7 +230,7 @@ export default function IconDetail() {
         <title>{pageTitle}</title>
         <meta name="description" content={pageDesc} />
         <link rel="canonical" href={pageUrl} />
-        <meta name="keywords" content={`${name}, ${iconCategory || 'icon'}, svg icon, react icon, vue icon, svelte icon, free icon, reicon`} />
+        <meta name="keywords" content={`${name}, ${iconCategory || 'icon'}, svg icon, react icon, vue icon, svelte icon, figma icon, vscode icon, free icon, reicon`} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:site_name" content="Reicon" />

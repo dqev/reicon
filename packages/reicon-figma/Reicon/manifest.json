@@ -15,7 +15,8 @@
   "ui": "ui.html",
   "networkAccess": {
     "allowedDomains": [
-      "none"
+      "https://fonts.googleapis.com",
+      "https://fonts.gstatic.com"
     ]
   }
 }
