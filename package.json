@@ -18,7 +18,8 @@
     "build:cdn:min": "npx terser packages/reicon/dist/cdn/reicon.js --compress --mangle -o packages/reicon/dist/cdn/reicon.min.js",
     "build:figma": "node packages/reicon-figma/scripts/build.cjs",
     "build:svelte": "node packages/reicon-svelte/scripts/build.cjs",
-    "build:packages": "npm run build:react && npm run build:vue && npm run build:js && npm run build:cdn:min && npm run build:figma && npm run build:svelte",
+    "build:vscode": "node packages/reicon-vscode/scripts/build.cjs",
+    "build:packages": "npm run build:react && npm run build:vue && npm run build:js && npm run build:cdn:min && npm run build:figma && npm run build:svelte && npm run build:vscode",
     "preview": "vite preview",
     "clean": "rm -rf dist packages/*/dist",
     "lint": "tsc --noEmit"
