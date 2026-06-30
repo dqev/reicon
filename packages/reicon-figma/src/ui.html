@@ -929,10 +929,12 @@
             statusBarPlaceholder.textContent = 'Hover or select an icon';
             selectedIconNameText.style.display = 'none';
           } else {
-            const parts = selectedIconName.split('-');
+            const lastHyphenIndex = selectedIconName.lastIndexOf('-');
+            const name = selectedIconName.substring(0, lastHyphenIndex);
+            const weight = selectedIconName.substring(lastHyphenIndex + 1);
             statusBarPlaceholder.textContent = 'Selected: ';
             selectedIconNameText.style.display = 'inline';
-            selectedIconNameText.textContent = `${parts[0]} (${parts[1]})`;
+            selectedIconNameText.textContent = `${name} (${weight})`;
           }
         };
 
@@ -981,9 +983,9 @@
 
       // Reset selection if the item does not support the weight
       if (selectedIconName) {
-        const parts = selectedIconName.split('-');
-        const name = parts[0];
-        const weight = parts[1];
+        const lastHyphenIndex = selectedIconName.lastIndexOf('-');
+        const name = selectedIconName.substring(0, lastHyphenIndex);
+        const weight = selectedIconName.substring(lastHyphenIndex + 1);
         if (activeStyle !== weight) {
           clearSelection();
         }
@@ -1052,10 +1054,12 @@
 
     function updateFooter() {
       if (selectedIconName) {
-        const parts = selectedIconName.split('-');
+        const lastHyphenIndex = selectedIconName.lastIndexOf('-');
+        const name = selectedIconName.substring(0, lastHyphenIndex);
+        const weight = selectedIconName.substring(lastHyphenIndex + 1);
         statusBarPlaceholder.textContent = 'Selected: ';
         selectedIconNameText.style.display = 'inline';
-        selectedIconNameText.textContent = `${parts[0]} (${parts[1]})`;
+        selectedIconNameText.textContent = `${name} (${weight})`;
         insertButton.style.display = 'inline-flex';
       } else {
         statusBarPlaceholder.textContent = 'Hover or select an icon';
@@ -1067,9 +1071,9 @@
     function insertSelectedIcon() {
       if (!selectedIconName) return;
 
-      const parts = selectedIconName.split('-');
-      const name = parts[0];
-      const weight = parts[1];
+      const lastHyphenIndex = selectedIconName.lastIndexOf('-');
+      const name = selectedIconName.substring(0, lastHyphenIndex);
+      const weight = selectedIconName.substring(lastHyphenIndex + 1);
 
       const item = window.REICON_DATA[name];
       const rawCode = item.weights[weight];
