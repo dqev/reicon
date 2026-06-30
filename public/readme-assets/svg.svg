@@ -1,0 +1,11 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="#000" stroke-width="38.009">
+    <g id="svgstar" transform="translate(150 150)">
+      <path id="svgbar" fill="#ffb13b" d="M-84.149-15.851a22.417 22.417 0 1 0 0 31.702H84.15a22.417 22.417 0 1 0 0-31.702Z"/>
+      <use href="#svgbar" transform="rotate(45)"/>
+      <use href="#svgbar" transform="rotate(90)"/>
+      <use href="#svgbar" transform="rotate(135)"/>
+    </g>
+  </g>
+  <use href="#svgstar"/>
+</svg>
