@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data:; script-src 'unsafe-inline';">
+  <title>Reicon Icons</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ── Design System Variables ── */
+    :root {
+      --bg-primary: #09090b;
+      --bg-secondary: #0e0e10;
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.6);
+      --text-tertiary: rgba(255, 255, 255, 0.35);
+      --accent-primary: #6C5CE7;
+      --accent-hover: #5a4bd1;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --border-medium: rgba(255, 255, 255, 0.12);
+      --overlay-light: rgba(255, 255, 255, 0.04);
+      --overlay-medium: rgba(255, 255, 255, 0.08);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'DM Sans', sans-serif;
+      scrollbar-width: none;
+    }
+
+    *::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      font-size: 13px;
+      position: relative;
+    }
+
+    /* ── Top Brand Row ── */
+    .top-brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 12px 6px 12px;
+      z-index: 10;
+    }
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-logo {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .menu-toggle-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .menu-toggle-btn:hover {
+      background: var(--overlay-light);
+      color: var(--text-primary);
+    }
+
+    /* ── Main Container ── */
+    .app-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* ── Search & Configuration Controls Bar ── */
+    .search-control-bar {
+      padding: 6px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .search-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 36px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 99px;
+      color: var(--text-primary);
+      padding: 0 12px 0 32px;
+      font-size: 12px;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: rgba(255, 255, 255, 0.25);
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      color: rgba(255, 255, 255, 0.3);
+      pointer-events: none;
+    }
+
+    /* Inline Controls (Weight + Format) */
+    .inline-controls-row {
+      display: flex;
+      gap: 6px;
+      width: 100%;
+    }
+
+    /* Segmented Control Pill */
+    .segmented-control {
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 99px;
+      padding: 2px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .segment-button {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      padding: 5px 0;
+      font-size: 11px;
+      font-weight: 500;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex: 1;
+      text-align: center;
+    }
+
+    .segment-button.active {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: var(--text-primary);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Format dropdown */
+    .format-selector {
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 99px;
+      color: var(--text-primary);
+      padding: 0 12px;
+      font-size: 11px;
+      font-weight: 500;
+      outline: none;
+      cursor: pointer;
+      width: 80px;
+      height: 26px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .format-selector:focus {
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .format-selector option {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    /* Customizer properties (Color and Size) */
+    .customizer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 2px 4px;
+      width: 100%;
+    }
+
+    .customizer-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .customizer-label {
+      color: var(--text-tertiary);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .color-swatches {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .color-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .color-swatch:hover, .color-swatch.active {
+      transform: scale(1.15);
+      border-color: var(--text-primary);
+    }
+
+    .custom-color-input {
+      width: 58px;
+      height: 22px;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 5px;
+      color: var(--text-primary);
+      padding: 0 4px;
+      font-size: 10px;
+      outline: none;
+      text-align: center;
+    }
+
+    .custom-size-input {
+      width: 34px;
+      height: 22px;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 5px;
+      color: var(--text-primary);
+      padding: 0 4px;
+      font-size: 10px;
+      outline: none;
+      text-align: center;
+    }
+
+    /* ── Horizontal Scrolling Categories ── */
+    .category-scroller {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px 8px 12px;
+      overflow-x: auto;
+      flex-shrink: 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .category-pill {
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .category-pill:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-primary);
+    }
+
+    .category-pill.active {
+      background: rgba(108, 92, 231, 0.1);
+      border-color: var(--accent-primary);
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(108, 92, 231, 0.15);
+    }
+
+    /* Pulse dot inside category pill for new icons */
+    .new-icons-pill {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .pulse-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #6C5CE7;
+      box-shadow: 0 0 6px rgba(108, 92, 231, 0.6);
+      animation: category-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes category-pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+
+    /* ── Dense Icon Grid ── */
+    .grid-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(calc(var(--grid-icon-size, 24px) + 16px), 1fr));
+      gap: 6px;
+      align-content: start;
+    }
+
+    /* Circle Highlights on Hover */
+    .icon-card {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      border-radius: 50%;
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .icon-card:hover {
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+
+    .icon-card.selected {
+      background-color: rgba(108, 92, 231, 0.15);
+      box-shadow: inset 0 0 0 1.5px var(--accent-primary);
+    }
+
+    .icon-card-svg {
+      width: var(--grid-icon-size, 24px);
+      height: var(--grid-icon-size, 24px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s ease;
+    }
+
+    .icon-card-svg svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ── Dropdown Menu Styling ── */
+    .dropdown-menu {
+      position: absolute;
+      top: 40px;
+      right: 12px;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      width: 180px;
+      display: none;
+      flex-direction: column;
+      z-index: 1000;
+      overflow: hidden;
+      animation: dropdown-fade-in 0.15s ease-out;
+    }
+
+    .dropdown-menu.show {
+      display: flex;
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 12px;
+      color: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 500;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .dropdown-item:hover {
+      background-color: rgba(255, 255, 255, 0.04);
+      color: #ffffff;
+    }
+
+    .dropdown-item svg {
+      opacity: 0.6;
+      flex-shrink: 0;
+      transition: opacity 0.15s ease;
+      color: var(--text-secondary);
+    }
+
+    .dropdown-item:hover svg {
+      opacity: 1;
+      color: #ffffff;
+    }
+
+    .dropdown-divider {
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.06);
+      margin: 4px 0;
+    }
+
+    @keyframes dropdown-fade-in {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+
+
+    /* Empty State */
+    .empty-state {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      text-align: center;
+      color: var(--text-tertiary);
+    }
+
+    .empty-state svg {
+      width: 28px;
+      height: 28px;
+      opacity: 0.2;
+      margin-bottom: 8px;
+    }
+
+    /* ── Floating Toast ── */
+    .toast-notification {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background-color: #1e1e20;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 99px;
+      display: flex;
+      align-items: center;
+      padding: 4px 10px 4px 4px;
+      gap: 8px;
+      z-index: 10000;
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.1), opacity 0.2s ease;
+    }
+
+    .toast-notification.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast-icon-wrapper {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: rgba(108, 92, 231, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .toast-brand-logo {
+      width: 12px;
+      height: 12px;
+      object-fit: contain;
+    }
+
+    .toast-message {
+      font-size: 11px;
+      font-weight: 500;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .toast-divider {
+      width: 1px;
+      height: 14px;
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .toast-close-btn {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      transition: color 0.15s, background-color 0.15s;
+    }
+
+    .toast-close-btn:hover {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+  </style>
+
+  <!-- ── Injected Icons Database ── -->
+  <!-- INJECT_ICONS_DATA -->
+</head>
+<body>
+
+  <!-- Top Brand Row (Clean, minimal branding like Hugeicons) -->
+  <div class="top-brand-row">
+    <div class="brand-container">
+      <img class="brand-logo" src="__REICON_LOGO_BASE64__" alt="Reicon logo">
+      <span class="brand-name">Reicon</span>
+    </div>
+    <div class="header-actions">
+      <button class="menu-toggle-btn" id="menu-toggle-btn" title="Menu" onclick="toggleMenu(event)">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" height="16" width="16">
+          <path d="m4 8 16 0" stroke-width="2"></path>
+          <path d="m4 16 16 0" stroke-width="2"></path>
+        </svg>
+      </button>
+      
+      <!-- Dropdown Menu -->
+      <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-item" onclick="changePreviewSize(-2)">
+          <span>Decrease preview size</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+        <div class="dropdown-item" onclick="changePreviewSize(2)">
+          <span>Increase preview size</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+        
+        <div class="dropdown-divider"></div>
+        
+        <div class="dropdown-item" onclick="openExternalUrl('https://reicon.dev')">
+          <span>Visit Reicon.dev</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </div>
+        <div class="dropdown-item" onclick="openExternalUrl('https://github.com/dqev/reicon')">
+          <span>Star on GitHub</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- App Layout -->
+  <div class="app-container">
+    
+    <!-- Search & Weight Control Row -->
+    <section class="search-control-bar">
+      <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="search-input" id="search-input" placeholder="Search icons... (⌘F to focus)">
+      </div>
+      
+      <!-- Weight and Format control row -->
+      <div class="inline-controls-row">
+        <!-- Weight Segmented Toggle -->
+        <div class="segmented-control">
+          <button class="segment-button active" id="weight-outline" onclick="selectStyle('Outline', this)">Outline</button>
+          <button class="segment-button" id="weight-filled" onclick="selectStyle('Filled', this)">Filled</button>
+        </div>
+        
+        <!-- Format selector -->
+        <select class="format-selector" id="format-select" onchange="selectFormat(this.value)">
+          <option value="react">React</option>
+          <option value="vue">Vue</option>
+          <option value="svelte">Svelte</option>
+          <option value="svg">SVG</option>
+        </select>
+      </div>
+
+      <!-- Sizing and Colors -->
+      <div class="customizer-row">
+        <!-- Size selector -->
+        <div class="customizer-item">
+          <span class="customizer-label">Size</span>
+          <input type="text" class="custom-size-input" id="custom-size" value="24" oninput="customSizeInput(this.value)">
+        </div>
+
+        <!-- Color swatches and input -->
+        <div class="customizer-item">
+          <span class="customizer-label">Color</span>
+          <div class="color-swatches">
+            <div class="color-swatch active" style="background-color: currentColor; border: 1px dashed rgba(255,255,255,0.4);" onclick="selectColorSwatch('currentColor', this)" title="Theme Default"></div>
+            <div class="color-swatch" style="background-color: #9CA3AF;" onclick="selectColorSwatch('#9CA3AF', this)" title="Gray"></div>
+            <div class="color-swatch" style="background-color: #6C5CE7;" onclick="selectColorSwatch('#6C5CE7', this)" title="Purple"></div>
+          </div>
+          <input type="text" class="custom-color-input" id="custom-color" value="currentColor" oninput="customColorInput(this.value)">
+        </div>
+      </div>
+    </section>
+
+    <!-- Horizontal Category scroller -->
+    <div class="category-scroller" id="category-scroller-bar">
+      <div class="category-pill active" id="cat-all-pill" onclick="selectCategory('all', this)">All</div>
+      <div class="category-pill new-icons-pill" id="new-icons-pill" onclick="toggleNewIcons(this)">
+        <span class="pulse-dot"></span>
+        <span>Added __NEW_ICONS_COUNT__</span>
+      </div>
+      <!-- Dynamically filled categories -->
+    </div>
+
+    <!-- Icons Grid -->
+    <section class="grid-container" id="icons-grid">
+      <!-- Dynamically rendered icon cards -->
+    </section>
+      
+  </div>
+
+
+
+  <!-- Floating Toast Notification -->
+  <div class="toast-notification" id="toast-notification">
+    <div class="toast-icon-wrapper">
+      <img class="toast-brand-logo" src="__REICON_LOGO_BASE64__" alt="Reicon logo">
+    </div>
+    <span class="toast-message" id="toast-message">Inserted "home"</span>
+    <div class="toast-divider"></div>
+    <button class="toast-close-btn" onclick="dismissToast(event)">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+  </div>
+
+  <script>
+    // VS Code API
+    let vscode;
+    try {
+      vscode = acquireVsCodeApi();
+    } catch (e) {
+      console.warn("VS Code API not found, running in web browser fallback.");
+      vscode = {
+        postMessage: (msg) => console.log("PostMessage:", msg),
+        getState: () => null,
+        setState: (st) => {}
+      };
+    }
+
+    // State management
+    let activeCategory = 'all';
+    let activeStyle = 'Outline'; 
+    let activeFormat = 'react';
+    let activeSize = '24';
+    let selectedColor = 'currentColor';
+    let selectedIconName = '';
+    
+    let showNew = false;
+    let searchQuery = '';
+    let filteredIcons = [];
+    let displayedCount = 0;
+    const BATCH_SIZE = 160;
+
+    // DOM Elements
+    const searchInput = document.getElementById('search-input');
+    const iconsGrid = document.getElementById('icons-grid');
+    const scrollerBarEl = document.getElementById('category-scroller-bar');
+
+    
+    const customSizeInputEl = document.getElementById('custom-size');
+    const customColorInputEl = document.getElementById('custom-color');
+    const formatSelectEl = document.getElementById('format-select');
+
+    // Helper functions
+    function toPascalCase(str) {
+      return str
+        .split('-')
+        .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+        .join('');
+    }
+
+    function getSnippet(name, weight, rawCode, format, size, color) {
+      const pascalName = toPascalCase(name);
+      const isFilled = weight === 'Filled';
+      
+      switch (format) {
+        case 'react': {
+          const weightProp = isFilled ? ' weight="Filled"' : '';
+          const sizeProp = size !== 24 ? ` size={${size}}` : '';
+          const colorProp = color && color !== 'currentColor' ? ` color="${color}"` : '';
+          return `<${pascalName}${weightProp}${sizeProp}${colorProp} />`;
+        }
+        case 'vue': {
+          const weightProp = isFilled ? ' weight="Filled"' : '';
+          const sizeProp = size !== 24 ? ` :size="${size}"` : '';
+          const colorProp = color && color !== 'currentColor' ? ` color="${color}"` : '';
+          return `<${pascalName}${weightProp}${sizeProp}${colorProp} />`;
+        }
+        case 'svelte': {
+          const weightProp = isFilled ? ' weight="Filled"' : '';
+          const sizeProp = size !== 24 ? ` size={${size}}` : '';
+          const colorProp = color && color !== 'currentColor' ? ` color="${color}"` : '';
+          return `<${pascalName}${weightProp}${sizeProp}${colorProp} />`;
+        }
+        case 'svg': {
+          // Colorize the path content
+          const colorized = rawCode.replace(/currentColor/g, color);
+          return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none">${colorized}</svg>`;
+        }
+        default:
+          return rawCode;
+      }
+    }
+
+    // Initialize state from stored VS Code state
+    function loadSavedState() {
+      const saved = vscode.getState();
+      if (saved) {
+        if (saved.format) {
+          activeFormat = saved.format;
+          formatSelectEl.value = activeFormat;
+        }
+        if (saved.size) {
+          activeSize = saved.size;
+          customSizeInputEl.value = activeSize;
+        }
+        if (saved.color) {
+          selectedColor = saved.color;
+          customColorInputEl.value = selectedColor;
+          
+          // Set active swatch color
+          document.querySelectorAll('.color-swatch').forEach(el => {
+            const bg = el.style.backgroundColor;
+            const match = bg && (selectedColor.toLowerCase() === bg.toLowerCase() || 
+                           (selectedColor === 'currentColor' && (bg.includes('currentcolor') || bg === '')) ||
+                           (selectedColor === '#6c5ce7' && bg.includes('108, 92, 231')) ||
+                           (selectedColor === '#9ca3af' && bg.includes('156, 163, 175')));
+            el.classList.toggle('active', !!match);
+          });
+        }
+        if (saved.style) {
+          activeStyle = saved.style;
+          document.getElementById('weight-outline').classList.toggle('active', activeStyle === 'Outline');
+          document.getElementById('weight-filled').classList.toggle('active', activeStyle === 'Filled');
+        }
+        if (saved.category) {
+          activeCategory = saved.category;
+        }
+      }
+    }
+
+    function saveState() {
+      vscode.setState({
+        format: activeFormat,
+        size: activeSize,
+        color: selectedColor,
+        style: activeStyle,
+        category: activeCategory
+      });
+    }
+
+    // Initialize Panel
+    function init() {
+      if (!window.REICON_DATA || !window.REICON_CATEGORIES) {
+        iconsGrid.innerHTML = `
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <p>Database failed to load.</p>
+          </div>`;
+        return;
+      }
+
+      loadSavedState();
+
+      // 1. Generate category pills in horizontal scroller
+      window.REICON_CATEGORIES.sort((a,b) => a.name.localeCompare(b.name)).forEach(cat => {
+        const pill = document.createElement('div');
+        pill.className = 'category-pill' + (activeCategory === cat.id ? ' active' : '');
+        pill.dataset.category = cat.id;
+        pill.textContent = cat.name;
+        pill.onclick = () => selectCategory(cat.id, pill);
+        scrollerBarEl.appendChild(pill);
+      });
+
+      if (activeCategory === 'all') {
+        document.getElementById('cat-all-pill').classList.add('active');
+      } else {
+        document.getElementById('cat-all-pill').classList.remove('active');
+      }
+
+      // 2. Search input handler
+      searchInput.oninput = () => {
+        searchQuery = searchInput.value;
+        applyFilters();
+      };
+
+      // Focus shortcut
+      window.onkeydown = (e) => {
+        if ((e.metaKey || e.ctrlKey) && (e.key === 'f' || e.key === 'p')) {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      };
+
+      // 3. Scroll listener for progressive lazy rendering
+      iconsGrid.onscroll = () => {
+        if (iconsGrid.scrollHeight - iconsGrid.scrollTop <= iconsGrid.clientHeight + 80) {
+          loadMoreIcons();
+        }
+      };
+
+      // 4. Initial filters application
+      applyFilters();
+    }
+
+    // Filter Logic
+    function applyFilters() {
+      const query = searchQuery.toLowerCase().trim();
+      const allKeys = Object.keys(window.REICON_DATA);
+
+      filteredIcons = [];
+
+      allKeys.forEach(name => {
+        const item = window.REICON_DATA[name];
+
+        // 1. Category filter
+        if (activeCategory !== 'all' && item.category !== activeCategory) {
+          return;
+        }
+
+        // 2. Weight match check
+        if (!item.weights[activeStyle]) return;
+
+        // 3. Search text match
+        if (query) {
+          const matchName = name.toLowerCase().includes(query);
+          const matchCat = item.category.toLowerCase().includes(query);
+          const matchTags = item.description.some(tag => tag.toLowerCase().includes(query));
+          if (!matchName && !matchCat && !matchTags) return;
+        }
+
+        filteredIcons.push({ name: name, weight: activeStyle, data: item.weights[activeStyle] });
+      });
+
+
+
+      // Reset grid scroll
+      iconsGrid.scrollTop = 0;
+      displayedCount = 0;
+      iconsGrid.innerHTML = '';
+      
+      if (filteredIcons.length === 0) {
+        iconsGrid.innerHTML = `
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <p>No icons found</p>
+          </div>
+        `;
+        return;
+      }
+
+      loadMoreIcons();
+    }
+
+    // Lazy load icons
+    function loadMoreIcons() {
+      if (displayedCount >= filteredIcons.length) return;
+
+      const end = Math.min(displayedCount + BATCH_SIZE, filteredIcons.length);
+      const frag = document.createDocumentFragment();
+
+      for (let i = displayedCount; i < end; i++) {
+        const item = filteredIcons[i];
+        const cardId = `${item.name}-${item.weight}`;
+
+        const card = document.createElement('div');
+        card.className = `icon-card ${selectedIconName === cardId ? 'selected' : ''}`;
+        card.dataset.cardId = cardId;
+        card.dataset.name = item.name;
+        card.dataset.weight = item.weight;
+        
+        card.onclick = () => selectIcon(cardId, item.name, item.weight);
+
+        card.innerHTML = `
+          <div class="icon-card-svg" style="color: ${selectedColor};">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">${item.data}</svg>
+          </div>
+        `;
+
+        frag.appendChild(card);
+      }
+
+      iconsGrid.appendChild(frag);
+      displayedCount = end;
+    }
+
+    // Sidebar Category Swapping
+    function selectCategory(catId, element) {
+      document.querySelectorAll('.category-pill').forEach(el => el.classList.remove('active'));
+      document.getElementById('cat-all-pill').classList.remove('active');
+      document.getElementById('new-icons-pill').classList.remove('active');
+      
+      element.classList.add('active');
+      activeCategory = catId;
+      showNew = false;
+      
+      saveState();
+      applyFilters();
+    }
+
+    // Quick Access toggler
+    function toggleNewIcons(element) {
+      showNew = !showNew;
+      
+      document.querySelectorAll('.category-pill').forEach(el => el.classList.remove('active'));
+      document.getElementById('cat-all-pill').classList.remove('active');
+      
+      if (showNew) {
+        element.classList.add('active');
+        activeCategory = 'all';
+      } else {
+        document.getElementById('cat-all-pill').classList.add('active');
+      }
+      
+      saveState();
+      applyFilters();
+    }
+
+    // Style Swapping (Outline / Filled)
+    function selectStyle(styleName, element) {
+      document.querySelectorAll('.segment-button').forEach(el => el.classList.remove('active'));
+      element.classList.add('active');
+      activeStyle = styleName;
+
+      if (selectedIconName) {
+        const lastHyphen = selectedIconName.lastIndexOf('-');
+        const name = selectedIconName.substring(0, lastHyphen);
+        const w = selectedIconName.substring(lastHyphen + 1);
+        if (activeStyle !== w) {
+          clearSelection();
+        }
+      }
+
+      saveState();
+      applyFilters();
+    }
+
+    // Format selection
+    function selectFormat(format) {
+      activeFormat = format;
+      saveState();
+    }
+
+    function customSizeInput(val) {
+      const num = parseInt(val);
+      if (num > 0) {
+        activeSize = num.toString();
+        saveState();
+      }
+    }
+
+    // Color swatches selection
+    function selectColorSwatch(colorHex, element) {
+      document.querySelectorAll('.color-swatch').forEach(el => el.classList.remove('active'));
+      if (element) element.classList.add('active');
+      
+      selectedColor = colorHex;
+      customColorInputEl.value = colorHex;
+
+      // Colorize paths inside current grid items instantly
+      document.querySelectorAll('.icon-card-svg').forEach(svgWrapper => {
+        svgWrapper.style.color = selectedColor;
+      });
+      
+      saveState();
+    }
+
+    function customColorInput(val) {
+      if (/^#[0-9A-F]{6}$/i.test(val) || val === 'currentColor') {
+        let foundSwatch = false;
+        document.querySelectorAll('.color-swatch').forEach(el => {
+          const swatchBg = el.style.backgroundColor;
+          if (val.toLowerCase() === swatchBg.toLowerCase() || (val === 'currentColor' && el.style.backgroundColor === 'currentColor')) {
+            el.classList.add('active');
+            foundSwatch = true;
+          } else {
+            el.classList.remove('active');
+          }
+        });
+        selectColorSwatch(val, null);
+      }
+    }
+
+    // Icon Selection & Direct Insertion
+    function selectIcon(cardId, name, weight) {
+      selectedIconName = cardId;
+      
+      document.querySelectorAll('.icon-card').forEach(el => {
+        el.classList.toggle('selected', el.dataset.cardId === cardId);
+      });
+
+      insertIcon(name, weight);
+    }
+
+    function clearSelection() {
+      selectedIconName = '';
+    }
+
+    function insertIcon(name, weight) {
+      const item = window.REICON_DATA[name];
+      const rawCode = item.weights[weight];
+      const format = activeFormat;
+      const sizeNum = parseInt(activeSize) || 24;
+      
+      const snippet = getSnippet(name, weight, rawCode, format, sizeNum, selectedColor);
+      
+      vscode.postMessage({
+        type: 'insert-icon',
+        snippet: snippet,
+        name: `${toPascalCase(name)} (${weight})`
+      });
+
+      showToast(`Inserted "${toPascalCase(name)}"`);
+    }
+
+    // Dropdown Menu & Preview Sizing Logic
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    let currentPreviewSize = 24;
+
+    function toggleMenu(event) {
+      event.stopPropagation();
+      const isOpen = dropdownMenu.classList.toggle('show');
+      updateMenuButton(isOpen);
+    }
+
+    window.addEventListener('click', (e) => {
+      const toggleBtn = document.getElementById('menu-toggle-btn');
+      if (dropdownMenu.classList.contains('show') && !dropdownMenu.contains(e.target) && e.target !== toggleBtn && !toggleBtn.contains(e.target)) {
+        dropdownMenu.classList.remove('show');
+        updateMenuButton(false);
+      }
+    });
+
+    function changePreviewSize(diff) {
+      const nextSize = Math.max(16, Math.min(64, currentPreviewSize + diff));
+      if (nextSize !== currentPreviewSize) {
+        currentPreviewSize = nextSize;
+        iconsGrid.style.setProperty('--grid-icon-size', currentPreviewSize + 'px');
+        
+        customSizeInputEl.value = currentPreviewSize;
+        activeSize = currentPreviewSize.toString();
+        saveState();
+      }
+    }
+
+    function openExternalUrl(url) {
+      vscode.postMessage({
+        type: 'open-url',
+        url: url
+      });
+      dropdownMenu.classList.remove('show');
+      updateMenuButton(false);
+    }
+
+    function updateMenuButton(isOpen) {
+      const toggleBtn = document.getElementById('menu-toggle-btn');
+      if (isOpen) {
+        toggleBtn.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="16" width="16">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        `;
+      } else {
+        toggleBtn.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" height="16" width="16">
+            <path d="m4 8 16 0" stroke-width="2"></path>
+            <path d="m4 16 16 0" stroke-width="2"></path>
+          </svg>
+        `;
+      }
+    }
+
+    // Toast Notification
+    let toastTimeout;
+
+    function showToast(messageText) {
+      const toastEl = document.getElementById('toast-notification');
+      const toastMsgEl = document.getElementById('toast-message');
+      
+      toastMsgEl.textContent = messageText;
+      toastEl.classList.add('show');
+      
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toastEl.classList.remove('show');
+      }, 2500);
+    }
+
+    function dismissToast(event) {
+      if (event) event.stopPropagation();
+      const toastEl = document.getElementById('toast-notification');
+      toastEl.classList.remove('show');
+      clearTimeout(toastTimeout);
+    }
+
+    // Run init
+    window.onload = init;
+  </script>
+</body>
+</html>
