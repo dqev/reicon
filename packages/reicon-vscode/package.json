@@ -1,0 +1,88 @@
+{
+  "name": "reicon",
+  "displayName": "Reicon — Open Source SVG Icon Library",
+  "description": "Browse and insert 2,700+ handcrafted Reicon SVG icons directly into your HTML, React, Vue, Svelte, or vanilla JS code. Outlined and filled styles available.",
+  "version": "1.0.3",
+  "publisher": "DevChauhan",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "keywords": [
+    "icons",
+    "svg",
+    "react-icons",
+    "lucide",
+    "heroicons",
+    "icon picker",
+    "icon browser",
+    "reicon",
+    "vue-icons",
+    "svelte-icons",
+    "outline icons",
+    "filled icons"
+  ],
+  "categories": [
+    "Snippets",
+    "Other"
+  ],
+  "galleryBanner": {
+    "color": "#09090b",
+    "theme": "dark"
+  },
+  "badges": [
+    {
+      "url": "https://img.shields.io/badge/icons-2,700%2B-blue",
+      "href": "https://reicon.dev",
+      "description": "2,700+ Icons"
+    },
+    {
+      "url": "https://img.shields.io/badge/license-MIT-green",
+      "href": "https://github.com/dqev/reicon/blob/main/LICENSE",
+      "description": "MIT License"
+    }
+  ],
+  "icon": "resources/icon.png",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dqev/reicon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dqev/reicon/issues"
+  },
+  "homepage": "https://reicon.dev",
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "reicon-explorer",
+          "title": "Reicon",
+          "icon": "resources/icon.png"
+        }
+      ]
+    },
+    "views": {
+      "reicon-explorer": [
+        {
+          "type": "webview",
+          "id": "reicon.views.explorer",
+          "name": "Reicon Icons"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "reicon.focusExplorer",
+        "title": "Focus on Reicon Icons"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node scripts/build.cjs"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0"
+  }
+}
