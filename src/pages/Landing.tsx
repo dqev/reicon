@@ -157,6 +157,7 @@ export default function Landing() {
               <nav className="hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2">
                 <Link to="/usage" className="text-[13px] text-text-base/60 hover:text-text-base transition-colors">Usage</Link>
                 <Link to="/icons" className="text-[13px] text-text-base/60 hover:text-text-base transition-colors">Icons</Link>
+                <Link to="/packages" className="text-[13px] text-text-base/60 hover:text-text-base transition-colors">Packages</Link>
               </nav>
               <div className="flex items-center gap-2">
                 <button
@@ -929,7 +930,7 @@ function IconPlayground({ theme }: { theme: string }) {
 // ─────────────────────────────────────────────────────────────────────────────
 function LaunchBanner() {
   const [dismissed, setDismissed] = useState(() => {
-    try { return localStorage.getItem('reicon-launch-banner-v1') === 'dismissed'; }
+    try { return localStorage.getItem('reicon-launch-banner-v2') === 'dismissed'; }
     catch { return false; }
   });
 
@@ -937,45 +938,82 @@ function LaunchBanner() {
 
   const dismiss = () => {
     setDismissed(true);
-    try { localStorage.setItem('reicon-launch-banner-v1', 'dismissed'); } catch { }
+    try { localStorage.setItem('reicon-launch-banner-v2', 'dismissed'); } catch { }
   };
 
+  // Reusable inline SVGs
+  const FigmaIcon = ({ size = 13 }: { size?: number }) => (
+    <svg className="shrink-0" width={size} height={size} viewBox="0 0 54 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13.3333 80.0002C20.6933 80.0002 26.6667 74.0268 26.6667 66.6668V53.3335H13.3333C5.97333 53.3335 0 59.3068 0 66.6668C0 74.0268 5.97333 80.0002 13.3333 80.0002Z" fill="#0ACF83"/>
+      <path d="M0 39.9998C0 32.6398 5.97333 26.6665 13.3333 26.6665H26.6667V53.3332H13.3333C5.97333 53.3332 0 47.3598 0 39.9998Z" fill="#A259FF"/>
+      <path d="M0 13.3333C0 5.97333 5.97333 0 13.3333 0H26.6667V26.6667H13.3333C5.97333 26.6667 0 20.6933 0 13.3333Z" fill="#F24E1E"/>
+      <path d="M26.6667 0H40.0001C47.3601 0 53.3334 5.97333 53.3334 13.3333C53.3334 20.6933 47.3601 26.6667 40.0001 26.6667H26.6667V0Z" fill="#FF7262"/>
+      <path d="M53.3334 39.9998C53.3334 47.3598 47.3601 53.3332 40.0001 53.3332C32.6401 53.3332 26.6667 47.3598 26.6667 39.9998C26.6667 32.6398 32.6401 26.6665 40.0001 26.6665C47.3601 26.6665 53.3334 32.6398 53.3334 39.9998Z" fill="#1ABCFE"/>
+    </svg>
+  );
+
+  const VscodeIcon = ({ size = 13 }: { size?: number }) => (
+    <svg className="shrink-0" width={size} height={size} viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M180.6 0L99.1 76.1 37.4 28 0 50.7v154.6l37.4 22.7 61.7-48.1 81.5 76.1 38.4-19.2V19.2L180.6 0zm22.1 185.7l-57.8-57.7 57.8-57.8v115.5zM96.9 128l-59.5 46.4V81.6L96.9 128z" fill="#007ACC"/>
+    </svg>
+  );
+
   return (
-    <div
-      className="relative z-[300] flex items-center justify-center px-10 py-1.5 bg-bg-base transition-colors duration-300"
-    >
+    <div className="relative z-[300] flex items-center justify-center px-10 py-1.5 bg-bg-base transition-colors duration-300">
       {/* Desktop */}
-      <span className="hidden sm:inline-flex items-center gap-1.5 text-[13px] text-text-base/45">
-        <img src="/rocket.webp" alt="" aria-hidden width={28} height={28} style={{ display: 'inline', verticalAlign: 'middle', flexShrink: 0 }} />
-        We launched our core package —
-        <code className="font-mono text-text-base/75 font-semibold text-[12px] bg-text-base/6 px-1.5 py-0.5 rounded-md">npm i reicon</code>
+      <span className="hidden sm:inline-flex items-center gap-2 text-[13px] text-text-base/45">
+        <FigmaIcon />
+        <a
+          href="https://www.figma.com/community/plugin/1652983191908763066"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-text-base/70 transition-colors cursor-pointer"
+        >
+          Figma Plugin is live
+        </a>
         <span className="text-text-base/15">·</span>
         <a
-          href="https://www.npmjs.com/package/reicon"
+          href="https://www.figma.com/community/plugin/1652983191908763066"
           target="_blank"
           rel="noopener noreferrer"
           className="text-text-base/50 hover:text-text-base/80 transition-colors underline underline-offset-2 decoration-text-base/20 cursor-pointer"
         >
-          npm
+          Install
+        </a>
+        <span className="text-text-base/15 mx-1">|</span>
+        <VscodeIcon />
+        <a
+          href="https://marketplace.visualstudio.com/items?itemName=DevChauhan.reicon"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-text-base/70 transition-colors cursor-pointer"
+        >
+          VS Code Extension is live
         </a>
         <span className="text-text-base/15">·</span>
-        <Link
-          to="/usage"
-          className="text-text-base/50 hover:text-text-base/80 transition-colors underline underline-offset-2 decoration-text-base/20"
+        <a
+          href="https://marketplace.visualstudio.com/items?itemName=DevChauhan.reicon"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-text-base/50 hover:text-text-base/80 transition-colors underline underline-offset-2 decoration-text-base/20 cursor-pointer"
         >
-          Docs
-        </Link>
+          Install
+        </a>
       </span>
 
-      {/* Mobile — rocket + tappable code pill → docs */}
-      <Link
-        to="/usage"
-        className="inline-flex sm:hidden items-center gap-1.5 text-[12px] text-text-base/45"
+      {/* Mobile */}
+      <a
+        href="https://www.figma.com/community/plugin/1652983191908763066"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex sm:hidden items-center gap-1.5 text-[12px] text-text-base/45 hover:text-text-base/65 transition-colors cursor-pointer"
       >
-        <img src="/rocket.webp" alt="" aria-hidden width={20} height={20} style={{ display: 'inline', verticalAlign: 'middle', flexShrink: 0 }} />
-        We have launched —
-        <code className="font-mono text-text-base/70 font-semibold bg-text-base/6 px-1.5 py-0.5 rounded-md">npm i reicon</code>
-      </Link>
+        <FigmaIcon size={12} />
+        <span>Figma</span>
+        <span className="text-text-base/20">&</span>
+        <VscodeIcon size={12} />
+        <span>VS Code extensions are live</span>
+      </a>
 
       {/* Dismiss */}
       <button
