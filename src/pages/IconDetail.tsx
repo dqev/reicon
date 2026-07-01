@@ -137,8 +137,8 @@ export default function IconDetail() {
     canvas.height = size * scale;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-    // currentColor renders black on canvas — paint white or custom color so it's visible on any bg
-    const colorToUse = useCustomColor ? customColor : '#ffffff';
+    const isLight = document.documentElement.classList.contains('light');
+    const colorToUse = useCustomColor ? customColor : (isLight ? '#111111' : '#ffffff');
     const colored = svgStr.replace(/currentColor/g, colorToUse);
     const img = new Image();
     const svgBlob = new Blob([colored], { type: 'image/svg+xml' });
@@ -225,7 +225,7 @@ export default function IconDetail() {
   }, [name]);
 
   return (
-    <div className="min-h-screen bg-[#09090b] flex flex-col">
+    <div className="min-h-screen bg-bg-base flex flex-col">
       <Helmet>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDesc} />
@@ -265,15 +265,15 @@ export default function IconDetail() {
 
       <Header />
 
-      <main className="flex-1 pt-14 w-full overflow-x-hidden">
-        <div className="max-w-[1160px] mx-auto px-5 md:px-10 py-8 md:py-10">
+      <main className="flex-1 w-full overflow-x-hidden">
+        <div className="max-w-[1160px] mx-auto px-5 md:px-10 pt-28 pb-8 md:py-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-[13px] text-white/40 mb-6">
-            <Link to="/" className="hover:text-white/70 transition-colors">Reicon</Link>
-            <span className="text-white/20">/</span>
-            <Link to="/icons" className="hover:text-white/70 transition-colors">Icons</Link>
-            <span className="text-white/20">/</span>
-            <span className="text-white/70">{pascalName}</span>
+          <nav className="flex items-center gap-2 text-[13px] text-text-base/40 mb-6">
+            <Link to="/" className="hover:text-text-base/70 transition-colors">Reicon</Link>
+            <span className="text-text-base/20">/</span>
+            <Link to="/icons" className="hover:text-text-base/70 transition-colors">Icons</Link>
+            <span className="text-text-base/20">/</span>
+            <span className="text-text-base/70">{pascalName}</span>
           </nav>
 
           <h1 className="sr-only">{pascalName} icon — Reicon</h1>
@@ -289,16 +289,16 @@ export default function IconDetail() {
               className="lg:sticky lg:top-20 lg:self-start flex flex-col gap-4"
             >
               {/* Keyline design canvas */}
-              <div className="relative w-full aspect-square bg-[#0a0a0c] border border-white/[0.06] rounded-2xl flex items-center justify-center overflow-hidden">
+              <div className="relative w-full aspect-square bg-text-base/2 border border-text-base/8 rounded-2xl flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none" style={{
-                  backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px)',
+                  backgroundImage: 'linear-gradient(to right, var(--border-muted) 1px, transparent 1px), linear-gradient(to bottom, var(--border-muted) 1px, transparent 1px)',
                   backgroundSize: 'calc(100%/12) calc(100%/12)',
                   maskImage: 'radial-gradient(circle at center, #000 60%, transparent 92%)',
                   WebkitMaskImage: 'radial-gradient(circle at center, #000 60%, transparent 92%)',
                 }} />
                 <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at center, rgba(108,92,231,0.12), transparent 58%)' }} />
                 <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" fill="none">
-                  <rect x="9" y="9" width="82" height="82" rx="7" stroke="rgba(255,255,255,0.08)" strokeWidth="0.4" strokeDasharray="2.5 2.5" />
+                  <rect x="9" y="9" width="82" height="82" rx="7" stroke="var(--border-base)" strokeWidth="0.4" strokeDasharray="2.5 2.5" />
                   <rect x="20" y="20" width="60" height="60" rx="7" stroke="#6C5CE7" strokeOpacity="0.22" strokeWidth="0.4" />
                   <circle cx="50" cy="50" r="35" stroke="#6C5CE7" strokeOpacity="0.22" strokeWidth="0.4" />
                   <line x1="50" y1="6" x2="50" y2="94" stroke="#6C5CE7" strokeOpacity="0.25" strokeWidth="0.3" />
@@ -308,9 +308,9 @@ export default function IconDetail() {
                 <div className="absolute top-2.5 right-2.5 w-2.5 h-2.5 border-t border-r border-[#6C5CE7]/35" />
                 <div className="absolute bottom-2.5 left-2.5 w-2.5 h-2.5 border-b border-l border-[#6C5CE7]/35" />
                 <div className="absolute bottom-2.5 right-2.5 w-2.5 h-2.5 border-b border-r border-[#6C5CE7]/35" />
-                <span className="absolute top-2.5 left-1/2 -translate-x-1/2 text-[7.5px] font-mono text-[#6C5CE7]/45 select-none tracking-wider">24<span className="text-white/20"> × </span>24</span>
-                <span className="absolute bottom-2.5 right-3 text-[8px] font-mono text-white/30 tabular-nums select-none">{previewSize}px</span>
-                <span className="absolute bottom-2.5 left-3 text-[8px] font-mono text-white/25 select-none lowercase">{activeWeight}</span>
+                <span className="absolute top-2.5 left-1/2 -translate-x-1/2 text-[7.5px] font-mono text-[#6C5CE7]/45 select-none tracking-wider">24<span className="text-text-base/20"> × </span>24</span>
+                <span className="absolute bottom-2.5 right-3 text-[8px] font-mono text-text-base/35 tabular-nums select-none">{previewSize}px</span>
+                <span className="absolute bottom-2.5 left-3 text-[8px] font-mono text-text-base/25 select-none lowercase">{activeWeight}</span>
 
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -321,7 +321,7 @@ export default function IconDetail() {
                     transition={{ duration: 0.22, ease: EASE }}
                     className="flex items-center justify-center"
                   >
-                    <re-icon icon={name} weight={activeWeight} size={previewSize} color={useCustomColor ? customColor : '#ffffff'} aria-label={`${pascalName} icon preview`} />
+                    <re-icon icon={name} weight={activeWeight} size={previewSize} color={useCustomColor ? customColor : 'var(--text-base)'} aria-label={`${pascalName} icon preview`} />
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -329,27 +329,27 @@ export default function IconDetail() {
               {/* Name + meta */}
               <div className="flex items-center justify-between gap-3">
                 <div className="min-w-0">
-                  <h2 className="text-[18px] font-serif text-white truncate">{pascalName}</h2>
-                  {iconCategory && <p className="text-[12px] text-white/40 mt-0.5">{iconCategory}</p>}
+                  <h2 className="text-[18px] font-serif text-text-base truncate">{pascalName}</h2>
+                  {iconCategory && <p className="text-[12px] text-text-base/40 mt-0.5">{iconCategory}</p>}
                 </div>
-                <code className="shrink-0 text-[11px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-md px-2 py-1 font-mono">{name}</code>
+                <code className="shrink-0 text-[11px] text-text-base/40 bg-text-base/4 border border-text-base/6 rounded-md px-2 py-1 font-mono">{name}</code>
               </div>
 
               {/* Customizer */}
-              <div className="bg-[#0e0e10] border border-white/[0.06] rounded-2xl p-4 flex flex-col gap-4">
+              <div className="bg-text-base/3 border border-text-base/8 rounded-2xl p-4 flex flex-col gap-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] uppercase tracking-[0.08em] text-white/35 font-semibold">Customize</span>
-                  <button onClick={reset} title="Reset" aria-label="Reset" className="w-7 h-7 flex items-center justify-center rounded-md text-white/30 hover:text-white/70 hover:bg-white/5 transition-colors">
+                  <span className="text-[11px] uppercase tracking-[0.08em] text-text-base/35 font-semibold">Customize</span>
+                  <button onClick={reset} title="Reset" aria-label="Reset" className="w-7 h-7 flex items-center justify-center rounded-md text-text-base/30 hover:text-text-base/75 hover:bg-text-base/6 transition-colors cursor-pointer">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-6.5 2.8L3 8" /><path d="M3 3v5h5" /></svg>
                   </button>
                 </div>
 
                 <div>
-                  <label className="text-[12px] text-white/50 mb-2 block">Weight</label>
+                  <label className="text-[12px] text-text-base/50 mb-2 block">Weight</label>
                   <div className="flex gap-2">
                     {(['outline', 'filled'] as const).map((w) => (
                       <button key={w} onClick={() => setActiveWeight(w)}
-                        className={`flex-1 px-3 py-2 rounded-lg text-[13px] font-medium transition-all ${activeWeight === w ? 'bg-[#6C5CE7]/15 text-[#6C5CE7] border border-[#6C5CE7]/30' : 'bg-white/5 text-white/40 border border-white/10 hover:text-white/60'}`}>
+                        className={`flex-1 px-3 py-2 rounded-lg text-[13px] font-medium transition-all cursor-pointer ${activeWeight === w ? 'bg-[#6C5CE7]/15 text-[#6C5CE7] border border-[#6C5CE7]/30' : 'bg-text-base/5 text-text-base/40 border border-text-base/10 hover:text-text-base/60'}`}>
                         {w.charAt(0).toUpperCase() + w.slice(1)}
                       </button>
                     ))}
@@ -358,11 +358,11 @@ export default function IconDetail() {
 
                 <div>
                   <div className="flex justify-between mb-2">
-                    <label className="text-[12px] text-white/50">Size</label>
-                    <span className="text-[12px] text-white/40 font-mono">{previewSize}px</span>
+                    <label className="text-[12px] text-text-base/50">Size</label>
+                    <span className="text-[12px] text-text-base/40 font-mono">{previewSize}px</span>
                   </div>
                   <input type="range" min={16} max={128} value={previewSize} onChange={(e) => setPreviewSize(Number(e.target.value))}
-                    className="w-full h-1.5 rounded-full appearance-none bg-white/10 accent-[#6C5CE7] cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#6C5CE7] [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(108,92,231,0.5)]" />
+                    className="w-full h-1.5 rounded-full appearance-none bg-text-base/10 accent-[#6C5CE7] cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#6C5CE7] [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(108,92,231,0.5)]" />
                 </div>
               </div>
             </motion.div>
@@ -375,13 +375,13 @@ export default function IconDetail() {
               className="flex flex-col gap-5 min-w-0"
             >
               {/* Quick actions */}
-              <div className="bg-[#0e0e10] border border-white/[0.06] rounded-2xl p-4 flex flex-col gap-3">
+              <div className="bg-text-base/3 border border-text-base/8 rounded-2xl p-4 flex flex-col gap-3">
                 <div className="flex flex-wrap gap-2">
                   {([['Copy JSX', () => copyToClipboard(`<${pascalName} />`, 'jsx'), 'jsx'],
                   ['Copy Name', () => copyToClipboard(name || '', 'name'), 'name'],
                   ['Copy SVG', () => copySvg(name || '', activeWeight), 'svg']] as const).map(([label, fn, field]) => (
                     <motion.button key={field} onClick={fn} whileTap={{ scale: 0.96 }}
-                      className={`flex-1 min-w-[120px] text-[12.5px] font-medium py-2.5 rounded-lg border transition-colors ${copiedField === field ? 'bg-[#6C5CE7]/20 border-[#6C5CE7]/40 text-[#6C5CE7]' : 'bg-white/5 border-white/10 text-white/60 hover:text-white hover:bg-white/10'}`}>
+                      className={`flex-1 min-w-[120px] text-[12.5px] font-medium py-2.5 rounded-lg border transition-colors cursor-pointer ${copiedField === field ? 'bg-[#6C5CE7]/20 border-[#6C5CE7]/40 text-[#6C5CE7]' : 'bg-text-base/5 border-text-base/10 text-text-base/60 hover:text-text-base hover:bg-text-base/10'}`}>
                       {copiedField === field ? 'Copied!' : label}
                     </motion.button>
                   ))}
@@ -389,13 +389,13 @@ export default function IconDetail() {
 
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[11px] text-white/30 uppercase tracking-wider font-medium">Export size</span>
-                    <span className="text-[12px] text-white/50 font-mono">{exportSize}px</span>
+                    <span className="text-[11px] text-text-base/35 uppercase tracking-wider font-medium">Export size</span>
+                    <span className="text-[12px] text-text-base/50 font-mono">{exportSize}px</span>
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {EXPORT_SIZES.map((s) => (
                       <button key={s} onClick={() => setExportSize(s)}
-                        className={`flex-1 min-w-[42px] text-[11px] font-medium py-1.5 rounded-lg border transition-colors ${exportSize === s ? 'bg-[#6C5CE7]/15 border-[#6C5CE7]/30 text-[#6C5CE7]' : 'bg-white/[0.03] border-white/[0.06] text-white/35 hover:text-white/60 hover:bg-white/[0.06]'}`}>
+                        className={`flex-1 min-w-[42px] text-[11px] font-medium py-1.5 rounded-lg border transition-colors cursor-pointer ${exportSize === s ? 'bg-[#6C5CE7]/15 border-[#6C5CE7]/30 text-[#6C5CE7]' : 'bg-text-base/3 border-text-base/6 text-text-base/35 hover:text-text-base/60 hover:bg-text-base/6'}`}>
                         {s}
                       </button>
                     ))}
@@ -405,19 +405,19 @@ export default function IconDetail() {
                 <div className="flex gap-2">
                   {([['SVG', downloadSvg], ['PNG', downloadAsPng], ['WebP', downloadAsWebp]] as const).map(([label, fn]) => (
                     <motion.button key={label} onClick={() => fn(name || '', activeWeight)} whileTap={{ scale: 0.96 }}
-                      className="flex-1 text-[12.5px] font-medium py-2.5 rounded-lg border bg-white/5 border-white/10 text-white/60 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-1.5">
+                      className="flex-1 text-[12.5px] font-medium py-2.5 rounded-lg border bg-text-base/5 border-text-base/10 text-text-base/60 hover:text-text-base hover:bg-text-base/10 transition-colors flex items-center justify-center gap-1.5 cursor-pointer">
                       <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
                       {label}
                     </motion.button>
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between border-t border-white/[0.06] pt-3.5 mt-1 relative">
+                <div className="flex items-center justify-between border-t border-text-base/8 pt-3.5 mt-1 relative">
                   <div className="flex items-center gap-2.5">
-                    <span className="text-[12px] text-white/40 uppercase tracking-wider font-semibold">Custom Color</span>
+                    <span className="text-[12px] text-text-base/40 uppercase tracking-wider font-semibold">Custom Color</span>
                     <button 
                       onClick={() => setUseCustomColor(!useCustomColor)}
-                      className={`relative w-8 h-4.5 rounded-full transition-colors duration-200 focus:outline-none cursor-pointer ${useCustomColor ? 'bg-[#6C5CE7]' : 'bg-white/10'}`}
+                      className={`relative w-8 h-4.5 rounded-full transition-colors duration-200 focus:outline-none cursor-pointer ${useCustomColor ? 'bg-[#6C5CE7]' : 'bg-text-base/10'}`}
                       aria-label="Toggle custom color"
                     >
                       <div className={`w-3.5 h-3.5 rounded-full bg-white transition-transform duration-200 shadow-sm absolute top-0.5 left-0.5 ${useCustomColor ? 'translate-x-3.5' : 'translate-x-0'}`} />
@@ -428,20 +428,20 @@ export default function IconDetail() {
                     <div className="relative">
                       <button 
                         onClick={() => setIsColorPickerOpen(!isColorPickerOpen)}
-                        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.06] text-[11px] font-mono text-white/70 hover:text-white transition-colors cursor-pointer"
+                        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-text-base/3 border border-text-base/8 hover:bg-text-base/6 text-[11px] font-mono text-text-base/70 hover:text-text-base transition-colors cursor-pointer"
                         style={{ borderColor: `${customColor}30` }}
                       >
-                        <span className="w-3.5 h-3.5 rounded-full border border-white/20 shadow-sm" style={{ backgroundColor: customColor }} />
+                        <span className="w-3.5 h-3.5 rounded-full border border-text-base/20 shadow-sm" style={{ backgroundColor: customColor }} />
                         {customColor.toUpperCase()}
                       </button>
 
                       {isColorPickerOpen && (
                         <>
                           <div className="fixed inset-0 z-40" onClick={() => setIsColorPickerOpen(false)} />
-                          <div className="absolute right-0 bottom-full mb-2 z-50 bg-[#121214] border border-white/[0.08] rounded-xl p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.6)] flex flex-col gap-2.5 min-w-[200px]" style={{ boxShadow: '0 12px 40px rgba(0,0,0,0.6), 0 0 1px rgba(255,255,255,0.1)' }}>
+                          <div className="absolute right-0 bottom-full mb-2 z-50 bg-[var(--dropdown-bg)] border border-text-base/8 rounded-xl p-3.5 shadow-[0_12px_40px_var(--shadow-color)] flex flex-col gap-2.5 min-w-[200px]" style={{ boxShadow: '0 12px 40px var(--shadow-color), 0 0 1px var(--border-base)' }}>
                             <HexColorPicker color={customColor} onChange={setCustomColor} />
                             <div className="flex gap-1.5 items-center">
-                              <span className="text-[10px] text-white/40 font-mono">HEX</span>
+                              <span className="text-[10px] text-text-base/40 font-mono">HEX</span>
                               <input 
                                 type="text" 
                                 value={customColor} 
@@ -453,7 +453,7 @@ export default function IconDetail() {
                                     if (val.length <= 6) setCustomColor('#' + val);
                                   }
                                 }}
-                                className="w-full bg-[#09090b] border border-white/[0.08] rounded-lg px-2.5 py-1.5 text-[12px] font-mono text-white text-center focus:outline-none focus:border-[#6C5CE7]/60"
+                                className="w-full bg-bg-base border border-text-base/8 rounded-lg px-2.5 py-1.5 text-[12px] font-mono text-text-base text-center focus:outline-none focus:border-[#6C5CE7]/60"
                               />
                             </div>
                           </div>
@@ -465,14 +465,14 @@ export default function IconDetail() {
               </div>
 
               {/* Code tabs */}
-              <figure className="relative overflow-hidden rounded-xl bg-[#0e0e10] border border-white/[0.06] text-sm">
-                <div className="flex items-center justify-between w-full h-11 pl-3 pr-1.5 border-b border-white/[0.06]">
+              <figure className="relative overflow-hidden rounded-xl bg-text-base/3 border border-text-base/8 text-sm">
+                <div className="flex items-center justify-between w-full h-11 pl-3 pr-1.5 border-b border-text-base/8">
                   <div className="flex items-center h-full gap-1">
                     {CODE_TABS.map((tab) => {
                       const isActive = codeTab === tab.id;
                       return (
                         <button key={tab.id} onClick={() => setCodeTab(tab.id)}
-                          className={`relative flex items-center gap-1.5 h-full px-2.5 text-[13px] font-medium transition-colors ${isActive ? 'text-white' : 'text-white/40 hover:text-white/70'}`}>
+                          className={`relative flex items-center gap-1.5 h-full px-2.5 text-[13px] font-medium transition-colors cursor-pointer ${isActive ? 'text-text-base' : 'text-text-base/40 hover:text-text-base/70'}`}>
                           <span className={isActive ? '' : 'opacity-50'}>{tab.icon}</span>
                           {tab.label}
                           {isActive && <motion.span layoutId="code-tab-underline" className="absolute bottom-0 left-2 right-2 h-[2px] rounded-t-full bg-[#6C5CE7]" style={{ boxShadow: '0 0 8px rgba(108,92,231,0.45)' }} />}
@@ -481,7 +481,7 @@ export default function IconDetail() {
                     })}
                   </div>
                   <button onClick={() => copyToClipboard(activeTab.raw, `code-${codeTab}`)} aria-label="Copy code"
-                    className="inline-flex items-center justify-center w-7 h-7 rounded-md text-white/40 hover:text-white hover:bg-white/[0.08] transition-colors">
+                    className="inline-flex items-center justify-center w-7 h-7 rounded-md text-text-base/40 hover:text-text-base hover:bg-text-base/8 transition-colors cursor-pointer">
                     {copiedField === `code-${codeTab}` ? (
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
                     ) : (
@@ -490,7 +490,7 @@ export default function IconDetail() {
                   </button>
                 </div>
                 <div className="px-1.5 py-1.5">
-                  <div className="bg-[#09090b] rounded-md min-h-[92px]">
+                  <div className="bg-bg-base rounded-md min-h-[92px]">
                     <AnimatePresence mode="wait">
                       <motion.pre
                         key={codeTab}
@@ -498,7 +498,7 @@ export default function IconDetail() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -4 }}
                         transition={{ duration: 0.18, ease: EASE }}
-                        className="p-4 text-[13px] font-mono leading-[1.7] overflow-x-auto whitespace-pre-wrap break-all focus-visible:outline-none"
+                        className="p-4 text-[13px] font-mono leading-[1.7] overflow-x-auto whitespace-pre-wrap break-all focus-visible:outline-none text-text-base"
                       >
                         {codeTab === 'vanilla' && <VanillaSnippet pascalName={pascalName} filled={fw} />}
                         {codeTab === 'cdn' && <CdnSnippet name={name || ''} filled={fw} />}
@@ -514,7 +514,7 @@ export default function IconDetail() {
 
               {/* Props */}
               <div>
-                <h3 className="text-[11px] font-medium text-white/40 uppercase tracking-wider mb-3">Props</h3>
+                <h3 className="text-[11px] font-medium text-text-base/40 uppercase tracking-wider mb-3">Props</h3>
                 <TypeTable rows={[
                   { prop: 'size', type: 'number | string', default: '24', description: 'Icon size in pixels' },
                   { prop: 'color', type: 'string', default: 'currentColor', description: 'Any valid CSS color' },
@@ -527,9 +527,9 @@ export default function IconDetail() {
 
           {/* ═══ MOCKUPS ═══ */}
           <section className="mt-16">
-            <div className="border-t border-white/[0.06] pt-12 mb-8 text-center">
+            <div className="border-t border-text-base/8 pt-12 mb-8 text-center">
               <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">In context</div>
-              <h2 className="font-serif text-[clamp(20px,2.6vw,30px)] text-white">See the {pascalName} icon in real UI</h2>
+              <h2 className="font-serif text-[clamp(20px,2.6vw,30px)] text-text-base">See the {pascalName} icon in real UI</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -546,7 +546,7 @@ export default function IconDetail() {
         {/* ═══ RELATED ICONS ═══ */}
         {relatedIcons.length > 0 && (
           <section className="max-w-[1160px] mx-auto w-full px-5 md:px-10 pb-16">
-            <h2 className="text-lg font-serif text-white mb-4">Related icons</h2>
+            <h2 className="text-lg font-serif text-text-base mb-4">Related icons</h2>
             <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-1.5">
               {relatedIcons.map((iconName, i) => (
                 <motion.div key={iconName}
@@ -556,10 +556,10 @@ export default function IconDetail() {
                   transition={{ duration: 0.3, delay: Math.min(i * 0.025, 0.3), ease: EASE }}
                 >
                   <Link to={`/icon/${iconName}`}
-                    className="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.05] hover:border-white/[0.1] transition-colors group"
+                    className="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-text-base/2 border border-text-base/5 hover:bg-text-base/5 hover:border-text-base/10 transition-colors group"
                     title={`${(iconNamesData as Record<string, string>)[iconName] || iconName} icon`}>
-                    <re-icon icon={iconName} size={24} color="rgba(255,255,255,0.6)" aria-label={`${iconName} icon`} />
-                    <span className="text-[10px] text-white/30 group-hover:text-white/50 truncate w-full text-center transition-colors">{iconName}</span>
+                    <re-icon icon={iconName} size={24} color="currentColor" className="text-text-base/60 group-hover:text-text-base" aria-label={`${iconName} icon`} />
+                    <span className="text-[10px] text-text-base/30 group-hover:text-text-base/50 truncate w-full text-center transition-colors">{iconName}</span>
                   </Link>
                 </motion.div>
               ))}
@@ -577,7 +577,7 @@ export default function IconDetail() {
             transition={{ duration: 0.25, ease: EASE }}
             className="fixed bottom-6 left-0 right-0 z-[100] flex justify-center px-4"
           >
-            <div className="bg-[#1a1a1a] border border-white/[0.08] text-white/80 text-[13px] px-4 py-2.5 rounded-full shadow-xl flex items-center gap-2 whitespace-nowrap">
+            <div className="bg-[var(--dropdown-bg)] border border-text-base/8 text-text-base/80 text-[13px] px-4 py-2.5 rounded-full shadow-xl flex items-center gap-2 whitespace-nowrap">
               <svg className="w-3.5 h-3.5 text-[#6C5CE7] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
               {toast}
             </div>
@@ -599,7 +599,7 @@ function Mockup({ i, children }: { i: number; children: React.ReactNode }) {
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.45, delay: i * 0.06, ease: EASE }}
       whileHover={{ y: -4 }}
-      className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 min-h-[180px] flex flex-col"
+      className="bg-text-base/3 border border-text-base/6 rounded-2xl p-5 min-h-[180px] flex flex-col"
     >
       {children}
     </motion.div>
@@ -610,15 +610,15 @@ function Mockup({ i, children }: { i: number; children: React.ReactNode }) {
 function AppNavMockup({ name, pascalName, weight }: { name?: string; pascalName: string; weight: string }) {
   return (
     <div className="flex flex-col flex-1">
-      <span className="text-[10px] uppercase tracking-wider text-white/25 font-semibold mb-3">Sidebar nav</span>
+      <span className="text-[10px] uppercase tracking-wider text-text-base/25 font-semibold mb-3">Sidebar nav</span>
       <div className="flex flex-col gap-1">
         <div className="flex items-center gap-2.5 bg-[#6C5CE7]/15 text-[#6C5CE7] rounded-lg px-3 py-2">
           <re-icon icon={name} weight={weight} size={16} color="currentColor" />
           <span className="text-[13px] font-medium">{pascalName}</span>
         </div>
         {['Overview', 'Activity'].map((l) => (
-          <div key={l} className="flex items-center gap-2.5 text-white/40 rounded-lg px-3 py-2">
-            <span className="w-4 h-4 rounded bg-white/[0.07]" />
+          <div key={l} className="flex items-center gap-2.5 text-text-base/40 rounded-lg px-3 py-2">
+            <span className="w-4 h-4 rounded bg-text-base/7" />
             <span className="text-[13px]">{l}</span>
           </div>
         ))}
@@ -630,12 +630,12 @@ function AppNavMockup({ name, pascalName, weight }: { name?: string; pascalName:
 function ButtonsMockup({ name, weight }: { name?: string; weight: string }) {
   return (
     <div className="flex flex-col flex-1">
-      <span className="text-[10px] uppercase tracking-wider text-white/25 font-semibold mb-3">Buttons</span>
+      <span className="text-[10px] uppercase tracking-wider text-text-base/25 font-semibold mb-3">Buttons</span>
       <div className="flex flex-col gap-2.5 mt-auto">
-        <button className="flex items-center justify-center gap-2 bg-[#6C5CE7] text-white text-[13px] font-medium px-4 py-2.5 rounded-lg">
+        <button className="flex items-center justify-center gap-2 bg-[#6C5CE7] text-white text-[13px] font-medium px-4 py-2.5 rounded-lg cursor-pointer">
           <re-icon icon={name} weight={weight} size={16} color="white" /> Primary action
         </button>
-        <button className="flex items-center justify-center gap-2 bg-white/[0.06] text-white/70 text-[13px] font-medium px-4 py-2.5 rounded-lg border border-white/10">
+        <button className="flex items-center justify-center gap-2 bg-text-base/6 text-text-base/70 text-[13px] font-medium px-4 py-2.5 rounded-lg border border-text-base/10 cursor-pointer">
           <re-icon icon={name} weight={weight} size={16} color="currentColor" /> Secondary
         </button>
       </div>
@@ -646,14 +646,14 @@ function ButtonsMockup({ name, weight }: { name?: string; weight: string }) {
 function StatMockup({ name, weight }: { name?: string; weight: string }) {
   return (
     <div className="flex flex-col flex-1">
-      <span className="text-[10px] uppercase tracking-wider text-white/25 font-semibold mb-3">Metric card</span>
+      <span className="text-[10px] uppercase tracking-wider text-text-base/25 font-semibold mb-3">Metric card</span>
       <div className="flex items-start gap-3 mt-auto">
         <div className="w-11 h-11 rounded-xl bg-[#6C5CE7]/15 flex items-center justify-center shrink-0">
           <re-icon icon={name} weight={weight} size={20} color="#6C5CE7" />
         </div>
         <div>
-          <div className="text-[22px] font-serif text-white leading-tight">12,480</div>
-          <div className="text-[12px] text-white/40">Total this month</div>
+          <div className="text-[22px] font-serif text-text-base leading-tight">12,480</div>
+          <div className="text-[12px] text-text-base/40">Total this month</div>
         </div>
       </div>
       <div className="mt-3 flex items-center gap-1 text-[11px] text-green-400">
@@ -666,14 +666,14 @@ function StatMockup({ name, weight }: { name?: string; weight: string }) {
 function ToastMockup({ name, weight }: { name?: string; weight: string }) {
   return (
     <div className="flex flex-col flex-1">
-      <span className="text-[10px] uppercase tracking-wider text-white/25 font-semibold mb-3">Notification</span>
-      <div className="mt-auto flex items-start gap-3 bg-[#1a1a1a] border border-white/[0.08] rounded-xl px-3.5 py-3 shadow-lg">
+      <span className="text-[10px] uppercase tracking-wider text-text-base/25 font-semibold mb-3">Notification</span>
+      <div className="mt-auto flex items-start gap-3 bg-[var(--dropdown-bg)] border border-text-base/8 rounded-xl px-3.5 py-3 shadow-lg">
         <div className="w-8 h-8 rounded-lg bg-[#6C5CE7]/15 flex items-center justify-center shrink-0">
           <re-icon icon={name} weight={weight} size={16} color="#6C5CE7" />
         </div>
         <div className="min-w-0">
-          <div className="text-[13px] font-medium text-white/90">All changes saved</div>
-          <div className="text-[12px] text-white/40 truncate">Your workspace is up to date.</div>
+          <div className="text-[13px] font-medium text-text-base/90">All changes saved</div>
+          <div className="text-[12px] text-text-base/40 truncate">Your workspace is up to date.</div>
         </div>
       </div>
     </div>
@@ -683,16 +683,16 @@ function ToastMockup({ name, weight }: { name?: string; weight: string }) {
 function InputMockup({ name, weight }: { name?: string; weight: string }) {
   return (
     <div className="flex flex-col flex-1">
-      <span className="text-[10px] uppercase tracking-wider text-white/25 font-semibold mb-3">Input field</span>
+      <span className="text-[10px] uppercase tracking-wider text-text-base/25 font-semibold mb-3">Input field</span>
       <div className="flex flex-col gap-2.5 mt-auto">
-        <div className="flex items-center gap-2.5 bg-white/[0.04] border border-[#6C5CE7]/40 rounded-lg px-3 py-2.5">
-          <re-icon icon={name} weight={weight} size={18} color="rgba(255,255,255,0.5)" />
-          <span className="text-white/70 text-[13px]">Focused field</span>
+        <div className="flex items-center gap-2.5 bg-text-base/4 border border-[#6C5CE7]/40 rounded-lg px-3 py-2.5">
+          <re-icon icon={name} weight={weight} size={18} color="currentColor" className="text-text-base/50" />
+          <span className="text-text-base/70 text-[13px]">Focused field</span>
           <span className="ml-auto w-px h-4 bg-[#6C5CE7] animate-pulse" />
         </div>
-        <div className="flex items-center gap-2.5 bg-white/[0.04] border border-white/[0.08] rounded-lg px-3 py-2.5">
-          <re-icon icon={name} weight={weight} size={18} color="rgba(255,255,255,0.3)" />
-          <span className="text-white/25 text-[13px]">Placeholder…</span>
+        <div className="flex items-center gap-2.5 bg-text-base/4 border border-text-base/8 rounded-lg px-3 py-2.5">
+          <re-icon icon={name} weight={weight} size={18} color="currentColor" className="text-text-base/30" />
+          <span className="text-text-base/25 text-[13px]">Placeholder…</span>
         </div>
       </div>
     </div>
@@ -702,14 +702,14 @@ function InputMockup({ name, weight }: { name?: string; weight: string }) {
 function MobileBarMockup({ name, weight }: { name?: string; weight: string }) {
   return (
     <div className="flex flex-col flex-1">
-      <span className="text-[10px] uppercase tracking-wider text-white/25 font-semibold mb-3">Bottom tab bar</span>
-      <div className="mt-auto flex items-center justify-around bg-[#0e0e10] border border-white/[0.08] rounded-2xl px-2 py-3">
+      <span className="text-[10px] uppercase tracking-wider text-text-base/25 font-semibold mb-3">Bottom tab bar</span>
+      <div className="mt-auto flex items-center justify-around bg-text-base/4 border border-text-base/8 rounded-2xl px-2 py-3">
         <div className="flex flex-col items-center gap-1 text-[#6C5CE7]">
           <re-icon icon={name} weight={weight} size={20} color="currentColor" />
           <span className="w-1 h-1 rounded-full bg-[#6C5CE7]" />
         </div>
         {['home-2', 'magnifer', 'user'].map((ic) => (
-          <div key={ic} className="text-white/30">
+          <div key={ic} className="text-text-base/30">
             <re-icon icon={ic} size={20} color="currentColor" />
           </div>
         ))}
@@ -731,15 +731,15 @@ function VueLogo() {
 function VanillaSnippet({ pascalName, filled }: { pascalName: string; filled: boolean }) {
   return (
     <>
-      <span className="text-[#c678dd]">import</span><span className="text-white/70">{' { '}</span>
-      <span className="text-[#e5c07b]">{pascalName}</span><span className="text-white/70">{' } '}</span>
-      <span className="text-[#c678dd]">from</span><span className="text-[#98c379]"> 'reicon'</span><span className="text-white/30">;</span>
+      <span className="text-[#c678dd]">import</span><span className="text-text-base/70">{' { '}</span>
+      <span className="text-[#e5c07b]">{pascalName}</span><span className="text-text-base/70">{' } '}</span>
+      <span className="text-[#c678dd]">from</span><span className="text-[#98c379]"> 'reicon'</span><span className="text-text-base/30">;</span>
       {'\n\n'}
-      <span className="text-[#c678dd]">const</span><span className="text-white/70"> icon = </span><span className="text-[#61afef]">{pascalName}</span><span className="text-white/70">({'{'} size: </span><span className="text-[#d19a66]">24</span>
-      {filled && (<><span className="text-white/70">, weight: </span><span className="text-[#98c379]">'Filled'</span></>)}
-      <span className="text-white/70"> {'}'});</span>
+      <span className="text-[#c678dd]">const</span><span className="text-text-base/70"> icon = </span><span className="text-[#61afef]">{pascalName}</span><span className="text-text-base/70">({'{'} size: </span><span className="text-[#d19a66]">24</span>
+      {filled && (<><span className="text-text-base/70">, weight: </span><span className="text-[#98c379]">'Filled'</span></>)}
+      <span className="text-text-base/70"> {'}'});</span>
       {'\n'}
-      <span className="text-white/70">document.body.</span><span className="text-[#61afef]">appendChild</span><span className="text-white/70">(icon);</span>
+      <span className="text-text-base/70">document.body.</span><span className="text-[#61afef]">appendChild</span><span className="text-text-base/70">(icon);</span>
     </>
   );
 }
@@ -747,14 +747,14 @@ function VanillaSnippet({ pascalName, filled }: { pascalName: string; filled: bo
 function ReactSnippet({ pascalName, filled }: { pascalName: string; filled: boolean }) {
   return (
     <>
-      <span className="text-[#c678dd]">import</span><span className="text-white/70">{' { '}</span>
-      <span className="text-[#e5c07b]">{pascalName}</span><span className="text-white/70">{' } '}</span>
-      <span className="text-[#c678dd]">from</span><span className="text-[#98c379]"> 'reicon-react'</span><span className="text-white/30">;</span>
+      <span className="text-[#c678dd]">import</span><span className="text-text-base/70">{' { '}</span>
+      <span className="text-[#e5c07b]">{pascalName}</span><span className="text-text-base/70">{' } '}</span>
+      <span className="text-[#c678dd]">from</span><span className="text-[#98c379]"> 'reicon-react'</span><span className="text-text-base/30">;</span>
       {'\n\n'}
-      <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">{pascalName}</span>
-      <span className="text-[#d19a66]"> size</span><span className="text-white/50">=</span><span className="text-white/70">{'{'}24{'}'}</span>
-      {filled && (<><span className="text-[#d19a66]"> weight</span><span className="text-white/50">=</span><span className="text-[#98c379]">"Filled"</span></>)}
-      <span className="text-white/70"> /{'>'}</span>
+      <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">{pascalName}</span>
+      <span className="text-[#d19a66]"> size</span><span className="text-text-base/50">=</span><span className="text-text-base/70">{'{'}24{'}'}</span>
+      {filled && (<><span className="text-[#d19a66]"> weight</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"Filled"</span></>)}
+      <span className="text-text-base/70"> /{'>'}</span>
     </>
   );
 }
@@ -762,14 +762,14 @@ function ReactSnippet({ pascalName, filled }: { pascalName: string; filled: bool
 function VueSnippet({ pascalName, filled }: { pascalName: string; filled: boolean }) {
   return (
     <>
-      <span className="text-[#c678dd]">import</span><span className="text-white/70">{' { '}</span>
-      <span className="text-[#e5c07b]">{pascalName}</span><span className="text-white/70">{' } '}</span>
-      <span className="text-[#c678dd]">from</span><span className="text-[#98c379]"> 'reicon-vue'</span><span className="text-white/30">;</span>
+      <span className="text-[#c678dd]">import</span><span className="text-text-base/70">{' { '}</span>
+      <span className="text-[#e5c07b]">{pascalName}</span><span className="text-text-base/70">{' } '}</span>
+      <span className="text-[#c678dd]">from</span><span className="text-[#98c379]"> 'reicon-vue'</span><span className="text-text-base/30">;</span>
       {'\n\n'}
-      <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">{pascalName}</span>
-      <span className="text-[#d19a66]"> :size</span><span className="text-white/50">=</span><span className="text-[#98c379]">"24"</span>
-      {filled && (<><span className="text-[#d19a66]"> weight</span><span className="text-white/50">=</span><span className="text-[#98c379]">"Filled"</span></>)}
-      <span className="text-white/70"> /{'>'}</span>
+      <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">{pascalName}</span>
+      <span className="text-[#d19a66]"> :size</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"24"</span>
+      {filled && (<><span className="text-[#d19a66]"> weight</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"Filled"</span></>)}
+      <span className="text-text-base/70"> /{'>'}</span>
     </>
   );
 }
@@ -777,18 +777,18 @@ function VueSnippet({ pascalName, filled }: { pascalName: string; filled: boolea
 function SvelteSnippet({ pascalName, filled }: { pascalName: string; filled: boolean }) {
   return (
     <>
-      <span className="text-white/30">{'<'}</span><span className="text-[#e06c75]">script</span><span className="text-white/30">{'>'}</span>
+      <span className="text-text-base/30">{'<'}</span><span className="text-[#e06c75]">script</span><span className="text-text-base/30">{'>'}</span>
       {'\n'}
-      <span className="text-[#c678dd]">  import</span><span className="text-white/70">{' { '}</span>
-      <span className="text-[#e5c07b]">{pascalName}</span><span className="text-white/70">{' } '}</span>
-      <span className="text-[#c678dd]">from</span><span className="text-[#98c379]"> 'reicon-svelte'</span><span className="text-white/30">;</span>
+      <span className="text-[#c678dd]">  import</span><span className="text-text-base/70">{' { '}</span>
+      <span className="text-[#e5c07b]">{pascalName}</span><span className="text-text-base/70">{' } '}</span>
+      <span className="text-[#c678dd]">from</span><span className="text-[#98c379]"> 'reicon-svelte'</span><span className="text-text-base/30">;</span>
       {'\n'}
-      <span className="text-white/30">{'</'}</span><span className="text-[#e06c75]">script</span><span className="text-white/30">{'>'}</span>
+      <span className="text-text-base/30">{'</'}</span><span className="text-[#e06c75]">script</span><span className="text-text-base/30">{'>'}</span>
       {'\n\n'}
-      <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">{pascalName}</span>
-      <span className="text-[#d19a66]"> size</span><span className="text-white/50">=</span><span className="text-white/70">{'{'}24{'}'}</span>
-      {filled && (<><span className="text-[#d19a66]"> weight</span><span className="text-white/50">=</span><span className="text-[#98c379]">"Filled"</span></>)}
-      <span className="text-white/70"> /{'>'}</span>
+      <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">{pascalName}</span>
+      <span className="text-[#d19a66]"> size</span><span className="text-text-base/50">=</span><span className="text-text-base/70">{'{'}24{'}'}</span>
+      {filled && (<><span className="text-[#d19a66]"> weight</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"Filled"</span></>)}
+      <span className="text-text-base/70"> /{'>'}</span>
     </>
   );
 }
@@ -797,7 +797,7 @@ function DirectSnippet({ pascalName }: { pascalName: string }) {
   return (
     <>
       <span className="text-[#c678dd]">import</span><span className="text-[#e5c07b]"> {pascalName}</span>
-      <span className="text-[#c678dd]"> from</span><span className="text-[#98c379]"> 'reicon-react/icons/{pascalName}'</span><span className="text-white/30">;</span>
+      <span className="text-[#c678dd]"> from</span><span className="text-[#98c379]"> 'reicon-react/icons/{pascalName}'</span><span className="text-text-base/30">;</span>
     </>
   );
 }
@@ -805,15 +805,15 @@ function DirectSnippet({ pascalName }: { pascalName: string }) {
 function CdnSnippet({ name, filled }: { name: string; filled: boolean }) {
   return (
     <>
-      <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">script</span>
-      <span className="text-[#d19a66]"> src</span><span className="text-white/50">=</span>
+      <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">script</span>
+      <span className="text-[#d19a66]"> src</span><span className="text-text-base/50">=</span>
       <span className="text-[#98c379]">"https://unpkg.com/reicon@latest/cdn/reicon.min.js"</span>
-      <span className="text-white/70">{'></'}</span><span className="text-[#e06c75]">script</span><span className="text-white/70">{'>'}</span>
+      <span className="text-text-base/70">{'></'}</span><span className="text-[#e06c75]">script</span><span className="text-text-base/70">{'>'}</span>
       {'\n'}
-      <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">re-icon</span>
-      <span className="text-[#d19a66]"> icon</span><span className="text-white/50">=</span><span className="text-[#98c379]">"{name}"</span>
-      {filled && (<><span className="text-[#d19a66]"> weight</span><span className="text-white/50">=</span><span className="text-[#98c379]">"filled"</span></>)}
-      <span className="text-white/70">{'></'}</span><span className="text-[#e06c75]">re-icon</span><span className="text-white/70">{'>'}</span>
+      <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">re-icon</span>
+      <span className="text-[#d19a66]"> icon</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"{name}"</span>
+      {filled && (<><span className="text-[#d19a66]"> weight</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"filled"</span></>)}
+      <span className="text-text-base/70">{'></'}</span><span className="text-[#e06c75]">re-icon</span><span className="text-text-base/70">{'>'}</span>
     </>
   );
 }

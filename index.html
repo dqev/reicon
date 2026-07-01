@@ -3,6 +3,20 @@
 
 <head>
   <meta charset="UTF-8" />
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('reicon-theme');
+        if (theme === 'light') {
+          document.documentElement.classList.add('light');
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -266,7 +280,7 @@
   <link rel="help" href="https://reicon.dev/llms-full.txt" type="text/plain" title="LLM full context" />
 </head>
 
-<body style="background:#09090b">
+<body>
   <div id="root"></div>
   <!-- ── Noscript fallback for SEO crawlers that don't execute JS ──────────── -->
   <noscript>

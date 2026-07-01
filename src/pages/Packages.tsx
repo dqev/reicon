@@ -67,7 +67,7 @@ const PACKAGES = [
 
 export default function PackagesPage() {
   return (
-    <div className="min-h-screen bg-[#09090b] flex flex-col">
+    <div className="min-h-screen bg-bg-base flex flex-col">
       <Helmet>
         <title>Packages & Integrations — Reicon | React, Vue, Svelte, Figma & VS Code</title>
         <meta name="description" content="Get official Reicon integrations. Install wrappers for React, Vue 3, Svelte, download raw SVG assets, or get the official Figma plugin and VS Code extension." />
@@ -99,24 +99,24 @@ export default function PackagesPage() {
 
       <main className="flex-1 pt-28 px-6 pb-16 w-full overflow-x-hidden">
         <div className="max-w-[1160px] mx-auto w-full">
-          <h1 className="text-3xl md:text-4xl font-serif text-white mb-12">Packages</h1>
+          <h1 className="text-3xl md:text-4xl font-serif text-text-base mb-12">Packages</h1>
 
           {/* Libraries Section */}
           <section className="mb-16">
-            <h2 className="text-xl md:text-2xl font-serif text-white/95 mb-8 flex items-center gap-4">
+            <h2 className="text-xl md:text-2xl font-serif text-text-base/95 mb-8 flex items-center gap-4">
               <span>Libraries & Frameworks</span>
-              <span className="h-[1px] flex-1 bg-white/10"></span>
+              <span className="h-[1px] flex-1 bg-text-base/10"></span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {PACKAGES.map((pkg) => (
                 <div
                   key={pkg.id}
-                  className="bg-white/[0.03] rounded-2xl p-6 flex flex-col border border-white/[0.02] hover:border-white/[0.05] transition-all hover:bg-white/[0.04]"
+                  className="bg-text-base/3 rounded-2xl p-6 flex flex-col transition-all hover:bg-text-base/4"
                 >
                   <div className="w-16 h-16 flex items-center justify-center mb-4">
                     {pkg.icon}
                   </div>
-                  <h3 className="text-white font-semibold text-lg mb-2">{pkg.name}</h3>
+                  <h3 className="text-text-base font-semibold text-lg mb-2">{pkg.name}</h3>
                   <div className="flex items-center gap-2 flex-wrap mb-4">
                     <img
                       src={`https://img.shields.io/npm/v/${pkg.npmPkg}?color=6C5CE7`}
@@ -129,13 +129,13 @@ export default function PackagesPage() {
                       className="h-5"
                     />
                   </div>
-                  <p className="text-white/50 text-[14px] leading-relaxed mb-6 flex-1">
+                  <p className="text-text-base/50 text-[14px] leading-relaxed mb-6 flex-1">
                     {pkg.description}
                   </p>
                   <div className="flex items-center gap-2">
                     <Link
                       to={pkg.guideUrl}
-                      className="bg-[#6C5CE7] hover:bg-[#5A4BD1] text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors"
+                      className="bg-[#6C5CE7] hover:bg-[#5A4BD1] text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors cursor-pointer"
                     >
                       Guide
                     </Link>
@@ -143,7 +143,7 @@ export default function PackagesPage() {
                       href={pkg.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-white/[0.06] hover:bg-white/[0.1] text-white/70 hover:text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors"
+                      className="bg-text-base/6 hover:bg-text-base/10 text-text-base/70 hover:text-text-base text-[13px] font-medium px-4 py-2 rounded-lg transition-colors cursor-pointer"
                     >
                       Source
                     </a>
@@ -152,7 +152,7 @@ export default function PackagesPage() {
                         href={pkg.npmUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-white/[0.06] hover:bg-white/[0.1] text-white/70 hover:text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors"
+                        className="bg-text-base/6 hover:bg-text-base/10 text-text-base/70 hover:text-text-base text-[13px] font-medium px-4 py-2 rounded-lg transition-colors cursor-pointer"
                       >
                         npm
                       </a>
@@ -162,7 +162,7 @@ export default function PackagesPage() {
               ))}
 
               {/* Raw SVG Assets Card */}
-              <div className="bg-white/[0.03] rounded-2xl p-6 flex flex-col border border-white/[0.02] hover:border-white/[0.05] transition-all hover:bg-white/[0.04]">
+              <div className="bg-text-base/3 rounded-2xl p-6 flex flex-col transition-all hover:bg-text-base/4">
                 <div className="w-16 h-16 flex items-center justify-center mb-4">
                   <svg className="w-12 h-12" viewBox="0 0 300 300">
                     <g stroke="#000" strokeWidth="38.009">
@@ -176,25 +176,25 @@ export default function PackagesPage() {
                     <use href="#svgstar"/>
                   </svg>
                 </div>
-                <h3 className="text-white font-semibold text-lg mb-2">reicon-svg</h3>
+                <h3 className="text-text-base font-semibold text-lg mb-2">reicon-svg</h3>
                 <div className="flex items-center gap-2 flex-wrap mb-4">
                   <span className="bg-[#4285F4]/10 text-[#4285F4] border border-[#4285F4]/20 text-[11px] font-semibold px-2.5 py-0.5 rounded-full">SVG (.zip)</span>
-                  <span className="bg-white/10 text-white/60 border border-white/10 text-[11px] font-semibold px-2.5 py-0.5 rounded-full">5,300+ SVGs</span>
+                  <span className="bg-text-base/10 text-text-base/60 border border-text-base/10 text-[11px] font-semibold px-2.5 py-0.5 rounded-full">5,300+ SVGs</span>
                 </div>
-                <p className="text-white/50 text-[14px] leading-relaxed mb-6 flex-1">
+                <p className="text-text-base/50 text-[14px] leading-relaxed mb-6 flex-1">
                   Download the complete raw vector assets. Includes all Reicon icons in both outline and filled weights in black SVG format, fully compressed.
                 </p>
                 <div className="flex items-center gap-2">
                   <Link
                     to="/usage/svg"
-                    className="bg-[#6C5CE7] hover:bg-[#5A4BD1] text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors"
+                    className="bg-[#6C5CE7] hover:bg-[#5A4BD1] text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors cursor-pointer"
                   >
                     Guide
                   </Link>
                   <a
                     href="/reicon-icons.zip"
                     download
-                    className="bg-white/[0.06] hover:bg-white/[0.1] text-white/70 hover:text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors flex items-center gap-1.5"
+                    className="bg-text-base/6 hover:bg-text-base/10 text-text-base/70 hover:text-text-base text-[13px] font-medium px-4 py-2 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer"
                   >
                     <FiDownload size={14} />
                     Download ZIP
@@ -206,13 +206,13 @@ export default function PackagesPage() {
 
           {/* Developer Tools Section */}
           <section>
-            <h2 className="text-xl md:text-2xl font-serif text-white/95 mb-8 flex items-center gap-4">
+            <h2 className="text-xl md:text-2xl font-serif text-text-base/95 mb-8 flex items-center gap-4">
               <span>Developer Tools & Extensions</span>
-              <span className="h-[1px] flex-1 bg-white/10"></span>
+              <span className="h-[1px] flex-1 bg-text-base/10"></span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Figma Card */}
-              <div className="bg-white/[0.03] rounded-2xl p-6 flex flex-col border border-white/[0.02] hover:border-white/[0.05] transition-all hover:bg-white/[0.04]">
+              <div className="bg-text-base/3 rounded-2xl p-6 flex flex-col transition-all hover:bg-text-base/4">
                 <div className="w-16 h-16 flex items-center justify-center mb-4">
                   <svg className="h-12 w-auto" viewBox="0 0 54 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_912_3)">
@@ -229,18 +229,18 @@ export default function PackagesPage() {
                     </defs>
                   </svg>
                 </div>
-                <h3 className="text-white font-semibold text-lg mb-2">reicon-figma</h3>
+                <h3 className="text-text-base font-semibold text-lg mb-2">reicon-figma</h3>
                 <div className="flex items-center gap-2 flex-wrap mb-4">
                   <span className="bg-[#F24E1E]/10 text-[#F24E1E] border border-[#F24E1E]/20 text-[11px] font-semibold px-2.5 py-0.5 rounded-full">Figma Plugin</span>
-                  <span className="bg-white/10 text-white/60 border border-white/10 text-[11px] font-semibold px-2.5 py-0.5 rounded-full">v1.0.0</span>
+                  <span className="bg-text-base/10 text-text-base/60 border border-text-base/10 text-[11px] font-semibold px-2.5 py-0.5 rounded-full">v1.0.0</span>
                 </div>
-                <p className="text-white/50 text-[14px] leading-relaxed mb-6 flex-1">
+                <p className="text-text-base/50 text-[14px] leading-relaxed mb-6 flex-1">
                   Integrate Reicon directly into your Figma workspace. Search, customize size/stroke weights, and insert vector shapes into your designs.
                 </p>
                 <div className="flex items-center gap-2">
                   <Link
                     to="/usage/figma"
-                    className="bg-[#6C5CE7] hover:bg-[#5A4BD1] text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors"
+                    className="bg-[#6C5CE7] hover:bg-[#5A4BD1] text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors cursor-pointer"
                   >
                     Guide
                   </Link>
@@ -248,7 +248,7 @@ export default function PackagesPage() {
                     href="https://www.figma.com/community/plugin/1652983191908763066"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white/[0.06] hover:bg-white/[0.1] text-white/70 hover:text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors"
+                    className="bg-text-base/6 hover:bg-text-base/10 text-text-base/70 hover:text-text-base text-[13px] font-medium px-4 py-2 rounded-lg transition-colors cursor-pointer"
                   >
                     Open in Figma
                   </a>
@@ -256,7 +256,7 @@ export default function PackagesPage() {
                     href="https://github.com/dqev/reicon/tree/main/packages/reicon-figma"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white/[0.06] hover:bg-white/[0.1] text-white/70 hover:text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors"
+                    className="bg-text-base/6 hover:bg-text-base/10 text-text-base/70 hover:text-text-base text-[13px] font-medium px-4 py-2 rounded-lg transition-colors cursor-pointer"
                   >
                     Source
                   </a>
@@ -264,22 +264,22 @@ export default function PackagesPage() {
               </div>
 
               {/* VS Code Card */}
-              <div className="bg-white/[0.03] rounded-2xl p-6 flex flex-col border border-white/[0.02] hover:border-white/[0.05] transition-all hover:bg-white/[0.04]">
+              <div className="bg-text-base/3 rounded-2xl p-6 flex flex-col transition-all hover:bg-text-base/4">
                 <div className="w-16 h-16 flex items-center justify-center mb-4 text-[#007ACC]">
                   <VscVscodeInsiders size={48} />
                 </div>
-                <h3 className="text-white font-semibold text-lg mb-2">reicon-vscode</h3>
+                <h3 className="text-text-base font-semibold text-lg mb-2">reicon-vscode</h3>
                 <div className="flex items-center gap-2 flex-wrap mb-4">
                   <span className="bg-[#007ACC]/10 text-[#007ACC] border border-[#007ACC]/20 text-[11px] font-semibold px-2.5 py-0.5 rounded-full">VS Code Extension</span>
-                  <span className="bg-white/10 text-white/60 border border-white/10 text-[11px] font-semibold px-2.5 py-0.5 rounded-full">v1.0.3</span>
+                  <span className="bg-text-base/10 text-text-base/60 border border-text-base/10 text-[11px] font-semibold px-2.5 py-0.5 rounded-full">v1.0.3</span>
                 </div>
-                <p className="text-white/50 text-[14px] leading-relaxed mb-6 flex-1">
+                <p className="text-text-base/50 text-[14px] leading-relaxed mb-6 flex-1">
                   Browse and insert Reicon icons directly into your HTML, React, Vue, Svelte, or vanilla JS code from your editor's sidebar panel.
                 </p>
                 <div className="flex items-center gap-2">
                   <Link
                     to="/usage/vscode"
-                    className="bg-[#6C5CE7] hover:bg-[#5A4BD1] text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors"
+                    className="bg-[#6C5CE7] hover:bg-[#5A4BD1] text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors cursor-pointer"
                   >
                     Guide
                   </Link>
@@ -287,7 +287,7 @@ export default function PackagesPage() {
                     href="https://marketplace.visualstudio.com/items?itemName=DevChauhan.reicon"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white/[0.06] hover:bg-white/[0.1] text-white/70 hover:text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors"
+                    className="bg-text-base/6 hover:bg-text-base/10 text-text-base/70 hover:text-text-base text-[13px] font-medium px-4 py-2 rounded-lg transition-colors cursor-pointer"
                   >
                     Use
                   </a>
@@ -295,7 +295,7 @@ export default function PackagesPage() {
                     href="https://github.com/dqev/reicon/tree/main/packages/reicon-vscode"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white/[0.06] hover:bg-white/[0.1] text-white/70 hover:text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors"
+                    className="bg-text-base/6 hover:bg-text-base/10 text-text-base/70 hover:text-text-base text-[13px] font-medium px-4 py-2 rounded-lg transition-colors cursor-pointer"
                   >
                     Source
                   </a>

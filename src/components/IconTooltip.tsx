@@ -136,12 +136,12 @@ function TooltipOverlay() {
               transition={transition}
               style={{ position: 'relative', transformOrigin: 'center top' }}
               // No overflow-hidden here — arrow must render outside the box
-              className="bg-white shadow-xl rounded-md"
+              className="bg-[var(--tooltip-bg)] shadow-xl rounded-md"
             >
               {/* Text content */}
               <div className="px-3 py-1.5">
                 <motion.div layout="preserve-aspect">
-                  <p className="text-xs font-medium text-[#09090b] whitespace-nowrap">
+                  <p className="text-xs font-medium text-[var(--tooltip-text)] whitespace-nowrap">
                     {rendered.data.label}
                   </p>
                 </motion.div>
@@ -155,7 +155,7 @@ function TooltipOverlay() {
                 transition={transition}
                 width={12}
                 height={6}
-                className="fill-white"
+                className="fill-[var(--tooltip-bg)]"
                 tipRadius={2}
               />
             </motion.div>

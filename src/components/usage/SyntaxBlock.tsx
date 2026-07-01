@@ -9,14 +9,7 @@ interface SyntaxBlockProps {
 }
 
 /**
- * Titled code block with the animate-ui "card-in-card" chrome:
- *
- *   ┌─ #0e0e10 ─────────────────────────────────┐
- *   │  [icon] title                       [📋]  │   ← title row, h-10
- *   │  ┌─ #09090b ─────────────────────────┐    │
- *   │  │  highlighted code…                │    │
- *   │  └───────────────────────────────────┘    │
- *   └───────────────────────────────────────────┘
+ * Titled code block with the animate-ui "card-in-card" chrome.
  */
 export default function SyntaxBlock({
   title,
@@ -26,21 +19,21 @@ export default function SyntaxBlock({
   children,
 }: SyntaxBlockProps) {
   return (
-    <figure className="reicon-cb relative my-0 overflow-hidden rounded-xl bg-[#0e0e10] text-sm">
+    <figure className="reicon-cb relative my-0 overflow-hidden rounded-xl bg-text-base/3 text-sm">
       {/* Title row */}
       <div className="flex items-center gap-2 h-10 pl-4 pr-1.5">
         {icon && (
-          <span className="inline-flex items-center justify-center text-white/60 [&>svg]:w-3.5 [&>svg]:h-3.5">
+          <span className="inline-flex items-center justify-center text-text-base/60 [&>svg]:w-3.5 [&>svg]:h-3.5">
             {icon}
           </span>
         )}
-        <figcaption className="flex-1 truncate text-[12.5px] font-medium text-white/55">
+        <figcaption className="flex-1 truncate text-[12.5px] font-medium text-text-base/55">
           {title}
         </figcaption>
         <button
           onClick={onCopy}
           aria-label={copied ? 'Copied' : 'Copy code'}
-          className="inline-flex items-center justify-center w-7 h-7 rounded-md text-white/40 hover:text-white hover:bg-white/[0.08] transition-colors"
+          className="inline-flex items-center justify-center w-7 h-7 rounded-md text-text-base/40 hover:text-text-base hover:bg-text-base/8 transition-colors cursor-pointer"
         >
           {copied ? <CheckIcon /> : <Copy size={14} />}
         </button>
@@ -48,8 +41,8 @@ export default function SyntaxBlock({
 
       {/* Body — inset card */}
       <div className="px-1.5 pb-1.5">
-        <div className="bg-[#09090b] rounded-md">
-          <pre className="p-4 text-[13px] font-mono leading-[1.7] overflow-x-auto whitespace-pre-wrap break-words focus-visible:outline-none">
+        <div className="bg-bg-base rounded-md">
+          <pre className="p-4 text-[13px] font-mono leading-[1.7] overflow-x-auto whitespace-pre-wrap break-words focus-visible:outline-none text-text-base">
             {children}
           </pre>
         </div>

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect, lazy, Suspense } from 'react';
 import SmoothScroll from './components/SmoothScroll';
 import CookieConsent from './components/CookieConsent';
+import { ThemeProvider } from './components/ThemeContext';
 
 // Route-level code splitting — each page ships as its own chunk, shrinking the
 // initial bundle (the Usage page alone pulls in 10+ sub-sections + react-icons).
@@ -26,26 +27,28 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <SmoothScroll>
-        <ScrollToTop />
-        <Suspense fallback={<div className="min-h-screen bg-[#09090b]" />}>
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/icons" element={<IconsPage />} />
-            <Route path="/icon/:name" element={<IconDetail />} />
-            <Route path="/usage" element={<UsagePage />} />
-            <Route path="/usage/:framework" element={<UsagePage />} />
-            <Route path="/packages" element={<PackagesPage />} />
-            <Route path="/faq" element={<FaqPage />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/license" element={<LicensePage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-        <CookieConsent />
-      </SmoothScroll>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <SmoothScroll>
+          <ScrollToTop />
+          <Suspense fallback={<div className="min-h-screen bg-bg-base" />}>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/icons" element={<IconsPage />} />
+              <Route path="/icon/:name" element={<IconDetail />} />
+              <Route path="/usage" element={<UsagePage />} />
+              <Route path="/usage/:framework" element={<UsagePage />} />
+              <Route path="/packages" element={<PackagesPage />} />
+              <Route path="/faq" element={<FaqPage />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/license" element={<LicensePage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+          <CookieConsent />
+        </SmoothScroll>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }

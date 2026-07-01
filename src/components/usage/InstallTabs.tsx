@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useState } from 'react';
-import { SiPnpm, SiYarn, SiNpm, SiBun } from 'react-icons/si';
+import { SiBun, SiNpm, SiPnpm, SiYarn } from 'react-icons/si';
 import { Copy } from 'reicon-react';
 
 const TABS = [
@@ -18,8 +18,8 @@ interface Props {
 }
 
 /**
- * Tabbed installer block with animated underline highlight, animate-ui style
- * "card-in-card" chrome, and your site's #6C5CE7 accent.
+ * Tabbed installer block with animated underline highlight,
+ * "card-in-card" chrome, and site's #6C5CE7 accent.
  */
 export default function InstallTabs({ packageName, copiedField, onCopy }: Props) {
   const [activeTab, setActiveTab] = useState<TabId>('pnpm');
@@ -43,7 +43,7 @@ export default function InstallTabs({ packageName, copiedField, onCopy }: Props)
   const isCopied = copiedField === copyId;
 
   return (
-    <figure className="reicon-cb relative my-0 overflow-hidden rounded-xl bg-[#0e0e10] text-sm">
+    <figure className="reicon-cb relative my-0 overflow-hidden rounded-xl bg-text-base/3 text-sm">
       {/* Tab row */}
       <div className="relative flex items-center justify-between w-full h-10 pl-5 pr-1.5">
         <div ref={listRef} className="relative flex items-center h-full gap-x-4">
@@ -65,7 +65,7 @@ export default function InstallTabs({ packageName, copiedField, onCopy }: Props)
                 data-tab={tab.id}
                 data-state={isActive ? 'active' : 'inactive'}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative flex items-center gap-1.5 h-full text-[13px] font-medium transition-colors ${isActive ? 'text-white' : 'text-white/40 hover:text-white/70'
+                className={`relative flex items-center gap-1.5 h-full text-[13px] font-medium transition-colors cursor-pointer ${isActive ? 'text-text-base' : 'text-text-base/40 hover:text-text-base/70'
                   }`}
               >
                 <Icon
@@ -82,7 +82,7 @@ export default function InstallTabs({ packageName, copiedField, onCopy }: Props)
         <button
           onClick={() => onCopy(fullCmd, copyId)}
           aria-label={isCopied ? 'Copied' : 'Copy command'}
-          className="inline-flex items-center justify-center w-7 h-7 rounded-md text-white/40 hover:text-white hover:bg-white/[0.08] transition-colors"
+          className="inline-flex items-center justify-center w-7 h-7 rounded-md text-text-base/40 hover:text-text-base hover:bg-text-base/8 transition-colors cursor-pointer"
         >
           {isCopied ? <CheckIcon /> : <Copy size={14} />}
         </button>
@@ -90,10 +90,10 @@ export default function InstallTabs({ packageName, copiedField, onCopy }: Props)
 
       {/* Body — inset card */}
       <div className="px-1.5 pb-1.5">
-        <div className="bg-[#09090b] rounded-md">
-          <pre className="px-5 py-4 text-[13px] font-mono leading-[1.7] overflow-x-auto focus-visible:outline-none">
+        <div className="bg-bg-base rounded-md">
+          <pre className="px-5 py-4 text-[13px] font-mono leading-[1.7] overflow-x-auto focus-visible:outline-none text-text-base">
             <span className="text-[#c678dd]">{active.cmd}</span>
-            <span className="text-white/75"> {packageName}</span>
+            <span className="text-text-base/75"> {packageName}</span>
           </pre>
         </div>
       </div>

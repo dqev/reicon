@@ -14,12 +14,12 @@ export default function EditOnGitHub({ filePath, branch = 'main' }: EditOnGitHub
   const viewUrl = `${REPO_BASE}/blob/${branch}/${filePath}`;
 
   return (
-    <div className="mt-16 pt-8 border-t border-white/[0.06] flex flex-wrap items-center gap-4 text-[13px]">
+    <div className="mt-16 pt-8 border-t border-text-base/6 flex flex-wrap items-center gap-4 text-[13px]">
       <a
         href={editUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-white/40 hover:text-white/80 transition-colors group"
+        className="inline-flex items-center gap-2 text-text-base/40 hover:text-text-base/80 transition-colors group cursor-pointer"
       >
         <svg
           width="14"
@@ -38,25 +38,25 @@ export default function EditOnGitHub({ filePath, branch = 'main' }: EditOnGitHub
         Edit this page
       </a>
 
-      <span className="text-white/10">·</span>
+      <span className="text-text-base/10">·</span>
 
       <a
         href={viewUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-white/40 hover:text-white/80 transition-colors group"
+        className="inline-flex items-center gap-2 text-text-base/40 hover:text-text-base/80 transition-colors group cursor-pointer"
       >
-        <SiGithub size={13} className="group-hover:text-white transition-colors" />
+        <SiGithub size={13} className="group-hover:text-text-base transition-colors" />
         View source
       </a>
 
-      <span className="text-white/10">·</span>
+      <span className="text-text-base/10">·</span>
 
       <a
         href={`${REPO_BASE}/issues/new`}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-white/40 hover:text-white/80 transition-colors"
+        className="inline-flex items-center gap-2 text-text-base/40 hover:text-text-base/80 transition-colors cursor-pointer"
       >
         Report issue
       </a>

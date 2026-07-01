@@ -26,18 +26,18 @@ export default function SvelteUsage({ markdownContent, copiedField, onCopy }: Pr
     <section id="svelte-usage" data-section className="mb-16 scroll-mt-24">
       <SectionHeader
         id="svelte-usage"
-        title="Usage of Reicon Svelte"
+        title="Svelte"
         level="h2"
         markdownContent={markdownContent}
         icon={<SvelteIcon size={30} />}
       />
 
-      <p className="text-white/60 text-[15px] leading-[1.8] mb-6">
+      <p className="text-text-base/60 text-[15px] leading-[1.8] mb-6">
         The official Svelte package for Reicon. Import beautifully crafted icons as Svelte components with full TypeScript support. All icons are tree-shakeable, ensuring only the icons you actually use end up in your bundle.
       </p>
 
-      <p className="text-white/60 text-[15px] leading-[1.8] mb-4">What you can accomplish:</p>
-      <ul className="text-white/60 text-[15px] leading-[1.8] mb-8 space-y-1 list-disc list-inside">
+      <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">What you can accomplish:</p>
+      <ul className="text-text-base/60 text-[15px] leading-[1.8] mb-8 space-y-1 list-disc list-inside">
         <li>Import icons as individual Svelte components</li>
         <li>Customize size, color, and weight via props</li>
         <li>Tree-shake unused icons to keep bundle sizes minimal</li>
@@ -47,8 +47,8 @@ export default function SvelteUsage({ markdownContent, copiedField, onCopy }: Pr
       </ul>
 
       {/* Installation */}
-      <h3 className="text-lg font-serif text-white mb-4 mt-10">Installation</h3>
-      <p className="text-white/60 text-[15px] leading-[1.8] mb-4">
+      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Installation</h3>
+      <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Install the package using your preferred package manager.
       </p>
 
@@ -59,9 +59,9 @@ export default function SvelteUsage({ markdownContent, copiedField, onCopy }: Pr
       />
 
       {/* Basic Usage */}
-      <h3 className="text-lg font-serif text-white mb-4 mt-10">Basic Usage</h3>
-      <p className="text-white/60 text-[15px] leading-[1.8] mb-4">
-        Import icons by their PascalCase name from <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-svelte</code>. Each icon is a Svelte component that accepts standard props.
+      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Basic Usage</h3>
+      <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
+        Import icons by their PascalCase name from <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-svelte</code>. Each icon is a Svelte component that accepts standard props.
       </p>
 
       <SyntaxBlock
@@ -69,32 +69,32 @@ export default function SvelteUsage({ markdownContent, copiedField, onCopy }: Pr
         onCopy={() => onCopy("<script>\n  import { Home, ShieldCheck, AltArrowDown } from 'reicon-svelte';\n</script>\n\n<Home />\n<ShieldCheck size={32} color=\"#d97757\" />\n<AltArrowDown weight=\"Filled\" />", 'svelte-basic')}
         copied={copiedField === 'svelte-basic'}
       >
-        <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">script</span><span className="text-white/70">{'>'}</span>
+        <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">script</span><span className="text-text-base/70">{'>'}</span>
         {'\n  '}
         <span className="text-[#c678dd]">import</span>
-        <span className="text-white/70">{' { '}</span>
+        <span className="text-text-base/70">{' { '}</span>
         <span className="text-[#e5c07b]">Home</span>
-        <span className="text-white/70">, </span>
+        <span className="text-text-base/70">, </span>
         <span className="text-[#e5c07b]">ShieldCheck</span>
-        <span className="text-white/70">, </span>
+        <span className="text-text-base/70">, </span>
         <span className="text-[#e5c07b]">AltArrowDown</span>
-        <span className="text-white/70">{' } '}</span>
+        <span className="text-text-base/70">{' } '}</span>
         <span className="text-[#c678dd]">from</span>
         <span className="text-[#98c379]"> 'reicon-svelte'</span>
-        <span className="text-white/30">;</span>
+        <span className="text-text-base/30">;</span>
         {'\n'}
-        <span className="text-white/70">{'</'}</span><span className="text-[#e06c75]">script</span><span className="text-white/70">{'>'}</span>
+        <span className="text-text-base/70">{'</'}</span><span className="text-[#e06c75]">script</span><span className="text-text-base/70">{'>'}</span>
         {'\n\n'}
-        <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">Home</span><span className="text-white/70"> /{'>'}</span>
+        <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">Home</span><span className="text-text-base/70"> /{'>'}</span>
         {'\n'}
-        <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">ShieldCheck</span><span className="text-[#d19a66]"> size</span><span className="text-white/50">=</span><span className="text-[#e5c07b]">{'{'}</span><span className="text-[#d19a66]">32</span><span className="text-[#e5c07b]">{'}'}</span><span className="text-[#d19a66]"> color</span><span className="text-white/50">=</span><span className="text-[#98c379]">"#d97757"</span><span className="text-white/70"> /{'>'}</span>
+        <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">ShieldCheck</span><span className="text-[#d19a66]"> size</span><span className="text-text-base/50">=</span><span className="text-[#e5c07b]">{'{'}</span><span className="text-[#d19a66]">32</span><span className="text-[#e5c07b]">{'}'}</span><span className="text-[#d19a66]"> color</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"#d97757"</span><span className="text-text-base/70"> /{'>'}</span>
         {'\n'}
-        <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">AltArrowDown</span><span className="text-[#d19a66]"> weight</span><span className="text-white/50">=</span><span className="text-[#98c379]">"Filled"</span><span className="text-white/70"> /{'>'}</span>
+        <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">AltArrowDown</span><span className="text-[#d19a66]"> weight</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"Filled"</span><span className="text-text-base/70"> /{'>'}</span>
       </SyntaxBlock>
 
       {/* Props */}
-      <h3 className="text-lg font-serif text-white mb-4 mt-10">Props</h3>
-      <p className="text-white/60 text-[15px] leading-[1.8] mb-4">
+      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Props</h3>
+      <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Every icon component accepts the following props to customize its appearance.
       </p>
 
@@ -103,34 +103,34 @@ export default function SvelteUsage({ markdownContent, copiedField, onCopy }: Pr
         onCopy={() => onCopy('<Home size={16} />\n<Home size={24} />\n<Home size={32} />\n\n<Heart color="#ef4444" />\n<Heart color="rgb(99, 102, 241)" />\n\n<Star />                       <!-- Outline (default) -->\n<Star weight="Filled" />       <!-- Filled -->\n\n<Home class="my-icon" />', 'svelte-props')}
         copied={copiedField === 'svelte-props'}
       >
-        <span className="text-white/30">{'<!-- Size -->'}</span>
+        <span className="text-text-base/30">{'<!-- Size -->'}</span>
         {'\n'}
-        <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">Home</span><span className="text-[#d19a66]"> size</span><span className="text-white/50">=</span><span className="text-[#e5c07b]">{'{'}</span><span className="text-[#d19a66]">16</span><span className="text-[#e5c07b]">{'}'}</span><span className="text-white/70"> /{'>'}</span>
+        <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">Home</span><span className="text-[#d19a66]"> size</span><span className="text-text-base/50">=</span><span className="text-[#e5c07b]">{'{'}</span><span className="text-[#d19a66]">16</span><span className="text-[#e5c07b]">{'}'}</span><span className="text-text-base/70"> /{'>'}</span>
         {'\n'}
-        <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">Home</span><span className="text-[#d19a66]"> size</span><span className="text-white/50">=</span><span className="text-[#e5c07b]">{'{'}</span><span className="text-[#d19a66]">24</span><span className="text-[#e5c07b]">{'}'}</span><span className="text-white/70"> /{'>'}</span>
+        <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">Home</span><span className="text-[#d19a66]"> size</span><span className="text-text-base/50">=</span><span className="text-[#e5c07b]">{'{'}</span><span className="text-[#d19a66]">24</span><span className="text-[#e5c07b]">{'}'}</span><span className="text-text-base/70"> /{'>'}</span>
         {'\n'}
-        <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">Home</span><span className="text-[#d19a66]"> size</span><span className="text-white/50">=</span><span className="text-[#e5c07b]">{'{'}</span><span className="text-[#d19a66]">32</span><span className="text-[#e5c07b]">{'}'}</span><span className="text-white/70"> /{'>'}</span>
+        <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">Home</span><span className="text-[#d19a66]"> size</span><span className="text-text-base/50">=</span><span className="text-[#e5c07b]">{'{'}</span><span className="text-[#d19a66]">32</span><span className="text-[#e5c07b]">{'}'}</span><span className="text-text-base/70"> /{'>'}</span>
         {'\n\n'}
-        <span className="text-white/30">{'<!-- Color -->'}</span>
+        <span className="text-text-base/30">{'<!-- Color -->'}</span>
         {'\n'}
-        <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">Heart</span><span className="text-[#d19a66]"> color</span><span className="text-white/50">=</span><span className="text-[#98c379]">"#ef4444"</span><span className="text-white/70"> /{'>'}</span>
+        <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">Heart</span><span className="text-[#d19a66]"> color</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"#ef4444"</span><span className="text-text-base/70"> /{'>'}</span>
         {'\n'}
-        <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">Heart</span><span className="text-[#d19a66]"> color</span><span className="text-white/50">=</span><span className="text-[#98c379]">"rgb(99, 102, 241)"</span><span className="text-white/70"> /{'>'}</span>
+        <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">Heart</span><span className="text-[#d19a66]"> color</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"rgb(99, 102, 241)"</span><span className="text-text-base/70"> /{'>'}</span>
         {'\n\n'}
-        <span className="text-white/30">{'<!-- Weight -->'}</span>
+        <span className="text-text-base/30">{'<!-- Weight -->'}</span>
         {'\n'}
-        <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">Star</span><span className="text-white/70"> /{'>'}</span><span className="text-white/30">{'                       <!-- Outline (default) -->'}</span>
+        <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">Star</span><span className="text-text-base/70"> /{'>'}</span><span className="text-text-base/30">{'                       <!-- Outline (default) -->'}</span>
         {'\n'}
-        <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">Star</span><span className="text-[#d19a66]"> weight</span><span className="text-white/50">=</span><span className="text-[#98c379]">"Filled"</span><span className="text-white/70"> /{'>'}</span><span className="text-white/30">{'       <!-- Filled -->'}</span>
+        <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">Star</span><span className="text-[#d19a66]"> weight</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"Filled"</span><span className="text-text-base/70"> /{'>'}</span><span className="text-text-base/30">{'       <!-- Filled -->'}</span>
         {'\n\n'}
-        <span className="text-white/30">{'<!-- Class -->'}</span>
+        <span className="text-text-base/30">{'<!-- Class -->'}</span>
         {'\n'}
-        <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">Home</span><span className="text-[#d19a66]"> class</span><span className="text-white/50">=</span><span className="text-[#98c379]">"my-icon"</span><span className="text-white/70"> /{'>'}</span>
+        <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">Home</span><span className="text-[#d19a66]"> class</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"my-icon"</span><span className="text-text-base/70"> /{'>'}</span>
       </SyntaxBlock>
 
       {/* Direct Import */}
-      <h3 className="text-lg font-serif text-white mb-4 mt-10">Direct Import for Smaller Bundles</h3>
-      <p className="text-white/60 text-[15px] leading-[1.8] mb-4">
+      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Direct Import for Smaller Bundles</h3>
+      <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         For the absolute smallest bundle size, import each icon directly from its own module.
       </p>
 
@@ -139,12 +139,12 @@ export default function SvelteUsage({ markdownContent, copiedField, onCopy }: Pr
         onCopy={() => onCopy("import Home from 'reicon-svelte/icons/Home.svelte';", 'svelte-direct')}
         copied={copiedField === 'svelte-direct'}
       >
-        <span className="text-[#c678dd]">import</span><span className="text-[#e5c07b]"> Home</span><span className="text-[#c678dd]"> from</span><span className="text-[#98c379]"> 'reicon-svelte/icons/Home.svelte'</span><span className="text-white/30">;</span>
+        <span className="text-[#c678dd]">import</span><span className="text-[#e5c07b]"> Home</span><span className="text-[#c678dd]"> from</span><span className="text-[#98c379]"> 'reicon-svelte/icons/Home.svelte'</span><span className="text-text-base/30">;</span>
       </SyntaxBlock>
 
       {/* SvelteKit */}
-      <h3 className="text-lg font-serif text-white mb-4 mt-10">SvelteKit</h3>
-      <p className="text-white/60 text-[15px] leading-[1.8] mb-4">
+      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">SvelteKit</h3>
+      <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Works out of the box with SvelteKit — just import and use. No plugins or configuration needed.
       </p>
 
@@ -153,21 +153,21 @@ export default function SvelteUsage({ markdownContent, copiedField, onCopy }: Pr
         onCopy={() => onCopy("<script>\n  import { Home } from 'reicon-svelte';\n</script>\n\n<Home size={24} />", 'svelte-kit')}
         copied={copiedField === 'svelte-kit'}
       >
-        <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">script</span><span className="text-white/70">{'>'}</span>
+        <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">script</span><span className="text-text-base/70">{'>'}</span>
         {'\n  '}
         <span className="text-[#c678dd]">import</span>
-        <span className="text-white/70">{' { '}</span>
+        <span className="text-text-base/70">{' { '}</span>
         <span className="text-[#e5c07b]">Home</span>
-        <span className="text-white/70">{' } '}</span>
+        <span className="text-text-base/70">{' } '}</span>
         <span className="text-[#c678dd]">from</span>
-        <span className="text-[#98c379]"> 'reicon-svelte'</span><span className="text-white/30">;</span>
+        <span className="text-[#98c379]"> 'reicon-svelte'</span><span className="text-text-base/30">;</span>
         {'\n'}
-        <span className="text-white/70">{'</'}</span><span className="text-[#e06c75]">script</span><span className="text-white/70">{'>'}</span>
+        <span className="text-text-base/70">{'</'}</span><span className="text-[#e06c75]">script</span><span className="text-text-base/70">{'>'}</span>
         {'\n\n'}
-        <span className="text-white/70">{'<'}</span><span className="text-[#e06c75]">Home</span><span className="text-[#d19a66]"> size</span><span className="text-white/50">=</span><span className="text-[#e5c07b]">{'{'}</span><span className="text-[#d19a66]">24</span><span className="text-[#e5c07b]">{'}'}</span><span className="text-white/70"> /{'>'}</span>
+        <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">Home</span><span className="text-[#d19a66]"> size</span><span className="text-text-base/50">=</span><span className="text-[#e5c07b]">{'{'}</span><span className="text-[#d19a66]">24</span><span className="text-[#e5c07b]">{'}'}</span><span className="text-text-base/70"> /{'>'}</span>
       </SyntaxBlock>
 
-      <div className="mt-6 bg-[#FF3E00]/5 border border-[#FF3E00]/15 rounded-xl p-4 text-[13px] text-white/50 leading-relaxed">
+      <div className="mt-6 bg-[#FF3E00]/5 border border-[#FF3E00]/15 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed">
         <span className="text-[#FF3E00] font-medium">Note:</span> All icon components are SSR-compatible and work with SvelteKit, Vite, and other Svelte frameworks out of the box.
       </div>
     </section>
