@@ -128,10 +128,10 @@ export default function Landing() {
           ]
         })}</script>
       </Helmet>
-      {/* ═══ FIXED NAV — floats on mobile, fades on desktop ═══ */}
+      {/* ═══ FIXED NAV — fades in after scrolling past hero ═══ */}
       <Header
         ref={fixedNavRef}
-        className="opacity-100 pointer-events-auto md:opacity-0 md:pointer-events-none transition-all duration-300 z-[200] hero-header"
+        className="opacity-0 pointer-events-none transition-opacity duration-300 z-[200]"
       />
 
       {/* ═══ LAUNCH BANNER ═══ */}
@@ -148,7 +148,39 @@ export default function Landing() {
 
           {/* Hero overlay */}
           <div className="absolute inset-0 z-[2] flex flex-col justify-between p-[18px] md:p-[26px_40px]">
-            <div className="h-14" />
+            {/* Top bar — hero-internal nav */}
+            <div className="relative flex items-center justify-between">
+              <Link to="/" className="flex items-center gap-2 text-text-base font-semibold text-[15px]">
+                <img src={theme === 'dark' ? '/icon-light.webp' : '/icon-dark.webp'} alt="Reicon" className="w-5 h-5" />
+                Reicon
+              </Link>
+              <nav className="hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2">
+                <Link to="/usage" className="text-[13px] text-text-base/60 hover:text-text-base transition-colors">Usage</Link>
+                <Link to="/icons" className="text-[13px] text-text-base/60 hover:text-text-base transition-colors">Icons</Link>
+              </nav>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={toggleTheme}
+                  className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 bg-white/5 backdrop-blur-lg hover:bg-white/10 text-text-base/80 hover:text-text-base transition-colors cursor-pointer"
+                  aria-label="Toggle theme"
+                >
+                  {theme === 'dark' ? <Sun size={15} color="currentColor" /> : <Moon size={15} color="currentColor" />}
+                </button>
+                <div className="hidden md:flex gap-2">
+                  <a
+                    href="https://github.com/dqev/reicon"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[13px] text-text-base/80 border border-white/20 bg-white/5 backdrop-blur-lg rounded-full px-4 py-[7px] hover:bg-white/10 transition-colors cursor-pointer"
+                  >
+                    GitHub
+                  </a>
+                  <ClayButton to="/icons" variant="primary" size="sm">
+                    Browse Icons
+                  </ClayButton>
+                </div>
+              </div>
+            </div>
 
             {/* Center content */}
             <div className="text-center px-3">

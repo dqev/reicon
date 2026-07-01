@@ -32,12 +32,6 @@
   --text-hover: #ffffff;
   --text-muted: rgba(255, 255, 255, 0.55);
   --text-more-muted: rgba(255, 255, 255, 0.35);
-
-  /* In dark theme, mobile hero header has light background */
-  --hero-bg: rgba(253, 253, 251, 0.95);
-  --hero-border: rgba(17, 17, 17, 0.1);
-  --hero-text: #111111;
-  --hero-text-muted: rgba(17, 17, 17, 0.6);
 }
 
 .light {
@@ -64,12 +58,6 @@
   --text-hover: #111111;
   --text-muted: rgba(17, 17, 17, 0.55);
   --text-more-muted: rgba(17, 17, 17, 0.35);
-
-  /* In light theme, mobile hero header has dark background */
-  --hero-bg: rgba(18, 18, 20, 0.95);
-  --hero-border: rgba(255, 255, 255, 0.1);
-  --hero-text: #ffffff;
-  --hero-text-muted: rgba(255, 255, 255, 0.6);
 }
 
 .font-serif {
@@ -220,48 +208,6 @@ body {
 .nav-visible {
   opacity: 1 !important;
   pointer-events: auto !important;
-}
-
-/* Mobile Hero Header override */
-@media (max-width: 639.98px) {
-  .hero-header {
-    top: 17px !important;
-    left: 18px !important;
-    right: 18px !important;
-    border-radius: 12px !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
-    overflow: hidden !important;
-    background-color: var(--hero-bg) !important;
-    border: 1px solid var(--hero-border) !important;
-    color: var(--hero-text) !important;
-    backdrop-blur: 12px !important;
-  }
-  
-  .hero-header .text-text-base {
-    color: var(--hero-text) !important;
-  }
-  
-  .hero-header .text-text-base\/60 {
-    color: var(--hero-text-muted) !important;
-  }
-  
-  .hero-header button {
-    color: var(--hero-text) !important;
-  }
-
-  .hero-header .mobile-dropdown {
-    background-color: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-
-  .hero-header .mobile-dropdown a {
-    color: var(--hero-text-muted) !important;
-  }
-
-  .hero-header .mobile-dropdown a:hover {
-    color: var(--hero-text) !important;
-  }
 }
 
 /* Scroll-reveal sections */
