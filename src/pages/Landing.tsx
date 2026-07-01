@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Code, Palette, Layers, Copy, Box, Star, HandHeart, Search3, Book3, Restart, Pointer, Confetti2 } from 'reicon-react';
+import { ShieldCheck, Code, Palette, Layers, Copy, Box, Star, HandHeart, Search3, Book3, Restart, Pointer, Confetti2, Sun, Moon } from 'reicon-react';
 import Background from '../components/Background';
 import ClayButton from '../components/ClayButton';
 import Footer from '../components/Footer';
@@ -10,8 +10,10 @@ import { SiJavascript, SiReact, SiSvelte, SiHtml5 } from 'react-icons/si';
 import iconNamesData from '../../scripts/icon-names.json';
 import newIconsData from '../data/new-icons-added.json';
 import { HexColorPicker } from 'react-colorful';
+import { useTheme } from '../components/ThemeContext';
 
 export default function Landing() {
+  const { theme, toggleTheme } = useTheme();
   const heroCardRef = useRef<HTMLDivElement>(null);
   const fixedNavRef = useRef<HTMLElement>(null);
 
@@ -51,7 +53,7 @@ export default function Landing() {
   }, []);
 
   return (
-    <div className="bg-[#09090b] min-h-screen">
+    <div className="bg-bg-base min-h-screen">
       <Helmet>
         <title>Reicon — Free Open-Source Icon Library for Designers & Developers</title>
         <meta name="description" content="Reicon is a free, open-source icon library with 2,700+ handcrafted, pixel-perfect SVG icons. Available for React, Vue, Svelte, Figma, VS Code, and the web. MIT licensed." />
@@ -83,7 +85,7 @@ export default function Landing() {
           ]
         })}</script>
 
-        {/* Dataset JSON-LD — helps AI engines understand the icon collection as a queryable dataset */}
+        {/* Dataset JSON-LD — helps AI engines understand the collection as a queryable dataset */}
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Dataset",
@@ -148,49 +150,59 @@ export default function Landing() {
           <div className="absolute inset-0 z-[2] flex flex-col justify-between p-[18px] md:p-[26px_40px]">
             {/* Top bar — hero-internal nav */}
             <div className="relative flex items-center justify-between">
-              <Link to="/" className="flex items-center gap-2 text-white font-semibold text-[15px]">
-                <img src="/reicon.png" alt="Reicon" className="w-5 h-5" />
+              <Link to="/" className="flex items-center gap-2 text-text-base font-semibold text-[15px]">
+                <img src={theme === 'dark' ? '/icon-light.webp' : '/icon-dark.webp'} alt="Reicon" className="w-5 h-5" />
                 Reicon
               </Link>
               <nav className="hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2">
-                <Link to="/usage" className="text-[13px] text-white/60 hover:text-white transition-colors">Usage</Link>
-                <Link to="/icons" className="text-[13px] text-white/60 hover:text-white transition-colors">Icons</Link>
+                <Link to="/usage" className="text-[13px] text-text-base/60 hover:text-text-base transition-colors">Usage</Link>
+                <Link to="/icons" className="text-[13px] text-text-base/60 hover:text-text-base transition-colors">Icons</Link>
+                <Link to="/packages" className="text-[13px] text-text-base/60 hover:text-text-base transition-colors">Packages</Link>
               </nav>
-              <div className="hidden md:flex gap-2">
-                <a
-                  href="https://github.com/dqev/reicon"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[13px] text-white/80 border border-white/25 bg-white/8 backdrop-blur-lg rounded-full px-4 py-[7px] hover:bg-white/15 transition-colors"
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={toggleTheme}
+                  className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 bg-white/5 backdrop-blur-lg hover:bg-white/10 text-text-base/80 hover:text-text-base transition-colors cursor-pointer"
+                  aria-label="Toggle theme"
                 >
-                  GitHub
-                </a>
-                <ClayButton to="/icons" variant="primary" size="sm">
-                  Browse Icons
-                </ClayButton>
+                  {theme === 'dark' ? <Sun size={15} color="currentColor" /> : <Moon size={15} color="currentColor" />}
+                </button>
+                <div className="hidden md:flex gap-2">
+                  <a
+                    href="https://github.com/dqev/reicon"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[13px] text-text-base/80 border border-white/20 bg-white/5 backdrop-blur-lg rounded-full px-4 py-[7px] hover:bg-white/10 transition-colors cursor-pointer"
+                  >
+                    GitHub
+                  </a>
+                  <ClayButton to="/icons" variant="primary" size="sm">
+                    Browse Icons
+                  </ClayButton>
+                </div>
               </div>
             </div>
 
             {/* Center content */}
             <div className="text-center px-3">
               <div className="flex items-center justify-center gap-2 mb-5 flex-wrap">
-                <div className="inline-flex items-center gap-[6px] bg-white/[0.08] backdrop-blur-lg border border-white/[0.15] rounded-full px-[14px] py-[6px] text-[12px] text-white/90">
-                  <HandHeart size={16} />
+                <div className="inline-flex items-center gap-[6px] bg-white/5 backdrop-blur-lg border border-white/10 rounded-full px-[14px] py-[6px] text-[12px] text-text-base/90">
+                  <HandHeart size={16} color="currentColor" />
                   Handcrafted & Open Source
                 </div>
                 <Link
                   to="/icons?new=true"
-                  className="inline-flex items-center gap-[6px] bg-white/[0.08] backdrop-blur-lg border border-white/[0.15] rounded-full px-[14px] py-[6px] text-[12px] text-white/90 hover:bg-white/[0.12] transition-colors"
+                  className="inline-flex items-center gap-[6px] bg-white/5 backdrop-blur-lg border border-white/10 rounded-full px-[14px] py-[6px] text-[12px] text-text-base/90 hover:bg-white/8 transition-colors"
                 >
                   <span className="w-[6px] h-[6px] bg-[#6C5CE7] rounded-full shrink-0 animate-pulse" />
                   {(newIconsData as string[]).length} New Icons Added
-                  <Confetti2 size={15} />
+                  <Confetti2 size={15} color="currentColor" />
                 </Link>
               </div>
-              <h1 className="font-serif text-[clamp(30px,6.2vw,76px)] font-semibold text-white leading-[1.08] tracking-[-0.02em] mb-4">
+              <h1 className="font-serif text-[clamp(30px,6.2vw,76px)] font-semibold text-text-base leading-[1.08] tracking-[-0.02em] mb-4">
                 The icon library<br />designers actually want.
               </h1>
-              <p className="text-[clamp(13px,1.45vw,18px)] text-white/60 leading-[1.65] max-w-[480px] mx-auto mb-7">
+              <p className="text-[clamp(13px,1.45vw,18px)] text-text-base/60 leading-[1.65] max-w-[480px] mx-auto mb-7">
                 Precision-crafted, open-source SVG icons for React, Vue, Svelte, Figma, and the web. Pixel-perfect. No auto-generation.
               </p>
               <div className="flex items-center justify-center gap-[10px] flex-wrap">
@@ -200,9 +212,9 @@ export default function Landing() {
                 </ClayButton>
                 <Link
                   to="/usage"
-                  className="bg-white/10 text-white text-[14px] px-6 py-3 rounded-full border border-white/[0.24] backdrop-blur-lg flex items-center gap-[6px] hover:bg-white/18 transition-colors"
+                  className="bg-white/10 text-text-base text-[14px] px-6 py-3 rounded-full border border-white/20 backdrop-blur-lg flex items-center gap-[6px] hover:bg-white/15 transition-colors"
                 >
-                  <Book3 size={16} />
+                  <Book3 size={16} color="currentColor" />
                   Usage Guide
                 </Link>
               </div>
@@ -217,8 +229,8 @@ export default function Landing() {
                   { num: 'MIT', label: 'License' },
                 ].map((s) => (
                   <div key={s.label}>
-                    <div className="font-serif text-[19px] font-semibold text-white leading-[1.2]">{s.num}</div>
-                    <div className="text-[11px] text-white/45">{s.label}</div>
+                    <div className="font-serif text-[19px] font-semibold text-text-base leading-[1.2]">{s.num}</div>
+                    <div className="text-[11px] text-text-base/45">{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -226,7 +238,7 @@ export default function Landing() {
                 href="https://fluidshader.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:flex items-center gap-1.5 text-[15px] text-white/50 hover:text-white/70 transition-colors"
+                className="hidden sm:flex items-center gap-1.5 text-[15px] text-text-base/50 hover:text-text-base/70 transition-colors cursor-pointer"
               >
                 Shader by <re-icon icon="palette" size={13}></re-icon> Fluid Shader
               </a>
@@ -239,8 +251,8 @@ export default function Landing() {
       <section id="features" className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13">
         <div className="text-center mb-14">
           <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Why Reicon</div>
-          <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] text-white leading-[1.15] tracking-[-0.02em] mb-3">Built different. By design.</h2>
-          <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
+          <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] text-text-base leading-[1.15] tracking-[-0.02em] mb-3">Built different. By design.</h2>
+          <p className="text-[15px] text-text-base/45 leading-[1.65] max-w-[490px] mx-auto">
             Every icon is hand-drawn on a precise grid. No auto-tracing, no AI shortcuts — just obsessive attention to detail.
           </p>
         </div>
@@ -255,15 +267,15 @@ export default function Landing() {
       </section>
 
       {/* ═══ PLAYGROUND (browse + customize, unified) ═══ */}
-      <IconPlayground />
+      <IconPlayground theme={theme} />
 
       {/* ═══ INTEGRATIONS ═══ */}
       <section id="integrations" className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13">
         <div className="text-center mb-14">
           <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Integrations</div>
-          <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] text-white leading-[1.15] tracking-[-0.02em] mb-3">Works everywhere you do.</h2>
-          <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
-          Easy Integration with CDN, React, Vue, Svelte, and JavaScript
+          <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] text-text-base leading-[1.15] tracking-[-0.02em] mb-3">Works everywhere you do.</h2>
+          <p className="text-[15px] text-text-base/45 leading-[1.65] max-w-[490px] mx-auto">
+            Easy Integration with CDN, React, Vue, Svelte, and JavaScript
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-[14px]">
@@ -271,154 +283,145 @@ export default function Landing() {
             <IntegrationCard icon={<SiHtml5 size={18} color='#E34F26' />} title="CDN / HTML" copyText={`<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>\n\n<re-icon icon="home" size="24"></re-icon>`} lines={
                 <>
                   <div>
-                    <span className="text-white/20">&lt;</span>
+                    <span className="text-text-base/20">&lt;</span>
                     <span className="text-[#e06c75]">script</span>
                     <span className="text-[#d19a66]"> src</span>
-                    <span className="text-white/30">=</span>
+                    <span className="text-text-base/30">=</span>
                     <span className="text-[#98c379]">"https://unpkg.com/reicon/cdn/reicon.min.js"</span>
-                    <span className="text-white/20">&gt;&lt;/</span>
+                    <span className="text-text-base/20">&gt;&lt;/</span>
                     <span className="text-[#e06c75]">script</span>
-                    <span className="text-white/20">&gt;</span>
+                    <span className="text-text-base/20">&gt;</span>
                   </div>
                   <div className="h-3" />
                   <div>
-                    <span className="text-white/20">&lt;</span>
+                    <span className="text-text-base/20">&lt;</span>
                     <span className="text-[#e06c75]">re-icon</span>
                     <span className="text-[#d19a66]"> icon</span>
-                    <span className="text-white/30">=</span>
+                    <span className="text-text-base/30">=</span>
                     <span className="text-[#98c379]">"home"</span>
                     <span className="text-[#d19a66]"> size</span>
-                    <span className="text-white/30">=</span>
+                    <span className="text-text-base/30">=</span>
                     <span className="text-[#98c379]">"24"</span>
-                    <span className="text-white/20">&gt;&lt;/</span>
+                    <span className="text-text-base/20">&gt;&lt;/</span>
                     <span className="text-[#e06c75]">re-icon</span>
-                    <span className="text-white/20">&gt;</span>
+                    <span className="text-text-base/20">&gt;</span>
                   </div>
                 </>
               } />
           </div>
 
           <div className="lg:col-span-2">
-            <IntegrationCard icon={<SiJavascript size={18} color='#f7df1e' />} title="Vanilla JS" copyText={`import { Home } from 'reicon';
-  
-const icon = Home({ size: 24 });
-document.body.appendChild(icon);`} lines={
+            <IntegrationCard icon={<SiJavascript size={18} color='#f7df1e' />} title="Vanilla JS" copyText={`import { Home } from 'reicon';\n\nconst icon = Home({ size: 24 });\ndocument.body.appendChild(icon);`} lines={
                 <>
                   <div>
-                    <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-white/70"> i reicon</span></div>
+                    <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-text-base/70"> i reicon</span></div>
                     <div className="h-2" />
                     <span className="text-[#c678dd]">import</span>
-                    <span className="text-white/70"> {'{ '}</span>
+                    <span className="text-text-base/70"> {'{ '}</span>
                     <span className="text-[#e5c07b]">Home</span>
-                    <span className="text-white/70">{' }'} </span>
+                    <span className="text-text-base/70">{' }'} </span>
                     <span className="text-[#c678dd]">from</span>
                     <span className="text-[#98c379]"> 'reicon'</span>
-                    <span className="text-white/30">;</span>
+                    <span className="text-text-base/30">;</span>
                   </div>
                   <div className="h-3" />
                   <div>
                     <span className="text-[#c678dd]">const</span>
-                    <span className="text-white/70"> home = </span>
+                    <span className="text-text-base/70"> home = </span>
                     <span className="text-[#61afef]">Home</span>
-                    <span className="text-white/70">({'{'} size: </span>
+                    <span className="text-text-base/70">({'{'} size: </span>
                     <span className="text-[#d19a66]">24</span>
-                    <span className="text-white/70"> {'}'});</span>
+                    <span className="text-text-base/70"> {'}'});</span>
                   </div>
                 </>
               } />
           </div>
 
           <div className="lg:col-span-2">
-            <IntegrationCard icon={<SiReact size={18} color='#61dafb' />} title="React" copyText={`import { Home } from 'reicon-react';
-  
-<Home size={24} weight="outline" />`} lines={
+            <IntegrationCard icon={<SiReact size={18} color='#61dafb' />} title="React" copyText={`import { Home } from 'reicon-react';\n\n<Home size={24} weight="outline" />`} lines={
                 <>
                   <div>
-                    <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-white/70"> i reicon-react</span></div>
+                    <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-text-base/70"> i reicon-react</span></div>
                     <div className="h-2" />
                     <span className="text-[#c678dd]">import</span>
-                    <span className="text-white/70"> {'{ '}</span>
+                    <span className="text-text-base/70"> {'{ '}</span>
                     <span className="text-[#e5c07b]">Home</span>
-                    <span className="text-white/70">{' }'} </span>
+                    <span className="text-text-base/70">{' }'} </span>
                     <span className="text-[#c678dd]">from</span>
                     <span className="text-[#98c379]"> 'reicon-react'</span>
-                    <span className="text-white/30">;</span>
+                    <span className="text-text-base/30">;</span>
                   </div>
                   <div className="h-3" />
                   <div>
-                    <span className="text-white/20">&lt;</span>
+                    <span className="text-text-base/20">&lt;</span>
                     <span className="text-[#e06c75]">Home</span>
                     <span className="text-[#d19a66]"> size</span>
-                    <span className="text-white/30">=</span>
-                    <span className="text-white/70">{'{'}24{'}'}</span>
+                    <span className="text-text-base/30">=</span>
+                    <span className="text-text-base/70">{'{'}24{'}'}</span>
                     <span className="text-[#d19a66]"> weight</span>
-                    <span className="text-white/30">=</span>
+                    <span className="text-text-base/30">=</span>
                     <span className="text-[#98c379]">"outline"</span>
-                    <span className="text-white/20"> /&gt;</span>
+                    <span className="text-text-base/20"> /&gt;</span>
                   </div>
                 </>
               } />
           </div>
 
           <div className="sm:col-span-1 sm:col-start-auto lg:col-start-2 lg:col-span-2">
-            <IntegrationCard icon={<svg width={18} height={18} viewBox="0 0 122.88 106.42" fill="none"><polygon fill="#4DBA87" points="75.63,0 61.44,24.58 47.25,0 0,0 61.44,106.42 122.88,0 75.63,0" /><polygon fill="#425466" points="75.63,0 61.44,24.58 47.25,0 24.58,0 61.44,63.85 98.3,0 75.63,0" /></svg>} title="Vue" copyText={`import { Home } from 'reicon-vue';
-  
-<Home :size="24" weight="Outline" />`} lines={
+            <IntegrationCard icon={<svg width={18} height={18} viewBox="0 0 122.88 106.42" fill="none"><polygon fill="#4DBA87" points="75.63,0 61.44,24.58 47.25,0 0,0 61.44,106.42 122.88,0 75.63,0" /><polygon fill="#425466" points="75.63,0 61.44,24.58 47.25,0 24.58,0 61.44,63.85 98.3,0 75.63,0" /></svg>} title="Vue" copyText={`import { Home } from 'reicon-vue';\n\n<Home :size="24" weight="Outline" />`} lines={
                 <>
                   <div>
-                    <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-white/70"> i reicon-vue</span></div>
+                    <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-text-base/70"> i reicon-vue</span></div>
                     <div className="h-2" />
                     <span className="text-[#c678dd]">import</span>
-                    <span className="text-white/70"> {'{ '}</span>
+                    <span className="text-text-base/70"> {'{ '}</span>
                     <span className="text-[#e5c07b]">Home</span>
-                    <span className="text-white/70">{' }'} </span>
+                    <span className="text-text-base/70">{' }'} </span>
                     <span className="text-[#c678dd]">from</span>
                     <span className="text-[#98c379]"> 'reicon-vue'</span>
-                    <span className="text-white/30">;</span>
+                    <span className="text-text-base/30">;</span>
                   </div>
                   <div className="h-3" />
                   <div>
-                    <span className="text-white/20">&lt;</span>
+                    <span className="text-text-base/20">&lt;</span>
                     <span className="text-[#e06c75]">Home</span>
                     <span className="text-[#d19a66]"> :size</span>
-                    <span className="text-white/30">=</span>
+                    <span className="text-text-base/30">=</span>
                     <span className="text-[#98c379]">"24"</span>
                     <span className="text-[#d19a66]"> weight</span>
-                    <span className="text-white/30">=</span>
+                    <span className="text-text-base/30">=</span>
                     <span className="text-[#98c379]">"Outline"</span>
-                    <span className="text-white/20"> /&gt;</span>
+                    <span className="text-text-base/20"> /&gt;</span>
                   </div>
                 </>
               } />
           </div>
 
           <div className="sm:col-span-2 lg:col-span-2">
-            <IntegrationCard icon={<SiSvelte size={18} color='#FF3E00' />} title="Svelte" copyText={`import { Home } from 'reicon-svelte';
-  
-<Home size={24} weight="Outline" />`} lines={
+            <IntegrationCard icon={<SiSvelte size={18} color='#FF3E00' />} title="Svelte" copyText={`import { Home } from 'reicon-svelte';\n\n<Home size={24} weight="Outline" />`} lines={
                 <>
                   <div>
-                    <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-white/70"> i reicon-svelte</span></div>
+                    <div><span className="text-[#ffbd2e]">$</span><span className="text-[#e06c75]"> npm</span> <span className="text-text-base/70"> i reicon-svelte</span></div>
                     <div className="h-2" />
                     <span className="text-[#c678dd]">import</span>
-                    <span className="text-white/70"> {'{ '}</span>
+                    <span className="text-text-base/70"> {'{ '}</span>
                     <span className="text-[#e5c07b]">Home</span>
-                    <span className="text-white/70">{' }'} </span>
+                    <span className="text-text-base/70">{' }'} </span>
                     <span className="text-[#c678dd]">from</span>
                     <span className="text-[#98c379]"> 'reicon-svelte'</span>
-                    <span className="text-white/30">;</span>
+                    <span className="text-text-base/30">;</span>
                   </div>
                   <div className="h-3" />
                   <div>
-                    <span className="text-white/20">&lt;</span>
+                    <span className="text-text-base/20">&lt;</span>
                     <span className="text-[#e06c75]">Home</span>
                     <span className="text-[#d19a66]"> size</span>
-                    <span className="text-white/30">=</span>
-                    <span className="text-[#e5c07b]">{'{'}24{'}'}</span>
+                    <span className="text-text-base/30">=</span>
+                    <span className="text-text-base/75">{'{'}24{'}'}</span>
                     <span className="text-[#d19a66]"> weight</span>
-                    <span className="text-white/30">=</span>
+                    <span className="text-text-base/30">=</span>
                     <span className="text-[#98c379]">"Outline"</span>
-                    <span className="text-white/20"> /&gt;</span>
+                    <span className="text-text-base/20"> /&gt;</span>
                   </div>
                 </>
               } />
@@ -427,35 +430,35 @@ document.body.appendChild(icon);`} lines={
       </section>
 
       {/* ═══ ICON SHOWCASE ═══ */}
-      <IconShowcase />
+      <IconShowcase theme={theme} />
 
       {/* ═══ CTA ═══ */}
       <section className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13">
-        <div className="relative bg-[#0e0e10] rounded-[14px] overflow-hidden">
+        <div className="relative bg-text-base/3 rounded-[14px] overflow-hidden">
           {/* Watermark scribbles */}
           <div className="absolute -top-10 -left-10 md:-top-14 md:-left-14 pointer-events-none select-none opacity-[0.04] rotate-[195deg]">
-            <re-icon icon="scribble" size={180} color="#fff" weight="outline" className="block md:hidden" />
-            <re-icon icon="scribble" size={300} color="#fff" weight="outline" className="hidden md:block" />
+            <re-icon icon="scribble" size={180} color="currentColor" weight="outline" className="block md:hidden" />
+            <re-icon icon="scribble" size={300} color="currentColor" weight="outline" className="hidden md:block" />
           </div>
           <div className="absolute -bottom-10 -right-10 md:-bottom-14 md:-right-14 pointer-events-none select-none opacity-[0.04] rotate-[15deg]">
-            <re-icon icon="scribble" size={180} color="#fff" weight="outline" className="block md:hidden" />
-            <re-icon icon="scribble" size={300} color="#fff" weight="outline" className="hidden md:block" />
+            <re-icon icon="scribble" size={180} color="currentColor" weight="outline" className="block md:hidden" />
+            <re-icon icon="scribble" size={300} color="currentColor" weight="outline" className="hidden md:block" />
           </div>
 
           <div className="relative z-10 py-14 md:py-20 px-6 md:px-14 flex flex-col md:flex-row items-center gap-10 md:gap-16">
             {/* Left — text */}
             <div className="flex-1 text-center md:text-left">
-              <h2 className="font-serif text-[clamp(24px,3.2vw,42px)] text-white leading-[1.12] tracking-[-0.02em] mb-3">
+              <h2 className="font-serif text-[clamp(24px,3.2vw,42px)] text-text-base leading-[1.12] tracking-[-0.02em] mb-3">
                 Your next project<br className="hidden md:block" /> deserves better icons.
               </h2>
-              <p className="text-[15px] text-white/40 leading-[1.65] max-w-[420px] mx-auto md:mx-0 mb-6">
+              <p className="text-[15px] text-text-base/40 leading-[1.65] max-w-[420px] mx-auto md:mx-0 mb-6">
                 2700+ handcrafted, pixel-perfect SVG icons. MIT licensed. Zero dependencies. Two weights. Ready to ship.
               </p>
 
               {/* Install command */}
-              <div className="inline-flex items-center gap-3 bg-white/[0.04] border border-white/[0.06] rounded-xl px-4 py-2.5">
+              <div className="inline-flex items-center gap-3 bg-text-base/4 border border-text-base/6 rounded-xl px-4 py-2.5">
                 <span className="text-[#6C5CE7] text-[13px] font-mono font-medium">$</span>
-                <code className="text-[13px] font-mono text-white/50">npm i reicon</code>
+                <code className="text-[13px] font-mono text-text-base/50">npm i reicon</code>
                 <CopyButton text="npm i reicon" />
               </div>
             </div>
@@ -470,14 +473,14 @@ document.body.appendChild(icon);`} lines={
                 href="https://github.com/dqev/reicon"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full justify-center bg-white/[0.05] text-white border border-white/[0.1] px-7 py-3 rounded-full font-medium text-[14px] hover:bg-white/[0.1] active:scale-[0.97] transition-all inline-flex items-center gap-2"
+                className="w-full justify-center bg-text-base/5 text-text-base border border-text-base/10 px-7 py-3 rounded-full font-medium text-[14px] hover:bg-text-base/10 active:scale-[0.97] transition-all inline-flex items-center gap-2 cursor-pointer"
               >
                 <Star size={15} />
                 Star on GitHub
               </a>
               <Link
                 to="/usage"
-                className="w-full justify-center inline-flex items-center gap-1.5 text-[13px] text-white/30 hover:text-white/60 transition-colors mt-1"
+                className="w-full justify-center inline-flex items-center gap-1.5 text-[13px] text-text-base/30 hover:text-text-base/60 transition-colors mt-1"
               >
                 Read the docs
                 <Pointer size={13} className="-rotate-10" />
@@ -503,7 +506,7 @@ function CopyButton({ text }: { text: string }) {
     });
   };
   return (
-    <button onClick={handleCopy} className="text-white/30 hover:text-white/60 transition-colors">
+    <button onClick={handleCopy} className="text-text-base/30 hover:text-text-base/60 transition-colors cursor-pointer">
       {copied ? (
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
       ) : (
@@ -517,13 +520,13 @@ const ORBIT_INNER = ['home', 'star', 'heart', 'search', 'settings', 'bell'];
 const ORBIT_MIDDLE = ['camera', 'cloud', 'lightning', 'palette', 'code', 'eye', 'bookmark', 'gift'];
 const ORBIT_OUTER = ['compass', 'mic', 'wifi', 'pen', 'folder', 'lamp', 'clock', 'calendar', 'flag', 'rocket'];
 
-function IconShowcase() {
+function IconShowcase({ theme }: { theme: string }) {
   return (
     <section className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13 overflow-hidden">
       <div className="text-center mb-10 px-5">
         <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Icon Library</div>
-        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] text-white leading-[1.15] tracking-[-0.02em] mb-3">2700+ icons. Every one handcrafted.</h2>
-        <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
+        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] text-text-base leading-[1.15] tracking-[-0.02em] mb-3">2700+ icons. Every one handcrafted.</h2>
+        <p className="text-[15px] text-text-base/45 leading-[1.65] max-w-[490px] mx-auto">
           From UI essentials to expressive details — find exactly what you need.
         </p>
       </div>
@@ -533,7 +536,7 @@ function IconShowcase() {
         {/* Center logo */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
           <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
-            <img src="/reicon.png" alt="Reicon" className="w-8 h-8 md:w-10 md:h-10" />
+            <img src={theme === 'dark' ? '/icon-light.webp' : '/icon-dark.webp'} alt="Reicon" className="w-8 h-8 md:w-10 md:h-10" />
           </div>
         </div>
 
@@ -561,8 +564,8 @@ function IconShowcase() {
                   className="absolute -translate-x-1/2 -translate-y-1/2"
                   style={{ top: `${y}%`, left: `${x}%` }}
                 >
-                  <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center animate-orbit-counter-slow">
-                    <re-icon icon={name} size={18} color="rgba(255,255,255,0.5)" weight="outline" />
+                  <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-text-base/4 border border-text-base/6 flex items-center justify-center animate-orbit-counter-slow">
+                    <re-icon icon={name} size={18} color="currentColor" className="text-text-base/50" weight="outline" />
                   </div>
                 </div>
               );
@@ -583,8 +586,8 @@ function IconShowcase() {
                   className="absolute -translate-x-1/2 -translate-y-1/2"
                   style={{ top: `${y}%`, left: `${x}%` }}
                 >
-                  <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center animate-orbit-counter-mid">
-                    <re-icon icon={name} size={18} color="rgba(255,255,255,0.4)" weight="outline" />
+                  <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-text-base/4 border border-text-base/6 flex items-center justify-center animate-orbit-counter-mid">
+                    <re-icon icon={name} size={18} color="currentColor" className="text-text-base/40" weight="outline" />
                   </div>
                 </div>
               );
@@ -605,8 +608,8 @@ function IconShowcase() {
                   className="absolute -translate-x-1/2 -translate-y-1/2"
                   style={{ top: `${y}%`, left: `${x}%` }}
                 >
-                  <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-center animate-orbit-counter-fast">
-                    <re-icon icon={name} size={18} color="rgba(255,255,255,0.3)" weight="outline" />
+                  <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-text-base/3 border border-text-base/5 flex items-center justify-center animate-orbit-counter-fast">
+                    <re-icon icon={name} size={18} color="currentColor" className="text-text-base/30" weight="outline" />
                   </div>
                 </div>
               );
@@ -620,12 +623,12 @@ function IconShowcase() {
 
 function FeatureBlock({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (
-    <div className="bg-[#0e0e10] rounded-[14px] p-[34px_30px]">
-      <div className="w-10 h-10 rounded-[9px] bg-white/[0.06] flex items-center justify-center text-white/70 text-[18px] mb-4">
+    <div className="bg-text-base/3 rounded-[14px] p-[34px_30px]">
+      <div className="w-10 h-10 rounded-[9px] bg-text-base/6 flex items-center justify-center text-text-base/70 text-[18px] mb-4">
         {icon}
       </div>
-      <h3 className="text-[14px] font-semibold text-white mb-[7px]">{title}</h3>
-      <p className="text-[13px] text-white/45 leading-[1.65]">{description}</p>
+      <h3 className="text-[14px] font-semibold text-text-base mb-[7px]">{title}</h3>
+      <p className="text-[13px] text-text-base/45 leading-[1.65]">{description}</p>
     </div>
   );
 }
@@ -641,17 +644,17 @@ function IntegrationCard({ icon, title, lines, copyText }: { icon: React.ReactNo
   };
 
   return (
-    <div className="bg-[#0e0e10] rounded-[14px] overflow-hidden">
-      <div className="flex items-center justify-between px-5 py-3 border-b border-white/[0.06]">
+    <div className="bg-text-base/3 rounded-[14px] overflow-hidden">
+      <div className="flex items-center justify-between px-5 py-3 border-b border-text-base/6">
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 flex items-center justify-center">
             {icon}
           </div>
-          <h3 className="text-[14px] font-semibold text-white">{title}</h3>
+          <h3 className="text-[14px] font-semibold text-text-base">{title}</h3>
         </div>
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1.5 text-[12px] text-white/30 hover:text-white/60 transition-colors"
+          className="flex items-center gap-1.5 text-[12px] text-text-base/30 hover:text-text-base/60 transition-colors cursor-pointer"
         >
           {copied ? (
             <><svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>Copied</>
@@ -660,7 +663,7 @@ function IntegrationCard({ icon, title, lines, copyText }: { icon: React.ReactNo
           )}
         </button>
       </div>
-      <div className="p-5 font-mono text-[13px] leading-[1.85] overflow-x-auto">
+      <div className="p-5 font-mono text-[13px] leading-[1.85] overflow-x-auto text-text-base">
         {lines}
       </div>
     </div>
@@ -679,20 +682,23 @@ function getShuffledIcons() {
   return shuffled.slice(0, CONSISTENCY_COUNT);
 }
 
-const COLOR_PRESETS = [
-  '#ffffff', '#6C5CE7', '#ef4444', '#f59e0b',
-  '#22c55e', '#3b82f6', '#ec4899', '#06b6d4',
-];
-
 const HEX_RE = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
 
-function ColorPicker({ color, onChange }: { color: string; onChange: (c: string) => void }) {
-  const safeColor = HEX_RE.test(color) ? color : '#ffffff';
+function ColorPicker({ color, onChange, theme }: { color: string; onChange: (c: string) => void; theme: string }) {
+  const isLight = theme === 'light';
+  const COLOR_PRESETS = isLight ? [
+    '#111111', '#6C5CE7', '#ef4444', '#f59e0b',
+    '#22c55e', '#3b82f6', '#ec4899', '#06b6d4',
+  ] : [
+    '#ffffff', '#6C5CE7', '#ef4444', '#f59e0b',
+    '#22c55e', '#3b82f6', '#ec4899', '#06b6d4',
+  ];
+  const safeColor = HEX_RE.test(color) ? color : (isLight ? '#111111' : '#ffffff');
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="relative">
-      <label className="text-[13px] text-white/50 mb-2 block">Color</label>
+      <label className="text-[13px] text-text-base/50 mb-2 block">Color</label>
 
       {/* Preset swatches — full-width 8-col grid, aligns with the row below */}
       <div className="grid grid-cols-8 gap-1.5 mb-2">
@@ -704,7 +710,7 @@ function ColorPicker({ color, onChange }: { color: string; onChange: (c: string)
               onClick={() => onChange(c)}
               aria-label={`Set color ${c}`}
               title={c}
-              className={`w-full aspect-square rounded-md transition-transform hover:scale-110 cursor-pointer ${active ? 'ring-2 ring-white/70 ring-offset-2 ring-offset-[#0e0e10]' : 'border border-white/15'
+              className={`w-full aspect-square rounded-md transition-transform hover:scale-110 cursor-pointer ${active ? 'ring-2 ring-text-base/70 ring-offset-2 ring-offset-bg-base' : 'border border-text-base/15'
                 }`}
               style={{ backgroundColor: c }}
             />
@@ -717,22 +723,22 @@ function ColorPicker({ color, onChange }: { color: string; onChange: (c: string)
         <button
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Pick a custom color"
-          className="w-9 h-9 shrink-0 rounded-lg border border-white/10 cursor-pointer bg-transparent flex items-center justify-center transition-colors hover:bg-white/5 relative"
+          className="w-9 h-9 shrink-0 rounded-lg border border-text-base/10 cursor-pointer bg-transparent flex items-center justify-center transition-colors hover:bg-text-base/5 relative"
         >
-          <span className="w-5 h-5 rounded-md border border-white/20 shadow-sm" style={{ backgroundColor: safeColor }} />
+          <span className="w-5 h-5 rounded-md border border-text-base/20 shadow-sm" style={{ backgroundColor: safeColor }} />
         </button>
         <input
           type="text"
           value={color}
           onChange={(e) => onChange(e.target.value)}
           spellCheck={false}
-          className="flex-1 min-w-0 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-[13px] text-white/70 font-mono outline-none focus:border-white/20 uppercase"
+          className="flex-1 min-w-0 bg-text-base/5 border border-text-base/10 rounded-lg px-3 py-2 text-[13px] text-text-base/70 font-mono outline-none focus:border-text-base/20 uppercase"
         />
 
         {isOpen && (
           <>
             <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
-            <div className="absolute left-0 bottom-full mb-2 z-50 bg-[#121214] border border-white/[0.08] rounded-xl p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.6)] flex flex-col gap-2.5 min-w-[200px]" style={{ boxShadow: '0 12px 40px rgba(0,0,0,0.6), 0 0 1px rgba(255,255,255,0.1)' }}>
+            <div className="absolute left-0 bottom-full mb-2 z-50 bg-[var(--dropdown-bg)] border border-text-base/8 rounded-xl p-3.5 shadow-[0_12px_40px_var(--shadow-color)] flex flex-col gap-2.5 min-w-[200px]" style={{ boxShadow: '0 12px 40px var(--shadow-color), 0 0 1px var(--border-base)' }}>
               <HexColorPicker color={safeColor} onChange={onChange} />
             </div>
           </>
@@ -742,18 +748,27 @@ function ColorPicker({ color, onChange }: { color: string; onChange: (c: string)
   );
 }
 
-function IconPlayground() {
+function IconPlayground({ theme }: { theme: string }) {
   const icons = useMemo(() => getShuffledIcons(), []);
   const [selected, setSelected] = useState(() => icons[0]);
-  const [color, setColor] = useState('#ffffff');
+  const isLight = theme === 'light';
+  const [color, setColor] = useState(isLight ? '#111111' : '#ffffff');
   const [size, setSize] = useState(32);
   const [weight, setWeight] = useState<'outline' | 'filled'>('outline');
 
-  const displayColor = HEX_RE.test(color) ? color : '#ffffff';
+  useEffect(() => {
+    if (color === '#ffffff' && theme === 'light') {
+      setColor('#111111');
+    } else if (color === '#111111' && theme === 'dark') {
+      setColor('#ffffff');
+    }
+  }, [theme, color]);
+
+  const displayColor = HEX_RE.test(color) ? color : (isLight ? '#111111' : '#ffffff');
   const pascalName = (iconNamesData as Record<string, string>)[selected] || selected;
 
   const reset = () => {
-    setColor('#ffffff');
+    setColor(isLight ? '#111111' : '#ffffff');
     setSize(32);
     setWeight('outline');
   };
@@ -762,24 +777,24 @@ function IconPlayground() {
     <section className="reveal max-w-[1160px] mx-auto px-5 md:px-10 py-13">
       <div className="text-center mb-10">
         <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#6C5CE7] mb-2">Playground</div>
-        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] text-white leading-[1.15] tracking-[-0.02em] mb-3">Pick one. Make it yours.</h2>
-        <p className="text-[15px] text-white/45 leading-[1.65] max-w-[490px] mx-auto">
+        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] text-text-base leading-[1.15] tracking-[-0.02em] mb-3">Pick one. Make it yours.</h2>
+        <p className="text-[15px] text-text-base/45 leading-[1.65] max-w-[490px] mx-auto">
           Same grid, same rhythm across every icon. Choose one, then tweak color, size, and weight — and watch the whole set update live.
         </p>
       </div>
 
-      <div className="bg-[#0e0e10] rounded-[14px] overflow-hidden">
+      <div className="bg-text-base/3 rounded-[14px] overflow-hidden">
         <div className="grid lg:grid-cols-[300px_1fr]">
           {/* Left — preview + controls */}
-          <div className="p-5 lg:p-6 lg:border-r border-b lg:border-b-0 border-white/[0.06] flex flex-col">
+          <div className="p-5 lg:p-6 lg:border-r border-b lg:border-b-0 border-text-base/6 flex flex-col">
             {/* Large preview — real icon design keyline canvas */}
-            <div className="relative w-full aspect-square max-w-[220px] mx-auto bg-[#0a0a0c] border border-white/[0.06] rounded-xl flex items-center justify-center overflow-hidden">
+            <div className="relative w-full aspect-square max-w-[220px] mx-auto bg-text-base/2 border border-text-base/6 rounded-xl flex items-center justify-center overflow-hidden">
               {/* Graph-paper grid (24-unit) */}
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
                   backgroundImage:
-                    'linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px)',
+                    'linear-gradient(to right, var(--border-muted) 1px, transparent 1px), linear-gradient(to bottom, var(--border-muted) 1px, transparent 1px)',
                   backgroundSize: 'calc(100%/12) calc(100%/12)',
                   maskImage: 'radial-gradient(circle at center, #000 62%, transparent 92%)',
                   WebkitMaskImage: 'radial-gradient(circle at center, #000 62%, transparent 92%)',
@@ -795,7 +810,7 @@ function IconPlayground() {
               {/* Keyline shapes — the recognizable icon design grid */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" fill="none">
                 {/* dashed safe area */}
-                <rect x="9" y="9" width="82" height="82" rx="7" stroke="rgba(255,255,255,0.08)" strokeWidth="0.5" strokeDasharray="2.5 2.5" />
+                <rect x="9" y="9" width="82" height="82" rx="7" stroke="var(--border-base)" strokeWidth="0.5" strokeDasharray="2.5 2.5" />
                 {/* portrait + landscape keylines */}
                 <rect x="32" y="14" width="36" height="72" rx="7" stroke="#6C5CE7" strokeOpacity="0.16" strokeWidth="0.5" />
                 <rect x="14" y="32" width="72" height="36" rx="7" stroke="#6C5CE7" strokeOpacity="0.16" strokeWidth="0.5" />
@@ -811,26 +826,26 @@ function IconPlayground() {
               <div className="absolute bottom-2 right-2 w-2.5 h-2.5 border-b border-r border-[#6C5CE7]/35" />
 
               {/* Spec labels */}
-              <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[7.5px] font-mono text-[#6C5CE7]/45 select-none tracking-wider">24<span className="text-white/20"> × </span>24</span>
-              <span className="absolute bottom-2 right-3 text-[8px] font-mono text-white/30 tabular-nums select-none">{size}px</span>
-              <span className="absolute bottom-2 left-3 text-[8px] font-mono text-white/25 select-none lowercase">{weight}</span>
+              <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[7.5px] font-mono text-[#6C5CE7]/45 select-none tracking-wider">24<span className="text-text-base/20"> × </span>24</span>
+              <span className="absolute bottom-2 right-3 text-[8px] font-mono text-text-base/30 tabular-nums select-none">{size}px</span>
+              <span className="absolute bottom-2 left-3 text-[8px] font-mono text-text-base/25 select-none lowercase">{weight}</span>
 
               <re-icon icon={selected} size={96} weight={weight} color={displayColor} />
             </div>
 
             {/* Name + code */}
             <div className="w-full mt-5 flex items-center justify-between">
-              <span className="text-[14px] text-white font-semibold">{pascalName}</span>
-              <span className="text-[11px] text-white/30 bg-white/[0.04] border border-white/[0.06] rounded px-2 py-0.5 font-mono">{selected}</span>
+              <span className="text-[14px] text-text-base font-semibold">{pascalName}</span>
+              <span className="text-[11px] text-text-base/30 bg-text-base/4 border border-text-base/6 rounded px-2 py-0.5 font-mono">{selected}</span>
             </div>
 
             {/* Controls */}
-            <div className="w-full mt-6 pt-5 border-t border-white/[0.06] flex flex-col gap-4">
+            <div className="w-full mt-6 pt-5 border-t border-text-base/6 flex flex-col gap-4">
               <div className="flex items-center justify-between">
-                <span className="text-[11px] uppercase tracking-[0.08em] text-white/30 font-semibold">Controls</span>
+                <span className="text-[11px] uppercase tracking-[0.08em] text-text-base/30 font-semibold">Controls</span>
                 <button
                   onClick={reset}
-                  className="w-7 h-7 flex items-center justify-center rounded-md text-white/30 hover:text-white/60 hover:bg-white/5 transition-colors"
+                  className="w-7 h-7 flex items-center justify-center rounded-md text-text-base/30 hover:text-text-base/60 hover:bg-text-base/5 transition-colors cursor-pointer"
                   title="Reset"
                   aria-label="Reset controls"
                 >
@@ -838,13 +853,13 @@ function IconPlayground() {
                 </button>
               </div>
 
-              <ColorPicker color={color} onChange={setColor} />
+              <ColorPicker color={color} onChange={setColor} theme={theme} />
 
               {/* Size */}
               <div>
                 <div className="flex justify-between mb-2">
-                  <label className="text-[13px] text-white/50">Size</label>
-                  <span className="text-[13px] text-white/30 font-mono">{size}px</span>
+                  <label className="text-[13px] text-text-base/50">Size</label>
+                  <span className="text-[13px] text-text-base/30 font-mono">{size}px</span>
                 </div>
                 <input
                   type="range"
@@ -852,21 +867,21 @@ function IconPlayground() {
                   max={48}
                   value={size}
                   onChange={(e) => setSize(Number(e.target.value))}
-                  className="w-full h-1.5 rounded-full appearance-none bg-white/10 accent-[#6C5CE7] cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#6C5CE7] [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(108,92,231,0.5)]"
+                  className="w-full h-1.5 rounded-full appearance-none bg-text-base/10 accent-[#6C5CE7] cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#6C5CE7] [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(108,92,231,0.5)]"
                 />
               </div>
 
               {/* Weight */}
               <div>
-                <label className="text-[13px] text-white/50 mb-2 block">Weight</label>
+                <label className="text-[13px] text-text-base/50 mb-2 block">Weight</label>
                 <div className="flex gap-2">
                   {(['outline', 'filled'] as const).map((w) => (
                     <button
                       key={w}
                       onClick={() => setWeight(w)}
-                      className={`flex-1 px-3 py-2 rounded-lg text-[13px] font-medium transition-all ${weight === w
+                      className={`flex-1 px-3 py-2 rounded-lg text-[13px] font-medium transition-all cursor-pointer ${weight === w
                         ? 'bg-[#6C5CE7]/15 text-[#6C5CE7] border border-[#6C5CE7]/30'
-                        : 'bg-white/5 text-white/40 border border-white/10 hover:text-white/60'
+                        : 'bg-text-base/5 text-text-base/40 border border-text-base/10 hover:text-text-base/60'
                         }`}
                     >
                       {w.charAt(0).toUpperCase() + w.slice(1)}
@@ -879,7 +894,7 @@ function IconPlayground() {
 
           {/* Right — live glyph grid (click to select) */}
           <div className="p-3 sm:p-4">
-            <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 border-l border-t border-white/[0.04]">
+            <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 border-l border-t border-text-base/4">
               {icons.map((name) => {
                 const isSelected = name === selected;
                 return (
@@ -888,7 +903,7 @@ function IconPlayground() {
                     onClick={() => setSelected(name)}
                     className={`aspect-square flex items-center justify-center border-r border-b transition-colors cursor-pointer ${isSelected
                       ? 'bg-[#6C5CE7]/10 border-[#6C5CE7]/25'
-                      : 'border-white/[0.04] hover:bg-white/[0.03]'
+                      : 'border-text-base/4 hover:bg-text-base/3'
                       }`}
                     title={(iconNamesData as Record<string, string>)[name] || name}
                   >
@@ -915,7 +930,7 @@ function IconPlayground() {
 // ─────────────────────────────────────────────────────────────────────────────
 function LaunchBanner() {
   const [dismissed, setDismissed] = useState(() => {
-    try { return localStorage.getItem('reicon-launch-banner-v1') === 'dismissed'; }
+    try { return localStorage.getItem('reicon-launch-banner-v2') === 'dismissed'; }
     catch { return false; }
   });
 
@@ -923,53 +938,89 @@ function LaunchBanner() {
 
   const dismiss = () => {
     setDismissed(true);
-    try { localStorage.setItem('reicon-launch-banner-v1', 'dismissed'); } catch { }
+    try { localStorage.setItem('reicon-launch-banner-v2', 'dismissed'); } catch { }
   };
 
+  // Reusable inline SVGs
+  const FigmaIcon = ({ size = 13 }: { size?: number }) => (
+    <svg className="shrink-0" width={size} height={size} viewBox="0 0 54 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13.3333 80.0002C20.6933 80.0002 26.6667 74.0268 26.6667 66.6668V53.3335H13.3333C5.97333 53.3335 0 59.3068 0 66.6668C0 74.0268 5.97333 80.0002 13.3333 80.0002Z" fill="#0ACF83"/>
+      <path d="M0 39.9998C0 32.6398 5.97333 26.6665 13.3333 26.6665H26.6667V53.3332H13.3333C5.97333 53.3332 0 47.3598 0 39.9998Z" fill="#A259FF"/>
+      <path d="M0 13.3333C0 5.97333 5.97333 0 13.3333 0H26.6667V26.6667H13.3333C5.97333 26.6667 0 20.6933 0 13.3333Z" fill="#F24E1E"/>
+      <path d="M26.6667 0H40.0001C47.3601 0 53.3334 5.97333 53.3334 13.3333C53.3334 20.6933 47.3601 26.6667 40.0001 26.6667H26.6667V0Z" fill="#FF7262"/>
+      <path d="M53.3334 39.9998C53.3334 47.3598 47.3601 53.3332 40.0001 53.3332C32.6401 53.3332 26.6667 47.3598 26.6667 39.9998C26.6667 32.6398 32.6401 26.6665 40.0001 26.6665C47.3601 26.6665 53.3334 32.6398 53.3334 39.9998Z" fill="#1ABCFE"/>
+    </svg>
+  );
+
+  const VscodeIcon = ({ size = 13 }: { size?: number }) => (
+    <svg className="shrink-0" width={size} height={size} viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M180.6 0L99.1 76.1 37.4 28 0 50.7v154.6l37.4 22.7 61.7-48.1 81.5 76.1 38.4-19.2V19.2L180.6 0zm22.1 185.7l-57.8-57.7 57.8-57.8v115.5zM96.9 128l-59.5 46.4V81.6L96.9 128z" fill="#007ACC"/>
+    </svg>
+  );
+
   return (
-    <div
-      className="relative z-[300] flex items-center justify-center px-10 py-1.5"
-      style={{ background: '#09090b' }}
-    >
+    <div className="relative z-[300] flex items-center justify-center px-10 py-1.5 bg-bg-base transition-colors duration-300">
       {/* Desktop */}
-      <span className="hidden sm:inline-flex items-center gap-1.5 text-[13px] text-white/45">
-        <img src="/rocket.webp" alt="" aria-hidden width={28} height={28} style={{ display: 'inline', verticalAlign: 'middle', flexShrink: 0 }} />
-        We launched our core package —
-        <code className="font-mono text-white/75 font-semibold text-[12px] bg-white/[0.06] px-1.5 py-0.5 rounded-md">npm i reicon</code>
-        <span className="text-white/15">·</span>
+      <span className="hidden sm:inline-flex items-center gap-2 text-[13px] text-text-base/45">
+        <FigmaIcon />
         <a
-          href="https://www.npmjs.com/package/reicon"
+          href="https://www.figma.com/community/plugin/1652983191908763066"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white/50 hover:text-white/80 transition-colors underline underline-offset-2 decoration-white/20"
+          className="hover:text-text-base/70 transition-colors cursor-pointer"
         >
-          npm
+          Figma Plugin is live
         </a>
-        <span className="text-white/15">·</span>
-        <Link
-          to="/usage"
-          className="text-white/50 hover:text-white/80 transition-colors underline underline-offset-2 decoration-white/20"
+        <span className="text-text-base/15">·</span>
+        <a
+          href="https://www.figma.com/community/plugin/1652983191908763066"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-text-base/50 hover:text-text-base/80 transition-colors underline underline-offset-2 decoration-text-base/20 cursor-pointer"
         >
-          Docs
-        </Link>
+          Install
+        </a>
+        <span className="text-text-base/15 mx-1">|</span>
+        <VscodeIcon />
+        <a
+          href="https://marketplace.visualstudio.com/items?itemName=DevChauhan.reicon"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-text-base/70 transition-colors cursor-pointer"
+        >
+          VS Code Extension is live
+        </a>
+        <span className="text-text-base/15">·</span>
+        <a
+          href="https://marketplace.visualstudio.com/items?itemName=DevChauhan.reicon"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-text-base/50 hover:text-text-base/80 transition-colors underline underline-offset-2 decoration-text-base/20 cursor-pointer"
+        >
+          Install
+        </a>
       </span>
 
-      {/* Mobile — rocket + tappable code pill → docs */}
-      <Link
-        to="/usage"
-        className="inline-flex sm:hidden items-center gap-1.5 text-[12px] text-white/45"
+      {/* Mobile */}
+      <a
+        href="https://www.figma.com/community/plugin/1652983191908763066"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex sm:hidden items-center gap-1.5 text-[12px] text-text-base/45 hover:text-text-base/65 transition-colors cursor-pointer"
       >
-        <img src="/rocket.webp" alt="" aria-hidden width={20} height={20} style={{ display: 'inline', verticalAlign: 'middle', flexShrink: 0 }} />
-        We have launched —
-        <code className="font-mono text-white/70 font-semibold bg-white/[0.06] px-1.5 py-0.5 rounded-md">npm i reicon</code>
-      </Link>
+        <FigmaIcon size={12} />
+        <span>Figma</span>
+        <span className="text-text-base/20">&</span>
+        <VscodeIcon size={12} />
+        <span>VS Code extensions are live</span>
+      </a>
 
       {/* Dismiss */}
       <button
         onClick={dismiss}
         aria-label="Dismiss"
-        className="absolute right-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white/55 transition-colors"
-        style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', padding: '4px' }}
+        className="absolute right-3 top-1/2 -translate-y-1/2 text-text-base/80 hover:text-text-base/55 transition-colors cursor-pointer"
+        style={{ background: 'none', border: 'none', display: 'flex', padding: '4px' }}
       >
         <re-icon icon="x" size="12" color="currentColor" />
       </button>

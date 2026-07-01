@@ -34,7 +34,7 @@ export default function SectionHeader({ id, title, level = 'h3', markdownContent
     }
   };
 
-  const buttonClasses = "p-1 rounded-md bg-white/[0.04] border border-white/10 text-white/40 hover:text-white/80 hover:bg-white/[0.08] transition-all duration-150 cursor-pointer flex items-center justify-center relative group/btn";
+  const buttonClasses = "p-1 rounded-md bg-text-base/4 border border-text-base/10 text-text-base/40 hover:text-text-base/80 hover:bg-text-base/8 transition-all duration-150 cursor-pointer flex items-center justify-center relative group/btn";
 
   const actions = (
     <span className="ml-3 inline-flex items-center gap-1.5 align-middle select-none">
@@ -50,7 +50,7 @@ export default function SectionHeader({ id, title, level = 'h3', markdownContent
         ) : (
           <LinkIcon size={14} />
         )}
-        <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-0.5 text-[10px] bg-[#0e0e10] border border-white/10 text-white/70 rounded opacity-0 pointer-events-none group-hover/btn:opacity-100 transition-opacity whitespace-nowrap z-50">
+        <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-0.5 text-[10px] bg-[var(--dropdown-bg)] border border-text-base/10 text-text-base/70 rounded opacity-0 pointer-events-none group-hover/btn:opacity-100 transition-opacity whitespace-nowrap z-50">
           {copiedLink ? 'Copied link!' : 'Copy Link'}
         </span>
       </button>
@@ -67,7 +67,7 @@ export default function SectionHeader({ id, title, level = 'h3', markdownContent
         ) : (
           <CopyIcon size={14} />
         )}
-        <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-0.5 text-[10px] bg-[#0e0e10] border border-white/10 text-white/70 rounded opacity-0 pointer-events-none group-hover/btn:opacity-100 transition-opacity whitespace-nowrap z-50">
+        <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-0.5 text-[10px] bg-[var(--dropdown-bg)] border border-text-base/10 text-text-base/70 rounded opacity-0 pointer-events-none group-hover/btn:opacity-100 transition-opacity whitespace-nowrap z-50">
           {copiedMd ? 'Copied markdown!' : 'Copy Markdown'}
         </span>
       </button>
@@ -82,7 +82,7 @@ export default function SectionHeader({ id, title, level = 'h3', markdownContent
 
   if (level === 'h2') {
     return (
-      <h2 id={id} className="text-2xl font-serif text-white mb-6 scroll-mt-24 group flex items-center justify-between w-full gap-3">
+      <h2 id={id} className="text-2xl font-serif text-text-base mb-6 scroll-mt-24 group flex items-center justify-between w-full gap-3">
         <span className="flex items-center gap-3">
           {iconWrapper}
           <span>{title}</span>
@@ -94,7 +94,7 @@ export default function SectionHeader({ id, title, level = 'h3', markdownContent
 
   if (level === 'h4') {
     return (
-      <h4 id={id} className="text-md font-medium text-white mb-4 mt-8 scroll-mt-24 group flex items-center justify-between w-full gap-3">
+      <h4 id={id} className="text-md font-medium text-text-base mb-4 mt-8 scroll-mt-24 group flex items-center justify-between w-full gap-3">
         <span className="flex items-center gap-3">
           {iconWrapper}
           <span>{title}</span>
@@ -105,7 +105,7 @@ export default function SectionHeader({ id, title, level = 'h3', markdownContent
   }
 
   return (
-    <h3 id={id} className="text-lg font-serif text-white mb-4 mt-10 scroll-mt-24 group flex items-center justify-between w-full gap-3">
+    <h3 id={id} className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24 group flex items-center justify-between w-full gap-3">
       <span className="flex items-center gap-3">
         {iconWrapper}
         <span>{title}</span>

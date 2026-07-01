@@ -84,8 +84,8 @@ function TypeTableStyles() {
         margin-block: 0;
         overflow: auto;
         border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        background: #0e0e10;
+        border: 1px solid var(--border-base);
+        background: var(--surface-base);
       }
 
       .reicon-tt {
@@ -94,21 +94,21 @@ function TypeTableStyles() {
         border-spacing: 0;
         white-space: nowrap;
         font-size: 13px;
-        color: rgba(255, 255, 255, 0.6);
+        color: var(--text-muted);
       }
 
       /* Header */
       .reicon-tt thead th {
         text-align: start;
         padding: 0.625rem 1rem;
-        background: rgba(255, 255, 255, 0.025);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        border-inline-start: 1px solid rgba(255, 255, 255, 0.06);
+        background: var(--surface-hover);
+        border-bottom: 1px solid var(--border-base);
+        border-inline-start: 1px solid var(--border-base);
         font-weight: 600;
         font-size: 11px;
         text-transform: uppercase;
         letter-spacing: 0.06em;
-        color: rgba(255, 255, 255, 0.45);
+        color: var(--text-more-muted);
       }
       .reicon-tt thead th:first-child { border-inline-start: none; }
 
@@ -116,18 +116,18 @@ function TypeTableStyles() {
       .reicon-tt tbody td {
         text-align: start;
         padding: 0.625rem 1rem;
-        border-inline-start: 1px solid rgba(255, 255, 255, 0.05);
+        border-inline-start: 1px solid var(--border-base);
         vertical-align: baseline;
       }
       .reicon-tt tbody td:first-child { border-inline-start: none; }
 
       /* Row separators */
       .reicon-tt tbody tr:not(:last-child) td {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        border-bottom: 1px solid var(--border-muted);
       }
 
       .reicon-tt tbody tr:hover td {
-        background: rgba(255, 255, 255, 0.015);
+        background: var(--surface-hover);
       }
 
       /* Field cell content */
@@ -146,9 +146,9 @@ function TypeTableStyles() {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         font-size: 12px;
         line-height: 1.55;
-        background: rgba(255, 255, 255, 0.05);
-        color: rgba(255, 255, 255, 0.78);
-        border: 1px solid rgba(255, 255, 255, 0.04);
+        background: var(--surface-hover);
+        color: var(--text-hover);
+        border: 1px solid var(--border-muted);
       }
 
       /* Prop chip — accent color, like fd-primary/10 + text-fd-primary */
@@ -164,13 +164,13 @@ function TypeTableStyles() {
       }
 
       .reicon-tt-dash {
-        color: rgba(255, 255, 255, 0.25);
+        color: var(--text-more-muted);
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         font-size: 12px;
       }
 
       .reicon-tt-desc {
-        color: rgba(255, 255, 255, 0.45);
+        color: var(--text-more-muted);
         white-space: normal;
         font-size: 12.5px;
       }

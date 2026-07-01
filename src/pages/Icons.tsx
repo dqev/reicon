@@ -172,7 +172,7 @@ export default function IconsPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#09090b] flex flex-col">
+    <div className="min-h-screen bg-bg-base flex flex-col">
       <Helmet>
         <title>Browse 2,700+ Free SVG Icons — Reicon Icon Library</title>
         <meta name="description" content="Browse and search 2,700+ free, open-source SVG icons. Copy React, Vue, Svelte, Figma, or VS Code code instantly. Filter by category, weight, and size." />
@@ -227,7 +227,7 @@ export default function IconsPage() {
         <main className="flex-1 p-4 md:p-6">
           <div className="mb-4 flex items-center gap-2">
             <div className="relative flex-1">
-              <div className="absolute left-3 top-1/2 -translate-y-1/2 text-white/30">
+              <div className="absolute left-3 top-1/2 -translate-y-1/2 text-text-base/30">
                 <Magnifier size={16} />
               </div>
               <input
@@ -235,12 +235,12 @@ export default function IconsPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search icons..."
-                className="w-full bg-white/5 border border-white/10 rounded-lg pl-9 pr-4 py-2.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-white/25 focus:bg-white/10 transition-all"
+                className="w-full bg-text-base/5 border border-text-base/10 rounded-lg pl-9 pr-4 py-2.5 text-sm text-text-base placeholder:text-text-base/30 outline-none focus:border-text-base/25 focus:bg-text-base/10 transition-all"
               />
             </div>
             <button
               onClick={() => setSidebarOpen(true)}
-              className="lg:hidden ml-auto flex items-center gap-1.5 px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-white text-sm font-medium transition-colors shrink-0"
+              className="lg:hidden ml-auto flex items-center gap-1.5 px-3 py-2.5 rounded-lg bg-text-base/5 border border-text-base/10 text-text-base/60 hover:text-text-base text-sm font-medium transition-colors shrink-0 cursor-pointer"
               aria-label="Open filters"
             >
               <re-icon icon="filter" size="15" />
@@ -248,11 +248,11 @@ export default function IconsPage() {
             </button>
           </div>
 
-          <div className="text-[12px] text-white/30 mb-4">
+          <div className="text-[12px] text-text-base/30 mb-4">
             {ready ? (
               <>{filteredIcons.length} icon{filteredIcons.length !== 1 ? 's' : ''}</>
             ) : (
-              <span className="inline-block h-3 w-16 rounded bg-white/[0.07] animate-pulse align-middle" />
+              <span className="inline-block h-3 w-16 rounded bg-text-base/7 animate-pulse align-middle" />
             )}
           </div>
 
@@ -266,7 +266,7 @@ export default function IconsPage() {
             <>
               <IconTooltipProvider openDelay={500} closeDelay={200}>
                 <Highlight
-                  className="absolute inset-0 rounded-xl ring-1 ring-white/20 bg-white/[0.07] pointer-events-none"
+                  className="absolute inset-0 rounded-xl ring-1 ring-text-base/20 bg-text-base/7 pointer-events-none"
                 >
                   <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-1.5">
                     {visibleCards}
@@ -277,20 +277,20 @@ export default function IconsPage() {
               {/* Sentinel — always rendered when hasMore, attached via ref callback */}
               {hasMore && (
                 <div key={visibleCount} ref={sentinelRef} className="flex justify-center py-8">
-                  <div className="flex items-center gap-2 text-white/30 text-xs">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/20 animate-pulse" />
+                  <div className="flex items-center gap-2 text-text-base/30 text-xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-text-base/20 animate-pulse" />
                     Loading more icons…
                   </div>
                 </div>
               )}
             </>
           ) : (
-            <div className="flex flex-col items-center justify-center py-20 text-white/30">
-              <re-icon icon="ghost" size={48} color="rgba(255,255,255,0.1)" />
+            <div className="flex flex-col items-center justify-center py-20 text-text-base/30">
+              <re-icon icon="ghost" size={48} color="currentColor" className="text-text-base/10" />
               <p className="text-sm mt-4">No icons found for "{searchQuery}"</p>
               <button
                 onClick={() => setSearchQuery('')}
-                className="mt-2 text-[#6C5CE7] text-sm hover:underline"
+                className="mt-2 text-[#6C5CE7] text-sm hover:underline cursor-pointer"
               >
                 Clear search
               </button>

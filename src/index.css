@@ -4,6 +4,60 @@
 @theme {
   --font-serif: "Cooper", serif;
   --font-sans: "DM Sans", sans-serif;
+  --color-bg-base: var(--bg-base);
+  --color-text-base: var(--text-base);
+}
+
+:root {
+  --bg-base: #09090b;
+  --text-base: #ffffff;
+
+  --clay-primary-bg-start: #ffffff;
+  --clay-primary-bg-end: #e8e8e8;
+  --clay-primary-text: #111111;
+
+  --clay-secondary-bg-start: rgba(255, 255, 255, 0.12);
+  --clay-secondary-bg-end: rgba(255, 255, 255, 0.05);
+  --clay-secondary-border: rgba(255, 255, 255, 0.15);
+  --clay-secondary-text: #ffffff;
+
+  --tooltip-bg: #ffffff;
+  --tooltip-text: #09090b;
+
+  --dropdown-bg: #121214;
+  --header-bg: rgba(9, 9, 11, 0.8);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --border-muted: rgba(255, 255, 255, 0.08);
+  --border-base: rgba(255, 255, 255, 0.06);
+  --text-hover: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.55);
+  --text-more-muted: rgba(255, 255, 255, 0.35);
+}
+
+.light {
+  --bg-base: #f5f5f0;
+  --text-base: #111111;
+
+  --clay-primary-bg-start: #111111;
+  --clay-primary-bg-end: #1e1e20;
+  --clay-primary-text: #ffffff;
+
+  --clay-secondary-bg-start: rgba(0, 0, 0, 0.05);
+  --clay-secondary-bg-end: rgba(0, 0, 0, 0.02);
+  --clay-secondary-border: rgba(0, 0, 0, 0.08);
+  --clay-secondary-text: #111111;
+
+  --tooltip-bg: #111111;
+  --tooltip-text: #ffffff;
+
+  --dropdown-bg: #fdfdfb;
+  --header-bg: rgba(245, 245, 240, 0.8);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --border-muted: rgba(0, 0, 0, 0.08);
+  --border-base: rgba(17, 17, 17, 0.06);
+  --text-hover: #111111;
+  --text-muted: rgba(17, 17, 17, 0.55);
+  --text-more-muted: rgba(17, 17, 17, 0.35);
 }
 
 .font-serif {
@@ -28,9 +82,10 @@ html.lenis body {
 }
 
 body {
-  background: #09090b;
-  color: #fff;
+  background: var(--bg-base);
+  color: var(--text-base);
   font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ═══ Hide Scrollbar ═══ */
@@ -225,15 +280,15 @@ body {
 
 /* Primary — white body, dark text */
 .clay-primary {
-  color: #111;
-  background: linear-gradient(145deg, #ffffff, #e8e8e8);
+  color: var(--clay-primary-text);
+  background: linear-gradient(145deg, var(--clay-primary-bg-start), var(--clay-primary-bg-end));
 }
 
 /* Secondary — glass/transparent */
 .clay-secondary {
-  color: #fff;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--clay-secondary-text);
+  background: linear-gradient(145deg, var(--clay-secondary-bg-start), var(--clay-secondary-bg-end));
+  border: 1px solid var(--clay-secondary-border);
 }
 
 .clay-secondary::before {
@@ -244,4 +299,9 @@ body {
 .clay-accent {
   color: #fff;
   background: linear-gradient(145deg, #7c6cf0, #5a4bd1);
+}
+
+/* Temporarily disable transitions during theme change to keep all elements in sync */
+.no-transitions * {
+  transition: none !important;
 }

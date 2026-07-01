@@ -54,7 +54,7 @@ export default function PropsTable({ markdownContent }: Props) {
   return (
     <section id="props" data-section className="mb-16 scroll-mt-24">
       <SectionHeader id="props" title="Props" level="h2" markdownContent={markdownContent} />
-      <p className="text-white/50 text-[14px] mb-6 leading-relaxed">
+      <p className="text-text-base/50 text-[14px] mb-6 leading-relaxed">
         All available props for both the React component and the CDN custom element.
       </p>
 

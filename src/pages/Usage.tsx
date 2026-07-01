@@ -132,21 +132,31 @@ export default function UsagePage() {
       ? 'Raw SVGs'
       : 'Vanilla JS / CDN';
 
-  const onThisPage = [
-    { id: 'what-is-reicon', label: 'What is Reicon?' },
-    { id: frameworkSectionId, label: frameworkLabel },
-    ...(framework !== 'figma' && framework !== 'vscode' && framework !== 'svg'
-      ? [
-          { id: 'props', label: 'Props' },
-          { id: 'weights', label: 'Icon Weights' },
-          { id: 'styling', label: 'Styling & Color' },
-          { id: 'accessibility', label: 'Accessibility' },
-          { id: 'performance', label: 'Performance' },
-          { id: 'typescript', label: 'TypeScript' },
-          { id: 'troubleshooting', label: 'Troubleshooting' },
-        ]
-      : []),
-  ];
+  const onThisPage = !fwParam
+    ? [
+        { id: 'what-is-reicon', label: 'What is Reicon?' },
+        { id: 'props', label: 'Props' },
+        { id: 'weights', label: 'Icon Weights' },
+        { id: 'styling', label: 'Styling & Color' },
+        { id: 'accessibility', label: 'Accessibility' },
+        { id: 'performance', label: 'Performance' },
+        { id: 'typescript', label: 'TypeScript' },
+        { id: 'troubleshooting', label: 'Troubleshooting' },
+      ]
+    : [
+        { id: frameworkSectionId, label: frameworkLabel },
+        ...(framework !== 'figma' && framework !== 'vscode' && framework !== 'svg'
+          ? [
+              { id: 'props', label: 'Props' },
+              { id: 'weights', label: 'Icon Weights' },
+              { id: 'styling', label: 'Styling & Color' },
+              { id: 'accessibility', label: 'Accessibility' },
+              { id: 'performance', label: 'Performance' },
+              { id: 'typescript', label: 'TypeScript' },
+              { id: 'troubleshooting', label: 'Troubleshooting' },
+            ]
+          : []),
+      ];
 
   const copyToClipboard = async (text: string, field: string) => {
     try {
@@ -222,7 +232,7 @@ export default function UsagePage() {
       setCopiedPage(true);
       showToast('Full page markdown copied!');
       setTimeout(() => setCopiedPage(false), 2000);
-    } catch (e) {
+    } catch {
       showToast('Failed to copy');
     }
   };
@@ -271,7 +281,16 @@ export default function UsagePage() {
     }
   }, [activeSection, framework]);
 
+  const introItems = !fwParam
+    ? [{ id: 'what-is-reicon', label: 'What is Reicon?' }]
+    : [{ id: 'intro', label: '← Back to Intro' }];
+
   const scrollTo = (id: string) => {
+    if (id === 'intro') {
+      navigate('/usage');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     setMobileNavOpen(false);
   };
@@ -362,24 +381,23 @@ export default function UsagePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#09090b] flex flex-col">
+    <div className="min-h-screen bg-bg-base flex flex-col">
       <Helmet>
-        <title>Usage Guide — Reicon | React, Vue, Svelte, Figma, VS Code & CDN</title>
-        <meta name="description" content="Learn how to install and use Reicon icons in React, Vue, Svelte, Figma, VS Code, and vanilla JavaScript. Props reference, TypeScript support, and design tools." />
-        <link rel="canonical" href={`https://reicon.dev/usage/${framework}`} />
-        <meta name="keywords" content="reicon usage, install reicon, React icons setup, Vue icons setup, Svelte icons setup, Figma icons setup, VS Code icons setup, CDN icons, icon library guide, SVG icons tutorial" />
+        <title>Usage Guide & Documentation — Reicon Icons</title>
+        <meta name="description" content="Integrate Reicon icons into your project. Complete documentation for Vanilla JS, React, Vue, Svelte, Figma, VS Code, and direct SVG integration." />
+        <link rel="canonical" href="https://reicon.dev/usage" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://reicon.dev/usage/${framework}`} />
+        <meta property="og:url" content="https://reicon.dev/usage" />
         <meta property="og:site_name" content="Reicon" />
-        <meta property="og:title" content="Usage Guide — Reicon" />
-        <meta property="og:description" content="Learn how to install and use Reicon icons in React, Vue, Svelte, Figma, VS Code, and vanilla JavaScript." />
+        <meta property="og:title" content="Usage Guide & Documentation — Reicon" />
+        <meta property="og:description" content="Integrate Reicon icons into your project. Complete documentation for Vanilla JS, React, Vue, Svelte, Figma, VS Code, and direct SVG integration." />
         <meta property="og:image" content="https://reicon.dev/og-image.png?v=2" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@reicon_dev" />
         <meta name="twitter:title" content="Usage Guide — Reicon" />
-        <meta name="twitter:description" content="Learn how to install and use Reicon icons in React, Vue, Svelte, Figma, VS Code, and vanilla JavaScript." />
+        <meta name="twitter:description" content="Integrate Reicon icons into your project. Complete documentation for Vanilla JS, React, Vue, Svelte, Figma, VS Code, and direct SVG integration." />
         <meta name="twitter:image" content="https://reicon.dev/og-image.png?v=2" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -403,9 +421,10 @@ export default function UsagePage() {
             overflow-y: auto;
             padding: 1.25rem 0.75rem;
             z-index: 30;
-            background-color: #09090b;
+            background-color: var(--bg-base);
             scrollbar-width: none;
             flex-shrink: 0;
+            transition: background-color 0.3s ease;
           }
           #usage-sidebar::-webkit-scrollbar { display: none; }
 
@@ -422,7 +441,7 @@ export default function UsagePage() {
             margin-bottom: 0.25rem;
             font-size: 11px;
             font-weight: 600;
-            color: rgba(255, 255, 255, 0.4);
+            color: var(--text-more-muted);
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -430,7 +449,7 @@ export default function UsagePage() {
             letter-spacing: 0.08em;
           }
           .reicon-sidebar-list > div:first-child .sidebar-separator { margin-top: 0; }
-          .sidebar-separator re-icon { color: rgba(255, 255, 255, 0.35); }
+          .sidebar-separator re-icon { color: var(--text-more-muted); }
 
           .sidebar-item {
             position: relative;
@@ -443,7 +462,7 @@ export default function UsagePage() {
             background: transparent;
             min-height: 2rem;
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.5);
+            color: var(--text-muted);
             transition: color 0.15s ease, background-color 0.15s ease;
             user-select: none;
             border: 0;
@@ -451,13 +470,13 @@ export default function UsagePage() {
             text-align: left;
           }
           .sidebar-item:hover {
-            color: rgba(255, 255, 255, 0.85);
-            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-hover);
+            background: var(--surface-base);
           }
           .sidebar-item.active {
-            color: #ffffff;
+            color: var(--text-base);
             font-weight: 600;
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--surface-hover);
           }
 
           .sidebar-item-line {
@@ -466,7 +485,7 @@ export default function UsagePage() {
             top: 0;
             bottom: 0;
             width: 1px;
-            background-color: rgba(255, 255, 255, 0.08);
+            background-color: var(--border-base);
           }
           .sidebar-item-active-bar {
             position: absolute;
@@ -487,7 +506,7 @@ export default function UsagePage() {
             height: 56%;
             width: 3px;
             border-radius: 9999px;
-            background-color: rgba(255, 255, 255, 0.4);
+            background-color: var(--text-more-muted);
             opacity: 0;
             transition: opacity 0.15s ease;
           }
@@ -509,9 +528,10 @@ export default function UsagePage() {
             overflow-y: auto;
             padding: 1.25rem 0.5rem;
             z-index: 30;
-            background-color: #09090b;
+            background-color: var(--bg-base);
             scrollbar-width: none;
             flex-shrink: 0;
+            transition: background-color 0.3s ease;
           }
           #otp-sidebar::-webkit-scrollbar { display: none; }
 
@@ -521,7 +541,7 @@ export default function UsagePage() {
             gap: 0.5rem;
             font-size: 13px;
             font-weight: 600;
-            color: rgba(255, 255, 255, 0.75);
+            color: var(--text-hover);
             margin-bottom: 1rem;
             padding-left: 0.5rem;
           }
@@ -541,7 +561,7 @@ export default function UsagePage() {
             top: 0.5rem;
             bottom: 0.5rem;
             width: 1px;
-            background-color: rgba(255, 255, 255, 0.08);
+            background-color: var(--border-base);
             transform: translateX(-50%);
           }
 
@@ -569,18 +589,18 @@ export default function UsagePage() {
             border: none;
             padding: 0.25rem 0.5rem;
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.55);
+            color: var(--text-muted);
             cursor: pointer;
             transition: color 0.15s ease, font-weight 0.15s ease;
             user-select: none;
           }
 
           .otp-button:hover {
-            color: rgba(255, 255, 255, 0.85);
+            color: var(--text-hover);
           }
 
           .otp-item.active .otp-button {
-            color: #ffffff;
+            color: var(--text-base);
             font-weight: 600;
           }
         `}</style>
@@ -594,7 +614,7 @@ export default function UsagePage() {
               <span>Getting Started</span>
             </div>
             <div>
-              {NAV_ITEMS.intro.map(renderNavItem)}
+              {introItems.map(renderNavItem)}
             </div>
           </div>
 
@@ -607,24 +627,33 @@ export default function UsagePage() {
             <div ref={dropdownRef} className="relative mb-2 px-3">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="w-full flex items-center justify-between px-3 py-1.5 rounded-lg border border-white/[0.1] bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
+                className="w-full flex items-center justify-between px-3 py-1.5 rounded-lg border border-text-base/10 bg-text-base/3 hover:bg-text-base/6 transition-colors cursor-pointer"
               >
                 <div className="flex items-center gap-2">
-                  <FrameworkIcon id={selectedFw.id} size={14} />
-                  <span className="text-[12px] text-white/80 font-medium">{selectedFw.label}</span>
+                  {fwParam ? (
+                    <>
+                      <FrameworkIcon id={selectedFw.id} size={14} />
+                      <span className="text-[12px] text-text-base/80 font-medium">{selectedFw.label}</span>
+                    </>
+                  ) : (
+                    <>
+                      <re-icon icon="code" size="14" className="text-text-base/40" />
+                      <span className="text-[12px] text-text-base/40 font-medium">Select Framework...</span>
+                    </>
+                  )}
                 </div>
-                <ChevronExpandY className="w-3.5 h-3.5 text-white/30" />
+                <ChevronExpandY className="w-3.5 h-3.5 text-text-base/30" />
               </button>
 
               {dropdownOpen && (
-                <div className="absolute top-full left-3 right-3 mt-1 bg-[#141416] border border-white/[0.1] rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-50">
+                <div className="absolute top-full left-3 right-3 mt-1 bg-[var(--dropdown-bg)] border border-text-base/10 rounded-xl shadow-none overflow-hidden z-50">
                   {FRAMEWORKS.map((fw) => (
                     <button
                       key={fw.id}
                       onClick={() => switchFramework(fw.id)}
-                      className={`w-full flex items-center justify-between px-3 py-2 text-[12px] transition-colors ${framework === fw.id
-                        ? 'bg-white/[0.06] text-white'
-                        : 'text-white/60 hover:bg-white/[0.04] hover:text-white/80'
+                      className={`w-full flex items-center justify-between px-3 py-2 text-[12px] transition-colors cursor-pointer ${framework === fw.id
+                        ? 'bg-text-base/6 text-text-base'
+                        : 'text-text-base/60 hover:bg-text-base/4 hover:text-text-base/80'
                         }`}
                     >
                       <div className="flex items-center gap-2">
@@ -642,9 +671,11 @@ export default function UsagePage() {
               )}
             </div>
 
-            <div>
-              {renderNavItem({ id: frameworkSectionId, label: frameworkLabel })}
-            </div>
+            {fwParam && (
+              <div>
+                {renderNavItem({ id: frameworkSectionId, label: frameworkLabel })}
+              </div>
+            )}
           </div>
 
           {/* Basics */}
@@ -681,23 +712,13 @@ export default function UsagePage() {
           </div>
         </aside>
 
-        {/* ── Mobile nav toggle ── */}
-        <div ref={mobileNavRef} className="lg:hidden fixed top-14 left-0 right-0 z-40 bg-[#09090b]/95 backdrop-blur-lg border-b border-white/[0.06]">
-          <button
-            onClick={() => setMobileNavOpen(!mobileNavOpen)}
-            className="w-full flex items-center justify-between pl-4 pr-[26px] py-3 text-sm text-white/60"
-          >
-            <div className="flex items-center gap-2">
-              <FrameworkIcon id={framework} size={16} />
-              <span className="text-white/80 font-medium">{selectedFw.label}</span>
-            </div>
-            <ChevronExpandY className="w-4 h-4" />
-          </button>
+        {/* ── Mobile bottom floating card nav ── */}
+        <div ref={mobileNavRef} className="lg:hidden fixed bottom-6 left-6 right-6 z-40 bg-[var(--dropdown-bg)] backdrop-blur-xl rounded-[12px] shadow-[0_8px_32px_rgba(0,0,0,0.16)] overflow-hidden transition-all duration-300">
           {mobileNavOpen && (
-            <div className="px-4 pb-4 max-h-[60vh] overflow-y-auto">
+            <div className="px-4 pt-4 pb-3 max-h-[50vh] overflow-y-auto border-b border-text-base/5 bg-[var(--dropdown-bg)]">
               {/* Framework switch */}
               <div className="mb-4">
-                <h3 className="text-[10px] font-semibold text-white/40 uppercase tracking-wider mb-1.5 px-1">
+                <h3 className="text-[10px] font-semibold text-text-base/40 uppercase tracking-wider mb-1.5 px-1">
                   Framework
                 </h3>
                 <div className="flex gap-2 overflow-x-auto pb-3 whitespace-nowrap scrollbar-none">
@@ -705,9 +726,9 @@ export default function UsagePage() {
                     <button
                       key={fw.id}
                       onClick={() => switchFramework(fw.id)}
-                      className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors shrink-0 ${framework === fw.id
-                        ? 'bg-white/[0.1] text-white'
-                        : 'text-white/40 hover:text-white/60'
+                      className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors shrink-0 cursor-pointer ${framework === fw.id
+                        ? 'bg-text-base/10 text-text-base'
+                        : 'text-text-base/40 hover:text-text-base/60'
                         }`}
                     >
                       <FrameworkIcon id={fw.id} size={16} />
@@ -723,9 +744,9 @@ export default function UsagePage() {
                   <button
                     key={item.id}
                     onClick={() => scrollTo(item.id)}
-                    className={`w-full text-left px-3 py-2.5 rounded-xl text-[14px] font-medium transition-colors flex items-center gap-2.5 ${activeSection === item.id
-                      ? 'text-[#6C5CE7] bg-white/[0.04]'
-                      : 'text-white/50 hover:text-white/70 hover:bg-white/[0.02]'
+                    className={`w-full text-left px-3 py-2.5 rounded-xl text-[14px] font-medium transition-colors flex items-center gap-2.5 cursor-pointer ${activeSection === item.id
+                      ? 'text-[#6C5CE7] bg-text-base/4'
+                      : 'text-text-base/50 hover:text-text-base/70 hover:bg-text-base/2'
                       }`}
                   >
                     {activeSection === item.id && (
@@ -737,114 +758,80 @@ export default function UsagePage() {
               </div>
             </div>
           )}
+          <button
+            onClick={() => setMobileNavOpen(!mobileNavOpen)}
+            className="w-full flex items-center justify-between px-4 py-3.5 text-sm text-text-base/60 cursor-pointer"
+          >
+            <div className="flex items-center gap-2">
+              {fwParam ? (
+                <>
+                  <FrameworkIcon id={framework} size={16} />
+                  <span className="text-text-base/80 font-medium">{selectedFw.label}</span>
+                </>
+              ) : (
+                <>
+                  <re-icon icon="code" size={16} className="text-text-base/40" />
+                  <span className="text-text-base/40 font-medium">Select Framework...</span>
+                </>
+              )}
+            </div>
+            <ChevronExpandY className="w-4 h-4 text-text-base/40" />
+          </button>
         </div>
 
-        <main ref={contentRef} className="flex-1 min-w-0 px-4 md:px-8 lg:px-12 xl:px-16 py-8 pt-28 lg:pt-8 overflow-x-hidden">
+        <main ref={contentRef} className="flex-1 min-w-0 px-4 md:px-8 lg:px-12 xl:px-16 pt-14 lg:pt-8 pb-36 lg:pb-8 overflow-x-hidden">
           <div className="max-w-3xl">
-            {/* Actions Bar */}
-            <div className="relative grid grid-cols-2 gap-2.5 w-full sm:flex sm:w-auto sm:items-center mb-8 pb-6 border-b border-white/[0.06]">
-              <div className="flex justify-end sm:justify-start w-full sm:w-auto">
-                <a
-                  href={githubEditUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-[13px] font-medium text-white/70 hover:text-white bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors whitespace-nowrap"
-                >
-                  <re-icon icon="pen" size={14}></re-icon>
-                  Edit on GitHub
-                </a>
-              </div>
-              <div className="flex justify-start w-full sm:w-auto">
-                <button
-                  onClick={handleCopyPageMarkdown}
-                  className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-[13px] font-medium text-white/70 hover:text-white bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors cursor-pointer whitespace-nowrap"
-                >
-                  {copiedPage ? (
-                    <svg className="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
-                  ) : (
-                    <re-icon icon="copy" size={14}></re-icon>
-                  )}
-                  Copy Markdown
-                </button>
-              </div>
-              
-              {/* Open dropdown wrapper */}
-              <div ref={openDropdownRef} className="col-span-2 flex justify-center sm:block relative">
-                <button
-                  onClick={() => setOpenDropdown(!openDropdown)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-[13px] font-medium text-white/70 hover:text-white bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors cursor-pointer whitespace-nowrap"
-                >
-                  Open
-                  <ChevronExpandY size={14} className="text-white/40" />
-                </button>
-                {openDropdown && (
-                  <div
-                    className="absolute left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-auto sm:right-0 mt-2 top-full w-52 bg-[#0e0e10] border border-white/[0.08] rounded-xl shadow-xl z-50 overflow-hidden py-1"
-                  >
-                    <a
-                      href={githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between px-4 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/[0.04] transition-colors"
-                    >
-                      <span className="flex items-center gap-2">
-                        <SiGithub size={14}></SiGithub>
-                        Open in GitHub
-                      </span>
-                      <re-icon icon="arrow-up-right2" size={12} className="text-white/30"></re-icon>
-                    </a>
-                    <button
-                      onClick={() => openInLLM('chatgpt')}
-                      className="w-full flex items-center justify-between px-4 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/[0.04] transition-colors text-left cursor-pointer"
-                    >
-                      <span className="flex items-center gap-2">
-                        <SiOpenai size={14}></SiOpenai>
-                        Open in ChatGPT
-                      </span>
-                      <re-icon icon="arrow-up-right2" size={12} className="text-white/30"></re-icon>
-                    </button>
-                    <button
-                      onClick={() => openInLLM('claude')}
-                      className="w-full flex items-center justify-between px-4 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/[0.04] transition-colors text-left cursor-pointer"
-                    >
-                      <span className="flex items-center gap-2">
-                        <SiClaude size={14}></SiClaude>
-                        Open in Claude
-                      </span>
-                      <re-icon icon="arrow-up-right2" size={12} className="text-white/30"></re-icon>
-                    </button>
-                    <button
-                      onClick={() => openInLLM('t3')}
-                      className="w-full flex items-center justify-between px-4 py-2 text-[13px] text-white/70 hover:text-white hover:bg-white/[0.04] transition-colors text-left cursor-pointer"
-                      >
-                        <span className="flex items-center gap-2">
-                          <re-icon icon="chat" size={14}></re-icon>
-                          Open in T3 Chat
-                        </span>
-                        <re-icon icon="arrow-up-right2" size={12} className="text-white/30"></re-icon>
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
+
 
           {/* What is Reicon */}
-          <section id="what-is-reicon" data-section className="mb-12 scroll-mt-24">
-            <SectionHeader id="what-is-reicon" title="What is Reicon?" level="h2" markdownContent={framework === 'vanilla' ? vanillaDocs : framework === 'react' ? reactDocs : vueDocs} />
-            <p className="text-white/60 text-[15px] leading-[1.8] mb-6">
-              Reicon is an open-source icon library that provides beautifully crafted vector (SVG) icons for displaying
-              icons and symbols in digital projects. The library aims to make it easier for designers and developers to
-              incorporate icons into their projects by providing the core <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon</code> package for JavaScript and CDN usage, along with framework-specific packages for React (<code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-react</code>), Vue (<code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-vue</code>), and Svelte (<code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-svelte</code>).
-            </p>
-            <p className="text-white/60 text-[15px] leading-[1.8]">
-              Every icon comes in two weights — Outline and Filled — and is fully customizable with size, color, and
-              custom attributes/props. Icons are tree-shakeable when used with bundlers or framework packages, ensuring minimal bundle size.
-            </p>
-          </section>
+          {!fwParam && (
+            <>
+              <section id="what-is-reicon" data-section className="mb-12 scroll-mt-24">
+                <SectionHeader id="what-is-reicon" title="What is Reicon?" level="h2" markdownContent={framework === 'vanilla' ? vanillaDocs : framework === 'react' ? reactDocs : vueDocs} />
+                <p className="text-text-base/60 text-[15px] leading-[1.8] mb-6">
+                  Reicon is an open-source icon library that provides beautifully crafted vector (SVG) icons for displaying
+                  icons and symbols in digital projects. The library aims to make it easier for designers and developers to
+                  incorporate icons into their projects by providing the core <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon</code> package for JavaScript and CDN usage, along with framework-specific packages for React (<code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-react</code>), Vue (<code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-vue</code>), and Svelte (<code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-svelte</code>).
+                </p>
+                <p className="text-text-base/60 text-[15px] leading-[1.8]">
+                  Every icon comes in two weights — Outline and Filled — and is fully customizable with size, color, and
+                  custom attributes/props. Icons are tree-shakeable when used with bundlers or framework packages, ensuring minimal bundle size.
+                </p>
+              </section>
 
-          <hr className="border-white/[0.06] mb-12" />
+              <hr className="border-text-base/6 mb-12" />
+            </>
+          )}
 
-          {framework === 'react' ? (
+          {!fwParam ? (
+            <section className="mb-12">
+              <h2 className="text-lg font-serif text-text-base mb-6">Choose an Integration</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {FRAMEWORKS.map((fw) => {
+                  const Icon = fw.icon === 'react' ? FaReact : fw.icon === 'js' ? IoLogoJavascript : fw.icon === 'vscode' ? VscVscodeInsiders : null;
+                  return (
+                    <button
+                      key={fw.id}
+                      onClick={() => switchFramework(fw.id)}
+                      className="flex items-center gap-4 p-5 rounded-2xl bg-text-base/3 hover:bg-text-base/6 text-left transition-all border border-transparent hover:border-text-base/5 cursor-pointer"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-text-base/5 flex items-center justify-center text-lg shrink-0">
+                        {Icon ? (
+                          <Icon size={20} style={{ color: fw.color }} />
+                        ) : (
+                          <FrameworkIcon id={fw.id} size={20} />
+                        )}
+                      </div>
+                      <div>
+                        <h3 className="text-[14px] font-semibold text-text-base mb-0.5">{fw.label}</h3>
+                        <p className="text-[12px] text-text-base/40">View the {fw.label} integration guide</p>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+          ) : framework === 'react' ? (
             <ReactUsage markdownContent={reactDocs} copiedField={copiedField} onCopy={copyToClipboard} />
           ) : framework === 'vue' ? (
             <VueUsage markdownContent={vueDocs} copiedField={copiedField} onCopy={copyToClipboard} />
@@ -862,32 +849,121 @@ export default function UsagePage() {
 
           {framework !== 'figma' && framework !== 'vscode' && framework !== 'svg' && (
             <>
-              <hr className="border-white/[0.06] mb-12" />
+              <hr className="border-text-base/6 mb-12" />
               <PropsTable markdownContent={propsDocs} />
 
-              <hr className="border-white/[0.06] mb-12" />
+              <hr className="border-text-base/6 mb-12" />
               <Weights markdownContent={weightsDocs} copiedField={copiedField} onCopy={copyToClipboard} />
 
-              <hr className="border-white/[0.06] mb-12" />
+              <hr className="border-text-base/6 mb-12" />
               <TypeScriptSection markdownContent={typescriptDocs} copiedField={copiedField} onCopy={copyToClipboard} />
 
-              <hr className="border-white/[0.06] mb-12" />
+              <hr className="border-text-base/6 mb-12" />
               <Styling markdownContent={stylingDocs} copiedField={copiedField} onCopy={copyToClipboard} />
 
-              <hr className="border-white/[0.06] mb-12" />
+              <hr className="border-text-base/6 mb-12" />
               <Accessibility markdownContent={accessibilityDocs} copiedField={copiedField} onCopy={copyToClipboard} />
 
-              <hr className="border-white/[0.06] mb-12" />
+              <hr className="border-text-base/6 mb-12" />
               <Performance markdownContent={performanceDocs} copiedField={copiedField} onCopy={copyToClipboard} />
 
-              <hr className="border-white/[0.06] mb-12" />
+              <hr className="border-text-base/6 mb-12" />
               <Troubleshooting markdownContent={troubleshootingDocs} copiedField={copiedField} onCopy={copyToClipboard} />
             </>
           )}
+
+          <hr className="border-text-base/6 my-12" />
+
+          {/* Actions Bar */}
+          <div className="relative grid grid-cols-2 gap-2.5 w-full sm:flex sm:w-auto sm:items-center">
+            <div className="flex justify-end sm:justify-start w-full sm:w-auto">
+              <a
+                href={githubEditUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-[13px] font-medium text-text-base/70 hover:text-text-base bg-text-base/4 border border-text-base/10 hover:bg-text-base/8 transition-colors whitespace-nowrap"
+              >
+                <re-icon icon="pen" size={14}></re-icon>
+                Edit on GitHub
+              </a>
+            </div>
+            <div className="flex justify-start w-full sm:w-auto">
+              <button
+                onClick={handleCopyPageMarkdown}
+                className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-[13px] font-medium text-text-base/70 hover:text-text-base bg-text-base/4 border border-text-base/10 hover:bg-text-base/8 transition-colors cursor-pointer whitespace-nowrap"
+              >
+                {copiedPage ? (
+                  <svg className="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+                ) : (
+                  <re-icon icon="copy" size={14}></re-icon>
+                )}
+                Copy Markdown
+              </button>
+            </div>
+            
+            {/* Open dropdown wrapper */}
+            <div ref={openDropdownRef} className="col-span-2 flex justify-center sm:block relative">
+              <button
+                onClick={() => setOpenDropdown(!openDropdown)}
+                className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-[13px] font-medium text-text-base/70 hover:text-text-base bg-text-base/4 border border-text-base/10 hover:bg-text-base/8 transition-colors cursor-pointer whitespace-nowrap"
+              >
+                Open
+                <ChevronExpandY size={14} className="text-text-base/40" />
+              </button>
+              {openDropdown && (
+                <div
+                  className="absolute left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-auto sm:right-0 mb-2 bottom-full w-52 bg-[var(--dropdown-bg)] border border-text-base/8 rounded-xl shadow-none z-50 overflow-hidden py-1"
+                >
+                  <a
+                    href={githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between px-4 py-2 text-[13px] text-text-base/70 hover:text-text-base hover:bg-text-base/4 transition-colors"
+                  >
+                    <span className="flex items-center gap-2">
+                      <SiGithub size={14}></SiGithub>
+                      Open in GitHub
+                    </span>
+                    <re-icon icon="arrow-up-right2" size={12} className="text-text-base/30"></re-icon>
+                  </a>
+                  <button
+                    onClick={() => openInLLM('chatgpt')}
+                    className="w-full flex items-center justify-between px-4 py-2 text-[13px] text-text-base/70 hover:text-text-base hover:bg-text-base/4 transition-colors text-left cursor-pointer"
+                  >
+                    <span className="flex items-center gap-2">
+                      <SiOpenai size={14}></SiOpenai>
+                      Open in ChatGPT
+                    </span>
+                    <re-icon icon="arrow-up-right2" size={12} className="text-text-base/30"></re-icon>
+                  </button>
+                  <button
+                    onClick={() => openInLLM('claude')}
+                    className="w-full flex items-center justify-between px-4 py-2 text-[13px] text-text-base/70 hover:text-text-base hover:bg-text-base/4 transition-colors text-left cursor-pointer"
+                  >
+                    <span className="flex items-center gap-2">
+                      <SiClaude size={14}></SiClaude>
+                      Open in Claude
+                    </span>
+                    <re-icon icon="arrow-up-right2" size={12} className="text-text-base/30"></re-icon>
+                  </button>
+                  <button
+                    onClick={() => openInLLM('t3')}
+                    className="w-full flex items-center justify-between px-4 py-2 text-[13px] text-text-base/70 hover:text-text-base hover:bg-text-base/4 transition-colors text-left cursor-pointer"
+                    >
+                      <span className="flex items-center gap-2">
+                        <re-icon icon="chat" size={14}></re-icon>
+                        Open in T3 Chat
+                      </span>
+                      <re-icon icon="arrow-up-right2" size={12} className="text-text-base/30"></re-icon>
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
           
           {/* Toast Notification */}
           {toastMessage && (
-            <div className="fixed bottom-6 right-6 z-[999] bg-[#0e0e10] border border-white/[0.08] text-white text-sm px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 transition-all duration-300">
+            <div className="fixed bottom-6 right-6 z-[999] bg-[var(--dropdown-bg)] border border-text-base/8 text-text-base text-sm px-4 py-2.5 rounded-xl shadow-none flex items-center gap-2 transition-all duration-300">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <span>{toastMessage}</span>
             </div>
@@ -898,7 +974,7 @@ export default function UsagePage() {
         {/* ── Right sidebar: On this page ── */}
         <aside id="otp-sidebar" className="hidden xl:block" data-lenis-prevent>
           <div className="otp-header">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white/60">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-text-base/60">
               <line x1="21" y1="10" x2="3" y2="10" />
               <line x1="21" y1="6" x2="3" y2="6" />
               <line x1="21" y1="14" x2="3" y2="14" />

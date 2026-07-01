@@ -42,7 +42,7 @@ export interface HighlightProps {
 
 export function Highlight({
   children,
-  className = 'absolute inset-0 rounded-xl ring-2 ring-white/30 bg-white/[0.06] pointer-events-none',
+  className = 'absolute inset-0 rounded-xl ring-2 ring-text-base/30 bg-text-base/6 pointer-events-none',
   style,
   transition = { type: 'spring', stiffness: 350, damping: 35 },
   exitDelay = 150,

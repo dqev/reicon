@@ -127,7 +127,7 @@ function Sidebar({
             top: 0,
             bottom: 0,
             width: '1px',
-            backgroundColor: 'rgba(255,255,255,0.1)', // bg-border in dark
+            backgroundColor: 'var(--border-base)', // bg-border in dark
           }}
         />
 
@@ -178,7 +178,7 @@ function Sidebar({
                 bottom: '22%',
                 width: '3px',
                 borderRadius: '9999px',
-                backgroundColor: '#525252',
+                backgroundColor: 'var(--text-more-muted)',
               }}
             />
           )}
@@ -195,7 +195,7 @@ function Sidebar({
             fontSize: '14px',   // text-sm
             width: '100%',
             paddingLeft: '12px',  // pl-[12px]
-            color: isActive ? '#ffffff' : isHovered ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.5)',
+            color: isActive ? 'var(--text-base)' : isHovered ? 'var(--text-hover)' : 'var(--text-muted)',
             fontWeight: isActive ? 500 : 400,
             lineHeight: 1.4,
           }}
@@ -216,7 +216,7 @@ function Sidebar({
           marginBottom: '0.25rem',
           fontSize: '11px',
           fontWeight: 600,
-          color: 'rgba(255,255,255,0.35)',
+          color: 'var(--text-more-muted)',
           display: 'flex',
           alignItems: 'center',
           gap: '0.4rem',
@@ -224,7 +224,7 @@ function Sidebar({
           letterSpacing: '0.08em',
         }}
       >
-        <re-icon icon={icon} size="11" style={{ color: 'rgba(255,255,255,0.3)' }} />
+        <re-icon icon={icon} size="11" style={{ color: 'var(--text-more-muted)' }} />
         {label}
       </div>
     );
@@ -245,7 +245,7 @@ function Sidebar({
             justifyContent: 'space-between',
             padding: '8px',
             borderRadius: '10px',
-            border: showNew ? '1px solid rgba(108,92,231,0.5)' : '1px solid rgba(255,255,255,0.1)',
+            border: showNew ? '1px solid rgba(108,92,231,0.5)' : '1px solid var(--border-base)',
             background: showNew ? 'rgba(108,92,231,0.05)' : 'transparent',
             boxShadow: showNew ? '0 0 12px rgba(108,92,231,0.15)' : 'none',
             cursor: 'pointer',
@@ -264,7 +264,7 @@ function Sidebar({
             }} />
             <span style={{
               fontSize: '13px', fontWeight: 500,
-              color: showNew ? '#b3a8ff' : 'rgba(255,255,255,0.6)',
+              color: showNew ? '#6c5ce7' : 'var(--text-muted)',
               transition: 'color 0.2s',
             }}>
               Added {NEW_ICONS_COUNT} icons
@@ -273,9 +273,9 @@ function Sidebar({
           <span style={{
             width: '24px', height: '24px', borderRadius: '6px', flexShrink: 0,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            border: showNew ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(255,255,255,0.05)',
-            background: showNew ? 'rgba(255,255,255,0.08)' : 'transparent',
-            color: showNew ? '#ffffff' : 'transparent',
+            border: showNew ? '1px solid var(--border-base)' : '1px solid var(--border-muted)',
+            background: showNew ? 'var(--surface-hover)' : 'transparent',
+            color: showNew ? 'var(--text-base)' : 'transparent',
             transition: 'all 0.2s',
           }}>
             <Check size={14} />
@@ -319,18 +319,18 @@ function Sidebar({
           overflow-y: auto;
           padding: 1rem 0.5rem;
           z-index: 30;
-          background-color: #09090b;
+          background-color: var(--bg-base);
           scrollbar-width: none;
           flex-shrink: 0;
         }
         #nd-sidebar::-webkit-scrollbar { display: none; }
         .reicon-sidebar-backdrop {
           position:fixed; inset:0; z-index:40;
-          background:rgba(9,9,11,0.7); backdrop-filter:blur(6px);
+          background: var(--shadow-color); backdrop-filter:blur(6px);
         }
         .reicon-sidebar-drawer {
           position:fixed; top:0; left:0; bottom:0; z-index:50; width:16rem;
-          background:#09090b; border-right:1px solid rgba(255,255,255,0.06);
+          background: var(--bg-base); border-right:1px solid var(--border-muted);
           padding:1rem; display:flex; flex-direction:column; gap:0.5rem;
           overflow-y:auto; transform:translateX(-100%);
           transition:transform 0.28s cubic-bezier(0.25,0.46,0.45,0.94);
@@ -341,16 +341,16 @@ function Sidebar({
         .reicon-sidebar-drawer-head {
           display:flex; align-items:center; justify-content:space-between;
           padding-bottom:0.75rem; margin-bottom:0.25rem;
-          border-bottom:1px solid rgba(255,255,255,0.06);
+          border-bottom:1px solid var(--border-muted);
         }
         .reicon-sidebar-close {
           display:inline-flex; align-items:center; justify-content:center;
           width:28px; height:28px; border-radius:8px;
-          background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
-          color:rgba(255,255,255,0.6); cursor:pointer;
+          background: var(--surface-base); border:1px solid var(--border-base);
+          color: var(--text-muted); cursor:pointer;
           transition:color 0.15s, background-color 0.15s;
         }
-        .reicon-sidebar-close:hover { background:rgba(255,255,255,0.08); color:#fff; }
+        .reicon-sidebar-close:hover { background: var(--surface-hover); color: var(--text-base); }
         @media(min-width:1024px) { .reicon-sidebar-backdrop,.reicon-sidebar-drawer{display:none;} }
         @media(max-width:1023.98px) { #nd-sidebar{display:none;} }
       `}</style>
@@ -366,7 +366,7 @@ function Sidebar({
       {/* Mobile drawer */}
       <aside className={`reicon-sidebar-drawer ${isOpen ? 'is-open' : ''}`} data-lenis-prevent>
         <div className="reicon-sidebar-drawer-head">
-          <span style={{ fontWeight: 600, fontSize: '14px', color: '#fff' }}>Filters</span>
+          <span style={{ fontWeight: 600, fontSize: '14px', color: 'var(--text-base)' }}>Filters</span>
           {onClose && (
             <button onClick={onClose} className="reicon-sidebar-close" aria-label="Close sidebar">
               <re-icon icon="x" size="16" />

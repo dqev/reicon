@@ -97,7 +97,7 @@ export default function FaqPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#09090b] flex flex-col">
+    <div className="min-h-screen bg-bg-base flex flex-col">
       <Helmet>
         <title>Frequently Asked Questions — Reicon | Free Open-Source Icons</title>
         <meta name="description" content="Frequently asked questions about Reicon icon library. License, Figma integration, VS Code extension, React/Vue/Svelte support, custom request, and contribution guidelines." />
@@ -137,9 +137,10 @@ export default function FaqPage() {
             overflow-y: auto;
             padding: 1.25rem 0.75rem;
             z-index: 30;
-            background-color: #09090b;
+            background-color: var(--bg-base);
             scrollbar-width: none;
             flex-shrink: 0;
+            transition: background-color 0.3s ease;
           }
           #usage-sidebar::-webkit-scrollbar { display: none; }
 
@@ -156,7 +157,7 @@ export default function FaqPage() {
             margin-bottom: 0.25rem;
             font-size: 11px;
             font-weight: 600;
-            color: rgba(255, 255, 255, 0.4);
+            color: var(--text-more-muted);
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -164,7 +165,7 @@ export default function FaqPage() {
             letter-spacing: 0.08em;
           }
           .reicon-sidebar-list > div:first-child .sidebar-separator { margin-top: 0; }
-          .sidebar-separator re-icon { color: rgba(255, 255, 255, 0.35); }
+          .sidebar-separator re-icon { color: var(--text-more-muted); }
 
           .sidebar-item {
             position: relative;
@@ -177,7 +178,7 @@ export default function FaqPage() {
             background: transparent;
             min-height: 2rem;
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.5);
+            color: var(--text-muted);
             transition: color 0.15s ease, background-color 0.15s ease;
             user-select: none;
             border: 0;
@@ -185,13 +186,13 @@ export default function FaqPage() {
             text-align: left;
           }
           .sidebar-item:hover {
-            color: rgba(255, 255, 255, 0.85);
-            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-hover);
+            background: var(--surface-base);
           }
           .sidebar-item.active {
-            color: #ffffff;
+            color: var(--text-base);
             font-weight: 600;
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--surface-hover);
           }
 
           .sidebar-item-line {
@@ -200,7 +201,7 @@ export default function FaqPage() {
             top: 0;
             bottom: 0;
             width: 1px;
-            background-color: rgba(255, 255, 255, 0.08);
+            background-color: var(--border-base);
           }
           .sidebar-item-active-bar {
             position: absolute;
@@ -221,7 +222,7 @@ export default function FaqPage() {
             height: 56%;
             width: 3px;
             border-radius: 9999px;
-            background-color: rgba(255, 255, 255, 0.4);
+            background-color: var(--text-more-muted);
             opacity: 0;
             transition: opacity 0.15s ease;
           }
@@ -243,9 +244,10 @@ export default function FaqPage() {
             overflow-y: auto;
             padding: 1.25rem 0.5rem;
             z-index: 30;
-            background-color: #09090b;
+            background-color: var(--bg-base);
             scrollbar-width: none;
             flex-shrink: 0;
+            transition: background-color 0.3s ease;
           }
           #otp-sidebar::-webkit-scrollbar { display: none; }
 
@@ -255,7 +257,7 @@ export default function FaqPage() {
             gap: 0.5rem;
             font-size: 13px;
             font-weight: 600;
-            color: rgba(255, 255, 255, 0.75);
+            color: var(--text-hover);
             margin-bottom: 1rem;
             padding-left: 0.5rem;
           }
@@ -275,7 +277,7 @@ export default function FaqPage() {
             top: 0.5rem;
             bottom: 0.5rem;
             width: 1px;
-            background-color: rgba(255, 255, 255, 0.08);
+            background-color: var(--border-base);
             transform: translateX(-50%);
           }
 
@@ -303,18 +305,18 @@ export default function FaqPage() {
             border: none;
             padding: 0.25rem 0.5rem;
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.55);
+            color: var(--text-muted);
             cursor: pointer;
             transition: color 0.15s ease, font-weight 0.15s ease;
             user-select: none;
           }
 
           .otp-button:hover {
-            color: rgba(255, 255, 255, 0.85);
+            color: var(--text-hover);
           }
 
           .otp-item.active .otp-button {
-            color: #ffffff;
+            color: var(--text-base);
             font-weight: 600;
           }
         `}</style>
@@ -356,97 +358,97 @@ export default function FaqPage() {
         </aside>
 
         {/* ── Main content ── */}
-        <main ref={contentRef} className="flex-1 min-w-0 px-4 md:px-8 lg:px-12 xl:px-16 py-8 pt-28 lg:pt-8 overflow-x-hidden">
+        <main ref={contentRef} className="flex-1 min-w-0 px-4 md:px-8 lg:px-12 xl:px-16 pt-14 lg:pt-8 pb-16 overflow-x-hidden">
           <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-4xl font-serif text-white mb-6">Frequently Asked Questions</h1>
-            <p className="text-white/50 text-[15px] leading-[1.8] mb-12">
+            <h1 className="text-3xl md:text-4xl font-serif text-text-base mb-6">Frequently Asked Questions</h1>
+            <p className="text-text-base/50 text-[15px] leading-[1.8] mb-12">
               Everything you need to know about Reicon. If you have a question that isn't answered here, please open a discussion on <a href="https://github.com/dqev/reicon" target="_blank" rel="noopener noreferrer" className="text-[#6C5CE7] hover:underline">GitHub</a> or contact us directly.
             </p>
 
-            <hr className="border-white/[0.06] mb-12" />
+            <hr className="border-text-base/6 mb-12" />
 
             {/* GENERAL SECTION */}
             <section id="what-is-reicon" data-section className="mb-16 scroll-mt-24">
-              <h2 className="text-xl font-serif text-white mb-4">What is Reicon?</h2>
-              <p className="text-white/60 text-[15px] leading-[1.8]">
+              <h2 className="text-xl font-serif text-text-base mb-4">What is Reicon?</h2>
+              <p className="text-text-base/60 text-[15px] leading-[1.8]">
                 Reicon is an open-source vector icon library designed specifically for digital interfaces. It includes more than 2,700 handcrafted, pixel-perfect icons structured consistently with Outline and Filled variants. Official packages exist for React, Vue, and Svelte, alongside a high-performance CDN script for standard HTML pages.
               </p>
             </section>
 
-            <hr className="border-white/[0.06] mb-12" />
+            <hr className="border-text-base/6 mb-12" />
 
             <section id="is-it-free" data-section className="mb-16 scroll-mt-24">
-              <h2 className="text-xl font-serif text-white mb-4">Is Reicon completely free?</h2>
-              <p className="text-white/60 text-[15px] leading-[1.8]">
+              <h2 className="text-xl font-serif text-text-base mb-4">Is Reicon completely free?</h2>
+              <p className="text-text-base/60 text-[15px] leading-[1.8]">
                 Yes, Reicon is 100% free and open-source under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" className="text-[#6C5CE7] hover:underline">MIT License</a>. You can use it in personal, commercial, education, or open-source projects without any attribution required (though it is always appreciated!).
               </p>
             </section>
 
-            <hr className="border-white/[0.06] mb-12" />
+            <hr className="border-text-base/6 mb-12" />
 
             <section id="commercial-use" data-section className="mb-16 scroll-mt-24">
-              <h2 className="text-xl font-serif text-white mb-4">Can I use it in commercial projects?</h2>
-              <p className="text-white/60 text-[15px] leading-[1.8]">
+              <h2 className="text-xl font-serif text-text-base mb-4">Can I use it in commercial projects?</h2>
+              <p className="text-text-base/60 text-[15px] leading-[1.8]">
                 Absolutely! Commercial use is fully allowed. You are free to bundle Reicon into templates, websites, SaaS platforms, or mobile apps that you charge money for.
               </p>
             </section>
 
-            <hr className="border-white/[0.06] mb-12" />
+            <hr className="border-text-base/6 mb-12" />
 
             {/* TECHNICAL SECTION */}
             <section id="grid-size" data-section className="mb-16 scroll-mt-24">
-              <h2 className="text-xl font-serif text-white mb-4">What grid size is used?</h2>
-              <p className="text-white/60 text-[15px] leading-[1.8]">
+              <h2 className="text-xl font-serif text-text-base mb-4">What grid size is used?</h2>
+              <p className="text-text-base/60 text-[15px] leading-[1.8]">
                 Every single icon is custom-drawn on a strict <strong>24×24 pixel grid</strong> with predefined baseline strokes. This alignment guarantees that the icons stay pixel-perfect, sharp, and highly readable on screens of any pixel density, from small 12px displays to massive header formats.
               </p>
             </section>
 
-            <hr className="border-white/[0.06] mb-12" />
+            <hr className="border-text-base/6 mb-12" />
 
             <section id="icon-weights" data-section className="mb-16 scroll-mt-24">
-              <h2 className="text-xl font-serif text-white mb-4">How are weights handled?</h2>
-              <p className="text-white/60 text-[15px] leading-[1.8]">
+              <h2 className="text-xl font-serif text-text-base mb-4">How are weights handled?</h2>
+              <p className="text-text-base/60 text-[15px] leading-[1.8]">
                 Reicon does not auto-generate weights. Each weight is handcrafted:
               </p>
-              <ul className="text-white/60 text-[15px] leading-[1.8] mt-4 space-y-2 list-disc list-inside">
-                <li><strong>Outline:</strong> Features clean stroked paths (default 1.5px thickness). Fully customizable via the <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">strokeWidth</code> prop.</li>
+              <ul className="text-text-base/60 text-[15px] leading-[1.8] mt-4 space-y-2 list-disc list-inside">
+                <li><strong>Outline:</strong> Features clean stroked paths (default 1.5px thickness). Fully customizable via the <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">strokeWidth</code> prop.</li>
                 <li><strong>Filled:</strong> Custom solid silhouette shapes designed to visually match their outline counterparts for smooth state transitions (e.g. active navigation states).</li>
               </ul>
             </section>
 
-            <hr className="border-white/[0.06] mb-12" />
+            <hr className="border-text-base/6 mb-12" />
 
             <section id="tree-shaking" data-section className="mb-16 scroll-mt-24">
-              <h2 className="text-xl font-serif text-white mb-4">Does it support tree-shaking?</h2>
-              <p className="text-white/60 text-[15px] leading-[1.8]">
-                Yes! Our packages (<code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-react</code>, <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-vue</code>, and <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-svelte</code>) are bundled with ES modules and declare <code className="text-white/70 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">"sideEffects": false</code> in their package.json. Modern bundlers (Vite, Webpack, Rollup) automatically tree-shake and include only the exact icons imported in your code.
+              <h2 className="text-xl font-serif text-text-base mb-4">Does it support tree-shaking?</h2>
+              <p className="text-text-base/60 text-[15px] leading-[1.8]">
+                Yes! Our packages (<code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-react</code>, <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-vue</code>, and <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-svelte</code>) are bundled with ES modules and declare <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">"sideEffects": false</code> in their package.json. Modern bundlers (Vite, Webpack, Rollup) automatically tree-shake and include only the exact icons imported in your code.
               </p>
             </section>
 
-            <hr className="border-white/[0.06] mb-12" />
+            <hr className="border-text-base/6 mb-12" />
 
             {/* DESIGN SECTION */}
             <section id="figma-library" data-section className="mb-16 scroll-mt-24">
-              <h2 className="text-xl font-serif text-white mb-4">Is there a Figma library?</h2>
-              <p className="text-white/60 text-[15px] leading-[1.8]">
+              <h2 className="text-xl font-serif text-text-base mb-4">Is there a Figma library?</h2>
+              <p className="text-text-base/60 text-[15px] leading-[1.8]">
                 Yes, we support Figma creators! A community-curated Figma file with all vector master components is maintained. You can download and duplicate the official file directly from the Figma Community (search for "Reicon") to design mockups with the exact same visual assets.
               </p>
             </section>
 
-            <hr className="border-white/[0.06] mb-12" />
+            <hr className="border-text-base/6 mb-12" />
 
             <section id="request-icon" data-section className="mb-16 scroll-mt-24">
-              <h2 className="text-xl font-serif text-white mb-4">How do I request a new icon?</h2>
-              <p className="text-white/60 text-[15px] leading-[1.8]">
+              <h2 className="text-xl font-serif text-text-base mb-4">How do I request a new icon?</h2>
+              <p className="text-text-base/60 text-[15px] leading-[1.8]">
                 If there is an icon or industry category missing, please open an Issue on our <a href="https://github.com/dqev/reicon/issues" target="_blank" rel="noopener noreferrer" className="text-[#6C5CE7] hover:underline">GitHub Issues tracker</a> using the "Icon Request" template. We review requests weekly and design new sets based on user popularity and request volume.
               </p>
             </section>
 
-            <hr className="border-white/[0.06] mb-12" />
+            <hr className="border-text-base/6 mb-12" />
 
             <section id="contributing" data-section className="mb-16 scroll-mt-24">
-              <h2 className="text-xl font-serif text-white mb-4">How do I contribute?</h2>
-              <p className="text-white/60 text-[15px] leading-[1.8]">
+              <h2 className="text-xl font-serif text-text-base mb-4">How do I contribute?</h2>
+              <p className="text-text-base/60 text-[15px] leading-[1.8]">
                 We love community contributions! You can contribute code updates, type definitions, package updates, or even new SVG icons. Please read our contributing guide in our repository on GitHub, fork the codebase, and open a Pull Request.
               </p>
             </section>
@@ -458,7 +460,7 @@ export default function FaqPage() {
         {/* ── Right sidebar: On this page ── */}
         <aside id="otp-sidebar" className="hidden xl:block" data-lenis-prevent>
           <div className="otp-header">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white/60">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-text-base/60">
               <line x1="21" y1="10" x2="3" y2="10" />
               <line x1="21" y1="6" x2="3" y2="6" />
               <line x1="21" y1="14" x2="3" y2="14" />

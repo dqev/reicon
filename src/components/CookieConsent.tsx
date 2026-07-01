@@ -69,20 +69,20 @@ export default function CookieConsent() {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-[9999] p-3 sm:p-5 pointer-events-none">
       <div
-        className={`pointer-events-auto max-w-[420px] mx-auto sm:mx-0 sm:ml-4 bg-[#131316]/95 backdrop-blur-xl border border-white/[0.07] rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.5)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${animateIn ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
+        className={`pointer-events-auto max-w-sm mx-auto sm:max-w-[420px] sm:mx-0 sm:ml-4 bg-[var(--dropdown-bg)] border border-text-base/8 backdrop-blur-xl rounded-2xl shadow-[0_8px_40px_var(--shadow-color)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${animateIn ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
           }`}
       >
         {!showSettings ? (
-          <div className="p-5">
+          <div className="p-3 sm:p-5">
             {/* Header with cookie icon */}
-            <div className="flex items-center gap-1 mb-3">
-              <div className="w-8 h-8 flex items-center justify-center">
-                <Cookie size={18} className="text-[#6C5CE7]" />
+            <div className="flex items-center gap-1 mb-2 sm:mb-3">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center">
+                <Cookie size={16} className="text-[#6C5CE7]" />
               </div>
-              <h3 className="text-[16px] font-semibold text-white">We use cookies</h3>
+              <h3 className="text-[14px] sm:text-[16px] font-semibold text-text-base">We use cookies</h3>
             </div>
 
-            <p className="text-[12.5px] text-white/50 leading-[1.7] mb-5">
+            <p className="text-[11.5px] sm:text-[12.5px] text-text-base/50 leading-[1.6] mb-3 sm:mb-5">
               We use cookies to enhance your browsing experience and analyze site traffic.
               Read our{' '}
               <Link to="/privacy" className="text-[#6C5CE7] hover:text-[#8B7CF7] transition-colors">
@@ -95,13 +95,13 @@ export default function CookieConsent() {
             <div className="flex items-center gap-2">
               <button
                 onClick={handleAcceptAll}
-                className="flex-1 text-[12.5px] font-semibold text-white bg-[#6C5CE7] hover:bg-[#5A4BD1] active:scale-[0.97] px-4 py-2.5 rounded-xl transition-all duration-150"
+                className="flex-1 text-[12px] sm:text-[12.5px] font-semibold text-white bg-[#6C5CE7] hover:bg-[#5A4BD1] active:scale-[0.97] px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all duration-150 cursor-pointer"
               >
                 Accept All
               </button>
               <button
                 onClick={handleDecline}
-                className="flex-1 text-[12.5px] font-semibold text-white/70 hover:text-white bg-white/[0.05] hover:bg-white/[0.09] active:scale-[0.97] px-4 py-2.5 rounded-xl transition-all duration-150"
+                className="flex-1 text-[12px] sm:text-[12.5px] font-semibold text-text-base/70 hover:text-text-base bg-text-base/5 hover:bg-text-base/9 active:scale-[0.97] px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all duration-150 cursor-pointer"
               >
                 Decline
               </button>
@@ -109,23 +109,23 @@ export default function CookieConsent() {
 
             <button
               onClick={() => setShowSettings(true)}
-              className="w-full text-[11.5px] text-white/30 hover:text-white/60 mt-3 py-1 transition-colors"
+              className="w-full text-[11px] sm:text-[11.5px] text-text-base/30 hover:text-text-base/60 mt-2 sm:mt-3 py-1 transition-colors cursor-pointer"
             >
               Customize preferences
             </button>
           </div>
         ) : (
-          <div className="p-5">
+          <div className="p-3 sm:p-5">
             {/* Settings header */}
-            <div className="flex items-center gap-1 mb-4">
-              <div className="w-8 h-8 flex items-center justify-center">
-                <Cookie size={18} className="text-[#6C5CE7]" />
+            <div className="flex items-center gap-1 mb-3 sm:mb-4">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center">
+                <Cookie size={16} className="text-[#6C5CE7]" />
               </div>
-              <h3 className="text-[16px] font-semibold text-white">Cookie Preferences</h3>
+              <h3 className="text-[14px] sm:text-[16px] font-semibold text-text-base">Cookie Preferences</h3>
             </div>
 
             {/* Toggles */}
-            <div className="space-y-2.5 mb-5">
+            <div className="space-y-2 sm:space-y-2.5 mb-3 sm:mb-5">
               <CookieToggle
                 label="Necessary"
                 description="Core website functionality"
@@ -150,13 +150,13 @@ export default function CookieConsent() {
             <div className="flex items-center gap-2">
               <button
                 onClick={handleSavePreferences}
-                className="flex-1 text-[12.5px] font-semibold text-white bg-[#6C5CE7] hover:bg-[#5A4BD1] active:scale-[0.97] px-4 py-2.5 rounded-xl transition-all duration-150"
+                className="flex-1 text-[12px] sm:text-[12.5px] font-semibold text-white bg-[#6C5CE7] hover:bg-[#5A4BD1] active:scale-[0.97] px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all duration-150 cursor-pointer"
               >
                 Save
               </button>
               <button
                 onClick={() => setShowSettings(false)}
-                className="text-[12px] text-white/40 hover:text-white/70 px-3 py-2.5 transition-colors"
+                className="text-[11.5px] sm:text-[12px] text-text-base/40 hover:text-text-base/70 px-3 py-2 sm:py-2.5 transition-colors cursor-pointer"
               >
                 Back
               </button>
@@ -183,12 +183,12 @@ function CookieToggle({
 }) {
   return (
     <div
-      className={`flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] ${disabled ? 'opacity-50' : ''
+      className={`flex items-center justify-between p-3 rounded-xl bg-text-base/2 border border-text-base/5 ${disabled ? 'opacity-50' : ''
         }`}
     >
       <div>
-        <div className="text-[12.5px] text-white/80 font-medium">{label}</div>
-        <div className="text-[11px] text-white/30">{description}</div>
+        <div className="text-[12.5px] text-text-base/80 font-medium">{label}</div>
+        <div className="text-[11px] text-text-base/30">{description}</div>
       </div>
       <button
         type="button"
@@ -196,7 +196,7 @@ function CookieToggle({
         aria-checked={checked}
         disabled={disabled}
         onClick={() => onChange?.(!checked)}
-        className={`relative shrink-0 ml-3 w-9 h-5 rounded-full transition-colors duration-200 ${checked ? 'bg-[#6C5CE7]' : 'bg-white/[0.08]'
+        className={`relative shrink-0 ml-3 w-9 h-5 rounded-full transition-colors duration-200 ${checked ? 'bg-[#6C5CE7]' : 'bg-text-base/8'
           } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
       >
         <span
