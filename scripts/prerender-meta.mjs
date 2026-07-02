@@ -274,7 +274,98 @@ function toPascalCase(str) {
   return str.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join('');
 }
 
-function buildMetaTags({ title, desc, url, ogImage, keywords, jsonLd, breadcrumb }) {
+/**
+ * Converts a slug like "arrow-left-down" → "Arrow Left Down"
+ */
+function toTitleCase(str) {
+  return str.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+}
+
+/**
+ * Humanises a category slug into a readable label.
+ * e.g. "arrows-action" → "Arrows Action", "ui" → "UI"
+ */
+function humanCategory(slug) {
+  const overrides = {
+    ui: 'UI',
+    it: 'IT',
+    newicons: 'General',
+    'arrows-action': 'Arrows & Action',
+    'text-formatting': 'Text Formatting',
+  };
+  return overrides[slug] ?? slug.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+}
+
+/**
+ * Builds a rich, natural-language title for an icon page.
+ * Pattern: "{Label} Icon — Free SVG Download | Reicon"
+ * Kept ≤60 chars where possible; always unique per icon.
+ */
+function buildIconTitle(name, category, tags) {
+  const label = toTitleCase(name);
+  const cat = humanCategory(category);
+  // e.g. "Arrow Down Icon — Free Arrows SVG | Reicon"
+  return `${label} Icon — Free ${cat} SVG | Reicon`;
+}
+
+/**
+ * Builds a natural, search-friendly description (≤155 chars goal).
+ * Uses tags when available to surface real keywords.
+ */
+function buildIconDesc(name, category, tags) {
+  const label = toTitleCase(name);
+  const cat = humanCategory(category);
+
+  if (tags.length >= 2) {
+    const tagPhrase = tags.slice(0, 3).join(', ');
+    const desc = `Free ${label} SVG icon for React, Vue, Svelte & HTML. Also called: ${tagPhrase}. Part of Reicon's ${cat} set — outline & filled, MIT licensed.`;
+    return desc.length <= 155 ? desc : desc.slice(0, 152) + '…';
+  } else {
+    const desc = `Download the free ${label} SVG icon from Reicon's ${cat} collection. Available in outline and filled weights for React, Vue, Svelte, Figma, and HTML. MIT licensed.`;
+    return desc.length <= 155 ? desc : desc.slice(0, 152) + '…';
+  }
+}
+
+/**
+ * Builds a targeted keyword string for the icon.
+ * Focus: download intent, framework usage, alt names.
+ */
+function buildIconKeywords(name, category, tags) {
+  const label = toTitleCase(name);
+  const cat = humanCategory(category).toLowerCase();
+  const base = [
+    `${name} icon`,
+    `${label} svg icon`,
+    `${name} svg`,
+    `download ${name} icon`,
+    `${name} png`,
+    `${name} react`,
+    `${name} react component`,
+    `${name} vue`,
+    `${name} svelte`,
+    `free ${cat} icon`,
+    `${cat} svg icon`,
+    'free svg icon',
+    'open source icon',
+    'reicon',
+    'reicon icon library',
+  ];
+  const tagKeywords = tags.flatMap((t) => [`${t} icon`, `${t} svg`]);
+  return [...new Set([...tagKeywords, ...base])].slice(0, 20).join(', ');
+}
+
+/**
+ * Builds the inline SVG markup to embed directly in the OG card and SSR body.
+ * Replaces currentColor with white for static rendering contexts.
+ */
+function buildInlineSvg(svgCode, size = 64) {
+  if (!svgCode) return '';
+  return svgCode
+    .replace(/currentColor/g, '#ffffff')
+    .replace(/<svg([^>]*)>/, `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">`);
+}
+
+function buildMetaTags({ title, desc, url, ogImage, ogImageAlt, keywords, jsonLd, breadcrumb, isIconPage = false }) {
   let tags = '';
   tags += `<title>${title}</title>\n`;
   tags += `    <meta name="description" content="${desc}" />\n`;
@@ -282,32 +373,36 @@ function buildMetaTags({ title, desc, url, ogImage, keywords, jsonLd, breadcrumb
   if (keywords) {
     tags += `    <meta name="keywords" content="${keywords}" />\n`;
   }
-  tags += `    <meta property="og:type" content="website" />\n`;
+  tags += `    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />\n`;
+  tags += `    <meta property="og:type" content="${isIconPage ? 'article' : 'website'}" />\n`;
   tags += `    <meta property="og:url" content="${url}" />\n`;
   tags += `    <meta property="og:site_name" content="Reicon" />\n`;
+  tags += `    <meta property="og:locale" content="en_US" />\n`;
   tags += `    <meta property="og:title" content="${title}" />\n`;
   tags += `    <meta property="og:description" content="${desc}" />\n`;
   if (ogImage) {
-    const targetOgImage = ogImage.endsWith('og-image.png') ? `${ogImage}?v=3` : ogImage;
-    tags += `    <meta property="og:image" content="${targetOgImage}" />\n`;
+    tags += `    <meta property="og:image" content="${ogImage}" />\n`;
     tags += `    <meta property="og:image:width" content="1200" />\n`;
     tags += `    <meta property="og:image:height" content="630" />\n`;
+    if (ogImageAlt) {
+      tags += `    <meta property="og:image:alt" content="${ogImageAlt}" />\n`;
+    }
   }
   tags += `    <meta name="twitter:card" content="summary_large_image" />\n`;
   tags += `    <meta name="twitter:site" content="@reicon_dev" />\n`;
+  tags += `    <meta name="twitter:creator" content="@reicon_dev" />\n`;
   tags += `    <meta name="twitter:title" content="${title}" />\n`;
   tags += `    <meta name="twitter:description" content="${desc}" />\n`;
   if (ogImage) {
-    const targetOgImage = ogImage.endsWith('og-image.png') ? `${ogImage}?v=3` : ogImage;
-    tags += `    <meta name="twitter:image" content="${targetOgImage}" />\n`;
+    tags += `    <meta name="twitter:image" content="${ogImage}" />\n`;
+    if (ogImageAlt) {
+      tags += `    <meta name="twitter:image:alt" content="${ogImageAlt}" />\n`;
+    }
   }
   if (jsonLd) {
-    if (Array.isArray(jsonLd)) {
-      for (const ld of jsonLd) {
-        tags += `    <script type="application/ld+json">${JSON.stringify(ld)}</script>\n`;
-      }
-    } else {
-      tags += `    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>\n`;
+    const lds = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
+    for (const ld of lds) {
+      tags += `    <script type="application/ld+json">${JSON.stringify(ld)}</script>\n`;
     }
   }
   if (breadcrumb) {
@@ -380,75 +475,172 @@ async function main() {
     }
   }
 
+  // Build svgCode lookup from icon-data
+  const iconSvgMap = {};
+  for (const [, cat] of Object.entries(iconData.categories)) {
+    for (const [iconName, iconInfo] of Object.entries(cat.icons)) {
+      iconSvgMap[iconName] = iconInfo.weights?.Outline?.code || iconInfo.weights?.Filled?.code || '';
+    }
+  }
+
   for (const name of allIcons) {
     const pascal = toPascalCase(name);
     const tags = iconTagsMap[name] || [];
     const tagString = tags.join(', ');
-    const category = iconCategoryMap[name] || '';
+    const categorySlug = iconCategoryMap[name] || 'general';
+    const catLabel = humanCategory(categorySlug);
+    const svgCode = iconSvgMap[name] || '';
 
-    const title = `${name} icon details — Reicon`;
-    const desc = tags.length > 0
-      ? `Details and related icons for ${name} icon. Tagged as: ${tagString}.`
-      : `Details and related icons for ${name} icon. Available in Outline and Filled weights. Free, open-source SVG icon.`;
+    const title = buildIconTitle(name, categorySlug, tags);
+    const desc = buildIconDesc(name, categorySlug, tags);
+    const keywords = buildIconKeywords(name, categorySlug, tags);
     const url = `${SITE}/icon/${name}`;
-    const ogImage = `${SITE}/og/icons/${name}.png`;
-    const keywords = tags.length > 0
-      ? `${name}, ${tagString}, icon, svg icon, react icon, free icon, reicon`
-      : `${name}, icon, svg icon, react icon, free icon, reicon`;
+    const ogImage = `${SITE}/og-image.png`;
+    const ogImageAlt = `Reicon — ${toTitleCase(name)} icon preview`;
 
-    const imageObjectLd = {
+    // ── JSON-LD: WebPage (primary — gets sitelinks/rich results) ────────────
+    const webPageLd = {
       "@context": "https://schema.org",
-      "@type": "ImageObject",
-      "name": `${pascal} Icon`,
+      "@type": "WebPage",
+      "@id": url,
+      "url": url,
+      "name": title,
       "description": desc,
-      "contentUrl": `https://cdn.reicon.dev/svg/${name}.svg`,
-      "thumbnailUrl": ogImage,
-      "encodingFormat": "image/svg+xml",
-      "license": "https://opensource.org/licenses/MIT",
-      "acquireLicensePage": `${SITE}/usage`,
-      "keywords": tagString,
-      ...(category && { "category": category }),
-      "isPartOf": {
-        "@type": "CreativeWork",
-        "name": "Reicon Icon Library",
-        "url": SITE
-      }
+      "inLanguage": "en-US",
+      "isPartOf": { "@type": "WebSite", "url": SITE, "name": "Reicon" },
+      "breadcrumb": { "@id": `${url}#breadcrumb` },
+      "primaryImageOfPage": { "@type": "ImageObject", "url": ogImage },
+      "dateModified": new Date().toISOString().split('T')[0],
     };
 
+    // ── JSON-LD: SoftwareSourceCode — the actual icon asset ─────────────────
+    const softwareLd = {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": `${pascal} Icon`,
+      "description": desc,
+      "url": url,
+      "codeRepository": "https://github.com/reicon-dev/reicon",
+      "programmingLanguage": ["SVG", "React", "Vue", "Svelte"],
+      "runtimePlatform": ["Browser", "Node.js"],
+      "license": "https://opensource.org/licenses/MIT",
+      "isPartOf": { "@type": "SoftwareApplication", "name": "Reicon", "url": SITE },
+      ...(tags.length > 0 && { "keywords": tagString }),
+    };
+
+    // ── JSON-LD: DefinedTerm — helps Google understand "what this icon is" ──
+    const definedTermLd = {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": `${toTitleCase(name)} Icon`,
+      "description": desc,
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": `Reicon ${catLabel} Icons`,
+        "url": `${SITE}/icons`,
+      },
+    };
+
+    // ── JSON-LD: BreadcrumbList — 4 levels including category ───────────────
     const breadcrumbLd = {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id": `${url}#breadcrumb`,
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Reicon", "item": SITE },
         { "@type": "ListItem", "position": 2, "name": "Icons", "item": `${SITE}/icons` },
-        { "@type": "ListItem", "position": 3, "name": name, "item": url }
-      ]
+        { "@type": "ListItem", "position": 3, "name": catLabel, "item": `${SITE}/icons?category=${categorySlug}` },
+        { "@type": "ListItem", "position": 4, "name": `${toTitleCase(name)} Icon`, "item": url },
+      ],
     };
 
     const outDir = resolve(DIST, 'icon', name);
     mkdirSync(outDir, { recursive: true });
 
-    const metaTags = buildMetaTags({ title, desc, url, ogImage, keywords, jsonLd: imageObjectLd, breadcrumb: breadcrumbLd });
+    const metaTags = buildMetaTags({
+      title, desc, url, ogImage, ogImageAlt, keywords,
+      jsonLd: [webPageLd, softwareLd, definedTermLd],
+      breadcrumb: breadcrumbLd,
+      isIconPage: true,
+    });
     const html = injectMeta(baseHtml, metaTags);
 
-    // Inject visible SSR content into <div id="root"> so Google indexes real content
-    const tagList = tags.length > 0
-      ? `<ul style="list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;margin-top:1rem">${tags.map(t => `<li style="background:rgba(255,255,255,0.06);border-radius:6px;padding:4px 12px;font-size:0.8rem;color:rgba(255,255,255,0.5)">${t}</li>`).join('')}</ul>`
-      : '';
-    const categoryLine = category ? `<p style="color:rgba(108,92,231,0.8);font-size:0.8rem;margin-top:0.5rem">Category: ${category}</p>` : '';
+    // ── SSR body ─────────────────────────────────────────────────────────────
+    const inlineSvg = buildInlineSvg(svgCode, 72);
+    const svgBlock = inlineSvg
+      ? `<div style="width:96px;height:96px;border-radius:16px;background:rgba(108,92,231,0.12);border:1px solid rgba(108,92,231,0.25);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem" role="img" aria-label="${pascal} icon">${inlineSvg}</div>`
+      : `<img src="${SITE}/svg/${name}.svg" alt="${pascal} SVG icon" width="72" height="72" style="margin-bottom:1.25rem;opacity:0.9" loading="eager" />`;
 
-    const ssrContent = `<div style="background:#09090b;color:#fff;min-height:100vh;font-family:'DM Sans',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center">
-<nav aria-label="breadcrumb" style="margin-bottom:1.5rem;font-size:0.875rem;color:rgba(255,255,255,0.4)"><a href="/" style="color:rgba(255,255,255,0.5);text-decoration:none">Reicon</a> <span style="margin:0 0.25rem">›</span> <a href="/icons" style="color:rgba(255,255,255,0.5);text-decoration:none">Icons</a> <span style="margin:0 0.25rem">›</span> <span style="color:rgba(255,255,255,0.7)">${name}</span></nav>
-<img src="https://cdn.reicon.dev/svg/${name}.svg" alt="${name} icon" width="64" height="64" style="filter:invert(1);margin-bottom:1rem" loading="eager" />
-<h1 style="font-size:1.75rem;font-weight:600;margin:0 0 0.5rem">${pascal} Icon</h1>
-<p style="color:rgba(255,255,255,0.6);max-width:520px;line-height:1.6;margin:0 auto">${desc}</p>
-${categoryLine}${tagList}
-<div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
-<a href="/icons" style="color:#6C5CE7;text-decoration:none;font-size:0.9rem">← Browse all icons</a>
-<a href="/usage" style="color:#6C5CE7;text-decoration:none;font-size:0.9rem">Usage guide</a>
-<a href="/packages" style="color:#6C5CE7;text-decoration:none;font-size:0.9rem">Packages</a>
-</div>
-<p style="margin-top:2rem;font-size:0.8rem;color:rgba(255,255,255,0.3)">Available in Outline and Filled weights · Free SVG icon · MIT License</p>
+    const tagListHtml = tags.length > 0
+      ? `<div style="display:flex;flex-wrap:wrap;gap:0.375rem;justify-content:center;margin-top:0.75rem" aria-label="Also known as">${
+          tags.map(t => `<span style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:3px 10px;font-size:0.78rem;color:rgba(255,255,255,0.5)">${t}</span>`).join('')
+        }</div>`
+      : '';
+
+    const usageSnippet = `
+<section style="margin-top:2.5rem;text-align:left;max-width:540px;width:100%" aria-labelledby="usage-heading">
+  <h2 id="usage-heading" style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.3);margin:0 0 0.75rem">Quick Install</h2>
+  <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:0.875rem 1rem;font-size:0.82rem;color:rgba(255,255,255,0.7);overflow-x:auto;margin:0"><code>npm install reicon-react</code></pre>
+  <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:0.875rem 1rem;font-size:0.82rem;color:rgba(255,255,255,0.7);overflow-x:auto;margin:0.5rem 0 0"><code>import { ${pascal} } from 'reicon-react';\n// &lt;${pascal} size={24} /&gt;</code></pre>
+</section>`;
+
+    // Semantic attribute table for crawlers
+    const attrTable = `
+<section style="margin-top:2rem;text-align:left;max-width:540px;width:100%" aria-labelledby="details-heading">
+  <h2 id="details-heading" style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.3);margin:0 0 0.75rem">Icon Details</h2>
+  <dl style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 1rem;margin:0">
+    <dt style="font-size:0.78rem;color:rgba(255,255,255,0.35)">Name</dt>
+    <dd style="font-size:0.82rem;color:rgba(255,255,255,0.7);margin:0">${pascal}</dd>
+    <dt style="font-size:0.78rem;color:rgba(255,255,255,0.35)">Slug</dt>
+    <dd style="font-size:0.82rem;color:rgba(255,255,255,0.7);margin:0;font-family:monospace">${name}</dd>
+    <dt style="font-size:0.78rem;color:rgba(255,255,255,0.35)">Category</dt>
+    <dd style="font-size:0.82rem;color:rgba(255,255,255,0.7);margin:0">${catLabel}</dd>
+    <dt style="font-size:0.78rem;color:rgba(255,255,255,0.35)">Weights</dt>
+    <dd style="font-size:0.82rem;color:rgba(255,255,255,0.7);margin:0">Outline, Filled</dd>
+    <dt style="font-size:0.78rem;color:rgba(255,255,255,0.35)">License</dt>
+    <dd style="font-size:0.82rem;color:rgba(255,255,255,0.7);margin:0">MIT</dd>
+    <dt style="font-size:0.78rem;color:rgba(255,255,255,0.35)">Formats</dt>
+    <dd style="font-size:0.82rem;color:rgba(255,255,255,0.7);margin:0">SVG, PNG, WebP</dd>
+  </dl>
+</section>`;
+
+    const ssrContent = `<div style="background:#09090b;color:#fff;min-height:100vh;font-family:'DM Sans',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;padding:3rem 1.5rem 4rem;text-align:center">
+
+  <nav aria-label="Breadcrumb" style="margin-bottom:2rem;font-size:0.8rem;color:rgba(255,255,255,0.35);align-self:flex-start;max-width:620px;width:100%">
+    <ol style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:0.25rem">
+      <li><a href="${SITE}" style="color:rgba(255,255,255,0.45);text-decoration:none">Reicon</a></li>
+      <li aria-hidden="true" style="margin:0 0.25rem;opacity:0.4">›</li>
+      <li><a href="${SITE}/icons" style="color:rgba(255,255,255,0.45);text-decoration:none">Icons</a></li>
+      <li aria-hidden="true" style="margin:0 0.25rem;opacity:0.4">›</li>
+      <li><a href="${SITE}/icons?category=${categorySlug}" style="color:rgba(255,255,255,0.45);text-decoration:none">${catLabel}</a></li>
+      <li aria-hidden="true" style="margin:0 0.25rem;opacity:0.4">›</li>
+      <li aria-current="page" style="color:rgba(255,255,255,0.65)">${toTitleCase(name)}</li>
+    </ol>
+  </nav>
+
+  <article style="max-width:620px;width:100%;display:flex;flex-direction:column;align-items:center" itemscope itemtype="https://schema.org/SoftwareSourceCode">
+    <meta itemprop="name" content="${pascal} Icon" />
+    <meta itemprop="license" content="https://opensource.org/licenses/MIT" />
+
+    ${svgBlock}
+    <h1 itemprop="description" style="font-size:2rem;font-weight:700;margin:0 0 0.625rem;letter-spacing:-0.02em">${pascal} Icon</h1>
+    <p style="color:rgba(255,255,255,0.55);max-width:480px;line-height:1.7;margin:0 auto;font-size:0.95rem">${desc}</p>
+
+    <p style="display:inline-flex;align-items:center;gap:0.375rem;background:rgba(108,92,231,0.12);border:1px solid rgba(108,92,231,0.3);border-radius:20px;padding:4px 12px;font-size:0.78rem;color:rgba(108,92,231,0.9);margin-top:1rem">
+      ${catLabel}
+    </p>
+    ${tags.length > 0 ? `<p style="font-size:0.78rem;color:rgba(255,255,255,0.3);margin-top:0.75rem">Also known as: ${tags.slice(0,5).join(', ')}</p>` : ''}
+    ${tagListHtml}
+    ${attrTable}
+    ${usageSnippet}
+
+    <div style="margin-top:2rem;display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
+      <a href="${SITE}/svg/${name}.svg" download itemprop="url" style="background:rgba(108,92,231,0.9);color:#fff;text-decoration:none;font-size:0.875rem;font-weight:500;padding:0.5rem 1.125rem;border-radius:8px">Download SVG</a>
+      <a href="${SITE}/icons" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.875rem;padding:0.5rem 1.125rem;border-radius:8px">Browse Icons</a>
+      <a href="${SITE}/usage" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.875rem;padding:0.5rem 1.125rem;border-radius:8px">Usage Guide</a>
+    </div>
+    <p style="margin-top:2.5rem;font-size:0.75rem;color:rgba(255,255,255,0.2)">Outline &amp; Filled · SVG · PNG · WebP · MIT License · <a href="https://github.com/reicon-dev/reicon" style="color:rgba(255,255,255,0.3)">GitHub</a></p>
+  </article>
 </div>`;
 
     const finalHtml = html.replace('<div id="root"></div>', `<div id="root">${ssrContent}</div>`);
