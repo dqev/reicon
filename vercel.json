@@ -36,6 +36,23 @@
       ]
     },
     {
+      "source": "/svg/(.*\\.svg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
+        },
+        {
+          "key": "Content-Type",
+          "value": "image/svg+xml"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
       "source": "/og-image.png",
       "headers": [
         {
@@ -59,19 +76,6 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=2592000, stale-while-revalidate=86400"
-        }
-      ]
-    },
-    {
-      "source": "/og/icons/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        },
-        {
-          "key": "Content-Type",
-          "value": "image/png"
         }
       ]
     },
@@ -135,7 +139,7 @@
       "destination": "/icon/:name/index.html"
     },
     {
-      "source": "/((?!assets|og|favicon|sitemap|robots|humans|llms|site\\.webmanifest).*)",
+      "source": "/((?!assets|svg|favicon|sitemap|robots|humans|llms|site\\.webmanifest).*)",
       "destination": "/index.html"
     }
   ]
