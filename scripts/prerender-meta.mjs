@@ -288,7 +288,7 @@ function buildMetaTags({ title, desc, url, ogImage, keywords, jsonLd, breadcrumb
   tags += `    <meta property="og:title" content="${title}" />\n`;
   tags += `    <meta property="og:description" content="${desc}" />\n`;
   if (ogImage) {
-    const targetOgImage = ogImage.endsWith('og-image.png') ? `${ogImage}?v=2` : ogImage;
+    const targetOgImage = ogImage.endsWith('og-image.png') ? `${ogImage}?v=3` : ogImage;
     tags += `    <meta property="og:image" content="${targetOgImage}" />\n`;
     tags += `    <meta property="og:image:width" content="1200" />\n`;
     tags += `    <meta property="og:image:height" content="630" />\n`;
@@ -298,7 +298,7 @@ function buildMetaTags({ title, desc, url, ogImage, keywords, jsonLd, breadcrumb
   tags += `    <meta name="twitter:title" content="${title}" />\n`;
   tags += `    <meta name="twitter:description" content="${desc}" />\n`;
   if (ogImage) {
-    const targetOgImage = ogImage.endsWith('og-image.png') ? `${ogImage}?v=2` : ogImage;
+    const targetOgImage = ogImage.endsWith('og-image.png') ? `${ogImage}?v=3` : ogImage;
     tags += `    <meta name="twitter:image" content="${targetOgImage}" />\n`;
   }
   if (jsonLd) {
