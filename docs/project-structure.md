@@ -28,7 +28,7 @@ reicon/
 │   └── reicon-brands.js / .min.js
 │
 ├── public/                      # Static assets
-│   ├── favicon.ico             # Favicons
+│   ├── favicon/                # Favicon bundle (ico, svg, pngs, manifest)
 │   ├── og-image.png            # Open Graph image
 │   ├── robots.txt              # SEO robots file
 │   ├── sitemap.xml             # Generated sitemap
