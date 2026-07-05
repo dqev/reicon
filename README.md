@@ -144,9 +144,8 @@ Contributions to the codebase, packages, or documentation are welcome. Please re
 
 ## <img src="./public/readme-assets/star-history.svg" width="22" height="22" align="center" alt="" />&nbsp; Our Stargazers
 
-<a href="https://github.com/dqev/reicon/stargazers">
-  <img src="https://github-readme-stargazers-five.vercel.app/api/card?username=dqev&repo=reicon&width=1200&theme=Snowy+Minimal+%28Solid%29&rows=4&cols=8&wreath=true&radius=7&card_border=false&blur=1.5&badges=fire&badge_density=0.45&bg_style=solid" alt="Reicon Stargazers" />
-</a>
+[![Stargazers](https://github-readme-stargazers-five.vercel.app/api/card?username=dqev&repo=reicon&width=1200&theme=Snowy+Minimal+%28Solid%29&rows=4&cols=8&wreath=true&radius=7&card_border=false&blur=1.5&badges=fire&badge_density=0.45&bg_style=solid&v=1)](https://github.com/dqev/reicon/stargazers)
+
 
 <br/>
 
