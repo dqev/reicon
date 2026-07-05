@@ -19,6 +19,7 @@ const DIST = resolve(__dirname, '../dist');
 const ICON_NAMES_JSON = resolve(__dirname, 'icon-names.json');
 const ICON_DATA_JSON = resolve(__dirname, '../data/icon-data.json');
 const SITE = 'https://reicon.dev';
+const OG_IMAGE = `${SITE}/og-image.png?v=4`;
 
 // ── Page definitions ────────────────────────────────────────────────
 const STATIC_PAGES = [
@@ -27,7 +28,7 @@ const STATIC_PAGES = [
     title: 'Reicon — Free Open-Source Icon Library for Designers & Developers',
     desc: 'Reicon is a free, open-source icon library with 2700+ handcrafted, pixel-perfect SVG icons for React, Vue, Svelte, Figma, and the web. MIT licensed.',
     url: `${SITE}/`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -41,7 +42,7 @@ const STATIC_PAGES = [
     title: 'Browse 2700+ Free Icons — Reicon Icon Library',
     desc: 'Browse and search 2700+ free, open-source SVG icons. Filter by category, weight, and size. Copy React, Vue, Svelte, or HTML code instantly.',
     url: `${SITE}/icons`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -56,7 +57,7 @@ const STATIC_PAGES = [
     title: 'Usage Guide — Reicon | React, Vue, Svelte & CDN Icon Library',
     desc: 'Learn how to install and use Reicon icons in React, Vue, Svelte, and vanilla JavaScript. Props reference, TypeScript support, icon weights, and code examples.',
     url: `${SITE}/usage`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -71,7 +72,7 @@ const STATIC_PAGES = [
     title: 'React Usage Guide — Reicon | React Icon Library',
     desc: 'Learn how to install and use Reicon icons in React. Import components, customize props, tree-shake unused icons, and use with Tailwind CSS.',
     url: `${SITE}/usage/react`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -87,7 +88,7 @@ const STATIC_PAGES = [
     title: 'Vue Usage Guide — Reicon | Vue 3 Icon Library',
     desc: 'Learn how to install and use Reicon icons in Vue 3 and Nuxt 3. Import components, customize props, tree-shake unused icons.',
     url: `${SITE}/usage/vue`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -103,7 +104,7 @@ const STATIC_PAGES = [
     title: 'Svelte Usage Guide — Reicon | Svelte Icon Library',
     desc: 'Learn how to install and use Reicon icons in Svelte. Import components, customize props, and integrate with SvelteKit.',
     url: `${SITE}/usage/svelte`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -119,7 +120,7 @@ const STATIC_PAGES = [
     title: 'CDN / JavaScript Usage Guide — Reicon | Vanilla JS Icons',
     desc: 'Learn how to use Reicon icons via CDN in vanilla JavaScript and HTML. No build tools needed.',
     url: `${SITE}/usage/vanilla`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -135,7 +136,7 @@ const STATIC_PAGES = [
     title: 'Figma Plugin Guide — Reicon | Drag & Drop Figma Icons',
     desc: 'Learn how to install and use the Reicon Figma Plugin. Search, customize stroke weights, and drag-and-drop vector icons directly onto your active design canvas.',
     url: `${SITE}/usage/figma`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -151,7 +152,7 @@ const STATIC_PAGES = [
     title: 'VS Code Extension Guide — Reicon | Sidebar Snippet Installer',
     desc: 'Learn how to install and use the Reicon VS Code Extension. Search, configure defaults, and insert custom React, Vue, Svelte, or raw SVG code directly at your cursor.',
     url: `${SITE}/usage/vscode`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -167,7 +168,7 @@ const STATIC_PAGES = [
     title: 'Raw SVG Assets Guide — Reicon | Embed & Style Raw Vector Files',
     desc: 'Learn how to download and use raw Reicon SVG icons in HTML, static web layouts, or CMS templates. Customize dimensions, weights, and apply CSS currentColor styling.',
     url: `${SITE}/usage/svg`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -183,7 +184,7 @@ const STATIC_PAGES = [
     title: 'Packages — Reicon | React, Vue, Svelte & JavaScript Icon Packages',
     desc: 'Install Reicon icon packages for React, Vue, Svelte, and JavaScript. Tree-shakeable, zero dependencies, MIT licensed.',
     url: `${SITE}/packages`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -198,7 +199,7 @@ const STATIC_PAGES = [
     title: 'Frequently Asked Questions — Reicon | Free Open-Source Icons',
     desc: 'Frequently asked questions about Reicon icon library. License, Figma integration, React/Vue/Svelte support, custom request, and contribution guidelines.',
     url: `${SITE}/faq`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -213,7 +214,7 @@ const STATIC_PAGES = [
     title: 'Icon Pack Builder — Reicon | Custom Icon Packs',
     desc: 'Select and export custom icon packs from Reicon. Download as SVG, PNG, or WebP ZIP files. Build your own icon set.',
     url: `${SITE}/pack`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -228,7 +229,7 @@ const STATIC_PAGES = [
     title: 'Terms of Service — Reicon',
     desc: 'Terms of service for using Reicon, the free open-source icon library.',
     url: `${SITE}/terms`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -243,7 +244,7 @@ const STATIC_PAGES = [
     title: 'Privacy Policy — Reicon',
     desc: 'Privacy policy for Reicon, the free open-source icon library. Learn how we handle your data.',
     url: `${SITE}/privacy`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -258,7 +259,7 @@ const STATIC_PAGES = [
     title: 'License — Reicon | MIT License',
     desc: 'Reicon is free and open-source under the MIT license. Use it in personal and commercial projects.',
     url: `${SITE}/license`,
-    ogImage: `${SITE}/og-image.png`,
+    ogImage: OG_IMAGE,
     breadcrumb: {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -495,7 +496,7 @@ async function main() {
     const desc = buildIconDesc(name, categorySlug, tags);
     const keywords = buildIconKeywords(name, categorySlug, tags);
     const url = `${SITE}/icon/${name}`;
-    const ogImage = `${SITE}/og-image.png`;
+    const ogImage = OG_IMAGE;
     const ogImageAlt = `Reicon — ${toTitleCase(name)} icon preview`;
 
     // ── JSON-LD: WebPage (primary — gets sitelinks/rich results) ────────────
