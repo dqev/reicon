@@ -14,7 +14,7 @@
   <a href="https://reicon.dev">Website</a> ·
   <a href="https://reicon.dev/icons">Browse Icons</a> ·
   <a href="https://reicon.dev/usage">Usage Guide</a> ·
-  <a href="https://www.npmjs.com/package/reicon-react">npm</a>
+  <a href="https://www.npmjs.com/package/reicon">npm</a>
 </p>
 
 <p align="center">
