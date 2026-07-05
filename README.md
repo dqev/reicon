@@ -154,6 +154,14 @@ Contributions to the codebase, packages, or documentation are welcome. Please re
 
 
 
+## <img src="./public/readme-assets/license.svg" width="22" height="22" align="center" alt="" />&nbsp; Credits
+
+Reicon base icons are built using elements from:
+* [Solar Icons](https://solar-icons.vercel.app/) designed by **480 Design** (CC BY 4.0) and package maintained by [Saoudi H.](https://github.com/saoudi-h/solar-icons) (MIT License)
+* [Zappicon](https://zappicon.com/) (licensed under the [Zappicon License](https://zappicon.com/license))
+
+
+
 ## <img src="./public/readme-assets/license.svg" width="22" height="22" align="center" alt="" />&nbsp; License
 
 MIT License - Copyright (c) 2026 [Dev Chauhan](https://devchauhan.in).
