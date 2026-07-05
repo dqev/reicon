@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://reicon.dev">
+    <img src="../public/readme-banner.png" alt="Reicon — Free Open-Source Icon Library" width="100%" />
+  </a>
+</p>
+
 # Contributing to Reicon 💜
 
 Welcome! Thank you for helping to make Reicon better. This guide provides a direct, concise reference for setting up the project, understanding the codebase structure, using key scripts, and submitting contributions.
