@@ -1,192 +1,148 @@
-# Contributing to Reicon
+<p align="center">
+  <a href="https://reicon.dev">
+    <img src="../public/readme-banner.png" alt="Reicon — Free Open-Source Icon Library" width="100%" />
+  </a>
+</p>
 
-First off — thank you for taking the time to contribute! 💜
-Reicon is a free, open-source icon library, and it gets better with community input.
+# Contributing to Reicon 💜
 
-This guide covers how to report issues, request icons, and submit code or icon contributions.
-
----
-
-## Table of Contents
-
-- [Code of Conduct](#code-of-conduct)
-- [Ways to contribute](#ways-to-contribute)
-- [Reporting bugs](#reporting-bugs)
-- [Requesting an icon](#requesting-an-icon)
-- [Development setup](#development-setup)
-- [Project structure](#project-structure)
-- [Submitting changes](#submitting-changes)
-- [Commit conventions](#commit-conventions)
-- [Icon contribution guidelines](#icon-contribution-guidelines)
-- [Questions](#questions)
+Welcome! Thank you for helping to make Reicon better. This guide provides a direct, concise reference for setting up the project, understanding the codebase structure, using key scripts, and submitting contributions.
 
 ---
 
-## Code of Conduct
+## 🚀 Quick Start
 
-This project follows our [Code of Conduct](./CODE_OF_CONDUCT.md). By participating,
-you agree to uphold it. Please report unacceptable behavior to **hello@reicon.dev**.
-
-## Ways to contribute
-
-- 🐛 **Report a bug** — something broken on the site or in a package.
-- 🎨 **Request an icon** — tell us what's missing.
-- ✏️ **Fix an icon** — alignment, stroke, or grid issues.
-- 📖 **Improve docs** — the usage guide, README, or examples.
-- 💡 **Suggest a feature** — for the website, packages, or tooling.
-- 🔧 **Submit code** — bug fixes and improvements.
-
-Browse [open issues](https://github.com/dqev/reicon/issues) (especially
-[`good first issue`](https://github.com/dqev/reicon/labels/good%20first%20issue))
-to find something to work on.
-
-## Reporting bugs
-
-Before opening an issue:
-
-1. **Search existing issues** to avoid duplicates.
-2. Use the **Bug report** issue template.
-3. Include: what you expected, what happened, steps to reproduce, your
-   environment (browser, framework, package version), and a screenshot if visual.
-
-## Requesting an icon
-
-Use the **Icon request** issue template and include:
-
-- **Name / concept** — e.g. "split screen", "AI sparkle".
-- **Use case** — where you'd use it.
-- **Reference** — a screenshot or link, if you have one.
-- **Weight** — Outline, Filled, or both.
-
-👍 React to existing requests you also want — popular ones get prioritized.
-
-## Development setup
-
-**Prerequisites:** Node.js 18+ and npm.
-
-```bash
-# 1. Fork and clone
-git clone https://github.com/<your-username>/reicon.git
-cd reicon
-
-# 2. Install dependencies
-npm install
-
-# 3. Start the dev server (http://localhost:3000)
-npm run dev
-```
-
-Useful scripts:
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start the Vite dev server |
-| `npm run build` | Production build (sitemap + Vite build + prerender) |
-| `npm run preview` | Preview the production build |
-| `npm run lint` | TypeScript type checking (`tsc --noEmit`) |
-| `npm run sitemap` | Regenerate the sitemap |
-| `npm run build:react` | Build the `reicon-react` package from `data/icon-data.json` |
-| `npm run build:vue` | Build the `reicon-vue` package |
-| `npm run build:js` | Build the `reiconjs` (vanilla) package |
-| `npm run build:cdn` | Build the CDN bundle (`cdn/reicon.js`) |
-| `npm run build:packages` | Build all packages + the CDN bundle |
-
-## Project structure
-
-```
-reicon/
-├── data/
-│   ├── icon-data.json   # ⭐ Single source of truth — every icon lives here
-│   └── README.md        # Dataset schema & build pipeline docs
-├── packages/            # Generated npm packages (git-ignored, rebuilt from data/)
-│   ├── reicon-react/    #   reicon-react  (React)
-│   ├── reicon-vue/      #   reicon-vue    (Vue 3)
-│   └── reiconjs/        #   reiconjs      (vanilla JS)
-├── cdn/                 # Generated CDN bundles (git-ignored): reicon.js / .min.js
-├── scripts/
-│   ├── build/           # Package + CDN build scripts (build-react/vue/js/cdn.cjs)
-│   └── *.mjs            # Website/SEO tooling (sitemap, prerender, og-images, …)
-├── src/
-│   ├── components/      # Reusable UI (Header, Sidebar, IconCard, usage/…)
-│   ├── pages/           # Route pages (Landing, Icons, IconDetail, Usage, …)
-│   ├── App.tsx          # Routes
-│   ├── main.tsx         # Entry point
-│   └── index.css        # Global styles (Tailwind v4)
-├── public/              # Static assets, robots.txt, sitemaps, llms.txt
-└── .github/             # Community files, issue/PR templates, workflows
-```
-
-> **Important:** `packages/` and `cdn/` are **generated output** and are
-> git-ignored. Never edit them by hand — change `data/icon-data.json` and
-> rebuild with `npm run build:packages`.
-
-## Submitting changes
-
-> New to Git or our branch workflow? Read the **[Branching & Git Workflow guide](./BRANCHING.md)**
-> for a step-by-step walkthrough (including forks and keeping your branch in sync).
-
-1. **Create a branch** from `main`:
+1. **Fork and Clone** the repository:
    ```bash
-   git checkout -b fix/short-description
+   git clone https://github.com/<your-username>/reicon.git
+   cd reicon
    ```
-2. **Make your changes** and keep them focused — one logical change per PR.
-3. **Run checks** before pushing:
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Start the local development server**:
+   ```bash
+   npm run dev
+   ```
+   The site will be available at [http://localhost:3000](http://localhost:3000).
+
+---
+
+## 📁 Repository Structure
+
+Reicon is organized as a monorepo. Here is a breakdown of what each folder contains:
+
+| Directory / File | Description |
+| :--- | :--- |
+| [`data/icon-data.json`](../data/icon-data.json) | **Single source of truth.** Every icon's raw SVG markup (Outline & Filled weights) and metadata live here. |
+| [`packages/`](../packages) | Framework packages rebuilt automatically from `data/icon-data.json`. |
+| ├─ [`reicon/`](../packages/reicon) | Vanilla JS & CDN core library. |
+| ├─ [`reicon-react/`](../packages/reicon-react) | React wrapper components. |
+| ├─ [`reicon-vue/`](../packages/reicon-vue) | Vue 3 wrapper components. |
+| ├─ [`reicon-svelte/`](../packages/reicon-svelte) | Svelte wrapper components. |
+| ├─ [`reicon-figma/`](../packages/reicon-figma) | Figma plugin build environment. |
+| └─ [`reicon-vscode/`](../packages/reicon-vscode) | VS Code Extension helper. |
+| [`scripts/`](../scripts) | Build and tooling utilities (Sitemap, SEO auditing, OG image generation). |
+| [`src/`](../src) | Reicon documentation website source (Vite + React). |
+| [`public/`](../public) | Website static assets, favicons, `robots.txt`, and `llms.txt`. |
+| [`docs/`](../docs) | Additional guides and design system references. |
+| [`cdn/`](../cdn) | Generated CDN bundles (git-ignored, compiled from JS build). |
+
+> [!WARNING]
+> Never manually edit files inside the `packages/` or `cdn/` output directories. They are automatically regenerated from `data/icon-data.json`.
+
+---
+
+## 🛠️ Key Scripts & Usage
+
+Run these scripts from the repository root:
+
+### Package Generation & Builds
+* **Build all downstream packages and CDN assets**:
+  ```bash
+  npm run build:packages
+  ```
+* **Build individual packages**:
+  * React: `npm run build:react`
+  * Vue 3: `npm run build:vue`
+  * Svelte: `npm run build:svelte`
+  * Vanilla JS: `npm run build:js`
+  * CDN Web Component: `npm run build:cdn` (followed by `npm run build:cdn:min`)
+  * Figma Plugin: `npm run build:figma`
+  * VS Code Extension: `npm run build:vscode`
+
+### Website Development & Auditing
+* **Start Vite dev server**:
+  ```bash
+  npm run dev
+  ```
+* **Production site build** (Site compilation + SEO meta prerendering):
+  ```bash
+  npm run build
+  ```
+* **Preview the production build**:
+  ```bash
+  npm run preview
+  ```
+* **Audit website SEO**:
+  ```bash
+  npm run seo:check
+  ```
+* **Lint codebase / Type-check**:
+  ```bash
+  npm run lint
+  ```
+
+---
+
+## 🎨 Contributing New Icons
+
+Reicon maintains strict design guidelines for consistency:
+
+1. **Format**: SVGs must be built on a **24x24 px** viewbox.
+2. **Stroke**: Stroke width and corner radiuses must match existing icons.
+3. **Colors**: Avoid hardcoded hex codes. Use `currentColor` so users can change icon colors dynamically.
+4. **Weights**: Provide both **Outline** and **Filled** weights where applicable.
+5. **Optimization**: Optimize SVGs (e.g. using `svgo`) to strip editor metadata and minimize path codes.
+
+### Step-by-Step Icon Integration:
+1. Open [`data/icon-data.json`](../data/icon-data.json).
+2. Insert your new icon inside the appropriate category using lowercase `kebab-case`:
+   ```json
+   "my-new-icon": {
+     "description": ["tags", "for", "search"],
+     "weights": {
+       "Outline": { "code": "<path ... />" },
+       "Filled": { "code": "<path ... />" }
+     }
+   }
+   ```
+3. Compile all packages:
+   ```bash
+   npm run build:packages
+   ```
+4. Run `npm run dev` to preview your changes on the local site.
+
+---
+
+## 💻 Submitting Code Changes
+
+1. **Create a branch**:
+   ```bash
+   git checkout -b feature/your-feature-name
+   # OR
+   git checkout -b fix/bug-description
+   ```
+2. **Make your changes** and verify type safety:
    ```bash
    npm run lint
    npm run build
    ```
-4. **Open a Pull Request** against `main` using the PR template. Link any
-   related issue (e.g. "Closes #123") and add before/after screenshots for
-   visual changes.
-
-We review PRs as soon as we can. Please be patient and responsive to feedback.
-
-## Commit conventions
-
-We use [Conventional Commits](https://www.conventionalcommits.org/). Examples:
-
-```
-feat: add split-screen icon
-fix: correct stroke width on bell icon
-docs: clarify Vue installation steps
-perf: memoize icon grid cards
-chore: update dependencies
-```
-
-## Icon contribution guidelines
-
-Reicon icons are handcrafted for visual consistency. All icons live in a single
-file — **`data/icon-data.json`** — and every package and the CDN bundle are
-generated from it. To contribute an icon:
-
-1. **Add it to `data/icon-data.json`** under the right category, with `Outline`
-   and `Filled` weights. See [`data/README.md`](../data/README.md) for the exact schema.
-2. **Rebuild the outputs** to verify it generates cleanly:
-   ```bash
-   npm run build:packages
+3. **Commit** using Conventional Commits:
+   ```text
+   feat: add my-new-icon
+   fix: adjust alignment of close icon
+   docs: improve installation instructions
    ```
-3. **Confirm it renders** on the dev site (`npm run dev`).
-
-Design requirements:
-
-- **Grid:** Design on a **24×24** grid.
-- **Stroke:** Match the existing stroke width and corner radius of the set.
-- **Weights:** Provide both **Outline** and **Filled** where it makes sense.
-- **Optical balance:** Center and size the icon to feel consistent next to its peers.
-- **Color:** Use `currentColor` (avoid hardcoded `fill="white"` — the build
-  normalizes it, but author it correctly).
-- **Optimize:** Clean the SVG (run it through SVGO) — minimal paths, no editor cruft.
-- **Naming:** Use lowercase `kebab-case` (e.g. `arrow-up-right`). It becomes the
-  `PascalCase` component name (`ArrowUpRight`).
-
-> Don't edit files in `packages/` or `cdn/` — they're regenerated from the dataset
-> and your changes there will be overwritten.
-
-Not sure about a detail? Open a draft PR or a discussion — we're happy to help refine it.
-
-## Questions
-
-- 💬 [GitHub Discussions](https://github.com/dqev/reicon/discussions) — ideas, questions, show & tell.
-- 📧 **hello@reicon.dev** — anything else.
-
-Thanks again for helping make Reicon better. 💜
+4. **Push and open a Pull Request** against the `main` branch.
