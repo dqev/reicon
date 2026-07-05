@@ -9,7 +9,7 @@
  * Usage: node scripts/prerender-meta.mjs  (run after vite build)
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, cpSync, readdirSync, unlinkSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { PostHog } from 'posthog-node';
@@ -444,12 +444,62 @@ function writePageHtml(baseHtml, pageDef) {
   writeFileSync(outFile, html, 'utf-8');
 }
 
-async function main() {
-  const baseHtml = readFileSync(resolve(DIST, 'index.html'), 'utf-8');
+function fixFaviconLinks(html) {
+  return html
+    .replace(/\/assets\/favicon-16x16-[A-Za-z0-9_-]+\.png/g, '/favicon/favicon-16x16.png')
+    .replace(/\/assets\/favicon-32x32-[A-Za-z0-9_-]+\.png/g, '/favicon/favicon-32x32.png')
+    .replace(/\/assets\/favicon-48x48-[A-Za-z0-9_-]+\.png/g, '/favicon/favicon-48x48.png')
+    .replace(/\/assets\/favicon-[A-Za-z0-9_-]+\.svg/g, '/favicon/favicon.svg')
+    .replace(/\/assets\/favicon-[A-Za-z0-9_-]+\.ico/g, '/favicon/favicon.ico')
+    .replace(/\/assets\/apple-touch-icon-[A-Za-z0-9_-]+\.png/g, '/favicon/apple-touch-icon.png')
+    .replace(/\/assets\/site-[A-Za-z0-9_-]+\.webmanifest/g, '/favicon/site.webmanifest');
+}
 
+async function main() {
   if (!existsSync(DIST)) {
     console.error('dist/ folder not found. Run "vite build" first.');
     process.exit(1);
+  }
+
+  // 1. Copy public/favicon to dist/favicon to make sure unhashed assets are present
+  const srcFavicon = resolve(__dirname, '../public/favicon');
+  const destFavicon = resolve(DIST, 'favicon');
+  try {
+    cpSync(srcFavicon, destFavicon, { recursive: true });
+    console.log('  ✓ Copied public/favicon/ to dist/favicon/ successfully');
+  } catch (e) {
+    console.error('  Failed to copy public/favicon to dist/favicon:', e);
+  }
+
+  // 2. Read dist/index.html, unhash the favicon links, and write it back
+  const indexHtmlPath = resolve(DIST, 'index.html');
+  let rawBaseHtml = readFileSync(indexHtmlPath, 'utf-8');
+  const baseHtml = fixFaviconLinks(rawBaseHtml);
+  writeFileSync(indexHtmlPath, baseHtml, 'utf-8');
+  console.log('  ✓ Unhashed favicon references in dist/index.html');
+
+  // 3. Clean up the redundant hashed favicon assets inside dist/assets/
+  const assetsDir = resolve(DIST, 'assets');
+  if (existsSync(assetsDir)) {
+    const files = readdirSync(assetsDir);
+    let removedCount = 0;
+    for (const file of files) {
+      if (
+        file.startsWith('favicon-') ||
+        file.startsWith('apple-touch-icon-') ||
+        (file.startsWith('site-') && file.endsWith('.webmanifest'))
+      ) {
+        try {
+          unlinkSync(resolve(assetsDir, file));
+          removedCount++;
+        } catch (e) {
+          // ignore
+        }
+      }
+    }
+    if (removedCount > 0) {
+      console.log(`  ✓ Removed ${removedCount} redundant hashed favicon assets from dist/assets/`);
+    }
   }
 
   console.log('Pre-rendering meta tags into static HTML...');
