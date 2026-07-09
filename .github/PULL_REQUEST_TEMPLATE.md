@@ -1,35 +1,47 @@
-<!-- Thanks for contributing to Reicon! 💜 Please fill out the sections below. -->
+<!-- Thanks for contributing to Reicon! 💜 Fill out the relevant sections below. -->
 
 ## Summary
 
-<!-- What does this PR do? Keep it focused on one logical change. -->
+<!-- One sentence: what does this PR do? -->
 
 ## Related issue
 
-<!-- e.g. Closes #123 -->
+<!-- Closes #123 — delete this line if not applicable -->
 
 ## Type of change
 
-- [ ] 🐛 Bug fix
 - [ ] 🎨 New icon(s)
 - [ ] ✏️ Icon fix (alignment / stroke / grid)
+- [ ] 🐛 Bug fix
 - [ ] ✨ Feature / enhancement
 - [ ] 📖 Documentation
 - [ ] 🔧 Chore / tooling
 
-## Screenshots
+---
 
-<!-- For any visual change, add before/after screenshots. -->
+## For icon contributions
 
-| Before | After |
-| ------ | ----- |
-|        |       |
+<!-- Fill this out if you checked "New icon(s)" or "Icon fix" above -->
+
+**Icon name(s):** <!-- e.g. wave-hand, split-screen -->
+
+**Did you add `"contributor": { "github": "your-username" }` to each new icon?**
+- [ ] Yes — my GitHub username is in `data/icon-data.json` next to each new icon
+- [ ] N/A — this is an icon fix, not a new icon
+
+**Screenshots**
+
+| Outline | Filled |
+| ------- | ------ |
+|         |        |
+
+---
 
 ## Checklist
 
-- [ ] My branch is up to date with `main`.
+- [ ] Branch is up to date with `main`.
+- [ ] `npm run sync:icons` was run after editing `data/icon-data.json`.
+- [ ] `npm run validate:icons` reports ✅ in sync.
 - [ ] `npm run lint` passes (no type errors).
-- [ ] `npm run build` succeeds.
-- [ ] I followed the [Contributing guide](./CONTRIBUTING.md).
-- [ ] For new icons: provided on a 24×24 grid, optimized SVG, kebab-case name, both weights where applicable.
-- [ ] I added/updated documentation where needed.
+- [ ] Icons are on a 24×24 grid, use `currentColor`, paths are SVGO-optimised.
+- [ ] **I did NOT run `npm run build:packages`** — package releases are handled by the maintainer.

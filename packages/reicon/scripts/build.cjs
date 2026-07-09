@@ -95,6 +95,8 @@ for (const [catKey, catData] of Object.entries(data.categories || {})) {
         category: catKey,
         weights,
         tags: TAGS[iconKey] || icon.description || [],
+        // contributor is optional — only set when the icon was community-contributed
+        contributor: icon.contributor || null,
       });
     }
   }
@@ -316,10 +318,11 @@ catList.forEach((c, idx) => { catIndexMap[c] = idx; });
 
 const cdnIconsMap = {};
 for (const icon of icons) {
-  cdnIconsMap[icon.kebab] = [
-    catIndexMap[icon.category],
-    icon.weights
-  ];
+  // Format: [categoryIndex, weights, contributorGithub?]
+  // contributorGithub is only included when set — keeps bundle size minimal.
+  const entry = [catIndexMap[icon.category], icon.weights];
+  if (icon.contributor?.github) entry.push(icon.contributor.github);
+  cdnIconsMap[icon.kebab] = entry;
 }
 
 const catsJSON = JSON.stringify(catList);
@@ -655,6 +658,11 @@ const runtimeJS = `/*!
         if (ICONS.hasOwnProperty(n)) m[n] = CATS[ICONS[n][0]];
       }
       return m;
+    },
+    contributorOf: function (name) {
+      var entry = ICONS[name];
+      // entry[2] is the contributor GitHub username (only present when set)
+      return (entry && entry[2]) ? entry[2] : null;
     },
   };
 

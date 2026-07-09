@@ -133,6 +133,7 @@ npm run build    # make sure it builds
 If you changed icons, also rebuild the packages:
 
 ```bash
+npm run sync:icons     # keep scripts/icon-names.json in sync
 npm run build:packages
 ```
 
