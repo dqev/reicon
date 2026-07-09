@@ -7,7 +7,7 @@
 <h1 align="center">Reicon</h1>
 
 <p align="center">
-  <strong>An open-source SVG icon library featuring 2,700+ icons with dedicated packages for React, Vue 3, Svelte, vanilla JavaScript, CDN runtime, Figma design workspace, and VS Code code editor.</strong>
+  <strong>An open-source SVG icon library featuring 2,700+ icons with dedicated packages for React, React Native, Vue 3, Svelte, vanilla JavaScript, CDN runtime, Figma design workspace, and VS Code code editor.</strong>
 </p>
 
 <p align="center">
@@ -20,6 +20,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/reicon"><img src="https://img.shields.io/npm/v/reicon?color=6C5CE7&label=reicon" alt="reicon version" /></a>
   <a href="https://www.npmjs.com/package/reicon-react"><img src="https://img.shields.io/npm/v/reicon-react?color=6C5CE7&label=reicon-react" alt="reicon-react version" /></a>
+  <a href="https://www.npmjs.com/package/reicon-react-native"><img src="https://img.shields.io/npm/v/reicon-react-native?color=6C5CE7&label=reicon-react-native" alt="reicon-react-native version" /></a>
   <a href="https://www.npmjs.com/package/reicon-vue"><img src="https://img.shields.io/npm/v/reicon-vue?color=6C5CE7&label=reicon-vue" alt="reicon-vue version" /></a>
   <a href="https://www.npmjs.com/package/reicon-svelte"><img src="https://img.shields.io/npm/v/reicon-svelte?color=6C5CE7&label=reicon-svelte" alt="reicon-svelte version" /></a>
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
@@ -44,6 +45,7 @@ All icons are maintained in two weights:
 | :---: | :--- | :--- | :--- | :--- |
 | <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JS logo" width="30"> | **`reicon`** | [![npm](https://img.shields.io/npm/v/reicon?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon) | ![npm downloads](https://img.shields.io/npm/dm/reicon?color=6C5CE7&label=) | [Guide](docs/javascript/usage.md) · [Source](./packages/reicon) |
 | <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React logo" width="30"> | **`reicon-react`** | [![npm](https://img.shields.io/npm/v/reicon-react?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-react) | ![npm downloads](https://img.shields.io/npm/dm/reicon-react?color=6C5CE7&label=) | [Guide](docs/react/usage.md) · [Source](./packages/reicon-react) |
+| <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React Native logo" width="30"> | **`reicon-react-native`** | [![npm](https://img.shields.io/npm/v/reicon-react-native?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-react-native) | ![npm downloads](https://img.shields.io/npm/dm/reicon-react-native?color=6C5CE7&label=) | [Guide](docs/react-native/usage.md) · [Source](./packages/reicon-react-native) |
 | <img src="https://cdn.simpleicons.org/vuedotjs/4FC08D" alt="Vue logo" width="30"> | **`reicon-vue`** | [![npm](https://img.shields.io/npm/v/reicon-vue?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-vue) | ![npm downloads](https://img.shields.io/npm/dm/reicon-vue?color=6C5CE7&label=) | [Guide](docs/vue/usage.md) · [Source](./packages/reicon-vue) |
 | <img src="https://cdn.simpleicons.org/svelte/FF3E00" alt="Svelte logo" width="30"> | **`reicon-svelte`** | [![npm](https://img.shields.io/npm/v/reicon-svelte?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-svelte) | ![npm downloads](https://img.shields.io/npm/dm/reicon-svelte?color=6C5CE7&label=) | [Guide](docs/svelte/usage.md) · [Source](./packages/reicon-svelte) |
 | <img src="./public/readme-assets/figma.svg" alt="Figma logo" width="28"> | **`reicon-figma`** | — | — | [Guide](docs/figma/usage.md) · [Source](./packages/reicon-figma) |
