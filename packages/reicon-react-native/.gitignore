@@ -1,0 +1,8 @@
+node_modules
+dist
+src/icons/*.js
+src/icons/*.d.ts
+src/index.js
+src/index.d.ts
+*.log
+.DS_Store
