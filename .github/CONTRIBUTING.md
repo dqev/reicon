@@ -6,143 +6,156 @@
 
 # Contributing to Reicon 💜
 
-Welcome! Thank you for helping to make Reicon better. This guide provides a direct, concise reference for setting up the project, understanding the codebase structure, using key scripts, and submitting contributions.
+Thank you for helping make Reicon better. This guide covers everything you need — from setting up locally to submitting a PR.
 
 ---
 
-## 🚀 Quick Start
+## How the project is structured
 
-1. **Fork and Clone** the repository:
+Reicon is a monorepo with two clearly separated concerns:
+
+| Layer | What it is | Who manages it |
+| :---- | :--------- | :------------- |
+| `data/icon-data.json` | Single source of truth — SVG paths, tags, contributors | **Everyone** (contributors + maintainer) |
+| `packages/*/dist/` | npm packages published to npm | **Maintainer only** |
+| Website (`src/`) | React/Vite docs site, deployed on every merge to `main` | **Everyone** |
+
+The website reads icons directly from the CDN bundle, which is rebuilt automatically on every deploy. **You never need to publish a package to make new icons appear on reicon.dev.**
+
+---
+
+## Quick start
+
+```bash
+git clone https://github.com/<your-username>/reicon.git
+cd reicon
+npm install
+npm run dev          # http://localhost:3000
+```
+
+---
+
+## � Repository map
+
+| Path | Description |
+| :--- | :---------- |
+| `data/icon-data.json` | **Edit here.** All icon SVGs, tags, and contributor credits. |
+| `data/README.md` | Full schema reference for `icon-data.json`. |
+| `scripts/` | Build utilities — sitemap, SEO prerender, icon name sync. |
+| `src/` | Documentation website (Vite + React). |
+| `public/` | Static assets, favicons, robots.txt. |
+| `docs/` | Framework usage guides. |
+| `packages/` | npm package source — **do not edit dist/ directly.** |
+
+---
+
+## 🎨 Contributing icons
+
+### Design guidelines
+
+All icons must follow these rules to be accepted:
+
+1. **Grid**: 24 × 24 px viewBox, paths snapped to grid.
+2. **Stroke**: Outline weight uses 1.5 px strokes with consistent corner radii.
+3. **Color**: No hardcoded hex values. Use `currentColor` everywhere so users can tint icons.
+4. **Weights**: Provide **both** Outline and Filled variants. If a Filled variant doesn't make sense, Outline alone is fine.
+5. **Optimisation**: Run through [SVGO](https://jakearchibald.github.io/svgomg/) before adding. Strip editor metadata, minimise path data.
+
+### Step by step
+
+1. **Fork and create a branch**:
    ```bash
-   git clone https://github.com/<your-username>/reicon.git
-   cd reicon
+   git checkout -b icon/my-new-icon
    ```
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-3. **Start the local development server**:
-   ```bash
-   npm run dev
-   ```
-   The site will be available at [http://localhost:3000](http://localhost:3000).
 
----
+2. **Add your icon to `data/icon-data.json`** inside the correct category, using `kebab-case`:
 
-## 📁 Repository Structure
-
-Reicon is organized as a monorepo. Here is a breakdown of what each folder contains:
-
-| Directory / File | Description |
-| :--- | :--- |
-| [`data/icon-data.json`](../data/icon-data.json) | **Single source of truth.** Every icon's raw SVG markup (Outline & Filled weights) and metadata live here. |
-| [`packages/`](../packages) | Framework packages rebuilt automatically from `data/icon-data.json`. |
-| ├─ [`reicon/`](../packages/reicon) | Vanilla JS & CDN core library. |
-| ├─ [`reicon-react/`](../packages/reicon-react) | React wrapper components. |
-| ├─ [`reicon-vue/`](../packages/reicon-vue) | Vue 3 wrapper components. |
-| ├─ [`reicon-svelte/`](../packages/reicon-svelte) | Svelte wrapper components. |
-| ├─ [`reicon-figma/`](../packages/reicon-figma) | Figma plugin build environment. |
-| └─ [`reicon-vscode/`](../packages/reicon-vscode) | VS Code Extension helper. |
-| [`scripts/`](../scripts) | Build and tooling utilities (Sitemap, SEO auditing, OG image generation). |
-| [`src/`](../src) | Reicon documentation website source (Vite + React). |
-| [`public/`](../public) | Website static assets, favicons, `robots.txt`, and `llms.txt`. |
-| [`docs/`](../docs) | Additional guides and design system references. |
-| [`cdn/`](../cdn) | Generated CDN bundles (git-ignored, compiled from JS build). |
-
-> [!WARNING]
-> Never manually edit files inside the `packages/` or `cdn/` output directories. They are automatically regenerated from `data/icon-data.json`.
-
----
-
-## 🛠️ Key Scripts & Usage
-
-Run these scripts from the repository root:
-
-### Package Generation & Builds
-* **Build all downstream packages and CDN assets**:
-  ```bash
-  npm run build:packages
-  ```
-* **Build individual packages**:
-  * React: `npm run build:react`
-  * Vue 3: `npm run build:vue`
-  * Svelte: `npm run build:svelte`
-  * Vanilla JS: `npm run build:js`
-  * CDN Web Component: `npm run build:cdn` (followed by `npm run build:cdn:min`)
-  * Figma Plugin: `npm run build:figma`
-  * VS Code Extension: `npm run build:vscode`
-
-### Website Development & Auditing
-* **Start Vite dev server**:
-  ```bash
-  npm run dev
-  ```
-* **Production site build** (Site compilation + SEO meta prerendering):
-  ```bash
-  npm run build
-  ```
-* **Preview the production build**:
-  ```bash
-  npm run preview
-  ```
-* **Audit website SEO**:
-  ```bash
-  npm run seo:check
-  ```
-* **Lint codebase / Type-check**:
-  ```bash
-  npm run lint
-  ```
-
----
-
-## 🎨 Contributing New Icons
-
-Reicon maintains strict design guidelines for consistency:
-
-1. **Format**: SVGs must be built on a **24x24 px** viewbox.
-2. **Stroke**: Stroke width and corner radiuses must match existing icons.
-3. **Colors**: Avoid hardcoded hex codes. Use `currentColor` so users can change icon colors dynamically.
-4. **Weights**: Provide both **Outline** and **Filled** weights where applicable.
-5. **Optimization**: Optimize SVGs (e.g. using `svgo`) to strip editor metadata and minimize path codes.
-
-### Step-by-Step Icon Integration:
-1. Open [`data/icon-data.json`](../data/icon-data.json).
-2. Insert your new icon inside the appropriate category using lowercase `kebab-case`:
-   ```json
+   ```jsonc
    "my-new-icon": {
-     "description": ["tags", "for", "search"],
+     "description": ["tag", "alias"],        // optional but helpful for search
+     "contributor": { "github": "your-username" },   // add your GitHub username
      "weights": {
-       "Outline": { "code": "<path ... />" },
-       "Filled": { "code": "<path ... />" }
+       "Outline": { "code": "<path .../>" },
+       "Filled":  { "code": "<path .../>" }   // omit if no filled variant
      }
    }
    ```
-3. Compile all packages:
+
+   > **Tip:** The `contributor.github` field is how you get credit on reicon.dev. When set, your GitHub avatar and a link to your profile appear on the icon's detail page automatically.
+
+3. **Sync the icon name registry**:
    ```bash
-   npm run build:packages
+   npm run sync:icons
    ```
-4. Run `npm run dev` to preview your changes on the local site.
+   This regenerates `scripts/icon-names.json` from your changes — required for the sitemap and SEO prerender to include your new icons.
+
+4. **Preview locally**:
+   ```bash
+   npm run dev
+   ```
+   Browse to `http://localhost:3000/icons` and search for your icon name.
+
+5. **Validate and type-check**:
+   ```bash
+   npm run validate:icons   # confirms icon-names.json is in sync
+   npm run lint             # TypeScript check
+   ```
+
+6. **Open a Pull Request** against `main`. That's it — you're done.
+
+> [!IMPORTANT]
+> **Do not run `npm run build:packages`.** npm packages are rebuilt and published by the maintainer as a separate release step. Your PR only needs to touch `data/icon-data.json` (and `scripts/icon-names.json` after running `sync:icons`).
 
 ---
 
-## 💻 Submitting Code Changes
+## 💻 Contributing code or docs
 
-1. **Create a branch**:
+For website changes (`src/`), documentation (`docs/`), or tooling (`scripts/`):
+
+1. Create a branch:
    ```bash
-   git checkout -b feature/your-feature-name
-   # OR
+   git checkout -b feat/your-feature
+   # or
    git checkout -b fix/bug-description
    ```
-2. **Make your changes** and verify type safety:
+
+2. Make your changes, then verify:
    ```bash
-   npm run lint
-   npm run build
+   npm run lint     # TypeScript type check
+   npm run build    # full production build
    ```
-3. **Commit** using Conventional Commits:
-   ```text
-   feat: add my-new-icon
-   fix: adjust alignment of close icon
-   docs: improve installation instructions
+
+3. Commit with [Conventional Commits](https://www.conventionalcommits.org/):
    ```
-4. **Push and open a Pull Request** against the `main` branch.
+   feat: add contributor credit to icon detail page
+   fix: sidebar active state invisible in light mode
+   docs: clarify Vue 3 installation steps
+   ```
+
+4. Push and open a PR against `main`.
+
+---
+
+## 🔒 What only maintainers do
+
+These steps are **not part of contributor PRs**. The maintainer handles them in a separate release:
+
+- `npm run build:packages` — rebuilds all npm package dist files
+- Publishing to npm (`npm publish`)
+- Cutting a GitHub release with a version tag
+
+When enough icons have accumulated (or on a regular cadence), the maintainer rebuilds and publishes all packages so the new icons become available via `npm install reicon-react` etc.
+
+---
+
+## Key scripts (for reference)
+
+| Command | What it does |
+| :------ | :----------- |
+| `npm run dev` | Start local dev server at :3000 |
+| `npm run sync:icons` | Regenerate `scripts/icon-names.json` from `data/icon-data.json` |
+| `npm run validate:icons` | Check that icon-names.json is in sync — exits 1 if not |
+| `npm run lint` | TypeScript type check |
+| `npm run build` | Full production build (sync → sitemap → vite → prerender) |
+| `npm run preview` | Preview the production build |
+| `npm run seo:check` | Audit SEO meta tags |
