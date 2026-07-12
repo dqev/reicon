@@ -23,6 +23,7 @@ This directory contains comprehensive guides, design system definitions, and int
 | ├─ `svg/` | Raw SVG usage in pure HTML or styling libraries. |
 | ├─ `figma/` | Figma component usage and template mapping. |
 | ├─ `vscode/` | VS Code extension guides for automatic completions and previews. |
+| ├─ `mcp/` | MCP Server setup, tools reference, and CLI usage for AI agents. |
 | └─ `shared/` | Cross-platform utilities, shared styling tokens, and notes. |
 
 ## ✍️ Updating Documentation

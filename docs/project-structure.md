@@ -17,11 +17,18 @@ reicon/
 │   ├── reicon-vue/              # reicon-vue    (Vue 3)
 │   │   ├── scripts/build.cjs    # Vue package builder
 │   │   └── dist/                # Package compilation output
-│   └── reicon/                  # reicon        (vanilla JS)
-│       ├── scripts/             # Vanilla JS + CDN builders
-│       │   ├── build.cjs        # Main package builder
-│       │   └── build-cdn.cjs    # CDN web component builder
+│   ├── reicon/                  # reicon        (vanilla JS)
+│   │   ├── scripts/             # Vanilla JS + CDN builders
+│   │   │   ├── build.cjs        # Main package builder
+│   │   │   └── build-cdn.cjs    # CDN web component builder
+│   │   └── dist/                # Package compilation output
+│   └── reicon-mcp/              # reicon-mcp    (MCP Server & CLI)
+│       ├── scripts/build.cjs    # Bundles offline search index + server
+│       ├── src/server/          # MCP stdio server and tool handlers
 │       └── dist/                # Package compilation output
+│
+├── docs/
+│   └── mcp/usage.md             # MCP Server guide for agents and CLI
 │
 ├── cdn/                         # Generated CDN bundles (git-ignored)
 │   ├── reicon.js / .min.js     # Main icon runtime (<re-icon>)
