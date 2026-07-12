@@ -8,16 +8,34 @@ import { handleViewIcon } from './tools/view-icon.js';
 
 const server = new McpServer({
   name: 'reicon-mcp',
-  version: '1.0.0',
+  version: '1.0.1',
 });
 
 server.tool(
   'search_icons',
-  'Search Reicon icons by keyword. Returns ranked matches for agent selection.',
+  [
+    'Search 2,700+ Reicon icons by keyword.',
+    'Returns ranked matches. Use short, specific terms — not full sentences.',
+    'Good queries: "cart", "user circle", "arrow down", "settings".',
+    'Bad queries: "please find me a heart icon" or "I need a shopping cart".',
+    'After getting results, pick the highest-scoring match and call apply_icon directly.',
+    'Only call view_icon first if you need to inspect the raw SVG before generating code.',
+  ].join(' '),
   {
-    query: z.string().describe('Concise search keywords, not full sentences'),
-    weight: z.enum(['Outline', 'Filled']).optional(),
-    limit: z.number().optional(),
+    query: z.string().describe(
+      'Concise keyword(s) — e.g. "cart", "bell", "user circle". Not full sentences.',
+    ),
+    weight: z
+      .enum(['Outline', 'Filled'])
+      .optional()
+      .describe('Filter by weight. Omit to search both.'),
+    limit: z
+      .number()
+      .int()
+      .min(1)
+      .max(20)
+      .optional()
+      .describe('Max results to return. Defaults to 8.'),
   },
   async (args) => {
     const result = handleSearchIcons(args);
@@ -29,10 +47,14 @@ server.tool(
 
 server.tool(
   'view_icon',
-  'View raw SVG markup and metadata for a Reicon icon.',
+  [
+    'Fetch raw SVG markup and metadata for a specific Reicon icon.',
+    'Use this to inspect the SVG before applying, or when you only need the raw markup.',
+    'For generating import/usage code, prefer apply_icon instead.',
+  ].join(' '),
   {
-    name: z.string().describe('Icon kebab-case name'),
-    weight: z.enum(['Outline', 'Filled']),
+    name: z.string().describe('Icon kebab-case name, e.g. "heart", "arrow-right", "user-circle"'),
+    weight: z.enum(['Outline', 'Filled']).describe('Which weight variant to fetch'),
   },
   async (args) => {
     const result = handleViewIcon(args);
@@ -44,14 +66,34 @@ server.tool(
 
 server.tool(
   'apply_icon',
-  'Generate copy-pasteable import and usage code for a Reicon icon.',
+  [
+    'Generate ready-to-paste import and usage code for a Reicon icon.',
+    'Returns importStatement and usageSnippet for the chosen framework.',
+    'Supported frameworks: react, react-native, vue, svelte, html (CDN custom element), svg (raw markup).',
+    'Insert importStatement at the top of the file and usageSnippet where the icon should appear.',
+    'Always call search_icons first to confirm the icon name and weight exist.',
+  ].join(' '),
   {
-    name: z.string(),
-    weight: z.enum(['Outline', 'Filled']),
-    framework: z.enum(['react', 'vue', 'svelte', 'html', 'svg']),
-    size: z.number().optional(),
-    color: z.string().optional(),
-    componentName: z.string().optional(),
+    name: z.string().describe('Icon kebab-case name, e.g. "heart"'),
+    weight: z.enum(['Outline', 'Filled']).describe('Icon weight variant'),
+    framework: z
+      .enum(['react', 'react-native', 'vue', 'svelte', 'html', 'svg'])
+      .describe('Target framework or output format'),
+    size: z
+      .number()
+      .int()
+      .min(8)
+      .max(256)
+      .optional()
+      .describe('Icon size in pixels. Defaults to 24.'),
+    color: z
+      .string()
+      .optional()
+      .describe('CSS color value, e.g. "#ef4444" or "currentColor". Defaults to currentColor.'),
+    componentName: z
+      .string()
+      .optional()
+      .describe('Override the component name. Defaults to the PascalCase icon name.'),
   },
   async (args) => {
     const result = handleApplyIcon(args);
@@ -63,7 +105,11 @@ server.tool(
 
 server.tool(
   'list_categories',
-  'List all icon categories in the Reicon dataset.',
+  [
+    'List all icon categories available in the Reicon dataset.',
+    'Use this to explore what types of icons exist before searching.',
+    'Each category can be used as a search keyword with search_icons.',
+  ].join(' '),
   {},
   async () => {
     const result = handleListCategories();

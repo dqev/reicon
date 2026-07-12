@@ -1,6 +1,6 @@
 export type IconWeight = 'Outline' | 'Filled';
 
-export type Framework = 'react' | 'vue' | 'svelte' | 'html' | 'svg';
+export type Framework = 'react' | 'react-native' | 'vue' | 'svelte' | 'html' | 'svg';
 
 export interface IconWeightData {
   code: string;

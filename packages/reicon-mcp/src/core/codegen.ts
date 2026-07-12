@@ -9,14 +9,14 @@ function weightProp(weight: IconWeight, framework: ApplyIconInput['framework']):
 function sizeProp(size: number, framework: ApplyIconInput['framework']): string {
   if (framework === 'vue') return ` :size="${size}"`;
   if (framework === 'html') return ` size="${size}"`;
-  if (framework === 'svelte' || framework === 'react') return ` size={${size}}`;
+  if (framework === 'svelte' || framework === 'react' || framework === 'react-native') return ` size={${size}}`;
   return ` width="${size}" height="${size}"`;
 }
 
 function colorProp(color: string, framework: ApplyIconInput['framework']): string {
   if (framework === 'vue') return ` color="${color}"`;
   if (framework === 'html') return ` color="${color}"`;
-  if (framework === 'svelte' || framework === 'react') {
+  if (framework === 'svelte' || framework === 'react' || framework === 'react-native') {
     const val = color === 'currentColor' ? 'currentColor' : `"${color}"`;
     return ` color={${val}}`;
   }
@@ -48,6 +48,16 @@ export function generateCode(
         sizeProp(size, 'react'),
         colorAttr('react'),
         weightProp(weight, 'react'),
+      ].join('');
+      const usageSnippet = `<${component}${props} />`;
+      return { importStatement, usageSnippet };
+    }
+    case 'react-native': {
+      const importStatement = `import { ${component} } from 'reicon-react-native';`;
+      const props = [
+        sizeProp(size, 'react-native'),
+        colorAttr('react-native'),
+        weightProp(weight, 'react-native'),
       ].join('');
       const usageSnippet = `<${component}${props} />`;
       return { importStatement, usageSnippet };

@@ -106,7 +106,7 @@ export async function run(argv: string[]) {
     case 'apply': {
       const name = positional[1];
       if (!name) {
-        console.error('Usage: reicon-mcp apply <name> --framework react|vue|svelte|html|svg');
+        console.error('Usage: reicon-mcp apply <name> --framework react|react-native|vue|svelte|html|svg [--weight Outline|Filled] [--size 24] [--color #hex] [--file path] [--marker "{/* ICON */}"]');
         process.exit(1);
       }
       const framework = (flags.framework as Framework) || 'react';

@@ -101,7 +101,7 @@ execSync('node ../../node_modules/typescript/bin/tsc -p tsconfig.json', { cwd: R
 
 const pkg = {
   name: 'reicon-mcp',
-  version: '1.0.0',
+  version: '1.0.1',
   type: 'module',
   description: 'MCP server and CLI for browsing and applying Reicon icons.',
   bin: {
