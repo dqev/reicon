@@ -15,7 +15,7 @@
 
 > 2680+ pixel-perfect SVG icons • Outline & Filled weights • React, Vue, Vanilla JS, Svelte, Astro • Zero dependencies • MIT Licensed
 
-**Reicon** is a free, open-source SVG icon library with 2680+ handcrafted, grid-aligned icons built for developers and designers. Every icon ships in two weights — Outline and Filled — and works natively in vanilla JS with no framework required. Official React, Vue, Svelte, and Angular packages are available separately.
+**Reicon** is a free, open-source SVG icon library with 2680+ handcrafted, grid-aligned icons built for developers and designers. Every icon ships in two weights — Outline and Filled — and works natively in vanilla JS with no framework required. Official React, Vue, and Svelte packages are available separately.
 
 - 🔗 **Website & icon browser:** [reicon.dev](https://reicon.dev)
 - 📦 **React package:** [reicon-react](https://npmjs.com/package/reicon-react)

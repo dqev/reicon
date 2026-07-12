@@ -23,6 +23,7 @@
   <a href="https://www.npmjs.com/package/reicon-react-native"><img src="https://img.shields.io/npm/v/reicon-react-native?color=6C5CE7&label=reicon-react-native" alt="reicon-react-native version" /></a>
   <a href="https://www.npmjs.com/package/reicon-vue"><img src="https://img.shields.io/npm/v/reicon-vue?color=6C5CE7&label=reicon-vue" alt="reicon-vue version" /></a>
   <a href="https://www.npmjs.com/package/reicon-svelte"><img src="https://img.shields.io/npm/v/reicon-svelte?color=6C5CE7&label=reicon-svelte" alt="reicon-svelte version" /></a>
+  <a href="https://www.npmjs.com/package/reicon-mcp"><img src="https://img.shields.io/npm/v/reicon-mcp?color=6C5CE7&label=reicon-mcp" alt="reicon-mcp version" /></a>
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
   <img src="https://img.shields.io/badge/icons-2700%2B-blue" alt="2700+ Icons" />
 </p>
@@ -50,7 +51,7 @@ All icons are maintained in two weights:
 | <img src="https://cdn.simpleicons.org/svelte/FF3E00" alt="Svelte logo" width="30"> | **`reicon-svelte`** | [![npm](https://img.shields.io/npm/v/reicon-svelte?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-svelte) | ![npm downloads](https://img.shields.io/npm/dm/reicon-svelte?color=6C5CE7&label=) | [Guide](docs/svelte/usage.md) · [Source](./packages/reicon-svelte) |
 | <img src="./public/readme-assets/figma.svg" alt="Figma logo" width="28"> | **`reicon-figma`** | — | — | [Guide](docs/figma/usage.md) · [Source](./packages/reicon-figma) |
 | <img src="./public/readme-assets/vscode.svg" alt="VS Code logo" width="30"> | **`reicon-vscode`** | [![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/DevChauhan.reicon?color=6C5CE7&label=)](https://marketplace.visualstudio.com/items?itemName=DevChauhan.reicon) | — | [Guide](docs/vscode/usage.md) · [Source](./packages/reicon-vscode) |
-| <img src="./public/readme-assets/mcp.svg" alt="MCP logo" width="30"> | **`reicon-mcp`** | — | — | [Guide](docs/mcp/usage.md) · [Source](./packages/reicon-mcp) |
+| <img src="./public/readme-assets/mcp.svg" alt="MCP logo" width="30"> | **`reicon-mcp`** | [![npm](https://img.shields.io/npm/v/reicon-mcp?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-mcp) | ![npm downloads](https://img.shields.io/npm/dm/reicon-mcp?color=6C5CE7&label=) | [Guide](docs/mcp/usage.md) · [Source](./packages/reicon-mcp) |
 | <img src="./public/readme-assets/svg.svg" alt="SVG logo" width="30"> | **`reicon-svg`** | — | — | [Guide](docs/svg/usage.md) · [Download](./public/reicon-icons.zip) |
 
 
