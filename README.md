@@ -50,6 +50,7 @@ All icons are maintained in two weights:
 | <img src="https://cdn.simpleicons.org/svelte/FF3E00" alt="Svelte logo" width="30"> | **`reicon-svelte`** | [![npm](https://img.shields.io/npm/v/reicon-svelte?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-svelte) | ![npm downloads](https://img.shields.io/npm/dm/reicon-svelte?color=6C5CE7&label=) | [Guide](docs/svelte/usage.md) · [Source](./packages/reicon-svelte) |
 | <img src="./public/readme-assets/figma.svg" alt="Figma logo" width="28"> | **`reicon-figma`** | — | — | [Guide](docs/figma/usage.md) · [Source](./packages/reicon-figma) |
 | <img src="./public/readme-assets/vscode.svg" alt="VS Code logo" width="30"> | **`reicon-vscode`** | [![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/DevChauhan.reicon?color=6C5CE7&label=)](https://marketplace.visualstudio.com/items?itemName=DevChauhan.reicon) | — | [Guide](docs/vscode/usage.md) · [Source](./packages/reicon-vscode) |
+| <img src="https://cdn.simpleicons.org/modelcontextprotocol/6C5CE7" alt="MCP logo" width="30"> | **`reicon-mcp`** | — | — | [Guide](docs/mcp/usage.md) · [Source](./packages/reicon-mcp) |
 | <img src="./public/readme-assets/svg.svg" alt="SVG logo" width="30"> | **`reicon-svg`** | — | — | [Guide](docs/svg/usage.md) · [Download](./public/reicon-icons.zip) |
 
 

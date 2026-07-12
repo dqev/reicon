@@ -22,7 +22,8 @@
     "build:figma": "node packages/reicon-figma/scripts/build.cjs",
     "build:svelte": "node packages/reicon-svelte/scripts/build.cjs",
     "build:vscode": "node packages/reicon-vscode/scripts/build.cjs",
-    "build:packages": "node scripts/sync-icon-names.mjs && npm run build:react && npm run build:react-native && npm run build:vue && npm run build:js && npm run build:cdn:min && npm run build:figma && npm run build:svelte && npm run build:vscode",
+    "build:mcp": "node packages/reicon-mcp/scripts/build.cjs",
+    "build:packages": "node scripts/sync-icon-names.mjs && npm run build:react && npm run build:react-native && npm run build:vue && npm run build:js && npm run build:cdn:min && npm run build:figma && npm run build:svelte && npm run build:vscode && npm run build:mcp",
     "preview": "vite preview",
     "clean": "rm -rf dist packages/*/dist",
     "lint": "tsc --noEmit"
@@ -44,6 +45,7 @@
     "vite": "^6.2.3"
   },
   "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
     "@types/node": "^22.14.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
@@ -52,6 +54,7 @@
     "tailwindcss": "^4.1.14",
     "typescript": "~5.8.2",
     "vite": "^6.2.3",
-    "vue": "^3.5.39"
+    "vue": "^3.5.39",
+    "zod": "^3.24.0"
   }
 }

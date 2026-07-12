@@ -91,6 +91,13 @@ export const ROUTES = [
     changefreq: 'monthly',
   },
   {
+    path: '/usage/mcp',
+    title: 'MCP Server Guide — Reicon | Agent Icon Search and Codegen',
+    description: 'Use the reicon-mcp server to let AI agents search, preview, and apply Reicon icons via MCP or CLI.',
+    priority: '0.8',
+    changefreq: 'monthly',
+  },
+  {
     path: '/usage/svg',
     title: 'Raw SVG Assets Guide — Reicon | Embed & Style SVG Files',
     description: 'Download and use raw Reicon SVG icons in HTML, static layouts, or CMS templates. Customize with CSS currentColor.',
@@ -221,5 +228,5 @@ export const GLOBAL_JSON_LD = [
 export const VOLATILE_ROUTES = new Set([
   '/', '/icons', '/usage', '/usage/react', '/usage/react-native',
   '/usage/vue', '/usage/svelte', '/usage/vanilla', '/usage/figma',
-  '/usage/vscode', '/usage/svg', '/packages', '/pack',
+  '/usage/vscode', '/usage/mcp', '/usage/svg', '/packages', '/pack',
 ]);
