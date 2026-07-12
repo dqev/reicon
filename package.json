@@ -26,6 +26,8 @@
     "build:packages": "node scripts/sync-icon-names.mjs && npm run build:react && npm run build:react-native && npm run build:vue && npm run build:js && npm run build:cdn:min && npm run build:figma && npm run build:svelte && npm run build:vscode && npm run build:mcp",
     "preview": "vite preview",
     "clean": "rm -rf dist packages/*/dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "lint": "tsc --noEmit"
   },
   "dependencies": {
@@ -41,19 +43,22 @@
     "react-helmet-async": "^3.0.0",
     "react-icons": "^5.6.0",
     "react-router-dom": "^7.6.0",
-    "reicon-react": "^1.0.4",
-    "vite": "^6.2.3"
+    "reicon-react": "^1.0.4"
   },
   "devDependencies": {
     "@modelcontextprotocol/sdk": "^1.12.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/node": "^22.14.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.21",
+    "jsdom": "^29.1.1",
     "posthog-node": "^5.34.6",
     "tailwindcss": "^4.1.14",
     "typescript": "~5.8.2",
     "vite": "^6.2.3",
+    "vitest": "^4.1.10",
     "vue": "^3.5.39",
     "zod": "^3.24.0"
   }

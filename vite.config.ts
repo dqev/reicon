@@ -12,8 +12,9 @@ export default defineConfig(() => {
       },
     },
     server: {
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modify—file watching is disabled to prevent flickering during agent edits.
+      // DISABLE_HMR: set to 'true' when running in AI Studio / headless environments
+      // where file-watching triggers unnecessary re-renders. Leave unset (or 'false')
+      // during local dev so hot reload works normally.
       hmr: process.env.DISABLE_HMR !== 'true',
     },
   };
