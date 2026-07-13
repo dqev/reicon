@@ -132,7 +132,6 @@
       ]
     }
   ],
-  "cleanUrls": true,
   "rewrites": [
     {
       "source": "/((?!assets|svg|favicon|sitemap|robots|humans|llms|site\\.webmanifest).*)",
