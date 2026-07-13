@@ -1,6 +1,6 @@
 {
   "name": "reicon-react",
-  "version": "1.1.1",
+  "version": "1.1.3",
   "type": "module",
   "description": "React icon components for Reicon.",
   "scripts": {
