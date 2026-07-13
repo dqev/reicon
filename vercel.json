@@ -135,10 +135,6 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/icon/:name",
-      "destination": "/icon/:name/index.html"
-    },
-    {
       "source": "/((?!assets|svg|favicon|sitemap|robots|humans|llms|site\\.webmanifest).*)",
       "destination": "/index.html"
     }
