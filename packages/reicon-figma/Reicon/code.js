@@ -25,7 +25,11 @@ figma.ui.onmessage = (msg) => {
                 child.x = child.x * scaleFactor;
                 child.y = child.y * scaleFactor;
                 if ('resize' in child) {
-                    child.resize(child.width * scaleFactor, child.height * scaleFactor);
+                    const newWidth = child.width * scaleFactor;
+                    const newHeight = child.height * scaleFactor;
+                    if (newWidth > 0 && newHeight > 0) {
+                        child.resize(newWidth, newHeight);
+                    }
                 }
             }
             // 3. Position the node (in selection if a frame is selected, otherwise viewport center)

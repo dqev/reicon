@@ -30,7 +30,11 @@ figma.ui.onmessage = (msg) => {
         child.x = child.x * scaleFactor;
         child.y = child.y * scaleFactor;
         if ('resize' in child) {
-          (child as unknown as { resize(width: number, height: number): void }).resize(child.width * scaleFactor, child.height * scaleFactor);
+          const newWidth = child.width * scaleFactor;
+          const newHeight = child.height * scaleFactor;
+          if (newWidth > 0 && newHeight > 0) {
+            (child as unknown as { resize(width: number, height: number): void }).resize(newWidth, newHeight);
+          }
         }
       }
 
