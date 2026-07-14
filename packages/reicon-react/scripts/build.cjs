@@ -122,7 +122,8 @@ for (const icon of icons) {
   const kebab = icon.kebab;
 
   // ── icon .js file with JSDoc ──
-  const iconJS = `import createIcon from '../createIcon.js';
+  const iconJS = `'use client';
+import createIcon from '../createIcon.js';
 
 /**
  * @component
