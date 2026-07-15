@@ -49,8 +49,8 @@ export function generateCode(
         colorAttr('react'),
         weightProp(weight, 'react'),
       ].join('');
-      const usageSnippet = `<${component}${props} />`;
-      return { importStatement, usageSnippet };
+      const docsSnippet = `<${component}${props} />`;
+      return { importStatement, docsSnippet };
     }
     case 'react-native': {
       const importStatement = `import { ${component} } from 'reicon-react-native';`;
@@ -59,8 +59,8 @@ export function generateCode(
         colorAttr('react-native'),
         weightProp(weight, 'react-native'),
       ].join('');
-      const usageSnippet = `<${component}${props} />`;
-      return { importStatement, usageSnippet };
+      const docsSnippet = `<${component}${props} />`;
+      return { importStatement, docsSnippet };
     }
     case 'vue': {
       const importStatement = `import { ${component} } from 'reicon-vue';`;
@@ -69,8 +69,8 @@ export function generateCode(
         colorAttr('vue'),
         weightProp(weight, 'vue'),
       ].join('');
-      const usageSnippet = `<${component}${props} />`;
-      return { importStatement, usageSnippet };
+      const docsSnippet = `<${component}${props} />`;
+      return { importStatement, docsSnippet };
     }
     case 'svelte': {
       const importStatement = `import { ${component} } from 'reicon-svelte';`;
@@ -79,8 +79,8 @@ export function generateCode(
         colorAttr('svelte'),
         weightProp(weight, 'svelte'),
       ].join('');
-      const usageSnippet = `<${component}${props} />`;
-      return { importStatement, usageSnippet };
+      const docsSnippet = `<${component}${props} />`;
+      return { importStatement, docsSnippet };
     }
     case 'html': {
       const importStatement = '<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>';
@@ -90,13 +90,13 @@ export function generateCode(
         colorAttr('html'),
         weightProp(weight, 'html'),
       ].join('');
-      const usageSnippet = `<re-icon${props}></re-icon>`;
-      return { importStatement, usageSnippet };
+      const docsSnippet = `<re-icon${props}></re-icon>`;
+      return { importStatement, docsSnippet };
     }
     case 'svg': {
       const importStatement = '';
-      const usageSnippet = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="${weightData.viewBox}" fill="none">${weightData.code}</svg>`;
-      return { importStatement, usageSnippet };
+      const docsSnippet = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="${weightData.viewBox}" fill="none">${weightData.code}</svg>`;
+      return { importStatement, docsSnippet };
     }
     default:
       return { error: `Unknown framework: ${input.framework}` };

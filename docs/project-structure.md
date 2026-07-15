@@ -28,7 +28,7 @@ reicon/
 │       └── dist/                # Package compilation output
 │
 ├── docs/
-│   └── mcp/usage.md             # MCP Server guide for agents and CLI
+│   └── mcp/index.md             # MCP Server guide for agents and CLI
 │
 ├── cdn/                         # Generated CDN bundles (git-ignored)
 │   ├── reicon.js / .min.js     # Main icon runtime (<re-icon>)
@@ -52,47 +52,120 @@ reicon/
 │
 ├── src/
 │   ├── components/             # Reusable components
-│   │   ├── Background.tsx      # Animated WebGL background
-│   │   ├── ClayButton.tsx      # Custom button component
-│   │   ├── CookieConsent.tsx   # Cookie consent banner
-│   │   ├── Footer.tsx          # Site footer
-│   │   ├── Header.tsx          # Site header/navigation
-│   │   ├── IconCard.tsx        # Icon display card (+ skeleton)
-│   │   ├── Sidebar.tsx         # Icons page sidebar
-│   │   ├── SmoothScroll.tsx    # Lenis scroll wrapper
-│   │   └── usage/              # Usage guide components
+│   │   ├── layout/            # Page chrome & shared structure
+│   │   │   ├── Header.tsx     # Site header/navigation (with header/ subdir)
+│   │   │   ├── Footer.tsx     # Site footer
+│   │   │   ├── Sidebar.tsx    # Icons page sidebar (with sidebar/ subdir)
+│   │   │   ├── Background.tsx # Animated WebGL background (with background/ subdir)
+│   │   │   ├── CookieConsent.tsx (with cookie-consent/ subdir)
+│   │   │   ├── SmoothScroll.tsx # Lenis scroll wrapper
+│   │   │   └── ThemeContext.tsx  # Light/dark theme provider
+│   │   ├── ui/               # Generic reusable atoms
+│   │   │   ├── Button.tsx    # Custom button (was ClayButton)
+│   │   │   ├── Card.tsx      # Feature card (was FeatureCard)
+│   │   │   ├── ErrorBoundary.tsx # React error boundary
+│   │   │   ├── Highlight.tsx
+│   │   │   ├── IconCard.tsx  # Icon display card (+ skeleton)
+│   │   │   ├── IconTooltip.tsx (with icon-tooltip/ subdir)
+│   │   │   ├── LoadingScreen.tsx
+│   │   │   └── ReIcon.tsx
+│   │   └── docs/             # Documentation guide components
+│   │       ├── ActionsBar.tsx
 │   │       ├── CodeBlock.tsx
+│   │       ├── EditOnGitHub.tsx
 │   │       ├── InstallTabs.tsx
+│   │       ├── SectionHeader.tsx
 │   │       ├── SyntaxBlock.tsx
-│   │       └── TypeTable.tsx
+│   │       ├── TypeTable.tsx
+│   │       ├── framework/    # Framework selector & constants
+│   │       │   ├── constants.tsx
+│   │       │   ├── helpers.ts
+│   │       │   ├── icons.tsx
+│   │       │   └── selector.tsx
+│   │       └── sidebar/     # Docs sidebar components
+│   │           ├── Left.tsx
+│   │           ├── Mobile.tsx
+│   │           ├── Right.tsx
+│   │           └── styles.ts
 │   │
-│   ├── pages/                  # Route pages
-│   │   ├── Landing.tsx         # Homepage
-│   │   ├── Icons.tsx           # Icon browser
-│   │   ├── IconDetail.tsx      # Individual icon page
-│   │   ├── Usage.tsx           # Usage documentation
-│   │   ├── Packages.tsx        # Package information
-│   │   ├── Faq.tsx             # FAQ
-│   │   ├── Terms.tsx / Privacy.tsx / LicensePage.tsx
-│   │   └── NotFound.tsx        # 404 page
+│   ├── pages/                 # Route pages (one subdir per route)
+│   │   ├── home/             # Homepage (was landing/)
+│   │   │   ├── Home.tsx     # Root page component
+│   │   │   ├── Hero.tsx, Features.tsx, CTA.tsx
+│   │   │   ├── Integrations.tsx, IconShowcase.tsx
+│   │   │   ├── LaunchBanner.tsx, BrandsOverlay.tsx
+│   │   │   ├── Playground.tsx + playground/ (code/preview/controls)
+│   │   │   └── icons.tsx
+│   │   ├── icons/           # Icon browser
+│   │   │   ├── IconsPage.tsx
+│   │   │   ├── IconSearchBar.tsx, IconGrid.tsx
+│   │   │   ├── IconCount.tsx, IconsHelmet.tsx
+│   │   ├── icon/            # Individual icon page (was icon-detail/)
+│   │   │   ├── IconDetail.tsx (composes all below)
+│   │   │   ├── IconPreview.tsx, IconActions.tsx
+│   │   │   ├── CodeTabs.tsx, Snippets.tsx
+│   │   │   ├── Mockups.tsx, RelatedIcons.tsx
+│   │   │   ├── SeoHelmet.tsx, useIconDetail.tsx
+│   │   │   └── utils.ts
+│   │   ├── docs/            # Documentation
+│   │   │   ├── DocsPage.tsx, DocsContent.tsx
+│   │   │   ├── DocsHelmet.tsx, useDocs.ts
+│   │   │   ├── frameworks/ # Per-framework docs
+│   │   │   │   ├── CdnDocs.tsx + cdn/
+│   │   │   │   ├── ReactDocs.tsx + react/
+│   │   │   │   ├── ReactNativeDocs.tsx + react-native/
+│   │   │   │   ├── VueDocs.tsx + vue/
+│   │   │   │   └── SvelteDocs.tsx + svelte/
+│   │   │   ├── guides/     # Long-form tutorial docs
+│   │   │   │   ├── McpDocs.tsx + mcp/
+│   │   │   │   ├── Troubleshooting.tsx + troubleshooting/
+│   │   │   │   ├── SvgDocs.tsx + svg-docs/
+│   │   │   │   ├── Accessibility.tsx + accessibility/
+│   │   │   │   └── FigmaDocs, VscodeDocs, Styling, Performance
+│   │   │   └── reference/  # Quick-reference shared sections
+│   │   │       ├── PropsTable.tsx
+│   │   │       ├── Weights.tsx
+│   │   │       └── TypeScriptSection.tsx
+│   │   ├── faq/            # FAQ
+│   │   │   ├── FaqPage.tsx
+│   │   │   ├── FaqHelmet.tsx, FaqCategory.tsx, FaqItem.tsx
+│   │   ├── packages/       # Package information
+│   │   │   ├── PackagesPage.tsx
+│   │   │   ├── PackageCard.tsx, SvgCard.tsx, ToolCard.tsx, data.tsx
+│   │   ├── terms/          # Terms of service
+│   │   ├── privacy/        # Privacy policy
+│   │   ├── license/        # License page
+│   │   ├── pack/           # Icon pack builder
+│   │   └── not-found/      # 404 page
 │   │
-│   ├── App.tsx                 # Routes (lazy-loaded)
-│   ├── main.tsx                # App entry point
-│   └── index.css               # Global styles (Tailwind v4)
+│   ├── lib/                 # Shared utilities
+│   │   ├── icon-data.ts    # Lazy JSON loader for icon metadata
+│   │   └── reicon-loader.ts # Shared Reicon web component readiness promise
+│   ├── data/
+│   │   └── search-index.json, search-data.ts, new-icons-added.json
+│   ├── hooks/
+│   │   └── useIconSearch.ts
+│   ├── types/
+│   │   └── reicon.d.ts
+│   ├── test/
+│   │   ├── setup.ts
+│   │   └── smoke.test.tsx
+│   ├── App.tsx             # Routes + layout (Header/Footer, error boundary)
+│   └── main.tsx            # App entry point
 │
-├── .github/                     # Community files, issue/PR templates
+├── .github/                 # Community files, issue/PR templates
 │   ├── CONTRIBUTING.md  CODE_OF_CONDUCT.md  SECURITY.md  SUPPORT.md
 │   ├── CODEOWNERS  FUNDING.yml  dependabot.yml
 │   └── ISSUE_TEMPLATE/ · PULL_REQUEST_TEMPLATE.md
 │
-├── CHANGELOG.md                 # Release history
-├── LICENSE                      # MIT
-├── index.html                   # Vite HTML entry point
-├── package.json                 # Dependencies & scripts
-├── tsconfig.json                # TypeScript config
-├── vite.config.ts               # Vite configuration
-├── vercel.json                  # Vercel deploy config
-└── README.md                    # Main repository README
+├── CHANGELOG.md             # Release history
+├── LICENSE                  # MIT
+├── index.html               # Vite HTML entry point
+├── package.json             # Dependencies & scripts
+├── tsconfig.json            # TypeScript config
+├── vite.config.ts           # Vite configuration
+├── vercel.json              # Vercel deploy config
+└── README.md                # Main repository README
 ```
 
 > **Note:** `packages/` and `cdn/` are generated from `data/icon-data.json`.

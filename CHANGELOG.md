@@ -13,17 +13,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **`reicon-react-native`** — new official React Native package using `react-native-svg` (`SvgXml`) for rendering. Supports all 2,680 icons in Outline and Filled weights, tree-shakeable, TypeScript-ready, works with Expo and bare React Native projects. Closes [#41](https://github.com/dqev/reicon/issues/41).
 - React Native integration card on the landing page integrations section.
 - React Native tab in the icon detail page code snippet picker.
-- `/usage/react-native` documentation page with installation guide, Navigation tab example, and Pressable examples.
+- `/docs/react-native` documentation page with installation guide, Navigation tab example, and Pressable examples.
 - React Native entry on the Packages page with npm badges and direct install instructions.
 - Launch banner updated to announce the React Native package.
 
 ### Changed
 - **Website refactored** — all major pages split into focused sub-components:
   - `Landing.tsx` → `landing/Hero`, `Features`, `Integrations`, `Playground`, `CTA`, `IconShowcase`, `LaunchBanner`
-  - `Usage.tsx` → `usage/sidebar/Left`, `Right`, `Mobile`, `ActionsBar`, `framework/constants`, `helpers`, `icons`, `selector`
+  - `Docs.tsx` → `docs/sidebar/Left`, `Right`, `Mobile`, `ActionsBar`, `framework/constants`, `helpers`, `icons`, `selector`
   - `Packages.tsx` → `packages/PackageCard`, `ToolCard`, `SvgCard`, `data`
-- Inline CSS moved from `Usage.tsx` and `Faq.tsx` into `sidebar/styles.ts` shared module.
-- `Faq.tsx` now uses shared `UsageRightSidebar` and `usageSidebarStyles` components.
+- Inline CSS moved from `Docs.tsx` and `Faq.tsx` into `sidebar/styles.ts` shared module.
+- `Faq.tsx` now uses shared `DocsRightSidebar` and `docsSidebarStyles` components.
 - SEO scripts reorganized into `scripts/seo/` folder:
   - `config.mjs` — single source of truth for all page titles, descriptions, and JSON-LD
   - `meta.mjs` — shared `buildMeta()`, `injectMeta()`, `fixFavicons()` utilities
@@ -33,14 +33,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `prerender-meta.mjs` rewritten from scratch — imports from `seo/config.mjs`, cleaner icon page SSR body.
 - `generate-sitemap.mjs` rewritten — imports routes from `seo/config.mjs`, no duplicate constants.
 - `index.html` cleaned — all inline comments removed, organized grouping, React Native added to all descriptions and JSON-LD.
-- Framework icons (Vue, Svelte, Figma, SVG) extracted to `components/usage/framework/icons.tsx` to eliminate duplication.
+- Framework icons (Vue, Svelte, Figma, SVG) extracted to `components/docs/framework/icons.tsx` to eliminate duplication.
 - `FrameworkConstants` and `frameworkHelpers` extracted so `FRAMEWORKS`, `NAV_ITEMS`, `getFrameworkLabel()`, `isStandaloneFramework()` are shared.
 
 ### Fixed
 - Integrations section on the landing page now uses a uniform 3×2 grid (3 columns, 2 rows) with consistent card heights.
 - React Native icon in the framework selector and code tabs now correctly uses `FaReact` (same as React).
 - FAQ tree-shaking answer updated to include `reicon-react-native` and Metro bundler.
-- Sitemap and prerender pipeline now include `/usage/react-native`.
+- Sitemap and prerender pipeline now include `/docs/react-native`.
 
 ## [1.0.0] — 2026-06-22
 
@@ -55,7 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Searchable icon browser with category, weight, and size filters.
   - Live playground to customize color, size, and weight.
   - Per-icon detail pages with copy-ready React, Vue, and HTML snippets.
-  - Full usage documentation for React, Vue, and the CDN.
+  - Full docs documentation for React, Vue, and the CDN.
 
 [Unreleased]: https://github.com/dqev/reicon/compare/v1.1.0...HEAD
 [1.1.0]: https://github.com/dqev/reicon/compare/v1.0.0...v1.1.0

@@ -1,4 +1,4 @@
-# Usage of Reicon Vue
+# Using Reicon with Vue
 
 The official Vue 3 package for Reicon. Import beautifully crafted icons as Vue components with full TypeScript support. All icons are tree-shakeable, ensuring only the icons you actually use end up in your bundle.
 

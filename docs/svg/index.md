@@ -1,4 +1,4 @@
-# Usage of Reicon Raw SVGs & Assets
+# Reicon Raw SVGs & Assets Guide
 
 Download and integrate raw SVG vector files directly into vanilla HTML layouts, static sites, or design platforms. We provide pre-compiled, optimized icon sheets in both Outline and Filled weights.
 

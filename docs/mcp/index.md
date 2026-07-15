@@ -1,11 +1,11 @@
-# Usage of Reicon MCP Server
+# Reicon MCP Server Guide
 
 The `reicon-mcp` package exposes Reicon icons to AI agents and automation tools through the Model Context Protocol. Agents can search the icon library, inspect SVG markup, and generate copy-pasteable code snippets for React, Vue, Svelte, HTML, or raw SVG without human intervention.
 
 ## What you can accomplish
 - Search 2,700+ icons by keyword with ranked results
 - Preview raw SVG markup before applying an icon
-- Generate framework-specific import and usage snippets
+- Generate framework-specific import and docs snippets
 - Browse icons by category
 - Run the same logic from a CLI for scripts and CI
 
@@ -81,7 +81,7 @@ apply_icon({
 })
 ```
 
-The tool returns `{ importStatement, usageSnippet }`. The agent uses its own file edit tools to insert the code.
+The tool returns `{ importStatement, docsSnippet }`. The agent uses its own file edit tools to insert the code.
 
 ---
 
@@ -116,7 +116,7 @@ Input:
 
 Defaults: `size` 24, `color` currentColor, `componentName` is PascalCase of the icon name.
 
-Returns `{ importStatement, usageSnippet }` matching the syntax in the React, Vue, Svelte, and CDN usage guides.
+Returns `{ importStatement, docsSnippet }` matching the syntax in the React, Vue, Svelte, and CDN usage guides.
 
 ### list_categories
 
@@ -143,7 +143,7 @@ For CI or scripts without an agent supervising edits:
 npx reicon-mcp apply heart --framework react --file src/App.tsx --marker "{/* ICON */}"
 ```
 
-This replaces the exact marker with the usage snippet and inserts the import at the top if missing. Exits non-zero if the marker is not found.
+This replaces the exact marker with the docs snippet and inserts the import at the top if missing. Exits non-zero if the marker is not found.
 
 ---
 

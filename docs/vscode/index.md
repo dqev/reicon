@@ -1,4 +1,4 @@
-# Usage of Reicon VS Code Extension
+# Reicon VS Code Extension Guide
 
 Browse, configure, and insert Reicon code snippets directly into your HTML, React, Vue, Svelte, or vanilla JS code from your editor's sidebar panel.
 

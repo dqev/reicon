@@ -1,4 +1,4 @@
-# Usage of Reicon Figma Plugin
+# Reicon Figma Plugin Guide
 
 Integrate Reicon directly into your design system workspace using the official Figma plugin. Search, customize stroke weights, and drag-and-drop vector icons directly onto your active canvases.
 

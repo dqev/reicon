@@ -13,7 +13,7 @@
 <p align="center">
   <a href="https://reicon.dev">Website</a> ·
   <a href="https://reicon.dev/icons">Browse Icons</a> ·
-  <a href="https://reicon.dev/usage">Usage Guide</a> ·
+  <a href="https://reicon.dev/docs">Docs Guide</a> ·
   <a href="https://www.npmjs.com/package/reicon">npm</a>
 </p>
 
@@ -44,15 +44,15 @@ All icons are maintained in two weights:
 
 | Logo | Package | Version | Downloads | Links |
 | :---: | :--- | :--- | :--- | :--- |
-| <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JS logo" width="30"> | **`reicon`** | [![npm](https://img.shields.io/npm/v/reicon?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon) | ![npm downloads](https://img.shields.io/npm/dm/reicon?color=6C5CE7&label=) | [Guide](docs/javascript/usage.md) · [Source](./packages/reicon) |
-| <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React logo" width="30"> | **`reicon-react`** | [![npm](https://img.shields.io/npm/v/reicon-react?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-react) | ![npm downloads](https://img.shields.io/npm/dm/reicon-react?color=6C5CE7&label=) | [Guide](docs/react/usage.md) · [Source](./packages/reicon-react) |
-| <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React Native logo" width="30"> | **`reicon-react-native`** | [![npm](https://img.shields.io/npm/v/reicon-react-native?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-react-native) | ![npm downloads](https://img.shields.io/npm/dm/reicon-react-native?color=6C5CE7&label=) | [Guide](docs/react-native/usage.md) · [Source](./packages/reicon-react-native) |
-| <img src="https://cdn.simpleicons.org/vuedotjs/4FC08D" alt="Vue logo" width="30"> | **`reicon-vue`** | [![npm](https://img.shields.io/npm/v/reicon-vue?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-vue) | ![npm downloads](https://img.shields.io/npm/dm/reicon-vue?color=6C5CE7&label=) | [Guide](docs/vue/usage.md) · [Source](./packages/reicon-vue) |
-| <img src="https://cdn.simpleicons.org/svelte/FF3E00" alt="Svelte logo" width="30"> | **`reicon-svelte`** | [![npm](https://img.shields.io/npm/v/reicon-svelte?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-svelte) | ![npm downloads](https://img.shields.io/npm/dm/reicon-svelte?color=6C5CE7&label=) | [Guide](docs/svelte/usage.md) · [Source](./packages/reicon-svelte) |
-| <img src="./public/readme-assets/figma.svg" alt="Figma logo" width="28"> | **`reicon-figma`** | — | — | [Guide](docs/figma/usage.md) · [Source](./packages/reicon-figma) |
-| <img src="./public/readme-assets/vscode.svg" alt="VS Code logo" width="30"> | **`reicon-vscode`** | [![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/DevChauhan.reicon?color=6C5CE7&label=)](https://marketplace.visualstudio.com/items?itemName=DevChauhan.reicon) | — | [Guide](docs/vscode/usage.md) · [Source](./packages/reicon-vscode) |
-| <img src="./public/readme-assets/mcp.svg" alt="MCP logo" width="30"> | **`reicon-mcp`** | [![npm](https://img.shields.io/npm/v/reicon-mcp?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-mcp) | ![npm downloads](https://img.shields.io/npm/dm/reicon-mcp?color=6C5CE7&label=) | [Guide](docs/mcp/usage.md) · [Source](./packages/reicon-mcp) |
-| <img src="./public/readme-assets/svg.svg" alt="SVG logo" width="30"> | **`reicon-svg`** | — | — | [Guide](docs/svg/usage.md) · [Download](./public/reicon-icons.zip) |
+| <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JS logo" width="30"> | **`reicon`** | [![npm](https://img.shields.io/npm/v/reicon?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon) | ![npm downloads](https://img.shields.io/npm/dm/reicon?color=6C5CE7&label=) | [Guide](docs/javascript/index.md) · [Source](./packages/reicon) |
+| <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React logo" width="30"> | **`reicon-react`** | [![npm](https://img.shields.io/npm/v/reicon-react?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-react) | ![npm downloads](https://img.shields.io/npm/dm/reicon-react?color=6C5CE7&label=) | [Guide](docs/react/index.md) · [Source](./packages/reicon-react) |
+| <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React Native logo" width="30"> | **`reicon-react-native`** | [![npm](https://img.shields.io/npm/v/reicon-react-native?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-react-native) | ![npm downloads](https://img.shields.io/npm/dm/reicon-react-native?color=6C5CE7&label=) | [Guide](docs/react-native/index.md) · [Source](./packages/reicon-react-native) |
+| <img src="https://cdn.simpleicons.org/vuedotjs/4FC08D" alt="Vue logo" width="30"> | **`reicon-vue`** | [![npm](https://img.shields.io/npm/v/reicon-vue?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-vue) | ![npm downloads](https://img.shields.io/npm/dm/reicon-vue?color=6C5CE7&label=) | [Guide](docs/vue/index.md) · [Source](./packages/reicon-vue) |
+| <img src="https://cdn.simpleicons.org/svelte/FF3E00" alt="Svelte logo" width="30"> | **`reicon-svelte`** | [![npm](https://img.shields.io/npm/v/reicon-svelte?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-svelte) | ![npm downloads](https://img.shields.io/npm/dm/reicon-svelte?color=6C5CE7&label=) | [Guide](docs/svelte/index.md) · [Source](./packages/reicon-svelte) |
+| <img src="./public/readme-assets/figma.svg" alt="Figma logo" width="28"> | **`reicon-figma`** | — | — | [Guide](docs/figma/index.md) · [Source](./packages/reicon-figma) |
+| <img src="./public/readme-assets/vscode.svg" alt="VS Code logo" width="30"> | **`reicon-vscode`** | [![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/DevChauhan.reicon?color=6C5CE7&label=)](https://marketplace.visualstudio.com/items?itemName=DevChauhan.reicon) | — | [Guide](docs/vscode/index.md) · [Source](./packages/reicon-vscode) |
+| <img src="./public/readme-assets/mcp.svg" alt="MCP logo" width="30"> | **`reicon-mcp`** | [![npm](https://img.shields.io/npm/v/reicon-mcp?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-mcp) | ![npm downloads](https://img.shields.io/npm/dm/reicon-mcp?color=6C5CE7&label=) | [Guide](docs/mcp/index.md) · [Source](./packages/reicon-mcp) |
+| <img src="./public/readme-assets/svg.svg" alt="SVG logo" width="30"> | **`reicon-svg`** | — | — | [Guide](docs/svg/index.md) · [Download](./public/reicon-icons.zip) |
 
 
 
@@ -117,7 +117,7 @@ Connect AI agents to Reicon via the [Model Context Protocol](https://modelcontex
 }
 ```
 
-Agents can search icons, preview SVG markup, and generate framework-specific code snippets. See the [MCP guide](docs/mcp/usage.md) for tools reference and CLI usage.
+Agents can search icons, preview SVG markup, and generate framework-specific code snippets. See the [MCP guide](docs/mcp/index.md) for tools reference and CLI usage.
 
 
 ## <img src="./public/readme-assets/structure.svg" width="22" height="22" align="center" alt="" />&nbsp; Project Structure

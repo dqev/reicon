@@ -135,7 +135,7 @@ Full TypeScript support out of the box.
 ## Links
 
 - 🌐 Website: [reicon.dev](https://reicon.dev)
-- 📖 Documentation: [reicon.dev/usage](https://reicon.dev/usage)
+- 📖 Documentation: [reicon.dev/docs](https://reicon.dev/docs)
 - 📦 npm (React): [npmjs.com/package/reicon-react](https://npmjs.com/package/reicon-react)
 - 🐙 GitHub: [github.com/dqev/reicon](https://github.com/dqev/reicon)
 - 🐛 Issues: [github.com/dqev/reicon/issues](https://github.com/dqev/reicon/issues)

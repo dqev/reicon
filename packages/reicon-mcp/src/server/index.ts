@@ -50,7 +50,7 @@ server.tool(
   [
     'Fetch raw SVG markup and metadata for a specific Reicon icon.',
     'Use this to inspect the SVG before applying, or when you only need the raw markup.',
-    'For generating import/usage code, prefer apply_icon instead.',
+    'For generating import/docs code, prefer apply_icon instead.',
   ].join(' '),
   {
     name: z.string().describe('Icon kebab-case name, e.g. "heart", "arrow-right", "user-circle"'),
@@ -67,10 +67,10 @@ server.tool(
 server.tool(
   'apply_icon',
   [
-    'Generate ready-to-paste import and usage code for a Reicon icon.',
-    'Returns importStatement and usageSnippet for the chosen framework.',
+    'Generate ready-to-paste import and docs code for a Reicon icon.',
+    'Returns importStatement and docsSnippet for the chosen framework.',
     'Supported frameworks: react, react-native, vue, svelte, html (CDN custom element), svg (raw markup).',
-    'Insert importStatement at the top of the file and usageSnippet where the icon should appear.',
+    'Insert importStatement at the top of the file and docsSnippet where the icon should appear.',
     'Always call search_icons first to confirm the icon name and weight exist.',
   ].join(' '),
   {

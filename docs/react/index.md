@@ -1,4 +1,4 @@
-# Usage of Reicon React
+# Using Reicon with React
 
 The official React package for Reicon. Import beautifully crafted icons as React components with full TypeScript support. All icons are tree-shakeable, ensuring only the icons you actually use end up in your bundle.
 

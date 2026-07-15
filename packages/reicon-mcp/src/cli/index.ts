@@ -36,7 +36,7 @@ function applyToFile(
   filePath: string,
   marker: string,
   importStatement: string,
-  usageSnippet: string,
+  docsSnippet: string,
 ) {
   const content = readFileSync(filePath, 'utf-8');
   if (!content.includes(marker)) {
@@ -44,7 +44,7 @@ function applyToFile(
     process.exit(1);
   }
 
-  let updated = content.replace(marker, usageSnippet);
+  let updated = content.replace(marker, docsSnippet);
 
   if (importStatement && !updated.includes(importStatement)) {
     const lines = updated.split('\n');
@@ -124,7 +124,7 @@ export async function run(argv: string[]) {
         process.exit(1);
       }
       if (flags.file && flags.marker) {
-        applyToFile(flags.file, flags.marker, result.importStatement, result.usageSnippet);
+        applyToFile(flags.file, flags.marker, result.importStatement, result.docsSnippet);
       } else {
         print(result);
       }

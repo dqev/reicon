@@ -36,7 +36,7 @@ Or point directly at the local binary after building:
 | :--- | :--- |
 | `search_icons` | Rank icons by keyword |
 | `view_icon` | Return raw SVG markup and metadata |
-| `apply_icon` | Generate framework-specific import and usage snippets |
+| `apply_icon` | Generate framework-specific import and docs snippets |
 | `list_categories` | List all icon categories |
 
 ## CLI

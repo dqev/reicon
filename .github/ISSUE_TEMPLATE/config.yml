@@ -4,7 +4,7 @@ contact_links:
     url: https://github.com/dqev/reicon/discussions
     about: Ask questions, share ideas, request feedback, or show what you built.
   - name: 📖 Documentation
-    url: https://reicon.dev/usage
+    url: https://reicon.dev/docs
     about: Installation and usage guides for React, Vue, and the CDN.
   - name: 📧 Email
     url: mailto:hello@reicon.dev

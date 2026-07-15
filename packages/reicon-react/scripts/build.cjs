@@ -295,7 +295,7 @@ const readme = `<p align="center">
 | 🌐 &nbsp; Website & icon browser | [reicon.dev](https://reicon.dev) |
 | 📖 &nbsp; Documentation | [reicon.dev/docs](https://reicon.dev/docs) |
 | 📦 &nbsp; Core package (vanilla JS) | [reicon](https://npmjs.com/package/reicon) |
-| 🎨 &nbsp; Figma plugin | [reicon.dev/usage/figma](https://reicon.dev/usage/figma) |
+| 🎨 &nbsp; Figma plugin | [reicon.dev/docs/figma](https://reicon.dev/docs/figma) |
 
 ---
 

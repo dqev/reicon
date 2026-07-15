@@ -427,7 +427,7 @@ const props: IconProps = { size: 32, color: '#d97757', weight };
 ## Links
 
 - 🌐 Website: [reicon.dev](https://reicon.dev)
-- 📖 Documentation: [reicon.dev/usage](https://reicon.dev/usage)
+- 📖 Documentation: [reicon.dev/docs](https://reicon.dev/docs)
 - 📦 npm (React Native): [npmjs.com/package/reicon-react-native](https://npmjs.com/package/reicon-react-native)
 - 🐙 GitHub: [github.com/dqev/reicon](https://github.com/dqev/reicon)
 - 🐛 Issues: [github.com/dqev/reicon/issues](https://github.com/dqev/reicon/issues)

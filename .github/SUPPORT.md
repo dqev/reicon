@@ -4,7 +4,7 @@ Need help with Reicon? Here's where to go.
 
 ## 📖 Documentation
 The usage guide covers installation and usage for React, Vue, and the CDN:
-- https://reicon.dev/usage
+- https://reicon.dev/docs
 
 ## 💬 Questions & ideas
 For "how do I…", ideas, and general chat, use Discussions:

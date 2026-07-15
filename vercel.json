@@ -97,7 +97,7 @@
       ]
     },
     {
-      "source": "/(icons|usage|packages)",
+      "source": "/(icons|docs|packages)",
       "headers": [
         {
           "key": "Cache-Control",

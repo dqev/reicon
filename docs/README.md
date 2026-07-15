@@ -16,10 +16,10 @@ This directory contains comprehensive guides, design system definitions, and int
 | [`project-structure.md`](file:///Users/devchauhan/Documents/Website/reicon/docs/project-structure.md) | Details on the monorepo layout, generated files, and asset mapping. |
 | **Platform Guides** | Subdirectories containing integration guides and code snippets: |
 | ├─ `react/` | React setup and component options. |
-| ├─ `vue/` | Vue 3 setup, compilation options, and prop usage. |
+| ├─ `vue/` | Vue 3 setup, compilation options, and prop docs. |
 | ├─ `svelte/` | Svelte custom bindings and configuration. |
 | ├─ `angular/` | Angular configuration and icon directives. |
-| ├─ `javascript/` | Vanilla JS / ES modules custom element usage. |
+| ├─ `javascript/` | Vanilla JS / ES modules custom element docs. |
 | ├─ `svg/` | Raw SVG usage in pure HTML or styling libraries. |
 | ├─ `figma/` | Figma component usage and template mapping. |
 | ├─ `vscode/` | VS Code extension guides for automatic completions and previews. |

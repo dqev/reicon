@@ -39,5 +39,5 @@ export interface ApplyIconInput {
 
 export interface ApplyIconOutput {
   importStatement: string;
-  usageSnippet: string;
+  docsSnippet: string;
 }

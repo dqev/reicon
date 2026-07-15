@@ -1,4 +1,4 @@
-# React Native Usage Guide
+# Using Reicon with React Native
 
 Complete guide for using Reicon icons in React Native applications.
 
@@ -296,7 +296,7 @@ function IconButton({
   );
 }
 
-// Usage
+// Example
 import { Settings } from 'reicon-react-native';
 
 <IconButton 
@@ -382,7 +382,7 @@ Make sure your `tsconfig.json` includes:
 ## Resources
 
 - 🌐 [Browse all icons](https://reicon.dev)
-- 📖 [Full documentation](https://reicon.dev/usage)
+- 📖 [Full documentation](https://reicon.dev/docs)
 - 📦 [npm package](https://npmjs.com/package/reicon-react-native)
 - 🐙 [GitHub repository](https://github.com/dqev/reicon)
 - 🐛 [Report issues](https://github.com/dqev/reicon/issues)

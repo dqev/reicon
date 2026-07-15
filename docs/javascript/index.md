@@ -1,4 +1,4 @@
-# Usage of Reicon Vanilla JS & CDN
+# Using Reicon with Vanilla JS & CDN
 
 The official vanilla JavaScript package and CDN web components for Reicon. This package allows you to easily add precise, vector-based SVG icons to any JavaScript project or web application without framework dependencies.
 
