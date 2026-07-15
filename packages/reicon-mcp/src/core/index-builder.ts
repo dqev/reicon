@@ -2,16 +2,6 @@ import type { IconEntry, IconIndex, IconWeight } from './types.js';
 
 const W_KEYS: IconWeight[] = ['Outline', 'Filled'];
 
-const SEARCH_ALIASES: Record<string, string[]> = {
-  x: ['close', 'dismiss', 'cancel'],
-  cart: ['shopping cart', 'shopping'],
-  trash: ['delete', 'remove', 'bin'],
-  settings: ['gear', 'cog'],
-  search: ['magnifier', 'find'],
-  user: ['profile', 'account', 'avatar'],
-  heart: ['love', 'favorite', 'like'],
-};
-
 function toPascalCase(str: string): string {
   return str
     .split('-')
@@ -26,6 +16,19 @@ function stripSvgWrapper(code: string): string {
 
 function rewriteColors(svg: string): string {
   return svg.replace(/fill="white"/g, 'fill="currentColor"');
+}
+
+function generateTags(name: string, description: string[]): string[] {
+  const tags = new Set<string>();
+
+  for (const t of description) tags.add(t);
+
+  const parts = name.split('-');
+  for (const part of parts) {
+    if (part.length > 1) tags.add(part);
+  }
+
+  return [...tags];
 }
 
 export function buildIconIndex(data: {
@@ -63,7 +66,7 @@ export function buildIconIndex(data: {
           name: iconKey,
           pascal,
           category: catKey,
-          tags: [...(icon.description || []), ...(SEARCH_ALIASES[iconKey] || [])],
+          tags: generateTags(iconKey, icon.description || []),
           weights,
         });
       }

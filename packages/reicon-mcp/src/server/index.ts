@@ -8,22 +8,22 @@ import { handleViewIcon } from './tools/view-icon.js';
 
 const server = new McpServer({
   name: 'reicon-mcp',
-  version: '1.0.1',
+  version: '1.1.0',
 });
 
 server.tool(
   'search_icons',
   [
-    'Search 2,700+ Reicon icons by keyword.',
-    'Returns ranked matches. Use short, specific terms — not full sentences.',
-    'Good queries: "cart", "user circle", "arrow down", "settings".',
-    'Bad queries: "please find me a heart icon" or "I need a shopping cart".',
+    'Search 2,700+ Reicon icons by any keyword, phrase, or description.',
+    'Understands synonyms ("round" → circle, "del" → delete/trash), misspellings ("calender" → calendar),',
+    'multi-word queries ("user circle", "credit card", "volume up"), and name parts ("up" → arrow-up).',
+    'Returns ranked matches. Short specific terms work best but full phrases also work.',
     'After getting results, pick the highest-scoring match and call apply_icon directly.',
     'Only call view_icon first if you need to inspect the raw SVG before generating code.',
   ].join(' '),
   {
     query: z.string().describe(
-      'Concise keyword(s) — e.g. "cart", "bell", "user circle". Not full sentences.',
+      'Keyword(s) or phrase — e.g. "cart", "user circle", "volume up", "credit card", "go back", "delete". Handles synonyms, misspellings, and multi-word queries.',
     ),
     weight: z
       .enum(['Outline', 'Filled'])

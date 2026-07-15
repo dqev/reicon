@@ -10,15 +10,15 @@ const INDEX_OUT = path.join(ROOT, 'src', 'data', 'icon-index.json');
 const DIST_DATA = path.join(ROOT, 'dist', 'data');
 const DIST_INDEX = path.join(DIST_DATA, 'icon-index.json');
 
-const SEARCH_ALIASES = {
-  x: ['close', 'dismiss', 'cancel'],
-  cart: ['shopping cart', 'shopping'],
-  trash: ['delete', 'remove', 'bin'],
-  settings: ['gear', 'cog'],
-  search: ['magnifier', 'find'],
-  user: ['profile', 'account', 'avatar'],
-  heart: ['love', 'favorite', 'like'],
-};
+function generateTags(name, description) {
+  const tags = new Set();
+  for (const t of description) tags.add(t);
+  const parts = name.split('-');
+  for (const part of parts) {
+    if (part.length > 1) tags.add(part);
+  }
+  return [...tags];
+}
 
 function toPascalCase(str) {
   return str
@@ -69,7 +69,7 @@ function buildIndex(data) {
           name: iconKey,
           pascal,
           category: catKey,
-          tags: [...(icon.description || []), ...(SEARCH_ALIASES[iconKey] || [])],
+          tags: generateTags(iconKey, icon.description || []),
           weights,
         });
       }
@@ -101,7 +101,7 @@ execSync('node ../../node_modules/typescript/bin/tsc -p tsconfig.json', { cwd: R
 
 const pkg = {
   name: 'reicon-mcp',
-  version: '1.0.1',
+  version: '1.1.0',
   type: 'module',
   description: 'MCP server and CLI for browsing and applying Reicon icons.',
   bin: {
