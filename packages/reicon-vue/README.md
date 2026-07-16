@@ -7,9 +7,9 @@
 
 # Reicon Vue
 
-> 2680+ pixel-perfect SVG icons • Outline & Filled weights • Vue 3 component wrapper • Zero dependencies • MIT Licensed
+> 2674+ pixel-perfect SVG icons • Outline & Filled weights • Vue 3 component wrapper • Zero dependencies • MIT Licensed
 
-**Reicon Vue** is the official Vue 3 package for Reicon — a free, open-source SVG icon library with 2680+ handcrafted, grid-aligned icons built for developers and designers. Every component is optimized for tree-shaking and fully TypeScript-ready.
+**Reicon Vue** is the official Vue 3 package for Reicon — a free, open-source SVG icon library with 2674+ handcrafted, grid-aligned icons built for developers and designers. Every component is optimized for tree-shaking and fully TypeScript-ready.
 
 - 🔗 **Website & icon browser:** [reicon.dev](https://reicon.dev)
 - 📦 **Core package:** [reicon](https://npmjs.com/package/reicon)
@@ -100,7 +100,7 @@ Icons use **PascalCase**, derived from their original kebab-case names:
 | `shopping-cart` | `ShoppingCart` |
 | `user-circle` | `UserCircle` |
 
-Browse all 2680+ icons at [reicon.dev](https://reicon.dev).
+Browse all 2674+ icons at [reicon.dev](https://reicon.dev).
 
 ---
 
@@ -114,7 +114,7 @@ Full TypeScript support out of the box.
 
 | | Reicon | Lucide | Heroicons | Phosphor |
 |--|--------|--------|-----------|---------|
-| **Icons** | 2680+ | 1600+ | 292 | 7700+ |
+| **Icons** | 2674+ | 1600+ | 292 | 7700+ |
 | **Weights** | Outline + Filled | Outline only | Outline + Solid | 6 weights |
 | **Vanilla JS** | ✅ Native | ❌ | ❌ | ❌ |
 | **React** | ✅ reicon-react | ✅ | ✅ | ✅ |
@@ -132,9 +132,9 @@ Full TypeScript support out of the box.
 | Package | Description |
 |---------|-------------|
 | [`reicon`](https://npmjs.com/package/reicon) | Core vanilla JS + CDN |
-| [`reicon-react`](https://npmjs.com/package/reicon-react) | React components for all 2680+ icons |
-| [`reicon-vue`](https://npmjs.com/package/reicon-vue) | **This package.** Vue 3 components for all 2680+ icons |
-| [`reicon-svelte`](https://npmjs.com/package/reicon-svelte) | Svelte components for all 2680+ icons |
+| [`reicon-react`](https://npmjs.com/package/reicon-react) | React components for all 2674+ icons |
+| [`reicon-vue`](https://npmjs.com/package/reicon-vue) | **This package.** Vue 3 components for all 2674+ icons |
+| [`reicon-svelte`](https://npmjs.com/package/reicon-svelte) | Svelte components for all 2674+ icons |
 
 ---
 

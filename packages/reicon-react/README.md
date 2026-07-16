@@ -15,7 +15,7 @@
 <h1 align="center">Reicon React</h1>
 
 <p align="center">
-  <b>2680+ pixel-perfect SVG icons</b> • Outline & Filled weights • React component wrapper • Zero dependencies • MIT Licensed
+  <b>2674+ pixel-perfect SVG icons</b> • Outline & Filled weights • React component wrapper • Zero dependencies • MIT Licensed
 </p>
 
 <p align="center">
@@ -27,7 +27,7 @@
   <a href="#typescript">TypeScript</a>
 </p>
 
-**Reicon React** is the official React package for <a href="https://reicon.dev">Reicon</a> — a free, open-source SVG icon library featuring 2680+ handcrafted, grid-aligned icons. Every component is tree-shakeable, fully TypeScript-ready, and ships with zero dependencies.
+**Reicon React** is the official React package for <a href="https://reicon.dev">Reicon</a> — a free, open-source SVG icon library featuring 2674+ handcrafted, grid-aligned icons. Every component is tree-shakeable, fully TypeScript-ready, and ships with zero dependencies.
 
 | 🔗 &nbsp; Resource | Link |
 |---|---|
@@ -165,7 +165,7 @@ Icons use **PascalCase**, derived from their original kebab-case file names:
 | `user-circle` | `UserCircle` |
 | `arrow-right-up` | `ArrowRightUp` |
 
-Browse and search all 2680+ icons at <a href="https://reicon.dev">reicon.dev</a>.
+Browse and search all 2674+ icons at <a href="https://reicon.dev">reicon.dev</a>.
 
 ---
 
@@ -194,7 +194,7 @@ const props: IconProps = { size: 32, color: '#d97757', weight };
 
 ## Features
 
-- **2680+ icons** — Handcrafted, pixel-perfect SVGs across a wide range of categories
+- **2674+ icons** — Handcrafted, pixel-perfect SVGs across a wide range of categories
 - **Two weights** — Outline and Filled, with consistent 24×24 grid alignment
 - **Tree-shakeable** — Import only what you use; every icon is a standalone ES module
 - **Zero dependencies** — No runtime overhead beyond React itself
@@ -209,9 +209,9 @@ const props: IconProps = { size: 32, color: '#d97757', weight };
 | Package | Description |
 |---------|-------------|
 | [`reicon`](https://npmjs.com/package/reicon) | Core vanilla JS + CDN runtime. No framework required. |
-| [`reicon-react`](https://npmjs.com/package/reicon-react) | **You are here.** React components for 2680+ icons. |
-| [`reicon-vue`](https://npmjs.com/package/reicon-vue) | Vue 3 components for 2680+ icons. |
-| [`reicon-svelte`](https://npmjs.com/package/reicon-svelte) | Svelte components for 2680+ icons. |
+| [`reicon-react`](https://npmjs.com/package/reicon-react) | **You are here.** React components for 2674+ icons. |
+| [`reicon-vue`](https://npmjs.com/package/reicon-vue) | Vue 3 components for 2674+ icons. |
+| [`reicon-svelte`](https://npmjs.com/package/reicon-svelte) | Svelte components for 2674+ icons. |
 
 ---
 

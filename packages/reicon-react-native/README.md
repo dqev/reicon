@@ -7,9 +7,9 @@
 
 # Reicon React Native
 
-> 2680+ pixel-perfect SVG icons • Outline & Filled weights • React Native component wrapper • Zero dependencies • MIT Licensed
+> 2674+ pixel-perfect SVG icons • Outline & Filled weights • React Native component wrapper • Zero dependencies • MIT Licensed
 
-**Reicon React Native** is the official React Native package for Reicon — a free, open-source SVG icon library with 2680+ handcrafted, grid-aligned icons built for developers and designers. Every component is optimized for tree-shaking and fully TypeScript-ready.
+**Reicon React Native** is the official React Native package for Reicon — a free, open-source SVG icon library with 2674+ handcrafted, grid-aligned icons built for developers and designers. Every component is optimized for tree-shaking and fully TypeScript-ready.
 
 - 🔗 **Website & icon browser:** [reicon.dev](https://reicon.dev)
 - 📦 **Core package:** [reicon](https://npmjs.com/package/reicon)
@@ -115,7 +115,7 @@ Icons use **PascalCase**, derived from their original kebab-case names:
 | `shopping-cart` | `ShoppingCart` |
 | `user-circle` | `UserCircle` |
 
-Browse all 2680+ icons at [reicon.dev](https://reicon.dev).
+Browse all 2674+ icons at [reicon.dev](https://reicon.dev).
 
 ---
 
@@ -138,7 +138,7 @@ const props: IconProps = { size: 32, color: '#d97757', weight };
 
 | | Reicon | React Native Vector Icons | Lucide RN |
 |--|--------|---------------------------|-----------|
-| **Icons** | 2680+ | 3000+ | 1600+ |
+| **Icons** | 2674+ | 3000+ | 1600+ |
 | **Weights** | Outline + Filled | Varies by set | Outline only |
 | **Tree-shakeable** | ✅ | ❌ | ✅ |
 | **TypeScript** | ✅ | ✅ | ✅ |
@@ -152,10 +152,10 @@ const props: IconProps = { size: 32, color: '#d97757', weight };
 | Package | Description |
 |---------|-------------|
 | [`reicon`](https://npmjs.com/package/reicon) | Core vanilla JS + CDN |
-| [`reicon-react`](https://npmjs.com/package/reicon-react) | React components for all 2680+ icons |
-| [`reicon-react-native`](https://npmjs.com/package/reicon-react-native) | **This package.** React Native components for all 2680+ icons |
-| [`reicon-vue`](https://npmjs.com/package/reicon-vue) | Vue 3 components for all 2680+ icons |
-| [`reicon-svelte`](https://npmjs.com/package/reicon-svelte) | Svelte components for all 2680+ icons |
+| [`reicon-react`](https://npmjs.com/package/reicon-react) | React components for all 2674+ icons |
+| [`reicon-react-native`](https://npmjs.com/package/reicon-react-native) | **This package.** React Native components for all 2674+ icons |
+| [`reicon-vue`](https://npmjs.com/package/reicon-vue) | Vue 3 components for all 2674+ icons |
+| [`reicon-svelte`](https://npmjs.com/package/reicon-svelte) | Svelte components for all 2674+ icons |
 
 ---
 

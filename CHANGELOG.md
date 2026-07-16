@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] — 2026-07-16
+
+### Changed
+- **Cleaned icon database** — renamed variants for consistency, removed 6 broken/misaligned icons, general data cleanup in `data/icon-data.json`.
+- Updated all package versions to reflect the cleaned dataset.
+
 ## [1.1.0] — 2026-07-09
 
 ### Added
@@ -57,6 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Per-icon detail pages with copy-ready React, Vue, and HTML snippets.
   - Full docs documentation for React, Vue, and the CDN.
 
-[Unreleased]: https://github.com/dqev/reicon/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/dqev/reicon/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/dqev/reicon/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/dqev/reicon/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/dqev/reicon/releases/tag/v1.0.0
