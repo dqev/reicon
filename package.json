@@ -23,6 +23,7 @@
     "build:svelte": "node packages/reicon-svelte/scripts/build.cjs",
     "build:vscode": "node packages/reicon-vscode/scripts/build.cjs",
     "build:mcp": "node packages/reicon-mcp/scripts/build.cjs",
+    "bump:versions": "node scripts/bump-versions.mjs",
     "build:packages": "node scripts/sync-icon-names.mjs && npm run build:react && npm run build:react-native && npm run build:vue && npm run build:js && npm run build:cdn:min && npm run build:figma && npm run build:svelte && npm run build:vscode && npm run build:mcp",
     "preview": "vite preview",
     "clean": "rm -rf dist packages/*/dist",
