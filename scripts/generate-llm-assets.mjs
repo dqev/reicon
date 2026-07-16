@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Generates public/llms-icons.txt containing all icon mappings grouped by category.
- * Run during build time.
+ * Run during build time via `npm run build`.
  */
 
 import { writeFileSync, readFileSync, existsSync } from 'fs';
@@ -56,7 +56,7 @@ function generate() {
 
   // Format categories and icons as markdown
   const sections = [];
-  
+
   // Sort category keys alphabetically
   const sortedCategories = Object.keys(grouped).sort();
 
@@ -67,54 +67,58 @@ function generate() {
 
     const formattedCatName = cat.charAt(0).toUpperCase() + cat.slice(1);
     const lines = [`### ${formattedCatName}`];
-    
+
     for (const item of items) {
       lines.push(`- ${item.kebab} -> ${item.pascal}`);
     }
-    
+
     sections.push(lines.join('\n'));
   }
 
-  const output = `# Reicon — Icon Names & Component Mapping
+  const output = `# Reicon — Complete Icon Names & Component Mapping
 
-This file lists all the available icons in the Reicon SVG icon library, categorized for easy lookup by AI models and code generators.
+This file lists every icon in the Reicon SVG icon library by category. Use it to look up the correct import name (PascalCase) or CDN attribute value (kebab-case) for any icon.
 
-## Summary
-- Canonical URL: https://reicon.dev
-- Total unique designs: ${totalCount} (each design has Outline and Filled weights, totaling ${totalCount * 2} icons)
-- Weights: "Outline" (default) or "Filled"
+**Quick lookup**: Find the icon's kebab-case name below, then:
+- **Components** (React/Vue/Svelte): convert to PascalCase (\`arrow-up-right\` → \`ArrowUpRight\`)
+- **CDN**: use the kebab-case name as-is: \`<re-icon icon="arrow-up-right">\`
 
-## How to Use
-Use these component names when importing Reicon into React, Vue, or Svelte:
+## Stats
+- **Total**: ${totalCount} unique designs (${totalCount * 2} icons counting both weights)
+- **Weights**: "Outline" (default) | "Filled"
+- **Grid**: 24×24 px
+- **PascalCase rule**: split on \`-\`, capitalize each part, join
 
-### React
+## Framework Quick Reference
+
+### React — \`reicon-react\`
 \`\`\`jsx
-import { [ComponentName] } from 'reicon-react';
-<[ComponentName] size={24} weight="Outline" color="currentColor" />
+import { ArrowUpRight } from 'reicon-react';
+<ArrowUpRight size={24} weight="Outline" color="currentColor" />
 \`\`\`
 
-### Vue 3
+### Vue 3 — \`reicon-vue\`
 \`\`\`vue
 <script setup>
-import { [ComponentName] } from 'reicon-vue';
+import { ArrowUpRight } from 'reicon-vue';
 </script>
 <template>
-  <[ComponentName] :size="24" weight="Outline" />
+  <ArrowUpRight :size="24" weight="Outline" />
 </template>
 \`\`\`
 
-### Svelte
+### Svelte — \`reicon-svelte\`
 \`\`\`svelte
 <script>
-  import { [ComponentName] } from 'reicon-svelte';
+  import { ArrowUpRight } from 'reicon-svelte';
 </script>
-<[ComponentName] size={24} weight="Outline" />
+<ArrowUpRight size={24} weight="Outline" />
 \`\`\`
 
-### Vanilla HTML / CDN
+### CDN / HTML
 \`\`\`html
 <script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>
-<re-icon icon="[kebab-case-name]" weight="outline|filled" size="24"></re-icon>
+<re-icon icon="arrow-up-right" weight="outline" size="24"></re-icon>
 \`\`\`
 
 ---

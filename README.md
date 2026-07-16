@@ -120,6 +120,24 @@ Connect AI agents to Reicon via the [Model Context Protocol](https://modelcontex
 Agents can search icons, preview SVG markup, and generate framework-specific code snippets. See the [MCP guide](docs/mcp/index.md) for tools reference and CLI usage.
 
 
+## <img src="./public/readme-assets/agent.svg" width="22" height="22" align="center" alt="" />&nbsp; Agent Usage
+
+Reicon provides dedicated LLM-friendly reference files so AI agents (Claude, Cursor, Copilot, etc.) immediately know how to install, import, and render Reicon icons across all frameworks.
+
+| File | Purpose |
+|------|---------|
+| [`llms.txt`](public/llms.txt) | **Quick reference** — Agent workflow, install commands, usage snippets, and props tables for all 6 frameworks + CDN + MCP in one page |
+| [`llms-full.txt`](public/llms-full.txt) | **Deep reference** — Package versions, full framework docs, TypeScript types, data architecture, comparison table, and expanded FAQ |
+| [`llms-icons.txt`](public/llms-icons.txt) | **Icon directory** — All 2,700+ icons listed by category with kebab-case → PascalCase name mapping |
+
+These files are publicly available at:
+- https://reicon.dev/llms.txt
+- https://reicon.dev/llms-full.txt
+- https://reicon.dev/llms-icons.txt
+
+When using the [MCP Server](docs/mcp/index.md), agents can also search icons, view SVG markup, and generate framework code programmatically with zero network calls.
+
+
 ## <img src="./public/readme-assets/structure.svg" width="22" height="22" align="center" alt="" />&nbsp; Project Structure
 
 This project is organized as a monorepo holding the core dataset, package compilations, build scripts, and the showcase documentation site.
