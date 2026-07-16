@@ -683,9 +683,10 @@ fs.writeFileSync(path.join(cdnDist, 'reicon.js'), runtimeJS);
 console.log(`  CDN bundle:  ${(Buffer.byteLength(runtimeJS) / 1024 / 1024).toFixed(2)} MB`);
 
 // ── package.json ───────────────────────────────────────────────────────────
+const srcPkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf-8'));
 const pkg = {
   name: 'reicon',
-  version: '1.1.1',
+  version: srcPkg.version,
   type: 'module',
   description:
     `Core vanilla JS icon components for ${icons.length}+ icons in 2 weights (Outline & Filled). Tree-shakeable, TypeScript-ready.`,

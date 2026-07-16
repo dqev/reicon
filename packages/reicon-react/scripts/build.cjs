@@ -205,9 +205,10 @@ for (const icon of icons) {
 }
 
 // ── package.json ───────────────────────────────────────────────────────────
+const srcPkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf-8'));
 const pkg = {
   name: 'reicon-react',
-  version: '1.1.3',
+  version: srcPkg.version,
   type: 'module',
   description:
     `React icon components for ${icons.length}+ icons in 2 weights (Outline & Filled). Tree-shakeable, TypeScript-ready.`,

@@ -199,9 +199,10 @@ for (const icon of icons) {
 }
 
 // ── package.json ───────────────────────────────────────────────────────────
+const srcPkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf-8'));
 const pkg = {
   name: 'reicon-vue',
-  version: '1.1.1',
+  version: srcPkg.version,
   type: 'module',
   description:
     `Vue 3 icon components for ${icons.length}+ icons in 2 weights (Outline & Filled). Tree-shakeable, TypeScript-ready.`,

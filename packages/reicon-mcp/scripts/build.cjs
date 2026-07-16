@@ -99,9 +99,10 @@ console.log(`Wrote ${index.icons.length} icons to icon-index.json`);
 
 execSync('node ../../node_modules/typescript/bin/tsc -p tsconfig.json', { cwd: ROOT, stdio: 'inherit' });
 
+const srcPkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf-8'));
 const pkg = {
   name: 'reicon-mcp',
-  version: '1.1.0',
+  version: srcPkg.version,
   type: 'module',
   description: 'MCP server and CLI for browsing and applying Reicon icons.',
   bin: {
