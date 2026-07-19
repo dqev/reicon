@@ -16,7 +16,7 @@ const createIcon = (displayName, iconData) => {
      */
     (
       {
-        color = 'currentColor',
+        color,
         secondaryColor,
         size = 24,
         weight = 'Outline',
@@ -33,12 +33,10 @@ const createIcon = (displayName, iconData) => {
         html = html.replace(/stroke-width="[^"]*"/g, `stroke-width="${strokeWidth}"`);
       }
 
-      // Handle currentColor for React Native
-      const processedColor = color === 'currentColor' ? '#000000' : color;
-      
-      // Replace currentColor in SVG with actual color
-      html = html.replace(/currentColor/g, processedColor);
-      
+      if (color != null) {
+        html = html.replace(/currentColor/g, color);
+      }
+
       // Replace secondary color placeholder if present
       if (secondaryColor) {
         html = html.replace(/__RI_SECONDARY__/g, secondaryColor);

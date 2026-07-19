@@ -3,7 +3,7 @@ import { DefineComponent, ExtractPropTypes } from 'vue';
 export type IconWeight = 'Filled' | 'Outline';
 
 export declare const iconProps: {
-  color: { type: StringConstructor; default: 'currentColor' };
+  color: { type: StringConstructor; default: undefined };
   size: { type: (NumberConstructor | StringConstructor)[]; default: 24 };
   weight: { type: StringConstructor; default: 'Outline'; validator: (v: string) => boolean };
   strokeWidth: { type: (NumberConstructor | StringConstructor)[]; default: undefined };
@@ -12,7 +12,7 @@ export declare const iconProps: {
 export type IconProps = Partial<ExtractPropTypes<typeof iconProps>>;
 
 export type IconComponent = DefineComponent<{
-  /** Primary color. Default: `currentColor` */
+  /** Primary color. Default: inherits from CSS */
   color?: string;
   /** Icon size (px when number). Default: `24` */
   size?: number | string;

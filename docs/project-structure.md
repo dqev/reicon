@@ -22,10 +22,13 @@ reicon/
 │   │   │   ├── build.cjs        # Main package builder
 │   │   │   └── build-cdn.cjs    # CDN web component builder
 │   │   └── dist/                # Package compilation output
-│   └── reicon-mcp/              # reicon-mcp    (MCP Server & CLI)
-│       ├── scripts/build.cjs    # Bundles offline search index + server
-│       ├── src/server/          # MCP stdio server and tool handlers
-│       └── dist/                # Package compilation output
+│   ├── reicon-mcp/              # reicon-mcp    (MCP Server & CLI)
+│   │   ├── scripts/build.cjs    # Bundles offline search index + server
+│   │   ├── src/server/          # MCP stdio server and tool handlers
+│   │   └── dist/                # Package compilation output
+│   ├── reicon-flutter/          # reicon_flutter (Dart & Flutter)
+│   ├── reicon-vscode/           # reicon-vscode (VS Code extension)
+│   └── reicon-figma/            # reicon-figma  (Figma plugin)
 │
 ├── docs/
 │   └── mcp/index.md             # MCP Server guide for agents and CLI
@@ -36,7 +39,9 @@ reicon/
 │
 ├── public/                      # Static assets
 │   ├── favicon/                # Favicon bundle (ico, svg, pngs, manifest)
-│   ├── og-image.png            # Open Graph image
+│   ├── og-image.png            # Open Graph image (legacy)
+│   ├── og/                     # Per-route Open Graph images
+│   │   └── og.jpg              # Default OG image
 │   ├── robots.txt              # SEO robots file
 │   ├── sitemap.xml             # Generated sitemap
 │   └── llms.txt                # LLM context file

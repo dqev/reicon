@@ -1,53 +1,39 @@
 <p align="center">
   <a href="https://reicon.dev">
-    <img src="https://reicon.dev/readme-assets/flutter.svg" alt="Flutter" width="80" />
+    <img src="https://reicon.dev/readme-assets/flutter.svg" alt="Reicon Flutter — SVG Icon Library for Dart & Flutter" width="100%" />
   </a>
 </p>
 
 <p align="center">
-  <a href="https://reicon.dev">
-    <img src="https://reicon.dev/og-image.png" alt="Reicon" width="400" />
-  </a>
+  <a href="https://pub.dev/packages/reicon_flutter"><img src="https://img.shields.io/pub/v/reicon_flutter?color=black&label=pub" alt="pub version" /></a>
+  <a href="https://pub.dev/packages/reicon_flutter/score"><img src="https://img.shields.io/pub/points/reicon_flutter?color=black" alt="pub points" /></a>
+  <a href="https://pub.dev/packages/reicon_flutter"><img src="https://img.shields.io/pub/likes/reicon_flutter?color=black" alt="pub likes" /></a>
+  <a href="https://github.com/dqev/reicon/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-black" alt="MIT License" /></a>
+  <a href="https://reicon.dev"><img src="https://img.shields.io/badge/docs-reicon.dev-black" alt="Documentation" /></a>
 </p>
 
 <h1 align="center">Reicon for Dart &amp; Flutter</h1>
 
 <p align="center">
-  <a href="https://pub.dev/packages/reicon_flutter"><img src="https://img.shields.io/pub/v/reicon_flutter?color=6C5CE7&label=pub" alt="pub version" /></a>
-  <a href="https://pub.dev/packages/reicon_flutter/score"><img src="https://img.shields.io/pub/points/reicon_flutter?color=6C5CE7" alt="pub points" /></a>
-  <a href="https://pub.dev/packages/reicon_flutter"><img src="https://img.shields.io/pub/likes/reicon_flutter?color=6C5CE7" alt="pub likes" /></a>
-  <a href="https://github.com/dqev/reicon/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-black" alt="MIT License" /></a>
-  <a href="https://reicon.dev"><img src="https://img.shields.io/badge/docs-reicon.dev-black" alt="Documentation" /></a>
-</p>
-
-<p align="center">
-  2700+ handcrafted, pixel-perfect SVG icons in <strong>Outline</strong> and <strong>Filled</strong> weights.
-  Free, open-source, MIT licensed.
+  <b>2674+ pixel-perfect SVG icons</b> • Outline & Filled weights • Dart & Flutter • Zero dependencies • MIT Licensed
 </p>
 
 <p align="center">
   <a href="#install">Install</a> •
   <a href="#usage">Usage</a> •
   <a href="#api">API</a> •
-  <a href="#icon-naming">Naming</a> •
+  <a href="#icon-naming">Icon Naming</a> •
   <a href="#related-packages">Related</a> •
-  <a href="https://reicon.dev/icons">Browse Icons</a>
+  <a href="#links">Links</a>
 </p>
 
----
+**Reicon Flutter** is the official Dart & Flutter package for <a href="https://reicon.dev">Reicon</a> — a free, open-source SVG icon library featuring 2674+ handcrafted, grid-aligned icons. Every icon is available in both Outline and Filled weights as raw SVG path data, ready for any Dart or Flutter SVG renderer.
 
-## Overview
-
-**reicon_flutter** is the official Dart & Flutter package for [Reicon](https://reicon.dev) — the icon library designers actually want.
-
-2700+ precision-crafted, open-source SVG icons, all hand-drawn on a strict 24×24 grid. No auto-generation, no AI shortcuts — just obsessive attention to detail. Every icon ships in two weights — **Outline** (1.5px stroke) and **Filled** (solid).
-
-Use it with any SVG renderer in Dart, Flutter, or server-side projects.
-
-| Weight | Icons | Accessor |
-|--------|-------|----------|
-| Outline | 2674 | `Reicon.outline.*` |
-| Filled | 2674 | `Reicon.filled.*` |
+| 🔗 &nbsp; Resource | Link |
+|---|---|
+| 🌐 &nbsp; Website & icon browser | [reicon.dev](https://reicon.dev) |
+| 📖 &nbsp; Documentation | [reicon.dev/docs](https://reicon.dev/docs) |
+| 🎨 &nbsp; Figma plugin | [reicon.dev/docs/figma](https://reicon.dev/docs/figma) |
 
 ---
 
@@ -64,6 +50,15 @@ dependencies:
 dart pub get
 # or for Flutter: flutter pub get
 ```
+
+<details>
+<summary><b>Requirements</b></summary>
+
+- **Dart** ≥ 3.0
+- For Flutter: **flutter_svg** (recommended for rendering)
+- No other dependencies required.
+
+</details>
 
 ---
 
@@ -91,8 +86,6 @@ String svg = reiconSvg(
   size: 32,
   color: '#d97757',
 );
-
-// Result: '<svg xmlns="..." width="32" height="32" ...><path d="..."/></svg>'
 ```
 
 ### Use with Flutter + flutter_svg
@@ -160,7 +153,7 @@ Wraps raw SVG path data in a complete `<svg>` tag.
 
 Icons use **camelCase** derived from their original kebab-case names:
 
-| Original (kebab) | Dart constant |
+| Original (kebab) | Dart accessor |
 |------------------|---------------|
 | `arrow-down` | `Reicon.outline.arrowDown` |
 | `arrow-down-2` | `Reicon.outline.arrowDown2` |
@@ -170,31 +163,47 @@ Icons use **camelCase** derived from their original kebab-case names:
 
 Names starting with a digit are prefixed with `i` (e.g. `3d-box` → `i3dBox`).
 
+Browse and search all 2674+ icons at <a href="https://reicon.dev">reicon.dev</a>.
+
 ---
 
-## Related Packages
+## Features
+
+- **2674+ icons** — Handcrafted, pixel-perfect SVGs across a wide range of categories
+- **Two weights** — Outline and Filled, with consistent 24×24 grid alignment
+- **Zero dependencies** — Pure Dart, no native plugins required
+- **Runtime lookup** — Access icons by string name with `Reicon.outline['name']`
+- **SVG builder** — `reiconSvg()` helper wraps path data in a complete SVG string
+- **Iterable** — Iterate over all icon names and path data
+- **MIT licensed** — Free for personal and commercial use
+
+---
+
+## Related packages
 
 | Package | Description |
 |---------|-------------|
-| [reicon](https://npmjs.com/package/reicon) | Core vanilla JS + CDN |
-| [reicon-react](https://npmjs.com/package/reicon-react) | React components |
-| [reicon-vue](https://npmjs.com/package/reicon-vue) | Vue 3 components |
-| [reicon-svelte](https://npmjs.com/package/reicon-svelte) | Svelte components |
-| [reicon-react-native](https://npmjs.com/package/reicon-react-native) | React Native components |
+| [`reicon`](https://npmjs.com/package/reicon) | Core vanilla JS + CDN |
+| [`reicon-react`](https://npmjs.com/package/reicon-react) | React components for all 2674+ icons |
+| [`reicon-vue`](https://npmjs.com/package/reicon-vue) | Vue 3 components for all 2674+ icons |
+| [`reicon-svelte`](https://npmjs.com/package/reicon-svelte) | Svelte components for all 2674+ icons |
+| [`reicon-react-native`](https://npmjs.com/package/reicon-react-native) | React Native components |
 | [reicon-figma](https://reicon.dev/figma) | Figma plugin |
-| [reicon-vscode](https://marketplace.visualstudio.com/items?itemName=DevChauhan.reicon) | VS Code extension |
 
 ---
 
 ## Links
 
-- 🌐 **Website & icon browser**: [reicon.dev](https://reicon.dev)
-- 📖 **Documentation**: [reicon.dev/docs](https://reicon.dev/docs)
-- 🐙 **GitHub**: [github.com/dqev/reicon](https://github.com/dqev/reicon)
-- 🐛 **Issues**: [github.com/dqev/reicon/issues](https://github.com/dqev/reicon/issues)
+- 🌐 &nbsp; Website: [reicon.dev](https://reicon.dev)
+- 📖 &nbsp; Documentation: [reicon.dev/docs](https://reicon.dev/docs)
+- 📦 &nbsp; pub: [pub.dev/packages/reicon_flutter](https://pub.dev/packages/reicon_flutter)
+- 🐙 &nbsp; GitHub: [github.com/dqev/reicon](https://github.com/dqev/reicon)
+- 🐛 &nbsp; Issues: [github.com/dqev/reicon/issues](https://github.com/dqev/reicon/issues)
 
 ---
 
 ## License
 
-MIT © [Dev Chauhan](https://devchauhan.in). Free to use in personal and commercial projects.
+MIT © [Dev Chauhan](https://devchauhan.in)
+
+Free to use in personal and commercial projects. Attribution is appreciated but not required.

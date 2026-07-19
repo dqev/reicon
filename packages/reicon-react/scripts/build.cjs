@@ -388,7 +388,7 @@ Pass any standard SVG attribute — \`className\`, \`style\`, \`onClick\`, \`ari
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | \`size\` | \`number \| string\` | \`24\` | Icon width & height (number = px) |
-| \`color\` | \`string\` | \`currentColor\` | Primary icon stroke/fill color |
+| \`color\` | \`string\` | — | Primary icon stroke/fill color. Leave unset to use CSS class. |
 | \`secondaryColor\` | \`string\` | same as \`color\` | Secondary (accent) fill color |
 | \`weight\` | \`'Outline' \| 'Filled'\` | \`'Outline'\` | Icon style variant |
 | \`strokeWidth\` | \`number \| string\` | — | Override the default stroke width |

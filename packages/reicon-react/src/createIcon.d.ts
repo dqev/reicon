@@ -3,7 +3,7 @@ import { ForwardRefExoticComponent, RefAttributes, SVGAttributes } from 'react';
 export type IconWeight = 'Filled' | 'Outline';
 
 export interface IconProps extends Omit<SVGAttributes<SVGSVGElement>, 'color'> {
-  /** Primary color. Default: `currentColor` */
+  /** Primary color. Default: inherits from CSS */
   color?: string;
   /** Secondary color. Default: same as color */
   secondaryColor?: string;

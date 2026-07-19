@@ -256,21 +256,42 @@ fs.writeFileSync(path.join(DIST, 'package.json'), JSON.stringify(pkg, null, 2) +
 
 // ── README.md ──────────────────────────────────────────────────────────────
 const readme = `<p align="center">
+  <a href="https://reicon.dev">
+    <img src="https://reicon.dev/readme-banner.png" alt="Reicon Vue — SVG Icon Library for Vue 3" width="100%" />
+  </a>
+</p>
+
+<p align="center">
   <a href="https://npmjs.com/package/reicon-vue"><img src="https://img.shields.io/npm/v/reicon-vue?color=black&label=npm" alt="npm version" /></a>
   <a href="https://npmjs.com/package/reicon-vue"><img src="https://img.shields.io/npm/dm/reicon-vue?color=black&label=downloads" alt="npm downloads" /></a>
   <a href="https://github.com/dqev/reicon/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-black" alt="MIT License" /></a>
   <a href="https://reicon.dev"><img src="https://img.shields.io/badge/docs-reicon.dev-black" alt="Documentation" /></a>
+  <a href="https://github.com/dqev/reicon"><img src="https://img.shields.io/badge/github-dqev/reicon-black" alt="GitHub" /></a>
 </p>
 
-# Reicon Vue
+<h1 align="center">Reicon Vue</h1>
 
-> ${icons.length}+ pixel-perfect SVG icons • Outline & Filled weights • Vue 3 component wrapper • Zero dependencies • MIT Licensed
+<p align="center">
+  <b>${icons.length}+ pixel-perfect SVG icons</b> • Outline & Filled weights • Vue 3 component wrapper • Zero dependencies • MIT Licensed
+</p>
 
-**Reicon Vue** is the official Vue 3 package for Reicon — a free, open-source SVG icon library with ${icons.length}+ handcrafted, grid-aligned icons built for developers and designers. Every component is optimized for tree-shaking and fully TypeScript-ready.
+<p align="center">
+  <a href="#install">Install</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#props">Props</a> •
+  <a href="#tree-shaking">Tree-shaking</a> •
+  <a href="#icon-names">Icon Names</a> •
+  <a href="#typescript">TypeScript</a>
+</p>
 
-- 🔗 **Website & icon browser:** [reicon.dev](https://reicon.dev)
-- 📦 **Core package:** [reicon](https://npmjs.com/package/reicon)
-- 🎨 **Figma plugin:** [reicon.dev/figma](https://reicon.dev/figma)
+**Reicon Vue** is the official Vue 3 package for <a href="https://reicon.dev">Reicon</a> — a free, open-source SVG icon library featuring ${icons.length}+ handcrafted, grid-aligned icons. Every component is tree-shakeable, fully TypeScript-ready, and ships with zero dependencies.
+
+| 🔗 &nbsp; Resource | Link |
+|---|---|
+| 🌐 &nbsp; Website & icon browser | [reicon.dev](https://reicon.dev) |
+| 📖 &nbsp; Documentation | [reicon.dev/docs](https://reicon.dev/docs) |
+| 📦 &nbsp; Core package (vanilla JS) | [reicon](https://npmjs.com/package/reicon) |
+| 🎨 &nbsp; Figma plugin | [reicon.dev/docs/figma](https://reicon.dev/docs/figma) |
 
 ---
 
@@ -284,11 +305,25 @@ bun add reicon-vue
 yarn add reicon-vue
 \`\`\`
 
+<details>
+<summary><b>Requirements</b></summary>
+
+- **Vue** ≥ 3.0 (Composition API)
+- No other dependencies required.
+
+</details>
+
 ---
 
 ## Usage
 
-\`\`\`html
+### Basic
+
+\`\`\`vue
+<script setup>
+import { Home, ShieldCheck, AltArrowDown } from 'reicon-vue';
+</script>
+
 <template>
   <div>
     <Home />
@@ -296,91 +331,127 @@ yarn add reicon-vue
     <AltArrowDown weight="Filled" />
   </div>
 </template>
-
-<script setup>
-import { Home, ShieldCheck, AltArrowDown } from 'reicon-vue';
-</script>
 \`\`\`
-
-### Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| \`size\` | \`number | string\` | \`24\` | Icon size (number = px) |
-| \`color\` | \`string\` | \`currentColor\` | Primary icon color |
-| \`weight\` | \`IconWeight\` | \`Outline\` | Icon weight / style |
-| \`strokeWidth\` | \`number | string\` | — | Override stroke width |
-| \`class\` | \`string | array | object\` | — | Custom SVG classes |
-| \`style\` | \`string | array | object\` | — | Custom SVG styles |
-
-Plus all standard SVG attributes.
 
 ### Weights
 
-- **Outline** — clean outlined style (default)
-- **Filled** — solid filled style
+Every icon ships in two weights — **Outline** (default) and **Filled**:
 
-\`\`\`html
-<Home />                           <!-- Outline (default) -->
-<Home weight="Filled" />           <!-- Filled -->
-<Home weight="Filled" color="red" />
+\`\`\`vue
+<Home />                     <!-- Outline (default) -->
+<Home weight="Filled" />     <!-- Filled -->
+\`\`\`
+
+### Sizing & coloring
+
+\`\`\`vue
+<Home :size="32" />                    <!-- 32×32px -->
+<Home :size="48" color="#d97757" />    <!-- Custom size and color -->
+<Home color="currentColor" />          <!-- Inherits parent text color -->
 \`\`\`
 
 ### Direct icon import (smallest bundle)
 
+For the absolute minimum bundle size, import icons directly from the sub-path:
+
 \`\`\`js
 import Home from 'reicon-vue/icons/Home';
+import ShieldCheck from 'reicon-vue/icons/ShieldCheck';
+\`\`\`
+
+### All SVG attributes are supported
+
+Pass any standard SVG attribute — \`class\`, \`style\`, \`onClick\`, \`aria-*\`, etc.:
+
+\`\`\`vue
+<Home
+  :size="48"
+  color="red"
+  class="my-icon"
+  :style="{ marginRight: 8 }"
+  @click="console.log('clicked')"
+  aria-label="Home"
+/>
 \`\`\`
 
 ---
 
-## Tree-shaking — import only what you use
+## Props
 
-Every icon is a standalone ES module. Bundlers (Vite, Webpack, Rollup, esbuild) will tree-shake unused icons automatically.
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| \`size\` | \`number | string\` | \`24\` | Icon width & height (number = px) |
+| \`color\` | \`string\` | — | Primary icon stroke/fill color. Leave unset to use CSS class. |
+| \`weight\` | \`'Outline' | 'Filled'\` | \`'Outline'\` | Icon style variant |
+| \`strokeWidth\` | \`number | string\` | — | Override the default stroke width |
+| \`class\` | \`string | array | object\` | — | Additional CSS class on the \`<svg>\` element |
+| \`style\` | \`string | array | object\` | — | Additional inline styles |
+
+Any valid SVG attribute (e.g. \`id\`, \`aria-*\`) is forwarded to the underlying \`<svg>\` element.
+
+---
+
+## Tree-shaking
+
+Every icon is a standalone ES module. Modern bundlers — **Vite**, **Webpack**, **Rollup**, **esbuild** — automatically tree-shake unused icons, keeping only what you import.
 
 \`\`\`js
-// ✅ Only Home is included in your bundle
+// ✅ Only Home is included in your production bundle
 import { Home } from 'reicon-vue';
+
+// ✅ Even smaller — direct path import skips the barrel file entirely
+import Home from 'reicon-vue/icons/Home';
 \`\`\`
+
+The package is marked \`"sideEffects": false\` for optimal dead-code elimination.
 
 ---
 
 ## Icon Names
 
-Icons use **PascalCase**, derived from their original kebab-case names:
+Icons use **PascalCase**, derived from their original kebab-case file names:
 
-| Original name | Import |
-|---------------|--------|
+| Original name | PascalCase import |
+|---------------|-------------------|
 | \`home\` | \`Home\` |
 | \`shield-check\` | \`ShieldCheck\` |
 | \`alt-arrow-down\` | \`AltArrowDown\` |
 | \`shopping-cart\` | \`ShoppingCart\` |
 | \`user-circle\` | \`UserCircle\` |
 
-Browse all ${icons.length}+ icons at [reicon.dev](https://reicon.dev).
+Browse and search all ${icons.length}+ icons at <a href="https://reicon.dev">reicon.dev</a>.
 
 ---
 
 ## TypeScript
 
-Full TypeScript support out of the box.
+Full type declarations ship with the package — no separate \`@types/\` installation needed.
+
+\`\`\`ts
+import { Home, type IconProps, type IconWeight } from 'reicon-vue';
+
+const weight: IconWeight = 'Filled';
+const props: IconProps = { size: 32, color: '#d97757', weight };
+\`\`\`
+
+### Exported types
+
+| Type | Description |
+|------|-------------|
+| \`IconProps\` | Combined icon props + Vue SVG attributes |
+| \`IconWeight\` | \`'Outline' | 'Filled'\` |
 
 ---
 
-## Why Reicon?
+## Features
 
-| | Reicon | Lucide | Heroicons | Phosphor |
-|--|--------|--------|-----------|---------|
-| **Icons** | ${icons.length}+ | 1600+ | 292 | 7700+ |
-| **Weights** | Outline + Filled | Outline only | Outline + Solid | 6 weights |
-| **Vanilla JS** | ✅ Native | ❌ | ❌ | ❌ |
-| **React** | ✅ reicon-react | ✅ | ✅ | ✅ |
-| **Vue** | ✅ reicon-vue | ✅ | ✅ | ✅ |
-| **CDN / script tag** | ✅ | ❌ | ❌ | ❌ |
-| **Zero dependencies** | ✅ | ✅ | ✅ | ✅ |
-| **TypeScript** | ✅ | ✅ | ✅ | ✅ |
-| **MIT License** | ✅ | ✅ | ✅ | ✅ |
-| **Figma plugin** | ✅ | ✅ | ❌ | ✅ |
+- **${icons.length}+ icons** — Handcrafted, pixel-perfect SVGs across a wide range of categories
+- **Two weights** — Outline and Filled, with consistent 24×24 grid alignment
+- **Tree-shakeable** — Import only what you use; every icon is a standalone ES module
+- **Zero dependencies** — No runtime overhead beyond Vue itself
+- **TypeScript-ready** — Full type declarations included, no extra packages needed
+- **SVG attribute passthrough** — All standard SVG props (\`class\`, \`style\`, \`aria-*\`, etc.) are forwarded
+- **MIT licensed** — Free for personal and commercial use
 
 ---
 
@@ -388,20 +459,20 @@ Full TypeScript support out of the box.
 
 | Package | Description |
 |---------|-------------|
-| [\`reicon\`](https://npmjs.com/package/reicon) | Core vanilla JS + CDN |
-| [\`reicon-react\`](https://npmjs.com/package/reicon-react) | React components for all ${icons.length}+ icons |
-| [\`reicon-vue\`](https://npmjs.com/package/reicon-vue) | **This package.** Vue 3 components for all ${icons.length}+ icons |
-| [\`reicon-svelte\`](https://npmjs.com/package/reicon-svelte) | Svelte components for all ${icons.length}+ icons |
+| [\`reicon\`](https://npmjs.com/package/reicon) | Core vanilla JS + CDN runtime. No framework required. |
+| [\`reicon-react\`](https://npmjs.com/package/reicon-react) | React components for ${icons.length}+ icons. |
+| [\`reicon-vue\`](https://npmjs.com/package/reicon-vue) | **You are here.** Vue 3 components for ${icons.length}+ icons. |
+| [\`reicon-svelte\`](https://npmjs.com/package/reicon-svelte) | Svelte components for ${icons.length}+ icons. |
 
 ---
 
 ## Links
 
-- 🌐 Website: [reicon.dev](https://reicon.dev)
-- 📖 Documentation: [reicon.dev/docs](https://reicon.dev/docs)
-- 📦 npm (React): [npmjs.com/package/reicon-react](https://npmjs.com/package/reicon-react)
-- 🐙 GitHub: [github.com/dqev/reicon](https://github.com/dqev/reicon)
-- 🐛 Issues: [github.com/dqev/reicon/issues](https://github.com/dqev/reicon/issues)
+- 🌐 &nbsp; Website: [reicon.dev](https://reicon.dev)
+- 📖 &nbsp; Documentation: [reicon.dev/docs](https://reicon.dev/docs)
+- 📦 &nbsp; npm: [npmjs.com/package/reicon-vue](https://npmjs.com/package/reicon-vue)
+- 🐙 &nbsp; GitHub: [github.com/dqev/reicon](https://github.com/dqev/reicon)
+- 🐛 &nbsp; Issues: [github.com/dqev/reicon/issues](https://github.com/dqev/reicon/issues)
 
 ---
 
@@ -409,7 +480,7 @@ Full TypeScript support out of the box.
 
 MIT © [Dev Chauhan](https://devchauhan.in)
 
-Free to use in personal and commercial projects.
+Free to use in personal and commercial projects. Attribution is appreciated but not required.
 `;
 
 fs.writeFileSync(path.join(DIST, 'README.md'), readme);

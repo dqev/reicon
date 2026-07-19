@@ -1,14 +1,14 @@
 {
-    "name": "reicon-react-native",
-    "version": "1.0.101",
-    "type": "module",
-    "description": "React Native icon components for Reicon.",
-    "scripts": {
-        "build": "node scripts/build.cjs"
-    },
-    "peerDependencies": {
-        "react": ">=16.8.0",
-        "react-native": ">=0.64.0",
-        "react-native-svg": ">=12.0.0"
-    }
+  "name": "reicon-react-native",
+  "version": "1.0.102",
+  "type": "module",
+  "description": "React Native icon components for Reicon.",
+  "scripts": {
+    "build": "node scripts/build.cjs"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-native": ">=0.64.0",
+    "react-native-svg": ">=12.0.0"
+  }
 }

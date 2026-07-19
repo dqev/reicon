@@ -1,8 +1,8 @@
 <script>
   /** @type {string | number} */
   export let size = 24;
-  /** @type {string} */
-  export let color = 'currentColor';
+  /** @type {string | undefined} */
+  export let color = undefined;
   /** @type {string} */
   export let weight = 'Outline';
   /** @type {string | number | undefined} */
@@ -38,7 +38,7 @@
   viewBox="0 0 24 24"
   fill="none"
   class="reicon {className}"
-  style="color: {color}; {customStyle}"
+  style={color != null ? `color: ${color}; ${customStyle}` : customStyle}
   {...$$restProps}
 >
   {@html rawHtml}

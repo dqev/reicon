@@ -1,7 +1,7 @@
 import { SvelteComponent } from 'svelte';
 
 export interface IconComponentProps {
-  /** Primary icon color. Default: `currentColor` */
+  /** Primary icon color. Default: inherits from CSS */
   color?: string;
   /** Icon size (px when number, or any CSS unit). Default: `24` */
   size?: number | string;

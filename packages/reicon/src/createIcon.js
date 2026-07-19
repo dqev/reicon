@@ -17,7 +17,7 @@ const createIcon = (displayName, iconData) => {
    */
   const icon = (options = {}) => {
     const {
-      color = 'currentColor',
+      color,
       size = 24,
       weight = 'Outline',
       strokeWidth,
@@ -49,7 +49,7 @@ const createIcon = (displayName, iconData) => {
     svg.setAttribute('viewBox', '0 0 24 24');
     svg.setAttribute('fill', 'none');
     svg.setAttribute('class', className ? 'reicon ' + className : 'reicon');
-    svg.style.color = color;
+    if (color != null) svg.style.color = color;
 
     for (const [k, v] of Object.entries(attrs)) {
       svg.setAttribute(k, String(v));
@@ -69,7 +69,7 @@ const createIcon = (displayName, iconData) => {
    */
   icon.toSvg = (options = {}) => {
     const {
-      color = 'currentColor',
+      color,
       size = 24,
       weight = 'Outline',
       strokeWidth,
@@ -91,7 +91,8 @@ const createIcon = (displayName, iconData) => {
       .map(([k, v]) => `${escAttr(k)}="${escAttr(v)}"`)
       .join(' ');
 
-    return `<svg xmlns="http://www.w3.org/2000/svg" width="${escAttr(size)}" height="${escAttr(size)}" viewBox="0 0 24 24" fill="none" class="${escAttr(className ? 'reicon ' + className : 'reicon')}" style="color: ${escAttr(color)}"${extraAttrs ? ' ' + extraAttrs : ''}>${html}</svg>`;
+    const colorStyle = color != null ? ` style="color: ${escAttr(color)}"` : '';
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${escAttr(size)}" height="${escAttr(size)}" viewBox="0 0 24 24" fill="none" class="${escAttr(className ? 'reicon ' + className : 'reicon')}"${colorStyle}${extraAttrs ? ' ' + extraAttrs : ''}>${html}</svg>`;
   };
 
   return icon;

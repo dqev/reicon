@@ -14,7 +14,7 @@ const createIcon = (displayName, iconData) => {
     inheritAttrs: false,
     props: {
       /** Primary icon color. Default: `currentColor` */
-      color: { type: String, default: 'currentColor' },
+      color: { type: String, default: undefined },
       /** Icon size (number = px, string = any CSS unit). Default: `24` */
       size: { type: [Number, String], default: 24 },
       /** Icon weight / style: `'Outline'` | `'Filled'`. Default: `'Outline'` */
@@ -53,7 +53,7 @@ const createIcon = (displayName, iconData) => {
           viewBox: '0 0 24 24',
           fill: 'none',
           class: ['reicon', userClass],
-          style: [{ color: props.color }, userStyle],
+          style: props.color != null ? [{ color: props.color }, userStyle] : userStyle,
           innerHTML: svgHtml.value,
           ...restAttrs,
         });

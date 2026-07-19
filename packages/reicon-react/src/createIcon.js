@@ -16,7 +16,7 @@ const createIcon = (displayName, iconData) => {
      */
     (
       {
-        color = 'currentColor',
+        color,
         secondaryColor,
         size = 24,
         weight = 'Outline',
@@ -42,7 +42,7 @@ const createIcon = (displayName, iconData) => {
         viewBox: '0 0 24 24',
         fill: 'none',
         className: className ? 'reicon ' + className : 'reicon',
-        style: { color, ...style },
+        style: color != null ? { color, ...style } : style,
         ...rest,
         dangerouslySetInnerHTML: { __html: html },
       });
