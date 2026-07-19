@@ -83,7 +83,7 @@ export function generateCode(
       return { importStatement, docsSnippet };
     }
     case 'html': {
-      const importStatement = '<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>';
+      const importStatement = '<script src="https://unpkg.com/reicon/cdn/reicon.js"></script>';
       const props = [
         ` icon="${icon.name}"`,
         sizeProp(size, 'html'),

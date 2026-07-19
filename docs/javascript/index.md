@@ -74,9 +74,9 @@ Perfect for static HTML websites, legacy applications, and prototyping. Include 
 ### Register Custom Element (`<re-icon>`)
 Include the script tag inside your HTML page. This registers a reactive `<re-icon>` component that supports dynamic styling, sizes, weights, and gradients.
 ```html
-<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>
+<script src="https://unpkg.com/reicon/cdn/reicon.js"></script>
 ```
-*Or load a specific version:* `https://unpkg.com/reicon@latest/cdn/reicon.min.js`
+*Or load a specific version:* `https://unpkg.com/reicon@latest/cdn/reicon.js`
 
 ### Basic CDN Usage
 Simply add the `<re-icon>` tags directly in your HTML:
@@ -136,7 +136,7 @@ A complete HTML document importing Reicon via CDN and showcasing customizations:
 <head>
   <meta charset="UTF-8">
   <title>Reicon Page</title>
-  <script src="https://unpkg.com/reicon@latest/cdn/reicon.min.js"></script>
+  <script src="https://unpkg.com/reicon@latest/cdn/reicon.js"></script>
 </head>
 <body>
   <nav>

@@ -8,7 +8,7 @@ Common issues and their solutions. If you don't find your answer here, open an i
 Make sure the CDN script is loaded before any `<re-icon>` elements. Place the script tag in your `<head>` or before your markup.
 ```html
 <!-- ✅ Place in <head> -->
-<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>
+<script src="https://unpkg.com/reicon/cdn/reicon.js"></script>
 ```
 
 ---

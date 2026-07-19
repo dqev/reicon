@@ -117,7 +117,7 @@ import { ArrowUpRight } from 'reicon-vue';
 
 ### CDN / HTML
 \`\`\`html
-<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>
+<script src="https://unpkg.com/reicon/cdn/reicon.js"></script>
 <re-icon icon="arrow-up-right" weight="outline" size="24"></re-icon>
 \`\`\`
 

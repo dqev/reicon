@@ -555,7 +555,7 @@ const runtimeJS = `/*!
 
     _applyHostStyle() {
       var size = normalizeSize(this.getAttribute('size'));
-      var color = this.getAttribute('color');
+      var color = this.getAttribute('color') || 'currentColor';
       var secondary = this.getAttribute('secondary-color') || color;
       var stroke = this.getAttribute('stroke-width');
       var rotate = this.getAttribute('rotate');

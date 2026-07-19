@@ -19,7 +19,7 @@
     "build:react-native": "node packages/reicon-react-native/scripts/build.cjs",
     "build:vue": "node packages/reicon-vue/scripts/build.cjs",
     "build:js": "node packages/reicon/scripts/build.cjs",
-    "build:cdn:min": "npx terser packages/reicon/dist/cdn/reicon.js --compress --mangle -o packages/reicon/dist/cdn/reicon.min.js",
+    "build:cdn:min": "npx terser packages/reicon/dist/cdn/reicon.js --compress --mangle -o packages/reicon/dist/cdn/reicon.js",
     "build:figma": "node packages/reicon-figma/scripts/build.cjs",
     "build:svelte": "node packages/reicon-svelte/scripts/build.cjs",
     "build:vscode": "node packages/reicon-vscode/scripts/build.cjs",

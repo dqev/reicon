@@ -108,7 +108,7 @@ SvgPicture.string(
 
 ```html
 <!-- Load the library -->
-<script src="https://unpkg.com/reicon/cdn/reicon.min.js"></script>
+<script src="https://unpkg.com/reicon/cdn/reicon.js"></script>
 
 <!-- Render the web component -->
 <re-icon icon="heart" weight="outline" size="24"></re-icon>
