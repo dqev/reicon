@@ -1,0 +1,20 @@
+name: reicon_flutter
+description: >-
+  Official Reicon icons for Dart & Flutter — 2700+ handcrafted,
+  pixel-perfect SVG icons in Outline and Filled. MIT licensed.
+version: 1.0.1
+homepage: https://reicon.dev
+repository: https://github.com/dqev/reicon/tree/main/packages/reicon-flutter
+issue_tracker: https://github.com/dqev/reicon/issues
+documentation: https://reicon.dev/docs
+license: MIT
+
+topics:
+  - icons
+  - svg-icons
+  - flutter-icons
+  - open-source
+  - reicon
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'

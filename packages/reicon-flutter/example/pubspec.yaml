@@ -1,0 +1,8 @@
+name: reicon_flutter_example
+description: Example usage of reicon_flutter
+publish_to: none
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+dependencies:
+  reicon_flutter:
+    path: ../

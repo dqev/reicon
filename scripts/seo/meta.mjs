@@ -1,7 +1,9 @@
 export const SITE = 'https://reicon.dev';
-export const OG_IMAGE = `${SITE}/og-image.png?v=4`;
+export const SITE_DEFAULTS = {
+  ogImage: `${SITE}/og/og.jpg`,
+};
 
-export function buildMeta({ title, desc, url, ogImage = OG_IMAGE, ogImageAlt, keywords, jsonLd, breadcrumb, isIconPage = false }) {
+export function buildMeta({ title, desc, url, ogImage = SITE_DEFAULTS.ogImage, ogImageAlt, keywords, jsonLd, breadcrumb, isIconPage = false }) {
   const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const t = esc(title);
   const d = esc(desc);

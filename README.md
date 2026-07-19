@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://reicon.dev">
-    <img src="public/og-image.png" alt="Reicon — Free Open-Source Icon Library" width="100%" />
+    <img src="public/og/og.jpg" alt="Reicon — Free Open-Source Icon Library" width="100%" />
   </a>
 </p>
 
@@ -51,6 +51,7 @@ All icons are maintained in two weights:
 | <img src="https://cdn.simpleicons.org/svelte/FF3E00" alt="Svelte logo" width="30"> | **`reicon-svelte`** | [![npm](https://img.shields.io/npm/v/reicon-svelte?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-svelte) | ![npm downloads](https://img.shields.io/npm/dm/reicon-svelte?color=6C5CE7&label=) | [Guide](docs/svelte/index.md) · [Source](./packages/reicon-svelte) |
 | <img src="./public/readme-assets/figma.svg" alt="Figma logo" width="28"> | **`reicon-figma`** | — | — | [Guide](docs/figma/index.md) · [Source](./packages/reicon-figma) |
 | <img src="./public/readme-assets/vscode.svg" alt="VS Code logo" width="30"> | **`reicon-vscode`** | [![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/DevChauhan.reicon?color=6C5CE7&label=)](https://marketplace.visualstudio.com/items?itemName=DevChauhan.reicon) | — | [Guide](docs/vscode/index.md) · [Source](./packages/reicon-vscode) |
+| <img src="./public/readme-assets/flutter.svg" alt="Flutter logo" width="30"> | **`reicon_flutter`** | [![pub](https://img.shields.io/pub/v/reicon_flutter?color=6C5CE7&label=)](https://pub.dev/packages/reicon_flutter) | ![pub downloads](https://img.shields.io/pub/dm/reicon_flutter?color=6C5CE7&label=) | [Guide](./packages/reicon-flutter/README.md) · [Source](./packages/reicon-flutter) |
 | <img src="./public/readme-assets/mcp.svg" alt="MCP logo" width="30"> | **`reicon-mcp`** | [![npm](https://img.shields.io/npm/v/reicon-mcp?color=6C5CE7&label=)](https://www.npmjs.com/package/reicon-mcp) | ![npm downloads](https://img.shields.io/npm/dm/reicon-mcp?color=6C5CE7&label=) | [Guide](docs/mcp/index.md) · [Source](./packages/reicon-mcp) |
 | <img src="./public/readme-assets/svg.svg" alt="SVG logo" width="30"> | **`reicon-svg`** | — | — | [Guide](docs/svg/index.md) · [Download](./public/reicon-icons.zip) |
 
@@ -88,6 +89,18 @@ import { Heart } from 'reicon-svelte';
 </script>
 
 <Heart size={24} weight="Outline" color="#000000" />
+```
+
+
+### Flutter Usage
+
+```dart
+import 'package:reicon_flutter/reicon_flutter.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+SvgPicture.string(
+  reiconSvg(Reicon.outline.heart, size: 24),
+)
 ```
 
 
