@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "node scripts/sync-icon-names.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-llm-assets.mjs && vite build && node scripts/prerender-meta.mjs",
+    "build": "node scripts/sync-icon-names.mjs && node scripts/seo/update-helmets.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-llm-assets.mjs && vite build && node scripts/prerender-meta.mjs",
     "build:full": "npm run build",
     "postbuild": "node scripts/seo/ping.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
+    "helmets": "node scripts/seo/update-helmets.mjs",
     "ping": "node scripts/seo/ping.mjs",
     "seo:check": "node scripts/seo/test.mjs",
     "sync:icons": "node scripts/sync-icon-names.mjs",

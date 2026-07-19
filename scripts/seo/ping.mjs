@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { createSign } from 'crypto';
@@ -11,15 +11,13 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE = 'https://reicon.dev';
 const HOST = 'reicon.dev';
 const INDEXNOW_KEY = 'e44e44937f4e91fe08a9067fd87b2860';
-const ICON_NAMES_JSON = resolve(__dirname, '../icon-names.json');
 
 const PRIORITY_URLS = ROUTES
   .filter((r) => parseFloat(r.priority) >= 0.8)
   .map((r) => `${SITE}${r.path === '/' ? '/' : r.path}`);
 
 function allUrls() {
-  const icons = Object.keys(JSON.parse(readFileSync(ICON_NAMES_JSON, 'utf-8')));
-  return [...PRIORITY_URLS, `${SITE}/license`, ...icons.map((n) => `${SITE}/icon/${n}`)];
+  return PRIORITY_URLS;
 }
 
 async function indexNow(urls) {
