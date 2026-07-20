@@ -213,4 +213,4 @@ Reicon base icons are built using elements from:
 
 ## <img src="./public/readme-assets/license.svg" width="22" height="22" align="center" alt="" />&nbsp; License
 
-MIT License - Copyright (c) 2026 [Dev Chauhan](https://devchauhan.in).
+MIT License - Copyright (c) 2026 [Dev Chauhan](https://devchauhan.in). v1.0.0
