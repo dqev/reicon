@@ -26,11 +26,12 @@
     "build:mcp": "node packages/reicon-mcp/scripts/build.cjs",
     "bump:versions": "node scripts/bump-versions.mjs",
     "build:packages": "node scripts/sync-icon-names.mjs && npm run build:react && npm run build:react-native && npm run build:vue && npm run build:js && npm run build:cdn:min && npm run build:figma && npm run build:svelte && npm run build:vscode && npm run build:mcp",
-    "preview": "vite preview",
+    "preview": "npm run build && wrangler dev",
     "clean": "rm -rf dist packages/*/dist",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.19",
@@ -48,6 +49,7 @@
     "reicon-react": "^1.0.4"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.45.1",
     "@modelcontextprotocol/sdk": "^1.12.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
@@ -62,6 +64,7 @@
     "vite": "^6.2.3",
     "vitest": "^4.1.10",
     "vue": "^3.5.39",
+    "wrangler": "^4.112.0",
     "zod": "^3.24.0"
   }
 }
