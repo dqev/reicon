@@ -5,6 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    base: '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
@@ -16,6 +17,9 @@ export default defineConfig(() => {
       // where file-watching triggers unnecessary re-renders. Leave unset (or 'false')
       // during local dev so hot reload works normally.
       hmr: process.env.DISABLE_HMR !== 'true',
+    },
+    build: {
+      outDir: 'dist',
     },
   };
 });
