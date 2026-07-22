@@ -154,6 +154,14 @@ export const ROUTES = [
     changefreq: 'monthly',
   },
   {
+    path: '/support',
+    title: 'Support Reicon — Buy Me a Coffee',
+    description: 'Support ongoing open-source development of Reicon. Buy us a coffee to keep 2,700+ handcrafted SVG icons free for everyone.',
+    ogImage: og('support.jpg'),
+    priority: '0.8',
+    changefreq: 'monthly',
+  },
+  {
     path: '/terms',
     title: 'Reicon Terms of Service — Reicon',
     description: 'Terms of service for using the Reicon open-source icon library.',
