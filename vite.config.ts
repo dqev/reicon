@@ -15,9 +15,6 @@ export default defineConfig(() => {
       },
     },
     server: {
-      // DISABLE_HMR: set to 'true' when running in AI Studio / headless environments
-      // where file-watching triggers unnecessary re-renders. Leave unset (or 'false')
-      // during local dev so hot reload works normally.
       hmr: process.env.DISABLE_HMR !== 'true',
     },
     build: {
