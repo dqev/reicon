@@ -35,8 +35,8 @@ export const ROUTES = [
   },
   {
     path: '/icons',
-    title: 'Reicon — 2,700+ Free SVG Icons',
-    description: 'Browse 2,700+ free, open-source SVG icons. Outline & Filled weights. MIT licensed.',
+    title: 'Free Open-Source SVG Icons — Reicon',
+    description: 'Browse 3,900+ free, open-source SVG icons in Outline, Filled, and Duotone weights. MIT licensed.',
     ogImage: og('icons.jpg'),
     priority: '0.9',
     changefreq: 'weekly',
