@@ -130,11 +130,24 @@
           "value": "public, max-age=86400"
         }
       ]
+    },
+    {
+      "source": "/.well-known/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
     }
   ],
   "rewrites": [
     {
-      "source": "/((?!assets|svg|favicon|sitemap|robots|humans|llms|site\\.webmanifest).*)",
+      "source": "/((?!assets|svg|favicon|sitemap|robots|humans|llms|site\\.webmanifest|\\.well-known).*)",
       "destination": "/index.html"
     }
   ]
