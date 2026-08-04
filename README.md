@@ -32,7 +32,7 @@
 
 <br/>
 
-## <img src="./public/readme-assets/overview.svg" width="22" height="22" align="center" alt="" />&nbsp; Overview
+## <img src="./public/readme-assets/overview.svg" width="22" height="22" align="absmiddle" alt="" />&nbsp; Overview
 
 Reicon provides a comprehensive set of SVG icons designed on a strict 24×24 pixel grid. The library is built for high-performance web applications, offering complete tree-shakeability, zero external dependencies, and optimized wrappers for multiple frameworks.
 
@@ -42,7 +42,7 @@ All icons are maintained in two weights:
 
 
 
-## <img src="./public/readme-assets/packages.svg" width="22" height="22" align="center" alt="" />&nbsp; Packages & Ecosystem
+## <img src="./public/readme-assets/packages.svg" width="22" height="22" align="absmiddle" alt="" />&nbsp; Packages & Ecosystem
 
 | Logo | Package | Version | Downloads | Links |
 | :---: | :--- | :--- | :--- | :--- |
@@ -59,7 +59,7 @@ All icons are maintained in two weights:
 
 
 
-## <img src="./public/readme-assets/quick-start.svg" width="22" height="22" align="center" alt="" />&nbsp; Quick Start
+## <img src="./public/readme-assets/quick-start.svg" width="22" height="22" align="absmiddle" alt="" />&nbsp; Quick Start
 
 ### React Usage
 
@@ -135,7 +135,7 @@ Connect AI agents to Reicon via the [Model Context Protocol](https://modelcontex
 Agents can search icons, preview SVG markup, and generate framework-specific code snippets. See the [MCP guide](docs/mcp/index.md) for tools reference and CLI usage.
 
 
-## <img src="./public/readme-assets/agent.svg" width="22" height="22" align="center" alt="" />&nbsp; Agent Usage
+## <img src="./public/readme-assets/agent.svg" width="22" height="22" align="absmiddle" alt="" />&nbsp; Agent Usage
 
 Reicon provides dedicated LLM-friendly reference files so AI agents (Claude, Cursor, Copilot, etc.) immediately know how to install, import, and render Reicon icons across all frameworks.
 
@@ -153,14 +153,14 @@ These files are publicly available at:
 When using the [MCP Server](docs/mcp/index.md), agents can also search icons, view SVG markup, and generate framework code programmatically with zero network calls.
 
 
-## <img src="./public/readme-assets/structure.svg" width="22" height="22" align="center" alt="" />&nbsp; Project Structure
+## <img src="./public/readme-assets/structure.svg" width="22" height="22" align="absmiddle" alt="" />&nbsp; Project Structure
 
 This project is organized as a monorepo holding the core dataset, package compilations, build scripts, and the showcase documentation site.
 
 For a detailed file-by-file breakdown of the directory layout and file responsibilities, see the [Project Structure Guide](docs/project-structure.md).
 
 
-## <img src="./public/readme-assets/design.svg" width="22" height="22" align="center" alt="" />&nbsp; Design System
+## <img src="./public/readme-assets/design.svg" width="22" height="22" align="absmiddle" alt="" />&nbsp; Design System
 
 The documentation site uses a custom layout system built using CSS custom variables and Tailwind CSS utility tokens.
 
@@ -168,7 +168,7 @@ For the specifications on typography scales, responsive breakpoints, animations,
 
 ---
 
-## <img src="./public/readme-assets/development.svg" width="22" height="22" align="center" alt="" />&nbsp; Development & Building
+## <img src="./public/readme-assets/development.svg" width="22" height="22" align="absmiddle" alt="" />&nbsp; Development & Building
 
 ### Running the Documentation Site
 To start the React/Vite development server locally for the documentation website:
@@ -191,21 +191,14 @@ The core icons are maintained in `data/icon-data.json`, which acts as the single
 
 
 
-## <img src="./public/readme-assets/contributing.svg" width="22" height="22" align="center" alt="" />&nbsp; Contributing
+## <img src="./public/readme-assets/contributing.svg" width="22" height="22" align="absmiddle" alt="" />&nbsp; Contributing
 
 Contributions to the codebase, packages, or documentation are welcome. Please refer to our [Contributing Guidelines](.github/CONTRIBUTING.md) for conventions on pull requests, testing, and formatting.
 
 
 
-## <img src="./public/readme-assets/star-history.svg" width="22" height="22" align="center" alt="" />&nbsp; Our Stargazers
 
-[![Stargazers](https://github-readme-stargazers-five.vercel.app/api/card?username=dqev&repo=reicon&width=1200&theme=Snowy+Minimal+%28Solid%29&rows=4&cols=8&wreath=true&radius=7&card_border=false&blur=1.5&badges=fire&badge_density=0.45&bg_style=solid&v=1)](https://github.com/dqev/reicon/stargazers)
-
-
-<br/>
-
-
-## <img src="./public/readme-assets/license.svg" width="22" height="22" align="center" alt="" />&nbsp; Credits
+## <img src="./public/readme-assets/license.svg" width="22" height="22" align="absmiddle" alt="" />&nbsp; Credits
 
 Reicon base icons are built using elements from:
 * [Solar Icons](https://solar-icons.vercel.app/) designed by **480 Design** (CC BY 4.0) and package maintained by [Saoudi H.](https://github.com/saoudi-h/solar-icons) (MIT License)
@@ -213,6 +206,6 @@ Reicon base icons are built using elements from:
 
 
 
-## <img src="./public/readme-assets/license.svg" width="22" height="22" align="center" alt="" />&nbsp; License
+## <img src="./public/readme-assets/license.svg" width="22" height="22" align="absmiddle" alt="" />&nbsp; License
 
 MIT License - Copyright (c) 2026 [Dev Chauhan](https://devchauhan.in). v1.2.0
