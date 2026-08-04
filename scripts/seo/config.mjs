@@ -42,6 +42,14 @@ export const ROUTES = [
     changefreq: 'weekly',
   },
   {
+    path: '/illustration',
+    title: '71,000+ Free SVG Illustrations — Open-Source Vector Graphics | Reicon',
+    description: 'Browse 71,000+ free open-source SVG vector illustrations for React, Vue, HTML, and Figma. Download high-resolution PNG & customizable SVGs. MIT licensed.',
+    ogImage: og('illustration.jpg'),
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
     path: '/docs',
     title: 'Reicon Docs — Get Started',
     description: 'Get started with Reicon. Install and use icons in React, Vue, Svelte, Flutter, Figma, VS Code, and MCP.',

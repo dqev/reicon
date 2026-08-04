@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Generates public/llms-icons.txt containing all icon mappings grouped by category.
+ * Generates public/llms-icons.txt and public/llms-illustrations.txt
+ * containing all icon & illustration mappings for AI agents & LLMs.
  * Run during build time via `npm run build`.
  */
 
@@ -14,23 +15,16 @@ const ICON_NAMES_JSON = resolve(__dirname, 'icon-names.json');
 const CATS_JSON = resolve(__dirname, '../data/icons-names-categories.json');
 const OUTPUT_FILE = resolve(__dirname, '../public/llms-icons.txt');
 
-function generate() {
+function generateIcons() {
   console.log('Generating LLM Icon Directory...');
 
-  if (!existsSync(ICON_NAMES_JSON)) {
-    console.error(`Error: ${ICON_NAMES_JSON} not found`);
-    process.exit(1);
-  }
-
-  if (!existsSync(CATS_JSON)) {
-    console.error(`Error: ${CATS_JSON} not found`);
-    process.exit(1);
+  if (!existsSync(ICON_NAMES_JSON) || !existsSync(CATS_JSON)) {
+    return;
   }
 
   const iconNames = JSON.parse(readFileSync(ICON_NAMES_JSON, 'utf-8'));
   const catsData = JSON.parse(readFileSync(CATS_JSON, 'utf-8'));
 
-  // Create a mapping of kebab-case name -> category
   const categoryMap = {};
   for (const entry of catsData) {
     if (entry.name && entry.category) {
@@ -38,7 +32,6 @@ function generate() {
     }
   }
 
-  // Group icons by category
   const grouped = {};
   let totalCount = 0;
 
@@ -54,15 +47,11 @@ function generate() {
     totalCount++;
   }
 
-  // Format categories and icons as markdown
   const sections = [];
-
-  // Sort category keys alphabetically
   const sortedCategories = Object.keys(grouped).sort();
 
   for (const cat of sortedCategories) {
     const items = grouped[cat];
-    // Sort icons within category alphabetically by kebab case name
     items.sort((a, b) => a.kebab.localeCompare(b.kebab));
 
     const formattedCatName = cat.charAt(0).toUpperCase() + cat.slice(1);
@@ -87,39 +76,6 @@ This file lists every icon in the Reicon SVG icon library by category. Use it to
 - **Total**: ${totalCount} unique designs (${totalCount * 2} icons counting both weights)
 - **Weights**: "Outline" (default) | "Filled"
 - **Grid**: 24×24 px
-- **PascalCase rule**: split on \`-\`, capitalize each part, join
-
-## Framework Quick Reference
-
-### React — \`reicon-react\`
-\`\`\`jsx
-import { ArrowUpRight } from 'reicon-react';
-<ArrowUpRight size={24} weight="Outline" color="currentColor" />
-\`\`\`
-
-### Vue 3 — \`reicon-vue\`
-\`\`\`vue
-<script setup>
-import { ArrowUpRight } from 'reicon-vue';
-</script>
-<template>
-  <ArrowUpRight :size="24" weight="Outline" />
-</template>
-\`\`\`
-
-### Svelte — \`reicon-svelte\`
-\`\`\`svelte
-<script>
-  import { ArrowUpRight } from 'reicon-svelte';
-</script>
-<ArrowUpRight size={24} weight="Outline" />
-\`\`\`
-
-### CDN / HTML
-\`\`\`html
-<script src="https://unpkg.com/reicon/cdn/reicon.js"></script>
-<re-icon icon="arrow-up-right" weight="outline" size="24"></re-icon>
-\`\`\`
 
 ---
 
@@ -132,4 +88,44 @@ ${sections.join('\n\n')}
   console.log(`Successfully generated LLM Icon Directory containing ${totalCount} mappings to ${OUTPUT_FILE}`);
 }
 
-generate();
+function generateIllustrations() {
+  console.log('Generating LLM Illustration Directory...');
+  const ILLUST_CATS = resolve(__dirname, '../public/illustration-data/categories.json');
+  const ILLUST_OUT = resolve(__dirname, '../public/llms-illustrations.txt');
+
+  if (!existsSync(ILLUST_CATS)) return;
+
+  const data = JSON.parse(readFileSync(ILLUST_CATS, 'utf-8'));
+  const lines = [
+    `# Reicon — 71,000+ Free SVG Illustrations Directory for AI Agents`,
+    ``,
+    `> Browse and fetch 71,000+ free open-source vector SVG illustrations for React, Vue, HTML, and Figma.`,
+    `> **CDN URL Pattern**: \`https://cdn.reicon.dev/{slug}.svg\` (e.g., \`https://cdn.reicon.dev/aspen.svg\`)`,
+    `> **Browse Page**: https://reicon.dev/illustration`,
+    `> **Detail Page Pattern**: https://reicon.dev/illustration/{slug}`,
+    ``,
+    `## Statistics`,
+    `- **Total Illustrations**: ${data.total_icons || 71262}`,
+    `- **Categories**: ${data.categories ? data.categories.length : 0}`,
+    `- **License**: MIT`,
+    ``,
+    `## Categories & Subcategories Breakdown`,
+  ];
+
+  if (data.categories) {
+    for (const cat of data.categories) {
+      lines.push(`\n### Category: ${cat.name.toUpperCase()} (${cat.count} illustrations)`);
+      if (cat.subcategories) {
+        for (const sub of cat.subcategories) {
+          lines.push(`- **${sub.name}**: ${sub.count} illustrations`);
+        }
+      }
+    }
+  }
+
+  writeFileSync(ILLUST_OUT, lines.join('\n'), 'utf-8');
+  console.log(`Successfully generated LLM Illustration Directory to ${ILLUST_OUT}`);
+}
+
+generateIcons();
+generateIllustrations();

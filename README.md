@@ -13,6 +13,7 @@
 <p align="center">
   <a href="https://reicon.dev">Website</a> ·
   <a href="https://reicon.dev/icons">Browse Icons</a> ·
+  <a href="https://reicon.dev/illustration">Browse Illustrations (71,000+)</a> ·
   <a href="https://reicon.dev/docs">Docs Guide</a> ·
   <a href="https://www.npmjs.com/package/reicon">npm</a>
 </p>
@@ -26,6 +27,7 @@
   <a href="https://www.npmjs.com/package/reicon-mcp"><img src="https://img.shields.io/npm/v/reicon-mcp?color=6C5CE7&label=reicon-mcp" alt="reicon-mcp version" /></a>
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
   <img src="https://img.shields.io/badge/icons-2700%2B-blue" alt="2700+ Icons" />
+  <img src="https://img.shields.io/badge/illustrations-71000%2B-purple" alt="71000+ Illustrations" />
 </p>
 
 <br/>
@@ -213,4 +215,4 @@ Reicon base icons are built using elements from:
 
 ## <img src="./public/readme-assets/license.svg" width="22" height="22" align="center" alt="" />&nbsp; License
 
-MIT License - Copyright (c) 2026 [Dev Chauhan](https://devchauhan.in). v1.0.0
+MIT License - Copyright (c) 2026 [Dev Chauhan](https://devchauhan.in). v1.2.0

@@ -1,69 +1,35 @@
 # Changelog
 
-All notable changes to Reicon are documented in this file.
+All notable changes to the Reicon project and open-source platform will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [v1.2.0] - 2026-08-04
 
-## [Unreleased]
+### 🎨 71,000+ Free SVG Illustrations Library Launch
+- **New Illustration Catalog (`/illustration`)**: Introduced a dedicated browsing workspace for 71,000+ free, open-source vector SVG illustrations across 75+ categories and subcategories.
+- **Illustration Detail Pages (`/illustration/:slug`)**: Added individual detail pages featuring:
+  - Custom Color Accent Picker with real-time preview tinting.
+  - High-resolution PNG exports up to 2048px with 100% transparent backgrounds (`ctx.clearRect`).
+  - Customizable SVG downloads with color injection.
+  - Syntax-highlighted React, Vue, HTML, and raw SVG code tabs with desktop/mobile horizontal scrolling and double-square copy icon feedback.
+- **Interactive Illustration Hero Showcase**: Added an interactive 3D/ambient Playground on the home page and illustration catalog.
 
-## [1.1.1] — 2026-07-16
+### 📢 Launch Banner & UX Enhancements
+- **Illustration Launch Banner (`<IllustrationBanner />`)**: Added a floating modal banner introducing 71,000+ free SVG illustrations featuring 5 real vector illustrations (`aspen`, `bag`, `build`, `batch`, `bag-marbles`) with generous padding and spacing.
+- **Navigation Links**: Integrated `Illustration` links across desktop header, mobile drawer menu, and footer ecosystem columns.
 
-### Changed
-- **Cleaned icon database** — renamed variants for consistency, removed 6 broken/misaligned icons, general data cleanup in `data/icon-data.json`.
-- Updated all package versions to reflect the cleaned dataset.
+### 🚀 SEO & AI Agent Indexing
+- **Rich Schema.org Metadata**: Integrated `Dataset`, `ImageGallery`, `CollectionPage`, and `BreadcrumbList` JSON-LD schemas on illustration pages for Google Search rich snippets.
+- **IndexNow Instant Indexing (`ping.mjs`)**: Configured automatic URL submission to Bing and IndexNow search engine APIs upon build.
+- **LLM Assets (`llms-illustrations.txt`)**: Generated comprehensive markdown documentation and category mappings for AI coding assistants (ChatGPT, Claude, Cursor, Copilot).
 
-## [1.1.0] — 2026-07-09
+---
 
-### Added
-- **`reicon-react-native`** — new official React Native package using `react-native-svg` (`SvgXml`) for rendering. Supports all 2,680 icons in Outline and Filled weights, tree-shakeable, TypeScript-ready, works with Expo and bare React Native projects. Closes [#41](https://github.com/dqev/reicon/issues/41).
-- React Native integration card on the landing page integrations section.
-- React Native tab in the icon detail page code snippet picker.
-- `/docs/react-native` documentation page with installation guide, Navigation tab example, and Pressable examples.
-- React Native entry on the Packages page with npm badges and direct install instructions.
-- Launch banner updated to announce the React Native package.
+## [v1.1.1] - 2026-08-02
+- Added Flutter SDK (`reicon_flutter`) support and docs guide.
+- Added VS Code extension and MCP AI server documentation.
 
-### Changed
-- **Website refactored** — all major pages split into focused sub-components:
-  - `Landing.tsx` → `landing/Hero`, `Features`, `Integrations`, `Playground`, `CTA`, `IconShowcase`, `LaunchBanner`
-  - `Docs.tsx` → `docs/sidebar/Left`, `Right`, `Mobile`, `ActionsBar`, `framework/constants`, `helpers`, `icons`, `selector`
-  - `Packages.tsx` → `packages/PackageCard`, `ToolCard`, `SvgCard`, `data`
-- Inline CSS moved from `Docs.tsx` and `Faq.tsx` into `sidebar/styles.ts` shared module.
-- `Faq.tsx` now uses shared `DocsRightSidebar` and `docsSidebarStyles` components.
-- SEO scripts reorganized into `scripts/seo/` folder:
-  - `config.mjs` — single source of truth for all page titles, descriptions, and JSON-LD
-  - `meta.mjs` — shared `buildMeta()`, `injectMeta()`, `fixFavicons()` utilities
-  - `update.mjs` — apply config changes across all scripts in one command (`npm run seo`)
-  - `test.mjs` — 34 automated SEO checks (`npm run seo:check`)
-  - `ping.mjs` — IndexNow + Google Indexing API pinger (replaces `ping-search-engines.mjs`)
-- `prerender-meta.mjs` rewritten from scratch — imports from `seo/config.mjs`, cleaner icon page SSR body.
-- `generate-sitemap.mjs` rewritten — imports routes from `seo/config.mjs`, no duplicate constants.
-- `index.html` cleaned — all inline comments removed, organized grouping, React Native added to all descriptions and JSON-LD.
-- Framework icons (Vue, Svelte, Figma, SVG) extracted to `components/docs/framework/icons.tsx` to eliminate duplication.
-- `FrameworkConstants` and `frameworkHelpers` extracted so `FRAMEWORKS`, `NAV_ITEMS`, `getFrameworkLabel()`, `isStandaloneFramework()` are shared.
+## [v1.1.0] - 2026-08-01
+- Introduced Duotone variant icons across the icon catalog.
 
-### Fixed
-- Integrations section on the landing page now uses a uniform 3×2 grid (3 columns, 2 rows) with consistent card heights.
-- React Native icon in the framework selector and code tabs now correctly uses `FaReact` (same as React).
-- FAQ tree-shaking answer updated to include `reicon-react-native` and Metro bundler.
-- Sitemap and prerender pipeline now include `/docs/react-native`.
-
-## [1.0.0] — 2026-06-22
-
-### Added
-- Initial public release of the Reicon icon library.
-- 2,700+ handcrafted SVG icons, each available in **Outline** and **Filled** weights.
-- `reicon-react` package for React — tree-shakeable, with first-class TypeScript typings.
-- `reicon-vue` package for Vue 3.
-- CDN distribution exposing the `<re-icon>` custom element for vanilla HTML/JS.
-- Component props: `size`, `color`, `weight`, and `className`.
-- [reicon.dev](https://reicon.dev) website featuring:
-  - Searchable icon browser with category, weight, and size filters.
-  - Live playground to customize color, size, and weight.
-  - Per-icon detail pages with copy-ready React, Vue, and HTML snippets.
-  - Full docs documentation for React, Vue, and the CDN.
-
-[Unreleased]: https://github.com/dqev/reicon/compare/v1.1.1...HEAD
-[1.1.1]: https://github.com/dqev/reicon/compare/v1.1.0...v1.1.1
-[1.1.0]: https://github.com/dqev/reicon/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/dqev/reicon/releases/tag/v1.0.0
+## [v1.0.0] - 2026-07-28
+- Initial release of Reicon core library, React, Vue, Svelte, React Native, and CDN runtimes.

@@ -132,6 +132,19 @@
       ]
     },
     {
+      "source": "/illustration-data/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=43200"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
       "source": "/.well-known/(.*)",
       "headers": [
         {
@@ -147,7 +160,11 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!assets|svg|favicon|sitemap|robots|humans|llms|site\\.webmanifest|\\.well-known).*)",
+      "source": "/cdn-proxy/:match*",
+      "destination": "https://cdn.reicon.dev/:match*"
+    },
+    {
+      "source": "/((?!assets|svg|illustration-data|cdn-proxy|favicon|sitemap|robots|humans|llms|site\\.webmanifest|\\.well-known).*)",
       "destination": "/index.html"
     }
   ]
