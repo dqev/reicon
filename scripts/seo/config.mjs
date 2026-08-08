@@ -50,6 +50,14 @@ export const ROUTES = [
     changefreq: 'weekly',
   },
   {
+    path: '/logos',
+    title: '4,900+ Free SVG Brand Logos — High Quality Vector Logos | Reicon',
+    description: 'Browse and download 4,900+ clean vector brand logos for tech companies, frameworks, AI, and global brands. Free SVG & PNG formats. MIT licensed.',
+    ogImage: og('logos.jpeg'),
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
     path: '/docs',
     title: 'Reicon Docs — Get Started',
     description: 'Get started with Reicon. Install and use icons in React, Vue, Svelte, Flutter, Figma, VS Code, and MCP.',
@@ -278,7 +286,7 @@ export const GLOBAL_JSON_LD = [
 
 // ── Sitemap volatile routes (get today's date on every build) ─────────────────
 export const VOLATILE_ROUTES = new Set([
-  '/', '/icons', '/docs', '/docs/react', '/docs/react-native',
+  '/', '/icons', '/logos', '/illustration', '/docs', '/docs/react', '/docs/react-native',
   '/docs/vue', '/docs/svelte', '/docs/vanilla', '/docs/figma',
   '/docs/vscode', '/docs/mcp', '/docs/svg', '/docs/flutter',
   '/packages', '/pack',
