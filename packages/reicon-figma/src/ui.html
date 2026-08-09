@@ -242,27 +242,6 @@
       box-shadow: 0 0 10px rgba(108, 92, 231, 0.15);
     }
 
-    /* Pulse dot inside category pill for new icons */
-    .new-icons-pill {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .pulse-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #6C5CE7;
-      box-shadow: 0 0 6px rgba(108, 92, 231, 0.6);
-      animation: category-pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes category-pulse {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; transform: scale(1.15); }
-    }
-
     /* ── Dense Icon Grid ── */
     .grid-container {
       flex: 1;
@@ -690,10 +669,6 @@
     <!-- Horizontal Category scroller -->
     <div class="category-scroller" id="category-scroller-bar">
       <div class="category-pill active" id="cat-all-pill" onclick="selectCategory('all', this)">All</div>
-      <div class="category-pill new-icons-pill" id="new-icons-pill" onclick="toggleNewIcons(this)">
-        <span class="pulse-dot"></span>
-        <span>Added __NEW_ICONS_COUNT__</span>
-      </div>
       <!-- Dynamically filled categories -->
     </div>
 
@@ -767,7 +742,6 @@
     let activeCategory = 'all';
     let activeStyle = 'Outline'; // 'Outline' | 'Filled'
     let activeSize = '24';
-    let showNew = false;
     let searchQuery = '';
     
     let selectedColor = '#ffffff';
@@ -950,28 +924,9 @@
       // Clear active class from all pills
       document.querySelectorAll('.category-pill').forEach(el => el.classList.remove('active'));
       document.getElementById('cat-all-pill').classList.remove('active');
-      document.getElementById('new-icons-pill').classList.remove('active');
       
       element.classList.add('active');
       activeCategory = catId;
-      showNew = false;
-      applyFilters();
-    }
-
-    // Quick Access toggler
-    function toggleNewIcons(element) {
-      showNew = !showNew;
-      
-      // Clear active status on category scroller elements
-      document.querySelectorAll('.category-pill').forEach(el => el.classList.remove('active'));
-      document.getElementById('cat-all-pill').classList.remove('active');
-      
-      if (showNew) {
-        element.classList.add('active');
-        activeCategory = 'all';
-      } else {
-        document.getElementById('cat-all-pill').classList.add('active');
-      }
       applyFilters();
     }
 

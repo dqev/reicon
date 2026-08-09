@@ -6,7 +6,6 @@ const DATA_PATH = path.join(__dirname, '..', '..', '..', 'data', 'icon-data.json
 const TEMPLATE_HTML_PATH = path.join(__dirname, '..', 'src', 'ui.html');
 const OUTPUT_HTML_PATH = path.join(__dirname, '..', 'Reicon', 'ui.html');
 const LOGO_PATH = path.join(__dirname, '..', '..', '..', 'public', 'icon-light.webp');
-const NEW_ICONS_PATH = path.join(__dirname, '..', '..', '..', 'data', 'new-icons-added.json');
 
 console.log('Compiling Reicon Figma icons database and inlining into ui.html...');
 
@@ -59,19 +58,11 @@ try {
     logoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`;
   }
 
-  // Load new icons count
-  let newIconsCount = 0;
-  if (fs.existsSync(NEW_ICONS_PATH)) {
-    const newIcons = JSON.parse(fs.readFileSync(NEW_ICONS_PATH, 'utf-8'));
-    newIconsCount = Array.isArray(newIcons) ? newIcons.length : 0;
-  }
-
   // Read the HTML template
   let templateContent = fs.readFileSync(TEMPLATE_HTML_PATH, 'utf-8');
 
   // Replace logo placeholder
   templateContent = templateContent.replace(/__REICON_LOGO_BASE64__/g, logoBase64);
-  templateContent = templateContent.replace(/__NEW_ICONS_COUNT__/g, newIconsCount.toString());
 
   // Create inline scripts
   const inlineScripts = `

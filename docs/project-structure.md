@@ -147,7 +147,7 @@ reicon/
 │   │   ├── icon-data.ts    # Lazy JSON loader for icon metadata
 │   │   └── reicon-loader.ts # Shared Reicon web component readiness promise
 │   ├── data/
-│   │   └── search-index.json, search-data.ts, new-icons-added.json
+│   │   └── search-index.json, search-data.ts
 │   ├── hooks/
 │   │   └── useIconSearch.ts
 │   ├── types/
