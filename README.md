@@ -1,19 +1,20 @@
 <p align="center">
   <a href="https://reicon.dev">
-    <img src="public/og/og.jpg" alt="Reicon — Free Open-Source Icon Library" width="100%" />
+    <img src="public/og/og.jpg" alt="Reicon — Free Open-Source SVG Icons, Illustrations & Brand Logos" width="100%" />
   </a>
 </p>
 
 <h1 align="center">Reicon</h1>
 
 <p align="center">
-  <strong>An open-source SVG icon library featuring 2,700+ icons with dedicated packages for React, React Native, Vue 3, Svelte, vanilla JavaScript, CDN runtime, Figma design workspace, VS Code code editor, and MCP Server for AI agents.</strong>
+  <strong>Free, open-source SVG icon, illustration, and logo library — featuring 3,900+ vector icons, 71,000+ SVG illustrations, and 4,900+ brand logos with dedicated packages for React, React Native, Vue 3, Svelte, Flutter, vanilla JavaScript, CDN runtime, Figma design workspace, VS Code code editor, and MCP Server for AI agents.</strong>
 </p>
 
 <p align="center">
   <a href="https://reicon.dev">Website</a> ·
-  <a href="https://reicon.dev/icons">Browse Icons</a> ·
+  <a href="https://reicon.dev/icons">Browse Icons (3,900+)</a> ·
   <a href="https://reicon.dev/illustration">Browse Illustrations (71,000+)</a> ·
+  <a href="https://reicon.dev/logos">Browse Logos (4,900+)</a> ·
   <a href="https://reicon.dev/docs">Docs Guide</a> ·
   <a href="https://www.npmjs.com/package/reicon">npm</a>
 </p>
@@ -26,15 +27,16 @@
   <a href="https://www.npmjs.com/package/reicon-svelte"><img src="https://img.shields.io/npm/v/reicon-svelte?color=6C5CE7&label=reicon-svelte" alt="reicon-svelte version" /></a>
   <a href="https://www.npmjs.com/package/reicon-mcp"><img src="https://img.shields.io/npm/v/reicon-mcp?color=6C5CE7&label=reicon-mcp" alt="reicon-mcp version" /></a>
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
-  <img src="https://img.shields.io/badge/icons-2700%2B-blue" alt="2700+ Icons" />
+  <img src="https://img.shields.io/badge/icons-3900%2B-blue" alt="3900+ Icons" />
   <img src="https://img.shields.io/badge/illustrations-71000%2B-purple" alt="71000+ Illustrations" />
+  <img src="https://img.shields.io/badge/logos-4900%2B-orange" alt="4900+ Logos" />
 </p>
 
 <br/>
 
 ## <img src="./public/readme-assets/overview.svg" width="22" height="22" align="absmiddle" alt="" />&nbsp; Overview
 
-Reicon provides a comprehensive set of SVG icons designed on a strict 24×24 pixel grid. The library is built for high-performance web applications, offering complete tree-shakeability, zero external dependencies, and optimized wrappers for multiple frameworks.
+Reicon is a complete vector graphics ecosystem combining **3,900+ UI icons** (Outline, Filled, and Duotone), **71,000+ SVG illustrations**, and **4,900+ brand logos**. Built for high-performance applications with complete tree-shakeability, zero external dependencies, and native support across major web, mobile, desktop, and AI agent platforms.
 
 All icons are maintained in two weights:
 *   **Outline**: 1.5px stroke-width with consistent corner radiuses.
