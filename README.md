@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://reicon.dev">
-    <img src="public/readme-assets/readme-og.webp" alt="Reicon - Free Open-Source SVG Icons, Illustrations & Brand Logos" width="480">
+    <img src="public/readme-assets/readme-og.webp" alt="Reicon - Free Open-Source SVG Icons, Illustrations & Brand Logos" width="100%">
   </a>
 </p>
 <p align="center">
@@ -30,13 +30,10 @@ Reicon is a free, open-source vector graphics library with 3,900+ SVG icons, 71,
 | <img src="public/framework-logos/react-native.svg" alt="React Native logo" width="36"> | **`reicon-react-native`** | [![npm](https://img.shields.io/npm/v/reicon-react-native)](https://www.npmjs.com/package/reicon-react-native) | ![NPM Downloads](https://img.shields.io/npm/dw/reicon-react-native) | [Docs](https://reicon.dev/docs/react-native) · [Source](./packages/reicon-react-native) |
 | <img src="public/framework-logos/vue.svg" alt="Vue logo" width="36"> | **`reicon-vue`** | [![npm](https://img.shields.io/npm/v/reicon-vue)](https://www.npmjs.com/package/reicon-vue) | ![NPM Downloads](https://img.shields.io/npm/dw/reicon-vue) | [Docs](https://reicon.dev/docs/vue) · [Source](./packages/reicon-vue) |
 | <img src="public/framework-logos/svelte.svg" alt="Svelte logo" width="36"> | **`reicon-svelte`** | [![npm](https://img.shields.io/npm/v/reicon-svelte)](https://www.npmjs.com/package/reicon-svelte) | ![NPM Downloads](https://img.shields.io/npm/dw/reicon-svelte) | [Docs](https://reicon.dev/docs/svelte) · [Source](./packages/reicon-svelte) |
+| <img src="public/framework-logos/flutter.svg" alt="Flutter logo" width="36"> | **`reicon-flutter`** | [![pub.dev](https://img.shields.io/badge/pub.dev-reicon-blue)](https://pub.dev/packages/reicon) | ![Flutter Ready](https://img.shields.io/badge/flutter-ready-blue) | [Docs](https://reicon.dev/docs/flutter) · [Source](./packages/reicon-flutter) |
 | <img src="public/framework-logos/mcp.svg" alt="MCP logo" width="36"> | **`reicon-mcp`** | [![npm](https://img.shields.io/npm/v/reicon-mcp)](https://www.npmjs.com/package/reicon-mcp) | ![NPM Downloads](https://img.shields.io/npm/dw/reicon-mcp) | [Docs](https://reicon.dev/docs/mcp) · [Source](./packages/reicon-mcp) |
-
-### Figma
-
-The Reicon Figma plugin.
-
-Visit [Figma Plugin source](./packages/reicon-figma) or see [documentation](https://reicon.dev/docs/figma) to learn more.
+| <img src="public/framework-logos/figma.svg" alt="Figma logo" width="36"> | **`reicon-figma`** | [![Figma](https://img.shields.io/badge/Figma-Plugin-F24E1E)](https://www.figma.com/community/plugin/reicon) | ![Figma Ready](https://img.shields.io/badge/Figma-Ready-1ABCFE) | [Docs](https://reicon.dev/docs/figma) · [Source](./packages/reicon-figma) |
+| <img src="public/framework-logos/vscode.svg" alt="VS Code logo" width="36"> | **`reicon-vscode`** | [![VS Code](https://img.shields.io/badge/VS_Code-Extension-0277bd)](https://marketplace.visualstudio.com) | ![VS Code Ready](https://img.shields.io/badge/VS_Code-Ready-007acc) | [Docs](https://reicon.dev/docs/vscode) · [Source](./packages/reicon-vscode) |
 
 ## Contributing
 
