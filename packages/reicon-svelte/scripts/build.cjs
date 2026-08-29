@@ -67,8 +67,9 @@ if (fs.existsSync(TAGS_PATH)) {
 }
 
 // ── collect icons ──────────────────────────────────────────────────────────
+const RESERVED_EXPORT_NAMES = ['icon', 'createicon', 'iconprops', 'iconweight', 'iconcomponent', 'iconoptions', 'iconfunction'];
 const icons = [];
-const pascalLowerSet = new Set();
+const pascalLowerSet = new Set(RESERVED_EXPORT_NAMES);
 
 for (const [catKey, catData] of Object.entries(data.categories || {})) {
   for (const [iconKey, icon] of Object.entries(catData.icons || {})) {
