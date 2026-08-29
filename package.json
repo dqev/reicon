@@ -4,8 +4,8 @@
   "version": "1.3.0",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/sync-illustration-data.mjs && vite --port=3000 --host=0.0.0.0",
-    "build": "node scripts/sync-illustration-data.mjs && node scripts/sync-icon-names.mjs && node scripts/seo/update-helmets.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-llm-assets.mjs && vite build && node scripts/prerender-meta.mjs",
+    "dev": "node scripts/generate-website-search-index.mjs && node scripts/sync-illustration-data.mjs && vite --port=3000 --host=0.0.0.0",
+    "build": "node scripts/generate-website-search-index.mjs && node scripts/sync-illustration-data.mjs && node scripts/sync-icon-names.mjs && node scripts/seo/update-helmets.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-llm-assets.mjs && vite build && node scripts/prerender-meta.mjs",
     "build:full": "npm run build",
     "postbuild": "node scripts/seo/ping.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
