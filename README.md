@@ -57,9 +57,7 @@ Reicon base icons are built using elements from:
 
 ## Sponsors
 
-<a href="https://vercel.com/?utm_source=reicon&utm_campaign=oss">
-  <img src="public/framework-logos/vercel.svg" alt="Powered by Vercel" width="200" />
-</a>
+Thanks to [Vercel](https://vercel.com/?utm_source=reicon&utm_campaign=oss) for their support of open-source software.
 
 <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdqev%2Freicon">
   <img src="https://vercel.com/button" alt="Deploy with Vercel" />
