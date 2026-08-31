@@ -61,5 +61,5 @@ Reicon base icons are built using elements from:
 Thanks to [Vercel](https://vercel.com/?utm_source=reicon&utm_campaign=oss) for supporting open-source software and hosting Reicon.
 
 <a href="https://vercel.com/?utm_source=reicon&utm_campaign=oss">
-  <img src="https://raw.githubusercontent.com/vercel/member-resources/main/uploads/powered-by-vercel.svg" alt="Powered by Vercel" width="200" />
+  <img src="https://vercel.com/button" alt="Powered by Vercel" height="32" />
 </a>
