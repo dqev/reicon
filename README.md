@@ -5,9 +5,6 @@
   <img src="public/readme-assets/light-theme.webp" alt="Reicon" width="280" />
 </picture>
 
-<br/>
-<br/>
-
 ### Open-Source Icon Library for Designers & Developers
 
 **3,900+ UI SVG icons** · **71,000+ illustrations** · **4,900+ brand logos** · free & open-source for every framework you build with.
@@ -61,8 +58,8 @@ Reicon base icons are built using elements from:
 
 ## Sponsors
 
-Thanks to [Vercel](https://vercel.com/?utm_source=reicon&utm_campaign=oss) for their support of open-source software.
+Thanks to [Vercel](https://vercel.com/?utm_source=reicon&utm_campaign=oss) for supporting open-source software and hosting Reicon.
 
-<a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdqev%2Freicon">
-  <img src="https://vercel.com/button" alt="Deploy with Vercel" />
+<a href="https://vercel.com/?utm_source=reicon&utm_campaign=oss">
+  <img src="https://raw.githubusercontent.com/vercel/member-resources/main/uploads/powered-by-vercel.svg" alt="Powered by Vercel" width="200" />
 </a>
