@@ -42,9 +42,9 @@
 - **Activity Bar Panel** — A custom sidebar panel that houses the icon browser
 - **2674+ Pixel-Perfect Icons** — Browse the complete collection in both **Outline** and **Filled** weights
 - **Smart Code Insertion** — Click any icon to instantly insert it at your cursor in your preferred framework syntax:
-  - **React (JSX)**: `<Home size={24} color="#6c5ce7" />`
-  - **Vue**: `<Home :size="24" color="#6c5ce7" />`
-  - **Svelte**: `<Home size={24} color="#6c5ce7" />`
+  - **React (JSX)**: `<Home size={24} color="#9B8AFB" />`
+  - **Vue**: `<Home :size="24" color="#9B8AFB" />`
+  - **Svelte**: `<Home size={24} color="#9B8AFB" />`
   - **SVG**: Raw SVG code `<svg ...>...</svg>`
 - **Live Customization** — Adjust size (in pixels) and color (using preset swatches or hex inputs) directly in the sidebar toolbar before inserting
 - **Smart Theme Adaptation** — Automatically uses `currentColor` by default to match your VS Code theme

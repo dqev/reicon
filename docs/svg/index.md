@@ -36,12 +36,12 @@ Set custom dimensions and hover effects using standard CSS:
 
 ```css
 .icon-container {
-  color: #6C5CE7;
+  color: #9B8AFB;
   width: 32px;
   height: 32px;
   transition: color 0.2s;
 }
 .icon-container:hover {
-  color: #5A4BD1;
+  color: #8B7AFB;
 }
 ```

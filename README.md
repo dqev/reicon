@@ -1,9 +1,6 @@
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="public/readme-assets/dark-theme.webp" />
-  <img src="public/readme-assets/light-theme.webp" alt="Reicon" width="280" />
-</picture>
+<img src="public/readme-assets/banner.webp" alt="Reicon — Open-Source Icon Library" width="800" />
 
 ### Open-Source Icon Library for Designers & Developers
 
@@ -11,10 +8,10 @@
 
 <br/>
 
-[![Website](https://img.shields.io/badge/Website-reicon.dev-6C5CE7?style=flat-square)](https://reicon.dev)
-[![Docs](https://img.shields.io/badge/Docs-read-6C5CE7?style=flat-square)](https://reicon.dev/docs)
-[![npm](https://img.shields.io/npm/v/reicon-react?style=flat-square&label=reicon-react&color=6C5CE7)](https://www.npmjs.com/package/reicon-react)
-[![License](https://img.shields.io/badge/License-MIT-6C5CE7?style=flat-square)](LICENSE)
+[![Website](https://img.shields.io/badge/Website-reicon.dev-9B8AFB?style=flat-square)](https://reicon.dev)
+[![Docs](https://img.shields.io/badge/Docs-read-9B8AFB?style=flat-square)](https://reicon.dev/docs)
+[![npm](https://img.shields.io/npm/v/reicon-react?style=flat-square&label=reicon-react&color=9B8AFB)](https://www.npmjs.com/package/reicon-react)
+[![License](https://img.shields.io/badge/License-MIT-9B8AFB?style=flat-square)](LICENSE)
 
 [**Browse icons →**](https://reicon.dev/icons) · [**Documentation →**](https://reicon.dev/docs) · [**Packages →**](#packages)
 

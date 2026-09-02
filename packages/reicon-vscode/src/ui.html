@@ -15,8 +15,8 @@
       --text-primary: #ffffff;
       --text-secondary: rgba(255, 255, 255, 0.6);
       --text-tertiary: rgba(255, 255, 255, 0.35);
-      --accent-primary: #6C5CE7;
-      --accent-hover: #5a4bd1;
+      --accent-primary: #9B8AFB;
+      --accent-hover: #8B7AFB;
       --border-subtle: rgba(255, 255, 255, 0.06);
       --border-medium: rgba(255, 255, 255, 0.12);
       --overlay-light: rgba(255, 255, 255, 0.04);
@@ -319,10 +319,10 @@
     }
 
     .category-pill.active {
-      background: rgba(108, 92, 231, 0.1);
+      background: rgba(155, 138, 251, 0.1);
       border-color: var(--accent-primary);
       color: #ffffff;
-      box-shadow: 0 0 10px rgba(108, 92, 231, 0.15);
+      box-shadow: 0 0 10px rgba(155, 138, 251, 0.15);
     }
 
     /* ── Dense Icon Grid ── */
@@ -353,7 +353,7 @@
     }
 
     .icon-card.selected {
-      background-color: rgba(108, 92, 231, 0.15);
+      background-color: rgba(155, 138, 251, 0.15);
       box-shadow: inset 0 0 0 1.5px var(--accent-primary);
     }
 
@@ -484,7 +484,7 @@
       width: 22px;
       height: 22px;
       border-radius: 50%;
-      background-color: rgba(108, 92, 231, 0.15);
+      background-color: rgba(155, 138, 251, 0.15);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -618,7 +618,7 @@
           <div class="color-swatches">
             <div class="color-swatch active" style="background-color: currentColor; border: 1px dashed rgba(255,255,255,0.4);" onclick="selectColorSwatch('currentColor', this)" title="Theme Default"></div>
             <div class="color-swatch" style="background-color: #9CA3AF;" onclick="selectColorSwatch('#9CA3AF', this)" title="Gray"></div>
-            <div class="color-swatch" style="background-color: #6C5CE7;" onclick="selectColorSwatch('#6C5CE7', this)" title="Purple"></div>
+            <div class="color-swatch" style="background-color: #9B8AFB;" onclick="selectColorSwatch('#9B8AFB', this)" title="Purple"></div>
           </div>
           <input type="text" class="custom-color-input" id="custom-color" value="currentColor" oninput="customColorInput(this.value)">
         </div>
@@ -751,7 +751,7 @@
             const bg = el.style.backgroundColor;
             const match = bg && (selectedColor.toLowerCase() === bg.toLowerCase() || 
                            (selectedColor === 'currentColor' && (bg.includes('currentcolor') || bg === '')) ||
-                           (selectedColor === '#6c5ce7' && bg.includes('108, 92, 231')) ||
+                           (selectedColor === '#9B8AFB' && bg.includes('108, 92, 231')) ||
                            (selectedColor === '#9ca3af' && bg.includes('156, 163, 175')));
             el.classList.toggle('active', !!match);
           });

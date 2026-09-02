@@ -1,6 +1,6 @@
 export const SITE = 'https://reicon.dev';
 export const SITE_DEFAULTS = {
-  ogImage: `${SITE}/og/og.jpg`,
+  ogImage: `${SITE}/og/og-image.png`,
 };
 
 export function buildMeta({ title, desc, url, ogImage = SITE_DEFAULTS.ogImage, ogImageAlt, keywords, jsonLd, breadcrumb, isIconPage = false }) {

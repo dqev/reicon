@@ -41,7 +41,7 @@ reicon/
 │   ├── favicon/                # Favicon bundle (ico, svg, pngs, manifest)
 │   ├── og-image.png            # Open Graph image (legacy)
 │   ├── og/                     # Per-route Open Graph images
-│   │   └── og.jpg              # Default OG image
+│   │   └── og-image.png        # Default OG image
 │   ├── robots.txt              # SEO robots file
 │   ├── sitemap.xml             # Generated sitemap
 │   └── llms.txt                # LLM context file

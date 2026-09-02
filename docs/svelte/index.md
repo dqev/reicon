@@ -31,7 +31,7 @@ Import icons by their PascalCase name from `reicon-svelte`. Each icon is a Svelt
 </script>
 
 <Home size={24} />
-<ShieldCheck size={24} color="#6C5CE7" />
+<ShieldCheck size={24} color="#9B8AFB" />
 <Bell size={24} weight="Filled" />
 ```
 
@@ -118,7 +118,7 @@ Here's a complete example of a Svelte component using multiple Reicon icons with
   <Bell size={20} />
   <User size={20} />
   <Star size={20} weight="Filled" color="#f59e0b" />
-  <ShieldCheck size={20} color="#6C5CE7" />
+  <ShieldCheck size={20} color="#9B8AFB" />
 </nav>
 ```
 

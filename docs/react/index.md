@@ -32,7 +32,7 @@ function App() {
   return (
     <div>
       <Home size={24} />
-      <ShieldCheck size={24} color="#6C5CE7" />
+      <ShieldCheck size={24} color="#9B8AFB" />
       <Bell size={24} weight="Filled" />
     </div>
   );
@@ -98,7 +98,7 @@ export default function Navbar() {
       <Bell size={20} />
       <User size={20} />
       <Star size={20} weight="Filled" color="#f59e0b" />
-      <ShieldCheck size={20} color="#6C5CE7" />
+      <ShieldCheck size={20} color="#9B8AFB" />
     </nav>
   );
 }

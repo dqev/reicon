@@ -31,7 +31,7 @@ import { Home, ShieldCheck } from 'reicon';
 
 // Create SVG elements
 const home = Home({ size: 24 });
-const shield = ShieldCheck({ size: 32, color: '#6C5CE7', weight: 'Filled' });
+const shield = ShieldCheck({ size: 32, color: '#9B8AFB', weight: 'Filled' });
 
 // Append directly to document
 document.body.appendChild(home);
@@ -82,7 +82,7 @@ Include the script tag inside your HTML page. This registers a reactive `<re-ico
 Simply add the `<re-icon>` tags directly in your HTML:
 ```html
 <re-icon icon="home"></re-icon>
-<re-icon icon="shield-check" weight="filled" size="32" color="#6C5CE7"></re-icon>
+<re-icon icon="shield-check" weight="filled" size="32" color="#9B8AFB"></re-icon>
 ```
 
 ### Load Functions globally via Script tag
@@ -116,7 +116,7 @@ The `<re-icon>` element acts like an inline block. It automatically inherits its
 ```html
 <style>
   .icon-primary {
-    color: #6C5CE7;
+    color: #9B8AFB;
   }
 </style>
 
@@ -145,7 +145,7 @@ A complete HTML document importing Reicon via CDN and showcasing customizations:
   </nav>
   <main>
     <h1>
-      <re-icon icon="shield-check" size="28" weight="filled" color="#6C5CE7"></re-icon>
+      <re-icon icon="shield-check" size="28" weight="filled" color="#9B8AFB"></re-icon>
       App Verified
     </h1>
   </main>

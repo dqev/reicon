@@ -15,21 +15,21 @@ function og(filename) {
 
 // ── Site-wide defaults (used as fallbacks in index.html) ─────────────────────
 export const SITE_DEFAULTS = {
-  title: 'Reicon — Free Open-Source SVG Icons, Illustrations & Brand Logos',
+  title: 'Reicon — Open-Source Icon Library for Designers & Developers',
   description: 'Reicon — Free open-source SVG icons, illustrations & brand logos. 3,900+ icons, 71,000+ illustrations, 4,900+ logos for React, Vue, Svelte, Flutter, Figma & more.',
   keywords: 'free icon library, open source icons, SVG illustrations, vector logos, brand logos, React icons, Vue icons, Flutter icons, Figma icons, reicon, MIT license',
-  ogTitle: 'Reicon — Free Open-Source SVG Icons, Illustrations & Brand Logos',
+  ogTitle: 'Reicon — Open-Source Icon Library for Designers & Developers',
   ogDescription: 'Reicon is a free, open-source vector graphics library with 3,900+ SVG icons, 71,000+ illustrations, and 4,900+ brand logos — built for designers and developers. Official packages for React, Vue, Svelte, React Native, Flutter, JavaScript, Figma, VS Code, and AI MCP agents. MIT licensed.',
-  ogImage: og('og.jpg'),
+  ogImage: og('og-image.png'),
 };
 
 // ── Per-route SEO definitions ─────────────────────────────────────────────────
 export const ROUTES = [
   {
     path: '/',
-    title: 'Reicon — Free Open-Source SVG Icons, Illustrations & Brand Logos',
+    title: 'Reicon — Open-Source Icon Library for Designers & Developers',
     description: 'Reicon — Free open-source SVG icons, illustrations & brand logos. 3,900+ icons, 71,000+ illustrations, 4,900+ logos for React, Vue, Svelte, Flutter, Figma & more.',
-    ogImage: og('og.jpg'),
+    ogImage: og('og-image.png'),
     priority: '1.0',
     changefreq: 'weekly',
   },

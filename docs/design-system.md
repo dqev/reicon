@@ -13,8 +13,8 @@ This document outlines the design system specifications used for the Reicon webs
 --text-tertiary: rgba(255, 255, 255, 0.45);  /* Tertiary text */
 
 /* Accent Colors */
---accent-primary: #6C5CE7;    /* Purple accent */
---accent-hover: #5a4bd1;      /* Purple hover state */
+--accent-primary: #9B8AFB;    /* Purple accent */
+--accent-hover: #8B7AFB;      /* Purple hover state */
 --success: #7fff7f;           /* Success green */
 
 /* Border & Overlay */

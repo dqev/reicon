@@ -7,7 +7,7 @@ Reicon icons render as standard inline SVG elements that inherit parent styles, 
 ## Color Inheritance
 With no `color` prop, icons inherit the text color of their parent elements.
 ```jsx
-<div style={{ color: "#6C5CE7" }}>
+<div style={{ color: "#9B8AFB" }}>
   <Home size={20} />       {/* purple */}
   <Bell size={20} />        {/* purple */}
 </div>
