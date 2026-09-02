@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/readme-assets/banner.webp" alt="Reicon — Open-Source Icon Library" width="800" />
+<img src="public/readme-assets/banner.webp" alt="Reicon — Open-Source Icon Library" width="200" />
 
 ### Open-Source Icon Library for Designers & Developers
 
