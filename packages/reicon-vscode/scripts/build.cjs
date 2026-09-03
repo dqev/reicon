@@ -5,7 +5,7 @@ const path = require('path');
 const DATA_PATH = path.join(__dirname, '..', '..', '..', 'data', 'icon-data.json');
 const TEMPLATE_HTML_PATH = path.join(__dirname, '..', 'src', 'ui.html');
 const OUTPUT_HTML_PATH = path.join(__dirname, '..', 'dist', 'ui.html');
-const LOGO_PATH = path.join(__dirname, '..', '..', '..', 'public', 'apple-touch-icon.png');
+const LOGO_PATH = path.join(__dirname, '..', '..', '..', 'public', 'logo', 'logo-128x128.png');
 
 console.log('Compiling Reicon VS Code icons database and inlining into ui.html...');
 
@@ -32,20 +32,22 @@ try {
         const weights = {};
         if (icon.weights) {
           if (icon.weights.Outline && icon.weights.Outline.code) {
-            weights.Outline = icon.weights.Outline.code;
+            weights.Outline = icon.weights.Outline.code.replace(/\s+/g, ' ').replace(/> </g, '><').trim();
           }
           if (icon.weights.Filled && icon.weights.Filled.code) {
-            weights.Filled = icon.weights.Filled.code;
+            weights.Filled = icon.weights.Filled.code.replace(/\s+/g, ' ').replace(/> </g, '><').trim();
           }
         }
 
-        // Only include icon if it has at least one weight
         if (Object.keys(weights).length > 0) {
-          compactData[iconKey] = {
+          const entry = {
             category: catKey,
-            weights: weights,
-            description: icon.description || []
+            weights: weights
           };
+          if (icon.description && icon.description.length > 0) {
+            entry.description = icon.description;
+          }
+          compactData[iconKey] = entry;
         }
       }
     }
@@ -58,35 +60,27 @@ try {
     logoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`;
   }
 
-  // Read the HTML template
-  let templateContent = fs.readFileSync(TEMPLATE_HTML_PATH, 'utf-8');
+  // Create inline script
+  const inlineScript = `<script>window.REICON_DATA=${JSON.stringify(compactData)};window.REICON_CATEGORIES=${JSON.stringify(categoriesList)};</script>`;
 
-  // Replace placeholders
+  // Read template HTML
+  let templateContent = fs.readFileSync(TEMPLATE_HTML_PATH, 'utf-8');
   templateContent = templateContent.replace(/__REICON_LOGO_BASE64__/g, logoBase64);
 
-  // Create inline scripts
-  const inlineScripts = `
-  <script>
-    window.REICON_DATA = ${JSON.stringify(compactData)};
-    window.REICON_CATEGORIES = ${JSON.stringify(categoriesList)};
-  </script>
-  `;
-
-  // Inject before the closing </head> or at placeholder
   if (templateContent.includes('<!-- INJECT_ICONS_DATA -->')) {
-    templateContent = templateContent.replace('<!-- INJECT_ICONS_DATA -->', inlineScripts);
+    templateContent = templateContent.replace('<!-- INJECT_ICONS_DATA -->', inlineScript);
   } else {
-    templateContent = templateContent.replace('</head>', `${inlineScripts}\n</head>`);
+    templateContent = templateContent.replace('</head>', `${inlineScript}\n</head>`);
   }
 
-  // Ensure output directory exists
   const outputDir = path.dirname(OUTPUT_HTML_PATH);
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
   }
 
   fs.writeFileSync(OUTPUT_HTML_PATH, templateContent, 'utf-8');
-  console.log(`Successfully compiled ${Object.keys(compactData).length} icons directly into ${OUTPUT_HTML_PATH}`);
+  console.log(`Successfully compiled ${Object.keys(compactData).length} icons into ${OUTPUT_HTML_PATH}`);
+
 } catch (error) {
   console.error('Error compiling VS Code extension UI:', error);
   process.exit(1);

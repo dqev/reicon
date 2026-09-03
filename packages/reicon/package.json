@@ -1,6 +1,6 @@
 {
   "name": "reicon",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "type": "module",
   "description": "Vanilla JS core icon package for Reicon.",
   "scripts": {

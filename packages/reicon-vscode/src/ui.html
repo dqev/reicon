@@ -11,31 +11,43 @@
     /* ── Design System Variables ── */
     :root {
       --bg-primary: #09090b;
-      --bg-secondary: #0e0e10;
+      --bg-secondary: #121215;
+      --bg-tertiary: #18181b;
+      --bg-active: #27272a;
       --text-primary: #ffffff;
-      --text-secondary: rgba(255, 255, 255, 0.6);
-      --text-tertiary: rgba(255, 255, 255, 0.35);
-      --accent-primary: #9B8AFB;
-      --accent-hover: #8B7AFB;
-      --border-subtle: rgba(255, 255, 255, 0.06);
-      --border-medium: rgba(255, 255, 255, 0.12);
-      --overlay-light: rgba(255, 255, 255, 0.04);
-      --overlay-medium: rgba(255, 255, 255, 0.08);
+      --text-secondary: rgba(255, 255, 255, 0.65);
+      --text-tertiary: rgba(255, 255, 255, 0.4);
+      --accent-primary: #8b5cf6;
+      --accent-light: #9b8afb;
+      --accent-hover: #7c3aed;
+      --accent-bg: rgba(139, 92, 246, 0.16);
+      --accent-glow: rgba(139, 92, 246, 0.25);
+      --border-subtle: transparent;
+      --border-medium: transparent;
+      --overlay-light: rgba(255, 255, 255, 0.05);
+      --overlay-medium: rgba(255, 255, 255, 0.09);
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 14px;
+      --radius-full: 99px;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       scrollbar-width: none;
     }
 
     *::-webkit-scrollbar {
       display: none;
+    }
+
+    button {
+      border: none;
+      outline: none;
+      background: none;
     }
 
     body {
@@ -50,30 +62,45 @@
       position: relative;
     }
 
-    /* ── Top Brand Row ── */
+    /* ── Top Brand Header ── */
     .top-brand-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 12px 6px 12px;
+      padding: 10px 12px 6px 12px;
       z-index: 10;
+      flex-shrink: 0;
     }
 
     .brand-container {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
+      background: var(--overlay-light);
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 5px 13px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
 
-    .brand-logo {
-      width: 22px;
-      height: 22px;
+    .brand-logo-icon {
+      width: 14px;
+      height: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-logo-img {
+      width: 100%;
+      height: 100%;
       object-fit: contain;
     }
 
     .brand-name {
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 13.5px;
+      font-weight: 600;
       color: #ffffff;
       letter-spacing: -0.2px;
     }
@@ -81,7 +108,7 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
     }
 
     .menu-toggle-btn {
@@ -94,16 +121,16 @@
       justify-content: center;
       width: 28px;
       height: 28px;
-      border-radius: 8px;
-      transition: background 0.2s;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s, color 0.2s;
     }
 
     .menu-toggle-btn:hover {
-      background: var(--overlay-light);
+      background: var(--overlay-medium);
       color: var(--text-primary);
     }
 
-    /* ── Main Container ── */
+    /* ── Main App Layout ── */
     .app-container {
       display: flex;
       flex-direction: column;
@@ -111,64 +138,71 @@
       overflow: hidden;
     }
 
-    /* ── Search & Configuration Controls Bar ── */
+    /* ── Search & Controls Section ── */
     .search-control-bar {
-      padding: 6px 12px;
+      padding: 4px 12px 8px 12px;
       display: flex;
       flex-direction: column;
       gap: 8px;
       flex-shrink: 0;
     }
 
+    /* Search input capsule */
     .search-wrapper {
       position: relative;
       display: flex;
       align-items: center;
+      width: 100%;
     }
 
     .search-input {
       width: 100%;
-      height: 36px;
-      background-color: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 99px;
+      height: 40px;
+      background-color: var(--overlay-light);
+      border: none;
+      border-radius: var(--radius-full);
       color: var(--text-primary);
-      padding: 0 12px 0 32px;
-      font-size: 12px;
+      padding: 0 16px 0 40px;
+      font-size: 12.5px;
+      font-weight: 400;
       outline: none;
       transition: all 0.2s ease;
     }
 
     .search-input:focus {
-      border-color: rgba(255, 255, 255, 0.25);
-      background-color: rgba(255, 255, 255, 0.08);
+      background-color: rgba(255, 255, 255, 0.09);
+    }
+
+    .search-input::placeholder {
+      color: var(--text-tertiary);
     }
 
     .search-icon {
       position: absolute;
-      left: 12px;
+      left: 14px;
       top: 50%;
       transform: translateY(-50%);
-      width: 12px;
-      height: 12px;
-      color: rgba(255, 255, 255, 0.3);
+      width: 15px;
+      height: 15px;
+      color: var(--text-tertiary);
       pointer-events: none;
     }
 
-    /* Inline Controls (Weight + Format) */
+    /* Inline Controls (Weight Toggle + Framework Dropdown) */
     .inline-controls-row {
       display: flex;
-      gap: 6px;
+      align-items: center;
+      gap: 8px;
       width: 100%;
     }
 
-    /* Segmented Control Pill */
+    /* Segmented Weight Pill Toggle */
     .segmented-control {
       display: flex;
-      background-color: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 99px;
-      padding: 2px;
+      background-color: var(--overlay-light);
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 3px;
       flex: 1;
       min-width: 0;
     }
@@ -177,49 +211,54 @@
       background: none;
       border: none;
       color: var(--text-secondary);
-      padding: 5px 0;
-      font-size: 11px;
+      padding: 6px 0;
+      font-size: 12px;
       font-weight: 500;
-      border-radius: 99px;
+      border-radius: var(--radius-full);
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
       flex: 1;
       text-align: center;
     }
 
     .segment-button.active {
-      background-color: rgba(255, 255, 255, 0.08);
-      color: var(--text-primary);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      background-color: var(--bg-active);
+      color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     }
 
-    /* Format dropdown */
+    /* Framework dropdown selector */
     .format-selector {
-      background-color: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 99px;
+      background-color: var(--overlay-light);
+      border: none;
+      border-radius: var(--radius-full);
       color: var(--text-primary);
-      padding: 0 12px;
-      font-size: 11px;
-      font-weight: 500;
+      padding: 0 28px 0 14px;
+      font-size: 12px;
+      font-weight: 600;
       outline: none;
       cursor: pointer;
-      width: 80px;
-      height: 26px;
-      text-align: center;
+      height: 34px;
       transition: all 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1L5 5L9 1' stroke='white' stroke-opacity='0.6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
     }
 
     .format-selector:focus {
-      border-color: rgba(255, 255, 255, 0.25);
+      background-color: rgba(255, 255, 255, 0.09);
     }
 
     .format-selector option {
       background-color: var(--bg-secondary);
       color: var(--text-primary);
+      padding: 6px;
     }
 
-    /* Customizer properties (Color and Size) */
+    /* Customizer Properties Row (Size & Color) */
     .customizer-row {
       display: flex;
       align-items: center;
@@ -238,55 +277,65 @@
     .customizer-label {
       color: var(--text-tertiary);
       font-size: 10px;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
     }
 
     .color-swatches {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
     }
 
     .color-swatch {
-      width: 14px;
-      height: 14px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       cursor: pointer;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: transform 0.15s ease, border-color 0.15s ease;
+      border: none;
+      transition: transform 0.15s ease;
     }
 
     .color-swatch:hover, .color-swatch.active {
-      transform: scale(1.15);
-      border-color: var(--text-primary);
+      transform: scale(1.25);
     }
 
     .custom-color-input {
-      width: 58px;
-      height: 22px;
-      background-color: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: 5px;
+      width: 84px;
+      height: 24px;
+      background-color: var(--overlay-light);
+      border: none;
+      border-radius: var(--radius-sm);
       color: var(--text-primary);
-      padding: 0 4px;
-      font-size: 10px;
+      padding: 0 6px;
+      font-size: 11px;
       outline: none;
       text-align: center;
+      transition: background-color 0.2s;
+    }
+
+    .custom-color-input:focus {
+      background-color: rgba(255, 255, 255, 0.09);
     }
 
     .custom-size-input {
-      width: 34px;
-      height: 22px;
-      background-color: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: 5px;
+      width: 44px;
+      height: 24px;
+      background-color: var(--overlay-light);
+      border: none;
+      border-radius: var(--radius-sm);
       color: var(--text-primary);
       padding: 0 4px;
-      font-size: 10px;
+      font-size: 11px;
+      font-weight: 600;
       outline: none;
       text-align: center;
+      transition: background-color 0.2s;
+    }
+
+    .custom-size-input:focus {
+      background-color: rgba(255, 255, 255, 0.09);
     }
 
     /* ── Horizontal Scrolling Categories ── */
@@ -297,32 +346,43 @@
       padding: 4px 12px 8px 12px;
       overflow-x: auto;
       flex-shrink: 0;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .category-pill {
-      padding: 4px 10px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 99px;
+      padding: 5px 12px;
+      background: var(--overlay-light);
+      border: none;
+      border-radius: var(--radius-full);
       font-size: 11px;
       font-weight: 500;
       color: var(--text-secondary);
       white-space: nowrap;
       cursor: pointer;
-      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
     }
 
     .category-pill:hover {
-      background: rgba(255, 255, 255, 0.06);
+      background: var(--overlay-medium);
       color: var(--text-primary);
     }
 
     .category-pill.active {
-      background: rgba(155, 138, 251, 0.1);
-      border-color: var(--accent-primary);
+      background: var(--accent-bg);
+      border: none;
       color: #ffffff;
-      box-shadow: 0 0 10px rgba(155, 138, 251, 0.15);
+      font-weight: 600;
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    .category-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--accent-light);
     }
 
     /* ── Dense Icon Grid ── */
@@ -349,11 +409,11 @@
     }
 
     .icon-card:hover {
-      background-color: rgba(255, 255, 255, 0.06);
+      background-color: var(--overlay-medium);
     }
 
     .icon-card.selected {
-      background-color: rgba(155, 138, 251, 0.15);
+      background-color: var(--accent-bg);
       box-shadow: inset 0 0 0 1.5px var(--accent-primary);
     }
 
@@ -374,13 +434,13 @@
     /* ── Dropdown Menu Styling ── */
     .dropdown-menu {
       position: absolute;
-      top: 40px;
+      top: 42px;
       right: 12px;
       background-color: var(--bg-secondary);
-      border: 1px solid var(--border-medium);
+      border: none;
       border-radius: var(--radius-md);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
-      width: 180px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+      width: 185px;
       display: none;
       flex-direction: column;
       z-index: 1000;
@@ -397,7 +457,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 9px 12px;
-      color: rgba(255, 255, 255, 0.7);
+      color: var(--text-secondary);
       cursor: pointer;
       font-size: 11px;
       font-weight: 500;
@@ -406,7 +466,7 @@
     }
 
     .dropdown-item:hover {
-      background-color: rgba(255, 255, 255, 0.04);
+      background-color: var(--overlay-medium);
       color: #ffffff;
     }
 
@@ -433,8 +493,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-
-
     /* Empty State */
     .empty-state {
       grid-column: 1 / -1;
@@ -450,27 +508,27 @@
     .empty-state svg {
       width: 28px;
       height: 28px;
-      opacity: 0.2;
+      opacity: 0.3;
       margin-bottom: 8px;
     }
 
     /* ── Floating Toast ── */
     .toast-notification {
       position: absolute;
-      bottom: 50px;
+      bottom: 24px;
       left: 50%;
       transform: translateX(-50%) translateY(20px);
-      background-color: #1e1e20;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 99px;
+      background-color: #1e1e24;
+      border: none;
+      border-radius: var(--radius-full);
       display: flex;
       align-items: center;
-      padding: 4px 10px 4px 4px;
+      padding: 5px 12px 5px 6px;
       gap: 8px;
       z-index: 10000;
       opacity: 0;
       pointer-events: none;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
       transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.1), opacity 0.2s ease;
     }
 
@@ -484,7 +542,7 @@
       width: 22px;
       height: 22px;
       border-radius: 50%;
-      background-color: rgba(155, 138, 251, 0.15);
+      background-color: var(--accent-bg);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -492,8 +550,8 @@
     }
 
     .toast-brand-logo {
-      width: 12px;
-      height: 12px;
+      width: 13px;
+      height: 13px;
       object-fit: contain;
     }
 
@@ -507,7 +565,7 @@
     .toast-divider {
       width: 1px;
       height: 14px;
-      background-color: rgba(255, 255, 255, 0.12);
+      background-color: rgba(255, 255, 255, 0.1);
     }
 
     .toast-close-btn {
@@ -526,7 +584,7 @@
 
     .toast-close-btn:hover {
       color: #ffffff;
-      background-color: rgba(255, 255, 255, 0.08);
+      background-color: var(--overlay-medium);
     }
   </style>
 
@@ -535,10 +593,12 @@
 </head>
 <body>
 
-  <!-- Top Brand Row (Clean, minimal branding like Hugeicons) -->
+  <!-- Top Brand Row (Clean, minimal borderless branding) -->
   <div class="top-brand-row">
     <div class="brand-container">
-      <img class="brand-logo" src="__REICON_LOGO_BASE64__" alt="Reicon logo">
+      <div class="brand-logo-icon">
+        <img class="brand-logo-img" src="__REICON_LOGO_BASE64__" alt="Reicon logo">
+      </div>
       <span class="brand-name">Reicon</span>
     </div>
     <div class="header-actions">
@@ -574,37 +634,40 @@
     </div>
   </div>
 
-  <!-- App Layout -->
+  <!-- App Main Content Container -->
   <div class="app-container">
     
-    <!-- Search & Weight Control Row -->
+    <!-- Search & Controls Section -->
     <section class="search-control-bar">
+      <!-- Search Input Capsule -->
       <div class="search-wrapper">
         <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input type="text" class="search-input" id="search-input" placeholder="Search icons... (⌘F to focus)">
+        <input type="text" class="search-input" id="search-input" placeholder="Search handshake, bonfire... (⌘F)">
       </div>
       
-      <!-- Weight and Format control row -->
+      <!-- Weight and Framework selector row -->
       <div class="inline-controls-row">
-        <!-- Weight Segmented Toggle -->
+        <!-- Weight Segmented Control Toggle -->
         <div class="segmented-control">
           <button class="segment-button active" id="weight-outline" onclick="selectStyle('Outline', this)">Outline</button>
           <button class="segment-button" id="weight-filled" onclick="selectStyle('Filled', this)">Filled</button>
         </div>
         
-        <!-- Format selector -->
+        <!-- Framework Selector Dropdown -->
         <select class="format-selector" id="format-select" onchange="selectFormat(this.value)">
           <option value="react">React</option>
           <option value="vue">Vue</option>
           <option value="svelte">Svelte</option>
-          <option value="svg">SVG</option>
+          <option value="svg">SVG Code</option>
+          <option value="vanilla">Vanilla JS</option>
+          <option value="react-native">React Native</option>
         </select>
       </div>
 
-      <!-- Sizing and Colors -->
+      <!-- Sizing and Color Controls -->
       <div class="customizer-row">
         <!-- Size selector -->
         <div class="customizer-item">
@@ -612,23 +675,27 @@
           <input type="text" class="custom-size-input" id="custom-size" value="24" oninput="customSizeInput(this.value)">
         </div>
 
-        <!-- Color swatches and input -->
+        <!-- Color swatches and custom hex/currentColor input -->
         <div class="customizer-item">
           <span class="customizer-label">Color</span>
           <div class="color-swatches">
-            <div class="color-swatch active" style="background-color: currentColor; border: 1px dashed rgba(255,255,255,0.4);" onclick="selectColorSwatch('currentColor', this)" title="Theme Default"></div>
-            <div class="color-swatch" style="background-color: #9CA3AF;" onclick="selectColorSwatch('#9CA3AF', this)" title="Gray"></div>
-            <div class="color-swatch" style="background-color: #9B8AFB;" onclick="selectColorSwatch('#9B8AFB', this)" title="Purple"></div>
+            <div class="color-swatch active" style="background-color: #ffffff;" onclick="selectColorSwatch('#ffffff', this)" title="White"></div>
+            <div class="color-swatch" style="background-color: #94a3b8;" onclick="selectColorSwatch('#94a3b8', this)" title="Slate"></div>
+            <div class="color-swatch" style="background-color: #8b5cf6;" onclick="selectColorSwatch('#8b5cf6', this)" title="Purple"></div>
           </div>
           <input type="text" class="custom-color-input" id="custom-color" value="currentColor" oninput="customColorInput(this.value)">
         </div>
       </div>
     </section>
 
-    <!-- Horizontal Category scroller -->
+    <!-- Horizontal Category Filter Scroller -->
     <div class="category-scroller" id="category-scroller-bar">
       <div class="category-pill active" id="cat-all-pill" onclick="selectCategory('all', this)">All</div>
-      <!-- Dynamically filled categories -->
+      <div class="category-pill" id="cat-added-pill" onclick="selectCategory('added', this)">
+        <span class="category-dot"></span>
+        <span>Added</span>
+      </div>
+      <!-- Dynamically populated categories -->
     </div>
 
     <!-- Icons Grid -->
@@ -638,14 +705,12 @@
       
   </div>
 
-
-
   <!-- Floating Toast Notification -->
   <div class="toast-notification" id="toast-notification">
     <div class="toast-icon-wrapper">
       <img class="toast-brand-logo" src="__REICON_LOGO_BASE64__" alt="Reicon logo">
     </div>
-    <span class="toast-message" id="toast-message">Inserted "home"</span>
+    <span class="toast-message" id="toast-message">Inserted "Home"</span>
     <div class="toast-divider"></div>
     <button class="toast-close-btn" onclick="dismissToast(event)">
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -684,7 +749,6 @@
     const iconsGrid = document.getElementById('icons-grid');
     const scrollerBarEl = document.getElementById('category-scroller-bar');
 
-    
     const customSizeInputEl = document.getElementById('custom-size');
     const customColorInputEl = document.getElementById('custom-color');
     const formatSelectEl = document.getElementById('format-select');
@@ -700,33 +764,53 @@
     function getSnippet(name, weight, rawCode, format, size, color) {
       const pascalName = toPascalCase(name);
       const isFilled = weight === 'Filled';
+      const sizeNum = parseInt(size) || 24;
+
+      // Handle raw SVG insertion
+      if (format === 'svg') {
+        let svgContent = rawCode || '';
+        if (color && color !== 'currentColor') {
+          svgContent = svgContent.replace(/fill="white"/g, `fill="${color}"`).replace(/currentColor/g, color);
+        } else {
+          svgContent = svgContent.replace(/fill="white"/g, 'fill="currentColor"');
+        }
+        return `<svg xmlns="http://www.w3.org/2000/svg" width="${sizeNum}" height="${sizeNum}" viewBox="0 0 24 24" fill="none">${svgContent}</svg>`;
+      }
       
       switch (format) {
         case 'react': {
           const weightProp = isFilled ? ' weight="Filled"' : '';
-          const sizeProp = size !== 24 ? ` size={${size}}` : '';
+          const sizeProp = sizeNum !== 24 ? ` size={${sizeNum}}` : '';
           const colorProp = color && color !== 'currentColor' ? ` color="${color}"` : '';
           return `<${pascalName}${weightProp}${sizeProp}${colorProp} />`;
         }
         case 'vue': {
           const weightProp = isFilled ? ' weight="Filled"' : '';
-          const sizeProp = size !== 24 ? ` :size="${size}"` : '';
+          const sizeProp = sizeNum !== 24 ? ` :size="${sizeNum}"` : '';
           const colorProp = color && color !== 'currentColor' ? ` color="${color}"` : '';
           return `<${pascalName}${weightProp}${sizeProp}${colorProp} />`;
         }
         case 'svelte': {
           const weightProp = isFilled ? ' weight="Filled"' : '';
-          const sizeProp = size !== 24 ? ` size={${size}}` : '';
+          const sizeProp = sizeNum !== 24 ? ` size={${sizeNum}}` : '';
           const colorProp = color && color !== 'currentColor' ? ` color="${color}"` : '';
           return `<${pascalName}${weightProp}${sizeProp}${colorProp} />`;
         }
-        case 'svg': {
-          // Colorize the path content
-          const colorized = rawCode.replace(/currentColor/g, color);
-          return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none">${colorized}</svg>`;
+        case 'vanilla': {
+          const weightProp = isFilled ? "weight: 'Filled'" : "";
+          const sizeProp = sizeNum !== 24 ? `size: ${sizeNum}` : "";
+          const colorProp = color && color !== 'currentColor' ? `color: '${color}'` : "";
+          const props = [sizeProp, weightProp, colorProp].filter(Boolean).join(', ');
+          return `${pascalName}(${props ? `{ ${props} }` : ''})`;
+        }
+        case 'react-native': {
+          const weightProp = isFilled ? ' weight="Filled"' : '';
+          const sizeProp = sizeNum !== 24 ? ` size={${sizeNum}}` : '';
+          const colorProp = color && color !== 'currentColor' ? ` color="${color}"` : '';
+          return `<${pascalName}${weightProp}${sizeProp}${colorProp} />`;
         }
         default:
-          return rawCode;
+          return `<${pascalName} />`;
       }
     }
 
@@ -746,13 +830,10 @@
           selectedColor = saved.color;
           customColorInputEl.value = selectedColor;
           
-          // Set active swatch color
           document.querySelectorAll('.color-swatch').forEach(el => {
             const bg = el.style.backgroundColor;
             const match = bg && (selectedColor.toLowerCase() === bg.toLowerCase() || 
-                           (selectedColor === 'currentColor' && (bg.includes('currentcolor') || bg === '')) ||
-                           (selectedColor === '#9B8AFB' && bg.includes('108, 92, 231')) ||
-                           (selectedColor === '#9ca3af' && bg.includes('156, 163, 175')));
+                           (selectedColor === 'currentColor' && (bg.includes('currentcolor') || bg === '')));
             el.classList.toggle('active', !!match);
           });
         }
@@ -790,6 +871,10 @@
 
       loadSavedState();
 
+      // Adjust shortcut hint text based on platform
+      const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+      searchInput.placeholder = `Search handshake, bonfire... (${isMac ? '⌘F' : 'Ctrl+F'})`;
+
       // 1. Generate category pills in horizontal scroller
       window.REICON_CATEGORIES.sort((a,b) => a.name.localeCompare(b.name)).forEach(cat => {
         const pill = document.createElement('div');
@@ -802,6 +887,8 @@
 
       if (activeCategory === 'all') {
         document.getElementById('cat-all-pill').classList.add('active');
+      } else if (activeCategory === 'added') {
+        document.getElementById('cat-added-pill').classList.add('active');
       } else {
         document.getElementById('cat-all-pill').classList.remove('active');
       }
@@ -842,7 +929,9 @@
         const item = window.REICON_DATA[name];
 
         // 1. Category filter
-        if (activeCategory !== 'all' && item.category !== activeCategory) {
+        if (activeCategory === 'added') {
+          if (item.category !== 'newicons') return;
+        } else if (activeCategory !== 'all' && item.category !== activeCategory) {
           return;
         }
 
@@ -859,8 +948,6 @@
 
         filteredIcons.push({ name: name, weight: activeStyle, data: item.weights[activeStyle] });
       });
-
-
 
       // Reset grid scroll
       iconsGrid.scrollTop = 0;
@@ -919,6 +1006,7 @@
     function selectCategory(catId, element) {
       document.querySelectorAll('.category-pill').forEach(el => el.classList.remove('active'));
       document.getElementById('cat-all-pill').classList.remove('active');
+      document.getElementById('cat-added-pill').classList.remove('active');
       
       element.classList.add('active');
       activeCategory = catId;
@@ -946,7 +1034,7 @@
       applyFilters();
     }
 
-    // Format selection
+    // Format selection handler (React, Vue, Svelte, SVG, Vanilla, React Native)
     function selectFormat(format) {
       activeFormat = format;
       saveState();
@@ -1021,7 +1109,8 @@
         name: `${toPascalCase(name)} (${weight})`
       });
 
-      showToast(`Inserted "${toPascalCase(name)}"`);
+      const labelText = format === 'svg' ? `Inserted SVG code for "${toPascalCase(name)}"` : `Inserted "${toPascalCase(name)}"`;
+      showToast(labelText);
     }
 
     // Dropdown Menu & Preview Sizing Logic
@@ -1064,16 +1153,16 @@
     }
 
     function updateMenuButton(isOpen) {
-      const toggleBtn = document.getElementById('menu-toggle-btn');
+      const toggleBtnEl = document.getElementById('menu-toggle-btn');
       if (isOpen) {
-        toggleBtn.innerHTML = `
+        toggleBtnEl.innerHTML = `
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="16" width="16">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         `;
       } else {
-        toggleBtn.innerHTML = `
+        toggleBtnEl.innerHTML = `
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" height="16" width="16">
             <path d="m4 8 16 0" stroke-width="2"></path>
             <path d="m4 16 16 0" stroke-width="2"></path>

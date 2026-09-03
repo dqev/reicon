@@ -2,7 +2,7 @@
   "name": "reicon",
   "displayName": "Reicon — Open Source SVG Icon Library",
   "description": "Browse and insert 2,700+ handcrafted Reicon SVG icons directly into your HTML, React, Vue, Svelte, or vanilla JS code. Outlined and filled styles available.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "publisher": "DevChauhan",
   "engines": {
     "vscode": "^1.80.0"

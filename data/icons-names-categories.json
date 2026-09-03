@@ -10718,5 +10718,13 @@
   {
     "name": "wind",
     "category": "weather"
+  },
+  {
+    "name": "sidebar-left",
+    "category": "newicons"
+  },
+  {
+    "name": "sidebar-right",
+    "category": "newicons"
   }
 ]

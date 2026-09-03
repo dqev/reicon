@@ -1,7 +1,7 @@
 {
   "name": "reicon-docs",
   "private": true,
-  "version": "1.4.0",
+  "version": "1.4.1",
   "type": "module",
   "scripts": {
     "dev": "node scripts/generate-website-search-index.mjs && node scripts/sync-illustration-data.mjs && vite --port=3000 --host=0.0.0.0",
@@ -47,7 +47,7 @@
     "react-helmet-async": "^3.0.0",
     "react-icons": "^5.6.0",
     "react-router-dom": "^7.6.0",
-    "reicon-react": "^1.0.4"
+    "reicon-react": "^1.2.3"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.46.0",

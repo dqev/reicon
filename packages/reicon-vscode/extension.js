@@ -110,6 +110,7 @@ class ReiconWebviewViewProvider {
                 </html>
             `;
         }
+
         return fs.readFileSync(htmlPath, 'utf8');
     }
 }
