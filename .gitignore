@@ -17,8 +17,7 @@ cdn/*.js
 packages/*/dist/
 packages/*/node_modules/
 
-# Local DX symlink for VS Code absolute paths
-/favicon
+
 
 # wrangler files
 .wrangler
