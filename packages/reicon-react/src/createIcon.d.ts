@@ -11,7 +11,7 @@ export interface IconProps extends Omit<SVGAttributes<SVGSVGElement>, 'color'> {
   size?: number | string;
   /** Icon weight / style. Default: `Outline` */
   weight?: IconWeight;
-  /** Override the visual stroke width of Outline icons. Default: `1.5` */
+  /** Override the visual stroke width across icon weights. Default: `1.5` */
   strokeWidth?: number | string;
 }
 

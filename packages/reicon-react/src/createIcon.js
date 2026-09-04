@@ -2,7 +2,7 @@
 import { forwardRef, createElement } from 'react';
 
 const W_MAP = { Filled: 'F', Outline: 'O' };
-const DEFAULT_OUTLINE_STROKE_WIDTH = 1.5;
+const DEFAULT_STROKE_WIDTH = 1.5;
 
 function getNumericStrokeWidth(strokeWidth) {
   if (typeof strokeWidth === 'number') {
@@ -33,19 +33,27 @@ function getStrokeAdjustmentIdPrefix(displayName, html) {
   return `reicon-${safeDisplayName}-${hashIconHtml(html)}`;
 }
 
-function adjustFilledOutline(adjustmentIdPrefix, html, strokeWidth) {
+function getExpandedPathData(displayName, html) {
+  if (!html || html.includes('stroke-width=')) {
+    return null;
+  }
+
+  return {
+    html,
+    strokeAdjustmentIdPrefix: getStrokeAdjustmentIdPrefix(displayName, html),
+  };
+}
+
+function adjustExpandedPaths(adjustmentIdPrefix, html, strokeWidth) {
   const numericStrokeWidth = getNumericStrokeWidth(strokeWidth);
 
-  if (
-    numericStrokeWidth == null ||
-    numericStrokeWidth === DEFAULT_OUTLINE_STROKE_WIDTH
-  ) {
+  if (numericStrokeWidth == null || numericStrokeWidth === DEFAULT_STROKE_WIDTH) {
     return html;
   }
 
-  const strokeAdjustment = Math.abs(numericStrokeWidth - DEFAULT_OUTLINE_STROKE_WIDTH);
+  const strokeAdjustment = Math.abs(numericStrokeWidth - DEFAULT_STROKE_WIDTH);
 
-  if (numericStrokeWidth > DEFAULT_OUTLINE_STROKE_WIDTH) {
+  if (numericStrokeWidth > DEFAULT_STROKE_WIDTH) {
     return `<g stroke="currentColor" stroke-width="${strokeAdjustment}" stroke-linecap="round" stroke-linejoin="round" paint-order="stroke fill">${html}</g>`;
   }
 
@@ -64,11 +72,10 @@ function adjustFilledOutline(adjustmentIdPrefix, html, strokeWidth) {
  * @param {Object} iconData     { F?: string, O?: string }
  */
 const createIcon = (displayName, iconData) => {
-  const filledOutlineHtml =
-    iconData.O && !iconData.O.includes('stroke-width=') ? iconData.O : null;
-  const strokeAdjustmentIdPrefix = filledOutlineHtml
-    ? getStrokeAdjustmentIdPrefix(displayName, filledOutlineHtml)
-    : null;
+  const expandedPathData = {
+    F: getExpandedPathData(displayName, iconData.F),
+    O: getExpandedPathData(displayName, iconData.O),
+  };
   const Icon = forwardRef(
     /**
      * @param {import('./createIcon').IconProps} props
@@ -91,9 +98,15 @@ const createIcon = (displayName, iconData) => {
       let html = iconData[key] || iconData[Object.keys(iconData)[0]] || '';
       let inheritedStrokeWidth;
 
-      if (strokeWidth != null && key === 'O') {
-        if (filledOutlineHtml && strokeAdjustmentIdPrefix) {
-          html = adjustFilledOutline(strokeAdjustmentIdPrefix, filledOutlineHtml, strokeWidth);
+      if (strokeWidth != null) {
+        const expandedPaths = expandedPathData[key];
+
+        if (expandedPaths) {
+          html = adjustExpandedPaths(
+            expandedPaths.strokeAdjustmentIdPrefix,
+            expandedPaths.html,
+            strokeWidth,
+          );
         } else if (html.includes('stroke-width=')) {
           html = html.replace(/\sstroke-width="[^"]*"/g, '');
           inheritedStrokeWidth = strokeWidth;
