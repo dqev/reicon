@@ -2,13 +2,30 @@
 
 All notable changes to the Reicon project and open-source platform will be documented in this file.
 
-## [v1.4.1] - 2026-09-05
+## [v1.5.0] - 2026-09-05
 
-### ⚡ Pure SVG Icon Library Focus
-- **Streamlined Catalog**: Transformed Reicon into a focused, high-performance SVG Icon Library.
-- **Cleaned Routing & Navigation**: Removed legacy logo and illustration routes (`/logos`, `/illustration`), updating headers, mobile menu, footer, and sitemap.
-- **Hero & Showcase Enhancements**: Updated primary and secondary CTA buttons, stats bar, and icon showcases to display pure UI icons.
-- **Clean Meta Tags & LLM Context**: Updated `index.html`, `page-meta.ts`, `llms.txt`, and `llms-full.txt` to focus exclusively on vector icons.
+### ⚖️ Removal of Vector Illustrations
+- **Licensing Compliance with @nilbuild (Kamran Ahmed)**: Removed all vector illustrations, illustration catalog pages (`/illustration`), individual detail routes (`/illustration/:slug`), datasets (`public/illustration-data/`), build scripts (`scripts/sync-illustration-data.mjs`), and AI context files (`public/llms-illustrations.txt`) to resolve licensing issues with @nilbuild (Kamran Ahmed).
+
+### 🎯 Strategic Refocus on Pure SVG Icon Library
+- **Brand Logos Catalog Removal**: Removed the brand logos section (`/logos`, `/logo`, brand datasets) as a personal product choice to focus Reicon 100% exclusively on open-source vector UI icons.
+- **Clean Navigation & UX**:
+  - Removed illustration and logo toggle controls from the Home Page Playground.
+  - Updated Navigation Header, Mobile Drawer Menu, and Footer ecosystem links to showcase only Icon Library destinations.
+  - Replaced Orbit showcase brand logos in `IconShowcase.tsx` with pure UI icons.
+  - Redesigned Hero section action buttons (`Browse Icons` = primary solid white, `Docs Guide` = translucent dark glassmorphic).
+
+### ⚡ Performance & Rendering Optimizations
+- **Progressive Auto-Batching in Icon Grid (`/icons`)**:
+  - Replaced restrictive scroll sentinel caps with a non-blocking progressive batch loader (`INITIAL_BATCH = 120`, `STEP_BATCH = 200`).
+  - First 120 icons render instantly, and all remaining 2,630 icons stream into the DOM in smooth background animation frames (<150ms total) without freezing the UI thread.
+- **Reliable CDN Web Component Loader**:
+  - Enhanced `waitForReicon()` with fallback script injection and an extended 15-second timeout window to ensure `<re-icon>` web components load seamlessly across high-latency networks.
+
+### 🔍 Google Favicon Indexing & SEO Fixes
+- **Root Favicon Assets**: Deployed root-level `/public/favicon.ico` (16x16, 32x32, 48x48 multi-resolution), `/public/favicon.svg`, and `/public/logo.png` (512x512) for Googlebot.
+- **Head Link Tags & Vercel Rewrites**: Added standard Googlebot `<link rel="shortcut icon">` and `<link rel="icon">` tags in `index.html`, and updated `vercel.json` to bypass SPA index rewrites for static favicon requests.
+- **Clean LLM Documentation**: Re-generated `llms.txt` and `llms-full.txt` context files containing 2,630 pure icon mappings for AI agents (ChatGPT, Claude, Cursor, Copilot).
 
 ---
 
