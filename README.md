@@ -6,7 +6,7 @@
 
 ### Open-Source Icon Library for Designers & Developers
 
-**3,900+ UI SVG icons** · **71,000+ illustrations** · **4,900+ brand logos** · free & open-source for every framework you build with.
+**2,700+ UI SVG icons** · free & open-source for every framework you build with.
 
 <br/>
 

@@ -16,10 +16,10 @@ function og(filename) {
 // ── Site-wide defaults (used as fallbacks in index.html) ─────────────────────
 export const SITE_DEFAULTS = {
   title: 'Reicon — Open-Source Icon Library for Designers & Developers',
-  description: 'Reicon — Free open-source SVG icons, illustrations & brand logos. 3,900+ icons, 71,000+ illustrations, 4,900+ logos for React, Vue, Svelte, Flutter, Figma & more.',
-  keywords: 'free icon library, open source icons, SVG illustrations, vector logos, brand logos, React icons, Vue icons, Flutter icons, Figma icons, reicon, MIT license',
+  description: 'Reicon — Free open-source SVG icons. 2,700+ handcrafted icons for React, Vue, Svelte, Flutter, Figma & more.',
+  keywords: 'free icon library, open source icons, SVG icons, React icons, Vue icons, Flutter icons, Figma icons, reicon, MIT license',
   ogTitle: 'Reicon — Open-Source Icon Library for Designers & Developers',
-  ogDescription: 'Reicon is a free, open-source vector graphics library with 3,900+ SVG icons, 71,000+ illustrations, and 4,900+ brand logos — built for designers and developers. Official packages for React, Vue, Svelte, React Native, Flutter, JavaScript, Figma, VS Code, and AI MCP agents. MIT licensed.',
+  ogDescription: 'Reicon is a free, open-source vector icon library with 2,700+ handcrafted SVG icons — built for designers and developers. Official packages for React, Vue, Svelte, React Native, Flutter, JavaScript, Figma, VS Code, and AI MCP agents. MIT licensed.',
   ogImage: og('og-image.png'),
 };
 
@@ -28,7 +28,7 @@ export const ROUTES = [
   {
     path: '/',
     title: 'Reicon — Open-Source Icon Library for Designers & Developers',
-    description: 'Reicon — Free open-source SVG icons, illustrations & brand logos. 3,900+ icons, 71,000+ illustrations, 4,900+ logos for React, Vue, Svelte, Flutter, Figma & more.',
+    description: 'Reicon — Free open-source SVG icons. 2,700+ handcrafted icons for React, Vue, Svelte, Flutter, Figma & more.',
     ogImage: og('og-image.png'),
     priority: '1.0',
     changefreq: 'weekly',
@@ -36,24 +36,8 @@ export const ROUTES = [
   {
     path: '/icons',
     title: 'Free Open-Source SVG Icons — Reicon',
-    description: 'Browse 3,900+ free, open-source SVG icons in Outline, Filled, and Duotone weights. MIT licensed.',
+    description: 'Browse 2,700+ free, open-source SVG icons in Outline and Filled weights. MIT licensed.',
     ogImage: og('icons.jpeg'),
-    priority: '0.9',
-    changefreq: 'weekly',
-  },
-  {
-    path: '/illustration',
-    title: '71,000+ Free SVG Illustrations — Open-Source Vector Graphics | Reicon',
-    description: 'Browse 71,000+ free open-source SVG vector illustrations for React, Vue, HTML, and Figma. Download high-resolution PNG & customizable SVGs. MIT licensed.',
-    ogImage: og('illustration.jpg'),
-    priority: '0.9',
-    changefreq: 'weekly',
-  },
-  {
-    path: '/logos',
-    title: '4,900+ Free SVG Brand Logos — High Quality Vector Logos | Reicon',
-    description: 'Browse and download 4,900+ clean vector brand logos for tech companies, frameworks, AI, and global brands. Free SVG & PNG formats. MIT licensed.',
-    ogImage: og('logos.jpeg'),
     priority: '0.9',
     changefreq: 'weekly',
   },
@@ -286,7 +270,7 @@ export const GLOBAL_JSON_LD = [
 
 // ── Sitemap volatile routes (get today's date on every build) ─────────────────
 export const VOLATILE_ROUTES = new Set([
-  '/', '/icons', '/logos', '/illustration', '/docs', '/docs/react', '/docs/react-native',
+  '/', '/icons', '/docs', '/docs/react', '/docs/react-native',
   '/docs/vue', '/docs/svelte', '/docs/vanilla', '/docs/figma',
   '/docs/vscode', '/docs/mcp', '/docs/svg', '/docs/flutter',
   '/packages', '/pack',

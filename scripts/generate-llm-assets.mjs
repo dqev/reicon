@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Generates public/llms-icons.txt and public/llms-illustrations.txt
- * containing all icon & illustration mappings for AI agents & LLMs.
+ * Generates public/llms-icons.txt
+ * containing all icon mappings for AI agents & LLMs.
  * Run during build time via `npm run build`.
  */
 
@@ -88,44 +88,4 @@ ${sections.join('\n\n')}
   console.log(`Successfully generated LLM Icon Directory containing ${totalCount} mappings to ${OUTPUT_FILE}`);
 }
 
-function generateIllustrations() {
-  console.log('Generating LLM Illustration Directory...');
-  const ILLUST_CATS = resolve(__dirname, '../public/illustration-data/categories.json');
-  const ILLUST_OUT = resolve(__dirname, '../public/llms-illustrations.txt');
-
-  if (!existsSync(ILLUST_CATS)) return;
-
-  const data = JSON.parse(readFileSync(ILLUST_CATS, 'utf-8'));
-  const lines = [
-    `# Reicon — 71,000+ Free SVG Illustrations Directory for AI Agents`,
-    ``,
-    `> Browse and fetch 71,000+ free open-source vector SVG illustrations for React, Vue, HTML, and Figma.`,
-    `> **CDN URL Pattern**: \`https://cdn.reicon.dev/{slug}.svg\` (e.g., \`https://cdn.reicon.dev/aspen.svg\`)`,
-    `> **Browse Page**: https://reicon.dev/illustration`,
-    `> **Detail Page Pattern**: https://reicon.dev/illustration/{slug}`,
-    ``,
-    `## Statistics`,
-    `- **Total Illustrations**: ${data.total_icons || 71262}`,
-    `- **Categories**: ${data.categories ? data.categories.length : 0}`,
-    `- **License**: MIT`,
-    ``,
-    `## Categories & Subcategories Breakdown`,
-  ];
-
-  if (data.categories) {
-    for (const cat of data.categories) {
-      lines.push(`\n### Category: ${cat.name.toUpperCase()} (${cat.count} illustrations)`);
-      if (cat.subcategories) {
-        for (const sub of cat.subcategories) {
-          lines.push(`- **${sub.name}**: ${sub.count} illustrations`);
-        }
-      }
-    }
-  }
-
-  writeFileSync(ILLUST_OUT, lines.join('\n'), 'utf-8');
-  console.log(`Successfully generated LLM Illustration Directory to ${ILLUST_OUT}`);
-}
-
 generateIcons();
-generateIllustrations();

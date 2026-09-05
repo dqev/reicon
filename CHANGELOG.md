@@ -2,6 +2,16 @@
 
 All notable changes to the Reicon project and open-source platform will be documented in this file.
 
+## [v1.4.1] - 2026-09-05
+
+### ⚡ Pure SVG Icon Library Focus
+- **Streamlined Catalog**: Transformed Reicon into a focused, high-performance SVG Icon Library.
+- **Cleaned Routing & Navigation**: Removed legacy logo and illustration routes (`/logos`, `/illustration`), updating headers, mobile menu, footer, and sitemap.
+- **Hero & Showcase Enhancements**: Updated primary and secondary CTA buttons, stats bar, and icon showcases to display pure UI icons.
+- **Clean Meta Tags & LLM Context**: Updated `index.html`, `page-meta.ts`, `llms.txt`, and `llms-full.txt` to focus exclusively on vector icons.
+
+---
+
 ## [v1.2.0] - 2026-08-04
 
 ### 🎨 71,000+ Free SVG Illustrations Library Launch

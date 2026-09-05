@@ -145,32 +145,6 @@
       ]
     },
     {
-      "source": "/illustration-data/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ]
-    },
-    {
-      "source": "/logos-data/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ]
-    },
-    {
       "source": "/.well-known/(.*)",
       "headers": [
         {
@@ -190,7 +164,7 @@
       "destination": "https://cdn.reicon.dev/:path*"
     },
     {
-      "source": "/((?!assets|cdn-proxy|svg|illustration-data|logos-data|favicon|sitemap|robots|humans|llms|site\\.webmanifest|\\.well-known).*)",
+      "source": "/((?!assets|cdn-proxy|svg|favicon|favicon\\.ico|favicon\\.svg|sitemap|robots|humans|llms|site\\.webmanifest|\\.well-known).*)",
       "destination": "/index.html"
     }
   ]
