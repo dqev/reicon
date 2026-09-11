@@ -155,8 +155,16 @@ export const ROUTES = [
   },
   {
     path: '/support',
-    title: 'Support Reicon — Buy Me a Coffee',
-    description: 'Support ongoing open-source development of Reicon. Buy us a coffee to keep 2,700+ handcrafted SVG icons free for everyone.',
+    title: 'Sponsor Reicon — Dodo Payments',
+    description: 'Sponsor ongoing open-source development of Reicon via Dodo Payments. Keep 2,700+ handcrafted SVG icons free for everyone.',
+    ogImage: og('support.jpg'),
+    priority: '0.8',
+    changefreq: 'monthly',
+  },
+  {
+    path: '/sponsor',
+    title: 'Sponsor Reicon — Dodo Payments',
+    description: 'Sponsor ongoing open-source development of Reicon via Dodo Payments. Keep 2,700+ handcrafted SVG icons free for everyone.',
     ogImage: og('support.jpg'),
     priority: '0.8',
     changefreq: 'monthly',
@@ -273,5 +281,5 @@ export const VOLATILE_ROUTES = new Set([
   '/', '/icons', '/docs', '/docs/react', '/docs/react-native',
   '/docs/vue', '/docs/svelte', '/docs/vanilla', '/docs/figma',
   '/docs/vscode', '/docs/mcp', '/docs/svg', '/docs/flutter',
-  '/packages', '/pack',
+  '/packages', '/pack', '/support', '/sponsor',
 ]);
