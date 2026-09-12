@@ -14,10 +14,9 @@
 .env.*
 !.env.example
 
-# Root documentation, workflows & AI agent metadata
+# Repository workflows & AI agent metadata
 /.github/
 /.agents/
-/docs/
 /scratch/
 *.test.*
 *.spec.*
