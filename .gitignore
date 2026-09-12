@@ -26,3 +26,4 @@ packages/reicon-astro/src/icons/
 .wrangler
 .dev.vars*
 !.dev.vars.example
+.vercel

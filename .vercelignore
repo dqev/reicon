@@ -1,0 +1,24 @@
+# Sub-packages (generated icon libraries & packages)
+packages/
+
+# Local build, dev, and cache outputs
+dist/
+build/
+.wrangler/
+coverage/
+.DS_Store
+*.log
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Repository documentation, workflows & AI agent metadata
+.github/
+.agents/
+docs/
+scratch/
+*.test.*
+*.spec.*
+

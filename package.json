@@ -32,7 +32,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "tsc --noEmit",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:vercel": "vercel deploy --archive=tgz",
+    "deploy:vercel:prod": "vercel deploy --prod --archive=tgz"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.19",
