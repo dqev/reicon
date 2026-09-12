@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { VanillaSnippet, CdnSnippet, ReactSnippet, ReactNativeSnippet, VueSnippet, SvelteSnippet, FlutterSnippet, DirectSnippet } from './Snippets';
+import { VanillaSnippet, CdnSnippet, ReactSnippet, ReactNativeSnippet, VueSnippet, SvelteSnippet, AstroSnippet, FlutterSnippet, DirectSnippet } from './Snippets';
 import { EASE } from './utils';
 
 interface CodeTabsProps {
@@ -60,6 +60,7 @@ export default function CodeTabs({
               {codeTab === 'react-native' && <ReactNativeSnippet pascalName={pascalName} filled={fw} />}
               {codeTab === 'vue' && <VueSnippet pascalName={pascalName} filled={fw} />}
               {codeTab === 'svelte' && <SvelteSnippet pascalName={pascalName} filled={fw} />}
+              {codeTab === 'astro' && <AstroSnippet pascalName={pascalName} filled={fw} />}
               {codeTab === 'flutter' && <FlutterSnippet pascalName={pascalName} flutterName={name ? name.replace(/-([a-z])/g, (_, c) => c.toUpperCase()) : ''} filled={fw} />}
               {codeTab === 'direct' && <DirectSnippet pascalName={pascalName} />}
             </motion.pre>

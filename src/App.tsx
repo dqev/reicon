@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { useEffect, Suspense } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import SmoothScroll from './components/layout/SmoothScroll';
@@ -31,11 +31,12 @@ function ScrollToTop() {
 }
 
 const VALID_ROUTES = [
-  '/', '/icons', '/packages', '/faq', '/support', '/sponsor', '/donate', '/terms', '/privacy', '/license', '/pack'
+  '/', '/icons', '/packages', '/faq', '/support', '/terms', '/privacy', '/license', '/pack'
 ];
 
 function isKnownRoute(pathname: string) {
   if (VALID_ROUTES.includes(pathname)) return true;
+  if (pathname === '/sponsor' || pathname === '/donate') return true;
   if (pathname.startsWith('/icon/') || pathname.startsWith('/docs')) return true;
   return false;
 }
@@ -60,8 +61,8 @@ function Layout() {
             <Route path="/packages" element={<PackagesPage />} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/support" element={<SupportPage />} />
-            <Route path="/sponsor" element={<SupportPage />} />
-            <Route path="/donate" element={<SupportPage />} />
+            <Route path="/sponsor" element={<Navigate to="/support" replace />} />
+            <Route path="/donate" element={<Navigate to="/support" replace />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/license" element={<LicensePage />} />

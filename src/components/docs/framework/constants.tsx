@@ -4,6 +4,7 @@ export const FRAMEWORKS = [
     { id: 'react-native', label: 'React Native', icon: 'react-native', color: '#61DAFB' },
     { id: 'vue', label: 'Vue', icon: 'vue', color: '#4DBA87' },
     { id: 'svelte', label: 'Svelte', icon: 'svelte', color: '#FF3E00' },
+    { id: 'astro', label: 'Astro', icon: 'astro', color: '#FF5D01' },
     { id: 'flutter', label: 'Flutter', icon: 'flutter', color: '#02569B' },
     { id: 'figma', label: 'Figma', icon: 'figma', color: '#F24E1E' },
     { id: 'vscode', label: 'VS Code', icon: 'vscode', color: '#007ACC' },

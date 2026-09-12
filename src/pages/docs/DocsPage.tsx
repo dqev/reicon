@@ -43,6 +43,7 @@ export default function DocsPage() {
     reactNativeDocs,
     vueDocs,
     svelteDocs,
+    astroDocs,
     figmaDocs,
     vscodeDocs,
     mcpDocs,
@@ -112,6 +113,7 @@ export default function DocsPage() {
           reactNativeDocs={reactNativeDocs}
           vueDocs={vueDocs}
           svelteDocs={svelteDocs}
+          astroDocs={astroDocs}
           figmaDocs={figmaDocs}
           vscodeDocs={vscodeDocs}
           mcpDocs={mcpDocs}

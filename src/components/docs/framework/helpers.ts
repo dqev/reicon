@@ -6,6 +6,7 @@ export function getFrameworkSectionId(framework: Framework): string {
     case 'react-native': return 'react-native-docs';
     case 'vue': return 'vue-docs';
     case 'svelte': return 'svelte-docs';
+    case 'astro': return 'astro-docs';
     case 'flutter': return 'flutter-docs';
     case 'figma': return 'figma';
     case 'vscode': return 'vscode';
@@ -21,6 +22,7 @@ export function getFrameworkLabel(framework: Framework): string {
     case 'react-native': return 'React Native';
     case 'vue': return 'Vue';
     case 'svelte': return 'Svelte';
+    case 'astro': return 'Astro';
     case 'flutter': return 'Flutter';
     case 'figma': return 'Figma';
     case 'vscode': return 'VS Code';

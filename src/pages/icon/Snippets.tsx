@@ -1,6 +1,26 @@
-import { FlutterIcon } from '../../components/docs/framework/icons';
+import { AstroIcon, FlutterIcon } from '../../components/docs/framework/icons';
 
+export const AstroLogo = () => <AstroIcon size={14} />;
 export const FlutterLogo = () => <FlutterIcon size={14} />;
+
+export function AstroSnippet({ pascalName, filled }: { pascalName: string; filled: boolean }) {
+  return (
+    <>
+      <span className="text-text-base/30">---</span>
+      {'\n'}
+      <span className="text-[#c678dd]">import</span><span className="text-text-base/70">{' { '}</span>
+      <span className="text-[#e5c07b]">{pascalName}</span><span className="text-text-base/70">{' } '}</span>
+      <span className="text-[#c678dd]">from</span><span className="text-[#98c379]"> 'reicon-astro'</span><span className="text-text-base/30">;</span>
+      {'\n'}
+      <span className="text-text-base/30">---</span>
+      {'\n\n'}
+      <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">{pascalName}</span>
+      <span className="text-[#d19a66]"> size</span><span className="text-text-base/50">=</span><span className="text-text-base/70">{'{'}24{'}'}</span>
+      {filled && (<><span className="text-[#d19a66]"> weight</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"Filled"</span></>)}
+      <span className="text-text-base/70"> /{'>'}</span>
+    </>
+  );
+}
 
 export function FlutterSnippet({ pascalName, flutterName, filled }: { pascalName: string; flutterName: string; filled: boolean }) {
   return (

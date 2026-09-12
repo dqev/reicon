@@ -1,0 +1,12 @@
+{
+  "name": "reicon-astro",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Astro icon components for Reicon.",
+  "scripts": {
+    "build": "node scripts/build.cjs"
+  },
+  "peerDependencies": {
+    "astro": ">=3.0.0"
+  }
+}

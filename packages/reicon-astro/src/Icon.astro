@@ -1,0 +1,45 @@
+---
+export interface Props {
+  size?: number | string;
+  color?: string;
+  weight?: 'Outline' | 'Filled';
+  strokeWidth?: number | string;
+  iconData?: Record<string, string>;
+  class?: string;
+  style?: string;
+  [key: string]: any;
+}
+
+const {
+  size = 24,
+  color,
+  weight = 'Outline',
+  strokeWidth,
+  iconData = {},
+  class: className = '',
+  style: styleProp = '',
+  ...restProps
+} = Astro.props;
+
+const key = weight === 'Filled' ? 'F' : 'O';
+const innerSvg = iconData[key] || iconData['O'] || iconData['F'] || '';
+
+const computedStyle = color ? `color: ${color}; ${styleProp}`.trim() : (styleProp || undefined);
+const extraAttrs: Record<string, any> = {};
+if (strokeWidth) {
+  extraAttrs['stroke-width'] = strokeWidth;
+}
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  class={className || undefined}
+  style={computedStyle}
+  {...extraAttrs}
+  {...restProps}
+  set:html={innerSvg}
+/>

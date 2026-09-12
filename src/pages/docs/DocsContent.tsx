@@ -8,6 +8,7 @@ import ReactDocs from './frameworks/ReactDocs';
 import ReactNativeDocs from './frameworks/ReactNativeDocs';
 import VueDocs from './frameworks/VueDocs';
 import SvelteDocs from './frameworks/SvelteDocs';
+import AstroDocs from './frameworks/AstroDocs';
 import FlutterDocs from './frameworks/FlutterDocs';
 import CdnDocs from './frameworks/CdnDocs';
 import FigmaDocs from './guides/FigmaDocs';
@@ -44,6 +45,7 @@ interface Props {
   reactNativeDocs: string;
   vueDocs: string;
   svelteDocs: string;
+  astroDocs: string;
   flutterDocs: string;
   figmaDocs: string;
   vscodeDocs: string;
@@ -80,6 +82,7 @@ export default function DocsContent({
   reactNativeDocs,
   vueDocs,
   svelteDocs,
+  astroDocs,
   flutterDocs,
   figmaDocs,
   vscodeDocs,
@@ -115,7 +118,8 @@ export default function DocsContent({
                     <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-react</code>,{' '}
                     <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-react-native</code>,{' '}
                     <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-vue</code>,{' '}
-                    <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-svelte</code>, and{' '}
+                    <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-svelte</code>,{' '}
+                    <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-astro</code>, and{' '}
                     <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon_flutter</code>.
                   </p>
                   <p className="text-text-base/60 text-[15px] leading-[1.8]">
@@ -156,6 +160,8 @@ export default function DocsContent({
                 <VueDocs markdownContent={vueDocs} copiedField={copiedField} onCopy={copyToClipboard} />
               ) : framework === 'svelte' ? (
                 <SvelteDocs markdownContent={svelteDocs} copiedField={copiedField} onCopy={copyToClipboard} />
+              ) : framework === 'astro' ? (
+                <AstroDocs markdownContent={astroDocs} copiedField={copiedField} onCopy={copyToClipboard} />
               ) : framework === 'flutter' ? (
                 <FlutterDocs markdownContent={flutterDocs} copiedField={copiedField} onCopy={copyToClipboard} />
               ) : framework === 'figma' ? (

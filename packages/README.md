@@ -17,6 +17,7 @@ This directory contains individual npm libraries and integration extension packa
 | [`reicon-react-native`](file:///Users/devchauhan/Documents/Website/reicon/packages/reicon-react-native) | React Native Component Wrapper | `dist/` | `npm run build:react-native` |
 | [`reicon-vue`](file:///Users/devchauhan/Documents/Website/reicon/packages/reicon-vue) | Vue 3 Component Wrapper | `dist/` | `npm run build:vue` |
 | [`reicon-svelte`](file:///Users/devchauhan/Documents/Website/reicon/packages/reicon-svelte) | Svelte Component Wrapper | `dist/` | `npm run build:svelte` |
+| [`reicon-astro`](file:///Users/devchauhan/Documents/Website/reicon/packages/reicon-astro) | Astro Component Wrapper | `dist/` | `npm run build:astro` |
 | [`reicon-figma`](file:///Users/devchauhan/Documents/Website/reicon/packages/reicon-figma) | Figma Plugin Web UI | `Reicon/ui.html` | `npm run build:figma` |
 | [`reicon-vscode`](file:///Users/devchauhan/Documents/Website/reicon/packages/reicon-vscode) | VS Code Intellisense Extension | `dist/ui.html` | `npm run build:vscode` |
 | [`reicon-mcp`](file:///Users/devchauhan/Documents/Website/reicon/packages/reicon-mcp) | MCP Server & CLI for Agents | `dist/` | `npm run build:mcp` |

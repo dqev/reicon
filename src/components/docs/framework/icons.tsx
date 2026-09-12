@@ -68,11 +68,30 @@ export const VscodeIcon = ({ size = 16 }: { size?: number }) => (
     </svg>
 );
 
+export const AstroIcon = ({ size = 16 }: { size?: number }) => (
+    <svg width={size * (85 / 107)} height={size} viewBox="0 0 85 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="url(#astro-flame-docs)" d="M27.59 91.136c-4.834-4.418-6.246-13.703-4.232-20.429 3.492 4.241 8.33 5.584 13.342 6.343 7.737 1.17 15.336.732 22.523-2.804.822-.405 1.582-.943 2.48-1.489.675 1.957.85 3.932.615 5.943-.573 4.896-3.01 8.678-6.885 11.545-1.55 1.147-3.19 2.172-4.79 3.253-4.917 3.323-6.247 7.22-4.4 12.888.044.139.084.277.183.614-2.51-1.124-4.344-2.76-5.742-4.911-1.475-2.27-2.177-4.78-2.214-7.498-.019-1.322-.019-2.656-.197-3.96-.434-3.178-1.926-4.601-4.737-4.683-2.884-.084-5.166 1.699-5.771 4.507-.046.216-.113.429-.18.68l.004.001Z" />
+        <path fill="url(#astro-body-docs)" d="M62.083 45.419c-1.309-8.487-7.234-21.73-19.584-45.419C30.15 23.689 24.225 36.932 22.916 45.419c-1.484 9.637 1.603 17.653 2.012 18.666 4.708-4.227 10.606-5.19 17.572-4.136 9.489 1.436 17.159.213 23.948-4.301.272-.94 1.119-2.664-4.365-10.229Z" />
+        <path fill="currentColor" d="m42.5 0 8.01 24.652h8.011L42.5 0Zm0 0-8.01 24.652h-8.011L42.5 0Z" />
+        <defs>
+            <linearGradient id="astro-flame-docs" x1="42.5" x2="42.5" y1="70.707" y2="106.852" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#FF5D01" />
+                <stop offset="1" stopColor="#FFB800" />
+            </linearGradient>
+            <linearGradient id="astro-body-docs" x1="42.5" x2="42.5" y1="0" y2="64.085" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#883AEA" />
+                <stop offset="1" stopColor="#FF5D01" />
+            </linearGradient>
+        </defs>
+    </svg>
+);
+
 export const FrameworkIcon = ({ id, size = 16 }: { id: string; size?: number }) => {
     if (id === 'react') return <FaReact className="text-[#61DAFB]" size={size} />;
     if (id === 'react-native') return <FaReact className="text-[#61DAFB]" size={size} />;
     if (id === 'vue') return <VueIcon size={size} />;
     if (id === 'svelte') return <SvelteIcon size={size} />;
+    if (id === 'astro') return <AstroIcon size={size} />;
     if (id === 'figma') return <FigmaIcon size={size} />;
     if (id === 'vscode') return <VscodeIcon size={size} />;
     if (id === 'mcp') return <McpIcon size={size} />;

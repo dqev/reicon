@@ -1,7 +1,7 @@
 import { FaReact } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io5';
 import { VscVscodeInsiders } from 'react-icons/vsc';
-import { FigmaIcon, FlutterIcon, McpIcon, SvelteIcon, VueIcon, SvgIcon } from '../../components/docs/framework/icons';
+import { AstroIcon, FigmaIcon, FlutterIcon, McpIcon, SvelteIcon, VueIcon, SvgIcon } from '../../components/docs/framework/icons';
 
 export interface PackageItem {
     id: string;
@@ -64,6 +64,16 @@ export const PACKAGES: PackageItem[] = [
         npmUrl: 'https://www.npmjs.com/package/reicon-svelte',
         sourceUrl: 'https://github.com/dqev/reicon',
         guideUrl: '/docs/svelte',
+    },
+    {
+        id: 'astro',
+        name: 'reicon-astro',
+        npmPkg: 'reicon-astro',
+        description: 'Astro components for Reicon. Tree-shakeable, TypeScript-ready, zero config. Works with Astro SSG and SSR.',
+        icon: <AstroIcon size={48} />,
+        npmUrl: 'https://www.npmjs.com/package/reicon-astro',
+        sourceUrl: 'https://github.com/dqev/reicon',
+        guideUrl: '/docs/astro',
     },
     {
         id: 'flutter',
