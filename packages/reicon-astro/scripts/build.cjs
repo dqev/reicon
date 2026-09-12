@@ -288,100 +288,50 @@ const pkg = {
 fs.writeFileSync(path.join(DIST, 'package.json'), JSON.stringify(pkg, null, 2) + '\n');
 
 // ── README.md ──────────────────────────────────────────────────────────────
-const readme = `<p align="center">
-  <a href="https://reicon.dev">
-    <img src="https://reicon.dev/readme-banner.png" alt="Reicon Astro — SVG Icon Library for Astro" width="100%" />
-  </a>
-</p>
+const readme = `<div align="center">
 
-<p align="center">
-  <a href="https://npmjs.com/package/reicon-astro"><img src="https://img.shields.io/npm/v/reicon-astro?color=black&label=npm" alt="npm version" /></a>
-  <a href="https://npmjs.com/package/reicon-astro"><img src="https://img.shields.io/npm/dm/reicon-astro?color=black&label=downloads" alt="npm downloads" /></a>
-  <a href="https://github.com/dqev/reicon/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-black" alt="MIT License" /></a>
-  <a href="https://reicon.dev"><img src="https://img.shields.io/badge/docs-reicon.dev-black" alt="Documentation" /></a>
-  <a href="https://github.com/dqev/reicon"><img src="https://img.shields.io/badge/github-dqev/reicon-black" alt="GitHub" /></a>
-</p>
+<br/>
+<br/>
 
-<h1 align="center">Reicon Astro</h1>
+<img src="https://reicon.dev/readme-assets/banner.webp" alt="Reicon Astro" width="200" />
 
-<p align="center">
-  <b>${icons.length}+ pixel-perfect SVG icons</b> • Outline & Filled weights • Astro component wrapper • Zero dependencies • MIT Licensed
-</p>
+<br/>
 
-<p align="center">
-  <a href="#install">Install</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#props">Props</a> •
-  <a href="#tree-shaking">Tree-shaking</a> •
-  <a href="#icon-names">Icon Names</a> •
-  <a href="#typescript">TypeScript</a>
-</p>
+### Official Reicon package for Astro — open-source icon library for designers & developers
 
-**Reicon Astro** is the official Astro package for <a href="https://reicon.dev">Reicon</a> — a free, open-source SVG icon library featuring ${icons.length}+ handcrafted, grid-aligned icons. Every component is tree-shakeable, fully TypeScript-ready, and ships with zero dependencies.
+[![npm](https://img.shields.io/npm/v/reicon-astro?style=flat-square&label=reicon-astro&color=9B8AFB)](https://www.npmjs.com/package/reicon-astro)
+[![Docs](https://img.shields.io/badge/Docs-reicon.dev-9B8AFB?style=flat-square)](https://reicon.dev/docs/astro)
+[![License](https://img.shields.io/badge/License-MIT-9B8AFB?style=flat-square)](https://github.com/dqev/reicon/blob/main/LICENSE)
 
-| 🔗 &nbsp; Resource | Link |
-|---|---|
-| 🌐 &nbsp; Website & icon browser | [reicon.dev](https://reicon.dev) |
-| 📖 &nbsp; Documentation | [reicon.dev/docs/astro](https://reicon.dev/docs/astro) |
-| 📦 &nbsp; Core package (vanilla JS) | [reicon](https://npmjs.com/package/reicon) |
-| 🎨 &nbsp; Figma plugin | [reicon.dev/docs/figma](https://reicon.dev/docs/figma) |
+</div>
 
----
+<br/>
 
-## Install
+## Installation
 
 \`\`\`bash
-npm i reicon-astro
+npm install reicon-astro
 # or
-bun add reicon-astro
+pnpm add reicon-astro
 # or
 yarn add reicon-astro
 \`\`\`
 
-<details>
-<summary><b>Requirements</b></summary>
-
-- **Astro** ≥ 3.0, 4.0, or 5.0
-- No other dependencies required.
-
-</details>
-
----
-
-## Usage
-
-### Basic
+## Quick Start
 
 \`\`\`astro
 ---
 import { Home, ShieldCheck, AltArrowDown } from 'reicon-astro';
 ---
 
-<Home />
-<ShieldCheck size={32} color="#d97757" />
-<AltArrowDown weight="Filled" />
+<div>
+  <Home size={24} color="#9B8AFB" />
+  <ShieldCheck size={20} weight="Filled" />
+  <AltArrowDown size={24} class="text-purple-500" />
+</div>
 \`\`\`
 
-### Weights
-
-Every icon ships in two weights — **Outline** (default) and **Filled**:
-
-\`\`\`astro
-<Home />                        <!-- Outline (default) -->
-<Home weight="Filled" />        <!-- Filled -->
-\`\`\`
-
-### Sizing & coloring
-
-\`\`\`astro
-<Home size={32} />                    <!-- 32×32px -->
-<Home size={48} color="#d97757" />    <!-- Custom size and color -->
-<Home color="currentColor" />         <!-- Inherits parent text color -->
-\`\`\`
-
-### Direct icon import (smallest bundle)
-
-For the absolute minimum bundle size, import icons directly from the sub-path:
+## Direct Subpath Import
 
 \`\`\`astro
 ---
@@ -390,87 +340,26 @@ import ShieldCheck from 'reicon-astro/icons/ShieldCheck.astro';
 ---
 \`\`\`
 
-### All SVG attributes are supported
-
-Pass any standard SVG attribute — \`class\`, \`style\`, \`aria-*\`, etc.:
-
-\`\`\`astro
-<Home
-  size={48}
-  color="red"
-  class="my-icon"
-  style="margin-right: 8px"
-  aria-label="Home"
-/>
-\`\`\`
-
----
-
-## Props
+## Component Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| \`size\` | \`number | string\` | \`24\` | Icon width & height (number = px) |
-| \`color\` | \`string\` | — | Primary icon stroke/fill color. Leave unset to use CSS class. |
-| \`weight\` | \`'Outline' | 'Filled'\` | \`'Outline'\` | Icon style variant |
-| \`strokeWidth\` | \`number | string\` | — | Override the default stroke width |
-| \`class\` | \`string\` | — | Additional CSS class on the \`<svg>\` element |
-| \`style\` | \`string\` | — | Additional inline styles |
-
-Any valid SVG attribute (e.g. \`id\`, \`aria-*\`) is forwarded to the underlying \`<svg>\` element.
-
----
-
-## Tree-shaking
-
-Every icon is a standalone ES module. Modern bundlers — **Vite**, **Astro** — automatically tree-shake unused icons, keeping only what you import.
-
-\`\`\`astro
----
-// ✅ Only Home is included in your production build
-import { Home } from 'reicon-astro';
-
-// ✅ Even smaller — direct path import skips the barrel file entirely
-import Home from 'reicon-astro/icons/Home.astro';
----
-\`\`\`
-
-The package is marked \`"sideEffects": false\` for optimal dead-code elimination.
-
----
-
-## Icon Names
-
-Icons use **PascalCase**, derived from their original kebab-case file names:
-
-| Original name | PascalCase import |
-|---------------|-------------------|
-| \`home\` | \`Home\` |
-| \`shield-check\` | \`ShieldCheck\` |
-| \`alt-arrow-down\` | \`AltArrowDown\` |
-| \`shopping-cart\` | \`ShoppingCart\` |
-| \`user-circle\` | \`UserCircle\` |
-
-Browse and search all ${icons.length}+ icons at <a href="https://reicon.dev">reicon.dev</a>.
-
----
-
-## TypeScript
-
-Full type declarations ship with the package — no separate \`@types/\` installation needed.
-
-\`\`\`ts
-import { Home, type IconProps, type IconWeight } from 'reicon-astro';
-
-const weight: IconWeight = 'Filled';
-const props: IconProps = { size: 32, color: '#d97757', weight };
-\`\`\`
-
----
+| ---- | ---- | ------- | ----------- |
+| \`size\` | \`number | string\` | \`24\` | Icon width and height in pixels. |
+| \`weight\` | \`'Outline' | 'Filled'\` | \`'Outline'\` | Visual weight style. |
+| \`color\` | \`string\` | \`'currentColor'\` | Icon fill or stroke color. |
+| \`class\` | \`string\` | \`undefined\` | Custom CSS classes. |
 
 ## License
 
-MIT © [Dev Chauhan](https://devchauhan.in)
+Free for commercial and personal use under the [MIT License](https://github.com/dqev/reicon/blob/main/LICENSE).
+
+## Credits
+
+Thank you to all the people who contributed and supported Reicon!
+
+<a href="https://github.com/dqev/reicon/stargazers">
+  <img src="https://reicon.dev/readme-assets/stargazers.webp" alt="Reicon Stargazers & Contributors" width="800" />
+</a>
 `;
 
 fs.writeFileSync(path.join(DIST, 'README.md'), readme);
