@@ -17,6 +17,9 @@ cdn/*.js
 packages/*/dist/
 packages/*/node_modules/
 
+# Generated Astro icon source files (built from data/icon-data.json)
+packages/reicon-astro/src/icons/
+
 
 
 # wrangler files

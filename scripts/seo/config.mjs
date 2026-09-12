@@ -82,6 +82,14 @@ export const ROUTES = [
     changefreq: 'monthly',
   },
   {
+    path: '/docs/astro',
+    title: 'Reicon for Astro — Reicon',
+    description: 'Install and use Reicon in Astro projects. Import Astro components, customize props, tree-shake unused icons.',
+    ogImage: og('astro.png'),
+    priority: '0.8',
+    changefreq: 'monthly',
+  },
+  {
     path: '/docs/vanilla',
     title: 'Reicon for Vanilla JS — Reicon',
     description: 'Use Reicon icons via CDN in vanilla JavaScript and HTML. No build tools needed.',
@@ -155,14 +163,6 @@ export const ROUTES = [
   },
   {
     path: '/support',
-    title: 'Sponsor Reicon — Dodo Payments',
-    description: 'Sponsor ongoing open-source development of Reicon via Dodo Payments. Keep 2,700+ handcrafted SVG icons free for everyone.',
-    ogImage: og('support.jpg'),
-    priority: '0.8',
-    changefreq: 'monthly',
-  },
-  {
-    path: '/sponsor',
     title: 'Sponsor Reicon — Dodo Payments',
     description: 'Sponsor ongoing open-source development of Reicon via Dodo Payments. Keep 2,700+ handcrafted SVG icons free for everyone.',
     ogImage: og('support.jpg'),
@@ -279,7 +279,7 @@ export const GLOBAL_JSON_LD = [
 // ── Sitemap volatile routes (get today's date on every build) ─────────────────
 export const VOLATILE_ROUTES = new Set([
   '/', '/icons', '/docs', '/docs/react', '/docs/react-native',
-  '/docs/vue', '/docs/svelte', '/docs/vanilla', '/docs/figma',
+  '/docs/vue', '/docs/svelte', '/docs/astro', '/docs/vanilla', '/docs/figma',
   '/docs/vscode', '/docs/mcp', '/docs/svg', '/docs/flutter',
-  '/packages', '/pack', '/support', '/sponsor',
+  '/packages', '/pack', '/support',
 ]);

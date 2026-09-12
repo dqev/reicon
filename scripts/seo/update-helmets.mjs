@@ -32,6 +32,7 @@ const frameworkPairs = [
   ['react-native', 'docs/react-native'],
   ['vue', 'docs/vue'],
   ['svelte', 'docs/svelte'],
+  ['astro', 'docs/astro'],
   ['vanilla', 'docs/vanilla'],
   ['figma', 'docs/figma'],
   ['vscode', 'docs/vscode'],
