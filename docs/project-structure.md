@@ -14,6 +14,9 @@ reicon/
 │   ├── reicon-react/            # reicon-react  (React)
 │   │   ├── scripts/build.cjs    # React package builder
 │   │   └── dist/                # Package compilation output
+│   ├── reicon-angular/          # reicon-angular (Angular 20+)
+│   │   ├── scripts/build.cjs    # Angular package builder
+│   │   └── dist/                # Package compilation output
 │   ├── reicon-vue/              # reicon-vue    (Vue 3)
 │   │   ├── scripts/build.cjs    # Vue package builder
 │   │   └── dist/                # Package compilation output
@@ -118,6 +121,7 @@ reicon/
 │   │   │   ├── frameworks/ # Per-framework docs
 │   │   │   │   ├── CdnDocs.tsx + cdn/
 │   │   │   │   ├── ReactDocs.tsx + react/
+│   │   │   │   ├── AngularDocs.tsx + angular/
 │   │   │   │   ├── ReactNativeDocs.tsx + react-native/
 │   │   │   │   ├── VueDocs.tsx + vue/
 │   │   │   │   └── SvelteDocs.tsx + svelte/

@@ -1,0 +1,40 @@
+{
+  "name": "reicon-angular",
+  "version": "1.0.0",
+  "description": "Angular 20+ icon components for Reicon.",
+  "scripts": {
+    "build": "node scripts/build.cjs"
+  },
+  "peerDependencies": {
+    "@angular/core": ">=20.0.0",
+    "@angular/platform-browser": ">=20.0.0"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "angular",
+    "angular-icons",
+    "icons",
+    "svg-icons",
+    "icon-library",
+    "reicon",
+    "outline",
+    "filled",
+    "tree-shakeable",
+    "typescript"
+  ],
+  "author": {
+    "name": "devchauhan",
+    "email": "dev@devchauhan.in",
+    "url": "https://devchauhan.in"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dqev/reicon.git",
+    "directory": "packages/reicon-angular"
+  },
+  "bugs": {
+    "url": "https://github.com/dqev/reicon/issues"
+  },
+  "homepage": "https://reicon.dev/docs/angular"
+}

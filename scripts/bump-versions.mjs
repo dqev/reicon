@@ -25,6 +25,7 @@ const PACKAGES = [
   { key: 'reicon-vue',     path: 'packages/reicon-vue/package.json' },
   { key: 'reicon-svelte',  path: 'packages/reicon-svelte/package.json' },
   { key: 'reicon-react-native', path: 'packages/reicon-react-native/package.json' },
+  { key: 'reicon-angular', path: 'packages/reicon-angular/package.json' },
   { key: 'reicon-vscode',  path: 'packages/reicon-vscode/package.json' },
   { key: 'reicon-mcp',     path: 'packages/reicon-mcp/package.json' },
   { key: 'reicon-figma',   path: 'packages/reicon-figma/Reicon/package.json' },
