@@ -16,10 +16,10 @@ function og(filename) {
 // ── Site-wide defaults (used as fallbacks in index.html) ─────────────────────
 export const SITE_DEFAULTS = {
   title: 'Reicon — Open-Source Icon Library for Designers & Developers',
-  description: 'Reicon — Free open-source SVG icons. 2,700+ handcrafted icons for React, Vue, Svelte, Flutter, Figma & more.',
-  keywords: 'free icon library, open source icons, SVG icons, React icons, Vue icons, Flutter icons, Figma icons, reicon, MIT license',
+  description: 'Reicon — Free open-source SVG icons. 2,700+ handcrafted icons for React, Angular, Vue, Svelte, Flutter, Figma & more.',
+  keywords: 'free icon library, open source icons, SVG icons, React icons, Angular icons, Vue icons, Flutter icons, Figma icons, reicon, MIT license',
   ogTitle: 'Reicon — Open-Source Icon Library for Designers & Developers',
-  ogDescription: 'Reicon is a free, open-source vector icon library with 2,700+ handcrafted SVG icons — built for designers and developers. Official packages for React, Vue, Svelte, React Native, Flutter, JavaScript, Figma, VS Code, and AI MCP agents. MIT licensed.',
+  ogDescription: 'Reicon is a free, open-source vector icon library with 2,700+ handcrafted SVG icons — built for designers and developers. Official packages for React, Angular, Vue, Svelte, React Native, Flutter, JavaScript, Figma, VS Code, and AI MCP agents. MIT licensed.',
   ogImage: og('og-image.png'),
 };
 
@@ -28,7 +28,7 @@ export const ROUTES = [
   {
     path: '/',
     title: 'Reicon — Open-Source Icon Library for Designers & Developers',
-    description: 'Reicon — Free open-source SVG icons. 2,700+ handcrafted icons for React, Vue, Svelte, Flutter, Figma & more.',
+    description: 'Reicon — Free open-source SVG icons. 2,700+ handcrafted icons for React, Angular, Vue, Svelte, Flutter, Figma & more.',
     ogImage: og('og-image.png'),
     priority: '1.0',
     changefreq: 'weekly',
@@ -44,7 +44,7 @@ export const ROUTES = [
   {
     path: '/docs',
     title: 'Reicon Docs — Get Started',
-    description: 'Get started with Reicon. Install and use icons in React, Vue, Svelte, Flutter, Figma, VS Code, and MCP.',
+    description: 'Get started with Reicon. Install and use icons in React, Angular, Vue, Svelte, Flutter, Figma, VS Code, and MCP.',
     ogImage: og('docs.jpg'),
     priority: '0.8',
     changefreq: 'monthly',
@@ -54,6 +54,14 @@ export const ROUTES = [
     title: 'Reicon for React — Reicon',
     description: 'Install and use Reicon in React. Import components, customize props, tree-shake unused icons.',
     ogImage: og('docs-react.jpg'),
+    priority: '0.8',
+    changefreq: 'monthly',
+  },
+  {
+    path: '/docs/angular',
+    title: 'Reicon for Angular — Reicon',
+    description: 'Install and use Reicon in Angular 20+. Import standalone icon components and customize inputs.',
+    ogImage: og('docs-angular.jpg'),
     priority: '0.8',
     changefreq: 'monthly',
   },
@@ -140,7 +148,7 @@ export const ROUTES = [
   {
     path: '/packages',
     title: 'Reicon Packages — Reicon',
-    description: 'Official Reicon packages for React, React Native, Vue, Svelte, Flutter, and JavaScript.',
+    description: 'Official Reicon packages for React, Angular, React Native, Vue, Svelte, Flutter, and JavaScript.',
     ogImage: og('packages.jpg'),
     priority: '0.7',
     changefreq: 'monthly',
@@ -203,7 +211,7 @@ export const GLOBAL_JSON_LD = [
     'name': 'Reicon',
     'alternateName': ['Reicon Icons', 'Reicon Icon Library', 'reicon-mcp'],
     'url': SITE,
-    'description': 'Reicon is a free, open-source SVG icon library for designers and developers. Pixel-perfect, handcrafted icons for React, React Native, Vue, Svelte, Flutter, Figma, and the web. Includes an MCP server and CLI for AI agent icon search and codegen.',
+    'description': 'Reicon is a free, open-source SVG icon library for designers and developers. Pixel-perfect, handcrafted icons for React, Angular, React Native, Vue, Svelte, Flutter, Figma, and the web. Includes an MCP server and CLI for AI agent icon search and codegen.',
     'disambiguatingDescription': 'Reicon (reicon.dev) is an open-source SVG icon library for web designers and developers. It is not the Windows desktop icon restore utility ReIcon by Sordum.org.',
     'applicationCategory': 'DesignApplication',
     'applicationSubCategory': 'Icon Library',
@@ -254,13 +262,13 @@ export const GLOBAL_JSON_LD = [
       },
       {
         '@type': 'Question',
-        'name': 'Does Reicon work with React, React Native, Vue, and Svelte?',
-        'acceptedAnswer': { '@type': 'Answer', 'text': 'Yes. Install reicon-react for React, reicon-react-native for React Native, reicon-vue for Vue 3, or reicon-svelte for Svelte.' },
+        'name': 'Does Reicon work with React, Angular, React Native, Vue, and Svelte?',
+        'acceptedAnswer': { '@type': 'Answer', 'text': 'Yes. Install reicon-react for React, reicon-angular for Angular 20+, reicon-react-native for React Native, reicon-vue for Vue 3, or reicon-svelte for Svelte.' },
       },
       {
         '@type': 'Question',
         'name': 'How do I install Reicon?',
-        'acceptedAnswer': { '@type': 'Answer', 'text': "Run 'npm install reicon-react' for React, 'npm install reicon-react-native' for React Native, or use the CDN. See reicon.dev/docs for full instructions." },
+        'acceptedAnswer': { '@type': 'Answer', 'text': "Run 'npm install reicon-react' for React, 'npm install reicon-angular' for Angular 20+, 'npm install reicon-react-native' for React Native, or use the CDN. See reicon.dev/docs for full instructions." },
       },
       {
         '@type': 'Question',
@@ -279,7 +287,7 @@ export const GLOBAL_JSON_LD = [
 // ── Sitemap volatile routes (get today's date on every build) ─────────────────
 export const VOLATILE_ROUTES = new Set([
   '/', '/icons', '/docs', '/docs/react', '/docs/react-native',
-  '/docs/vue', '/docs/svelte', '/docs/astro', '/docs/vanilla', '/docs/figma',
+  '/docs/vue', '/docs/svelte', '/docs/astro', '/docs/vanilla', '/docs/angular', '/docs/figma',
   '/docs/vscode', '/docs/mcp', '/docs/svg', '/docs/flutter',
   '/packages', '/pack', '/support',
 ]);

@@ -29,6 +29,7 @@ const routeEntries = ROUTES.map((r) => {
 // Framework docs alias map
 const frameworkPairs = [
   ['react', 'docs/react'],
+  ['angular', 'docs/angular'],
   ['react-native', 'docs/react-native'],
   ['vue', 'docs/vue'],
   ['svelte', 'docs/svelte'],

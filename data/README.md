@@ -92,6 +92,7 @@ A `{ "<icon-name>": ["tag", "tag"] }` map for enriching search / SEO metadata ou
 | `packages/reicon-react/dist` (npm) | `packages/reicon-react/scripts/build.cjs` | `npm run build:react` | **Maintainer only** |
 | `packages/reicon-vue/dist` (npm) | `packages/reicon-vue/scripts/build.cjs` | `npm run build:vue` | **Maintainer only** |
 | `packages/reicon-svelte/dist` (npm) | `packages/reicon-svelte/scripts/build.cjs` | `npm run build:svelte` | **Maintainer only** |
+| `packages/reicon-angular/dist` (npm) | `packages/reicon-angular/scripts/build.cjs` | `npm run build:angular` | **Maintainer only** |
 
 > [!IMPORTANT]
 > **Contributors only edit `data/icon-data.json`.** The website automatically shows new icons on the next deploy. npm packages are rebuilt and published by the maintainer in a separate release step — you do not need to run `build:packages` in your PR.

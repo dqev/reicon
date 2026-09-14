@@ -15,6 +15,7 @@ This directory contains individual npm libraries and integration extension packa
 | [`reicon`](file:///Users/devchauhan/Documents/Website/reicon/packages/reicon) | Vanilla JS & CDN Web Component | `dist/` | `npm run build:js` |
 | [`reicon-react`](file:///Users/devchauhan/Documents/Website/reicon/packages/reicon-react) | React / JSX Component Wrapper | `dist/` | `npm run build:react` |
 | [`reicon-react-native`](file:///Users/devchauhan/Documents/Website/reicon/packages/reicon-react-native) | React Native Component Wrapper | `dist/` | `npm run build:react-native` |
+| [`reicon-angular`](file:///Users/devchauhan/Documents/Website/reicon/packages/reicon-angular) | Angular 20+ Standalone Component Wrapper | `dist/` | `npm run build:angular` |
 | [`reicon-vue`](file:///Users/devchauhan/Documents/Website/reicon/packages/reicon-vue) | Vue 3 Component Wrapper | `dist/` | `npm run build:vue` |
 | [`reicon-svelte`](file:///Users/devchauhan/Documents/Website/reicon/packages/reicon-svelte) | Svelte Component Wrapper | `dist/` | `npm run build:svelte` |
 | [`reicon-astro`](file:///Users/devchauhan/Documents/Website/reicon/packages/reicon-astro) | Astro Component Wrapper | `dist/` | `npm run build:astro` |

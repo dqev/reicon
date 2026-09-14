@@ -1,6 +1,6 @@
 # Performance & Tree-Shaking
 
-All Reicon packages (`reicon`, `reicon-react`, `reicon-vue`) declare `"sideEffects": false` in their package configurations. Modern bundlers (Vite, Webpack, Rollup) automatically eliminate unused icons from your production bundle.
+All Reicon packages (`reicon`, `reicon-react`, `reicon-angular`, `reicon-vue`) declare `"sideEffects": false` in their package configurations. Modern bundlers (Vite, Webpack, Rollup) automatically eliminate unused icons from your production bundle.
 
 ---
 
@@ -43,5 +43,6 @@ When using the CDN element, icons are fetched on demand and cached in the browse
 | `reicon` | Only used icons | Vanilla JS, SPAs, custom setups |
 | `reicon/icons/*` | Single icon per import | Production builds (Vanilla JS) |
 | `reicon-react` | Only used icons | React / Next.js apps |
+| `reicon-angular` | Only used icons | Angular 20+ apps |
 | `reicon-vue` | Only used icons | Vue / Nuxt apps |
 | `CDN script` | On-demand fetching | Static sites, quick prototyping |
