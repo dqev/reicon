@@ -12,7 +12,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const SRC = resolve(__dirname, '../../src');
+const SRC = resolve(__dirname, '../../apps/web/src');
 
 const { ROUTES, SITE } = await import('./config.mjs');
 

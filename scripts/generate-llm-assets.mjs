@@ -13,7 +13,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const ICON_NAMES_JSON = resolve(__dirname, 'icon-names.json');
 const CATS_JSON = resolve(__dirname, '../data/icons-names-categories.json');
-const OUTPUT_FILE = resolve(__dirname, '../public/llms-icons.txt');
+const OUTPUT_FILE = resolve(__dirname, '../apps/web/public/llms-icons.txt');
 
 function generateIcons() {
   console.log('Generating LLM Icon Directory...');

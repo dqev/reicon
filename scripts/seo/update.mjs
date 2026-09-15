@@ -13,7 +13,7 @@ function esc(s) {
 }
 
 function updateIndexHtml() {
-  const path = resolve(ROOT, 'index.html');
+  const path = resolve(ROOT, 'apps/web/index.html');
   let html = readFileSync(path, 'utf-8');
 
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(SITE_DEFAULTS.title)}</title>`);

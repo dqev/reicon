@@ -8,7 +8,7 @@ import { ROUTES, VOLATILE_ROUTES } from './seo/config.mjs';
 import { SITE } from './seo/meta.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const OUT = resolve(__dirname, '../public');
+const OUT = resolve(__dirname, '../apps/web/public');
 const LASTMOD_CACHE = resolve(__dirname, 'lastmod-cache.json');
 
 function loadCache() {

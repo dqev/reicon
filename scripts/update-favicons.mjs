@@ -12,20 +12,20 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const ROOT = resolve(__dirname, '..');
-const INDEX_HTML = resolve(ROOT, 'index.html');
-const MANIFEST_PATH = resolve(ROOT, 'public/favicon/site.webmanifest');
-const PUBLIC_README = resolve(ROOT, 'public/README.md');
+const INDEX_HTML = resolve(ROOT, 'apps/web/index.html');
+const MANIFEST_PATH = resolve(ROOT, 'apps/web/public/favicon/site.webmanifest');
+const PUBLIC_README = resolve(ROOT, 'apps/web/public/README.md');
 const STRUCT_MD = resolve(ROOT, 'docs/project-structure.md');
 
 const OBSOLETE_FILES = [
-  'public/favicon.ico',
-  'public/favicon.svg',
-  'public/apple-touch-icon.png',
-  'public/favicon-48x48.png',
-  'public/favicon-96x96.png',
-  'public/web-app-manifest-192x192.png',
-  'public/web-app-manifest-512x512.png',
-  'public/site.webmanifest'
+  'apps/web/public/favicon.ico',
+  'apps/web/public/favicon.svg',
+  'apps/web/public/apple-touch-icon.png',
+  'apps/web/public/favicon-48x48.png',
+  'apps/web/public/favicon-96x96.png',
+  'apps/web/public/web-app-manifest-192x192.png',
+  'apps/web/public/web-app-manifest-512x512.png',
+  'apps/web/public/site.webmanifest'
 ];
 
 function runMigration() {

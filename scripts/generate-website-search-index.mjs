@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_PATH = resolve(__dirname, '../data/icon-data.json');
-const OUT_PATH = resolve(__dirname, '../src/data/search-index.json');
+const OUT_PATH = resolve(__dirname, '../apps/web/src/data/search-index.json');
 
 const data = JSON.parse(readFileSync(DATA_PATH, 'utf-8'));
 

@@ -13,7 +13,7 @@ const DIST = resolve(__dirname, '../dist');
 async function main() {
   if (!existsSync(DIST)) { console.error('dist/ not found — run vite build first'); process.exit(1); }
 
-  const srcFavicon = resolve(__dirname, '../public/favicon');
+  const srcFavicon = resolve(__dirname, '../apps/web/public/favicon');
   const destFavicon = resolve(DIST, 'favicon');
   try { cpSync(srcFavicon, destFavicon, { recursive: true }); console.log('✓ favicon copied'); }
   catch (e) { console.error('favicon copy failed:', e.message); }

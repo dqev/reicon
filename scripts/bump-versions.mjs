@@ -32,8 +32,8 @@ const PACKAGES = [
   { key: 'reicon-docs',    path: 'package.json' },
 ];
 
-// Website display versions are in src/pages/packages/data.tsx (TOOLS array)
-const DATA_TSX = resolve(ROOT, 'src/pages/packages/data.tsx');
+// Website display versions are in apps/web/src/pages/packages/data.tsx (TOOLS array)
+const DATA_TSX = resolve(ROOT, 'apps/web/src/pages/packages/data.tsx');
 
 // ── helpers ───────────────────────────────────────────────────────────────
 function readJson(rel) {
