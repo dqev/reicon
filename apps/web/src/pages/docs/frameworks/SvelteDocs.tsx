@@ -1,0 +1,55 @@
+import SectionHeader from '@/components/docs/SectionHeader';
+import Installation from './svelte/Installation';
+import BasicUsage from './svelte/BasicUsage';
+import ComponentApi from './svelte/ComponentApi';
+
+interface Props {
+  markdownContent: string;
+  copiedField: string | null;
+  onCopy: (text: string, field: string) => void;
+}
+
+const SvelteIcon = ({ size = 34 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 98.1 118" fill="none">
+    <path
+      d="M91.8 15.6C80.9-.1 59.2-4.7 43.6 5.2L16.1 22.8C8.6 27.5 3.4 35.2 1.9 43.9c-1.3 7.3-.2 14.8 3.3 21.3-2.4 3.6-4 7.6-4.7 11.8-1.6 8.9.5 18.1 5.7 25.4 11 15.7 32.6 20.3 48.2 10.4l27.5-17.5c7.5-4.7 12.7-12.4 14.2-21.1 1.3-7.3.2-14.8-3.3-21.3 2.4-3.6 4-7.6 4.7-11.8 1.7-9-.4-18.2-5.7-25.5"
+      fill="#FF3E00"
+    />
+    <path
+      d="M40.9 103.9c-8.9 2.3-18.2-1.2-23.4-8.7-3.2-4.4-4.4-9.9-3.5-15.3.2-.9.4-1.7.6-2.6l.5-1.6 1.4 1c3.3 2.4 6.9 4.2 10.8 5.4l1 .3-.1 1c-.1 1.4.3 2.9 1.1 4.1 1.6 2.3 4.4 3.4 7.1 2.7.6-.2 1.2-.4 1.7-.8L65.4 72c1.4-.9 2.3-2.2 2.6-3.8.3-1.6-.1-3.3-1.1-4.6-1.6-2.3-4.4-3.3-7.1-2.6-.6.2-1.2.4-1.7.8l-10.5 6.7c-1.7 1.1-3.6 1.9-5.6 2.4-8.9 2.3-18.2-1.2-23.4-8.7-3.2-4.4-4.4-9.9-3.5-15.3.8-5.3 3.9-10 8.5-12.8l27.5-17.5c1.7-1.1 3.6-1.9 5.6-2.4 8.9-2.3 18.2 1.2 23.4 8.7 3.2 4.4 4.4 9.9 3.5 15.3-.2.9-.4 1.7-.6 2.6l-.5 1.6-1.4-1c-3.3-2.4-6.9-4.2-10.8-5.4l-1-.3.1-1c.1-1.4-.3-2.9-1.1-4.1-1.6-2.3-4.4-3.4-7.1-2.7-.6.2-1.2.4-1.7.8L32.4 46.1c-1.4.9-2.3 2.2-2.6 3.8s.1 3.3 1.1 4.6c1.6 2.3 4.4 3.3 7.1 2.6.6-.2 1.2-.4 1.7-.8l10.5-6.7c1.7-1.1 3.6-1.9 5.6-2.4 8.9-2.3 18.2 1.2 23.4 8.7 3.2 4.4 4.4 9.9 3.5 15.3-.8 5.3-3.9 10-8.5 12.8L47.3 101.6c-1.7 1.1-3.6 1.9-5.6 2.4l-.8-.1z"
+      fill="#fff"
+    />
+  </svg>
+);
+
+export default function SvelteDocs({ markdownContent, copiedField, onCopy }: Props) {
+  return (
+    <section id="svelte-docs" data-section className="mb-16 scroll-mt-24">
+      <SectionHeader
+        id="svelte-docs"
+        title="Svelte"
+        level="h2"
+        markdownContent={markdownContent}
+        icon={<SvelteIcon size={30} />}
+      />
+
+      <p className="text-text-base/60 text-[15px] leading-[1.8] mb-6">
+        The official Svelte package for Reicon. Import beautifully crafted icons as Svelte components with full TypeScript support. All icons are tree-shakeable, ensuring only the icons you actually use end up in your bundle.
+      </p>
+
+      <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">What you can accomplish:</p>
+      <ul className="text-text-base/60 text-[15px] leading-[1.8] mb-8 space-y-1 list-disc list-inside">
+        <li>Import icons as individual Svelte components</li>
+        <li>Customize size, color, and weight via props</li>
+        <li>Tree-shake unused icons to keep bundle sizes minimal</li>
+        <li>Full TypeScript support with autocompletion</li>
+        <li>Use icons in SvelteKit, Vite, and more</li>
+        <li>Apply CSS classes and inline styles directly</li>
+      </ul>
+
+      <Installation copiedField={copiedField} onCopy={onCopy} />
+      <BasicUsage copiedField={copiedField} onCopy={onCopy} />
+      <ComponentApi copiedField={copiedField} onCopy={onCopy} />
+    </section>
+  );
+}

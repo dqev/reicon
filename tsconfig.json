@@ -16,14 +16,24 @@
     "allowJs": true,
     "jsx": "react-jsx",
     "paths": {
+      "@docs/*": [
+        "./docs/*"
+      ],
+      "@data/*": [
+        "./data/*"
+      ],
+      "@scripts/*": [
+        "./scripts/*"
+      ],
       "@/*": [
-        "./*"
+        "./apps/web/src/*",
+        "./src/*"
       ]
     },
     "allowImportingTsExtensions": true,
     "noEmit": true
   },
   "include": [
-    "src"
+    "apps/web/src"
   ]
 }

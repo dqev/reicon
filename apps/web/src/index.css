@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400;1,9..40,500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cooper", serif;
+  --font-sans: "DM Sans", sans-serif;
+  --color-bg-base: var(--bg-base);
+  --color-text-base: var(--text-base);
+}
+
+:root {
+  --bg-base: #09090b;
+  --text-base: #ffffff;
+
+  --clay-primary-bg-start: #ffffff;
+  --clay-primary-bg-end: #e8e8e8;
+  --clay-primary-text: #111111;
+
+  --clay-secondary-bg-start: rgba(255, 255, 255, 0.12);
+  --clay-secondary-bg-end: rgba(255, 255, 255, 0.05);
+  --clay-secondary-border: rgba(255, 255, 255, 0.15);
+  --clay-secondary-text: #ffffff;
+
+  --tooltip-bg: #ffffff;
+  --tooltip-text: #09090b;
+
+  --dropdown-bg: #121214;
+  --header-bg: rgba(9, 9, 11, 0.8);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --border-muted: rgba(255, 255, 255, 0.08);
+  --border-base: rgba(255, 255, 255, 0.06);
+  --text-hover: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.55);
+  --text-more-muted: rgba(255, 255, 255, 0.35);
+
+  /* Surface states — used by sidebar items and hover/active backgrounds */
+  --surface-base: rgba(255, 255, 255, 0.05);
+  --surface-hover: rgba(255, 255, 255, 0.08);
+}
+
+.light {
+  --bg-base: #f5f5f0;
+  --text-base: #111111;
+
+  --clay-primary-bg-start: #111111;
+  --clay-primary-bg-end: #1e1e20;
+  --clay-primary-text: #ffffff;
+
+  --clay-secondary-bg-start: rgba(0, 0, 0, 0.05);
+  --clay-secondary-bg-end: rgba(0, 0, 0, 0.02);
+  --clay-secondary-border: rgba(0, 0, 0, 0.08);
+  --clay-secondary-text: #111111;
+
+  --tooltip-bg: #111111;
+  --tooltip-text: #ffffff;
+
+  --dropdown-bg: #ffffff;
+  --header-bg: rgba(245, 245, 240, 0.8);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --border-muted: rgba(0, 0, 0, 0.08);
+  --border-base: rgba(17, 17, 17, 0.06);
+  --text-hover: #111111;
+  --text-muted: rgba(17, 17, 17, 0.55);
+  --text-more-muted: rgba(17, 17, 17, 0.35);
+
+  /* Surface states — used by sidebar items and hover/active backgrounds */
+  --surface-base: rgba(0, 0, 0, 0.04);
+  --surface-hover: rgba(0, 0, 0, 0.07);
+}
+
+.font-serif {
+  font-weight: 400;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+html,
+body {
+  background: var(--bg-base);
+  color: var(--text-base);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: clip;
+}
+
+/* ═══ Hide Scrollbar ═══ */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+/* ═══ Marquee ═══ */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse linear infinite;
+}
+
+/* ═══ Orbit Animations ═══ */
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-orbit-slow {
+  animation: orbit 60s linear infinite;
+}
+
+.animate-orbit-counter-slow {
+  animation: orbit-reverse 60s linear infinite;
+}
+
+.animate-orbit-mid {
+  animation: orbit-reverse 80s linear infinite;
+}
+
+.animate-orbit-counter-mid {
+  animation: orbit 80s linear infinite;
+}
+
+.animate-orbit-fast {
+  animation: orbit 100s linear infinite;
+}
+
+.animate-orbit-counter-fast {
+  animation: orbit-reverse 100s linear infinite;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.65s forwards;
+}
+
+.d1 {
+  animation-delay: 0.05s;
+}
+
+.d2 {
+  animation-delay: 0.18s;
+}
+
+.d3 {
+  animation-delay: 0.30s;
+}
+
+.d4 {
+  animation-delay: 0.42s;
+}
+
+.d5 {
+  animation-delay: 0.54s;
+}
+
+/* Fixed nav — hidden by default, shown via JS */
+.nav-visible {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Scroll-reveal sections */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.52s ease, transform 0.52s ease;
+}
+
+.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ═══ Off-screen render skipping for large grids ═══ */
+/* Skips layout/paint for cards outside the viewport while preserving scroll
+   height. Zero visual change; massively cuts work for the 2,700+ icon grid. */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 72px;
+}
+
+/* ═══ Reicon Sidebar Styles ═══ */
+.reicon-sidebar-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.25rem;
+}
+.reicon-sidebar-group:first-child {
+  margin-top: 0;
+}
+.sidebar-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.375rem;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-more-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.sidebar-icon-box {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 5px;
+  background-color: var(--surface-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.sidebar-items-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+.sidebar-section-line {
+  position: absolute;
+  left: 0.625rem;
+  top: -0.375rem;
+  bottom: 0.5rem;
+  width: 1px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.sidebar-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0.5rem 0.35rem 1.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  background: transparent;
+  min-height: 2rem;
+  font-size: 13px;
+  color: var(--text-muted);
+  transition: color 0.15s ease, background-color 0.15s ease;
+  user-select: none;
+  border: 0;
+  width: 100%;
+  text-align: left;
+}
+.sidebar-item:hover {
+  color: var(--text-hover);
+  background: transparent;
+}
+.sidebar-item.active {
+  color: #9B8AFB;
+  font-weight: 500;
+  background: transparent;
+}
+
+/* ═══ Clay Button ═══ */
+.clay-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: box-shadow 0.25s ease, filter 0.2s ease;
+}
+
+.clay-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.45), transparent 40%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.clay-btn:active {
+  filter: brightness(0.95);
+}
+
+.clay-sm {
+  padding: 8px 16px;
+  font-size: 13px;
+}
+
+/* Primary — white body, dark text */
+.clay-primary {
+  color: var(--clay-primary-text);
+  background: linear-gradient(145deg, var(--clay-primary-bg-start), var(--clay-primary-bg-end));
+}
+
+/* Secondary — glass/transparent */
+.clay-secondary {
+  color: var(--clay-secondary-text);
+  background: linear-gradient(145deg, var(--clay-secondary-bg-start), var(--clay-secondary-bg-end));
+  border: 1px solid var(--clay-secondary-border);
+}
+
+.clay-secondary::before {
+  opacity: 0.15;
+}
+
+/* Accent — purple */
+.clay-accent {
+  color: #fff;
+  background: linear-gradient(145deg, #A898FC, #8470F7);
+}
+
+/* Temporarily disable transitions during theme change to keep all elements in sync */
+.no-transitions * {
+  transition: none !important;
+}

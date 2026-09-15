@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('reicon-theme');
+        if (!t) { t = 'dark'; localStorage.setItem('reicon-theme', 'dark'); }
+        var isLight = t === 'light';
+        document.documentElement.classList.add(isLight ? 'light' : 'dark');
+        document.documentElement.classList.remove(isLight ? 'dark' : 'light');
+        document.body.style.backgroundColor = isLight ? '#f5f5f0' : '#09090b';
+      } catch (e) { }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <title>Reicon — Open-Source Icon Library for Designers &amp; Developers</title>
+  <meta name="description" content="Reicon — Free open-source SVG icons. 2,700+ handcrafted icons for React, Angular, Vue, Svelte, Flutter, Figma &amp; more." />
+  <meta name="keywords" content="free icon library, open source icons, SVG icons, React icons, Angular icons, Vue icons, Flutter icons, Figma icons, reicon, MIT license" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="referrer" content="origin-when-cross-origin" />
+  <meta name="msvalidate.01" content="AFF4AEBF838644CB3A7BCFF15EE4CD2E" />
+  <link rel="canonical" href="https://reicon.dev/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://reicon.dev/" />
+  <meta property="og:site_name" content="Reicon" />
+  <meta property="og:title" content="Reicon — Open-Source Icon Library for Designers &amp; Developers" />
+  <meta property="og:description"
+    content="Reicon is a free, open-source vector icon library with 2,700+ handcrafted SVG icons — built for designers and developers. Official packages for React, Angular, Vue, Svelte, React Native, Flutter, JavaScript, Figma, VS Code, and AI MCP agents. MIT licensed." />
+  <meta property="og:image" content="https://reicon.dev/og/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Reicon — Open-Source Vector Icons" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@reicon_dev" />
+  <meta name="twitter:creator" content="@reicon_dev" />
+  <meta name="twitter:title" content="Reicon — Open-Source Icon Library for Designers &amp; Developers" />
+  <meta name="twitter:description"
+    content="Reicon is a free, open-source vector icon library with 2,700+ handcrafted SVG icons — built for designers and developers. Official packages for React, Vue, Svelte, React Native, Flutter, JavaScript, Figma, VS Code, and AI MCP agents. MIT licensed." />
+  <meta name="twitter:image" content="https://reicon.dev/og/og-image.png" />
+  <meta name="twitter:image:alt" content="Reicon — Open-Source Vector Icons" />
+  <meta name="twitter:label1" content="Assets" />
+  <meta name="twitter:data1" content="2.7k Icons" />
+  <meta name="twitter:label2" content="License" />
+  <meta name="twitter:data2" content="MIT" />
+
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon/android-chrome-512x512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />
+  <meta name="msapplication-TileColor" content="#09090b" />
+  <meta name="application-name" content="Reicon" />
+  <meta name="apple-mobile-web-app-title" content="Reicon" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Reicon",
+    "alternateName": ["Reicon Icons", "Reicon Icon Library"],
+    "url": "https://reicon.dev",
+    "description": "Free, open-source SVG icon library for designers and developers. Pixel-perfect, handcrafted icons for React, Angular, React Native, Vue, Svelte, Flutter, Figma, and the web.",
+    "disambiguatingDescription": "Reicon (reicon.dev) is an open-source SVG icon library for web designers and developers. It is not the Windows desktop icon restore utility ReIcon by Sordum.org.",
+    "applicationCategory": "DesignApplication",
+    "applicationSubCategory": "Icon Library",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "license": "https://opensource.org/licenses/MIT",
+    "creator": { "@type": "Person", "name": "Dev Chauhan", "url": "https://devchauhan.in" },
+    "sameAs": ["https://github.com/dqev/reicon", "https://github.com/reicon-dev"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Reicon",
+    "url": "https://reicon.dev",
+    "logo": "https://reicon.dev/favicon/android-chrome-512x512.png",
+    "description": "Free, open-source SVG icon library built with obsessive precision.",
+    "contactPoint": { "@type": "ContactPoint", "email": "hello@reicon.dev", "contactType": "customer support" },
+    "sameAs": ["https://github.com/dqev/reicon", "https://github.com/reicon-dev"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Reicon",
+    "alternateName": ["Reicon Icons", "Reicon Icon Library"],
+    "url": "https://reicon.dev",
+    "description": "Free, open-source SVG icon library for designers and developers.",
+    "inLanguage": "en-US",
+    "publisher": { "@type": "Organization", "name": "Reicon", "url": "https://reicon.dev" },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": { "@type": "EntryPoint", "urlTemplate": "https://reicon.dev/icons?q={search_term_string}" },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Reicon?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Reicon is a free, open-source SVG icon library with 2,700+ handcrafted, pixel-perfect icons in Outline and Filled weights." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Reicon free to use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, fully free and open-source under the MIT license. Use in personal and commercial projects." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Reicon work with React, Angular, React Native, Vue, and Svelte?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Install reicon-react for React, reicon-angular for Angular 20+, reicon-react-native for React Native, reicon-vue for Vue 3, or reicon-svelte for Svelte." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I install Reicon?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Run 'npm install reicon-react' for React, 'npm install reicon-angular' for Angular 20+, 'npm install reicon-react-native' for React Native, or use the CDN. See reicon.dev/docs." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Reicon the same as ReIcon by Sordum?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Reicon (reicon.dev) is an open-source SVG icon library. ReIcon by Sordum.org is a Windows desktop utility. They are completely unrelated." }
+      }
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-09W3508CC9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-09W3508CC9');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cooperfont.vercel.app" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://openpanel.dev" />
+  <link rel="preconnect" href="https://unpkg.com" />
+
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400;1,9..40,500&display=swap" />
+  <link rel="preload" as="style" href="https://cooperfont.vercel.app/fonts.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400;1,9..40,500&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="https://cooperfont.vercel.app/fonts.min.css" media="print" onload="this.media='all'" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="sitemap" type="application/xml" href="https://reicon.dev/sitemap.xml" />
+  <link rel="author" href="https://reicon.dev/humans.txt" />
+  <link rel="help" href="https://reicon.dev/llms.txt" type="text/plain" title="LLM context" />
+  <link rel="help" href="https://reicon.dev/llms-full.txt" type="text/plain" title="LLM full context" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script defer src="https://cdn.jsdelivr.net/npm/reicon@latest/cdn/reicon.js"></script>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

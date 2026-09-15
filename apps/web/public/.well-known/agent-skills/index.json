@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "name": "Reicon Agent Skills",
+  "description": "Catalogue of AI Agent Skills for discovering, searching, and integrating Reicon vector icons into web and mobile projects.",
+  "skills": [
+    {
+      "name": "reicon-icon-integration",
+      "title": "Reicon Icon Integration & Search",
+      "description": "Comprehensive skill guide for AI agents to search 2,700+ icons, apply framework components (React, Vue, Svelte, React Native, Vanilla JS, Web Component), and handle icon props/naming conventions.",
+      "path": "/.well-known/agent-skills/reicon-icon-integration/SKILL.md",
+      "tags": [
+        "icons",
+        "react",
+        "vue",
+        "svelte",
+        "react-native",
+        "mcp",
+        "design-system",
+        "svg"
+      ]
+    }
+  ]
+}

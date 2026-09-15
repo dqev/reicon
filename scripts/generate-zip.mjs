@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const DATA_PATH = path.join(__dirname, '..', 'data', 'icon-data.json');
-const PUBLIC_DIR = path.join(__dirname, '..', 'public');
+const PUBLIC_DIR = path.join(__dirname, '..', 'apps', 'web', 'public');
 const ZIP_OUT_PATH = path.join(PUBLIC_DIR, 'reicon-icons.zip');
 
 console.log('Generating compressed ZIP archive for all Reicon icons...');

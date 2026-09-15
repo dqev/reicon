@@ -1,0 +1,253 @@
+# Reicon — Open-Source Icon Library
+
+> Free, open-source SVG icon library — **2,700+ handcrafted vector icons** (Outline and Filled weights). Available for React, Vue 3, Svelte, React Native, Flutter, vanilla JS, CDN, Figma, VS Code, and AI MCP Server. 100% MIT licensed.
+>
+> ⚠️ **Not** the Windows tool "ReIcon" by Sordum — completely unrelated.
+
+## Agent Quick Start
+
+When a user asks you to use Reicon icons, use `reicon-react`, `reicon-vue`, `reicon-svelte`, `reicon-react-native`, `reicon_flutter`, or `reicon` (vanilla CDN). Browse: `https://reicon.dev/icons`
+
+---
+
+## React
+
+```bash
+npm install reicon-react
+```
+```jsx
+import { Home, Search, Bell } from 'reicon-react';
+
+<Home size={24} weight="Outline" color="currentColor" />
+<Search size={20} color="#9B8AFB" />
+<Bell size={32} weight="Filled" />
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | number \| string | `24` | Width & height in px |
+| `color` | string | `currentColor` | Any valid CSS color |
+| `secondaryColor` | string | same as `color` | Accent color |
+| `weight` | `"Outline"` \| `"Filled"` | `"Outline"` | Style variant |
+| `strokeWidth` | number \| string | — | Override stroke width |
+| `className` | string | — | CSS classes |
+
+Peer dep: `react >= 16.8.0`. Forwards any SVG/HTML attribute. Tree-shakeable.
+
+---
+
+## Vue 3
+
+```bash
+npm install reicon-vue
+```
+```vue
+<script setup>
+import { Home, Search, Bell } from 'reicon-vue';
+</script>
+<template>
+  <Home :size="24" weight="Outline" color="currentColor" />
+  <Search :size="20" color="#9B8AFB" />
+</template>
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | number \| string | `24` | Size in px |
+| `color` | string | `currentColor` | Any CSS color |
+| `weight` | `"Outline"` \| `"Filled"` | `"Outline"` | Style variant |
+| `strokeWidth` | number \| string | — | Override stroke width |
+| `class` | string \| array \| object | — | CSS classes |
+| `style` | string \| array \| object | — | Inline styles |
+
+Peer dep: `vue ^3.0.0`. SSR-compatible with Nuxt 3. Tree-shakeable.
+
+---
+
+## Svelte
+
+```bash
+npm install reicon-svelte
+```
+```svelte
+<script>
+import { Home, Search, Bell } from 'reicon-svelte';
+</script>
+
+<Home size={24} weight="Outline" color="currentColor" />
+<Search size={20} color="#9B8AFB" />
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | number \| string | `24` | Size in px |
+| `color` | string | `currentColor` | Any CSS color |
+| `weight` | `"Outline"` \| `"Filled"` | `"Outline"` | Style variant |
+| `strokeWidth` | number \| string | — | Override stroke width |
+
+Peer dep: `svelte >= 3.0.0`. SSR-compatible with SvelteKit. Tree-shakeable.
+
+---
+
+## React Native
+
+```bash
+npm install reicon-react-native react-native-svg
+```
+```tsx
+import { Home, ShieldCheck } from 'reicon-react-native';
+
+<Home size={24} color="#000000" />
+<ShieldCheck size={32} color="#d97757" weight="Filled" />
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | number | `24` | Size in px |
+| `color` | string | `#000000` | Primary color |
+| `secondaryColor` | string | same as `color` | Accent color |
+| `weight` | `"Outline"` \| `"Filled"` | `"Outline"` | Style variant |
+| `strokeWidth` | number \| string | — | Override stroke width |
+
+Peer deps: `react >= 16.8.0`, `react-native >= 0.64.0`, `react-native-svg >= 12.0.0`. Tree-shakeable.
+
+---
+
+## Vanilla JS (ESM)
+
+```bash
+npm install reicon
+```
+```js
+import { Home } from 'reicon';
+
+// Append to DOM
+const svgEl = Home({ size: 24, color: 'currentColor', weight: 'Outline' });
+document.body.appendChild(svgEl);
+
+// SSR — get SVG string
+const svgString = Home.toSvg({ size: 32, color: '#d97757' });
+```
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `color` | string | `currentColor` | Stroke/fill color |
+| `size` | number \| string | `24` | Icon size |
+| `weight` | `"Outline"` \| `"Filled"` | `"Outline"` | Weight variant |
+| `strokeWidth` | number \| string | — | Override stroke width |
+| `className` | string | — | CSS class |
+| `attrs` | object | — | Extra SVG attributes |
+
+Each icon is a callable function returning `SVGSVGElement`. Tree-shakeable.
+
+---
+
+## CDN / Web Component (no build step)
+
+```html
+<script src="https://unpkg.com/reicon/cdn/reicon.js"></script>
+
+<re-icon icon="home"></re-icon>
+<re-icon icon="heart" weight="filled" size="32" color="#ef4444"></re-icon>
+<re-icon icon="shield-check" weight="outline" size="28" color="#9B8AFB"></re-icon>
+```
+
+All icon data is inlined — zero network calls. Uses Shadow DOM for isolation.
+
+| Attribute | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `icon` | string | — | Kebab-case name (required) |
+| `weight` | string | `"outline"` | `"outline"`/`"linear"` or `"filled"`/`"bold"` |
+| `size` | string | `"24"` | px or CSS length |
+| `color` | string | `"currentColor"` | CSS color |
+| `secondary-color` | string | — | Accent color |
+| `stroke-width` | string | — | Override stroke width |
+| `rotate` | string | — | Degrees (e.g. `"45"`) |
+| `flip` | string | — | `"horizontal"`, `"vertical"`, `"both"` |
+| `spin` | boolean | — | Rotation animation |
+| `loading` | string | — | `"lazy"` for IntersectionObserver |
+| `label` | string | — | `aria-label` |
+| `decorative` | boolean | — | `aria-hidden="true"` |
+| `gradient` | string | — | Comma-separated colors |
+| `gradient-type` | string | `"linear"` | `"linear"` or `"radial"` |
+| `gradient-angle` | string | `"135"` | Degrees for linear gradient |
+
+Global API: `Reicon.preload()`, `Reicon.icons`, `Reicon.categories`, `Reicon.categoryOf()`, `Reicon.contributorOf()`.
+
+---
+
+## MCP Server (for AI agents)
+
+```json
+{
+  "mcpServers": {
+    "reicon": {
+      "command": "npx",
+      "args": ["reicon-mcp"]
+    }
+  }
+}
+```
+
+| Tool | Input | Returns |
+|------|-------|---------|
+| `search_icons` | `{ query, weight?, limit? }` | Ranked results with name, category, tags |
+| `view_icon` | `{ name, weight? }` | Raw SVG, viewBox, tags, category |
+| `apply_icon` | `{ name, weight, framework, size?, color? }` | Import + code snippet |
+| `list_categories` | (none) | All category names |
+
+Frameworks: `react`, `vue`, `svelte`, `html`, `svg`. CLI also available: `npx reicon-mcp search "cart"`.
+
+---
+
+## VS Code Extension
+
+Search "Reicon" in extensions or run: `code --install-extension DevChauhan.reicon`
+
+Sidebar panel with icon browser, live size/color preview, and smart code insertion.
+
+---
+
+## Figma Plugin
+
+https://www.figma.com/community/plugin/1652983191908763066
+
+Search, filter by weight, set color, drag-and-drop vector insertion.
+
+---
+
+## Direct Imports (Maximum Tree-shaking)
+
+```
+React:        import Home from 'reicon-react/icons/Home'
+Vue:          import Home from 'reicon-vue/icons/Home'
+Svelte:       import Home from 'reicon-svelte/icons/Home.svelte'
+React Native: import Home from 'reicon-react-native/icons/Home'
+Vanilla JS:   import Home from 'reicon/icons/Home'
+```
+
+---
+
+## Quick Facts
+
+| | |
+|---|---|
+| **Website** | https://reicon.dev |
+| **GitHub** | https://github.com/dqev/reicon |
+| **License** | MIT (free, no attribution needed) |
+| **Creator** | Dev Chauhan (https://devchauhan.in) |
+| **Contact** | hello@reicon.dev |
+| **Icons** | 2,700+ designs × 2 weights = 5,400+ total |
+| **Grid** | 24×24 px |
+| **Weights** | Outline (1.5px stroke), Filled |
+| **Format** | SVG |
+| **Dependencies** | Zero — all packages have no runtime deps |
+| **Bundle size** | ~1 KB per icon gzipped |
+| **TypeScript** | First-class typings in all packages |
+
+## References
+
+- [llms-full.txt](https://reicon.dev/llms-full.txt) — Deep reference (versions, TS types, data architecture, FAQs, comparison table)
+- [llms-icons.txt](https://reicon.dev/llms-icons.txt) — All 2,700+ icons listed by category with kebab→Pascal mapping
+- [Docs](https://reicon.dev/docs)
+- [Changelog](https://github.com/dqev/reicon/blob/main/CHANGELOG.md)

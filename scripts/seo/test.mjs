@@ -5,7 +5,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const html = readFileSync(resolve(__dirname, '../../index.html'), 'utf-8');
+const html = readFileSync(resolve(__dirname, '../../apps/web/index.html'), 'utf-8');
 
 const c = { pass: '\x1b[32m✓\x1b[0m', fail: '\x1b[31m✗\x1b[0m', warn: '\x1b[33m⚠\x1b[0m', h: '\x1b[36m', r: '\x1b[0m' };
 let passes = 0, fails = 0;

@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "protocolVersion": "2025-11-25",
+  "serverInfo": {
+    "name": "reicon-mcp",
+    "title": "Reicon MCP Server",
+    "version": "1.1.101"
+  },
+  "description": "MCP server and CLI for searching, previewing, and applying 2,700+ pixel-perfect Reicon vector icons across React, Vue, Svelte, React Native, and HTML/SVG.",
+  "documentationUrl": "https://reicon.dev/docs",
+  "transport": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+      "reicon-mcp"
+    ]
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@reicon/web",
+  "private": true,
+  "version": "1.4.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "build": "vite build"
+  }
+}

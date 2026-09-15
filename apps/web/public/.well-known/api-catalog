@@ -1,0 +1,39 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://reicon.dev/",
+      "service-desc": [
+        {
+          "href": "https://reicon.dev/.well-known/mcp.json",
+          "type": "application/json"
+        },
+        {
+          "href": "https://reicon.dev/.well-known/mcp/server-card.json",
+          "type": "application/json"
+        },
+        {
+          "href": "https://reicon.dev/.well-known/agent-skills/index.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://reicon.dev/llms.txt",
+          "type": "text/plain"
+        },
+        {
+          "href": "https://reicon.dev/llms-full.txt",
+          "type": "text/plain"
+        },
+        {
+          "href": "https://reicon.dev/llms-icons.txt",
+          "type": "text/plain"
+        },
+        {
+          "href": "https://reicon.dev/docs",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}
