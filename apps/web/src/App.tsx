@@ -44,7 +44,7 @@ function isKnownRoute(pathname: string) {
 function Layout() {
   const { pathname } = useLocation();
   const is404 = !isKnownRoute(pathname);
-  const hideFooter = is404 || pathname === '/icons' || pathname.startsWith('/docs');
+  const hideFooter = is404 || pathname === '/icons' || pathname.startsWith('/docs') || pathname === '/faq';
 
   return (
     <div className="min-h-screen bg-bg-base flex flex-col">
