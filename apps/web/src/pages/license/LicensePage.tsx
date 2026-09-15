@@ -98,7 +98,21 @@ export default function LicensePage() {
       </Helmet>
 
       <main className="flex-1 pt-28 px-4 md:px-8 pb-12 max-w-5xl mx-auto w-full overflow-x-hidden">
-        <h1 className="text-3xl font-serif text-text-base mb-8">License</h1>
+        <div className="flex items-center justify-between gap-4 mb-8">
+          <h1 className="text-2xl sm:text-3xl font-serif text-text-base truncate">License</h1>
+          <div className="shrink-0">
+            <DocsActionsBar
+              copiedPage={copiedPage}
+              openDropdown={openDropdown}
+              openDropdownRef={openDropdownRef}
+              githubEditUrl="https://github.com/dqev/reicon/edit/main/src/pages/license/LicensePage.tsx"
+              githubUrl="https://github.com/dqev/reicon"
+              onCopyMarkdown={handleCopyPageMarkdown}
+              onOpenDropdown={setOpenDropdown}
+              onOpenInLLM={openInLLM}
+            />
+          </div>
+        </div>
 
         <div className="space-y-8 text-[15px] text-text-base/60 leading-relaxed">
           <section>
@@ -172,19 +186,6 @@ export default function LicensePage() {
             <p>If you have questions about licensing, contact us at <a href="mailto:hello@reicon.dev" className="text-[#9B8AFB] hover:underline">hello@reicon.dev</a>.</p>
           </section>
         </div>
-
-        <hr className="border-text-base/6 my-12" />
-
-        <DocsActionsBar
-          copiedPage={copiedPage}
-          openDropdown={openDropdown}
-          openDropdownRef={openDropdownRef}
-          githubEditUrl="https://github.com/dqev/reicon/edit/main/src/pages/license/LicensePage.tsx"
-          githubUrl="https://github.com/dqev/reicon"
-          onCopyMarkdown={handleCopyPageMarkdown}
-          onOpenDropdown={setOpenDropdown}
-          onOpenInLLM={openInLLM}
-        />
 
         {toastMessage && (
           <div className="fixed bottom-6 right-6 z-[999] bg-[var(--dropdown-bg)] border border-text-base/8 text-text-base text-sm px-4 py-2.5 rounded-xl flex items-center gap-2">

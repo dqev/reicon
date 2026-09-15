@@ -360,7 +360,21 @@ export default function FaqPage() {
         {/* Main content */}
         <main ref={contentRef} className="flex-1 min-w-0 px-0 md:px-6 lg:px-8 xl:px-10 py-5 pb-36 lg:pb-12 overflow-x-hidden">
           <div className="max-w-5xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-serif text-text-base mb-6">Frequently Asked Questions</h1>
+            <div className="flex items-center justify-between gap-4 mb-6">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif text-text-base truncate">Frequently Asked Questions</h1>
+              <div className="shrink-0">
+                <DocsActionsBar
+                  copiedPage={copiedPage}
+                  openDropdown={openDropdown}
+                  openDropdownRef={openDropdownRef}
+                  githubEditUrl={githubEditUrl}
+                  githubUrl={githubUrl}
+                  onCopyMarkdown={handleCopyPageMarkdown}
+                  onOpenDropdown={setOpenDropdown}
+                  onOpenInLLM={openInLLM}
+                />
+              </div>
+            </div>
             <p className="text-text-base/50 text-[15px] leading-[1.8] mb-8">
               Everything you need to know about Reicon. If your question isn't answered here, open a discussion on{' '}
               <a href="https://github.com/dqev/reicon" target="_blank" rel="noopener noreferrer" className="text-[#9B8AFB] hover:underline">GitHub</a> or contact us directly.
@@ -389,19 +403,6 @@ export default function FaqPage() {
                 onToggle={toggleItem}
               />
             ))}
-
-            <hr className="border-text-base/6 my-12" />
-
-            <DocsActionsBar
-              copiedPage={copiedPage}
-              openDropdown={openDropdown}
-              openDropdownRef={openDropdownRef}
-              githubEditUrl={githubEditUrl}
-              githubUrl={githubUrl}
-              onCopyMarkdown={handleCopyPageMarkdown}
-              onOpenDropdown={setOpenDropdown}
-              onOpenInLLM={openInLLM}
-            />
 
             {toastMessage && (
               <div className="fixed bottom-6 right-6 z-[999] bg-[var(--dropdown-bg)] border border-text-base/8 text-text-base text-sm px-4 py-2.5 rounded-xl flex items-center gap-2">
