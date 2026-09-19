@@ -1,7 +1,6 @@
 import SectionHeader from '@/components/docs/SectionHeader';
 import { FrameworkIcon } from '@/components/docs/framework/icons';
 import { FRAMEWORKS } from '@/components/docs/framework/constants';
-import DocsActionsBar from '@/components/docs/ActionsBar';
 
 
 import ReactDocs from './frameworks/ReactDocs';
@@ -122,22 +121,6 @@ export default function DocsContent({
   return (
     <main ref={contentRef} className="flex-1 min-w-0 px-0 md:px-6 lg:px-8 xl:px-10 py-5 pb-36 lg:pb-12 overflow-x-hidden">
       <div className="max-w-5xl mx-auto">
-        <div className="flex items-center justify-end mb-6">
-          <DocsActionsBar
-            copiedPage={copiedPage}
-            openDropdown={openDropdown}
-            openDropdownRef={openDropdownRef}
-            githubEditUrl={githubEditUrl}
-            githubUrl={githubUrl}
-            onCopyMarkdown={handleCopyPageMarkdown}
-            onOpenDropdown={setOpenDropdown}
-            onOpenInLLM={openInLLM}
-            hasPrevFw={!!prevFw}
-            hasNextFw={!!nextFw}
-            onNavigatePrev={navigatePrevFw}
-            onNavigateNext={navigateNextFw}
-          />
-        </div>
 
 
 

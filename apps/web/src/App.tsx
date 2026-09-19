@@ -9,6 +9,7 @@ import Footer from './components/layout/Footer';
 import ErrorBoundary from './components/ui/ErrorBoundary';
 import { ThemeProvider } from './components/layout/ThemeContext';
 import { lazyWithRetry } from './lib/lazyWithRetry';
+import SponsorHandler from './components/sponsor/SponsorHandler';
 
 const HomePage = lazyWithRetry(() => import('./pages/home/Home'));
 const IconsPage = lazyWithRetry(() => import('./pages/icons/IconsPage'));
@@ -75,8 +76,6 @@ function Layout() {
     </div>
   );
 }
-
-import SponsorHandler from './components/sponsor/SponsorHandler';
 
 export default function App() {
   return (

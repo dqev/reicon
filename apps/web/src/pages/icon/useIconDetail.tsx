@@ -170,8 +170,15 @@ export default function useIconDetail() {
     const related = allNames.filter(
       (n) => n !== name && (n.startsWith(prefix + '-') || n.startsWith(prefix) || name.startsWith(n.replace(/-?\d+$/, '')))
     );
-    return related.sort(() => 0.5 - Math.random()).slice(0, 14);
+    // Deterministic pseudo-random shuffle per icon name for pure memoization
+    const getHash = (str: string) => {
+      let h = 0;
+      for (let i = 0; i < str.length; i++) h = (Math.imul(31, h) + str.charCodeAt(i)) | 0;
+      return h;
+    };
+    return related.sort((a, b) => getHash(a + name) - getHash(b + name)).slice(0, 14);
   }, [name, iconNames]);
+
 
   return {
     name,

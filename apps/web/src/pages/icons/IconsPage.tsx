@@ -111,7 +111,7 @@ export default function IconsPage() {
   }, []);
 
   const deferredQuery = useDeferredValue(searchQuery);
-  const searchResults = useIconSearch(searchQuery, 500);
+  const searchResults = useIconSearch(deferredQuery, 500);
 
   const filteredIcons = useMemo(() => {
     let icons = allIcons;
