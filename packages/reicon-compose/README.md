@@ -1,52 +1,145 @@
-# reicon-compose (fork scaffold)
+# Reicon for Jetpack Compose
 
-Jetpack Compose port of [Reicon](https://github.com/dqev/reicon) — MIT licensed.
-Upstream source of truth stays `data/icon-data.json`; this package codegens
-`ImageVector`s from it. No hand-edited vectors.
+**2676+ pixel-perfect icons** • Outline & Filled weights • Native `ImageVector` • Zero runtime dependencies • MIT Licensed
 
-## Generate
+**Reicon Compose** is the official Jetpack Compose package for [Reicon](https://reicon.dev) — a free, open-source icon library featuring 2676+ handcrafted, grid-aligned icons. Every icon is available in both Outline and Filled weights as a native Compose `ImageVector`, ready to use with `Icon()`.
 
-```bash
-# sample (5 icons, both weights, one file per icon)
-python3 tool/build_kotlin.py --icons home,search,heart,chat,send2
+| 🔗 &nbsp; Resource | Link |
+|---|---|
+| 🌐 &nbsp; Website & icon browser | [reicon.dev](https://reicon.dev) |
+| 📖 &nbsp; Documentation | [reicon.dev/docs](https://reicon.dev/docs) |
 
-# full library (~2676 icons -> ~2676 files, one per icon)
-python3 tool/build_kotlin.py
+---
+
+## Install
+
+```kotlin
+// settings.gradle.kts
+maven { url = uri("https://jitpack.io") }
+
+// app/build.gradle.kts
+implementation("dev.reicon:reicon-compose:1.0.0")
 ```
 
-Output: `src/main/kotlin/dev/reicon/<Pascal>.kt` with
-`object <Pascal> { val Outline: ImageVector; val Filled: ImageVector }`
-plus `Reicon.kt` (`ReiconWeight` + `ReiconIcon` composable wrapper).
+<details>
+<summary><b>Requirements</b></summary>
 
-`tool/add-to-knit.sh <kebab-name>...` generates the named icons and vendors
-them into Knit's `:reicon-compose` Android library module
-(`reicon-compose/src/main/java/dev/reicon`), which the app consumes via
-`implementation(project(":reicon-compose"))`.
+- **minSdk** 24
+- **Jetpack Compose** (BOM 2026.04.01 or newer)
+- No other dependencies required.
 
-## Use
+</details>
+
+---
+
+## Usage
 
 ```kotlin
 import dev.reicon.Home
 import dev.reicon.ReiconIcon
-
-ReiconIcon(Home.Outline, contentDescription = "Home")
-Icon(Home.Filled, contentDescription = null, tint = KnitGreen)
 ```
 
-Tint works because every `fill="currentColor"` becomes
-`SolidColor(Color.Black)`; stroke icons become `fill = null` +
-`stroke = SolidColor(Color.Black)` with matching width/cap/join.
+### Outline weight (default)
 
-## Publish path
+```kotlin
+ReiconIcon(Home.Outline, contentDescription = "Home")
+```
 
-Standalone Android library module (`com.android.library` +
-`org.jetbrains.kotlin.plugin.compose`), artifact `dev.reicon:reicon-compose`,
-published via `maven-publish` to Maven Central. Per-icon files keep dex/compile
-cost tree-shakeable, mirroring `reicon-react`'s per-component output.
+### Filled weight
 
-## Status
+```kotlin
+Icon(Home.Filled, contentDescription = null)
+```
 
-Scaffold: generator + 5 sample icons (`Home`, `Search`, `Heart`, `Chat`,
-`Send2` covering fill, `EvenOdd`, and stroke cases). Full run untested for
-path-data edge cases (`circle` elements are approximated as arcs; `opacity`
-maps to fillAlpha/strokeAlpha; `clip-rule` ignored by design).
+### With custom color and size
+
+```kotlin
+ReiconIcon(
+    Home.Outline,
+    contentDescription = "Home",
+    size = 32.dp,
+    tint = Color(0xFF9B8AFB)
+)
+```
+
+---
+
+## API
+
+### Icon objects
+
+One object per icon, one `ImageVector` per weight:
+
+| Accessor | Return type | Description |
+|--------|-------------|-------------|
+| `<Name>.Outline` | `ImageVector` | Outline weight (e.g. `Home.Outline`) |
+| `<Name>.Filled` | `ImageVector` | Filled weight (e.g. `Home.Filled`) |
+
+### `ReiconIcon()`
+
+```kotlin
+@Composable
+fun ReiconIcon(
+    icon: ImageVector,
+    contentDescription: String?,
+    modifier: Modifier = Modifier,
+    size: Dp = 24.dp,
+    tint: Color = LocalContentColor.current
+)
+```
+
+Wrapper around Material3 `Icon` with `size` and `tint` parameters.
+
+---
+
+## Icon Naming
+
+Icons use **PascalCase** derived from their original kebab-case names:
+
+| Original (kebab) | Compose accessor |
+|------------------|------------------|
+| `arrow-down` | `ArrowDown.Outline` |
+| `home-2` | `Home2.Filled` |
+| `send-2` | `Send2.Outline` |
+
+Browse and search all 2676+ icons at [reicon.dev](https://reicon.dev).
+
+---
+
+## Features
+
+- **2676+ icons** — Handcrafted, pixel-perfect vectors across 38 categories
+- **Two weights** — Outline and Filled, consistent 24×24 grid
+- **Native** — Real `ImageVector`s, tintable, no SVG renderer needed
+- **Tree-shakeable** — One file per icon; R8 strips what you don't use
+- **MIT licensed** — Free for personal and commercial use
+
+---
+
+## Related packages
+
+| Package | Description |
+|---------|-------------|
+| [`reicon`](https://npmjs.com/package/reicon) | Core vanilla JS + CDN |
+| [`reicon-react`](https://npmjs.com/package/reicon-react) | React components |
+| [`reicon-vue`](https://npmjs.com/package/reicon-vue) | Vue 3 components |
+| [`reicon-svelte`](https://npmjs.com/package/reicon-svelte) | Svelte components |
+| [`reicon_flutter`](https://pub.dev/packages/reicon_flutter) | Dart & Flutter SVGs |
+
+---
+
+## Regenerating
+
+Vectors are generated from [`data/icon-data.json`](../../data/icon-data.json), the single source of truth. Never edit them by hand:
+
+```bash
+python3 tool/build_kotlin.py
+```
+
+---
+
+## License
+
+MIT © Reicon
+
+Free to use in personal and commercial projects. Attribution is appreciated but not required.
