@@ -53,10 +53,10 @@ const FAQ_CATEGORIES = [
       {
         id: "what-is-reicon",
         question: "What is Reicon?",
-        markdownAnswer: "Reicon is a free, open-source SVG icon library providing 2,700+ UI icons in Outline and Filled weights. Official packages are available for React (reicon-react), Angular 20+ (reicon-angular), React Native (reicon-react-native), Vue 3 (reicon-vue), Svelte (reicon-svelte), Flutter (reicon_flutter), vanilla JavaScript, CDN runtime, Figma plugin, VS Code extension, and AI MCP Server.",
+        markdownAnswer: "Reicon is a free, open-source SVG icon library providing 2,700+ UI icons in Outline and Filled weights. Official packages are available for React (reicon-react), Angular 20+ (reicon-angular), React Native (reicon-react-native), Vue 3 (reicon-vue), Svelte (reicon-svelte), Flutter (reicon_flutter), Compose (reicon-compose), vanilla JavaScript, CDN runtime, Figma plugin, VS Code extension, and AI MCP Server.",
         answer: (
           <p>
-            Reicon is a free, open-source SVG icon library providing <strong>2,700+ UI icons</strong> in Outline and Filled weights. Official packages are available for React (<Code>reicon-react</Code>), Angular 20+ (<Code>reicon-angular</Code>), React Native (<Code>reicon-react-native</Code>), Vue 3 (<Code>reicon-vue</Code>), Svelte (<Code>reicon-svelte</Code>), Flutter (<Code>reicon_flutter</Code>), vanilla JavaScript, CDN runtime, Figma plugin, VS Code extension, and MCP Server.
+            Reicon is a free, open-source SVG icon library providing <strong>2,700+ UI icons</strong> in Outline and Filled weights. Official packages are available for React (<Code>reicon-react</Code>), Angular 20+ (<Code>reicon-angular</Code>), React Native (<Code>reicon-react-native</Code>), Vue 3 (<Code>reicon-vue</Code>), Svelte (<Code>reicon-svelte</Code>), Flutter (<Code>reicon_flutter</Code>), Compose (<Code>reicon-compose</Code>), vanilla JavaScript, CDN runtime, Figma plugin, VS Code extension, and MCP Server.
           </p>
         ),
       },

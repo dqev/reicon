@@ -9,8 +9,8 @@ export default function PackageCard({ pkg }: { pkg: PackageItem }) {
             </Link>
             <h3 className="text-text-base font-semibold text-lg mb-2">{pkg.name}</h3>
             <div className="flex items-center gap-2 flex-wrap mb-4">
-                <img src={`https://img.shields.io/npm/v/${pkg.npmPkg}?color=9B8AFB`} alt={`${pkg.name} version`} loading="lazy" className="h-5" />
-                <img src={`https://img.shields.io/npm/dm/${pkg.npmPkg}?color=9B8AFB`} alt={`${pkg.name} downloads`} loading="lazy" className="h-5" />
+                <img src={pkg.versionBadge ?? `https://img.shields.io/npm/v/${pkg.npmPkg}?color=9B8AFB`} alt={`${pkg.name} version`} loading="lazy" className="h-5" />
+                <img src={pkg.downloadsBadge ?? `https://img.shields.io/npm/dm/${pkg.npmPkg}?color=9B8AFB`} alt={`${pkg.name} downloads`} loading="lazy" className="h-5" />
             </div>
             <p className="text-text-base/50 text-[14px] leading-relaxed mb-6 flex-1">{pkg.description}</p>
             <div className="flex items-center gap-2">
@@ -21,7 +21,7 @@ export default function PackageCard({ pkg }: { pkg: PackageItem }) {
                     Source
                 </a>
                 <a href={pkg.npmUrl} target="_blank" rel="noopener noreferrer" className="bg-text-base/6 hover:bg-text-base/10 text-text-base/70 hover:text-text-base text-[13px] font-medium px-4 py-2 rounded-lg transition-colors cursor-pointer">
-                    npm
+                    {pkg.registryLabel ?? 'npm'}
                 </a>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import { FaReact } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io5';
 import { VscVscodeInsiders } from 'react-icons/vsc';
-import { AngularIcon, AstroIcon, FigmaIcon, FlutterIcon, McpIcon, SvelteIcon, VueIcon, SvgIcon } from '@/components/docs/framework/icons';
+import { AngularIcon, AstroIcon, FigmaIcon, FlutterIcon, ComposeIcon, McpIcon, SvelteIcon, VueIcon, SvgIcon } from '@/components/docs/framework/icons';
 
 export interface PackageItem {
     id: string;
@@ -12,6 +12,9 @@ export interface PackageItem {
     npmUrl: string;
     sourceUrl: string;
     guideUrl: string;
+    versionBadge?: string;
+    downloadsBadge?: string;
+    registryLabel?: string;
 }
 
 export const PACKAGES: PackageItem[] = [
@@ -94,6 +97,22 @@ export const PACKAGES: PackageItem[] = [
         npmUrl: 'https://pub.dev/packages/reicon_flutter',
         sourceUrl: 'https://github.com/dqev/reicon/tree/main/packages/reicon-flutter',
         guideUrl: '/docs/flutter',
+        versionBadge: 'https://img.shields.io/pub/v/reicon_flutter?color=9B8AFB',
+        downloadsBadge: 'https://img.shields.io/pub/likes/reicon_flutter?color=9B8AFB',
+        registryLabel: 'pub.dev',
+    },
+    {
+        id: 'compose',
+        name: 'reicon-compose',
+        npmPkg: 'reicon-compose',
+        description: 'Official Jetpack Compose package for Reicon. 2700+ icons as native ImageVectors, zero runtime dependencies.',
+        icon: <ComposeIcon size={48} />,
+        npmUrl: 'https://github.com/dqev/reicon/tree/main/packages/reicon-compose',
+        sourceUrl: 'https://github.com/dqev/reicon/tree/main/packages/reicon-compose',
+        guideUrl: '/docs/compose',
+        versionBadge: 'https://img.shields.io/badge/version-1.0.0-3DDC84',
+        downloadsBadge: 'https://img.shields.io/badge/compose-ready-3DDC84',
+        registryLabel: 'Maven',
     },
 ];
 

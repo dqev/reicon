@@ -1,7 +1,8 @@
-import { AstroIcon, FlutterIcon } from '@/components/docs/framework/icons';
+import { AstroIcon, ComposeIcon, FlutterIcon } from '@/components/docs/framework/icons';
 
 export const AstroLogo = () => <AstroIcon size={14} />;
 export const FlutterLogo = () => <FlutterIcon size={14} />;
+export const ComposeLogo = () => <ComposeIcon size={14} />;
 export const CdnLogo = ({ size = 14 }: { size?: number }) => (
   <svg width={size * (452 / 520)} height={size} viewBox="0 0 452 520" fill="none">
     <path fill="#e34f26" d="M41 460L0 0h451l-41 460-185 52" />
@@ -46,6 +47,18 @@ export function FlutterSnippet({ pascalName, flutterName, filled }: { pascalName
       <span className="text-text-base/70">  height: </span><span className="text-[#d19a66]">24</span><span className="text-text-base/30">,</span>
       {'\n'}
       <span className="text-text-base/70">)</span>
+    </>
+  );
+}
+
+export function ComposeSnippet({ pascalName, filled }: { pascalName: string; filled: boolean }) {
+  return (
+    <>
+      <span className="text-[#c678dd]">import</span><span className="text-text-base/70"> dev.reicon.</span><span className="text-[#e5c07b]">{pascalName}</span>
+      {'\n'}
+      <span className="text-[#c678dd]">import</span><span className="text-text-base/70"> dev.reicon.ReiconIcon</span>
+      {'\n\n'}
+      <span className="text-[#61afef]">ReiconIcon</span><span className="text-text-base/70">(</span><span className="text-[#e5c07b]">{pascalName}</span><span className="text-text-base/70">.</span><span className="text-[#e5c07b]">{filled ? 'Filled' : 'Outline'}</span><span className="text-text-base/30">,</span><span className="text-text-base/70"> contentDescription = </span><span className="text-[#98c379]">"{pascalName}"</span><span className="text-text-base/70">)</span>
     </>
   );
 }

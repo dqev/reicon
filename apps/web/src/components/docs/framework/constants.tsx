@@ -7,6 +7,7 @@ export const FRAMEWORKS = [
     { id: 'svelte', label: 'Svelte', icon: 'svelte', color: '#FF3E00' },
     { id: 'astro', label: 'Astro', icon: 'astro', color: '#FF5D01' },
     { id: 'flutter', label: 'Flutter', icon: 'flutter', color: '#02569B' },
+    { id: 'compose', label: 'Compose', icon: 'compose', color: '#3DDC84' },
     { id: 'figma', label: 'Figma', icon: 'figma', color: '#F24E1E' },
     { id: 'vscode', label: 'VS Code', icon: 'vscode', color: '#007ACC' },
     { id: 'mcp', label: 'MCP Server', icon: 'mcp', color: '#9B8AFB' },

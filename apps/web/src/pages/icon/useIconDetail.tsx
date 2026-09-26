@@ -4,7 +4,7 @@ import { FaReact } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io5';
 import { SiSvelte } from 'react-icons/si';
 import { AngularIcon } from '@/components/docs/framework/icons';
-import { VueLogo, FlutterLogo, AstroLogo, CdnLogo } from './Snippets';
+import { VueLogo, FlutterLogo, ComposeLogo, AstroLogo, CdnLogo } from './Snippets';
 import { loadIconData } from '@/lib/icon-data';
 import { waitForReicon } from '@/lib/reicon-loader';
 import {
@@ -36,7 +36,7 @@ export default function useIconDetail() {
   const [previewSize, setPreviewSize] = useState(128);
   const [toast, setToast] = useState<string | null>(null);
   const [exportSize, setExportSize] = useState(64);
-  const [codeTab, setCodeTab] = useState<'vanilla' | 'cdn' | 'react' | 'angular' | 'react-native' | 'vue' | 'svelte' | 'astro' | 'flutter' | 'direct'>('vanilla');
+  const [codeTab, setCodeTab] = useState<'vanilla' | 'cdn' | 'react' | 'angular' | 'react-native' | 'vue' | 'svelte' | 'astro' | 'flutter' | 'compose' | 'direct'>('vanilla');
   const [iconCategory, setIconCategory] = useState('');
   const [contributorGithub, setContributorGithub] = useState<string | null>(null);
   const [useCustomColor, setUseCustomColor] = useState(false);
@@ -97,6 +97,7 @@ export default function useIconDetail() {
   const astroRaw = `---\nimport { ${pascalName} } from 'reicon-astro';\n---\n\n<${pascalName} size={24}${fw ? ' weight="Filled"' : ''} />`;
   const flutterRaw = `import 'package:flutter_svg/flutter_svg.dart';\nimport 'package:reicon_flutter/reicon_flutter.dart';\n\nSvgPicture.string(\n  reiconSvg(Reicon.${fw ? 'filled' : 'outline'}.${flutterName}),\n  width: 24,\n  height: 24,\n)`;
   const directRaw = `import ${pascalName} from 'reicon-react/icons/${pascalName}';`;
+  const composeRaw = `import dev.reicon.${pascalName}\nimport dev.reicon.ReiconIcon\n\nReiconIcon(${pascalName}.${fw ? 'Filled' : 'Outline'}, contentDescription = "${pascalName}")`;
 
   const CODE_TABS = useMemo(() => [
     { id: 'vanilla' as const, label: 'JS', icon: <IoLogoJavascript className="text-yellow-400" size={14} />, raw: vanillaRaw },
@@ -108,8 +109,9 @@ export default function useIconDetail() {
     { id: 'svelte' as const, label: 'Svelte', icon: <SiSvelte className="text-[#FF3E00]" size={14} />, raw: svelteRaw },
     { id: 'astro' as const, label: 'Astro', icon: <AstroLogo />, raw: astroRaw },
     { id: 'flutter' as const, label: 'Flutter', icon: <FlutterLogo />, raw: flutterRaw },
+    { id: 'compose' as const, label: 'Compose', icon: <ComposeLogo />, raw: composeRaw },
     { id: 'direct' as const, label: 'Direct', icon: <FaReact className="text-[#61DAFB]" size={14} />, raw: directRaw },
-  ], [vanillaRaw, cdnRaw, reactRaw, angularRaw, reactNativeRaw, vueRaw, svelteRaw, astroRaw, flutterRaw, directRaw]);
+  ], [vanillaRaw, cdnRaw, reactRaw, angularRaw, reactNativeRaw, vueRaw, svelteRaw, astroRaw, flutterRaw, composeRaw, directRaw]);
 
   const activeTab = CODE_TABS.find((t) => t.id === codeTab) || CODE_TABS[0];
 

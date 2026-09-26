@@ -9,6 +9,7 @@ export function getFrameworkSectionId(framework: Framework): string {
     case 'svelte': return 'svelte-docs';
     case 'astro': return 'astro-docs';
     case 'flutter': return 'flutter-docs';
+    case 'compose': return 'compose-docs';
     case 'figma': return 'figma';
     case 'vscode': return 'vscode';
     case 'mcp': return 'mcp';
@@ -26,6 +27,7 @@ export function getFrameworkLabel(framework: Framework): string {
     case 'svelte': return 'Svelte';
     case 'astro': return 'Astro';
     case 'flutter': return 'Flutter';
+    case 'compose': return 'Compose';
     case 'figma': return 'Figma';
     case 'vscode': return 'VS Code';
     case 'mcp': return 'MCP Server';
@@ -35,7 +37,7 @@ export function getFrameworkLabel(framework: Framework): string {
 }
 
 export function isStandaloneFramework(framework: Framework): boolean {
-  return framework === 'flutter' || framework === 'figma' || framework === 'vscode' || framework === 'mcp' || framework === 'svg';
+  return framework === 'flutter' || framework === 'compose' || framework === 'figma' || framework === 'vscode' || framework === 'mcp' || framework === 'svg';
 }
 
 export const MCP_ON_THIS_PAGE = [
@@ -68,6 +70,14 @@ export const SVG_ON_THIS_PAGE = [
   { id: 'svg-styling', label: 'Dynamic Styling via CSS' },
 ] as const;
 
+export const COMPOSE_ON_THIS_PAGE = [
+  { id: 'compose-docs', label: 'Compose' },
+  { id: 'compose-installation', label: 'Installation' },
+  { id: 'compose-usage', label: 'Basic Usage' },
+  { id: 'compose-tint', label: 'Tint & Weight' },
+  { id: 'compose-complete', label: 'Full Composable Example' },
+] as const;
+
 export const FLUTTER_ON_THIS_PAGE = [
   { id: 'flutter-docs', label: 'Flutter' },
   { id: 'flutter-installation', label: 'Installation' },
@@ -83,6 +93,7 @@ export function getOnThisPageSections(framework: Framework): { id: string; label
   if (framework === 'figma') return [...FIGMA_ON_THIS_PAGE];
   if (framework === 'svg') return [...SVG_ON_THIS_PAGE];
   if (framework === 'flutter') return [...FLUTTER_ON_THIS_PAGE];
+  if (framework === 'compose') return [...COMPOSE_ON_THIS_PAGE];
 
   const frameworkEntry = {
     id: getFrameworkSectionId(framework),

@@ -10,6 +10,7 @@ import VueDocs from './frameworks/VueDocs';
 import SvelteDocs from './frameworks/SvelteDocs';
 import AstroDocs from './frameworks/AstroDocs';
 import FlutterDocs from './frameworks/FlutterDocs';
+import ComposeDocs from './frameworks/ComposeDocs';
 import CdnDocs from './frameworks/CdnDocs';
 import FigmaDocs from './guides/FigmaDocs';
 import VscodeDocs from './guides/VscodeDocs';
@@ -52,6 +53,7 @@ interface Props {
   svelteDocs: string;
   astroDocs: string;
   flutterDocs: string;
+  composeDocs: string;
   figmaDocs: string;
   vscodeDocs: string;
   mcpDocs: string;
@@ -98,6 +100,7 @@ export default function DocsContent({
   mcpDocs,
   svgDocs,
   flutterDocs,
+  composeDocs,
   propsDocs,
   weightsDocs,
   typescriptDocs,
@@ -138,7 +141,8 @@ export default function DocsContent({
                     <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-vue</code>,{' '}
                     <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-svelte</code>,{' '}
                     <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-astro</code>, and{' '}
-                    <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon_flutter</code>.
+                     <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon_flutter</code>, and{' '}
+                     <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-compose</code>.
                   </p>
                   <p className="text-text-base/60 text-[15px] leading-[1.8]">
                     Icons come in Outline and Filled weights with zero external dependencies and full tree-shakeability.
@@ -184,6 +188,8 @@ export default function DocsContent({
                 <AstroDocs markdownContent={astroDocs} copiedField={copiedField} onCopy={copyToClipboard} />
               ) : framework === 'flutter' ? (
                 <FlutterDocs markdownContent={flutterDocs} copiedField={copiedField} onCopy={copyToClipboard} />
+              ) : framework === 'compose' ? (
+                <ComposeDocs markdownContent={composeDocs} copiedField={copiedField} onCopy={copyToClipboard} />
               ) : framework === 'figma' ? (
                 <FigmaDocs markdownContent={figmaDocs} />
               ) : framework === 'vscode' ? (

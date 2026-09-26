@@ -62,6 +62,7 @@ export default function Footer() {
               <Link to="/docs/vue" className="relative flex items-center gap-2 pl-[26px] py-1 text-[13px] text-text-base/70 hover:text-text-base transition-colors font-medium cursor-pointer">Vue Package</Link>
               <Link to="/docs/svelte" className="relative flex items-center gap-2 pl-[26px] py-1 text-[13px] text-text-base/70 hover:text-text-base transition-colors font-medium cursor-pointer">Svelte Package</Link>
               <Link to="/docs/flutter" className="relative flex items-center gap-2 pl-[26px] py-1 text-[13px] text-text-base/70 hover:text-text-base transition-colors font-medium cursor-pointer">Flutter SDK</Link>
+              <Link to="/docs/compose" className="relative flex items-center gap-2 pl-[26px] py-1 text-[13px] text-text-base/70 hover:text-text-base transition-colors font-medium cursor-pointer">Compose Package</Link>
               <Link to="/docs/vanilla" className="relative flex items-center gap-2 pl-[26px] py-1 text-[13px] text-text-base/70 hover:text-text-base transition-colors font-medium cursor-pointer">Vanilla JS & CDN</Link>
             </div>
           </div>

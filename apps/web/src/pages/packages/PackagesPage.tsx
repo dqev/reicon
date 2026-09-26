@@ -12,7 +12,7 @@ export default function PackagesPage() {
         <title>{PAGE_META['/packages'].title}</title>
         <meta name="description" content={PAGE_META['/packages'].description} />
         <link rel="canonical" href={PAGE_META['/packages'].url} />
-        <meta name="keywords" content="reicon packages, reicon-react, reicon-flutter, reicon-vue, reicon-svelte, SVG download, React icon library, Vue icons, Svelte icons" />
+        <meta name="keywords" content="reicon packages, reicon-react, reicon-flutter, reicon-compose, reicon-vue, reicon-svelte, SVG download, React icon library, Vue icons, Svelte icons" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={PAGE_META['/packages'].url} />
         <meta property="og:site_name" content="Reicon" />

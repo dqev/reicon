@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Copy } from 'reicon-react';
 import { SiHtml5, SiJavascript, SiModelcontextprotocol, SiReact, SiSvelte } from 'react-icons/si';
 import { FaReact } from 'react-icons/fa';
-import { AstroIcon } from './icons';
+import { AstroIcon, ComposeIcon } from './icons';
 import { AngularIcon } from '@/components/docs/framework/icons';
 
 function IntegrationCard({ icon, title, lines, copyText, guideUrl }: {
@@ -254,6 +254,32 @@ export default function Integrations() {
                         <NpmInstall pkg="reicon-svelte" />
                         <ImportLine name="Home" from="reicon-svelte" />
                         <JsxLine tag="Home" props={<><Prop name="size" value="{24}" isExpr /><Prop name="weight" value="Outline" /></>} />
+                    </>}
+                />
+
+                {/* Compose */}
+                <IntegrationCard
+                    icon={<ComposeIcon size={16} />}
+                    title="Compose"
+                    guideUrl="/docs/compose"
+                    copyText={`import dev.reicon.Home\n\nReiconIcon(Home.Outline, contentDescription = "Home");`}
+                    lines={<>
+                        <div className="mb-2">
+                            <span className="text-[#ffbd2e]">$</span>
+                            <span className="text-[#e06c75]"> gradle</span>
+                            <span className="text-text-base/70"> implementation dev.reicon:reicon-compose</span>
+                        </div>
+                        <div>
+                            <span className="text-[#c678dd]">import</span>
+                            <span className="text-text-base/70"> dev.reicon.Home;</span>
+                        </div>
+                        <div className="mt-3">
+                            <span className="text-[#61afef]">ReiconIcon</span>
+                            <span className="text-text-base/70">(</span>
+                            <span className="text-[#e5c07b]">Home</span>
+                            <span className="text-text-base/30">.Outline</span>
+                            <span className="text-text-base/70">);</span>
+                        </div>
                     </>}
                 />
 
