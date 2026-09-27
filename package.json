@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "dev": "node scripts/generate-website-search-index.mjs && vite --port=3000 --host=0.0.0.0 apps/web",
-    "build": "node scripts/generate-website-search-index.mjs && node scripts/sync-icon-names.mjs && node scripts/seo/update-helmets.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-llm-assets.mjs && vite build apps/web && node scripts/prerender-meta.mjs",
+    "build": "npm run build:react && node scripts/generate-website-search-index.mjs && node scripts/sync-icon-names.mjs && node scripts/seo/update-helmets.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-llm-assets.mjs && vite build apps/web && node scripts/prerender-meta.mjs",
     "build:full": "npm run build",
     "postbuild": "node scripts/seo/ping.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
