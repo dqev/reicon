@@ -3,6 +3,23 @@
   "version": "1.2.5",
   "type": "module",
   "description": "React icon components for Reicon.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./icons/*": {
+      "import": "./dist/icons/*.js",
+      "types": "./dist/icons/*.d.ts"
+    },
+    "./createIcon": {
+      "import": "./dist/createIcon.js",
+      "types": "./dist/createIcon.d.ts"
+    }
+  },
   "scripts": {
     "build": "node scripts/build.cjs"
   },
