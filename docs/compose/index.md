@@ -15,7 +15,11 @@ The official Jetpack Compose package for Reicon. Import beautifully crafted icon
 ## Installation
 ```kotlin
 // settings.gradle.kts
-maven { url = uri("https://jitpack.io") }
+dependencyResolutionManagement {
+    repositories {
+        maven { url = uri("https://jitpack.io") }
+    }
+}
 
 // app/build.gradle.kts
 implementation("dev.reicon:reicon-compose:1.0.0")

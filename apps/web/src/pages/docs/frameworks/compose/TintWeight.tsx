@@ -12,7 +12,7 @@ export default function TintWeight({ copiedField, onCopy }: Props) {
         Tint &amp; Weight
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
-        Every vector uses <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">currentColor</code> fills, so tint and size apply directly:
+        Every vector is drawn in black and tinted through <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">Icon</code>, like <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">currentColor</code> on web — tint and size apply directly:
       </p>
 
       <SyntaxBlock

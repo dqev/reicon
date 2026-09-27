@@ -265,9 +265,10 @@ export default function Integrations() {
                     copyText={`import dev.reicon.Home\n\nReiconIcon(Home.Outline, contentDescription = "Home");`}
                     lines={<>
                         <div className="mb-2">
-                            <span className="text-[#ffbd2e]">$</span>
-                            <span className="text-[#e06c75]"> gradle</span>
-                            <span className="text-text-base/70"> implementation dev.reicon:reicon-compose</span>
+                            <span className="text-[#61afef]">implementation</span>
+                            <span className="text-text-base/70">(</span>
+                            <span className="text-[#98c379]">"dev.reicon:reicon-compose:1.0.0"</span>
+                            <span className="text-text-base/70">)</span>
                         </div>
                         <div>
                             <span className="text-[#c678dd]">import</span>
@@ -278,6 +279,9 @@ export default function Integrations() {
                             <span className="text-text-base/70">(</span>
                             <span className="text-[#e5c07b]">Home</span>
                             <span className="text-text-base/30">.Outline</span>
+                            <span className="text-text-base/30">,</span>
+                            <span className="text-text-base/70"> contentDescription = </span>
+                            <span className="text-[#98c379]">"Home"</span>
                             <span className="text-text-base/70">);</span>
                         </div>
                     </>}

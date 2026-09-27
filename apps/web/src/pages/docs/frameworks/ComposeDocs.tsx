@@ -23,14 +23,14 @@ export default function ComposeDocs({ markdownContent, copiedField, onCopy }: Pr
       />
 
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-6">
-        The official Jetpack Compose package for Reicon. Import 2700+ handcrafted icons as native ImageVectors in any Compose project — no SVG renderer needed.
+        The official Jetpack Compose package for Reicon. Import 2676 handcrafted icons as native ImageVectors in any Compose project — no SVG renderer needed.
       </p>
 
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">What you can accomplish:</p>
       <ul className="text-text-base/60 text-[15px] leading-[1.8] mb-8 space-y-1 list-disc list-inside">
-        <li>Access all 2700+ icons in both Outline and Filled weights</li>
+        <li>Access all 2676 icons in both Outline and Filled weights</li>
         <li>Render with Material Icon or the ReiconIcon wrapper</li>
-        <li>Zero runtime dependencies beyond Compose UI</li>
+        <li>Zero runtime dependencies beyond Compose UI and Material3</li>
         <li>Full autocompletion with one object per icon</li>
         <li>Tree-shake unused icons — R8 strips the rest</li>
       </ul>

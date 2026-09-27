@@ -35,6 +35,7 @@ implementation("dev.reicon:reicon-compose:1.0.0")
 ## Usage
 
 ```kotlin
+import androidx.compose.material3.Icon
 import dev.reicon.Home
 import dev.reicon.ReiconIcon
 ```

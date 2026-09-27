@@ -17,10 +17,18 @@ export default function Installation({ copiedField, onCopy }: Props) {
 
       <SyntaxBlock
         title="settings.gradle.kts"
-        onCopy={() => onCopy('maven { url = uri("https://jitpack.io") }', 'compose-install')}
+        onCopy={() => onCopy('dependencyResolutionManagement {\n    repositories {\n        maven { url = uri("https://jitpack.io") }\n    }\n}', 'compose-install')}
         copied={copiedField === 'compose-install'}
       >
+        <span className="text-[#61afef]">dependencyResolutionManagement</span><span className="text-text-base/70"> {'{'}</span>
+        {'\n    '}
+        <span className="text-[#61afef]">repositories</span><span className="text-text-base/70"> {'{'}</span>
+        {'\n        '}
         <span className="text-[#c678dd]">maven</span><span className="text-text-base/70"> {'{ '}url = uri(</span><span className="text-[#98c379]">"https://jitpack.io"</span><span className="text-text-base/70">){' }'}</span>
+        {'\n    '}
+        <span className="text-text-base/70">{'}'}</span>
+        {'\n'}
+        <span className="text-text-base/70">{'}'}</span>
       </SyntaxBlock>
 
       <SyntaxBlock

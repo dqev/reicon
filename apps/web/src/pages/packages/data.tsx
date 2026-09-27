@@ -9,11 +9,12 @@ export interface PackageItem {
     npmPkg: string;
     description: string;
     icon: React.ReactNode;
-    npmUrl: string;
+    npmUrl?: string;
     sourceUrl: string;
     guideUrl: string;
     versionBadge?: string;
     downloadsBadge?: string;
+    downloadsLabel?: string;
     registryLabel?: string;
 }
 
@@ -107,11 +108,11 @@ export const PACKAGES: PackageItem[] = [
         npmPkg: 'reicon-compose',
         description: 'Official Jetpack Compose package for Reicon. 2700+ icons as native ImageVectors, zero runtime dependencies.',
         icon: <ComposeIcon size={48} />,
-        npmUrl: 'https://github.com/dqev/reicon/tree/main/packages/reicon-compose',
         sourceUrl: 'https://github.com/dqev/reicon/tree/main/packages/reicon-compose',
         guideUrl: '/docs/compose',
         versionBadge: 'https://img.shields.io/badge/version-1.0.0-3DDC84',
         downloadsBadge: 'https://img.shields.io/badge/compose-ready-3DDC84',
+        downloadsLabel: 'status',
         registryLabel: 'Maven',
     },
 ];
