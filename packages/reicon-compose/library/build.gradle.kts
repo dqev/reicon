@@ -46,10 +46,21 @@ afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("release") {
-                from(components["release"])
-                groupId = "dev.reicon"
-                artifactId = "reicon-compose"
-                version = "1.0.0"
+            from(components["release"])
+            groupId = "dev.reicon"
+            artifactId = "reicon-compose"
+            version = "1.0.0"
+            pom {
+                name = "reicon-compose"
+                description = "Jetpack Compose icons for Reicon"
+                url = "https://github.com/dqev/reicon"
+                licenses {
+                    license {
+                        name = "MIT License"
+                        url = "https://opensource.org/licenses/MIT"
+                    }
+                }
+            }
             }
         }
     }
