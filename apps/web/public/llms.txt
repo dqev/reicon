@@ -113,6 +113,22 @@ Peer deps: `react >= 16.8.0`, `react-native >= 0.64.0`, `react-native-svg >= 12.
 
 ---
 
+## Jetpack Compose
+
+```kotlin
+// build.gradle.kts
+implementation("dev.reicon:reicon-compose:1.0.0")
+```
+```kotlin
+import androidx.compose.material3.Icon
+import dev.reicon.Home
+import dev.reicon.Reicon
+
+Icon(imageVector = Reicon.Home, contentDescription = "Home")
+```
+
+---
+
 ## Vanilla JS (ESM)
 
 ```bash
@@ -223,6 +239,7 @@ React:        import Home from 'reicon-react/icons/Home'
 Vue:          import Home from 'reicon-vue/icons/Home'
 Svelte:       import Home from 'reicon-svelte/icons/Home.svelte'
 React Native: import Home from 'reicon-react-native/icons/Home'
+Compose:      import dev.reicon.Home
 Vanilla JS:   import Home from 'reicon/icons/Home'
 ```
 
