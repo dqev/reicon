@@ -10,8 +10,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
-enum class ReiconWeight { Outline, Filled }
-
 @Composable
 fun ReiconIcon(
     icon: ImageVector,
