@@ -37,12 +37,6 @@ object TerminalCircle {
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
             }.build()
             return _outline!!
         }
@@ -62,12 +56,6 @@ object TerminalCircle {
                 addPath(
                     pathData = addPathNodes("M0.25 12C0.25 5.51065 5.51065 0.25 12 0.25C18.4893 0.25 23.75 5.51065 23.75 12C23.75 18.4893 18.4893 23.75 12 23.75C5.51065 23.75 0.25 18.4893 0.25 12ZM6.96967 7.46967C7.26256 7.17678 7.73744 7.17678 8.03033 7.46967L12.0303 11.4697C12.3232 11.7626 12.3232 12.2374 12.0303 12.5303L8.03033 16.5303C7.73744 16.8232 7.26256 16.8232 6.96967 16.5303C6.67678 16.2374 6.67678 15.7626 6.96967 15.4697L10.4393 12L6.96967 8.53033C6.67678 8.23744 6.67678 7.76256 6.96967 7.46967ZM10.75 16C10.75 15.5858 11.0858 15.25 11.5 15.25H16.5C16.9142 15.25 17.25 15.5858 17.25 16C17.25 16.4142 16.9142 16.75 16.5 16.75H11.5C11.0858 16.75 10.75 16.4142 10.75 16Z"),
                     pathFillType = PathFillType.EvenOdd,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )

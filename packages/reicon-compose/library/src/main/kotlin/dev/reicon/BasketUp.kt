@@ -49,12 +49,6 @@ object BasketUp {
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
             }.build()
             return _outline!!
         }
@@ -86,12 +80,6 @@ object BasketUp {
                 addPath(
                     pathData = addPathNodes("M12.25 18.0001C12.25 14.8245 14.8244 12.2501 18 12.2501C21.1756 12.2501 23.75 14.8245 23.75 18.0001C23.75 21.1758 21.1756 23.7501 18 23.7501C14.8244 23.7501 12.25 21.1758 12.25 18.0001ZM15.5581 17.9421C15.314 17.698 15.314 17.3023 15.5581 17.0582L17.5581 15.0582C17.6753 14.941 17.8343 14.8751 18 14.8751C18.1658 14.8751 18.3248 14.941 18.442 15.0582L20.442 17.0582C20.686 17.3022 20.686 17.698 20.442 17.9421C20.1979 18.1861 19.8021 18.1861 19.5581 17.9421L18.625 17.009V20.5001C18.625 20.8453 18.3452 21.1251 18 21.1251C17.6548 21.1251 17.375 20.8453 17.375 20.5001V17.009L16.4419 17.9421C16.1979 18.1862 15.8021 18.1862 15.5581 17.9421Z"),
                     pathFillType = PathFillType.EvenOdd,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )

@@ -31,12 +31,6 @@ object ArrowDownRightCircle {
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
             }.build()
             return _outline!!
         }
@@ -56,12 +50,6 @@ object ArrowDownRightCircle {
                 addPath(
                     pathData = addPathNodes("M0.25 12C0.25 5.51065 5.51065 0.25 12 0.25C18.4893 0.25 23.75 5.51065 23.75 12C23.75 18.4893 18.4893 23.75 12 23.75C5.51065 23.75 0.25 18.4893 0.25 12ZM16.0303 16.0303C15.8897 16.171 15.6989 16.25 15.5 16.25H10C9.58579 16.25 9.25 15.9142 9.25 15.5C9.25 15.0858 9.58579 14.75 10 14.75H13.6893L7.96967 9.03033C7.67678 8.73744 7.67678 8.26256 7.96967 7.96967C8.26256 7.67678 8.73744 7.67678 9.03033 7.96967L14.75 13.6893V10C14.75 9.58579 15.0858 9.25 15.5 9.25C15.9142 9.25 16.25 9.58579 16.25 10V15.5C16.25 15.6989 16.171 15.8897 16.0303 16.0303Z"),
                     pathFillType = PathFillType.EvenOdd,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )

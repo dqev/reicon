@@ -31,12 +31,6 @@ object AngleRightCircle {
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
             }.build()
             return _outline!!
         }
@@ -56,12 +50,6 @@ object AngleRightCircle {
                 addPath(
                     pathData = addPathNodes("M0.25 12C0.25 5.51065 5.51065 0.25 12 0.25C18.4893 0.25 23.75 5.51065 23.75 12C23.75 18.4893 18.4893 23.75 12 23.75C5.51065 23.75 0.25 18.4893 0.25 12ZM10.4697 8.53033C10.1768 8.23744 10.1768 7.76256 10.4697 7.46967C10.7626 7.17678 11.2374 7.17678 11.5303 7.46967L15.5303 11.4697C15.671 11.6103 15.75 11.8011 15.75 12C15.75 12.1989 15.671 12.3897 15.5303 12.5303L11.5303 16.5303C11.2374 16.8232 10.7626 16.8232 10.4697 16.5303C10.1768 16.2374 10.1768 15.7626 10.4697 15.4697L13.9393 12L10.4697 8.53033Z"),
                     pathFillType = PathFillType.EvenOdd,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )

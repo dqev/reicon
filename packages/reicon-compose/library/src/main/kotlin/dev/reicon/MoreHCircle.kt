@@ -43,12 +43,6 @@ object MoreHCircle {
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
             }.build()
             return _outline!!
         }
@@ -68,12 +62,6 @@ object MoreHCircle {
                 addPath(
                     pathData = addPathNodes("M0.25 12C0.25 5.51065 5.51065 0.25 12 0.25C18.4893 0.25 23.75 5.51065 23.75 12C23.75 18.4893 18.4893 23.75 12 23.75C5.51065 23.75 0.25 18.4893 0.25 12ZM16.5 11C17.0523 11 17.5 11.4477 17.5 12C17.5 12.5523 17.0523 13.0001 16.5 13.0001C15.9477 13.0001 15.5 12.5524 15.5 12.0001C15.5 11.4478 15.9477 11 16.5 11ZM12 11C12.5523 11 13 11.4477 13 12C13 12.5523 12.5523 13.0001 12 13.0001C11.4477 13.0001 11 12.5524 11 12.0001C11 11.4478 11.4477 11 12 11ZM7.5 11C8.05229 11 8.5 11.4477 8.5 12C8.5 12.5523 8.05229 13.0001 7.5 13.0001C6.94772 13.0001 6.5 12.5523 6.5 12C6.5 11.4477 6.94772 11 7.5 11Z"),
                     pathFillType = PathFillType.EvenOdd,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )

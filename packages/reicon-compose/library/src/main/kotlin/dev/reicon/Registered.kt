@@ -31,12 +31,6 @@ object Registered {
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
             }.build()
             return _outline!!
         }
@@ -62,12 +56,6 @@ object Registered {
                 addPath(
                     pathData = addPathNodes("M0.25 12C0.25 5.51065 5.51065 0.25 12 0.25C18.4893 0.25 23.75 5.51065 23.75 12C23.75 18.4893 18.4893 23.75 12 23.75C5.51065 23.75 0.25 18.4893 0.25 12ZM8.25 8.35294C8.25 7.7438 8.7438 7.25 9.35294 7.25H12.75C14.4069 7.25 15.75 8.59315 15.75 10.25C15.75 11.5308 14.9474 12.6241 13.8178 13.0544L15.6104 15.564C15.8512 15.9011 15.7731 16.3695 15.436 16.6103C15.099 16.851 14.6306 16.773 14.3898 16.4359L12.1141 13.25H9.75V15.9998C9.75 16.414 9.41421 16.7498 9 16.7498C8.58579 16.7498 8.25 16.414 8.25 15.9998V8.35294Z"),
                     pathFillType = PathFillType.EvenOdd,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )

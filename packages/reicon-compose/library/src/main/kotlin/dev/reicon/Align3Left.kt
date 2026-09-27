@@ -22,7 +22,7 @@ object Align3Left {
                 viewportHeight = 24f
             ).apply {
                 addPath(
-                    pathData = addPathNodes("M-7.6666,27.6666H5Q7,27.6666 7,29.6666V31.6666Q7,33.6666 5,33.6666H-7.6666Q-9.6666,33.6666 -9.6666,31.6666V29.6666Q-9.6666,27.6666 -7.6666,27.6666Z"),
+                    pathData = addPathNodes("M5.6667,3.6667H18.3333Q20.3333,3.6667 20.3333,5.6667V7.6667Q20.3333,9.6667 18.3333,9.6667H5.6667Q3.6667,9.6667 3.6667,7.6667V5.6667Q3.6667,3.6667 5.6667,3.6667Z"),
                     pathFillType = PathFillType.NonZero,
                     fill = null,
                     stroke = SolidColor(Color.Black),
@@ -31,7 +31,7 @@ object Align3Left {
                     strokeLineJoin = StrokeJoin.Round
                 )
                 addPath(
-                    pathData = addPathNodes("M-28.9999,30.3333H-24.3333Q-22.3333,30.3333 -22.3333,32.3333V34.3333Q-22.3333,36.3333 -24.3333,36.3333H-28.9999Q-30.9999,36.3333 -30.9999,34.3333V32.3333Q-30.9999,30.3333 -28.9999,30.3333Z"),
+                    pathData = addPathNodes("M5.6667,14.3333H10.3333Q12.3333,14.3333 12.3333,16.3333V18.3333Q12.3333,20.3333 10.3333,20.3333H5.6667Q3.6667,20.3333 3.6667,18.3333V16.3333Q3.6667,14.3333 5.6667,14.3333Z"),
                     pathFillType = PathFillType.NonZero,
                     fill = null,
                     stroke = SolidColor(Color.Black),

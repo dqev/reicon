@@ -31,7 +31,7 @@ object WindowChartLine {
                     strokeLineJoin = StrokeJoin.Round
                 )
                 addPath(
-                    pathData = addPathNodes("M-42.9998,-44.3332H-28.9999Q-26.3332,-44.3332 -26.3332,-41.6665V-30.3333Q-26.3332,-27.6666 -28.9999,-27.6666H-42.9998Q-45.6665,-27.6666 -45.6665,-30.3333V-41.6665Q-45.6665,-44.3332 -42.9998,-44.3332Z"),
+                    pathData = addPathNodes("M5,3.6666H18.9999Q21.6666,3.6666 21.6666,6.3333V17.6665Q21.6666,20.3332 18.9999,20.3332H5Q2.3333,20.3332 2.3333,17.6665V6.3333Q2.3333,3.6666 5,3.6666Z"),
                     pathFillType = PathFillType.NonZero,
                     fill = null,
                     stroke = SolidColor(Color.Black),

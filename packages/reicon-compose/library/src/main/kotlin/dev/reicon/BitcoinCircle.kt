@@ -31,12 +31,6 @@ object BitcoinCircle {
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
             }.build()
             return _outline!!
         }
@@ -68,12 +62,6 @@ object BitcoinCircle {
                 addPath(
                     pathData = addPathNodes("M0.25 12C0.25 5.51065 5.51065 0.25 12 0.25C18.4893 0.25 23.75 5.51065 23.75 12C23.75 18.4893 18.4893 23.75 12 23.75C5.51065 23.75 0.25 18.4893 0.25 12ZM11.125 7C11.125 6.65482 10.8452 6.375 10.5 6.375C10.1548 6.375 9.875 6.65482 9.875 7V7.75H8.75C8.33579 7.75 8 8.08579 8 8.5C8 8.91421 8.33579 9.25 8.75 9.25H9.08618V14.75H8.75C8.33579 14.75 8 15.0858 8 15.5C8 15.9142 8.33579 16.25 8.75 16.25H9.875V17C9.875 17.3452 10.1548 17.625 10.5 17.625C10.8452 17.625 11.125 17.3452 11.125 17V16.25H11.875V17C11.875 17.3452 12.1548 17.625 12.5 17.625C12.8452 17.625 13.125 17.3452 13.125 17V16.25H13.5C14.8807 16.25 16 15.1307 16 13.75C16 12.859 15.5339 12.0769 14.8322 11.6341C15.0962 11.2378 15.25 10.7619 15.25 10.25C15.25 8.99675 14.3278 7.95888 13.125 7.77794V7C13.125 6.65482 12.8452 6.375 12.5 6.375C12.1548 6.375 11.875 6.65482 11.875 7V7.75H11.125V7Z"),
                     pathFillType = PathFillType.EvenOdd,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )

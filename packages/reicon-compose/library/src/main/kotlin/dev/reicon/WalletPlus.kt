@@ -43,12 +43,6 @@ object WalletPlus {
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
             }.build()
             return _outline!!
         }
@@ -74,12 +68,6 @@ object WalletPlus {
                 addPath(
                     pathData = addPathNodes("M0.25 18C0.25 14.8244 2.82436 12.25 6 12.25C9.17564 12.25 11.75 14.8244 11.75 18C11.75 21.1756 9.17564 23.75 6 23.75C2.82436 23.75 0.25 21.1756 0.25 18ZM6 20.625C5.65482 20.625 5.375 20.3452 5.375 20V18.625H4C3.65482 18.625 3.375 18.3452 3.375 18C3.375 17.6548 3.65482 17.375 4 17.375H5.375V16C5.375 15.6548 5.65482 15.375 6 15.375C6.34518 15.375 6.625 15.6548 6.625 16V17.375H8C8.34518 17.375 8.625 17.6548 8.625 18C8.625 18.3452 8.34518 18.625 8 18.625H6.625V20C6.625 20.3452 6.34518 20.625 6 20.625Z"),
                     pathFillType = PathFillType.EvenOdd,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )

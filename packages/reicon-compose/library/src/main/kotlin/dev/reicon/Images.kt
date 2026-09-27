@@ -40,7 +40,7 @@ object Images {
                     strokeLineJoin = StrokeJoin.Round
                 )
                 addPath(
-                    pathData = addPathNodes("M-46.9998,-36.3332H-36.9999Q-34.3332,-36.3332 -34.3332,-33.6665V-26.3333Q-34.3332,-23.6666 -36.9999,-23.6666H-46.9998Q-49.6665,-23.6666 -49.6665,-26.3333V-33.6665Q-49.6665,-36.3332 -46.9998,-36.3332Z"),
+                    pathData = addPathNodes("M9,3.6666H18.9999Q21.6666,3.6666 21.6666,6.3333V13.6665Q21.6666,16.3332 18.9999,16.3332H9Q6.3333,16.3332 6.3333,13.6665V6.3333Q6.3333,3.6666 9,3.6666Z"),
                     pathFillType = PathFillType.NonZero,
                     fill = null,
                     stroke = SolidColor(Color.Black),

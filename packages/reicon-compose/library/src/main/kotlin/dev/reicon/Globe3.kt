@@ -25,12 +25,6 @@ object Globe3 {
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
             }.build()
             return _outline!!
         }
@@ -79,12 +73,6 @@ object Globe3 {
                 )
                 addPath(
                     pathData = addPathNodes("M14.5694 19.6955C15.2163 17.7444 15.6231 15.3147 15.7249 13.0801C15.73 12.9665 15.7326 12.9097 15.7116 12.8649C15.6932 12.8259 15.6619 12.7932 15.6238 12.7731C15.58 12.75 15.5224 12.75 15.4072 12.75H8.58732C8.47285 12.75 8.41562 12.75 8.37208 12.7728C8.33405 12.7927 8.30289 12.825 8.28436 12.8637C8.26315 12.908 8.26516 12.9646 8.26918 13.0779C8.36017 15.6414 8.77158 18.1157 9.42726 20.004C9.80198 21.0832 10.2414 21.9269 10.7112 22.4866C11.1795 23.0446 11.613 23.25 12 23.25C12.3484 23.25 12.7789 23.0347 13.2668 22.3947C13.7471 21.7646 14.1917 20.8344 14.5694 19.6955Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
                     pathFillType = PathFillType.NonZero,
                     fill = SolidColor(Color.Black),
                     stroke = null

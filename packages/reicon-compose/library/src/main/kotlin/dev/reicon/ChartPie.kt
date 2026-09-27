@@ -25,12 +25,6 @@ object ChartPie {
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
             }.build()
             return _outline!!
         }
@@ -55,12 +49,6 @@ object ChartPie {
                 )
                 addPath(
                     pathData = addPathNodes("M8.75 3.9834C8.75 3.74241 8.6342 3.5161 8.43875 3.37513C8.24329 3.23415 7.992 3.19568 7.76333 3.27173C3.68944 4.62653 0.75 8.46901 0.75 13C0.75 18.6609 5.33908 23.25 11 23.25C15.531 23.25 19.3735 20.3106 20.7283 16.2367C20.8043 16.008 20.7659 15.7567 20.6249 15.5613C20.4839 15.3658 20.2576 15.25 20.0166 15.25H10C9.30964 15.25 8.75 14.6904 8.75 14V3.9834Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
                     pathFillType = PathFillType.NonZero,
                     fill = SolidColor(Color.Black),
                     stroke = null

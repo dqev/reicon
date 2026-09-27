@@ -25,12 +25,6 @@ object LifeRing {
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
             }.build()
             return _outline!!
         }
@@ -67,12 +61,6 @@ object LifeRing {
                 )
                 addPath(
                     pathData = addPathNodes("M15.4886 14.428L20.822 19.7613C22.6445 17.6913 23.75 14.9748 23.75 12C23.75 9.02523 22.6445 6.30865 20.822 4.23866L15.4886 9.57202C15.9686 10.2603 16.25 11.0973 16.25 12C16.25 12.9027 15.9686 13.7397 15.4886 14.428Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
                     pathFillType = PathFillType.NonZero,
                     fill = SolidColor(Color.Black),
                     stroke = null

@@ -43,12 +43,6 @@ object WifiOff {
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
             }.build()
             return _outline!!
         }
@@ -85,12 +79,6 @@ object WifiOff {
                 )
                 addPath(
                     pathData = addPathNodes("M10.75 19C10.75 18.3096 11.3096 17.75 12 17.75C12.6904 17.75 13.2501 18.3096 13.2501 19C13.2501 19.6904 12.6905 20.25 12.0001 20.25C11.3097 20.25 10.75 19.6904 10.75 19Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
                     pathFillType = PathFillType.NonZero,
                     fill = SolidColor(Color.Black),
                     stroke = null

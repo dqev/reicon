@@ -31,12 +31,6 @@ object XCircle2 {
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
             }.build()
             return _outline!!
         }
@@ -56,12 +50,6 @@ object XCircle2 {
                 addPath(
                     pathData = addPathNodes("M0.25 12C0.25 5.51065 5.51065 0.25 12 0.25C18.4893 0.25 23.75 5.51065 23.75 12C23.75 18.4893 18.4893 23.75 12 23.75C5.51065 23.75 0.25 18.4893 0.25 12ZM8.46966 15.5303C8.17677 15.2374 8.17677 14.7626 8.46966 14.4697L10.9393 12L8.46967 9.53035C8.17678 9.23745 8.17678 8.76258 8.46967 8.46969C8.76256 8.17679 9.23744 8.17679 9.53033 8.46969L12 10.9393L14.4697 8.46968C14.7626 8.17678 15.2374 8.17678 15.5303 8.46968C15.8232 8.76257 15.8232 9.23744 15.5303 9.53034L13.0607 12L15.5303 14.4697C15.8232 14.7626 15.8232 15.2375 15.5303 15.5303C15.2374 15.8232 14.7626 15.8232 14.4697 15.5303L12 13.0607L9.53032 15.5303C9.23743 15.8232 8.76255 15.8232 8.46966 15.5303Z"),
                     pathFillType = PathFillType.EvenOdd,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )

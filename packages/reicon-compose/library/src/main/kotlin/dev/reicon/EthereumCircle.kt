@@ -31,12 +31,6 @@ object EthereumCircle {
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
             }.build()
             return _outline!!
         }
@@ -56,12 +50,6 @@ object EthereumCircle {
                 addPath(
                     pathData = addPathNodes("M0.25 12C0.25 5.51065 5.51065 0.25 12 0.25C18.4893 0.25 23.75 5.51065 23.75 12C23.75 18.4893 18.4893 23.75 12 23.75C5.51065 23.75 0.25 18.4893 0.25 12ZM12.265 13.9889L15.294 12.2372C15.5529 12.0866 15.6428 11.754 15.4912 11.4951L12.4622 6.31028C12.252 5.9517 11.7353 5.95278 11.5262 6.31028L8.49934 11.4951C8.34767 11.754 8.43542 12.0866 8.69542 12.2372L11.7223 13.9889C11.8902 14.0864 12.0971 14.0864 12.265 13.9889ZM12.1968 14.9672L15.2214 13.2176C15.3211 13.1602 15.4294 13.275 15.3655 13.3704L12.4438 17.7178C12.2293 18.0374 11.7591 18.0374 11.5446 17.7178L8.62392 13.3714C8.56 13.2761 8.66834 13.1602 8.768 13.2176L11.7894 14.9672C11.9162 15.0398 12.0711 15.0398 12.1968 14.9672Z"),
                     pathFillType = PathFillType.EvenOdd,
-                    fill = SolidColor(Color.Black),
-                    stroke = null
-                )
-                addPath(
-                    pathData = addPathNodes("M0,0H24Q24,0 24,0V24Q24,24 24,24H0Q0,24 0,24V0Q0,0 0,0Z"),
-                    pathFillType = PathFillType.NonZero,
                     fill = SolidColor(Color.Black),
                     stroke = null
                 )
