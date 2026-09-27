@@ -390,3 +390,7 @@ body {
 .no-transitions * {
   transition: none !important;
 }
+
+re-icon {
+  --ri-stroke-width: 1.5;
+}
