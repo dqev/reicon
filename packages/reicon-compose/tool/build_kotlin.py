@@ -7,7 +7,7 @@ Usage:
 
 Output (per icon, both weights in one file — mirrors icon.weights in icon-data.json):
   library/src/main/kotlin/dev/reicon/Home.kt   # object Home { val Outline; val Filled }
-  library/src/main/kotlin/dev/reicon/Reicon.kt # ReiconWeight enum + ReiconIcon composable (written once)
+  library/src/main/kotlin/dev/reicon/Reicon.kt # ReiconIcon composable wrapper (written once)
 
 Mapping:
   fill="currentColor"/"white"/missing -> SolidColor(Color.Black) (tintable via Icon(tint=...))
@@ -272,8 +272,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-
-enum class ReiconWeight { Outline, Filled }
 
 @Composable
 fun ReiconIcon(
