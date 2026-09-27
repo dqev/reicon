@@ -120,8 +120,8 @@ export default function McpDocs({ markdownContent, copiedField, onCopy }: Props)
         <span className="text-[#98c379]"> "{'{/* ICON */}'}"</span>
       </SyntaxBlock>
 
-      <div className="mt-4 bg-[#9B8AFB]/5 border border-[#9B8AFB]/15 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed mb-6">
-        <span className="text-[#9B8AFB] font-medium">Note:</span> Replaces the exact marker with the usage snippet and inserts the import at the top if missing. Exits non-zero if the marker is not found.
+      <div className="mt-4 bg-[#9B8AFB]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed mb-6 border-0">
+        <span className="text-[#9B8AFB] font-semibold">Note:</span> Replaces the exact marker with the usage snippet and inserts the import at the top if missing. Exits non-zero if the marker is not found.
       </div>
 
       {/* Offline Operation */}

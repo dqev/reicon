@@ -44,8 +44,8 @@ export default function FlutterSvg({ copiedField, onCopy }: Props) {
         <span className="text-text-base/70">)</span><span className="text-text-base/30">;</span>
       </SyntaxBlock>
 
-      <div className="mt-4 bg-[#47C5FB]/5 border border-[#47C5FB]/15 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed">
-        <span className="text-[#47C5FB] font-medium">Note:</span> The <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">flutter_svg</code> package is the most common way to render SVGs in Flutter, but you can also pass the raw SVG string to any widget that accepts HTML or custom painting.
+      <div className="mt-4 bg-[#47C5FB]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
+        <span className="text-[#47C5FB] font-semibold">Note:</span> The <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">flutter_svg</code> package is the most common way to render SVGs in Flutter, but you can also pass the raw SVG string to any widget that accepts HTML or custom painting.
       </div>
     </>
   );

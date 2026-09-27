@@ -93,8 +93,8 @@ export default function ComponentApi({ copiedField, onCopy }: Props) {
         <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">Home</span><span className="text-[#d19a66]"> size</span><span className="text-text-base/50">=</span><span className="text-[#e5c07b]">{'{'}</span><span className="text-[#d19a66]">24</span><span className="text-[#e5c07b]">{'}'}</span><span className="text-text-base/70"> /{'>'}</span>
       </SyntaxBlock>
 
-      <div className="mt-6 bg-[#FF3E00]/5 border border-[#FF3E00]/15 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed">
-        <span className="text-[#FF3E00] font-medium">Note:</span> All icon components are SSR-compatible and work with SvelteKit, Vite, and other Svelte frameworks out of the box.
+      <div className="mt-6 bg-[#FF3E00]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
+        <span className="text-[#FF3E00] font-semibold">Note:</span> All icon components are SSR-compatible and work with SvelteKit, Vite, and other Svelte frameworks out of the box.
       </div>
     </>
   );

@@ -150,8 +150,8 @@ export default function Accessibility({ markdownContent, copiedField, onCopy }: 
         <span className="text-text-base/70">{'}'}</span>
       </SyntaxBlock>
 
-      <div className="mt-6 bg-[#9B8AFB]/5 border border-[#9B8AFB]/15 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed">
-        <span className="text-[#9B8AFB] font-medium">Tip:</span> Since Reicon passes all props to the SVG element, you can use any standard SVG or ARIA attribute — <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">focusable</code>, <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">tabIndex</code>, <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">onFocus</code>, etc.
+      <div className="mt-6 bg-[#9B8AFB]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
+        <span className="text-[#9B8AFB] font-semibold">Tip:</span> Since Reicon passes all props to the SVG element, you can use any standard SVG or ARIA attribute — <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">focusable</code>, <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">tabIndex</code>, <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">onFocus</code>, etc.
       </div>
     </section>
   );

@@ -19,12 +19,12 @@ export default function Installation({ copiedField, onCopy }: Props) {
                 onCopy={onCopy}
             />
 
-            <div className="mt-4 bg-[#61DAFB]/5 border border-[#61DAFB]/15 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed">
-                <span className="text-[#61DAFB] font-medium">For Expo:</span> Run <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">npx expo install react-native-svg</code> instead.
+            <div className="mt-4 bg-[#61DAFB]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
+                <span className="text-[#61DAFB] font-semibold">For Expo:</span> Run <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">npx expo install react-native-svg</code> instead.
             </div>
 
-            <div className="mt-4 bg-[#61DAFB]/5 border border-[#61DAFB]/15 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed">
-                <span className="text-[#61DAFB] font-medium">For iOS:</span> After installing, run <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">cd ios && pod install</code> to link native dependencies.
+            <div className="mt-4 bg-[#61DAFB]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
+                <span className="text-[#61DAFB] font-semibold">For iOS:</span> After installing, run <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">cd ios && pod install</code> to link native dependencies.
             </div>
         </>
     );

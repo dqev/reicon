@@ -77,8 +77,8 @@ export default function Theming({ copiedField, onCopy }: Props) {
         <span className="text-text-base/70">{'</'}</span><span className="text-[#e06c75]">template</span><span className="text-text-base/70">{'>'}</span>
       </SyntaxBlock>
 
-      <div className="mt-6 bg-[#4DBA87]/5 border border-[#4DBA87]/15 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed">
-        <span className="text-[#4DBA87] font-medium">Note:</span> All icon components are SSR-compatible and work with Nuxt 3, Vite, and other Vue 3 frameworks out of the box.
+      <div className="mt-6 bg-[#4DBA87]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
+        <span className="text-[#4DBA87] font-semibold">Note:</span> All icon components are SSR-compatible and work with Nuxt 3, Vite, and other Vue 3 frameworks out of the box.
       </div>
     </>
   );

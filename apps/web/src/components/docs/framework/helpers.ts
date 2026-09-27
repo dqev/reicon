@@ -54,20 +54,29 @@ export const MCP_ON_THIS_PAGE = [
 export const VSCODE_ON_THIS_PAGE = [
   { id: 'vscode', label: 'VS Code' },
   { id: 'vscode-installation', label: 'Installation' },
-  { id: 'vscode-workflow', label: 'Workflow & Sidebar Panel' },
+  { id: 'vscode-workflow', label: 'Workflow & Sidebar' },
+  { id: 'vscode-snippets', label: 'Snippet Formats' },
+  { id: 'vscode-antigravity', label: 'Antigravity IDE' },
+  { id: 'vscode-shortcuts', label: 'Shortcuts & Config' },
 ] as const;
 
 export const FIGMA_ON_THIS_PAGE = [
   { id: 'figma', label: 'Figma' },
   { id: 'figma-installation', label: 'Installation' },
   { id: 'figma-workflow', label: 'Workflow & Guide' },
+  { id: 'figma-variants', label: 'Variants & Weights' },
+  { id: 'figma-tokens', label: 'Design Tokens' },
+  { id: 'figma-shortcuts', label: 'Shortcuts & Tips' },
 ] as const;
 
 export const SVG_ON_THIS_PAGE = [
   { id: 'svg-docs', label: 'Raw SVGs' },
-  { id: 'svg-download', label: 'Download ZIP Archive' },
+  { id: 'svg-download', label: 'Download ZIP' },
+  { id: 'svg-cdn', label: 'CDN & Direct URLs' },
   { id: 'svg-embedding', label: 'Embedding in HTML' },
-  { id: 'svg-styling', label: 'Dynamic Styling via CSS' },
+  { id: 'svg-sprites', label: 'SVG Sprites & Use' },
+  { id: 'svg-styling', label: 'Dynamic CSS Styling' },
+  { id: 'svg-optimization', label: 'SVGO Optimization' },
 ] as const;
 
 export const COMPOSE_ON_THIS_PAGE = [

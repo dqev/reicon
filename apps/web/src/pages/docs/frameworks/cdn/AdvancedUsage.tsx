@@ -187,8 +187,8 @@ export default function AdvancedUsage({ copiedField, onCopy }: Props) {
         {'\n'}<span className="text-text-base/70">{'</'}</span><span className="text-[#e06c75]">html</span><span className="text-text-base/70">{'>'}</span>
       </SyntaxBlock>
 
-      <div className="mt-6 bg-yellow-500/5 border border-yellow-500/15 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed">
-        <span className="text-yellow-400 font-medium">Note:</span> If you are compiling your project with modern bundlers (e.g. Vite, Webpack, rollup), prefer installing via <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded font-mono">npm install reicon</code> to enjoy full tree-shaking, static typing, and faster loading speeds.
+      <div className="mt-6 bg-[#F7DF1E]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
+        <span className="text-[#F7DF1E] font-semibold">Note:</span> If you are compiling your project with modern bundlers (e.g. Vite, Webpack, rollup), prefer installing via <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded font-mono">npm install reicon</code> to enjoy full tree-shaking, static typing, and faster loading speeds.
       </div>
     </>
   );

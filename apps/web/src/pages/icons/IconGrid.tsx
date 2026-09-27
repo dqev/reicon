@@ -49,15 +49,7 @@ export default function IconGrid({
     setVisibleCount(INITIAL_BATCH);
   }, [effectiveIcons, activeStyle]);
 
-  // Progressive auto-loader to continuously append icons in non-blocking frames
-  useEffect(() => {
-    if (visibleCount < totalCards) {
-      const timer = setTimeout(() => {
-        setVisibleCount((prev) => Math.min(prev + STEP_BATCH, totalCardsRef.current));
-      }, 16);
-      return () => clearTimeout(timer);
-    }
-  }, [visibleCount, totalCards]);
+
 
   const visibleCards = useMemo(() => {
     if (activeStyle === 'Duotone' && duotoneMap) {

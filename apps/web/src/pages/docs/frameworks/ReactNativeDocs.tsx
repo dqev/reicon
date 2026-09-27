@@ -16,7 +16,7 @@ export default function ReactNativeDocs({ markdownContent, copiedField, onCopy }
         <section id="react-native-docs" data-section className="mb-16 scroll-mt-24">
             <SectionHeader
                 id="react-native-docs"
-                title="React Native"
+                title="Native"
                 level="h2"
                 markdownContent={markdownContent}
                 icon={<FaReact className="text-[#61DAFB]" size={30} />}
@@ -41,8 +41,8 @@ export default function ReactNativeDocs({ markdownContent, copiedField, onCopy }
             <ComponentApi onCopy={onCopy} copiedField={copiedField} />
             <Theming onCopy={onCopy} copiedField={copiedField} />
 
-            <div className="mt-6 bg-[#61DAFB]/5 border border-[#61DAFB]/15 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed">
-                <span className="text-[#61DAFB] font-medium">Note:</span> All icons work seamlessly with both Expo and bare React Native projects. Supports iOS and Android out of the box.
+            <div className="mt-6 bg-[#61DAFB]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
+                <span className="text-[#61DAFB] font-semibold">Note:</span> All icons work seamlessly with both Expo and bare React Native projects. Supports iOS and Android out of the box.
             </div>
         </section>
     );

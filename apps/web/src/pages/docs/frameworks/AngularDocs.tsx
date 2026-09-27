@@ -103,8 +103,8 @@ export default function AngularDocs({ markdownContent, copiedField, onCopy }: Pr
         Generated icons are standalone components. In a module-based application, add an icon component to the NgModule <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">imports</code> array instead of declaring it.
       </p>
 
-      <div className="mt-6 bg-[#DD0031]/5 border border-[#DD0031]/15 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed">
-        <span className="text-[#DD0031] font-medium">Angular 20+:</span> Components are generated from the same <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">data/icon-data.json</code> source as every other Reicon package, so names and weights stay consistent across the ecosystem.
+      <div className="mt-6 bg-[#DD0031]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
+        <span className="text-[#DD0031] font-semibold">Angular 20+:</span> Components are generated from the same <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">data/icon-data.json</code> source as every other Reicon package, so names and weights stay consistent across the ecosystem.
       </div>
     </section>
   );

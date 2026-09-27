@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" style="background-color: #09090b;">
 
 <head>
   <meta charset="UTF-8" />
@@ -9,9 +9,10 @@
         var t = localStorage.getItem('reicon-theme');
         if (!t) { t = 'dark'; localStorage.setItem('reicon-theme', 'dark'); }
         var isLight = t === 'light';
-        document.documentElement.classList.add(isLight ? 'light' : 'dark');
-        document.documentElement.classList.remove(isLight ? 'dark' : 'light');
-        document.body.style.backgroundColor = isLight ? '#f5f5f0' : '#09090b';
+        var el = document.documentElement;
+        el.classList.add(isLight ? 'light' : 'dark');
+        el.classList.remove(isLight ? 'dark' : 'light');
+        el.style.backgroundColor = isLight ? '#f5f5f0' : '#09090b';
       } catch (e) { }
     })();
   </script>

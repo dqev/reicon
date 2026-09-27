@@ -9,7 +9,19 @@ interface Props {
   level?: 'h2' | 'h3' | 'h4';
   markdownContent?: string;
   icon?: React.ReactNode;
+  showActions?: boolean;
 }
+
+const CONSTANT_NAV_IDS = new Set([
+  'what-is-reicon',
+  'props',
+  'weights',
+  'styling',
+  'accessibility',
+  'performance',
+  'typescript',
+  'troubleshooting',
+]);
 
 export default function SectionHeader({
   id,
@@ -17,6 +29,7 @@ export default function SectionHeader({
   level = 'h3',
   markdownContent = '',
   icon,
+  showActions,
 }: Props) {
   const { framework: fwParam } = useParams<{ framework?: string }>();
   const navigate = useNavigate();
@@ -26,7 +39,14 @@ export default function SectionHeader({
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   // Framework sequence navigation logic (JavaScript/Vanilla is #1, SVG is last)
-  const isFrameworkHeader = !!fwParam && level === 'h2';
+  // Constant nav items (TypeScript, Props, Weights, etc.) NEVER show header copy/next buttons.
+  // Main framework page headers (React, Vue, VS Code, etc.) DO show header actions & prev/next buttons.
+  const isConstantNavItem = CONSTANT_NAV_IDS.has(id);
+  const isFrameworkHeader = !isConstantNavItem && (
+    level === 'h2' ||
+    (!!fwParam && (id === fwParam || id === `${fwParam}-docs`))
+  );
+  const shouldShowActions = showActions ?? isFrameworkHeader;
   const currentIdx = fwParam ? FRAMEWORKS.findIndex((f) => f.id === fwParam) : -1;
   const hasPrevFw = currentIdx > 0;
   const hasNextFw = currentIdx >= 0 && currentIdx < FRAMEWORKS.length - 1;
@@ -101,7 +121,7 @@ export default function SectionHeader({
     </div>
   ) : null;
 
-  const actionButtonGroup = (
+  const actionButtonGroup = shouldShowActions ? (
     <div className="flex items-center gap-2 select-none shrink-0 font-sans">
       {/* Split Button: Copy Page | Dropdown Chevron */}
       <div ref={dropdownRef} className="relative inline-flex items-center">
@@ -226,7 +246,7 @@ export default function SectionHeader({
         </div>
       )}
     </div>
-  );
+  ) : null;
 
   if (level === 'h2') {
     return (

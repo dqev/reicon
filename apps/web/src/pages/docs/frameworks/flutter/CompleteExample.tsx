@@ -82,8 +82,8 @@ export default function CompleteExample({ copiedField, onCopy }: Props) {
         <span className="text-text-base/70">{'}'}</span>
       </SyntaxBlock>
 
-      <div className="mt-4 bg-[#47C5FB]/5 border border-[#47C5FB]/15 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed">
-        <span className="text-[#47C5FB] font-medium">Note:</span> This widget works on Android, iOS, Web, macOS, Windows, and Linux — Reicon icons are pure Dart with zero native dependencies.
+      <div className="mt-4 bg-[#47C5FB]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
+        <span className="text-[#47C5FB] font-semibold">Note:</span> This widget works on Android, iOS, Web, macOS, Windows, and Linux — Reicon icons are pure Dart with zero native dependencies.
       </div>
     </>
   );

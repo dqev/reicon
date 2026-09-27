@@ -23,7 +23,7 @@ const FigmaIcon = ({ size = 16 }: { size?: number }) => (
 
 export default function FigmaDocs({ markdownContent }: Props) {
   return (
-    <section id="figma" className="mb-16 scroll-mt-24">
+    <section id="figma" data-section className="mb-16 scroll-mt-24">
       <SectionHeader
         id="figma"
         title="Figma"
@@ -33,8 +33,18 @@ export default function FigmaDocs({ markdownContent }: Props) {
       />
 
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-6">
-        Integrate Reicon directly into your design system workspace using the official Figma plugin. Search, customize stroke weights, and drag-and-drop vector icons directly onto your active canvases.
+        Integrate Reicon directly into your design system workspace using the official Figma plugin. Search 2,700+ icons, customize stroke weights, toggle outline and filled variants, and drag-and-drop vector shapes onto your active canvases.
       </p>
+
+      <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">What you can accomplish:</p>
+      <ul className="text-text-base/60 text-[15px] leading-[1.8] mb-8 space-y-1 list-disc list-inside">
+        <li>Access all 2,700+ icons inside your Figma design files</li>
+        <li>Switch between Outline and Filled icon weights instantly</li>
+        <li>Set custom hex colors or pick local Figma paint styles</li>
+        <li>Insert clean, vector-grouped SVG paths into any frame</li>
+        <li>Search icons by keyword, category, or alias</li>
+        <li>Maintain 100% stroke weight consistency with codebase implementations</li>
+      </ul>
 
       {/* Installation */}
       <h3 id="figma-installation" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
@@ -49,15 +59,17 @@ export default function FigmaDocs({ markdownContent }: Props) {
           href="https://www.figma.com/community/plugin/1652983191908763066"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center bg-[#9B8AFB] hover:bg-[#8B7AFB] text-white text-[13px] font-semibold px-4 py-2.5 rounded-lg transition-colors cursor-pointer"
+          className="inline-flex items-center gap-2 bg-text-base/5 hover:bg-text-base/10 text-text-base text-[13px] font-medium px-4 py-2 rounded-full transition-colors cursor-pointer select-none border-0"
         >
-          Open Figma Community Plugin
+          <FigmaIcon size={16} />
+          <span>Open Figma Community Plugin</span>
+          <re-icon icon="arrow-up-right" size={12} className="text-text-base/40" />
         </a>
       </div>
 
       {/* Workflow & Guide */}
       <h3 id="figma-workflow" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
-        Workflow & Guide
+        Workflow &amp; Guide
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-6">
         How to open and insert vector components inside a design file:
@@ -70,7 +82,7 @@ export default function FigmaDocs({ markdownContent }: Props) {
           </div>
           <div className="flex-1">
             <h4 className="text-text-base font-medium mb-1">Open the plugin panel</h4>
-            <p>Right-click inside any Figma project canvas, select <strong>Plugins</strong> &rarr; <strong>Reicon</strong>, or search for "Reicon" in the resource panel (Cmd/Ctrl + I).</p>
+            <p>Right-click inside any Figma project canvas, select <strong>Plugins</strong> &rarr; <strong>Reicon</strong>, or search for "Reicon" in the resource panel (<kbd className="px-1.5 py-0.5 text-xs bg-text-base/8 rounded font-mono">Shift+I</kbd> / <kbd className="px-1.5 py-0.5 text-xs bg-text-base/8 rounded font-mono">Cmd+P</kbd>).</p>
           </div>
         </div>
 
@@ -80,7 +92,7 @@ export default function FigmaDocs({ markdownContent }: Props) {
           </div>
           <div className="flex-1">
             <h4 className="text-text-base font-medium mb-1">Search or Filter</h4>
-            <p>Browse through categories (Arrows, Communication, System, etc.) or type keywords in the search bar to locate specific shapes instantly.</p>
+            <p>Browse through categories (Arrows, Communication, System, Media, etc.) or type keywords in the search bar to locate specific shapes instantly.</p>
           </div>
         </div>
 
@@ -103,6 +115,45 @@ export default function FigmaDocs({ markdownContent }: Props) {
             <p>Click on any icon grid card to instantly spawn the vector group at the center of your viewport or active frames.</p>
           </div>
         </div>
+      </div>
+
+      {/* Component Variants & Weights */}
+      <h3 id="figma-variants" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+        Component Variants &amp; Weights
+      </h3>
+      <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
+        All inserted vectors conform strictly to 24x24 pixel square viewports:
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+        <div className="p-4 rounded-xl bg-text-base/3 border-0">
+          <h4 className="text-[14px] font-semibold text-text-base mb-1">Outline Style</h4>
+          <p className="text-[13px] text-text-base/50">1.5px default stroke paths. Scale with vector constraint scaling enabled.</p>
+        </div>
+        <div className="p-4 rounded-xl bg-text-base/3 border-0">
+          <h4 className="text-[14px] font-semibold text-text-base mb-1">Filled Style</h4>
+          <p className="text-[13px] text-text-base/50">Solid filled vector paths. Ideal for active nav states and filled button icons.</p>
+        </div>
+      </div>
+
+      {/* Design Tokens & Styles */}
+      <h3 id="figma-tokens" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+        Design Tokens &amp; Styles
+      </h3>
+      <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
+        Easily bind inserted icons to your Figma design system token library:
+      </p>
+      <ul className="text-text-base/60 text-[15px] leading-[1.8] mb-8 space-y-2 list-disc list-inside">
+        <li>Apply local Color Variables (e.g. <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">sys/color/primary</code>) directly to icon fills or strokes</li>
+        <li>Use with Figma Auto Layout components for responsive buttons and inputs</li>
+        <li>Batch export vector assets for developer handoff</li>
+      </ul>
+
+      {/* Shortcuts & Tips */}
+      <h3 id="figma-shortcuts" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+        Shortcuts &amp; Tips
+      </h3>
+      <div className="bg-text-base/3 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed mb-12 border-0">
+        <span className="text-text-base/80 font-medium">Tip:</span> Use <kbd className="px-1.5 py-0.5 text-xs bg-text-base/8 rounded font-mono">Cmd+Option+P</kbd> (Mac) or <kbd className="px-1.5 py-0.5 text-xs bg-text-base/8 rounded font-mono">Ctrl+Alt+P</kbd> (Windows) to instantly re-launch the Reicon plugin window in any file.
       </div>
     </section>
   );

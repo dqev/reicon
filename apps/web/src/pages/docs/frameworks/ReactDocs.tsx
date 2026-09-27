@@ -59,8 +59,8 @@ export default function ReactDocs({ markdownContent, copiedField, onCopy }: Prop
         <span className="text-[#c678dd]">import</span><span className="text-[#e5c07b]"> ShieldCheck</span><span className="text-[#c678dd]"> from</span><span className="text-[#98c379]"> 'reicon-react/icons/ShieldCheck'</span><span className="text-text-base/30">;</span>
       </SyntaxBlock>
 
-      <div className="mt-4 bg-[#9B8AFB]/5 border border-[#9B8AFB]/15 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed">
-        <span className="text-[#9B8AFB] font-medium">Tip:</span> Direct imports are recommended for production apps where bundle size matters. Each icon is its own module, so the bundler can't accidentally pull in other icons.
+      <div className="mt-4 bg-[#9B8AFB]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
+        <span className="text-[#9B8AFB] font-semibold">Tip:</span> Direct imports are recommended for production apps where bundle size matters. Each icon is its own module, so the bundler can't accidentally pull in other icons.
       </div>
 
       <Theming copiedField={copiedField} onCopy={onCopy} />
@@ -110,8 +110,8 @@ export default function ReactDocs({ markdownContent, copiedField, onCopy }: Prop
         <span className="text-text-base/70">{'}'}</span>
       </SyntaxBlock>
 
-      <div className="mt-6 bg-[#61DAFB]/5 border border-[#61DAFB]/15 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed">
-        <span className="text-[#61DAFB] font-medium">Note:</span> All icon components are SSR-compatible and work with Next.js, Remix, and other React frameworks out of the box.
+      <div className="mt-6 bg-[#61DAFB]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
+        <span className="text-[#61DAFB] font-semibold">Note:</span> All icon components are SSR-compatible and work with Next.js, Remix, and other React frameworks out of the box.
       </div>
     </section>
   );
