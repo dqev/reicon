@@ -45,6 +45,7 @@ reicon/
 │   │   ├── src/server/          # MCP stdio server and tool handlers
 │   │   └── dist/                # Package compilation output
 │   ├── reicon-flutter/          # reicon_flutter (Dart & Flutter)
+│   ├── reicon-compose/          # reicon-compose (Kotlin & Jetpack Compose)
 │   ├── reicon-vscode/           # reicon-vscode (VS Code extension)
 │   └── reicon-figma/            # reicon-figma  (Figma plugin)
 │

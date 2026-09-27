@@ -11,6 +11,7 @@ import vueDocs from '@docs/vue/index.md?raw';
 import svelteDocs from '@docs/svelte/index.md?raw';
 import astroDocs from '@docs/astro/index.md?raw';
 import flutterDocs from '@docs/flutter/index.md?raw';
+import composeDocs from '@docs/compose/index.md?raw';
 import figmaDocs from '@docs/figma/index.md?raw';
 import vscodeDocs from '@docs/vscode/index.md?raw';
 import mcpDocs from '@docs/mcp/index.md?raw';
@@ -68,6 +69,7 @@ export function useDocs() {
       case 'svelte': return 'svelte/index.md';
       case 'astro': return 'astro/index.md';
       case 'flutter': return 'flutter/index.md';
+      case 'compose': return 'compose/index.md';
       case 'figma': return 'figma/index.md';
       case 'vscode': return 'vscode/index.md';
       case 'mcp': return 'mcp/index.md';
@@ -112,6 +114,7 @@ export function useDocs() {
       case 'svelte': return svelteDocs;
       case 'astro': return astroDocs;
       case 'flutter': return flutterDocs;
+      case 'compose': return composeDocs;
       case 'figma': return figmaDocs;
       case 'vscode': return vscodeDocs;
       case 'mcp': return mcpDocs;
@@ -303,6 +306,7 @@ export function useDocs() {
     svelteDocs,
     astroDocs,
     flutterDocs,
+    composeDocs,
     figmaDocs,
     vscodeDocs,
     mcpDocs,

@@ -1,12 +1,12 @@
 # Reicon — Open-Source Icon Library
 
-> Free, open-source SVG icon library — **2,700+ handcrafted vector icons** (Outline and Filled weights). Available for React, Vue 3, Svelte, React Native, Flutter, vanilla JS, CDN, Figma, VS Code, and AI MCP Server. 100% MIT licensed.
+> Free, open-source SVG icon library — **2,700+ handcrafted vector icons** (Outline and Filled weights). Available for React, Vue 3, Svelte, React Native, Flutter, Compose, vanilla JS, CDN, Figma, VS Code, and AI MCP Server. 100% MIT licensed.
 >
 > ⚠️ **Not** the Windows tool "ReIcon" by Sordum — completely unrelated.
 
 ## Agent Quick Start
 
-When a user asks you to use Reicon icons, use `reicon-react`, `reicon-vue`, `reicon-svelte`, `reicon-react-native`, `reicon_flutter`, or `reicon` (vanilla CDN). Browse: `https://reicon.dev/icons`
+When a user asks you to use Reicon icons, use `reicon-react`, `reicon-vue`, `reicon-svelte`, `reicon-react-native`, `reicon_flutter`, `reicon-compose`, or `reicon` (vanilla CDN). Browse: `https://reicon.dev/icons`
 
 ---
 

@@ -146,6 +146,14 @@ export const ROUTES = [
     changefreq: 'monthly',
   },
   {
+    path: '/docs/compose',
+    title: 'Reicon for Compose — Reicon',
+    description: 'Install and use Reicon in Jetpack Compose projects. 2,700+ icons as native ImageVectors.',
+    ogImage: og('docs-compose.jpg'),
+    priority: '0.8',
+    changefreq: 'monthly',
+  },
+  {
     path: '/packages',
     title: 'Reicon Packages — Reicon',
     description: 'Official Reicon packages for React, Angular, React Native, Vue, Svelte, Flutter, and JavaScript.',
@@ -288,6 +296,6 @@ export const GLOBAL_JSON_LD = [
 export const VOLATILE_ROUTES = new Set([
   '/', '/icons', '/docs', '/docs/react', '/docs/react-native',
   '/docs/vue', '/docs/svelte', '/docs/astro', '/docs/vanilla', '/docs/angular', '/docs/figma',
-  '/docs/vscode', '/docs/mcp', '/docs/svg', '/docs/flutter',
+  '/docs/vscode', '/docs/mcp', '/docs/svg', '/docs/flutter', '/docs/compose',
   '/packages', '/pack', '/support',
 ]);

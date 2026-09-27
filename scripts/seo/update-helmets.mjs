@@ -40,6 +40,7 @@ const frameworkPairs = [
   ['mcp', 'docs/mcp'],
   ['svg', 'docs/svg'],
   ['flutter', 'docs/flutter'],
+  ['compose', 'docs/compose'],
 ];
 const frameworkEntries = frameworkPairs.map(([fw, routePath]) => {
   const r = ROUTES.find((x) => x.path === `/${routePath}`);
