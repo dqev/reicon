@@ -19,8 +19,9 @@ Mapping:
   rect/circle/ellipse/line/polyline/polygon are rewritten as path data;
   rect transforms are baked into coordinates (translate + rotate only)
   opacity multiplies fillAlpha/strokeAlpha
-  <g> is transparent; <defs>/<clipPath> are skipped (dataset clips are all
-  viewport-sized rects, i.e. no-ops)
+  <g> is transparent; <defs>/<clipPath> subtrees are pruned entirely
+  (ImageVector has no clipping; dataset clips are viewport-sized no-ops,
+  and their rects must not become artwork)
   stroke-dasharray is unsupported by ImageVector: warned, emitted solid
 """
 
@@ -91,17 +92,17 @@ def bake_rect_transform(a: dict) -> tuple:
         if op == "translate":
             tx = nums[0]
             ty = nums[1] if len(nums) > 1 else 0.0
-            m = compose((1, 0, 0, 1, tx, ty), m)
+            m = compose(m, (1, 0, 0, 1, tx, ty))
         elif op == "rotate":
             r = math.radians(nums[0])
             c, s = math.cos(r), math.sin(r)
             if len(nums) == 3:
                 cx, cy = nums[1], nums[2]
-                m = compose((1, 0, 0, 1, cx, cy), m)
-                m = compose((c, s, -s, c, 0, 0), m)
-                m = compose((1, 0, 0, 1, -cx, -cy), m)
+                m = compose(m, (1, 0, 0, 1, cx, cy))
+                m = compose(m, (c, s, -s, c, 0, 0))
+                m = compose(m, (1, 0, 0, 1, -cx, -cy))
             else:
-                m = compose((c, s, -s, c, 0, 0), m)
+                m = compose(m, (c, s, -s, c, 0, 0))
         else:
             raise ValueError(f"unsupported transform op {op!r}")
 
@@ -166,11 +167,17 @@ def collect_shapes(code: str):
     wrapped = "<svg xmlns='http://www.w3.org/2000/svg'>" + code + "</svg>"
     root = ET.fromstring(wrapped)
     out = []
-    for el in root.iter():
+
+    def walk(el):
         t = el.tag.split("}")[-1]
-        if t in ("svg", "g", "defs", "clipPath"):
-            continue
-        out.append((shape_to_d(el), el.attrib))
+        if t in ("defs", "clipPath"):
+            return
+        if t not in ("svg", "g"):
+            out.append((shape_to_d(el), el.attrib))
+        for child in el:
+            walk(child)
+
+    walk(root)
     return out
 
 
