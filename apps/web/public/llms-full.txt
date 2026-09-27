@@ -44,6 +44,7 @@ arrow-down-circle    → ArrowDownCircle
 | Vue 3 | `reicon-vue` | 1.1.1 | `vue ^3.0.0` |
 | Svelte | `reicon-svelte` | 1.0.0 | `svelte >= 3.0.0` |
 | React Native | `reicon-react-native` | 1.0.0 | `react >= 16.8.0`, `react-native >= 0.64.0`, `react-native-svg >= 12.0.0` |
+| Jetpack Compose | `dev.reicon:reicon-compose` | 1.0.0 | Android / Compose UI 1.6+ |
 | MCP Server | `reicon-mcp` | 1.1.0 | Node >= 18 |
 | VS Code | `DevChauhan.reicon` | 1.0.3 | VS Code ^1.80.0 |
 | Figma | Community Plugin | 1.0.0 | Figma |
@@ -382,11 +383,34 @@ npx reicon-mcp apply heart --framework react --file src/App.tsx --marker "{/* IC
 npx reicon-mcp categories
 ```
 
-The `--file --marker` mode replaces a marker in a file with the generated snippet and inserts the import at the top.
+---
+
+### 4.8 Jetpack Compose (`dev.reicon:reicon-compose`)
+
+**Install**: Add to your module's `build.gradle.kts`:
+```kotlin
+dependencies {
+    implementation("dev.reicon:reicon-compose:1.0.0")
+}
+```
+
+**Usage**:
+```kotlin
+import androidx.compose.material3.Icon
+import dev.reicon.Home
+import dev.reicon.Reicon
+
+Icon(
+    imageVector = Reicon.Home,
+    contentDescription = "Home"
+)
+```
+
+Each icon is available as an `ImageVector` extension property on `Reicon`.
 
 ---
 
-### 4.8 VS Code Extension
+### 4.9 VS Code Extension
 
 - **Marketplace**: `DevChauhan.reicon` (search "Reicon" in VS Code)
 - **Install**: `code --install-extension DevChauhan.reicon`
