@@ -1,6 +1,6 @@
 {
   "name": "reicon-mcp",
-  "version": "1.1.102",
+  "version": "1.1.103",
   "private": true,
   "type": "module",
   "description": "MCP server and CLI for browsing and applying Reicon icons.",

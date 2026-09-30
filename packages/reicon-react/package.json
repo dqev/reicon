@@ -1,6 +1,6 @@
 {
   "name": "reicon-react",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "type": "module",
   "description": "React icon components for Reicon.",
   "main": "./dist/index.js",

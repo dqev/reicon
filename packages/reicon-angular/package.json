@@ -1,6 +1,6 @@
 {
   "name": "reicon-angular",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Angular 20+ icon components for Reicon.",
   "scripts": {
     "build": "node scripts/build.cjs"
