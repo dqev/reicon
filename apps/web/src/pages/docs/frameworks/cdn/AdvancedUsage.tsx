@@ -123,7 +123,7 @@ export default function AdvancedUsage({ copiedField, onCopy }: Props) {
       </SyntaxBlock>
 
       {/* Styling with CSS */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Styling with CSS</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Styling with CSS</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         The <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">{'<re-icon>'}</code> element acts like an inline block. It automatically inherits its parent's text color, allowing CSS utility-classes to adjust color naturally.
       </p>
@@ -155,7 +155,7 @@ export default function AdvancedUsage({ copiedField, onCopy }: Props) {
       </SyntaxBlock>
 
       {/* Full HTML Example */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Full Example HTML Page</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Full Example HTML Page</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         A complete HTML document importing Reicon via CDN and showcasing customizations:
       </p>

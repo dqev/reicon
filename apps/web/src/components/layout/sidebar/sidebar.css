@@ -1,0 +1,217 @@
+/* Sidebar styles — extracted from the inline <style> block in Sidebar.tsx. */
+
+#nd-sidebar {
+  width: 14.5rem;
+  height: calc(100vh - 4.25rem);
+  position: sticky;
+  top: 4.25rem;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 0.5rem 0.75rem 0;
+  margin-left: 0;
+  z-index: 30;
+  background-color: var(--bg-base);
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, margin 0.3s ease, padding 0.3s ease;
+}
+#nd-sidebar.is-collapsed {
+  width: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ─── Scrollable Sets Area (Scrolls independently behind pinned tools) ─── */
+.sidebar-scrollable-sets {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-right: 4px;
+  padding-bottom: 12px;
+}
+.sidebar-scrollable-sets::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Fixed Bottom Toolbar for Style & Size ─── */
+.sidebar-fixed-tools {
+  flex-shrink: 0;
+  background-color: var(--bg-base);
+  position: relative;
+  z-index: 10;
+  padding-top: 4px;
+  padding-bottom: 1.5rem;
+  box-shadow: 0 -14px 18px -4px rgba(18, 18, 18, 0.96);
+}
+
+.sidebar-tools-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 12px;
+}
+
+.sidebar-section-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #8f8f8f;
+  padding: 0 0.35rem 0.5rem 0.35rem;
+  user-select: none;
+}
+
+/* Sets expand chevron: plain re-icon, no pill behind it.
+ * The icon renders in shadow DOM, so stroke width is pinned via the
+ * --ri-stroke-width custom property (inherited through shadow roots). */
+.sidebar-chevron-icon {
+  --ri-stroke-width: 1.5;
+}
+
+/* ─── Clay-styled Active Set Button matching website hero buttons ─── */
+.sidebar-set-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #8f8f8f;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  min-height: 36px;
+  transition: background-color 150ms cubic-bezier(0.22, 1, 0.36, 1), color 150ms ease, box-shadow 150ms ease;
+  user-select: none;
+}
+.sidebar-set-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.04);
+}
+.sidebar-set-btn.active {
+  color: #ffffff;
+  background: #2a2a2a;
+  font-weight: 500;
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.06),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.06),
+    inset 0 0 0 1px rgba(196, 196, 196, 0.12);
+}
+.sidebar-set-btn.active:hover {
+  background: #323232;
+}
+
+/* ─── Subcategory: Pure Text Accent, NO Background Box Card ─── */
+.sidebar-subcat-btn {
+  width: 100%;
+  text-align: left;
+  padding: 0.35rem 0.625rem;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #8f8f8f;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  min-height: 28px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 150ms ease;
+  user-select: none;
+}
+.sidebar-subcat-btn:hover {
+  color: #ffffff;
+  background: transparent;
+}
+.sidebar-subcat-btn.active {
+  color: #9B8AFB;
+  font-weight: 500;
+  background: transparent;
+}
+
+/* ─── Inset Tool Card for Style & Size ─── */
+.sidebar-tool-card {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+}
+
+.sidebar-tool-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #8f8f8f;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  min-height: 32px;
+  transition: background-color 150ms cubic-bezier(0.22, 1, 0.36, 1), color 150ms ease, box-shadow 150ms ease;
+  user-select: none;
+}
+.sidebar-tool-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.04);
+}
+.sidebar-tool-btn.active {
+  color: #ffffff;
+  background: #2a2a2a;
+  font-weight: 500;
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.06),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.06),
+    inset 0 0 0 1px rgba(196, 196, 196, 0.1);
+}
+.sidebar-tool-btn.active:hover {
+  background: #323232;
+}
+
+.reicon-sidebar-backdrop {
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(18, 18, 18, 0.85); backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.reicon-sidebar-drawer {
+  position: fixed; top: 0; left: 0; bottom: 0; z-index: 501; width: 17rem;
+  background: #121212; border-right: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1.25rem 1rem calc(1.5rem + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column;
+  overflow: hidden; transform: translateX(-100%);
+  transition: transform 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reicon-sidebar-drawer.is-open { transform: translateX(0); }
+.reicon-sidebar-drawer-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 0.75rem; margin-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+.reicon-sidebar-close {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05); border: none;
+  color: #767676; cursor: pointer;
+  transition: color 0.15s, background-color 0.15s;
+}
+.reicon-sidebar-close:hover { background: rgba(255, 255, 255, 0.09); color: #fbfbfb; }
+@media(min-width:1024px) { .reicon-sidebar-backdrop,.reicon-sidebar-drawer{display:none;} }
+@media(max-width:1023.98px) { #nd-sidebar{display:none;} }

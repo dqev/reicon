@@ -8,7 +8,7 @@ interface Props {
 export default function ComponentApi({ copiedField, onCopy }: Props) {
   return (
     <>
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Props</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Props</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Every icon component accepts the following props to customize its appearance. You can also pass any standard HTML/SVG attributes via <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">v-bind</code>.
       </p>
@@ -44,7 +44,7 @@ export default function ComponentApi({ copiedField, onCopy }: Props) {
       </SyntaxBlock>
 
       {/* Direct Import */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Direct Import for Smaller Bundles</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Direct Import for Smaller Bundles</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         For the absolute smallest bundle size, import each icon directly from its own module.
       </p>

@@ -1,33 +1,12 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useTheme } from '@/components/layout/ThemeContext';
-
 import Hero from './Hero';
 import Features from './Features';
-import Integrations from './Integrations';
-import IconShowcase from './IconShowcase';
 import Playground from './Playground';
-import CTA from './CTA';
+import Testimonials from './Testimonials';
+import FAQ from './FAQ';
 
 export default function HomePage() {
-  const { theme } = useTheme();
-  const heroCardRef = useRef<HTMLDivElement>(null);
-
-  // Hero card parallax scroll effect (desktop only)
-  useEffect(() => {
-    if (window.innerWidth < 768) return;
-    const card = heroCardRef.current;
-    if (!card) return;
-    const tick = () => {
-      const p = Math.min(window.scrollY / (window.innerHeight * 0.55), 1);
-      card.style.transform = `scale(${1 - p * 0.11})`;
-      card.style.opacity = String(1 - p * 0.13);
-    };
-    window.addEventListener('scroll', tick, { passive: true });
-    tick();
-    return () => window.removeEventListener('scroll', tick);
-  }, []);
-
   // Scroll-reveal for sections
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -93,17 +72,15 @@ export default function HomePage() {
         })}</script>
       </Helmet>
 
-      <Hero heroCardRef={heroCardRef} />
+      <Hero />
 
       <Features />
 
-      <Playground theme={theme} />
+      <Playground />
 
-      <Integrations />
+      <Testimonials />
 
-      <IconShowcase theme={theme} />
-
-      <CTA />
+      <FAQ />
 
       <div className="h-5 md:h-12" />
     </div>

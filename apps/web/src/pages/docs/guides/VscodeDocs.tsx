@@ -34,7 +34,7 @@ export default function VscodeDocs({ markdownContent, copiedField, onCopy }: Pro
       </ul>
 
       {/* Installation */}
-      <h3 id="vscode-installation" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="vscode-installation" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Installation
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -68,7 +68,7 @@ export default function VscodeDocs({ markdownContent, copiedField, onCopy }: Pro
       </SyntaxBlock>
 
       {/* Workflow & Sidebar Panel */}
-      <h3 id="vscode-workflow" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="vscode-workflow" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Workflow &amp; Sidebar Panel
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-6">
@@ -118,7 +118,7 @@ export default function VscodeDocs({ markdownContent, copiedField, onCopy }: Pro
       </div>
 
       {/* Snippet Formats */}
-      <h3 id="vscode-snippets" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="vscode-snippets" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Snippet Formats &amp; Autocomplete
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -136,7 +136,7 @@ export default function VscodeDocs({ markdownContent, copiedField, onCopy }: Pro
       </SyntaxBlock>
 
       {/* Antigravity IDE Integration */}
-      <h3 id="vscode-antigravity" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="vscode-antigravity" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Antigravity IDE &amp; AI Agent Integration
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -156,7 +156,7 @@ export default function VscodeDocs({ markdownContent, copiedField, onCopy }: Pro
       </div>
 
       {/* Shortcuts & Settings */}
-      <h3 id="vscode-shortcuts" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="vscode-shortcuts" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Shortcuts &amp; Extension Settings
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">

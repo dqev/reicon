@@ -11,7 +11,7 @@ export default function Installation({ markdownContent, copiedField, onCopy }: P
   return (
     <>
       {/* Vanilla JS Package Section */}
-      <h3 id="cdn-npm" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="cdn-npm" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Vanilla JS / Bundler (NPM)
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -27,7 +27,7 @@ export default function Installation({ markdownContent, copiedField, onCopy }: P
       />
 
       {/* CDN / HTML Section */}
-      <h3 id="cdn-html" data-section className="text-lg font-serif text-text-base mb-4 mt-16 scroll-mt-24">
+      <h3 id="cdn-html" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-16 scroll-mt-24">
         CDN & HTML (No Build Tools)
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">

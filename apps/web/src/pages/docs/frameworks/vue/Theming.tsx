@@ -9,7 +9,7 @@ export default function Theming({ copiedField, onCopy }: Props) {
   return (
     <>
       {/* Dynamic Icons */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Dynamic Icons</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Dynamic Icons</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Use Vue's <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">{'<component :is="..." />'}</code> pattern with <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">shallowRef</code> for dynamic icon switching.
       </p>
@@ -49,7 +49,7 @@ export default function Theming({ copiedField, onCopy }: Props) {
       </SyntaxBlock>
 
       {/* Nuxt 3 */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Nuxt 3</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Nuxt 3</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Works out of the box with Nuxt 3 — just import and use. No plugins or configuration needed.
       </p>

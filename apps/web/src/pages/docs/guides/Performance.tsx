@@ -17,7 +17,7 @@ export default function Performance({ markdownContent, copiedField, onCopy }: Pr
       </p>
 
       {/* Named imports */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Named Imports (Recommended)</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Named Imports (Recommended)</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Import icons by name from the barrel export. Your bundler's tree-shaking will strip out everything you don't use.
       </p>
@@ -41,7 +41,7 @@ export default function Performance({ markdownContent, copiedField, onCopy }: Pr
       </SyntaxBlock>
 
       {/* Direct imports */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Direct Imports (Smallest Bundle)</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Direct Imports (Smallest Bundle)</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         For absolute minimal bundle size, import each icon directly from its own module. This guarantees only that icon's code is included — no bundler analysis needed.
       </p>
@@ -67,7 +67,7 @@ export default function Performance({ markdownContent, copiedField, onCopy }: Pr
       </SyntaxBlock>
 
       {/* What to avoid */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">What to Avoid</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">What to Avoid</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Avoid wildcard or star imports — they pull in every icon and defeat tree-shaking.
       </p>
@@ -97,7 +97,7 @@ export default function Performance({ markdownContent, copiedField, onCopy }: Pr
       </SyntaxBlock>
 
       {/* CDN caching */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">CDN Performance</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">CDN Performance</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         When using the CDN, icons are fetched on demand and cached in the browser. Subsequent page loads use the cached SVGs — no duplicate network requests.
       </p>

@@ -83,9 +83,10 @@ function TypeTableStyles() {
       .reicon-tt-wrap {
         margin-block: 0;
         overflow: auto;
-        border-radius: 12px;
-        border: 1px solid var(--border-base);
-        background: var(--surface-base);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: #181818;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), inset 0 1px 0 0 rgba(255, 255, 255, 0.03);
       }
 
       .reicon-tt {
@@ -94,40 +95,41 @@ function TypeTableStyles() {
         border-spacing: 0;
         white-space: nowrap;
         font-size: 13px;
-        color: var(--text-muted);
+        color: rgba(255, 255, 255, 0.7);
       }
 
       /* Header */
       .reicon-tt thead th {
         text-align: start;
-        padding: 0.625rem 1rem;
-        background: var(--surface-hover);
-        border-bottom: 1px solid var(--border-base);
-        border-inline-start: 1px solid var(--border-base);
+        padding: 0.5rem 0.85rem;
+        background: #141414;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        border-inline-start: 1px solid rgba(255, 255, 255, 0.04);
         font-weight: 600;
         font-size: 11px;
+        font-family: var(--font-mono);
         text-transform: uppercase;
-        letter-spacing: 0.06em;
-        color: var(--text-more-muted);
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.4);
       }
       .reicon-tt thead th:first-child { border-inline-start: none; }
 
       /* Body cells */
       .reicon-tt tbody td {
         text-align: start;
-        padding: 0.625rem 1rem;
-        border-inline-start: 1px solid var(--border-base);
+        padding: 0.5rem 0.85rem;
+        border-inline-start: 1px solid rgba(255, 255, 255, 0.04);
         vertical-align: baseline;
       }
       .reicon-tt tbody td:first-child { border-inline-start: none; }
 
       /* Row separators */
       .reicon-tt tbody tr:not(:last-child) td {
-        border-bottom: 1px solid var(--border-muted);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
       }
 
       .reicon-tt tbody tr:hover td {
-        background: var(--surface-hover);
+        background: rgba(255, 255, 255, 0.02);
       }
 
       /* Field cell content */
@@ -143,42 +145,43 @@ function TypeTableStyles() {
         display: inline-block;
         border-radius: 6px;
         padding: 2px 7px;
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-family: var(--font-mono);
         font-size: 12px;
         line-height: 1.55;
-        background: var(--surface-hover);
-        color: var(--text-hover);
-        border: 1px solid var(--border-muted);
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.08);
       }
 
-      /* Prop chip — accent color, like fd-primary/10 + text-fd-primary */
+      /* Prop chip — accent color */
       .reicon-tt-chip--prop {
-        background: rgba(155, 138, 251, 0.14);
-        color: #b3a8ff;
-        border-color: rgba(155, 138, 251, 0.25);
+        background: rgba(155, 138, 251, 0.15);
+        color: #9B8AFB;
+        border-color: rgba(155, 138, 251, 0.35);
+        font-weight: 500;
       }
 
       .reicon-tt-chip--deprecated {
         text-decoration: line-through;
-        color: rgba(179, 168, 255, 0.5);
+        color: rgba(155, 138, 251, 0.5);
       }
 
       .reicon-tt-dash {
-        color: var(--text-more-muted);
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        color: rgba(255, 255, 255, 0.25);
+        font-family: var(--font-mono);
         font-size: 12px;
       }
 
       .reicon-tt-desc {
-        color: var(--text-more-muted);
+        color: rgba(255, 255, 255, 0.45);
         white-space: normal;
         font-size: 12.5px;
       }
 
-      /* Mobile — collapse description column visually but keep ergonomic widths */
+      /* Mobile */
       @media (max-width: 640px) {
         .reicon-tt {
-          font-size: 12.5px;
+          font-size: 12px;
         }
         .reicon-tt thead th,
         .reicon-tt tbody td {

@@ -4,7 +4,6 @@ const navItems = [
   { to: '/icons', label: 'Icons' },
   { to: '/docs', label: 'Docs' },
   { to: '/packages', label: 'Packages' },
-  { to: '/faq', label: 'FAQ' },
 ];
 
 interface NavLinksProps {

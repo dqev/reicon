@@ -1,37 +1,25 @@
-let ready: Promise<void> | null = null;
+let readyPromise: Promise<void> | null = null;
 
-export function waitForReicon(timeoutMs = 15000): Promise<void> {
-  if (!ready) {
-    ready = new Promise((resolve, reject) => {
-      if (typeof window === 'undefined') {
-        resolve();
-        return;
-      }
+export function waitForReicon(timeoutMs = 5000): Promise<void> {
+  if (typeof window === 'undefined') return Promise.resolve();
+  if ((window as any).Reicon) return Promise.resolve();
 
-      if ((window as any).Reicon) {
-        resolve();
-        return;
-      }
-
-      const timer = setTimeout(() => {
-        if ((window as any).Reicon) {
-          resolve();
-        } else {
-          reject(new Error('Reicon failed to load'));
-        }
-      }, timeoutMs);
-
-      // Fallback: Ensure script tag is present
+  if (!readyPromise) {
+    readyPromise = new Promise((resolve) => {
+      // Ensure local script tag is present
       if (!document.querySelector('script[src*="reicon.js"]')) {
         const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/reicon@latest/cdn/reicon.js';
+        script.src = '/cdn/reicon.js';
         script.defer = true;
         document.head.appendChild(script);
       }
 
+      const start = Date.now();
       function check() {
         if ((window as any).Reicon) {
-          clearTimeout(timer);
+          resolve();
+        } else if (Date.now() - start > timeoutMs) {
+          // Gracefully resolve after timeout so custom elements still render without blocking the UI
           resolve();
         } else {
           setTimeout(check, 50);
@@ -40,5 +28,5 @@ export function waitForReicon(timeoutMs = 15000): Promise<void> {
       check();
     });
   }
-  return ready;
+  return readyPromise;
 }

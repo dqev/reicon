@@ -19,32 +19,44 @@ export default function CodeTabs({
   CODE_TABS, activeTab, pascalName, name, fw,
 }: CodeTabsProps) {
   return (
-    <figure className="relative rounded-xl bg-text-base/3 border border-text-base/8 text-sm">
-      <div className="flex items-center w-full h-11 pl-3 border-b border-text-base/8 overflow-x-auto">
-        <div className="flex items-center h-full gap-1 shrink-0">
+    <figure className="relative rounded-xl bg-white/[0.03] text-sm shadow-none overflow-hidden min-w-0 w-full my-0">
+      {/* Header bar with framework tabs and right-aligned copy button */}
+      <div className="relative flex items-center justify-between w-full h-10 pl-5 pr-1.5 min-w-0">
+        <div className="flex items-center h-full gap-x-4 overflow-x-auto no-scrollbar scroll-smooth shrink min-w-0">
           {CODE_TABS.map((tab) => {
             const isActive = codeTab === tab.id;
             return (
-              <button key={tab.id} onClick={() => setCodeTab(tab.id as any)}
-                className={`relative flex items-center gap-1.5 h-full px-2.5 text-[13px] font-medium whitespace-nowrap transition-colors cursor-pointer ${isActive ? 'text-text-base' : 'text-text-base/40 hover:text-text-base/70'}`}>
-                <span className={isActive ? '' : 'opacity-50'}>{tab.icon}</span>
-                {tab.label}
-                {isActive && <motion.span layoutId="code-tab-underline" className="absolute bottom-0 left-2 right-2 h-[2px] rounded-t-full bg-[#9B8AFB]" style={{ boxShadow: '0 0 8px rgba(155, 138, 251,0.45)' }} />}
+              <button
+                key={tab.id}
+                onClick={() => setCodeTab(tab.id as any)}
+                className={`relative flex items-center gap-1.5 h-full text-[13px] font-medium whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
+                  isActive ? 'text-white' : 'text-white/40 hover:text-white/70'
+                }`}
+              >
+                <span className={isActive ? 'text-[#9B8AFB]' : 'opacity-50'}>{tab.icon}</span>
+                <span>{tab.label}</span>
               </button>
             );
           })}
         </div>
+
+        {/* Copy Button in Header Bar */}
+        <button
+          onClick={() => handleCopy(activeTab.raw, `code-${codeTab}`)}
+          aria-label="Copy code"
+          className="inline-flex items-center justify-center w-7 h-7 rounded-md text-white/40 hover:text-white hover:bg-white/10 transition-colors cursor-pointer shrink-0 ml-2"
+        >
+          {copiedField === `code-${codeTab}` ? (
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+          ) : (
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+          )}
+        </button>
       </div>
-      <div className="px-1.5 py-1.5 overflow-x-auto">
-        <div className="bg-bg-base rounded-md min-h-[92px] min-w-[360px] relative">
-          <button onClick={() => handleCopy(activeTab.raw, `code-${codeTab}`)} aria-label="Copy code"
-            className="absolute top-1.5 right-1.5 z-10 inline-flex items-center justify-center w-7 h-7 rounded-md bg-bg-base text-text-base/30 hover:text-text-base hover:bg-text-base/8 transition-colors cursor-pointer">
-            {copiedField === `code-${codeTab}` ? (
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
-            ) : (
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
-            )}
-          </button>
+
+      {/* Code body area — inset card matching InstallTabs */}
+      <div className="px-1.5 pb-1.5 min-w-0 w-full">
+        <div className="bg-[#121212] rounded-md min-h-[96px] w-full min-w-0 relative overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.pre
               key={codeTab}
@@ -52,7 +64,7 @@ export default function CodeTabs({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.18, ease: EASE }}
-              className="p-4 text-[13px] font-mono leading-[1.7] overflow-x-auto whitespace-pre focus-visible:outline-none text-text-base"
+              className="px-5 py-4 text-[13px] font-mono leading-[1.7] overflow-x-auto whitespace-pre no-scrollbar focus-visible:outline-none text-white/90"
             >
               {codeTab === 'vanilla' && <VanillaSnippet pascalName={pascalName} filled={fw} />}
               {codeTab === 'cdn' && <CdnSnippet name={name} filled={fw} />}

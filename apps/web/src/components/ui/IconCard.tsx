@@ -9,21 +9,24 @@ interface IconCardProps {
   size?: number;
 }
 
-function IconCard({ name, weight = 'outline', size = 32 }: IconCardProps) {
+function IconCard({ name, weight = 'outline', size = 40 }: IconCardProps) {
   return (
-    <HighlightItem value={`${name}-${weight}`}>
+    <HighlightItem
+      value={`${name}-${weight}`}
+      style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 180px' }}
+    >
       <IconTooltipTrigger label={name} side="bottom" sideOffset={14}>
         <Link
           to={`/icon/${name}${weight ? `?weight=${weight}` : ''}`}
-          className="cv-auto group flex items-center justify-center w-full h-full aspect-square bg-text-base/3 border border-text-base/6 rounded-xl transition-all cursor-pointer"
-          title={name}
+          className="cv-auto group flex items-center justify-center w-full h-full aspect-square bg-[#181818] hover:bg-[#1c1c1c] border border-white/[0.06] rounded-2xl sm:rounded-[18px] transition-all duration-150 cursor-pointer"
+          aria-label={name}
         >
           <re-icon
             icon={name}
             weight={weight}
             size={size}
             color="currentColor"
-            className="text-text-base/70 group-hover:text-text-base transition-colors duration-150"
+            className="text-[#ededed] group-hover:text-[#9B8AFB] transition-colors duration-150"
           />
         </Link>
       </IconTooltipTrigger>

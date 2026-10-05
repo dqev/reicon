@@ -81,11 +81,11 @@ export function TooltipOverlay() {
               }}
               transition={transition}
               style={{ position: 'relative', transformOrigin: 'center top' }}
-              className="bg-[var(--tooltip-bg)] shadow-xl rounded-md"
+              className="bg-[var(--tooltip-bg)] shadow-2xl rounded-md border border-white/20"
             >
-              <div className="px-3 py-1.5">
+              <div className="px-2.5 py-1">
                 <motion.div layout="preserve-aspect">
-                  <p className="text-xs font-medium text-[var(--tooltip-text)] whitespace-nowrap">
+                  <p className="text-[12px] font-semibold text-[var(--tooltip-text)] tracking-tight whitespace-nowrap">
                     {rendered.data.label}
                   </p>
                 </motion.div>

@@ -9,7 +9,7 @@ interface ToolsSectionProps {
 export default function ToolsSection({ copiedField, onCopy }: ToolsSectionProps) {
   return (
     <>
-      <h3 id="mcp-agent-workflow" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="mcp-agent-workflow" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Agent Workflow
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-6">
@@ -88,7 +88,7 @@ export default function ToolsSection({ copiedField, onCopy }: ToolsSectionProps)
         </div>
       </div>
 
-      <h3 id="mcp-tools-reference" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="mcp-tools-reference" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Tools Reference
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">

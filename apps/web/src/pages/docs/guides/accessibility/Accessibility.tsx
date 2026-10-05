@@ -17,7 +17,7 @@ export default function Accessibility({ markdownContent, copiedField, onCopy }: 
       </p>
 
       {/* Decorative vs informational */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Decorative Icons</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Decorative Icons</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Icons that are purely visual (next to text labels) should be hidden from screen readers
         with <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">aria-hidden</code>.
@@ -38,7 +38,7 @@ export default function Accessibility({ markdownContent, copiedField, onCopy }: 
       </SyntaxBlock>
 
       {/* Informational */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Informational Icons</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Informational Icons</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Icons that convey meaning without accompanying text need an accessible label. Use{' '}
         <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">aria-label</code> and{' '}
@@ -64,7 +64,7 @@ export default function Accessibility({ markdownContent, copiedField, onCopy }: 
       </SyntaxBlock>
 
       {/* Icon-only buttons */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Icon-Only Buttons</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Icon-Only Buttons</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         For buttons that contain only an icon, add <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">aria-label</code> to
         the button itself and hide the icon from the accessibility tree.
@@ -89,7 +89,7 @@ export default function Accessibility({ markdownContent, copiedField, onCopy }: 
       </SyntaxBlock>
 
       {/* Ref forwarding */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Ref Forwarding</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Ref Forwarding</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         All Reicon components use <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">forwardRef</code>, so you can
         attach a ref to the underlying SVG for focus management or measurements.

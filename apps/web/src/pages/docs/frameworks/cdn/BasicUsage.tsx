@@ -100,7 +100,7 @@ export default function BasicUsage({ copiedField, onCopy }: Props) {
       </SyntaxBlock>
 
       {/* Customizing Icons */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Customizing Elements (Attributes)</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Customizing Elements (Attributes)</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         You can customize <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">{'<re-icon>'}</code> elements using reactive HTML attributes. Updates will be rendered instantly.
       </p>

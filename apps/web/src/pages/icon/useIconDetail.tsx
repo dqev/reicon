@@ -35,7 +35,7 @@ export default function useIconDetail() {
 
   const [previewSize, setPreviewSize] = useState(128);
   const [toast, setToast] = useState<string | null>(null);
-  const [exportSize, setExportSize] = useState(64);
+  const [exportSize, setExportSize] = useState(24);
   const [codeTab, setCodeTab] = useState<'vanilla' | 'cdn' | 'react' | 'angular' | 'react-native' | 'vue' | 'svelte' | 'astro' | 'flutter' | 'compose' | 'direct'>('vanilla');
   const [iconCategory, setIconCategory] = useState('');
   const [contributorGithub, setContributorGithub] = useState<string | null>(null);
@@ -62,8 +62,8 @@ export default function useIconDetail() {
   }, [flashToast]);
 
   const handleCopySvg = useCallback(() => {
-    return copySvgUtils(name || '', activeWeight, useCustomColor, customColor, setCopiedField, flashToast);
-  }, [name, activeWeight, useCustomColor, customColor, flashToast]);
+    return copySvgUtils(name || '', activeWeight, useCustomColor, customColor, setCopiedField, flashToast, exportSize);
+  }, [name, activeWeight, useCustomColor, customColor, flashToast, exportSize]);
 
   const handleDownloadSvg = useCallback(() => {
     return downloadSvgUtils(name || '', activeWeight, exportSize, useCustomColor, customColor, flashToast);

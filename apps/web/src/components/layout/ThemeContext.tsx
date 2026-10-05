@@ -10,51 +10,29 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    try {
-      const stored = localStorage.getItem('reicon-theme');
-      if (stored === 'light' || stored === 'dark') {
-        return stored;
-      }
-    } catch {
-      // Ignore localStorage security exceptions
-    }
-    return 'dark'; // Default to dark theme
-  });
+  const [theme] = useState<Theme>('dark');
 
   useEffect(() => {
     const root = document.documentElement;
-    root.classList.add('no-transitions');
-
-    const isLight = theme === 'light';
-    root.classList.toggle('light', isLight);
-    root.classList.toggle('dark', !isLight);
-    root.style.backgroundColor = isLight ? '#f5f5f0' : '#09090b';
+    root.classList.remove('light');
+    root.classList.add('dark');
+    root.style.backgroundColor = '#121212';
     if (document.body) {
-      document.body.style.backgroundColor = isLight ? '#f5f5f0' : '#09090b';
+      document.body.style.backgroundColor = '#121212';
     }
-
     try {
-      localStorage.setItem('reicon-theme', theme);
+      localStorage.setItem('reicon-theme', 'dark');
     } catch {
-      // Ignore localStorage security exceptions
+      // Ignore
     }
-
-    const _ = window.getComputedStyle(root).opacity;
-
-    const timer = setTimeout(() => {
-      root.classList.remove('no-transitions');
-    }, 50);
-
-    return () => clearTimeout(timer);
-  }, [theme]);
+  }, []);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+    // Single dark theme only
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme: 'dark', toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

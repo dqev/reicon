@@ -7,7 +7,6 @@ import IconActions from './IconActions';
 import CodeTabs from './CodeTabs';
 import SeoHelmet from './SeoHelmet';
 import RelatedIcons from './RelatedIcons';
-import Mockup, { AppNavMockup, ButtonsMockup, StatMockup, ToastMockup, InputMockup, MobileBarMockup } from './Mockups';
 import { EASE } from './utils';
 
 export default function IconDetail() {
@@ -44,11 +43,11 @@ export default function IconDetail() {
       />
 
       <main className="flex-1 w-full overflow-x-hidden">
-        <div className="max-w-[1160px] mx-auto px-4 sm:px-6 md:px-8 pt-20 pb-12 md:pt-24 md:pb-16">
+        <div className="max-w-[1240px] mx-auto w-full flex flex-col flex-1 pt-2 md:pt-4 px-5 md:px-10 pb-12 md:pb-20">
           <div className="flex items-center justify-between mb-6 gap-3">
             <button
               onClick={handleBack}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[12px] font-medium text-text-base/60 hover:text-text-base bg-text-base/3 hover:bg-text-base/6 border border-text-base/6 transition-all cursor-pointer group shrink-0"
+              className="flex items-center gap-1.5 h-9 px-3.5 rounded-full text-[13px] font-medium text-white/80 hover:text-white bg-white/[0.07] hover:bg-white/10 border-0 transition-all cursor-pointer group shrink-0"
             >
               <svg
                 aria-hidden="true"
@@ -64,16 +63,16 @@ export default function IconDetail() {
               <span>Back</span>
             </button>
 
-            <nav aria-label="Breadcrumb" className="flex items-center gap-1 text-[13px] font-mono text-text-base/40 min-w-0">
-              <Link to="/icons" className="hover:text-text-base/70 transition-colors shrink-0">icon</Link>
-              <span className="text-text-base/25 shrink-0" aria-hidden="true">/</span>
-              <span className="text-text-base/80 font-medium truncate" aria-current="page">{name}</span>
+            <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs font-mono text-white/40 min-w-0">
+              <Link to="/icons" className="hover:text-white/70 transition-colors shrink-0">icon</Link>
+              <span className="text-white/20 shrink-0" aria-hidden="true">/</span>
+              <span className="text-white/90 font-medium truncate" aria-current="page">{name}</span>
             </nav>
           </div>
 
           <h1 className="sr-only">{pascalName} icon — Reicon</h1>
 
-          <div className="grid lg:grid-cols-[360px_minmax(0,1fr)] gap-6 lg:gap-8">
+          <div className="grid lg:grid-cols-[380px_minmax(0,1fr)] gap-6 lg:gap-8 items-start">
             <IconPreview
               pascalName={pascalName}
               iconCategory={iconCategory}
@@ -92,7 +91,7 @@ export default function IconDetail() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, ease: EASE, delay: 0.08 }}
-              className="flex flex-col gap-5 min-w-0"
+              className="flex flex-col gap-4 min-w-0"
             >
               <IconActions
                 pascalName={pascalName}
@@ -127,7 +126,7 @@ export default function IconDetail() {
               />
 
               <div>
-                <h3 className="text-[11px] font-medium text-text-base/40 uppercase tracking-wider mb-3">Props</h3>
+                <h3 className="text-[11px] font-mono font-semibold tracking-[0.1em] text-white/40 uppercase mb-2">Props</h3>
                 <TypeTable rows={[
                   { prop: 'size', type: 'number | string', default: '24', description: 'Icon size in pixels' },
                   { prop: 'color', type: 'string', default: 'currentColor', description: 'Any valid CSS color' },
@@ -137,26 +136,10 @@ export default function IconDetail() {
               </div>
             </motion.div>
           </div>
-
-          <section className="mt-16">
-            <div className="border-t border-text-base/8 pt-12 mb-8 text-center">
-              <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#9B8AFB] mb-2">In context</div>
-              <h2 className="font-serif text-[clamp(20px,2.6vw,30px)] text-text-base">See the {pascalName} icon in real UI</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <Mockup i={0}><AppNavMockup name={name} pascalName={pascalName} weight={activeWeight} /></Mockup>
-              <Mockup i={1}><ButtonsMockup name={name} weight={activeWeight} /></Mockup>
-              <Mockup i={2}><StatMockup name={name} weight={activeWeight} /></Mockup>
-              <Mockup i={3}><ToastMockup name={name} weight={activeWeight} /></Mockup>
-              <Mockup i={4}><InputMockup name={name} weight={activeWeight} /></Mockup>
-              <Mockup i={5}><MobileBarMockup name={name} weight={activeWeight} /></Mockup>
-            </div>
-          </section>
         </div>
 
         {relatedIcons.length > 0 && (
-          <RelatedIcons relatedIcons={relatedIcons} />
+          <RelatedIcons relatedIcons={relatedIcons} weight={activeWeight} />
         )}
       </main>
 
@@ -169,7 +152,7 @@ export default function IconDetail() {
             transition={{ duration: 0.25, ease: EASE }}
             className="fixed bottom-6 left-0 right-0 z-[100] flex justify-center px-4"
           >
-            <div className="bg-[var(--dropdown-bg)] border border-text-base/8 text-text-base/80 text-[13px] px-4 py-2.5 rounded-full shadow-xl flex items-center gap-2 whitespace-nowrap">
+            <div className="bg-[#202020] border border-white/10 text-white/90 text-xs font-medium px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2.5 whitespace-nowrap backdrop-blur-md">
               <svg className="w-3.5 h-3.5 text-[#9B8AFB] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
               {toast}
             </div>

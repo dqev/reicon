@@ -8,7 +8,7 @@ interface Props {
 export default function Theming({ copiedField, onCopy }: Props) {
   return (
     <>
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Using with Tailwind CSS</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Using with Tailwind CSS</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Reicon works seamlessly with Tailwind CSS. Use the <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">className</code> prop to apply Tailwind utilities. The icon inherits <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">currentColor</code> by default, so Tailwind's text color classes work out of the box.
       </p>

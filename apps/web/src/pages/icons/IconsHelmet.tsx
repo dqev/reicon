@@ -1,15 +1,26 @@
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 import { PAGE_META } from '@/data/page-meta';
 
 export default function IconsHelmet() {
-  const meta = PAGE_META['/icons'];
+  const { pathname } = useLocation();
+  const meta = PAGE_META[pathname] || PAGE_META['/icons'];
+
+  const breadcrumbsName =
+    pathname === '/glass'
+      ? 'Glass Icons'
+      : pathname === '/flags'
+      ? 'Country Flags'
+      : pathname === '/brands'
+      ? 'Brands & Social Media'
+      : 'Icons';
 
   return (
     <Helmet>
       <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
       <link rel="canonical" href={meta.url} />
-      <meta name="keywords" content="free icons, SVG icons, icon library, browse icons, outline icons, filled icons, reicon" />
+      <meta name="keywords" content="free icons, SVG icons, icon library, browse icons, glass icons, flag icons, brand logos, reicon" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={meta.url} />
       <meta property="og:site_name" content="Reicon" />
@@ -28,15 +39,15 @@ export default function IconsHelmet() {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Reicon", "item": "https://reicon.dev" },
-          { "@type": "ListItem", "position": 2, "name": "Icons", "item": "https://reicon.dev/icons" }
+          { "@type": "ListItem", "position": 2, "name": breadcrumbsName, "item": meta.url }
         ]
       })}</script>
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "Reicon Icon Library",
-        "description": "Browse and search 2700+ free, open-source SVG icons.",
-        "url": "https://reicon.dev/icons",
+        "name": meta.title,
+        "description": meta.description,
+        "url": meta.url,
         "isPartOf": { "@type": "WebSite", "name": "Reicon", "url": "https://reicon.dev" }
       })}</script>
     </Helmet>

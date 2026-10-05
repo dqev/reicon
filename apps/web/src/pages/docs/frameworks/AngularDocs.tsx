@@ -52,13 +52,13 @@ export default function AngularDocs({ markdownContent, copiedField, onCopy }: Pr
         <li>Forward common accessibility inputs to the SVG element</li>
       </ul>
 
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Installation</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Installation</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Install the package using your preferred package manager. Angular 20 or newer is required.
       </p>
       <InstallTabs packageName="reicon-angular" copiedField={copiedField} onCopy={onCopy} />
 
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Basic Usage</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Basic Usage</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Import the standalone components you use and add them to the component's <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">imports</code> array. Selectors use the icon name in kebab-case with an <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">ri-</code> prefix.
       </p>
@@ -82,7 +82,7 @@ export default function AngularDocs({ markdownContent, copiedField, onCopy }: Pr
         <span className="text-[#c678dd]">export class</span><span className="text-[#61afef]"> AppComponent</span><span className="text-text-base/70"> {'{}'}</span>
       </SyntaxBlock>
 
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Sizing, color, and weights</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Sizing, color, and weights</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Icons default to Outline and inherit the surrounding CSS color. Use Angular inputs for one-off configuration.
       </p>
@@ -98,7 +98,7 @@ export default function AngularDocs({ markdownContent, copiedField, onCopy }: Pr
         <span className="text-text-base/70">&lt;</span><span className="text-[#e06c75]">ri-star</span><span className="text-[#d19a66]"> weight</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"Filled"</span><span className="text-text-base/70">&gt;&lt;/</span><span className="text-[#e06c75]">ri-star</span><span className="text-text-base/70">&gt;</span>
       </SyntaxBlock>
 
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">NgModule applications</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">NgModule applications</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Generated icons are standalone components. In a module-based application, add an icon component to the NgModule <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">imports</code> array instead of declaring it.
       </p>

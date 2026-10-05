@@ -50,7 +50,7 @@ async function loadDuotoneData(): Promise<Record<string, { code: string }>> {
 export async function getSvgString(
   iconName: string,
   weight: string,
-  size: number = 64
+  size: number = 24
 ): Promise<string> {
   if (weight.toLowerCase() === 'duotone') {
     const map = await loadDuotoneData();
@@ -101,10 +101,11 @@ export async function copySvg(
   useCustomColor: boolean,
   customColor: string,
   setCopiedField: (f: string | null) => void,
-  flashToast: (msg: string) => void
+  flashToast: (msg: string) => void,
+  exportSize: number = 24
 ): Promise<void> {
   try {
-    let svgStr = await getSvgString(iconName, weight);
+    let svgStr = await getSvgString(iconName, weight, exportSize);
     if (!svgStr) { flashToast('SVG not found'); return; }
     if (useCustomColor) {
       svgStr = svgStr.replace(/currentColor/g, customColor);
@@ -158,8 +159,7 @@ async function downloadAsRaster(
   canvas.height = size * scale;
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
-  const isLight = document.documentElement.classList.contains('light');
-  const colorToUse = useCustomColor ? customColor : (isLight ? '#111111' : '#ffffff');
+  const colorToUse = useCustomColor ? customColor : '#ffffff';
   const colored = svgStr.replace(/currentColor/g, colorToUse);
   const img = new Image();
   const svgBlob = new Blob([colored], { type: 'image/svg+xml' });

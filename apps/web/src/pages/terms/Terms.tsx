@@ -72,9 +72,9 @@ export default function Terms() {
         })}</script>
       </Helmet>
 
-      <main className="flex-1 pt-28 px-4 md:px-8 pb-12 max-w-5xl mx-auto w-full overflow-x-hidden">
+      <main className="max-w-[760px] mx-auto w-full flex flex-1 pt-2 md:pt-4 px-5 md:px-10 pb-16 overflow-x-hidden flex-col">
         <div className="flex items-center justify-between gap-4 mb-2">
-          <h1 className="text-2xl sm:text-3xl font-serif text-text-base truncate">Terms of Service</h1>
+          <h1 className="text-2xl sm:text-3xl font-sans font-medium text-white truncate">Terms of Service</h1>
           <div className="shrink-0">
             <DocsActionsBar
               copiedPage={copiedPage}
