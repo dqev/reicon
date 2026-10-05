@@ -45,7 +45,7 @@ export default function McpDocs({ markdownContent, copiedField, onCopy }: Props)
       <ToolsSection copiedField={copiedField} onCopy={onCopy} />
 
       {/* CLI */}
-      <h3 id="mcp-cli" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="mcp-cli" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         CLI
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-6">
@@ -98,7 +98,7 @@ export default function McpDocs({ markdownContent, copiedField, onCopy }: Props)
       </div>
 
       {/* Scripted File Insertion */}
-      <h3 id="mcp-file-insertion" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="mcp-file-insertion" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Scripted File Insertion
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -125,7 +125,7 @@ export default function McpDocs({ markdownContent, copiedField, onCopy }: Props)
       </div>
 
       {/* Offline Operation */}
-      <h3 id="mcp-offline-operation" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="mcp-offline-operation" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Offline Operation
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">

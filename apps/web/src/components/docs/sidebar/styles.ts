@@ -7,7 +7,7 @@ export const docsSidebarStyles = `
     top: 3.5rem;
     align-self: flex-start;
     overflow-y: auto;
-    padding: 1.25rem 0.5rem 2rem 0;
+    padding: 0.25rem 0.5rem 2rem 0;
     margin-left: 0;
     z-index: 30;
     background-color: var(--bg-base);
@@ -108,7 +108,7 @@ export const docsSidebarStyles = `
     top: 3.5rem;
     align-self: flex-start;
     overflow-y: auto;
-    padding: 1.25rem 0 2rem 0.5rem;
+    padding: 0.25rem 0 2rem 0.5rem;
     margin-right: 0;
     z-index: 30;
     background-color: var(--bg-base);

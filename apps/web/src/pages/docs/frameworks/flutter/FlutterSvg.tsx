@@ -8,7 +8,7 @@ interface Props {
 export default function FlutterSvg({ copiedField, onCopy }: Props) {
   return (
     <>
-      <h3 id="flutter-svg" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="flutter-svg" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Flutter + flutter_svg
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">

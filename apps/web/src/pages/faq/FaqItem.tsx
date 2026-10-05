@@ -18,7 +18,7 @@ export default function FaqItem({ id, question, open, onToggle, children }: FaqI
         aria-controls={`faq-answer-${id}`}
         className="flex items-center justify-between w-full text-left group cursor-pointer"
       >
-        <h2 className="text-xl font-serif text-text-base mb-0">{question}</h2>
+        <h2 className="text-xl font-sans font-medium text-text-base mb-0">{question}</h2>
         <svg
           viewBox="0 0 24 24"
           fill="none"

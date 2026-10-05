@@ -47,7 +47,7 @@ export default function FigmaDocs({ markdownContent }: Props) {
       </ul>
 
       {/* Installation */}
-      <h3 id="figma-installation" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="figma-installation" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Installation
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -68,7 +68,7 @@ export default function FigmaDocs({ markdownContent }: Props) {
       </div>
 
       {/* Workflow & Guide */}
-      <h3 id="figma-workflow" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="figma-workflow" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Workflow &amp; Guide
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-6">
@@ -118,7 +118,7 @@ export default function FigmaDocs({ markdownContent }: Props) {
       </div>
 
       {/* Component Variants & Weights */}
-      <h3 id="figma-variants" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="figma-variants" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Component Variants &amp; Weights
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -136,7 +136,7 @@ export default function FigmaDocs({ markdownContent }: Props) {
       </div>
 
       {/* Design Tokens & Styles */}
-      <h3 id="figma-tokens" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="figma-tokens" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Design Tokens &amp; Styles
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -149,7 +149,7 @@ export default function FigmaDocs({ markdownContent }: Props) {
       </ul>
 
       {/* Shortcuts & Tips */}
-      <h3 id="figma-shortcuts" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="figma-shortcuts" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Shortcuts &amp; Tips
       </h3>
       <div className="bg-text-base/3 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed mb-12 border-0">

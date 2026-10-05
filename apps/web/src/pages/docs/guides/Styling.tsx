@@ -27,7 +27,7 @@ export default function Styling({ markdownContent, copiedField, onCopy }: Props)
       </ul>
 
       {/* Color Inheritance */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Color Inheritance</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Color Inheritance</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         With no <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">color</code> prop specified, icons automatically inherit the text color of their parent container:
       </p>
@@ -56,7 +56,7 @@ export default function Styling({ markdownContent, copiedField, onCopy }: Props)
       </SyntaxBlock>
 
       {/* Direct Color Props */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Direct Color Props</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Direct Color Props</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         You can pass Hex, RGB, HSL, or CSS variables directly into the <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">color</code> prop:
       </p>
@@ -80,7 +80,7 @@ export default function Styling({ markdownContent, copiedField, onCopy }: Props)
       </SyntaxBlock>
 
       {/* Stroke Width */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Stroke Width Customization</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Stroke Width Customization</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Adjust stroke thickness on outline icons using the <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">strokeWidth</code> prop. This overrides default stroke widths on all outline paths:
       </p>
@@ -101,7 +101,7 @@ export default function Styling({ markdownContent, copiedField, onCopy }: Props)
       </SyntaxBlock>
 
       {/* Tailwind CSS Integration */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Tailwind CSS Integration</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Tailwind CSS Integration</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Reicon components accept standard utility classes via <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">className</code>:
       </p>
@@ -117,7 +117,7 @@ export default function Styling({ markdownContent, copiedField, onCopy }: Props)
       </SyntaxBlock>
 
       {/* CSS Animations */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">CSS Animations &amp; Transitions</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">CSS Animations &amp; Transitions</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Since icons render as native SVGs, you can apply standard CSS keyframe animations:
       </p>
@@ -145,7 +145,7 @@ export default function Styling({ markdownContent, copiedField, onCopy }: Props)
       </SyntaxBlock>
 
       {/* Inline styles */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Inline Styles</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Inline Styles</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         The <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">style</code> prop merges directly with the SVG element's inline attributes:
       </p>

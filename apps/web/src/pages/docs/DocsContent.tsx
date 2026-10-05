@@ -122,29 +122,27 @@ export default function DocsContent({
   const isFlutter = framework === 'flutter';
 
   return (
-    <main ref={contentRef} className="flex-1 min-w-0 px-0 md:px-6 lg:px-8 xl:px-10 py-5 pb-36 lg:pb-12 overflow-x-hidden">
-      <div className="max-w-5xl mx-auto">
-
-
+    <main ref={contentRef} className="flex-1 min-w-0 px-0 md:px-6 lg:px-8 xl:px-10 pt-0 pb-36 lg:pb-12 overflow-x-hidden">
+      <div className="w-full max-w-none">
 
             {/* What is Reicon — shown on base /docs route */}
             {!fwParam && (
               <>
                 <section id="what-is-reicon" data-section className="mb-12 scroll-mt-24">
                   <SectionHeader id="what-is-reicon" title="What is Reicon?" level="h2" markdownContent={vanillaDocs} />
-                  <p className="text-text-base/60 text-[15px] leading-[1.8] mb-6">
+                  <p className="text-white/60 text-[15px] leading-[1.8] mb-6">
                     Reicon is a free, open-source SVG icon library featuring <strong>2,700+ handcrafted UI icons</strong>.
-                    The ecosystem offers native packages for <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon</code> (vanilla JS &amp; CDN),{' '}
-                    <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-react</code>,{' '}
-                    <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-angular</code>,{' '}
-                    <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-react-native</code>,{' '}
-                    <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-vue</code>,{' '}
-                    <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-svelte</code>,{' '}
-                     <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-astro</code>,{' '}
-                     <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon_flutter</code>, and{' '}
-                     <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-compose</code>.
+                    The ecosystem offers native packages for <code className="text-white/80 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon</code> (vanilla JS &amp; CDN),{' '}
+                    <code className="text-white/80 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-react</code>,{' '}
+                    <code className="text-white/80 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-angular</code>,{' '}
+                    <code className="text-white/80 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-react-native</code>,{' '}
+                    <code className="text-white/80 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-vue</code>,{' '}
+                    <code className="text-white/80 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-svelte</code>,{' '}
+                     <code className="text-white/80 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-astro</code>,{' '}
+                     <code className="text-white/80 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon_flutter</code>, and{' '}
+                     <code className="text-white/80 bg-white/[0.06] px-1.5 py-0.5 rounded text-[12px]">reicon-compose</code>.
                   </p>
-                  <p className="text-text-base/60 text-[15px] leading-[1.8]">
+                  <p className="text-white/60 text-[15px] leading-[1.8]">
                     Icons come in Outline and Filled weights with zero external dependencies and full tree-shakeability.
                   </p>
                 </section>
@@ -154,21 +152,18 @@ export default function DocsContent({
             {/* Framework selector grid — shown on base /docs route */}
             {!fwParam ? (
               <section className="mb-12">
-                <h2 className="text-lg font-serif text-text-base mb-6">Choose an Integration</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <h2 className="text-xl font-display font-medium text-white mb-6 tracking-tight">Choose an Integration</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {FRAMEWORKS.map((fw) => (
                     <button
                       key={fw.id}
                       onClick={() => switchFramework(fw.id)}
-                      className="flex items-center gap-4 p-5 rounded-2xl bg-text-base/3 hover:bg-text-base/6 text-left transition-all border border-transparent hover:border-text-base/5 cursor-pointer"
+                      className="flex items-center gap-3.5 px-4.5 py-3.5 rounded-2xl bg-[#181818] hover:bg-[#1e1e1e] border border-white/[0.06] hover:border-white/15 text-left transition-all cursor-pointer group shadow-none"
                     >
-                      <div className="w-10 h-10 rounded-xl bg-text-base/5 flex items-center justify-center text-lg shrink-0">
-                        <FrameworkIcon id={fw.id} size={20} />
-                      </div>
-                      <div>
-                        <h3 className="text-[14px] font-semibold text-text-base mb-0.5">{fw.label}</h3>
-                        <p className="text-[12px] text-text-base/40">View the {fw.label} integration guide</p>
-                      </div>
+                      <FrameworkIcon id={fw.id} size={22} className="shrink-0" />
+                      <span className="text-sm font-medium text-white group-hover:text-[#9B8AFB] transition-colors truncate">
+                        {fw.label}
+                      </span>
                     </button>
                   ))}
                 </div>

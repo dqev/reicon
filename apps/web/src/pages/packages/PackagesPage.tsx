@@ -36,35 +36,37 @@ export default function PackagesPage() {
         })}</script>
       </Helmet>
 
-      <main className="flex-1 pt-28 px-6 pb-16 w-full overflow-x-hidden">
-        <div className="max-w-[1160px] mx-auto w-full">
-          <h1 className="text-3xl md:text-4xl font-serif text-text-base mb-12">Packages</h1>
+      <main className="max-w-[1160px] mx-auto w-full flex flex-col flex-1 px-4 sm:px-6 md:px-10 py-12 md:py-16">
+        <div className="w-full">
+          {/* Main Title */}
+          <h1 className="font-sans font-normal text-[22px] sm:text-[26px] text-[#fefefe] tracking-[-0.02em] text-center mb-12 sm:mb-16">
+            Packages
+          </h1>
 
           {/* Libraries & Frameworks */}
-          <section className="mb-16">
-            <h2 className="text-xl md:text-2xl font-serif text-text-base/95 mb-8 flex items-center gap-4">
-              <span>Libraries & Frameworks</span>
-              <span className="h-[1px] flex-1 bg-text-base/10" />
+          <section className="mb-14 md:mb-18">
+            <h2 className="font-sans font-normal text-[18px] sm:text-[20px] text-[#fefefe] tracking-[-0.02em] mb-8 flex items-center gap-4">
+              <span>Libraries &amp; Frameworks</span>
+              <span className="h-[1px] flex-1 bg-white/[0.06]" />
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
               {PACKAGES.map((pkg) => <PackageCard key={pkg.id} pkg={pkg} />)}
-              <SvgCard />
             </div>
           </section>
 
           {/* Developer Tools */}
           <section>
-            <h2 className="text-xl md:text-2xl font-serif text-text-base/95 mb-8 flex items-center gap-4">
-              <span>Developer Tools & Extensions</span>
-              <span className="h-[1px] flex-1 bg-text-base/10" />
+            <h2 className="font-sans font-normal text-[18px] sm:text-[20px] text-[#fefefe] tracking-[-0.02em] mb-8 flex items-center gap-4">
+              <span>Developer Tools &amp; Extensions</span>
+              <span className="h-[1px] flex-1 bg-white/[0.06]" />
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
               {TOOLS.map((tool) => <ToolCard key={tool.id} tool={tool} />)}
+              <SvgCard />
             </div>
           </section>
         </div>
       </main>
-
     </div>
   );
 }

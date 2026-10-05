@@ -105,18 +105,22 @@ export const AstroIcon = ({ size = 16 }: { size?: number }) => {
     );
 };
 
-export const FrameworkIcon = ({ id, size = 16 }: { id: string; size?: number }) => {
-    if (id === 'react') return <FaReact className="text-[#61DAFB]" size={size} />;
-    if (id === 'react-native') return <FaReact className="text-[#61DAFB]" size={size} />;
-    if (id === 'angular') return <AngularIcon size={size} />;
-    if (id === 'vue') return <VueIcon size={size} />;
-    if (id === 'svelte') return <SvelteIcon size={size} />;
-    if (id === 'astro') return <AstroIcon size={size} />;
-    if (id === 'figma') return <FigmaIcon size={size} />;
-    if (id === 'vscode') return <VscodeIcon size={size} />;
-    if (id === 'mcp') return <McpIcon size={size} />;
-    if (id === 'flutter') return <FlutterIcon size={size} />;
-    if (id === 'compose') return <ComposeIcon size={size} />;
-    if (id === 'svg') return <SvgIcon size={size} />;
-    return <IoLogoJavascript className="text-yellow-400" size={size} />;
+export const FrameworkIcon = ({ id, size = 16, className }: { id: string; size?: number; className?: string }) => {
+    let icon = <IoLogoJavascript className="text-yellow-400" size={size} />;
+    if (id === 'react' || id === 'react-native') icon = <FaReact className="text-[#61DAFB]" size={size} />;
+    else if (id === 'angular') icon = <AngularIcon size={size} />;
+    else if (id === 'vue') icon = <VueIcon size={size} />;
+    else if (id === 'svelte') icon = <SvelteIcon size={size} />;
+    else if (id === 'astro') icon = <AstroIcon size={size} />;
+    else if (id === 'figma') icon = <FigmaIcon size={size} />;
+    else if (id === 'vscode') icon = <VscodeIcon size={size} />;
+    else if (id === 'mcp') icon = <McpIcon size={size} />;
+    else if (id === 'flutter') icon = <FlutterIcon size={size} />;
+    else if (id === 'compose') icon = <ComposeIcon size={size} />;
+    else if (id === 'svg') icon = <SvgIcon size={size} />;
+
+    if (className) {
+        return <span className={`inline-flex items-center justify-center ${className}`}>{icon}</span>;
+    }
+    return icon;
 };

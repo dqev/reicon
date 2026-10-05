@@ -8,13 +8,12 @@ import PlaygroundCode from './playground/PlaygroundCode';
 const CONSISTENCY_COUNT = 80;
 const HEX_RE = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
 
-export default function Playground({ theme }: { theme: string }) {
+export default function Playground({ theme }: { theme?: string }) {
   const [iconNames, setIconNames] = useState<Record<string, string>>({});
   const [icons, setIcons] = useState<string[]>(['home']);
   const [selected, setSelected] = useState('home');
-  const isLight = theme === 'light';
-  const [color, setColor] = useState(isLight ? '#111111' : '#ffffff');
-  const [size, setSize] = useState(32);
+  const [color, setColor] = useState('#ffffff');
+  const [size, setSize] = useState(80);
   const [weight, setWeight] = useState<'outline' | 'filled'>('outline');
 
   const allIconNames = useMemo(() => Object.keys(iconNames), [iconNames]);
@@ -48,11 +47,6 @@ export default function Playground({ theme }: { theme: string }) {
   }, [initialShuffled]);
 
   useEffect(() => {
-    if (color === '#ffffff' && theme === 'light') setColor('#111111');
-    else if (color === '#111111' && theme === 'dark') setColor('#ffffff');
-  }, [theme, color]);
-
-  useEffect(() => {
     if (allIconNames.length === 0) return;
     let active = true;
     (async () => {
@@ -80,23 +74,19 @@ export default function Playground({ theme }: { theme: string }) {
     return () => { active = false; };
   }, [initialShuffled, selected]);
 
-  const displayColor = HEX_RE.test(color) ? color : (isLight ? '#111111' : '#ffffff');
+  const displayColor = HEX_RE.test(color) ? color : '#ffffff';
   const pascalName = iconNames[selected] || selected;
-  const reset = () => { setColor(isLight ? '#111111' : '#ffffff'); setSize(32); setWeight('outline'); };
+  const reset = () => { setColor('#ffffff'); setSize(80); setWeight('outline'); };
 
   return (
     <section className="reveal max-w-[1160px] mx-auto px-4 sm:px-6 md:px-10 py-12 md:py-16">
-      <div className="text-center mb-8">
-        <div className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#9B8AFB] mb-2">Playground</div>
-        <h2 className="font-serif text-[clamp(26px,3.6vw,46px)] text-text-base leading-[1.15] tracking-[-0.02em] mb-3">Pick one. Make it yours.</h2>
-        <p className="text-[15px] text-text-base/45 leading-[1.65] max-w-[490px] mx-auto mb-6">
-          Customize icons in real-time.
-        </p>
-      </div>
+      <h2 className="font-sans font-normal text-[22px] sm:text-[26px] text-[#fefefe] tracking-[-0.02em] text-center mb-12 sm:mb-16">
+        Playground
+      </h2>
 
-      <div className="bg-text-base/3 rounded-[16px] sm:rounded-[18px] md:rounded-[20px] overflow-hidden">
-        <div className="grid lg:grid-cols-[300px_1fr]">
-          <div className="p-5 lg:p-6 lg:border-r border-b lg:border-b-0 border-text-base/6 flex flex-col gap-4">
+      <div className="bg-[#181818] rounded-[24px] card-inset overflow-hidden p-5 sm:p-6 md:p-7">
+        <div className="grid lg:grid-cols-[290px_1fr] gap-6 lg:gap-8">
+          <div className="flex flex-col gap-4 lg:border-r border-white/[0.06] lg:pr-6">
             <PlaygroundPreview
               selected={selected}
               size={size}
@@ -107,7 +97,6 @@ export default function Playground({ theme }: { theme: string }) {
             <PlaygroundControls
               color={color}
               onChangeColor={setColor}
-              theme={theme}
               size={size}
               onChangeSize={setSize}
               weight={weight}
@@ -115,7 +104,7 @@ export default function Playground({ theme }: { theme: string }) {
               onReset={reset}
             />
           </div>
-          <div className="p-3 sm:p-4">
+          <div className="flex flex-col justify-between">
             <PlaygroundCode
               selected={selected}
               icons={icons}
@@ -132,3 +121,4 @@ export default function Playground({ theme }: { theme: string }) {
     </section>
   );
 }
+

@@ -28,7 +28,7 @@ export default class ErrorBoundary extends Component<Props, State> {
         this.props.fallback || (
           <div className="min-h-[50vh] flex items-center justify-center p-6 text-center">
             <div className="max-w-md w-full">
-              <h2 className="text-lg font-serif font-semibold text-text-base mb-2">Unable to load section</h2>
+              <h2 className="text-lg font-sans font-medium font-semibold text-text-base mb-2">Unable to load section</h2>
               <p className="text-sm text-text-base/50 mb-4">{this.state.error?.message || 'A temporary error occurred.'}</p>
               <button
                 onClick={() => window.location.reload()}

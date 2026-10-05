@@ -1,144 +1,161 @@
 import { Link } from 'react-router-dom';
-import { HandHeart, Search3, Doc } from 'reicon-react';
 import { SiJavascript, SiReact } from 'react-icons/si';
 import { FaReact } from 'react-icons/fa';
-import Background from '@/components/layout/Background';
 import ClayButton from '@/components/ui/Button';
+import HeroIsometric from './HeroIsometric';
 import { FigmaIcon, VscodeIcon, VueIcon, SvelteIcon, McpIcon, FlutterIcon, ComposeIcon, AstroIcon } from './icons';
 import { AngularIcon } from '@/components/docs/framework/icons';
+import { Sparkles } from 'reicon-react';
+
+const INTEGRATIONS = [
+  {
+    to: '/docs/react',
+    title: 'React',
+    icon: <SiReact className="text-[#61DAFB] shrink-0" size={16} />,
+  },
+  {
+    to: '/docs/angular',
+    title: 'Angular',
+    icon: <AngularIcon size={16} />,
+  },
+  {
+    to: '/docs/vue',
+    title: 'Vue 3',
+    icon: <VueIcon size={16} />,
+  },
+  {
+    to: '/docs/astro',
+    title: 'Astro',
+    icon: <AstroIcon size={15} />,
+  },
+  {
+    to: '/docs/figma',
+    title: 'Figma',
+    icon: <FigmaIcon size={15} />,
+  },
+  {
+    to: '/docs/svelte',
+    title: 'Svelte',
+    icon: <SvelteIcon size={15} />,
+  },
+  {
+    to: '/docs/react-native',
+    title: 'React Native',
+    icon: <FaReact className="text-[#61DAFB] shrink-0" size={16} />,
+  },
+  {
+    to: '/docs/vanilla',
+    title: 'JavaScript',
+    icon: <SiJavascript className="text-[#F7DF1E] shrink-0" size={15} />,
+  },
+  {
+    to: '/docs/vscode',
+    title: 'VS Code',
+    icon: <VscodeIcon size={16} />,
+  },
+  {
+    to: '/docs/flutter',
+    title: 'Flutter',
+    icon: <FlutterIcon size={14} />,
+  },
+  {
+    to: '/docs/compose',
+    title: 'Compose',
+    icon: <ComposeIcon size={14} />,
+  },
+  {
+    to: '/docs/mcp',
+    title: 'MCP Server',
+    icon: <McpIcon size={15} />,
+  },
+];
 
 interface Props {
-  theme?: string;
-  toggleTheme?: () => void;
-  heroCardRef: React.RefObject<HTMLDivElement | null>;
   stars?: number | null;
 }
 
-export default function Hero({ heroCardRef }: Props) {
+export default function Hero(_props: Props = {}) {
   return (
-    <div className="relative min-h-screen flex items-start justify-center">
-      <div
-        ref={heroCardRef}
-        className="sticky top-0 w-full h-screen overflow-hidden origin-top will-change-transform"
-        style={{ transformOrigin: 'top center' }}
-      >
-        <Background />
-
-        <div className="absolute inset-0 z-[2] flex flex-col justify-between pt-20 sm:pt-24 md:pt-28 pb-6 px-[18px] md:px-[40px]">
-          {/* Rich top ambient smoke glow overlay */}
-          <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-[700px] sm:w-[850px] h-[320px] bg-gradient-to-b from-[#9B8AFB]/[0.14] via-[#9B8AFB]/[0.06] to-transparent rounded-full blur-[90px] pointer-events-none z-[1]" />
-
-          {/* Center content */}
-          <div className="my-auto text-center px-3 max-w-4xl mx-auto flex flex-col items-center justify-center">
-            {/* Top pill badges */}
-            <div className="flex items-center justify-center gap-2 mb-5 flex-wrap">
-              <a
-                href="https://github.com/dqev/reicon"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-[6px] bg-text-base/[0.04] hover:bg-text-base/10 backdrop-blur-lg rounded-full px-[14px] py-[6px] text-[12px] text-text-base/90 transition-colors"
-              >
-                <HandHeart size={16} color="currentColor" />
-                <span>Open Source Library</span>
-              </a>
+    <section className="relative w-full flex flex-col items-center justify-center pt-4 pb-6 md:pt-8 md:pb-12 px-4 sm:px-6">
+      <div className="w-full max-w-[1160px] mx-auto flex flex-col">
+        {/* Main 2-column hero: Left text/actions, Right isometric illustration */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-8 items-center">
+          {/* Left Column — below the illustration on mobile */}
+          <div className="hero-left-col order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left lg:pl-16 xl:pl-24">
+            {/* Top hero badge */}
+            <div className="hero-badge flex items-center justify-center gap-1.5 leading-none font-sans font-normal text-[13px] self-center lg:self-start">
+              <Sparkles size={14} color="#9B8AFB" weight="Filled" className="shrink-0" />
+              <span className="leading-none font-sans font-normal">v2 is live</span>
             </div>
 
-            <h1 className="font-serif text-[clamp(34px,6.8vw,84px)] font-semibold text-text-base leading-[1.06] tracking-[-0.03em] mb-4">
-              The icon library<br />designers actually want.
+            {/* Main title */}
+            <h1 className="hero-title">
+              The icon library designers actually want.
             </h1>
-            <p className="text-[clamp(13px,1.45vw,18px)] text-text-base/60 leading-[1.65] max-w-[620px] mx-auto mb-7">
-              Free, open-source vector icon library with 2,700+ handcrafted, pixel-perfect SVG icons in Outline and Filled weights — built for designers &amp; developers.
+
+            {/* Subtitle */}
+            <p className="hero-subtitle">
+              Free, open-source SVG icons. 2,700+ pixel-perfect icons in Outline and Filled, built for designers and developers.
             </p>
-            <div className="flex items-center justify-center gap-2 sm:gap-3 max-w-[440px] sm:max-w-none mx-auto w-full sm:w-auto">
-              <ClayButton to="/icons" variant="primary" className="px-5 sm:px-7 py-3 text-[13px] sm:text-[14px] whitespace-nowrap">
-                <Search3 size={16} />
-                <span className="whitespace-nowrap">Browse Icons</span>
+
+            {/* Primary & Secondary skill CTA row */}
+            <div className="skill-cta-row">
+              <ClayButton to="/icons" variant="primary" className="skill-btn skill-btn--primary">
+                <span>Browse</span>
               </ClayButton>
 
-              <Link
-                to="/docs"
-                className="bg-text-base/[0.04] hover:bg-text-base/10 text-text-base text-[13px] sm:text-[14px] font-medium px-5 sm:px-7 py-3 rounded-full backdrop-blur-lg flex items-center justify-center gap-2 transition-all duration-150 shadow-2xs whitespace-nowrap"
-              >
-                <Doc size={16} color="currentColor" />
-                <span className="whitespace-nowrap">Docs Guide</span>
-              </Link>
-            </div>
-
-            {/* Integrations row */}
-            <div className="mt-8 md:mt-10 flex flex-col items-center justify-center gap-3 select-none">
-              <span className="text-[10px] tracking-[0.15em] text-text-base/35 dark:text-text-base/30 uppercase font-semibold">Integrations</span>
-              <div className="flex items-center justify-center gap-x-5 gap-y-3 sm:gap-7 flex-wrap max-w-[250px] sm:max-w-[700px] mx-auto">
-                <Link to="/docs/react" title="React" className="flex items-center gap-1.5 text-text-base/50 hover:text-text-base/90 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-[13px] font-medium">
-                  <SiReact className="text-[#61DAFB]/70 hover:text-[#61DAFB] transition-colors" size={18} />
-                  <span className="hidden sm:inline">React</span>
-                </Link>
-                <Link to="/docs/angular" title="Angular 20+" className="flex items-center gap-1.5 text-text-base/50 hover:text-text-base/90 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-[13px] font-medium">
-                  <AngularIcon size={17} />
-                  <span className="hidden sm:inline">Angular</span>
-                </Link>
-                <Link to="/docs/vue" title="Vue 3" className="flex items-center gap-1.5 text-text-base/50 hover:text-text-base/90 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-[13px] font-medium">
-                  <VueIcon size={17} />
-                  <span className="hidden sm:inline">Vue</span>
-                </Link>
-                <Link to="/docs/astro" title="Astro" className="flex items-center gap-1.5 text-text-base/50 hover:text-text-base/90 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-[13px] font-medium">
-                  <AstroIcon size={16} />
-                  <span className="hidden sm:inline">Astro</span>
-                </Link>
-                <Link to="/docs/figma" title="Figma" className="flex items-center gap-1.5 text-text-base/50 hover:text-text-base/90 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-[13px] font-medium">
-                  <FigmaIcon size={16} />
-                  <span className="hidden sm:inline">Figma</span>
-                </Link>
-                <Link to="/docs/svelte" title="Svelte" className="flex items-center gap-1.5 text-text-base/50 hover:text-text-base/90 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-[13px] font-medium">
-                  <SvelteIcon size={16} />
-                  <span className="hidden sm:inline">Svelte</span>
-                </Link>
-                <Link to="/docs/react-native" title="React Native" className="flex items-center gap-1.5 text-text-base/50 hover:text-text-base/90 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-[13px] font-medium">
-                  <FaReact className="text-[#61DAFB]/60 hover:text-[#61DAFB] transition-colors" size={17} />
-                  <span className="hidden sm:inline">React Native</span>
-                </Link>
-                <Link to="/docs/vanilla" title="Vanilla JavaScript" className="flex items-center gap-1.5 text-text-base/50 hover:text-text-base/90 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-[13px] font-medium">
-                  <SiJavascript className="text-[#F7DF1E]/80 hover:text-[#F7DF1E] transition-colors" size={16} />
-                  <span className="hidden sm:inline">JavaScript</span>
-                </Link>
-                <Link to="/docs/vscode" title="VS Code" className="flex items-center gap-1.5 text-text-base/50 hover:text-text-base/90 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-[13px] font-medium">
-                  <VscodeIcon size={17} />
-                  <span className="hidden sm:inline">VS Code</span>
-                </Link>
-                <Link to="/docs/flutter" title="Flutter" className="flex items-center gap-1.5 text-text-base/50 hover:text-text-base/90 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-[13px] font-medium">
-                  <FlutterIcon size={14} />
-                  <span className="hidden sm:inline">Flutter</span>
-                </Link>
-                <Link to="/docs/compose" title="Compose" className="flex items-center gap-1.5 text-text-base/50 hover:text-text-base/90 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-[13px] font-medium">
-                  <ComposeIcon size={14} />
-                  <span className="hidden sm:inline">Compose</span>
-                </Link>
-                <Link to="/docs/mcp" title="MCP Server" className="flex items-center gap-1.5 text-text-base/50 hover:text-text-base/90 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-[13px] font-medium">
-                  <McpIcon size={16} />
-                  <span className="hidden sm:inline">MCP Server</span>
-                </Link>
-              </div>
+              <ClayButton to="/docs" variant="secondary" className="skill-btn skill-btn--secondary">
+                <span>Get Started</span>
+              </ClayButton>
             </div>
           </div>
 
-          {/* Bottom stats bar - mobile responsive */}
-          <div className="flex items-end justify-center pb-2">
-            <div className="inline-flex flex-wrap items-center justify-center gap-x-3.5 gap-y-1.5 sm:gap-6 px-3 sm:px-8 py-2 max-w-full text-center">
-              {[
-                { num: '2,700+', label: 'Icons' },
-                { num: 'MIT', label: 'License' },
-              ].map((s, idx) => (
-                <div key={s.label} className="flex items-center gap-3 sm:gap-6">
-                  <div className="flex items-baseline gap-1 sm:gap-2">
-                    <span className="font-serif text-[13px] sm:text-[19px] font-semibold text-text-base leading-none">{s.num}</span>
-                    <span className="text-[10px] sm:text-[12px] text-text-base/60 font-medium">{s.label}</span>
-                  </div>
-                  {idx < 1 && <div className="hidden sm:block w-[1px] h-3.5 bg-white/15" />}
-                </div>
+          {/* Right Column: Isometric Illustration — first on mobile */}
+          <div className="w-full order-1 lg:order-2 flex items-center justify-center lg:justify-end">
+            <HeroIsometric />
+          </div>
+        </div>
+
+        {/* Integrations Infinite Marquee Ribbon */}
+        <div className="mt-12 md:mt-16 pt-2 flex flex-col items-center justify-center gap-4 select-none w-full max-w-[780px] mx-auto overflow-hidden">
+          <span className="text-[13px] text-white/40 font-normal font-sans text-center">
+            Frameworks &amp; tools supported by Reicon
+          </span>
+
+          <div className="hero-marquee-container w-full overflow-hidden py-1">
+            <div className="hero-marquee-track flex gap-3 items-center">
+              {/* Set 1 */}
+              {INTEGRATIONS.map((item, idx) => (
+                <Link
+                  key={`int-1-${idx}`}
+                  to={item.to}
+                  title={item.title}
+                  className="hero-integration-pill"
+                >
+                  {item.icon}
+                  <span>{item.title}</span>
+                </Link>
+              ))}
+
+              {/* Set 2 (seamless duplication for infinite loop) */}
+              {INTEGRATIONS.map((item, idx) => (
+                <Link
+                  key={`int-2-${idx}`}
+                  to={item.to}
+                  title={item.title}
+                  className="hero-integration-pill"
+                  aria-hidden="true"
+                  tabIndex={-1}
+                >
+                  {item.icon}
+                  <span>{item.title}</span>
+                </Link>
               ))}
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
+

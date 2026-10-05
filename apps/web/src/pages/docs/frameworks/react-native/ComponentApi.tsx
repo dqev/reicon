@@ -8,7 +8,7 @@ interface Props {
 export default function ComponentApi({ onCopy, copiedField }: Props) {
     return (
         <>
-            <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Customizing Icons</h3>
+            <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Customizing Icons</h3>
             <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
                 Every icon component accepts props to customize its appearance. You can also pass any standard react-native-svg props.
             </p>

@@ -2,6 +2,7 @@ import { FaReact } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io5';
 import { VscVscodeInsiders } from 'react-icons/vsc';
 import { AngularIcon, AstroIcon, FigmaIcon, FlutterIcon, ComposeIcon, McpIcon, SvelteIcon, VueIcon, SvgIcon } from '@/components/docs/framework/icons';
+import { AntigravityIcon } from '../home/icons';
 
 export interface PackageItem {
     id: string;
@@ -12,9 +13,8 @@ export interface PackageItem {
     npmUrl?: string;
     sourceUrl: string;
     guideUrl: string;
-    versionBadge?: string;
-    downloadsBadge?: string;
-    downloadsLabel?: string;
+    badge?: { label: string; color: string };
+    version: string;
     registryLabel?: string;
 }
 
@@ -28,6 +28,8 @@ export const PACKAGES: PackageItem[] = [
         npmUrl: 'https://www.npmjs.com/package/reicon',
         sourceUrl: 'https://github.com/dqev/reicon',
         guideUrl: '/docs/vanilla',
+        badge: { label: 'Web Component', color: '#F7DF1E' },
+        version: 'v1.2.5',
     },
     {
         id: 'react',
@@ -38,6 +40,8 @@ export const PACKAGES: PackageItem[] = [
         npmUrl: 'https://www.npmjs.com/package/reicon-react',
         sourceUrl: 'https://github.com/dqev/reicon',
         guideUrl: '/docs/react',
+        badge: { label: 'React Component', color: '#61DAFB' },
+        version: 'v1.2.6',
     },
     {
         id: 'angular',
@@ -48,6 +52,8 @@ export const PACKAGES: PackageItem[] = [
         npmUrl: 'https://www.npmjs.com/package/reicon-angular',
         sourceUrl: 'https://github.com/dqev/reicon/tree/main/packages/reicon-angular',
         guideUrl: '/docs/angular',
+        badge: { label: 'Angular 20+', color: '#DD0031' },
+        version: 'v1.0.2',
     },
     {
         id: 'react-native',
@@ -58,6 +64,8 @@ export const PACKAGES: PackageItem[] = [
         npmUrl: 'https://www.npmjs.com/package/reicon-react-native',
         sourceUrl: 'https://github.com/dqev/reicon',
         guideUrl: '/docs/react-native',
+        badge: { label: 'React Native', color: '#61DAFB' },
+        version: 'v1.0.104',
     },
     {
         id: 'vue',
@@ -68,6 +76,8 @@ export const PACKAGES: PackageItem[] = [
         npmUrl: 'https://www.npmjs.com/package/reicon-vue',
         sourceUrl: 'https://github.com/dqev/reicon',
         guideUrl: '/docs/vue',
+        badge: { label: 'Vue 3 Component', color: '#41B883' },
+        version: 'v1.1.104',
     },
     {
         id: 'svelte',
@@ -78,6 +88,8 @@ export const PACKAGES: PackageItem[] = [
         npmUrl: 'https://www.npmjs.com/package/reicon-svelte',
         sourceUrl: 'https://github.com/dqev/reicon',
         guideUrl: '/docs/svelte',
+        badge: { label: 'Svelte Component', color: '#FF3E00' },
+        version: 'v1.0.105',
     },
     {
         id: 'astro',
@@ -88,6 +100,8 @@ export const PACKAGES: PackageItem[] = [
         npmUrl: 'https://www.npmjs.com/package/reicon-astro',
         sourceUrl: 'https://github.com/dqev/reicon',
         guideUrl: '/docs/astro',
+        badge: { label: 'Astro Component', color: '#FF5D01' },
+        version: 'v1.0.1',
     },
     {
         id: 'flutter',
@@ -98,8 +112,8 @@ export const PACKAGES: PackageItem[] = [
         npmUrl: 'https://pub.dev/packages/reicon_flutter',
         sourceUrl: 'https://github.com/dqev/reicon/tree/main/packages/reicon-flutter',
         guideUrl: '/docs/flutter',
-        versionBadge: 'https://img.shields.io/pub/v/reicon_flutter?color=9B8AFB',
-        downloadsBadge: 'https://img.shields.io/pub/likes/reicon_flutter?color=9B8AFB',
+        badge: { label: 'Flutter / Dart', color: '#54C5F8' },
+        version: 'v1.0.0',
         registryLabel: 'pub.dev',
     },
     {
@@ -110,10 +124,21 @@ export const PACKAGES: PackageItem[] = [
         icon: <ComposeIcon size={48} />,
         sourceUrl: 'https://github.com/dqev/reicon/tree/main/packages/reicon-compose',
         guideUrl: '/docs/compose',
-        versionBadge: 'https://img.shields.io/badge/version-1.0.0-3DDC84',
-        downloadsBadge: 'https://img.shields.io/badge/compose-ready-3DDC84',
-        downloadsLabel: 'status',
+        badge: { label: 'Jetpack Compose', color: '#3DDC84' },
+        version: 'v1.0.0',
         registryLabel: 'Maven',
+    },
+    {
+        id: 'mcp',
+        name: 'reicon-mcp',
+        npmPkg: 'reicon-mcp',
+        description: 'MCP server package for Reicon. Search, preview, and insert icons directly from AI assistants, Cursor, Claude, and LLM tools.',
+        icon: <McpIcon size={48} />,
+        npmUrl: 'https://www.npmjs.com/package/reicon-mcp',
+        sourceUrl: 'https://github.com/dqev/reicon/tree/main/packages/reicon-mcp',
+        guideUrl: '/docs/mcp',
+        badge: { label: 'MCP Server', color: '#9B8AFB' },
+        version: 'v1.1.103',
     },
 ];
 
@@ -153,15 +178,15 @@ export const TOOLS: ToolItem[] = [
         sourceUrl: 'https://github.com/dqev/reicon/tree/main/packages/reicon-vscode',
     },
     {
-        id: 'mcp',
-        name: 'reicon-mcp',
-        badge: { label: 'MCP Server', color: '#9B8AFB' },
-        version: 'v1.1.102',
-        description: 'Search, preview, and apply Reicon icons from AI agents and automation tools via MCP or CLI.',
-        icon: <McpIcon size={48} />,
-        guideUrl: '/docs/mcp',
-        primaryAction: { label: 'npm', href: 'https://www.npmjs.com/package/reicon-mcp' },
-        sourceUrl: 'https://github.com/dqev/reicon/tree/main/packages/reicon-mcp',
+        id: 'antigravity',
+        name: 'reicon-antigravity',
+        badge: { label: 'Antigravity / Open VSX', color: '#7CD4FF' },
+        version: 'v1.0.0',
+        description: 'Reicon extension for Google Antigravity and Open VSX compatible IDEs. Instant icon search and code insertion in your editor.',
+        icon: <AntigravityIcon size={44} />,
+        guideUrl: '/docs/vscode',
+        primaryAction: { label: 'Open VSX', href: 'https://open-vsx.org/extension/dqev/reicon' },
+        sourceUrl: 'https://github.com/dqev/reicon',
     },
 ];
 

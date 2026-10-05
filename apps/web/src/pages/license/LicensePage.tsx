@@ -97,9 +97,9 @@ export default function LicensePage() {
         })}</script>
       </Helmet>
 
-      <main className="flex-1 pt-28 px-4 md:px-8 pb-12 max-w-5xl mx-auto w-full overflow-x-hidden">
+      <main className="max-w-[760px] mx-auto w-full flex flex-1 pt-2 md:pt-4 px-5 md:px-10 pb-16 overflow-x-hidden flex-col">
         <div className="flex items-center justify-between gap-4 mb-8">
-          <h1 className="text-2xl sm:text-3xl font-serif text-text-base truncate">License</h1>
+          <h1 className="text-2xl sm:text-3xl font-sans font-medium text-white truncate">License</h1>
           <div className="shrink-0">
             <DocsActionsBar
               copiedPage={copiedPage}
@@ -114,15 +114,15 @@ export default function LicensePage() {
           </div>
         </div>
 
-        <div className="space-y-8 text-[15px] text-text-base/60 leading-relaxed">
+        <div className="space-y-8 text-[15px] text-white/60 leading-relaxed">
           <section>
-            <h2 className="text-lg font-semibold text-text-base mb-3">MIT License</h2>
-            <p>Reicon icons and the <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[13px]">reicon</code> package are released under the MIT License — one of the most permissive open-source licenses available.</p>
+            <h2 className="text-lg font-semibold text-white mb-3">MIT License</h2>
+            <p>Reicon icons and the <code className="text-white/80 bg-white/[0.06] px-1.5 py-0.5 rounded text-[13px]">reicon</code> package are released under the MIT License — one of the most permissive open-source licenses available.</p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-text-base mb-3">What You Can Do</h2>
-            <ul className="list-disc list-inside space-y-1.5 text-text-base/50">
+            <h2 className="text-lg font-semibold text-white mb-3">What You Can Do</h2>
+            <ul className="list-disc list-inside space-y-1.5 text-white/60">
               <li>Use the icons in personal and commercial projects</li>
               <li>Modify the icons to suit your needs</li>
               <li>Distribute the icons in your own projects or libraries</li>
@@ -132,8 +132,8 @@ export default function LicensePage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-text-base mb-3">What We Ask</h2>
-            <ul className="list-disc list-inside space-y-1.5 text-text-base/50">
+            <h2 className="text-lg font-semibold text-white mb-3">What We Ask</h2>
+            <ul className="list-disc list-inside space-y-1.5 text-white/60">
               <li>Include the copyright notice and license text in copies of the software</li>
               <li>Attribution is appreciated but not required</li>
             </ul>
@@ -141,15 +141,19 @@ export default function LicensePage() {
 
           <section>
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-lg font-semibold text-text-base">Full License Text</h2>
+              <h2 className="text-lg font-semibold text-white">Full License Text</h2>
               <button
                 onClick={handleCopy}
-                className="flex items-center gap-1.5 text-[12px] text-text-base/40 hover:text-text-base/70 transition-colors px-2.5 py-1.5 rounded-lg bg-text-base/4 hover:bg-text-base/8 cursor-pointer"
+                className="flex items-center gap-1.5 text-[12px] font-medium text-white/80 hover:text-white transition-colors px-3 h-8 rounded-full bg-white/[0.07] hover:bg-white/10 cursor-pointer border-0"
               >
-                {copied ? <><Check size={13} /> Copied</> : <><Copy size={13} /> Copy</>}
+                {copied ? <><Check size={13} className="text-[#9B8AFB]" /> Copied</> : <><Copy size={13} /> Copy</>}
               </button>
             </div>
-            <pre className="bg-text-base/3 rounded-xl p-5 text-[13px] text-text-base/50 leading-relaxed overflow-x-auto whitespace-pre-wrap">{LICENSE_TEXT}</pre>
+            <div className="reicon-cb relative overflow-hidden rounded-xl bg-white/[0.03] text-sm p-1.5">
+              <div className="bg-[#121212] rounded-md p-5 text-[13px] text-white/80 leading-relaxed overflow-x-auto whitespace-pre-wrap font-mono">
+                {LICENSE_TEXT}
+              </div>
+            </div>
           </section>
 
           <section>

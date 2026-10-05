@@ -17,7 +17,7 @@ const PROPS = [
 export default function ComponentApi({ copiedField, onCopy }: Props) {
   return (
     <>
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Props</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Props</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Every icon component accepts the following props to customize its appearance.
       </p>
@@ -56,7 +56,7 @@ export default function ComponentApi({ copiedField, onCopy }: Props) {
         <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">Home</span><span className="text-[#d19a66]"> class</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"my-icon"</span><span className="text-text-base/70"> /{'>'}</span>
       </SyntaxBlock>
 
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Direct Import for Smaller Bundles</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Direct Import for Smaller Bundles</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         For the absolute smallest bundle size, import each icon directly from its own module.
       </p>
@@ -69,7 +69,7 @@ export default function ComponentApi({ copiedField, onCopy }: Props) {
         <span className="text-[#c678dd]">import</span><span className="text-[#e5c07b]"> Home</span><span className="text-[#c678dd]"> from</span><span className="text-[#98c379]"> 'reicon-svelte/icons/Home.svelte'</span><span className="text-text-base/30">;</span>
       </SyntaxBlock>
 
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">SvelteKit</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">SvelteKit</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Works out of the box with SvelteKit — just import and use. No plugins or configuration needed.
       </p>

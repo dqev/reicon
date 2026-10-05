@@ -35,7 +35,7 @@ export default function SvgDocs({ markdownContent, copiedField, onCopy }: Props)
       </ul>
 
       {/* Download ZIP Archive */}
-      <h3 id="svg-download" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="svg-download" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Download ZIP Archive
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -54,7 +54,7 @@ export default function SvgDocs({ markdownContent, copiedField, onCopy }: Props)
       </div>
 
       {/* CDN & Direct URLs */}
-      <h3 id="svg-cdn" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="svg-cdn" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         CDN &amp; Direct URLs
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -76,7 +76,7 @@ export default function SvgDocs({ markdownContent, copiedField, onCopy }: Props)
       </SyntaxBlock>
 
       {/* Embedding in HTML */}
-      <h3 id="svg-embedding" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="svg-embedding" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Embedding in HTML
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-6">
@@ -132,7 +132,7 @@ export default function SvgDocs({ markdownContent, copiedField, onCopy }: Props)
       </div>
 
       {/* SVG Sprites */}
-      <h3 id="svg-sprites" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="svg-sprites" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         SVG Sprites &amp; &lt;use&gt; Tags
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -166,7 +166,7 @@ export default function SvgDocs({ markdownContent, copiedField, onCopy }: Props)
       </SyntaxBlock>
 
       {/* Dynamic Styling via CSS */}
-      <h3 id="svg-styling" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="svg-styling" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Dynamic Styling via CSS
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -193,7 +193,7 @@ export default function SvgDocs({ markdownContent, copiedField, onCopy }: Props)
       </SyntaxBlock>
 
       {/* SVGO Optimization */}
-      <h3 id="svg-optimization" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="svg-optimization" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         SVGO Optimization &amp; Standards
       </h3>
       <div className="bg-text-base/3 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed mb-12 border-0">

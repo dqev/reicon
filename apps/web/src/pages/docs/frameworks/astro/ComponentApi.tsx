@@ -8,7 +8,7 @@ interface Props {
 export default function ComponentApi({ copiedField, onCopy }: Props) {
   return (
     <>
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Customizing Icons</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Customizing Icons</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Every Astro icon component accepts the following props to customize its appearance, along with standard HTML/SVG attributes like <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">class</code> and <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">style</code>.
       </p>
@@ -43,7 +43,7 @@ export default function ComponentApi({ copiedField, onCopy }: Props) {
         <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">Home</span><span className="text-[#d19a66]"> class</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"text-blue-500 hover:text-blue-600"</span><span className="text-text-base/70"> /{'>'}</span>
       </SyntaxBlock>
 
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Direct Subpath Import</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Direct Subpath Import</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         For the absolute smallest bundle size, import individual icons directly from their subpath file:
       </p>

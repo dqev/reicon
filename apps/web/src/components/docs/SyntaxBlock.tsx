@@ -9,7 +9,7 @@ interface SyntaxBlockProps {
 }
 
 /**
- * Titled code block with the animate-ui "card-in-card" chrome.
+ * Modern code block with dark surface matching website design system tokens.
  */
 export default function SyntaxBlock({
   title,
@@ -19,30 +19,32 @@ export default function SyntaxBlock({
   children,
 }: SyntaxBlockProps) {
   return (
-    <figure className="reicon-cb relative my-0 overflow-hidden rounded-xl bg-text-base/3 text-sm">
-      {/* Title row */}
-      <div className="flex items-center gap-2 h-10 pl-4 pr-1.5">
-        {icon && (
-          <span className="inline-flex items-center justify-center text-text-base/60 [&>svg]:w-3.5 [&>svg]:h-3.5">
-            {icon}
-          </span>
-        )}
-        <figcaption className="flex-1 truncate text-[12.5px] font-medium text-text-base/55">
-          {title}
-        </figcaption>
+    <figure className="reicon-cb relative my-4 overflow-hidden rounded-xl bg-white/[0.03] text-sm">
+      {/* Title bar */}
+      <div className="relative flex items-center justify-between w-full h-10 pl-5 pr-1.5">
+        <div className="flex items-center gap-2 truncate text-[13px] font-mono font-medium text-white/70">
+          {icon && (
+            <span className="inline-flex items-center justify-center text-[#9B8AFB] [&>svg]:w-3.5 [&>svg]:h-3.5">
+              {icon}
+            </span>
+          )}
+          <figcaption className="truncate">
+            {title}
+          </figcaption>
+        </div>
         <button
           onClick={onCopy}
           aria-label={copied ? 'Copied' : 'Copy code'}
-          className="inline-flex items-center justify-center w-7 h-7 rounded-md text-text-base/40 hover:text-text-base hover:bg-text-base/8 transition-colors cursor-pointer"
+          className="inline-flex items-center justify-center w-7 h-7 rounded-md text-white/40 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
         >
           {copied ? <CheckIcon /> : <Copy size={14} />}
         </button>
       </div>
 
-      {/* Body — inset card */}
+      {/* Code Area — inset card matching InstallTabs */}
       <div className="px-1.5 pb-1.5">
-        <div className="bg-bg-base rounded-md">
-          <pre className="p-4 text-[13px] font-mono leading-[1.7] overflow-x-auto whitespace-pre-wrap break-words focus-visible:outline-none text-text-base">
+        <div className="bg-[#121212] rounded-md overflow-hidden relative">
+          <pre className="px-5 py-4 text-[13px] font-mono leading-[1.7] overflow-x-auto whitespace-pre no-scrollbar focus-visible:outline-none text-white/90">
             {children}
           </pre>
         </div>

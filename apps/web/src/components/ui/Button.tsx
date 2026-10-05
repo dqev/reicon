@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-type Variant = 'primary' | 'secondary' | 'accent';
+type Variant = 'primary' | 'secondary' | 'accent' | 'ghost' | 'outline';
 
 interface ClayButtonProps {
   children: React.ReactNode;
@@ -9,7 +9,8 @@ interface ClayButtonProps {
   variant?: Variant;
   className?: string;
   onClick?: () => void;
-  size?: 'sm' | 'md';
+  size?: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
 }
 
 export default function ClayButton({
@@ -20,14 +21,29 @@ export default function ClayButton({
   className = '',
   onClick,
   size = 'md',
+  disabled = false,
 }: ClayButtonProps) {
   const base = `clay-btn clay-${variant} ${size === 'sm' ? 'clay-sm' : ''} ${className}`;
 
   if (to) {
-    return <Link to={to} className={base} onClick={onClick}>{children}</Link>;
+    return (
+      <Link to={to} className={base} onClick={onClick}>
+        {children}
+      </Link>
+    );
   }
+
   if (href) {
-    return <a href={href} target="_blank" rel="noopener noreferrer" className={base} onClick={onClick}>{children}</a>;
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={base} onClick={onClick}>
+        {children}
+      </a>
+    );
   }
-  return <button type="button" className={base} onClick={onClick}>{children}</button>;
+
+  return (
+    <button type="button" disabled={disabled} className={base} onClick={onClick}>
+      {children}
+    </button>
+  );
 }

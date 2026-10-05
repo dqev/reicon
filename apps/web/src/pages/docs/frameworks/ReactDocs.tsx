@@ -44,7 +44,7 @@ export default function ReactDocs({ markdownContent, copiedField, onCopy }: Prop
       <ComponentApi copiedField={copiedField} onCopy={onCopy} />
 
       {/* Direct Import for Smaller Bundles */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Direct Import for Smaller Bundles</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Direct Import for Smaller Bundles</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         For the absolute smallest bundle size, you can import each icon directly from its own module. This guarantees only that single icon's code is included, which is ideal for production apps.
       </p>
@@ -66,7 +66,7 @@ export default function ReactDocs({ markdownContent, copiedField, onCopy }: Prop
       <Theming copiedField={copiedField} onCopy={onCopy} />
 
       {/* Full Component Example */}
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Full Component Example</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Full Component Example</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Here's a complete example of a React component using multiple Reicon icons with different configurations.
       </p>

@@ -9,7 +9,7 @@ interface InstallSectionProps {
 export default function InstallSection({ copiedField, onCopy }: InstallSectionProps) {
   return (
     <>
-      <h3 id="mcp-installation" data-section className="text-lg font-serif text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="mcp-installation" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Installation
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">

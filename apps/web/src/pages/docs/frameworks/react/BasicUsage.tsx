@@ -8,7 +8,7 @@ interface Props {
 export default function BasicUsage({ copiedField, onCopy }: Props) {
   return (
     <>
-      <h3 className="text-lg font-serif text-text-base mb-4 mt-10">Basic Usage</h3>
+      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Basic Usage</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Import icons by their PascalCase name from <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-react</code>. Each icon is a React component that accepts standard props.
       </p>
