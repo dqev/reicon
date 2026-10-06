@@ -1,11 +1,11 @@
 import { DodoPayments, CheckoutEvent } from 'dodopayments-checkout';
 
-export const REICON_DODO_PRODUCT_ID = 'pdt_0NnNZFDJoDJ8zBvhtSXBu';
-export const REICON_DODO_CHECKOUT_URL = `https://checkout.dodopayments.com/buy/${REICON_DODO_PRODUCT_ID}`;
+const REICON_DODO_PRODUCT_ID = 'pdt_0NnNZFDJoDJ8zBvhtSXBu';
+const REICON_DODO_CHECKOUT_URL = `https://checkout.dodopayments.com/buy/${REICON_DODO_PRODUCT_ID}`;
 
 let isInitialized = false;
 
-export function initDodoPayments(onSuccess?: () => void) {
+function initDodoPayments(onSuccess?: () => void) {
   if (isInitialized) return;
   try {
     DodoPayments.Initialize({

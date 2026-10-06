@@ -6,7 +6,7 @@
  */
 
 export const SITE = 'https://reicon.dev';
-export const TWITTER_HANDLE = '@reicon_dev';
+const TWITTER_HANDLE = '@reicon_dev';
 
 // OG image URL helper: path → https://reicon.dev/og/{file}
 function og(filename) {

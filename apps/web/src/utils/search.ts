@@ -1146,7 +1146,7 @@ function getSynonyms(token: string): string[] {
 /**
  * Calculates match score for an icon entry given a search query.
  */
-export function scoreIconEntry(
+function scoreIconEntry(
   entry: SearchIndexEntry,
   query: string,
   tokens: string[]

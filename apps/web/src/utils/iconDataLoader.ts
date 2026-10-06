@@ -29,7 +29,7 @@ export function subscribeIcons(callback: () => void): () => void {
   };
 }
 
-export function setIconCode(name: string, code: string): void {
+function setIconCode(name: string, code: string): void {
   iconCodeMap.set(toKebabCase(name), code);
 }
 
@@ -45,7 +45,7 @@ export function getIconCode(name: string): string {
   return '';
 }
 
-export function notifyIconsLoaded(): void {
+function notifyIconsLoaded(): void {
   isLoaded = true;
   listeners.forEach((fn) => {
     try {

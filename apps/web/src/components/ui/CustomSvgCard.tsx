@@ -32,7 +32,7 @@ function formatIconName(name: string): string {
   return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
-export function getIconSlug(name: string): string {
+function getIconSlug(name: string): string {
   return encodeURIComponent(
     name
       .trim()

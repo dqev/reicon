@@ -40,7 +40,7 @@ export function isStandaloneFramework(framework: Framework): boolean {
   return framework === 'flutter' || framework === 'compose' || framework === 'figma' || framework === 'vscode' || framework === 'mcp' || framework === 'svg';
 }
 
-export const MCP_ON_THIS_PAGE = [
+const MCP_ON_THIS_PAGE = [
   { id: 'mcp', label: 'MCP Server' },
   { id: 'mcp-installation', label: 'Installation' },
   { id: 'mcp-configuration', label: 'MCP Configuration' },
@@ -51,7 +51,7 @@ export const MCP_ON_THIS_PAGE = [
   { id: 'mcp-offline-operation', label: 'Offline Operation' },
 ] as const;
 
-export const VSCODE_ON_THIS_PAGE = [
+const VSCODE_ON_THIS_PAGE = [
   { id: 'vscode', label: 'VS Code' },
   { id: 'vscode-installation', label: 'Installation' },
   { id: 'vscode-workflow', label: 'Workflow & Sidebar' },
@@ -60,7 +60,7 @@ export const VSCODE_ON_THIS_PAGE = [
   { id: 'vscode-shortcuts', label: 'Shortcuts & Config' },
 ] as const;
 
-export const FIGMA_ON_THIS_PAGE = [
+const FIGMA_ON_THIS_PAGE = [
   { id: 'figma', label: 'Figma' },
   { id: 'figma-installation', label: 'Installation' },
   { id: 'figma-workflow', label: 'Workflow & Guide' },
@@ -69,7 +69,7 @@ export const FIGMA_ON_THIS_PAGE = [
   { id: 'figma-shortcuts', label: 'Shortcuts & Tips' },
 ] as const;
 
-export const SVG_ON_THIS_PAGE = [
+const SVG_ON_THIS_PAGE = [
   { id: 'svg-docs', label: 'Raw SVGs' },
   { id: 'svg-download', label: 'Download ZIP' },
   { id: 'svg-cdn', label: 'CDN & Direct URLs' },
@@ -79,7 +79,7 @@ export const SVG_ON_THIS_PAGE = [
   { id: 'svg-optimization', label: 'SVGO Optimization' },
 ] as const;
 
-export const COMPOSE_ON_THIS_PAGE = [
+const COMPOSE_ON_THIS_PAGE = [
   { id: 'compose-docs', label: 'Compose' },
   { id: 'compose-installation', label: 'Installation' },
   { id: 'compose-usage', label: 'Basic Usage' },
@@ -87,7 +87,7 @@ export const COMPOSE_ON_THIS_PAGE = [
   { id: 'compose-complete', label: 'Full Composable Example' },
 ] as const;
 
-export const FLUTTER_ON_THIS_PAGE = [
+const FLUTTER_ON_THIS_PAGE = [
   { id: 'flutter-docs', label: 'Flutter' },
   { id: 'flutter-installation', label: 'Installation' },
   { id: 'flutter-usage', label: 'Basic Usage' },

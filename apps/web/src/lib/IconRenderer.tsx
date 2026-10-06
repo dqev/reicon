@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncEx
 import { getIconCode, subscribeIcons, iconsLoaded, toKebabCase } from "../utils/iconDataLoader";
 import { getGlassSvg } from "../utils/glassCache";
 
-export interface IconRendererProps {
+interface IconRendererProps {
   name: string;
   code?: string;
   size?: number;
@@ -53,7 +53,7 @@ function useInView<T extends HTMLElement>(enabled: boolean, rootMargin = "400px"
   return [ref, inView];
 }
 
-export const IconRenderer = React.memo(function IconRenderer({
+const IconRenderer = React.memo(function IconRenderer({
   name,
   code,
   size = 40,

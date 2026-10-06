@@ -233,4 +233,3 @@ const Glass = {
 };
 
 export default Glass;
-export { Glass, createPalette, convert, render };
