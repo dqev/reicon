@@ -53,7 +53,7 @@ export const ComposeIcon = ({ size = 16 }: { size?: number }) => (
   </svg>
 );
 
-export const SvgIcon = ({ size = 16 }: { size?: number }) => (
+const SvgIcon = ({ size = 16 }: { size?: number }) => (
     <svg width={size} height={size} viewBox="0 0 300 300">
         <g stroke="#000" strokeWidth="38.009">
             <g id="svgstar-docs" transform="translate(150 150)">
@@ -67,7 +67,7 @@ export const SvgIcon = ({ size = 16 }: { size?: number }) => (
     </svg>
 );
 
-export const AngularIcon = ({ size = 16 }: { size?: number }) => (
+const AngularIcon = ({ size = 16 }: { size?: number }) => (
     <svg width={size} height={size} viewBox="0 0 250 250" role="img" aria-label="Angular">
         <path fill="#dd0031" d="m125 0 125 44.5-19.1 165.7L125 250 19.1 210.2 0 44.5z" />
         <path fill="#c3002f" d="M125 0v250l105.9-39.8L250 44.5z" />
@@ -105,7 +105,7 @@ export const AstroIcon = ({ size = 16 }: { size?: number }) => {
     );
 };
 
-export const FrameworkIcon = ({ id, size = 16 }: { id: string; size?: number }) => {
+const FrameworkIcon = ({ id, size = 16 }: { id: string; size?: number }) => {
     if (id === 'react') return <FaReact className="text-[#61DAFB]" size={size} />;
     if (id === 'react-native') return <FaReact className="text-[#61DAFB]" size={size} />;
     if (id === 'angular') return <AngularIcon size={size} />;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface TypeTableRow {
+interface TypeTableRow {
     /** Prop name shown in the first column. Use `?` suffix for optional. */
     prop: string;
     /** TypeScript type string shown in the second column. */

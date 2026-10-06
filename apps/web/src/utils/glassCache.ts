@@ -8,7 +8,7 @@ function normalizeColor(color: string | undefined): string {
   return '#9B8AFB';
 }
 
-export function hashStr(s: string): string {
+function hashStr(s: string): string {
   let h = 5381;
   const str = String(s || '');
   for (let i = 0; i < str.length; i++) {
@@ -17,7 +17,7 @@ export function hashStr(s: string): string {
   return (h >>> 0).toString(36);
 }
 
-export function stableId(rawCode: string, color: string, size: number | string): string {
+function stableId(rawCode: string, color: string, size: number | string): string {
   const c = color.replace('#', '');
   return `g${hashStr(rawCode)}_${c}_${size}`;
 }
@@ -77,7 +77,7 @@ export function getGlassSvg(
   return svg;
 }
 
-export function clearGlassCache(): void {
+function clearGlassCache(): void {
   cache.clear();
 }
 

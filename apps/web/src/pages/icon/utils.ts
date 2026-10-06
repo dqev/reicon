@@ -1,7 +1,7 @@
 export const EASE = [0.16, 1, 0.3, 1] as const;
 export const EXPORT_SIZES = [16, 24, 32, 48, 64, 128, 256, 512];
 
-export function pascalToKebab(str: string): string {
+function pascalToKebab(str: string): string {
   return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
 }
 
@@ -47,7 +47,7 @@ async function loadDuotoneData(): Promise<Record<string, { code: string }>> {
   return duotoneLoadPromise;
 }
 
-export async function getSvgString(
+async function getSvgString(
   iconName: string,
   weight: string,
   size: number = 24
@@ -204,7 +204,7 @@ export function downloadAsWebp(
   return downloadAsRaster(iconName, weight, exportSize, 'webp', exportSize, useCustomColor, customColor, flashToast);
 }
 
-export function getDownloadUrl(iconName: string, weight: string, format: string, exportSize: number, color?: string): string {
+function getDownloadUrl(iconName: string, weight: string, format: string, exportSize: number, color?: string): string {
   const params = new URLSearchParams({ icon: iconName, weight, format, size: String(exportSize) });
   if (color) params.set('color', color);
   return `/api/download?${params.toString()}`;

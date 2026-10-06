@@ -1,7 +1,7 @@
 import type { CustomSvgIcon } from '@/components/ui/CustomSvgCard';
 import { getGlassSvg as getCachedGlassSvg } from '@/utils/glassCache';
 
-export interface GlassIconItem extends CustomSvgIcon {
+interface GlassIconItem extends CustomSvgIcon {
   rawCode: string;
   category: string;
 }
@@ -58,7 +58,7 @@ export async function loadGlassIcons(): Promise<CustomSvgIcon[]> {
  * Lazily converts an individual icon's raw filled markup into a glass SVG on-demand.
  * Uses deterministic stable IDs and in-memory LRU cache to avoid GPU shader re-compilation lag.
  */
-export function getGlassSvg(rawCode: string, name: string, size: number | string = 240, color?: string): string {
+function getGlassSvg(rawCode: string, name: string, size: number | string = 240, color?: string): string {
   const numSize = typeof size === 'number' ? size : 240;
   return getCachedGlassSvg(rawCode, name, color, numSize);
 }
@@ -70,7 +70,7 @@ export function getGlassStandaloneSvg(rawCode: string, name: string, size = 240,
   return getCachedGlassSvg(rawCode, name, color, size);
 }
 
-export async function getGlassIconDetail(name: string): Promise<GlassIconItem | null> {
+async function getGlassIconDetail(name: string): Promise<GlassIconItem | null> {
   if (!glassDetailMap) {
     await loadGlassIcons();
   }

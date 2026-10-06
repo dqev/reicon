@@ -47,11 +47,7 @@
     "@tailwindcss/vite": "^4.1.14",
     "@vercel/speed-insights": "^2.0.0",
     "@vitejs/plugin-react": "^5.0.4",
-    "canvas-confetti": "^1.9.4",
-    "dodopayments": "^2.50.0",
     "dodopayments-checkout": "^1.9.9",
-    "jszip": "^3.10.1",
-    "lenis": "^1.3.23",
     "motion": "^12.40.0",
     "react": "^19.0.1",
     "react-colorful": "^5.7.0",
@@ -67,15 +63,11 @@
     "@angular/compiler-cli": "^20.3.0",
     "@angular/core": "^20.3.0",
     "@angular/platform-browser": "^20.3.0",
-    "@cloudflare/vite-plugin": "^1.46.0",
-    "@modelcontextprotocol/sdk": "^1.12.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
-    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^22.14.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "autoprefixer": "^10.4.21",
     "jsdom": "^29.1.1",
     "ng-packagr": "^20.3.0",
     "posthog-node": "^5.34.6",
@@ -84,7 +76,6 @@
     "vite": "^6.2.3",
     "vitest": "^4.1.10",
     "vue": "^3.5.39",
-    "wrangler": "^4.112.0",
-    "zod": "^3.24.0"
+    "wrangler": "^4.112.0"
   }
 }

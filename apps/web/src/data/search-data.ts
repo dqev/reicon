@@ -1,11 +1,11 @@
 import searchIndex from './search-index.json';
 import { executeSearch, type SearchIndexEntry, type SearchResult } from '../utils/search';
 
-export type { SearchIndexEntry, SearchResult };
+export type { SearchResult };
 
 const index: SearchIndexEntry[] = searchIndex as SearchIndexEntry[];
 
-export function getSearchIndex(): SearchIndexEntry[] {
+function getSearchIndex(): SearchIndexEntry[] {
   return index;
 }
 

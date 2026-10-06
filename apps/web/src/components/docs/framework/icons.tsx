@@ -83,7 +83,7 @@ export const VscodeIcon = ({ size = 16 }: { size?: number }) => (
     </svg>
 );
 
-export const AntigravityIcon = ({ size = 16 }: { size?: number }) => (
+const AntigravityIcon = ({ size = 16 }: { size?: number }) => (
     <img src="/framework-logos/antigravity.svg" alt="Google Antigravity" style={{ width: size, height: size }} className="shrink-0 object-contain" />
 );
 

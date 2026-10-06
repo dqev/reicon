@@ -1,5 +1,5 @@
 export const SITE = 'https://reicon.dev';
-export const SITE_DEFAULTS = {
+const SITE_DEFAULTS = {
   ogImage: `${SITE}/og/og-image.png`,
 };
 
@@ -58,7 +58,7 @@ export function fixFavicons(html) {
     .replace(/\/assets\/site-[A-Za-z0-9_-]+\.webmanifest/g, '/favicon/site.webmanifest');
 }
 
-export function toPascal(str) {
+function toPascal(str) {
   return str.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join('');
 }
 
@@ -66,11 +66,11 @@ export function toTitle(str) {
   return str.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 }
 
-export function humanCat(slug) {
+function humanCat(slug) {
   const map = { ui: 'UI', it: 'IT', newicons: 'General', 'arrows-action': 'Arrows & Action', 'text-formatting': 'Text Formatting' };
   return map[slug] ?? slug.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 }
 
-export function xmlEscape(str) {
+function xmlEscape(str) {
   return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
