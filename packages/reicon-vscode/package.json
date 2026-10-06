@@ -83,6 +83,6 @@
     "build": "node scripts/build.cjs"
   },
   "devDependencies": {
-    "@types/vscode": "^1.80.0"
+    "@types/vscode": "^1.140.0"
   }
 }
