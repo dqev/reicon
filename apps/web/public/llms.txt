@@ -1,8 +1,8 @@
-# Reicon — Open-Source Icon Library
+# Reicon - Open-Source Icon Library
 
-> Free, open-source SVG icon library — **2,700+ handcrafted vector icons** (Outline and Filled weights). Available for React, Vue 3, Svelte, React Native, Flutter, Compose, vanilla JS, CDN, Figma, VS Code, and AI MCP Server. 100% MIT licensed.
+> Free, open-source SVG icon library - **2,700+ handcrafted vector icons** (Outline and Filled weights). Available for React, Vue 3, Svelte, React Native, Flutter, Compose, vanilla JS, CDN, Figma, VS Code, and AI MCP Server. 100% MIT licensed.
 >
-> ⚠️ **Not** the Windows tool "ReIcon" by Sordum — completely unrelated.
+> ⚠️ **Not** the Windows tool "ReIcon" by Sordum - completely unrelated.
 
 ## Agent Quick Start
 
@@ -29,8 +29,8 @@ import { Home, Search, Bell } from 'reicon-react';
 | `color` | string | `currentColor` | Any valid CSS color |
 | `secondaryColor` | string | same as `color` | Accent color |
 | `weight` | `"Outline"` \| `"Filled"` | `"Outline"` | Style variant |
-| `strokeWidth` | number \| string | — | Override stroke width |
-| `className` | string | — | CSS classes |
+| `strokeWidth` | number \| string | - | Override stroke width |
+| `className` | string | - | CSS classes |
 
 Peer dep: `react >= 16.8.0`. Forwards any SVG/HTML attribute. Tree-shakeable.
 
@@ -56,9 +56,9 @@ import { Home, Search, Bell } from 'reicon-vue';
 | `size` | number \| string | `24` | Size in px |
 | `color` | string | `currentColor` | Any CSS color |
 | `weight` | `"Outline"` \| `"Filled"` | `"Outline"` | Style variant |
-| `strokeWidth` | number \| string | — | Override stroke width |
-| `class` | string \| array \| object | — | CSS classes |
-| `style` | string \| array \| object | — | Inline styles |
+| `strokeWidth` | number \| string | - | Override stroke width |
+| `class` | string \| array \| object | - | CSS classes |
+| `style` | string \| array \| object | - | Inline styles |
 
 Peer dep: `vue ^3.0.0`. SSR-compatible with Nuxt 3. Tree-shakeable.
 
@@ -83,7 +83,7 @@ import { Home, Search, Bell } from 'reicon-svelte';
 | `size` | number \| string | `24` | Size in px |
 | `color` | string | `currentColor` | Any CSS color |
 | `weight` | `"Outline"` \| `"Filled"` | `"Outline"` | Style variant |
-| `strokeWidth` | number \| string | — | Override stroke width |
+| `strokeWidth` | number \| string | - | Override stroke width |
 
 Peer dep: `svelte >= 3.0.0`. SSR-compatible with SvelteKit. Tree-shakeable.
 
@@ -107,7 +107,7 @@ import { Home, ShieldCheck } from 'reicon-react-native';
 | `color` | string | `#000000` | Primary color |
 | `secondaryColor` | string | same as `color` | Accent color |
 | `weight` | `"Outline"` \| `"Filled"` | `"Outline"` | Style variant |
-| `strokeWidth` | number \| string | — | Override stroke width |
+| `strokeWidth` | number \| string | - | Override stroke width |
 
 Peer deps: `react >= 16.8.0`, `react-native >= 0.64.0`, `react-native-svg >= 12.0.0`. Tree-shakeable.
 
@@ -125,7 +125,7 @@ import { Home } from 'reicon';
 const svgEl = Home({ size: 24, color: 'currentColor', weight: 'Outline' });
 document.body.appendChild(svgEl);
 
-// SSR — get SVG string
+// SSR - get SVG string
 const svgString = Home.toSvg({ size: 32, color: '#d97757' });
 ```
 
@@ -134,9 +134,9 @@ const svgString = Home.toSvg({ size: 32, color: '#d97757' });
 | `color` | string | `currentColor` | Stroke/fill color |
 | `size` | number \| string | `24` | Icon size |
 | `weight` | `"Outline"` \| `"Filled"` | `"Outline"` | Weight variant |
-| `strokeWidth` | number \| string | — | Override stroke width |
-| `className` | string | — | CSS class |
-| `attrs` | object | — | Extra SVG attributes |
+| `strokeWidth` | number \| string | - | Override stroke width |
+| `className` | string | - | CSS class |
+| `attrs` | object | - | Extra SVG attributes |
 
 Each icon is a callable function returning `SVGSVGElement`. Tree-shakeable.
 
@@ -152,23 +152,23 @@ Each icon is a callable function returning `SVGSVGElement`. Tree-shakeable.
 <re-icon icon="shield-check" weight="outline" size="28" color="#9B8AFB"></re-icon>
 ```
 
-All icon data is inlined — zero network calls. Uses Shadow DOM for isolation.
+All icon data is inlined - zero network calls. Uses Shadow DOM for isolation.
 
 | Attribute | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `icon` | string | — | Kebab-case name (required) |
+| `icon` | string | - | Kebab-case name (required) |
 | `weight` | string | `"outline"` | `"outline"`/`"linear"` or `"filled"`/`"bold"` |
 | `size` | string | `"24"` | px or CSS length |
 | `color` | string | `"currentColor"` | CSS color |
-| `secondary-color` | string | — | Accent color |
-| `stroke-width` | string | — | Override stroke width |
-| `rotate` | string | — | Degrees (e.g. `"45"`) |
-| `flip` | string | — | `"horizontal"`, `"vertical"`, `"both"` |
-| `spin` | boolean | — | Rotation animation |
-| `loading` | string | — | `"lazy"` for IntersectionObserver |
-| `label` | string | — | `aria-label` |
-| `decorative` | boolean | — | `aria-hidden="true"` |
-| `gradient` | string | — | Comma-separated colors |
+| `secondary-color` | string | - | Accent color |
+| `stroke-width` | string | - | Override stroke width |
+| `rotate` | string | - | Degrees (e.g. `"45"`) |
+| `flip` | string | - | `"horizontal"`, `"vertical"`, `"both"` |
+| `spin` | boolean | - | Rotation animation |
+| `loading` | string | - | `"lazy"` for IntersectionObserver |
+| `label` | string | - | `aria-label` |
+| `decorative` | boolean | - | `aria-hidden="true"` |
+| `gradient` | string | - | Comma-separated colors |
 | `gradient-type` | string | `"linear"` | `"linear"` or `"radial"` |
 | `gradient-angle` | string | `"135"` | Degrees for linear gradient |
 
@@ -241,13 +241,13 @@ Vanilla JS:   import Home from 'reicon/icons/Home'
 | **Grid** | 24×24 px |
 | **Weights** | Outline (1.5px stroke), Filled |
 | **Format** | SVG |
-| **Dependencies** | Zero — all packages have no runtime deps |
+| **Dependencies** | Zero - all packages have no runtime deps |
 | **Bundle size** | ~1 KB per icon gzipped |
 | **TypeScript** | First-class typings in all packages |
 
 ## References
 
-- [llms-full.txt](https://reicon.dev/llms-full.txt) — Deep reference (versions, TS types, data architecture, FAQs, comparison table)
-- [llms-icons.txt](https://reicon.dev/llms-icons.txt) — All 2,700+ icons listed by category with kebab→Pascal mapping
+- [llms-full.txt](https://reicon.dev/llms-full.txt) - Deep reference (versions, TS types, data architecture, FAQs, comparison table)
+- [llms-icons.txt](https://reicon.dev/llms-icons.txt) - All 2,700+ icons listed by category with kebab→Pascal mapping
 - [Docs](https://reicon.dev/docs)
 - [Changelog](https://github.com/dqev/reicon/blob/main/CHANGELOG.md)

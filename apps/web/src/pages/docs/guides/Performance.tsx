@@ -43,7 +43,7 @@ export default function Performance({ markdownContent, copiedField, onCopy }: Pr
       {/* Direct imports */}
       <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Direct Imports (Smallest Bundle)</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
-        For absolute minimal bundle size, import each icon directly from its own module. This guarantees only that icon's code is included — no bundler analysis needed.
+        For absolute minimal bundle size, import each icon directly from its own module. This guarantees only that icon's code is included - no bundler analysis needed.
       </p>
 
       <SyntaxBlock
@@ -69,15 +69,15 @@ export default function Performance({ markdownContent, copiedField, onCopy }: Pr
       {/* What to avoid */}
       <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">What to Avoid</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
-        Avoid wildcard or star imports — they pull in every icon and defeat tree-shaking.
+        Avoid wildcard or star imports - they pull in every icon and defeat tree-shaking.
       </p>
 
       <SyntaxBlock
         title="Anti-patterns"
-        onCopy={() => onCopy("// ❌ Imports ALL icons — entire library in bundle\nimport * as Icons from 'reicon-react';\n\n// ❌ Re-exporting everything defeats tree-shaking\nexport * from 'reicon-react';", 'perf-avoid')}
+        onCopy={() => onCopy("// ❌ Imports ALL icons - entire library in bundle\nimport * as Icons from 'reicon-react';\n\n// ❌ Re-exporting everything defeats tree-shaking\nexport * from 'reicon-react';", 'perf-avoid')}
         copied={copiedField === 'perf-avoid'}
       >
-        <span className="text-text-base/30">{'// ❌ Imports ALL icons — entire library in bundle'}</span>
+        <span className="text-text-base/30">{'// ❌ Imports ALL icons - entire library in bundle'}</span>
         {'\n'}
         <span className="text-[#c678dd]">import</span>
         <span className="text-text-base/70"> * </span>
@@ -99,7 +99,7 @@ export default function Performance({ markdownContent, copiedField, onCopy }: Pr
       {/* CDN caching */}
       <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">CDN Performance</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
-        When using the CDN, icons are fetched on demand and cached in the browser. Subsequent page loads use the cached SVGs — no duplicate network requests.
+        When using the CDN, icons are fetched on demand and cached in the browser. Subsequent page loads use the cached SVGs - no duplicate network requests.
       </p>
 
       <div className="bg-text-base/3 border border-text-base/6 rounded-xl overflow-hidden">

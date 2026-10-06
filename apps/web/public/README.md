@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://reicon.dev">
-    <img src="readme-banner.png" alt="Reicon — Free Open-Source Icon Library" width="100%" />
+    <img src="readme-banner.png" alt="Reicon - Free Open-Source Icon Library" width="100%" />
   </a>
 </p>
 

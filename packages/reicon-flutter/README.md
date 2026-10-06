@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://reicon.dev">
-    <img src="https://reicon.dev/readme-assets/flutter.svg" alt="Reicon Flutter — SVG Icon Library for Dart & Flutter" width="100%" />
+    <img src="https://reicon.dev/readme-assets/flutter.svg" alt="Reicon Flutter – SVG Icon Library for Dart & Flutter" width="100%" />
   </a>
 </p>
 
@@ -27,7 +27,7 @@
   <a href="#links">Links</a>
 </p>
 
-**Reicon Flutter** is the official Dart & Flutter package for <a href="https://reicon.dev">Reicon</a> — a free, open-source SVG icon library featuring 2674+ handcrafted, grid-aligned icons. Every icon is available in both Outline and Filled weights as raw SVG path data, ready for any Dart or Flutter SVG renderer.
+**Reicon Flutter** is the official Dart & Flutter package for <a href="https://reicon.dev">Reicon</a> – a free, open-source SVG icon library featuring 2674+ handcrafted, grid-aligned icons. Every icon is available in both Outline and Filled weights as raw SVG path data, ready for any Dart or Flutter SVG renderer.
 
 | 🔗 &nbsp; Resource | Link |
 |---|---|
@@ -169,13 +169,13 @@ Browse and search all 2674+ icons at <a href="https://reicon.dev">reicon.dev</a>
 
 ## Features
 
-- **2674+ icons** — Handcrafted, pixel-perfect SVGs across a wide range of categories
-- **Two weights** — Outline and Filled, with consistent 24×24 grid alignment
-- **Zero dependencies** — Pure Dart, no native plugins required
-- **Runtime lookup** — Access icons by string name with `Reicon.outline['name']`
-- **SVG builder** — `reiconSvg()` helper wraps path data in a complete SVG string
-- **Iterable** — Iterate over all icon names and path data
-- **MIT licensed** — Free for personal and commercial use
+- **2674+ icons** – Handcrafted, pixel-perfect SVGs across a wide range of categories
+- **Two weights** – Outline and Filled, with consistent 24×24 grid alignment
+- **Zero dependencies** – Pure Dart, no native plugins required
+- **Runtime lookup** – Access icons by string name with `Reicon.outline['name']`
+- **SVG builder** – `reiconSvg()` helper wraps path data in a complete SVG string
+- **Iterable** – Iterate over all icon names and path data
+- **MIT licensed** – Free for personal and commercial use
 
 ---
 

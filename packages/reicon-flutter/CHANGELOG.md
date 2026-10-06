@@ -11,4 +11,4 @@
 - 2674 icons in **Outline** weight via `Reicon.outline.*`
 - 2674 icons in **Filled** weight via `Reicon.filled.*`
 - `reiconSvg()` helper to build complete SVG strings
-- Pure Dart — zero dependencies, works on all platforms
+- Pure Dart – zero dependencies, works on all platforms

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * build.cjs — Generates the `reicon` vanilla JS package from data/icon-data.json
+ * build.cjs – Generates the `reicon` vanilla JS package from data/icon-data.json
  *
  * Usage:  node packages/reicon/scripts/build.cjs  (or: npm run build:js)
  *
@@ -95,7 +95,7 @@ for (const [catKey, catData] of Object.entries(data.categories || {})) {
         category: catKey,
         weights,
         tags: TAGS[iconKey] || icon.description || [],
-        // contributor is optional — only set when the icon was community-contributed
+        // contributor is optional – only set when the icon was community-contributed
         contributor: icon.contributor || null,
       });
     }
@@ -151,8 +151,8 @@ export default ${icon.pascal};
  * @name ${icon.pascal}
  * @description Reicon SVG icon function, creates an SVG element.
  * @preview ![${icon.pascal}](${previewUri}) - https://reicon.dev/icons/${kebab}
- * @see https://reicon.dev/docs — Documentation
- * @param {import('../createIcon').IconOptions} [options] — Icon options
+ * @see https://reicon.dev/docs – Documentation
+ * @param {import('../createIcon').IconOptions} [options] – Icon options
  * @returns {SVGSVGElement} SVG Element
  */
 declare const ${icon.pascal}: IconFunction;
@@ -167,7 +167,7 @@ export default ${icon.pascal};
 }
 
 // ── index.js (ESM barrel in src/) ──────────────────────────────────────────
-const indexJS = `// Auto-generated barrel — do not edit
+const indexJS = `// Auto-generated barrel – do not edit
 export { createIcon } from './createIcon.js';
 
 ${barrelExports.join('\n')}
@@ -176,7 +176,7 @@ ${barrelExports.join('\n')}
 fs.writeFileSync(path.join(SRC, 'index.js'), indexJS);
 
 // ── index.d.ts (types in src/) ─────────────────────────────────────────────
-const indexDTS = `// Auto-generated — do not edit
+const indexDTS = `// Auto-generated – do not edit
 export { createIcon, IconOptions, IconWeight, IconFunction } from './createIcon';
 
 ${dtsExports.join('\n')}
@@ -320,7 +320,7 @@ catList.forEach((c, idx) => { catIndexMap[c] = idx; });
 const cdnIconsMap = {};
 for (const icon of icons) {
   // Format: [categoryIndex, weights, contributorGithub?]
-  // contributorGithub is only included when set — keeps bundle size minimal.
+  // contributorGithub is only included when set – keeps bundle size minimal.
   const entry = [catIndexMap[icon.category], icon.weights];
   if (icon.contributor?.github) entry.push(icon.contributor.github);
   cdnIconsMap[icon.kebab] = entry;
@@ -330,8 +330,8 @@ const catsJSON = JSON.stringify(catList);
 const iconsJSON = JSON.stringify(cdnIconsMap);
 
 const runtimeJS = `/*!
- * Reicon CDN — drop-in web component for 1000+ icons, 2 weights (Outline & Filled).
- * ALL icon data is inlined — zero network fetch, instant rendering.
+ * Reicon CDN – drop-in web component for 1000+ icons, 2 weights (Outline & Filled).
+ * ALL icon data is inlined – zero network fetch, instant rendering.
  *
  *   <re-icon icon="home"></re-icon>
  *   <re-icon icon="home" weight="filled" size="32" color="#d97757"></re-icon>
@@ -343,7 +343,7 @@ const runtimeJS = `/*!
  *
  * JS API:
  *   Reicon.preload([...names])     warm cache for given icons
- *   Reicon.ready                   Promise (resolves immediately — data is inline)
+ *   Reicon.ready                   Promise (resolves immediately – data is inline)
  *   Reicon.icons                   Array of all icon names
  *   Reicon.categories              Array of all category names
  */
@@ -756,7 +756,7 @@ const readme = `<div align="center">
 
 <br/>
 
-### Official Reicon core package — open-source icon library for designers & developers
+### Official Reicon core package – open-source icon library for designers & developers
 
 [![npm](https://img.shields.io/npm/v/reicon?style=flat-square&label=reicon&color=9B8AFB)](https://www.npmjs.com/package/reicon)
 [![Docs](https://img.shields.io/badge/Docs-reicon.dev-9B8AFB?style=flat-square)](https://reicon.dev/docs/vanilla)

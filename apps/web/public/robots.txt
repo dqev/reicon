@@ -1,4 +1,4 @@
-# Reicon — robots.txt
+# Reicon - robots.txt
 # https://reicon.dev
 # Free, open-source SVG icon library (2700+ icons).
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * bump-versions.mjs — Update all package versions across the monorepo
+ * bump-versions.mjs - Update all package versions across the monorepo
  *
  * Usage:
  *   node scripts/bump-versions.mjs          # interactive mode

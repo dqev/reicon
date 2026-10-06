@@ -133,7 +133,7 @@ function runMigration() {
   if (existsSync(MANIFEST_PATH)) {
     console.log(`Updating: ${MANIFEST_PATH}`);
     const richManifest = {
-      "name": "Reicon — Free Open-Source Icon Library",
+      "name": "Reicon - Free Open-Source Icon Library",
       "short_name": "Reicon",
       "description": "Free, open-source SVG icon library built with obsessive precision. Pixel-perfect, handcrafted icons for UI design, React, Vue, Svelte, Figma, and the web.",
       "start_url": "/",

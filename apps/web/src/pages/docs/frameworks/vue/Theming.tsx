@@ -51,7 +51,7 @@ export default function Theming({ copiedField, onCopy }: Props) {
       {/* Nuxt 3 */}
       <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Nuxt 3</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
-        Works out of the box with Nuxt 3 — just import and use. No plugins or configuration needed.
+        Works out of the box with Nuxt 3 - just import and use. No plugins or configuration needed.
       </p>
 
       <SyntaxBlock

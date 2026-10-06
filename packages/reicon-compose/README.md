@@ -2,7 +2,7 @@
 
 **2676+ pixel-perfect icons** • Outline & Filled weights • Native `ImageVector` • Zero runtime dependencies • MIT Licensed
 
-**Reicon Compose** is the official Jetpack Compose package for [Reicon](https://reicon.dev) — a free, open-source icon library featuring 2676+ handcrafted, grid-aligned icons. Every icon is available in both Outline and Filled weights as a native Compose `ImageVector`, ready to use with `Icon()`.
+**Reicon Compose** is the official Jetpack Compose package for [Reicon](https://reicon.dev) - a free, open-source icon library featuring 2676+ handcrafted, grid-aligned icons. Every icon is available in both Outline and Filled weights as a native Compose `ImageVector`, ready to use with `Icon()`.
 
 | 🔗 &nbsp; Resource | Link |
 |---|---|
@@ -18,7 +18,8 @@
 maven { url = uri("https://jitpack.io") }
 
 // app/build.gradle.kts
-implementation("dev.reicon:reicon-compose:1.0.0")
+// Use main-SNAPSHOT for the latest build, or a release tag (e.g. v2.0.1).
+implementation("dev.reicon:reicon-compose:main-SNAPSHOT")
 ```
 
 <details>
@@ -109,11 +110,11 @@ Browse and search all 2676+ icons at [reicon.dev](https://reicon.dev).
 
 ## Features
 
-- **2676+ icons** — Handcrafted, pixel-perfect vectors across 38 categories
-- **Two weights** — Outline and Filled, consistent 24×24 grid
-- **Native** — Real `ImageVector`s, tintable, no SVG renderer needed
-- **Tree-shakeable** — One file per icon; R8 strips what you don't use
-- **MIT licensed** — Free for personal and commercial use
+- **2676+ icons** - Handcrafted, pixel-perfect vectors across 38 categories
+- **Two weights** - Outline and Filled, consistent 24×24 grid
+- **Native** - Real `ImageVector`s, tintable, no SVG renderer needed
+- **Tree-shakeable** - One file per icon; R8 strips what you don't use
+- **MIT licensed** - Free for personal and commercial use
 
 ---
 

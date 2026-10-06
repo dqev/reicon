@@ -54,7 +54,7 @@ export default function CodeTabs({
         </button>
       </div>
 
-      {/* Code body area — inset card matching InstallTabs */}
+      {/* Code body area - inset card matching InstallTabs */}
       <div className="px-1.5 pb-1.5 min-w-0 w-full">
         <div className="bg-[#121212] rounded-md min-h-[96px] w-full min-w-0 relative overflow-hidden">
           <AnimatePresence mode="wait">

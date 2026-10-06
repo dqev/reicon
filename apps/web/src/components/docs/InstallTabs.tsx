@@ -66,7 +66,7 @@ export default function InstallTabs({ packageName, copiedField, onCopy }: Props)
         </button>
       </div>
 
-      {/* Body — inset card */}
+      {/* Body - inset card */}
       <div className="px-1.5 pb-1.5">
         <div className="bg-[#121212] rounded-md">
           <pre className="px-5 py-4 text-[13px] font-mono leading-[1.7] overflow-x-auto focus-visible:outline-none text-white">

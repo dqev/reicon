@@ -9,7 +9,7 @@ export interface TypeTableRow {
     default?: string | null;
     /** Optional inline description rendered under the prop chip. */
     description?: string;
-    /** Mark the prop as deprecated — chip gets line‑through styling. */
+    /** Mark the prop as deprecated - chip gets line‑through styling. */
     deprecated?: boolean;
 }
 
@@ -21,7 +21,7 @@ interface TypeTableProps {
 }
 
 /**
- * Animate-ui style props/type table — rounded chrome, header row in a slightly
+ * Animate-ui style props/type table - rounded chrome, header row in a slightly
  * lighter shade, prop chips in the site accent (#9B8AFB) and neutral chips for
  * type/default values. Stays on the Reicon dark palette.
  */
@@ -62,7 +62,7 @@ export default function TypeTable({ rows, showDescription, className = '' }: Typ
                                     {row.default ? (
                                         <code className="reicon-tt-chip">{row.default}</code>
                                     ) : (
-                                        <span className="reicon-tt-dash">—</span>
+                                        <span className="reicon-tt-dash">-</span>
                                     )}
                                 </td>
                                 {renderDesc && (
@@ -153,7 +153,7 @@ function TypeTableStyles() {
         border: 1px solid rgba(255, 255, 255, 0.08);
       }
 
-      /* Prop chip — accent color */
+      /* Prop chip - accent color */
       .reicon-tt-chip--prop {
         background: rgba(155, 138, 251, 0.15);
         color: #9B8AFB;

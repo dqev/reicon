@@ -1,4 +1,4 @@
-// Auto-generated barrel — do not edit
+// Auto-generated barrel – do not edit
 export { default as Icon } from './Icon.astro';
 
 export { default as Ac } from './icons/Ac.astro';

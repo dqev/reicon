@@ -69,8 +69,8 @@ Icon names are derived from the source data. For example, `home` becomes the `Ho
 | `secondaryColor` | `string` | same as color | Secondary color token for icons that expose one. |
 | `weight` | `'Outline' \| 'Filled'` | `'Outline'` | Visual weight style. |
 | `strokeWidth` | `number \| string` | source default | Override the source stroke width where supported. |
-| `class` | `string` | — | CSS class applied to the SVG element. |
-| `style` | `string \| Record<string, string \| number>` | — | Inline styles applied to the SVG element. |
+| `class` | `string` | - | CSS class applied to the SVG element. |
+| `style` | `string \| Record<string, string \| number>` | - | Inline styles applied to the SVG element. |
 
 The `id`, `title`, `role`, `aria-label`, and `aria-hidden` inputs are forwarded to the generated SVG element.
 

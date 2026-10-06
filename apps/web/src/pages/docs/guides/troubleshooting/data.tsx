@@ -25,15 +25,15 @@ export const troubleshootingItems: TroubleshootingItemData[] = [
   {
     question: "Wrong icon weight showing",
     answer: 'The weight prop is case-sensitive in the React/Vue packages. Use "Outline" or "Filled" (PascalCase). In the CDN, use lowercase: "outline" or "filled".',
-    copyText: '// ✅ React / Vue — PascalCase\n<Star weight="Filled" />\n\n// ✅ CDN — lowercase\n<re-icon icon="star" weight="filled"></re-icon>\n\n// ❌ Wrong casing\n<Star weight="filled" />\n<re-icon icon="star" weight="Filled"></re-icon>',
+    copyText: '// ✅ React / Vue - PascalCase\n<Star weight="Filled" />\n\n// ✅ CDN - lowercase\n<re-icon icon="star" weight="filled"></re-icon>\n\n// ❌ Wrong casing\n<Star weight="filled" />\n<re-icon icon="star" weight="Filled"></re-icon>',
     copyField: "faq-weight",
     syntaxNode: (
       <>
-        <span className="text-text-base/30">{'// ✅ React / Vue — PascalCase'}</span>
+        <span className="text-text-base/30">{'// ✅ React / Vue - PascalCase'}</span>
         {'\n'}
         <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">Star</span><span className="text-[#d19a66]"> weight</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"Filled"</span><span className="text-text-base/70"> /{'>'}</span>
         {'\n\n'}
-        <span className="text-text-base/30">{'// ✅ CDN — lowercase'}</span>
+        <span className="text-text-base/30">{'// ✅ CDN - lowercase'}</span>
         {'\n'}
         <span className="text-text-base/70">{'<'}</span><span className="text-[#e06c75]">re-icon</span><span className="text-[#d19a66]"> icon</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"star"</span><span className="text-[#d19a66]"> weight</span><span className="text-text-base/50">=</span><span className="text-[#98c379]">"filled"</span><span className="text-text-base/70">{'>'}</span><span className="text-text-base/70">{'</'}</span><span className="text-[#e06c75]">re-icon</span><span className="text-text-base/70">{'>'}</span>
         {'\n\n'}
@@ -47,7 +47,7 @@ export const troubleshootingItems: TroubleshootingItemData[] = [
   },
   {
     question: "Icons look blurry or wrong size",
-    answer: "The size prop accepts a number (pixels). Don't pass units like \"24px\" — just pass the number. For the CDN, pass the number as a string attribute.",
+    answer: "The size prop accepts a number (pixels). Don't pass units like \"24px\" - just pass the number. For the CDN, pass the number as a string attribute.",
     copyText: '// ✅ Correct\n<Home size={24} />\n<re-icon icon="home" size="24"></re-icon>\n\n// ❌ Don\'t include units\n<Home size="24px" />',
     copyField: "faq-size",
     syntaxNode: (

@@ -41,7 +41,7 @@ export default function SyntaxBlock({
         </button>
       </div>
 
-      {/* Code Area — inset card matching InstallTabs */}
+      {/* Code Area - inset card matching InstallTabs */}
       <div className="px-1.5 pb-1.5">
         <div className="bg-[#121212] rounded-md overflow-hidden relative">
           <pre className="px-5 py-4 text-[13px] font-mono leading-[1.7] overflow-x-auto whitespace-pre no-scrollbar focus-visible:outline-none text-white/90">

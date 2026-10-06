@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://reicon.dev">
-  <img src="apps/web/public/favicon/wordmark-header.svg" alt="Reicon — Open-Source Icon Library" width="280" />
+  <img src="apps/web/public/favicon/wordmark-header.svg" alt="Reicon - Open-Source Icon Library" width="280" />
 </a>
 
 ### Open-Source Icon Library for Designers & Developers

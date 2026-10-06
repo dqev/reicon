@@ -1,6 +1,6 @@
 # Reicon for Flutter
 
-> 2700+ handcrafted, pixel-perfect SVG icons in Outline and Filled weights — now available for Flutter.
+> 2700+ handcrafted, pixel-perfect SVG icons in Outline and Filled weights - now available for Flutter.
 
 ## Install
 

@@ -3,7 +3,7 @@
  * sync-icon-names.mjs
  *
  * Regenerates scripts/icon-names.json from data/icon-data.json.
- * This file is the single source of truth for icon slugs — packages/reicon-react/dist/
+ * This file is the single source of truth for icon slugs - packages/reicon-react/dist/
  * also emits one, but scripts/ uses THIS copy so the build scripts (sitemap, prerender)
  * are never out of sync with the actual icon set.
  *
@@ -44,7 +44,7 @@ for (const [catKey, catData] of Object.entries(data.categories || {})) {
   }
 }
 
-// Sort by key for stable, readable diffs — easier for contributors to review.
+// Sort by key for stable, readable diffs - easier for contributors to review.
 const sorted = Object.fromEntries(
   Object.entries(nameMap).sort(([a], [b]) => a.localeCompare(b))
 );

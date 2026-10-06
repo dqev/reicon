@@ -1,6 +1,6 @@
 # Branching & Git Workflow
 
-A practical guide to how we use Git on Reicon — branches, commits, pushing, and
+A practical guide to how we use Git on Reicon – branches, commits, pushing, and
 pull requests. If you're new here, read this once and you'll be set. 💜
 
 > New to contributing? Start with [CONTRIBUTING.md](./CONTRIBUTING.md) first,
@@ -34,7 +34,7 @@ git push -u origin fix/bell-icon-stroke
 
 ## The golden rules
 
-1. **`main` is always releasable.** It's protected — you can't push to it directly.
+1. **`main` is always releasable.** It's protected – you can't push to it directly.
 2. **One branch = one focused change.** Don't mix a bug fix with a new feature.
 3. **Branch off the latest `main`.** Always `git pull` before creating a branch.
 4. **Open a PR for everything.** Even tiny changes get reviewed and merged via PR.
@@ -60,7 +60,7 @@ Use a `type/short-description` format in lowercase with dashes:
 | `chore/` | Tooling, deps, config, repo housekeeping | `chore/update-dependencies` |
 | `refactor/` | Code restructure, no behavior change | `refactor/extract-icon-card` |
 
-Keep it short and descriptive — `fix/login` is too vague, `fix/bell-icon-off-center` is good.
+Keep it short and descriptive – `fix/login` is too vague, `fix/bell-icon-off-center` is good.
 
 ---
 
@@ -153,7 +153,7 @@ git push
 
 ### 5. Open a Pull Request
 
-- Go to the repo on GitHub — it'll prompt you to open a PR for your branch.
+- Go to the repo on GitHub – it'll prompt you to open a PR for your branch.
 - **Base branch:** `main`. **Compare branch:** your branch.
 - Fill out the [PR template](./PULL_REQUEST_TEMPLATE.md).
 - Link the issue it closes (e.g. `Closes #123`).
@@ -161,7 +161,7 @@ git push
 
 ### 6. Respond to review
 
-- Push more commits to the same branch — the PR updates automatically.
+- Push more commits to the same branch – the PR updates automatically.
 - Once approved, a maintainer merges it (usually **Squash and merge**).
 
 ### 7. Clean up
@@ -188,7 +188,7 @@ git checkout feat/your-feature
 git merge main          # or: git rebase main
 ```
 
-Resolve any conflicts, then push again. Use `merge` if you're unsure — it's the
+Resolve any conflicts, then push again. Use `merge` if you're unsure – it's the
 safer, simpler option.
 
 ---
@@ -222,9 +222,9 @@ git push -u origin feat/your-feature
 Releases are cut from `main` after the relevant PRs are merged, using
 [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATCH`.
 
-- **PATCH** (`1.0.1`) — bug fixes, icon fixes.
-- **MINOR** (`1.1.0`) — new icons or features, backward compatible.
-- **MAJOR** (`2.0.0`) — breaking changes.
+- **PATCH** (`1.0.1`) – bug fixes, icon fixes.
+- **MINOR** (`1.1.0`) – new icons or features, backward compatible.
+- **MAJOR** (`2.0.0`) – breaking changes.
 
 ```bash
 # 1. Make sure main is up to date and CHANGELOG.md is updated
@@ -277,5 +277,5 @@ git reset --soft HEAD~1
 git branch -m new-branch-name
 ```
 
-Still stuck? Open a [Discussion](https://github.com/dqev/reicon/discussions) —
+Still stuck? Open a [Discussion](https://github.com/dqev/reicon/discussions) –
 we're happy to help. There are no silly questions here. 🙌

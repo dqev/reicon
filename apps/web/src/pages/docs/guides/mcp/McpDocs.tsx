@@ -129,7 +129,7 @@ export default function McpDocs({ markdownContent, copiedField, onCopy }: Props)
         Offline Operation
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
-        The search index is bundled at build time from <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">data/icon-data.json</code>. No network calls are made at runtime — once installed, the server works fully offline.
+        The search index is bundled at build time from <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">data/icon-data.json</code>. No network calls are made at runtime - once installed, the server works fully offline.
       </p>
 
       <div className="mt-4 bg-text-base/3 border border-text-base/6 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed mb-12">

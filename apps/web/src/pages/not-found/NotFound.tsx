@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <div className="flex-1 flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-4 text-center py-20">
       <Helmet>
-        <title>404 — Page Not Found | Reicon</title>
+        <title>404 - Page Not Found | Reicon</title>
         <meta name="robots" content="noindex" />
       </Helmet>
 

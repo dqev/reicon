@@ -1,5 +1,5 @@
 /**
- * seo-config.mjs — Single source of truth for all site-wide SEO content.
+ * seo-config.mjs - Single source of truth for all site-wide SEO content.
  *
  * Edit this file to update meta tags, descriptions, JSON-LD, and keywords
  * across the entire site. Then run: node scripts/update-seo.mjs
@@ -15,11 +15,11 @@ function og(filename) {
 
 // ── Site-wide defaults (used as fallbacks in index.html) ─────────────────────
 export const SITE_DEFAULTS = {
-  title: 'Reicon — Open-Source Icon Library for Designers & Developers',
-  description: 'Reicon — Free open-source SVG icons. 2,700+ handcrafted icons for React, Angular, Vue, Svelte, Flutter, Figma & more.',
+  title: 'Reicon - Open-Source Icon Library for Designers & Developers',
+  description: 'Reicon - Free open-source SVG icons. 2,700+ handcrafted icons for React, Angular, Vue, Svelte, Flutter, Figma & more.',
   keywords: 'free icon library, open source icons, SVG icons, React icons, Angular icons, Vue icons, Flutter icons, Figma icons, reicon, MIT license',
-  ogTitle: 'Reicon — Open-Source Icon Library for Designers & Developers',
-  ogDescription: 'Reicon is a free, open-source vector icon library with 2,700+ handcrafted SVG icons — built for designers and developers. Official packages for React, Angular, Vue, Svelte, React Native, Flutter, JavaScript, Figma, VS Code, and AI MCP agents. MIT licensed.',
+  ogTitle: 'Reicon - Open-Source Icon Library for Designers & Developers',
+  ogDescription: 'Reicon is a free, open-source vector icon library with 2,700+ handcrafted SVG icons - built for designers and developers. Official packages for React, Angular, Vue, Svelte, React Native, Flutter, JavaScript, Figma, VS Code, and AI MCP agents. MIT licensed.',
   ogImage: og('og-image.png'),
 };
 
@@ -27,15 +27,15 @@ export const SITE_DEFAULTS = {
 export const ROUTES = [
   {
     path: '/',
-    title: 'Reicon — Open-Source Icon Library for Designers & Developers',
-    description: 'Reicon — Free open-source SVG icons. 2,700+ handcrafted icons for React, Angular, Vue, Svelte, Flutter, Figma & more.',
+    title: 'Reicon - Open-Source Icon Library for Designers & Developers',
+    description: 'Reicon - Free open-source SVG icons. 2,700+ handcrafted icons for React, Angular, Vue, Svelte, Flutter, Figma & more.',
     ogImage: og('og-image.png'),
     priority: '1.0',
     changefreq: 'weekly',
   },
   {
     path: '/icons',
-    title: 'Free Open-Source SVG Icons — Reicon',
+    title: 'Free Open-Source SVG Icons - Reicon',
     description: 'Browse 2,700+ free, open-source SVG icons in Outline and Filled weights. MIT licensed.',
     ogImage: og('icons.png'),
     priority: '0.9',
@@ -43,7 +43,7 @@ export const ROUTES = [
   },
   {
     path: '/glass',
-    title: 'Free Glass Vector Icons — Reicon',
+    title: 'Free Glass Vector Icons - Reicon',
     description: 'Browse 2700+ free, open-source glass vector icons with dynamic custom colors and smooth 60 FPS performance.',
     ogImage: og('glass.png'),
     priority: '0.9',
@@ -51,7 +51,7 @@ export const ROUTES = [
   },
   {
     path: '/flags',
-    title: 'Free Country Flag SVG Icons — Reicon',
+    title: 'Free Country Flag SVG Icons - Reicon',
     description: 'Browse free, open-source country flag SVG icons with clean 4:3 ratios for web and mobile apps.',
     ogImage: og('flags.png'),
     priority: '0.9',
@@ -59,7 +59,7 @@ export const ROUTES = [
   },
   {
     path: '/brands',
-    title: 'Free Social Media & Brand SVG Logos — Reicon',
+    title: 'Free Social Media & Brand SVG Logos - Reicon',
     description: 'Browse free, open-source social media and tech brand SVG icons. Popular logos for React, web, and mobile apps.',
     ogImage: og('brands.png'),
     priority: '0.9',
@@ -67,7 +67,7 @@ export const ROUTES = [
   },
   {
     path: '/docs',
-    title: 'Reicon Docs — Get Started',
+    title: 'Reicon Docs - Get Started',
     description: 'Get started with Reicon. Install and use icons in React, Angular, Vue, Svelte, Flutter, Figma, VS Code, and MCP.',
     ogImage: og('docs.png'),
     priority: '0.8',
@@ -75,7 +75,7 @@ export const ROUTES = [
   },
   {
     path: '/docs/react',
-    title: 'Reicon for React — Reicon',
+    title: 'Reicon for React - Reicon',
     description: 'Install and use Reicon in React. Import components, customize props, tree-shake unused icons.',
     ogImage: og('docs-react.png'),
     priority: '0.8',
@@ -83,7 +83,7 @@ export const ROUTES = [
   },
   {
     path: '/docs/angular',
-    title: 'Reicon for Angular — Reicon',
+    title: 'Reicon for Angular - Reicon',
     description: 'Install and use Reicon in Angular 20+. Import standalone icon components and customize inputs.',
     ogImage: og('docs-angular.png'),
     priority: '0.8',
@@ -91,7 +91,7 @@ export const ROUTES = [
   },
   {
     path: '/docs/react-native',
-    title: 'Reicon for React Native — Reicon',
+    title: 'Reicon for React Native - Reicon',
     description: 'Install and use Reicon in React Native. SVG components for Expo and bare React Native.',
     ogImage: og('docs-react-native.png'),
     priority: '0.8',
@@ -99,7 +99,7 @@ export const ROUTES = [
   },
   {
     path: '/docs/vue',
-    title: 'Reicon for Vue — Reicon',
+    title: 'Reicon for Vue - Reicon',
     description: 'Install and use Reicon in Vue 3 and Nuxt 3. Import components and customize props.',
     ogImage: og('docs-vue.png'),
     priority: '0.8',
@@ -107,7 +107,7 @@ export const ROUTES = [
   },
   {
     path: '/docs/svelte',
-    title: 'Reicon for Svelte — Reicon',
+    title: 'Reicon for Svelte - Reicon',
     description: 'Install and use Reicon in Svelte and SvelteKit. Import components and customize props.',
     ogImage: og('docs-svelte.png'),
     priority: '0.8',
@@ -115,7 +115,7 @@ export const ROUTES = [
   },
   {
     path: '/docs/astro',
-    title: 'Reicon for Astro — Reicon',
+    title: 'Reicon for Astro - Reicon',
     description: 'Install and use Reicon in Astro projects. Import Astro components, customize props, tree-shake unused icons.',
     ogImage: og('docs-astro.png'),
     priority: '0.8',
@@ -123,7 +123,7 @@ export const ROUTES = [
   },
   {
     path: '/docs/vanilla',
-    title: 'Reicon for Vanilla JS — Reicon',
+    title: 'Reicon for Vanilla JS - Reicon',
     description: 'Use Reicon icons via CDN in vanilla JavaScript and HTML. No build tools needed.',
     ogImage: og('docs-vanilla.png'),
     priority: '0.8',
@@ -131,7 +131,7 @@ export const ROUTES = [
   },
   {
     path: '/docs/figma',
-    title: 'Reicon for Figma — Reicon',
+    title: 'Reicon for Figma - Reicon',
     description: 'Install the Reicon Figma plugin. Search, customize, and drag-and-drop icons onto your canvas.',
     ogImage: og('docs-figma.png'),
     priority: '0.8',
@@ -139,7 +139,7 @@ export const ROUTES = [
   },
   {
     path: '/docs/vscode',
-    title: 'Reicon for VS Code — Reicon',
+    title: 'Reicon for VS Code - Reicon',
     description: 'Install the Reicon VS Code extension. Search and insert icon code directly at your cursor.',
     ogImage: og('docs-vscode.png'),
     priority: '0.8',
@@ -147,7 +147,7 @@ export const ROUTES = [
   },
   {
     path: '/docs/mcp',
-    title: 'Reicon MCP Server & CLI — Reicon',
+    title: 'Reicon MCP Server & CLI - Reicon',
     description: 'Let AI agents search 2,700+ icons, preview SVGs, and generate code. Runs as MCP server or standalone CLI.',
     ogImage: og('docs-mcp.png'),
     priority: '0.8',
@@ -155,7 +155,7 @@ export const ROUTES = [
   },
   {
     path: '/docs/svg',
-    title: 'Reicon Raw SVGs — Reicon',
+    title: 'Reicon Raw SVGs - Reicon',
     description: 'Download and use raw Reicon SVG icons in HTML, static layouts, or CMS templates.',
     ogImage: og('docs-svg.png'),
     priority: '0.8',
@@ -163,7 +163,7 @@ export const ROUTES = [
   },
   {
     path: '/docs/flutter',
-    title: 'Reicon for Flutter — Reicon',
+    title: 'Reicon for Flutter - Reicon',
     description: 'Install and use Reicon in Flutter and Dart projects. 2,700+ icons as raw SVG path strings.',
     ogImage: og('docs-flutter.png'),
     priority: '0.8',
@@ -171,7 +171,7 @@ export const ROUTES = [
   },
   {
     path: '/docs/compose',
-    title: 'Reicon for Compose — Reicon',
+    title: 'Reicon for Compose - Reicon',
     description: 'Install and use Reicon in Jetpack Compose projects. 2,700+ icons as native ImageVectors.',
     ogImage: og('docs-compose.png'),
     priority: '0.8',
@@ -179,7 +179,7 @@ export const ROUTES = [
   },
   {
     path: '/packages',
-    title: 'Reicon Packages — Reicon',
+    title: 'Reicon Packages - Reicon',
     description: 'Official Reicon packages for React, Angular, React Native, Vue, Svelte, Flutter, and JavaScript.',
     ogImage: og('packages.png'),
     priority: '0.7',
@@ -187,7 +187,7 @@ export const ROUTES = [
   },
   {
     path: '/faq',
-    title: 'Reicon FAQ — Reicon',
+    title: 'Reicon FAQ - Reicon',
     description: 'Answers about Reicon: license, framework support, Figma integration, and contributions.',
     ogImage: og('faq.png'),
     priority: '0.7',
@@ -195,7 +195,7 @@ export const ROUTES = [
   },
   {
     path: '/support',
-    title: 'Sponsor Reicon — Dodo Payments',
+    title: 'Sponsor Reicon - Dodo Payments',
     description: 'Sponsor ongoing open-source development of Reicon via Dodo Payments. Keep 2,700+ handcrafted SVG icons free for everyone.',
     ogImage: og('support.png'),
     priority: '0.8',
@@ -203,7 +203,7 @@ export const ROUTES = [
   },
   {
     path: '/terms',
-    title: 'Reicon Terms of Service — Reicon',
+    title: 'Reicon Terms of Service - Reicon',
     description: 'Terms of service for using the Reicon open-source icon library.',
     ogImage: og('terms.png'),
     priority: '0.3',
@@ -211,7 +211,7 @@ export const ROUTES = [
   },
   {
     path: '/privacy',
-    title: 'Reicon Privacy Policy — Reicon',
+    title: 'Reicon Privacy Policy - Reicon',
     description: 'Privacy policy for Reicon. Learn how we handle your data.',
     ogImage: og('privacy.png'),
     priority: '0.3',
@@ -219,7 +219,7 @@ export const ROUTES = [
   },
   {
     path: '/license',
-    title: 'Reicon MIT License — Reicon',
+    title: 'Reicon MIT License - Reicon',
     description: 'Reicon is free and open-source under the MIT license. Use in personal and commercial projects.',
     ogImage: og('license.png'),
     priority: '0.3',

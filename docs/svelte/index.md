@@ -91,7 +91,7 @@ Reicon works seamlessly with Tailwind CSS. The icon inherits `currentColor` by d
 ---
 
 ## SvelteKit
-Works out of the box with SvelteKit — just import and use. No plugins or configuration needed.
+Works out of the box with SvelteKit - just import and use. No plugins or configuration needed.
 ```svelte
 <!-- src/routes/+page.svelte -->
 <script>

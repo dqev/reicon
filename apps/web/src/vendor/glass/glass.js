@@ -1,4 +1,4 @@
-// glass.js — Glass icon renderer (pure ESM, no dependencies).
+// glass.js - Glass icon renderer (pure ESM, no dependencies).
 //
 // What it does:
 //   Converts any raw icon markup (24x24 paths/shapes from icon-data.json,
@@ -15,13 +15,13 @@
 //   shows glass immediately. Cache key = codeHash|color|size.
 //
 // Pieces in this file:
-//   hexToRgb / rgbToHex / rgbToHsl / hslToRgb — color math for auto-shading.
+//   hexToRgb / rgbToHex / rgbToHsl / hslToRgb - color math for auto-shading.
 //   createPalette(baseHex) -> { gradient: [light, mid, deep] }.
-//   generateId(prefix) — unique gradient/filter/mask ids per SVG instance.
-//   toMaskMarkup(src) — normalises raw markup for the glyph mask: strokes
+//   generateId(prefix) - unique gradient/filter/mask ids per SVG instance.
+//   toMaskMarkup(src) - normalises raw markup for the glyph mask: strokes
 //     stay strokes (fill="none"), fills turn white, fill="none" preserved.
-//   convert(input, options) — main entry ({ color | colors, size, id }).
-//   render(target, input, options) — convert + inject into a DOM node.
+//   convert(input, options) - main entry ({ color | colors, size, id }).
+//   render(target, input, options) - convert + inject into a DOM node.
 //   Default export Glass + named exports { Glass, createPalette, convert,
 //   render }. NOTE: `themes` was removed; pass options.color instead.
 function hexToRgb(hex) {

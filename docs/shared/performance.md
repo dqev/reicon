@@ -14,7 +14,7 @@ import { Home, Bell } from 'reicon'; // or 'reicon-react' or 'reicon-vue'
 ---
 
 ## Direct Imports (Smallest Bundle)
-For absolute minimal bundle size, import each icon directly from its own module. This guarantees only that single icon's code is included — no bundler analysis needed.
+For absolute minimal bundle size, import each icon directly from its own module. This guarantees only that single icon's code is included - no bundler analysis needed.
 ```javascript
 // Guaranteed single-icon inclusion
 import Home from 'reicon/icons/Home';
@@ -24,9 +24,9 @@ import Bell from 'reicon/icons/Bell';
 ---
 
 ## What to Avoid
-Avoid wildcard or star imports — they pull in every icon in the package and defeat tree-shaking.
+Avoid wildcard or star imports - they pull in every icon in the package and defeat tree-shaking.
 ```javascript
-// ❌ Imports ALL icons — entire library in bundle
+// ❌ Imports ALL icons - entire library in bundle
 import * as Icons from 'reicon';
 
 // ❌ Re-exporting everything defeats tree-shaking
@@ -36,7 +36,7 @@ export * from 'reicon';
 ---
 
 ## CDN Performance
-When using the CDN element, icons are fetched on demand and cached in the browser. Subsequent page loads use the cached SVGs — no duplicate network requests.
+When using the CDN element, icons are fetched on demand and cached in the browser. Subsequent page loads use the cached SVGs - no duplicate network requests.
 
 | Method | Bundle Impact | Best For |
 |---|---|---|

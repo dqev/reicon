@@ -12,7 +12,7 @@ export default function Weights({ markdownContent, copiedField, onCopy }: Props)
     <section id="weights" data-section className="mb-16 scroll-mt-24">
       <SectionHeader id="weights" title="Icon Weights" level="h2" markdownContent={markdownContent} />
       <p className="text-white/60 text-[14px] mb-6 leading-relaxed">
-        Every icon comes in two weights — Outline and Filled.
+        Every icon comes in two weights - Outline and Filled.
       </p>
 
       <div className="grid sm:grid-cols-2 gap-4">

@@ -319,7 +319,7 @@ h6 {
   animation-delay: 0.54s;
 }
 
-/* Fixed nav — hidden by default, shown via JS */
+/* Fixed nav - hidden by default, shown via JS */
 .nav-visible {
   opacity: 1 !important;
   pointer-events: auto !important;
@@ -511,7 +511,7 @@ h6 {
   }
 }
 
-/* Primary — Dark Chip (#2a2a2a) */
+/* Primary - Dark Chip (#2a2a2a) */
 .clay-primary,
 .skill-btn--primary {
   color: #ffffff;
@@ -534,7 +534,7 @@ h6 {
   background: #262626;
 }
 
-/* Secondary & Accent — Reicon Purple (#9B8AFB) */
+/* Secondary & Accent - Reicon Purple (#9B8AFB) */
 .clay-secondary,
 .clay-accent,
 .skill-btn--secondary {

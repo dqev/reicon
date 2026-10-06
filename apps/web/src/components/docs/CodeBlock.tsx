@@ -30,7 +30,7 @@ export default function CodeBlock({ code, onCopy, copied }: CodeBlockProps) {
         </span>
       </button>
 
-      {/* Body — inset card */}
+      {/* Body - inset card */}
       <div className="p-1.5">
         <div className="bg-bg-base rounded-md">
           <pre className="p-4 text-[13px] font-mono text-text-base/75 overflow-x-auto whitespace-pre-wrap break-words leading-[1.7] focus-visible:outline-none">

@@ -296,12 +296,12 @@ export default function CustomIconDetail({ type }: Props) {
   return (
     <div className="flex-1">
       <Helmet>
-        <title>{`${displayName} ${isGlass ? 'Glass' : isBrand ? 'Brand Logo' : 'Flag'} Icon SVG — Reicon`}</title>
+        <title>{`${displayName} ${isGlass ? 'Glass' : isBrand ? 'Brand Logo' : 'Flag'} Icon SVG - Reicon`}</title>
         <meta
           name="description"
           content={`Download or copy free ${displayName} vector ${isGlass ? 'glass' : isBrand ? 'brand logo' : 'flag'} SVG icon. Optimized, lossless, high-fidelity SVG code.`}
         />
-        <meta property="og:title" content={`${displayName} ${isGlass ? 'Glass' : isBrand ? 'Brand Logo' : 'Flag'} Icon SVG — Reicon`} />
+        <meta property="og:title" content={`${displayName} ${isGlass ? 'Glass' : isBrand ? 'Brand Logo' : 'Flag'} Icon SVG - Reicon`} />
         <meta
           property="og:description"
           content={`Download or copy free ${displayName} vector ${isGlass ? 'glass' : isBrand ? 'brand logo' : 'flag'} SVG icon.`}
@@ -341,7 +341,7 @@ export default function CustomIconDetail({ type }: Props) {
             </nav>
           </div>
 
-          <h1 className="sr-only">{displayName} {isBrand ? 'brand' : 'flag'} icon — Reicon</h1>
+          <h1 className="sr-only">{displayName} {isBrand ? 'brand' : 'flag'} icon - Reicon</h1>
 
           {/* Main 2-column layout matching IconDetail */}
           <div className="grid lg:grid-cols-[380px_minmax(0,1fr)] gap-6 lg:gap-8 items-start">
@@ -467,7 +467,7 @@ export default function CustomIconDetail({ type }: Props) {
                   </button>
                 </div>
 
-                {/* Code body area — compact fixed height inset card with internal scroll */}
+                {/* Code body area - compact fixed height inset card with internal scroll */}
                 <div className="px-1.5 pb-1.5 min-w-0 w-full">
                   <div className="bg-[#121212] rounded-md h-[200px] w-full min-w-0 relative overflow-hidden flex flex-col">
                     <AnimatePresence mode="wait">
