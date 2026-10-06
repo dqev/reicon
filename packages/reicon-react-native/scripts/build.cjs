@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * build.cjs — Generates the `reicon-react-native` package from icondata.json
+ * build.cjs – Generates the `reicon-react-native` package from icondata.json
  *
  * Usage:  node packages/reicon-react-native/scripts/build.cjs  (or: npm run build:react-native)
  *
@@ -129,8 +129,8 @@ for (const icon of icons) {
  * @name ${icon.pascal}
  * @description Reicon React Native SVG icon component
  * @preview ![${icon.pascal}](${previewUri}) - https://reicon.dev/icons/${kebab}
- * @see https://reicon.dev/docs — Documentation
- * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid react-native-svg props
+ * @see https://reicon.dev/docs – Documentation
+ * @param {import('../createIcon').IconProps} props – Reicon icon props and any valid react-native-svg props
  * @returns {JSX.Element} JSX Element
  */
 const ${icon.pascal} = createIcon('${icon.pascal}', {
@@ -151,8 +151,8 @@ export default ${icon.pascal};
  * @name ${icon.pascal}
  * @description Reicon React Native SVG icon component
  * @preview ![${icon.pascal}](${previewUri}) - https://reicon.dev/icons/${kebab}
- * @see https://reicon.dev/docs — Documentation
- * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid react-native-svg props
+ * @see https://reicon.dev/docs – Documentation
+ * @param {import('../createIcon').IconProps} props – Reicon icon props and any valid react-native-svg props
  * @returns {JSX.Element} JSX Element
  */
 declare const ${icon.pascal}: IconComponent;
@@ -167,7 +167,7 @@ export default ${icon.pascal};
 }
 
 // ── index.js (ESM barrel in src/) ──────────────────────────────────────────
-const indexJS = `// Auto-generated barrel — do not edit
+const indexJS = `// Auto-generated barrel – do not edit
 export { createIcon } from './createIcon.js';
 
 ${barrelExports.join('\n')}
@@ -176,7 +176,7 @@ ${barrelExports.join('\n')}
 fs.writeFileSync(path.join(SRC, 'index.js'), indexJS);
 
 // ── index.d.ts (types in src/) ─────────────────────────────────────────────
-const indexDTS = `// Auto-generated — do not edit
+const indexDTS = `// Auto-generated – do not edit
 export { createIcon, IconProps, IconWeight, IconComponent } from './createIcon';
 
 ${dtsExports.join('\n')}
@@ -275,7 +275,7 @@ const readme = `<p align="center">
 
 > ${icons.length}+ pixel-perfect SVG icons • Outline & Filled weights • React Native component wrapper • Zero dependencies • MIT Licensed
 
-**Reicon React Native** is the official React Native package for Reicon — a free, open-source SVG icon library with ${icons.length}+ handcrafted, grid-aligned icons built for developers and designers. Every component is optimized for tree-shaking and fully TypeScript-ready.
+**Reicon React Native** is the official React Native package for Reicon – a free, open-source SVG icon library with ${icons.length}+ handcrafted, grid-aligned icons built for developers and designers. Every component is optimized for tree-shaking and fully TypeScript-ready.
 
 - 🔗 **Website & icon browser:** [reicon.dev](https://reicon.dev)
 - 📦 **Core package:** [reicon](https://npmjs.com/package/reicon)
@@ -322,14 +322,14 @@ function App() {
 | \`color\` | \`string\` | \`#000000\` | Primary icon color |
 | \`secondaryColor\` | \`string\` | same as color | Secondary color |
 | \`weight\` | \`IconWeight\` | \`Outline\` | Icon weight / style |
-| \`strokeWidth\` | \`number | string\` | — | Override stroke width |
+| \`strokeWidth\` | \`number | string\` | – | Override stroke width |
 
 Plus all standard \`react-native-svg\` SVG props.
 
 ### Weights
 
-- **Outline** — clean outlined style (default)
-- **Filled** — solid filled style
+- **Outline** – clean outlined style (default)
+- **Filled** – solid filled style
 
 \`\`\`jsx
 import { Home } from 'reicon-react-native';
@@ -358,7 +358,7 @@ import Home from 'reicon-react-native/icons/Home';
 
 ---
 
-## Tree-shaking — import only what you use
+## Tree-shaking – import only what you use
 
 Every icon is a standalone ES module. Metro bundler will tree-shake unused icons automatically.
 

@@ -118,9 +118,9 @@ export default function Privacy() {
             <h2 className="text-lg font-semibold text-text-base mb-3">4. Third-Party Services</h2>
             <p>The website may use the following third-party services:</p>
             <ul className="list-disc list-inside mt-2 space-y-1 text-text-base/50">
-              <li><strong className="text-text-base/70">Vercel</strong> — Hosting and deployment</li>
-              <li><strong className="text-text-base/70">Google Fonts</strong> — Font delivery</li>
-              <li><strong className="text-text-base/70">cdn.reicon.dev</strong> — Icon and asset delivery</li>
+              <li><strong className="text-text-base/70">Vercel</strong> - Hosting and deployment</li>
+              <li><strong className="text-text-base/70">Google Fonts</strong> - Font delivery</li>
+              <li><strong className="text-text-base/70">cdn.reicon.dev</strong> - Icon and asset delivery</li>
             </ul>
             <p className="mt-3">Each of these services has its own privacy policy governing how they handle data.</p>
           </section>

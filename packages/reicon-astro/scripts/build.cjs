@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * build.cjs — Generates the `reicon-astro` Astro package from icondata.json
+ * build.cjs – Generates the `reicon-astro` Astro package from icondata.json
  *
  * Usage:  node packages/reicon-astro/scripts/build.cjs  (or: npm run build:astro)
  *
@@ -141,7 +141,7 @@ ${wEntries}
   @name ${icon.pascal}
   @description Reicon Astro icon component, renders an SVG Element.
   @preview ![${icon.pascal}](${previewUri}) - https://reicon.dev/icons/${kebab}
-  @see https://reicon.dev/docs/astro — Documentation
+  @see https://reicon.dev/docs/astro – Documentation
 -->
 <Icon iconData={iconData} {...Astro.props} />
 `;
@@ -170,7 +170,7 @@ export default ${icon.pascal};
 }
 
 // ── index.js (ESM barrel in src/) ──────────────────────────────────────────
-const indexJS = `// Auto-generated barrel — do not edit
+const indexJS = `// Auto-generated barrel – do not edit
 export { default as Icon } from './Icon.astro';
 
 ${barrelExports.join('\n')}
@@ -179,7 +179,7 @@ ${barrelExports.join('\n')}
 fs.writeFileSync(path.join(SRC, 'index.js'), indexJS);
 
 // ── index.d.ts (types in src/) ─────────────────────────────────────────────
-const indexDTS = `// Auto-generated — do not edit
+const indexDTS = `// Auto-generated – do not edit
 
 export interface IconProps {
   /** Primary icon color. Default: inherits from CSS */
@@ -297,7 +297,7 @@ const readme = `<div align="center">
 
 <br/>
 
-### Official Reicon package for Astro — open-source icon library for designers & developers
+### Official Reicon package for Astro – open-source icon library for designers & developers
 
 [![npm](https://img.shields.io/npm/v/reicon-astro?style=flat-square&label=reicon-astro&color=9B8AFB)](https://www.npmjs.com/package/reicon-astro)
 [![Docs](https://img.shields.io/badge/Docs-reicon.dev-9B8AFB?style=flat-square)](https://reicon.dev/docs/astro)

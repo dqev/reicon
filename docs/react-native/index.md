@@ -62,8 +62,8 @@ All icons accept these props:
 | `color` | `string` | `#000000` | Primary icon color (hex, rgb, or named) |
 | `secondaryColor` | `string` | same as color | Secondary color for dual-tone icons |
 | `weight` | `'Outline' \| 'Filled'` | `'Outline'` | Icon weight/style |
-| `strokeWidth` | `number \| string` | — | Override default stroke width |
-| `style` | `ViewStyle` | — | React Native style object |
+| `strokeWidth` | `number \| string` | - | Override default stroke width |
+| `style` | `ViewStyle` | - | React Native style object |
 
 Plus all standard `react-native-svg` props like `onPress`, `testID`, etc.
 

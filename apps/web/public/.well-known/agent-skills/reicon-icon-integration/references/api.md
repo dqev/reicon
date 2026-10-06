@@ -9,7 +9,7 @@
 | `secondaryColor` | `string` | same as `color` | Secondary accent color for duo-tone icons |
 | `weight` | `"Outline" \| "Filled"` | `"Outline"` | Style variant (PascalCase in JSX/Vue/Svelte, lowercase in Web Component) |
 | `strokeWidth` | `number \| string` | `1.5` | Override stroke weight for outline variants |
-| `className` / `class` | `string` | — | Additional CSS classes |
+| `className` / `class` | `string` | - | Additional CSS classes |
 
 ## Tree-shaking Deep Imports
 

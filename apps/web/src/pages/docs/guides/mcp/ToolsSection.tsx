@@ -21,7 +21,7 @@ export default function ToolsSection({ copiedField, onCopy }: ToolsSectionProps)
           <div className="w-6 h-6 rounded-full bg-text-base/10 text-text-base font-bold flex items-center justify-center shrink-0 text-xs mt-1">1</div>
           <div className="flex-1">
             <h4 className="text-text-base font-medium mb-1">Search with concise keywords</h4>
-            <p className="mb-3">Use short, specific query terms like <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded text-[12px]">cart</code> or <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded text-[12px]">settings</code> — not full sentences.</p>
+            <p className="mb-3">Use short, specific query terms like <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded text-[12px]">cart</code> or <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded text-[12px]">settings</code> - not full sentences.</p>
             <SyntaxBlock
               title="search_icons"
               onCopy={() => onCopy(SEARCH_TOOL, 'mcp-search-tool')}

@@ -1,0 +1,15 @@
+# JitPack build config – https://docs.jitpack.io/building/
+#
+# The Gradle project lives in packages/reicon-compose/ (this repo root is a
+# JS/website monorepo with no build file), so JitPack's default
+# "./gradlew build publishToMavenLocal" fails with "No build file found".
+# These custom commands build from the subdirectory instead.
+#
+# Coordinates for users (settings.gradle.kts needs maven("https://jitpack.io")):
+#   implementation("dev.reicon:reicon-compose:<tag or main-SNAPSHOT>")
+#
+# Verify: https://jitpack.io/com/github/dqev/reicon/main-SNAPSHOT/build.log
+jdk:
+  - openjdk17
+install:
+  - ./packages/reicon-compose/gradlew -p packages/reicon-compose :library:publishToMavenLocal -x test

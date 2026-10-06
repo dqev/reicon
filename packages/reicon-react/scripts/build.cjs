@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * build.cjs — Generates the `reicon-react` React package from icondata.json
+ * build.cjs – Generates the `reicon-react` React package from icondata.json
  *
  * Usage:  node packages/reicon-react/scripts/build.cjs  (or: npm run build:react)
  *
@@ -130,8 +130,8 @@ import createIcon from '../createIcon.js';
  * @name ${icon.pascal}
  * @description Reicon SVG icon component, renders SVG Element with children.
  * @preview ![${icon.pascal}](${previewUri}) - https://reicon.dev/icons/${kebab}
- * @see https://reicon.dev/docs — Documentation
- * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @see https://reicon.dev/docs – Documentation
+ * @param {import('../createIcon').IconProps} props – Reicon icon props and any valid SVG attribute
  * @returns {JSX.Element} JSX Element
  */
 const ${icon.pascal} = createIcon('${icon.pascal}', {
@@ -152,8 +152,8 @@ export default ${icon.pascal};
  * @name ${icon.pascal}
  * @description Reicon SVG icon component, renders SVG Element with children.
  * @preview ![${icon.pascal}](${previewUri}) - https://reicon.dev/icons/${kebab}
- * @see https://reicon.dev/docs — Documentation
- * @param {import('../createIcon').IconProps} props — Reicon icon props and any valid SVG attribute
+ * @see https://reicon.dev/docs – Documentation
+ * @param {import('../createIcon').IconProps} props – Reicon icon props and any valid SVG attribute
  * @returns {JSX.Element} JSX Element
  */
 declare const ${icon.pascal}: IconComponent;
@@ -168,7 +168,7 @@ export default ${icon.pascal};
 }
 
 // ── index.js (ESM barrel in src/) ──────────────────────────────────────────
-const indexJS = `// Auto-generated barrel — do not edit
+const indexJS = `// Auto-generated barrel – do not edit
 export { createIcon } from './createIcon.js';
 
 ${barrelExports.join('\n')}
@@ -177,7 +177,7 @@ ${barrelExports.join('\n')}
 fs.writeFileSync(path.join(SRC, 'index.js'), indexJS);
 
 // ── index.d.ts (types in src/) ─────────────────────────────────────────────
-const indexDTS = `// Auto-generated — do not edit
+const indexDTS = `// Auto-generated – do not edit
 export { createIcon, IconProps, IconWeight, IconComponent } from './createIcon';
 
 ${dtsExports.join('\n')}
@@ -269,7 +269,7 @@ const readme = `<div align="center">
 
 <br/>
 
-### Official Reicon package for React — open-source icon library for designers & developers
+### Official Reicon package for React – open-source icon library for designers & developers
 
 [![npm](https://img.shields.io/npm/v/reicon-react?style=flat-square&label=reicon-react&color=9B8AFB)](https://www.npmjs.com/package/reicon-react)
 [![Docs](https://img.shields.io/badge/Docs-reicon.dev-9B8AFB?style=flat-square)](https://reicon.dev/docs/react)

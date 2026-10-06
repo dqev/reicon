@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://reicon.dev">
-    <img src="../public/readme-banner.png" alt="Reicon — Free Open-Source Icon Library" width="100%" />
+    <img src="../public/readme-banner.png" alt="Reicon - Free Open-Source Icon Library" width="100%" />
   </a>
 </p>
 
@@ -10,7 +10,7 @@ This folder holds the **single source of truth** for every Reicon icon.
 
 ## `icon-data.json`
 
-The canonical dataset. Everything downstream — the CDN bundle, the website, the SEO pre-rendered pages, and the npm packages — is generated from this one file.
+The canonical dataset. Everything downstream - the CDN bundle, the website, the SEO pre-rendered pages, and the npm packages - is generated from this one file.
 
 ### Full schema
 
@@ -21,8 +21,8 @@ The canonical dataset. Everything downstream — the CDN bundle, the website, th
     "<category-key>": {              // lowercase kebab, e.g. "arrows", "ui", "files"
       "icons": {
         "<icon-name>": {             // lowercase kebab, e.g. "arrow-down", "home-2"
-          "description": ["tag", "alias"],   // optional — used for search & SEO
-          "contributor": {                   // optional — only for community icons
+          "description": ["tag", "alias"],   // optional - used for search & SEO
+          "contributor": {                   // optional - only for community icons
             "github": "username"             // GitHub username of the designer
           },
           "weights": {
@@ -48,7 +48,7 @@ The canonical dataset. Everything downstream — the CDN bundle, the website, th
 **Icon names** are `kebab-case` and become `PascalCase` component names in the packages:
 `arrow-up-right` → `ArrowUpRight`, `home-2` → `Home2`.
 
-#### Example — core icon (no contributor)
+#### Example - core icon (no contributor)
 
 ```jsonc
 "star": {
@@ -60,7 +60,7 @@ The canonical dataset. Everything downstream — the CDN bundle, the website, th
 }
 ```
 
-#### Example — community-contributed icon
+#### Example - community-contributed icon
 
 ```jsonc
 "wave-hand": {
@@ -73,7 +73,7 @@ The canonical dataset. Everything downstream — the CDN bundle, the website, th
 }
 ```
 
-When `contributor.github` is set, the icon detail page on reicon.dev automatically shows the contributor's GitHub profile picture and a link — no extra work needed.
+When `contributor.github` is set, the icon detail page on reicon.dev automatically shows the contributor's GitHub profile picture and a link - no extra work needed.
 
 ---
 
@@ -95,7 +95,7 @@ A `{ "<icon-name>": ["tag", "tag"] }` map for enriching search / SEO metadata ou
 | `packages/reicon-angular/dist` (npm) | `packages/reicon-angular/scripts/build.cjs` | `npm run build:angular` | **Maintainer only** |
 
 > [!IMPORTANT]
-> **Contributors only edit `data/icon-data.json`.** The website automatically shows new icons on the next deploy. npm packages are rebuilt and published by the maintainer in a separate release step — you do not need to run `build:packages` in your PR.
+> **Contributors only edit `data/icon-data.json`.** The website automatically shows new icons on the next deploy. npm packages are rebuilt and published by the maintainer in a separate release step - you do not need to run `build:packages` in your PR.
 
 > [!WARNING]
 > Never manually edit files inside `packages/*/dist/` or `cdn/`. They are regenerated from `data/icon-data.json` and any hand-edits will be overwritten.

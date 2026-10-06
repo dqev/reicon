@@ -1,5 +1,5 @@
 /**
- * src/utils/search.ts — Dedicated Search Algorithm Engine for Reicon
+ * src/utils/search.ts - Dedicated Search Algorithm Engine for Reicon
  *
  * Provides fast prefix, keyword, tag, fuzzy, and synonym matching for icons.
  */

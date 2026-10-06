@@ -19,7 +19,7 @@ function check(label, condition, required = true) {
 function has(pattern) { return new RegExp(pattern, 'i').test(html); }
 function get(pattern) { return html.match(new RegExp(pattern, 'i'))?.[1] || null; }
 
-console.log(`\n${c.h}SEO Audit — index.html${c.r}\n${'─'.repeat(50)}`);
+console.log(`\n${c.h}SEO Audit - index.html${c.r}\n${'─'.repeat(50)}`);
 
 console.log(`\n${c.h}Primary${c.r}`);
 check('title', has('<title>[^<]+</title>'));

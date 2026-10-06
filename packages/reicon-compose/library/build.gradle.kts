@@ -6,7 +6,11 @@ plugins {
 }
 
 group = "dev.reicon"
-version = "1.0.0"
+// JitPack builds a git tag (or main-SNAPSHOT) and exposes it via the VERSION
+// env var. The published version MUST match the requested version, otherwise
+// JitPack reports the version as missing. Locally VERSION is unset -> 1.0.0.
+val libVersion = System.getenv("VERSION") ?: "1.0.0"
+version = libVersion
 
 android {
     namespace = "dev.reicon"
@@ -49,7 +53,7 @@ afterEvaluate {
             from(components["release"])
             groupId = "dev.reicon"
             artifactId = "reicon-compose"
-            version = "1.0.0"
+            version = libVersion
             pom {
                 name = "reicon-compose"
                 description = "Jetpack Compose icons for Reicon"

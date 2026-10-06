@@ -7,7 +7,7 @@
 
 <br/>
 
-### Official Reicon package for Astro — open-source icon library for designers & developers
+### Official Reicon package for Astro – open-source icon library for designers & developers
 
 [![npm](https://img.shields.io/npm/v/reicon-astro?style=flat-square&label=reicon-astro&color=9B8AFB)](https://www.npmjs.com/package/reicon-astro)
 [![Docs](https://img.shields.io/badge/Docs-reicon.dev-9B8AFB?style=flat-square)](https://reicon.dev/docs/astro)

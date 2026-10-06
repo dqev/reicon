@@ -117,7 +117,7 @@ export default function LicensePage() {
         <div className="space-y-8 text-[15px] text-white/60 leading-relaxed">
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">MIT License</h2>
-            <p>Reicon icons and the <code className="text-white/80 bg-white/[0.06] px-1.5 py-0.5 rounded text-[13px]">reicon</code> package are released under the MIT License — one of the most permissive open-source licenses available.</p>
+            <p>Reicon icons and the <code className="text-white/80 bg-white/[0.06] px-1.5 py-0.5 rounded text-[13px]">reicon</code> package are released under the MIT License - one of the most permissive open-source licenses available.</p>
           </section>
 
           <section>

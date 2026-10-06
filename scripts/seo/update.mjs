@@ -41,7 +41,7 @@ function updatePrerender() {
     ''
   );
   writeFileSync(path, src, 'utf-8');
-  console.log('✓ prerender-meta.mjs uses seo/config.mjs directly — no override needed');
+  console.log('✓ prerender-meta.mjs uses seo/config.mjs directly - no override needed');
 }
 
 function updateSitemap() {

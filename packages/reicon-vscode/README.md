@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://reicon.dev">
-    <img src="https://reicon.dev/readme-banner.png" alt="Reicon for VS Code — SVG Icon Library for VS Code" width="100%" />
+    <img src="https://reicon.dev/readme-banner.png" alt="Reicon for VS Code – SVG Icon Library for VS Code" width="100%" />
   </a>
 </p>
 
@@ -39,17 +39,17 @@
 
 ## Features
 
-- **Activity Bar Panel** — A custom sidebar panel that houses the icon browser
-- **2674+ Pixel-Perfect Icons** — Browse the complete collection in both **Outline** and **Filled** weights
-- **Smart Code Insertion** — Click any icon to instantly insert it at your cursor in your preferred framework syntax:
+- **Activity Bar Panel** – A custom sidebar panel that houses the icon browser
+- **2674+ Pixel-Perfect Icons** – Browse the complete collection in both **Outline** and **Filled** weights
+- **Smart Code Insertion** – Click any icon to instantly insert it at your cursor in your preferred framework syntax:
   - **React (JSX)**: `<Home size={24} color="#9B8AFB" />`
   - **Vue**: `<Home :size="24" color="#9B8AFB" />`
   - **Svelte**: `<Home size={24} color="#9B8AFB" />`
   - **SVG**: Raw SVG code `<svg ...>...</svg>`
-- **Live Customization** — Adjust size (in pixels) and color (using preset swatches or hex inputs) directly in the sidebar toolbar before inserting
-- **Smart Theme Adaptation** — Automatically uses `currentColor` by default to match your VS Code theme
-- **State Persistence** — Remembers your preferred format, color, size, and category choices between editor sessions
-- **Clipboard Fallback** — Copies the formatted code snippet to your clipboard automatically if no text editor is currently active
+- **Live Customization** – Adjust size (in pixels) and color (using preset swatches or hex inputs) directly in the sidebar toolbar before inserting
+- **Smart Theme Adaptation** – Automatically uses `currentColor` by default to match your VS Code theme
+- **State Persistence** – Remembers your preferred format, color, size, and category choices between editor sessions
+- **Clipboard Fallback** – Copies the formatted code snippet to your clipboard automatically if no text editor is currently active
 
 ---
 

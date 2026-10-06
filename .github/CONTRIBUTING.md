@@ -1,12 +1,12 @@
 <p align="center">
   <a href="https://reicon.dev">
-    <img src="../public/readme-banner.png" alt="Reicon — Free Open-Source Icon Library" width="100%" />
+    <img src="../public/readme-banner.png" alt="Reicon – Free Open-Source Icon Library" width="100%" />
   </a>
 </p>
 
 # Contributing to Reicon 💜
 
-Thank you for helping make Reicon better. This guide covers everything you need — from setting up locally to submitting a PR.
+Thank you for helping make Reicon better. This guide covers everything you need – from setting up locally to submitting a PR.
 
 ---
 
@@ -16,7 +16,7 @@ Reicon is a monorepo with two clearly separated concerns:
 
 | Layer | What it is | Who manages it |
 | :---- | :--------- | :------------- |
-| `data/icon-data.json` | Single source of truth — SVG paths, tags, contributors | **Everyone** (contributors + maintainer) |
+| `data/icon-data.json` | Single source of truth – SVG paths, tags, contributors | **Everyone** (contributors + maintainer) |
 | `packages/*/dist/` | npm packages published to npm | **Maintainer only** |
 | Website (`src/`) | React/Vite docs site, deployed on every merge to `main` | **Everyone** |
 
@@ -41,11 +41,11 @@ npm run dev          # http://localhost:3000
 | :--- | :---------- |
 | `data/icon-data.json` | **Edit here.** All icon SVGs, tags, and contributor credits. |
 | `data/README.md` | Full schema reference for `icon-data.json`. |
-| `scripts/` | Build utilities — sitemap, SEO prerender, icon name sync. |
+| `scripts/` | Build utilities – sitemap, SEO prerender, icon name sync. |
 | `src/` | Documentation website (Vite + React). |
 | `public/` | Static assets, favicons, robots.txt. |
 | `docs/` | Framework usage guides. |
-| `packages/` | npm package source — **do not edit dist/ directly.** |
+| `packages/` | npm package source – **do not edit dist/ directly.** |
 
 ---
 
@@ -87,7 +87,7 @@ All icons must follow these rules to be accepted:
    ```bash
    npm run sync:icons
    ```
-   This regenerates `scripts/icon-names.json` from your changes — required for the sitemap and SEO prerender to include your new icons.
+   This regenerates `scripts/icon-names.json` from your changes – required for the sitemap and SEO prerender to include your new icons.
 
 4. **Preview locally**:
    ```bash
@@ -101,7 +101,7 @@ All icons must follow these rules to be accepted:
    npm run lint             # TypeScript check
    ```
 
-6. **Open a Pull Request** against `main`. That's it — you're done.
+6. **Open a Pull Request** against `main`. That's it – you're done.
 
 > [!IMPORTANT]
 > **Do not run `npm run build:packages`.** npm packages are rebuilt and published by the maintainer as a separate release step. Your PR only needs to touch `data/icon-data.json` (and `scripts/icon-names.json` after running `sync:icons`).
@@ -140,7 +140,7 @@ For website changes (`src/`), documentation (`docs/`), or tooling (`scripts/`):
 
 These steps are **not part of contributor PRs**. The maintainer handles them in a separate release:
 
-- `npm run build:packages` — rebuilds all npm package dist files
+- `npm run build:packages` – rebuilds all npm package dist files
 - Publishing to npm (`npm publish`)
 - Cutting a GitHub release with a version tag
 
@@ -154,7 +154,7 @@ When enough icons have accumulated (or on a regular cadence), the maintainer reb
 | :------ | :----------- |
 | `npm run dev` | Start local dev server at :3000 |
 | `npm run sync:icons` | Regenerate `scripts/icon-names.json` from `data/icon-data.json` |
-| `npm run validate:icons` | Check that icon-names.json is in sync — exits 1 if not |
+| `npm run validate:icons` | Check that icon-names.json is in sync – exits 1 if not |
 | `npm run lint` | TypeScript type check |
 | `npm run build` | Full production build (sync → sitemap → vite → prerender) |
 | `npm run preview` | Preview the production build |

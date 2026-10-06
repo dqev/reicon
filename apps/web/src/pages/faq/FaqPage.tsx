@@ -23,7 +23,7 @@ const FAQ_ITEMS: FaqItem[] = [
     answer: (
       <p>
         Yes, Reicon is 100% free and open-source under the{' '}
-        <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" className="text-[#9B8AFB] hover:underline">MIT License</a>. Use it in personal, commercial, education, or open-source projects — no attribution required.
+        <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" className="text-[#9B8AFB] hover:underline">MIT License</a>. Use it in personal, commercial, education, or open-source projects - no attribution required.
       </p>
     ),
   },
@@ -32,7 +32,7 @@ const FAQ_ITEMS: FaqItem[] = [
     question: 'Can I use it in commercial projects?',
     answer: (
       <p>
-        Absolutely. Commercial use is fully allowed. Bundle Reicon into templates, websites, SaaS products, or mobile apps — even ones you charge for.
+        Absolutely. Commercial use is fully allowed. Bundle Reicon into templates, websites, SaaS products, or mobile apps - even ones you charge for.
       </p>
     ),
   },

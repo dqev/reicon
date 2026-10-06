@@ -54,4 +54,4 @@ function App() {
 }
 ```
 
-> **Tip:** Since Reicon passes all props to the SVG element, you can use any standard SVG or ARIA attribute — `focusable`, `tabIndex`, `onFocus`, etc.
+> **Tip:** Since Reicon passes all props to the SVG element, you can use any standard SVG or ARIA attribute - `focusable`, `tabIndex`, `onFocus`, etc.

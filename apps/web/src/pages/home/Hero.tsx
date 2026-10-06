@@ -80,7 +80,7 @@ export default function Hero(_props: Props = {}) {
       <div className="w-full max-w-[1160px] mx-auto flex flex-col">
         {/* Main 2-column hero: Left text/actions, Right isometric illustration */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-8 items-center">
-          {/* Left Column — below the illustration on mobile */}
+          {/* Left Column - below the illustration on mobile */}
           <div className="hero-left-col order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left lg:pl-16 xl:pl-24">
             {/* Top hero badge */}
             <div className="hero-badge flex items-center justify-center gap-1.5 leading-none font-sans font-normal text-[13px] self-center lg:self-start">
@@ -110,7 +110,7 @@ export default function Hero(_props: Props = {}) {
             </div>
           </div>
 
-          {/* Right Column: Isometric Illustration — first on mobile */}
+          {/* Right Column: Isometric Illustration - first on mobile */}
           <div className="w-full order-1 lg:order-2 flex items-center justify-center lg:justify-end">
             <HeroIsometric />
           </div>

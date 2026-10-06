@@ -1,4 +1,4 @@
-# Reicon — Complete Reference for AI Agents
+# Reicon - Complete Reference for AI Agents
 
 ## 1. Identity
 
@@ -7,11 +7,11 @@
 
 - **Website**: https://reicon.dev
 - **GitHub**: https://github.com/dqev/reicon
-- **License**: MIT — free for personal and commercial use, no attribution required
+- **License**: MIT - free for personal and commercial use, no attribution required
 - **Creator**: Dev Chauhan (https://devchauhan.in)
 - **Contact**: hello@reicon.dev
 
-> ⚠️ **Disambiguation**: Reicon (reicon.dev) is an SVG icon library. It is **not** the Windows desktop icon restore tool "ReIcon" by Sordum.org — they are completely unrelated.
+> ⚠️ **Disambiguation**: Reicon (reicon.dev) is an SVG icon library. It is **not** the Windows desktop icon restore tool "ReIcon" by Sordum.org - they are completely unrelated.
 
 ---
 
@@ -30,8 +30,8 @@ arrow-down-circle    → ArrowDownCircle
 **Rule**: Split on `-`, capitalize each segment, join. That's the component name.
 
 **Weight values** (always PascalCase in framework props, lowercase in CDN):
-- `"Outline"` — outlined style (1.5px stroke width)
-- `"Filled"` — solid filled style
+- `"Outline"` - outlined style (1.5px stroke width)
+- `"Filled"` - solid filled style
 
 ---
 
@@ -80,8 +80,8 @@ import Bell from 'reicon-react/icons/Bell';
 | `color` | `string` | `currentColor` | Primary stroke/fill color (any valid CSS color) |
 | `secondaryColor` | `string` | same as `color` | Secondary accent color |
 | `weight` | `"Outline" \| "Filled"` | `"Outline"` | Icon style variant |
-| `strokeWidth` | `number \| string` | — | Override default stroke width |
-| `className` | `string` | — | Additional CSS classes |
+| `strokeWidth` | `number \| string` | - | Override default stroke width |
+| `className` | `string` | - | Additional CSS classes |
 
 Forwards any SVG/HTML attribute (`style`, `onClick`, `aria-*`, `id`, etc.).
 
@@ -147,9 +147,9 @@ const currentIcon = shallowRef(Home);
 | `size` | `number \| string` | `24` | Icon size in pixels |
 | `color` | `string` | `currentColor` | Any valid CSS color |
 | `weight` | `"Outline" \| "Filled"` | `"Outline"` | Weight variant |
-| `strokeWidth` | `number \| string` | — | Override stroke width |
-| `class` | `string \| array \| object` | — | SVG CSS class(es) |
-| `style` | `string \| array \| object` | — | SVG inline style(s) |
+| `strokeWidth` | `number \| string` | - | Override stroke width |
+| `class` | `string \| array \| object` | - | SVG CSS class(es) |
+| `style` | `string \| array \| object` | - | SVG inline style(s) |
 
 SSR-compatible with Nuxt 3 out of the box.
 
@@ -184,7 +184,7 @@ import Home from 'reicon-svelte/icons/Home.svelte';
 | `size` | `number \| string` | `24` | Size in pixels |
 | `color` | `string` | `currentColor` | Any CSS color |
 | `weight` | `"Outline" \| "Filled"` | `"Outline"` | Weight variant |
-| `strokeWidth` | `number \| string` | — | Override stroke width |
+| `strokeWidth` | `number \| string` | - | Override stroke width |
 
 SSR-compatible with SvelteKit.
 
@@ -217,7 +217,7 @@ import Home from 'reicon-react-native/icons/Home';
 | `color` | `string` | `#000000` | Primary color |
 | `secondaryColor` | `string` | same as color | Accent color |
 | `weight` | `"Outline" \| "Filled"` | `"Outline"` | Weight variant |
-| `strokeWidth` | `number \| string` | — | Override stroke width |
+| `strokeWidth` | `number \| string` | - | Override stroke width |
 
 Metro bundler tree-shakes automatically.
 
@@ -230,11 +230,11 @@ Metro bundler tree-shakes automatically.
 ```js
 import { Home } from 'reicon';
 
-// Append to DOM — function returns SVGSVGElement
+// Append to DOM - function returns SVGSVGElement
 const svgEl = Home({ size: 24, color: 'red', weight: 'Outline' });
 document.body.appendChild(svgEl);
 
-// SSR — get SVG string
+// SSR - get SVG string
 const svgString = Home.toSvg({ size: 32, color: '#d97757' });
 
 // Direct import (smallest bundle)
@@ -248,9 +248,9 @@ import Home from 'reicon/icons/Home';
 | `color` | `string` | `currentColor` | Stroke/fill color |
 | `size` | `number \| string` | `24` | Icon size |
 | `weight` | `"Outline" \| "Filled"` | `"Outline"` | Weight variant |
-| `strokeWidth` | `number \| string` | — | Override stroke width |
-| `className` | `string` | — | CSS class on `<svg>` |
-| `attrs` | `Record<string, string \| number>` | — | Additional SVG attributes |
+| `strokeWidth` | `number \| string` | - | Override stroke width |
+| `className` | `string` | - | CSS class on `<svg>` |
+| `attrs` | `Record<string, string \| number>` | - | Additional SVG attributes |
 
 **TypeScript:**
 ```typescript
@@ -298,19 +298,19 @@ createIcon(displayName: string, iconData: Record<string, string>): IconFunction
 
 | Attribute | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `icon` | `string` | — | Kebab-case icon name (required) |
+| `icon` | `string` | - | Kebab-case icon name (required) |
 | `weight` | `string` | `"outline"` | `"outline"`/`"linear"` or `"filled"`/`"bold"` |
 | `size` | `string` | `"24"` | px or any CSS length value |
 | `color` | `string` | `"currentColor"` | Any valid CSS color |
-| `secondary-color` | `string` | — | Accent color |
-| `stroke-width` | `string` | — | Override stroke width |
-| `rotate` | `string` | — | Rotation degrees (e.g. `"45"`) |
-| `flip` | `string` | — | `"horizontal"`, `"vertical"`, `"both"` |
-| `spin` | `boolean` | — | CSS rotation animation |
-| `loading` | `string` | — | `"lazy"` — uses IntersectionObserver |
-| `label` | `string` | — | `aria-label` for accessibility |
-| `decorative` | `boolean` | — | Sets `aria-hidden="true"` |
-| `gradient` | `string` | — | Comma-separated colors for gradient |
+| `secondary-color` | `string` | - | Accent color |
+| `stroke-width` | `string` | - | Override stroke width |
+| `rotate` | `string` | - | Rotation degrees (e.g. `"45"`) |
+| `flip` | `string` | - | `"horizontal"`, `"vertical"`, `"both"` |
+| `spin` | `boolean` | - | CSS rotation animation |
+| `loading` | `string` | - | `"lazy"` - uses IntersectionObserver |
+| `label` | `string` | - | `aria-label` for accessibility |
+| `decorative` | `boolean` | - | Sets `aria-hidden="true"` |
+| `gradient` | `string` | - | Comma-separated colors for gradient |
 | `gradient-type` | `string` | `"linear"` | `"linear"` or `"radial"` |
 | `gradient-angle` | `string` | `"135"` | Degrees for linear gradient |
 
@@ -328,7 +328,7 @@ Reicon.contributorOf('wave-hand');             // GitHub username or null
 **Technical:**
 - Shadow DOM (`attachShadow({ mode: 'open' })`) for style isolation
 - CSS custom properties: `--ri-size`, `--ri-primary`, `--ri-secondary`, `--ri-stroke-width`, `--ri-transform`
-- All icon data inlined at build time — zero network calls
+- All icon data inlined at build time - zero network calls
 - `attributeChangedCallback` for reactive updates
 - Weight aliases: `filled`/`bold` → Filled, `outline`/`linear` → Outline
 
@@ -345,7 +345,7 @@ Reicon.contributorOf('wave-hand');             // GitHub username or null
 
 ### 4.7 MCP Server (`reicon-mcp`)
 
-For AI agents. Works fully offline — search index is bundled at build time.
+For AI agents. Works fully offline - search index is bundled at build time.
 
 **Install**: `npm install reicon-mcp`
 **Node**: >= 18
@@ -368,7 +368,7 @@ For AI agents. Works fully offline — search index is bundled at build time.
 |------|-------|---------|
 | `search_icons` | `{ query: string, weight?: "Outline"\|"Filled", limit?: number }` | Ranked results with `name`, `weight`, `category`, `tags`, `score` |
 | `view_icon` | `{ name: string, weight?: "Outline"\|"Filled" }` | Raw SVG markup, `viewBox`, `tags`, `category` |
-| `apply_icon` | `{ name, weight, framework, size?, color?, componentName? }` | `{ importStatement, docsSnippet }` — ready-to-use code |
+| `apply_icon` | `{ name, weight, framework, size?, color?, componentName? }` | `{ importStatement, docsSnippet }` - ready-to-use code |
 | `list_categories` | (none) | All category names |
 
 **Supported frameworks in `apply_icon`**: `"react"`, `"vue"`, `"svelte"`, `"html"`, `"svg"`
@@ -441,7 +441,7 @@ All icons originate from `data/icon-data.json` in the monorepo. Every package, b
 ```
 
 - `description`: optional search tags/aliases
-- `contributor.github`: optional — community contributors get attribution on reicon.dev
+- `contributor.github`: optional - community contributors get attribution on reicon.dev
 - `weights.Outline.code`: full `<svg>` markup (required)
 - `weights.Filled.code`: same (optional per icon)
 
@@ -483,9 +483,9 @@ Every icon is an independent ES module. Named imports and direct imports are bot
 | Stroke width | 1.5px uniform (Outline weight) |
 | Optimized | SVGO-cleaned, minimal path data |
 | Module system | ESM (native ES modules) |
-| Tree-shakeable | Yes — standalone modules |
+| Tree-shakeable | Yes - standalone modules |
 | TypeScript | First-class typings in all packages |
-| Runtime deps | Zero — no dependencies |
+| Runtime deps | Zero - no dependencies |
 | SSR compatible | Yes (all frameworks) |
 | RSC compatible | React: `'use client'` directive |
 | Bundle (per icon) | ~1 KB gzipped |
@@ -494,11 +494,11 @@ Every icon is an independent ES module. Named imports and direct imports are bot
 
 ## 8. Design Philosophy
 
-1. **Pixel-perfect** — snapped to 24×24 grid, crisp at any size
-2. **Handcrafted** — every icon manually designed, no auto-generation
-3. **Consistent** — unified stroke widths, corner radii, optical weight
-4. **Clean** — minimal, modern aesthetic for professional UIs
-5. **Accessible** — proper viewBox, aria semantics, `currentColor` inheritance
+1. **Pixel-perfect** - snapped to 24×24 grid, crisp at any size
+2. **Handcrafted** - every icon manually designed, no auto-generation
+3. **Consistent** - unified stroke widths, corner radii, optical weight
+4. **Clean** - minimal, modern aesthetic for professional UIs
+5. **Accessible** - proper viewBox, aria semantics, `currentColor` inheritance
 
 ---
 
@@ -551,7 +551,7 @@ A: Yes. All packages ship with first-class typings. No `@types/` packages needed
 A: Yes. React, Vue, Svelte packages are SSR-compatible. Vanilla JS has `toSvg()` for raw SVG strings.
 
 **Q: Is there an MCP server for AI agents?**
-A: Yes — `reicon-mcp`. It provides `search_icons`, `view_icon`, `apply_icon`, and `list_categories` tools. Works fully offline.
+A: Yes - `reicon-mcp`. It provides `search_icons`, `view_icon`, `apply_icon`, and `list_categories` tools. Works fully offline.
 
 **Q: How do I use the CDN?**
 A: Add `<script src="https://unpkg.com/reicon/cdn/reicon.js"></script>`, then use `<re-icon icon="home"></re-icon>`.

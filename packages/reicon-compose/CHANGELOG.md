@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- Fix JitPack installs: add root `jitpack.yml` that builds `:library` from
+  `packages/reicon-compose` (repo root has no Gradle build file, so JitPack
+  failed with "No build file found")
+- Publish version now follows the JitPack `VERSION` (tag / `main-SNAPSHOT`)
+  instead of hardcoded `1.0.0`, so requested versions resolve correctly.
+  Install with `implementation("dev.reicon:reicon-compose:main-SNAPSHOT")`
+
 ## 1.0.0
 
 - Initial release of the official `reicon-compose` package for [reicon.dev](https://reicon.dev)

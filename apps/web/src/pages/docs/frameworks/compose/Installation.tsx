@@ -33,10 +33,10 @@ export default function Installation({ copiedField, onCopy }: Props) {
 
       <SyntaxBlock
         title="app/build.gradle.kts"
-        onCopy={() => onCopy('implementation("dev.reicon:reicon-compose:1.0.0")', 'compose-dep')}
+        onCopy={() => onCopy('implementation("dev.reicon:reicon-compose:main-SNAPSHOT") // or a release tag like v2.0.1', 'compose-dep')}
         copied={copiedField === 'compose-dep'}
       >
-        <span className="text-[#61afef]">implementation</span><span className="text-text-base/70">(</span><span className="text-[#98c379]">"dev.reicon:reicon-compose:1.0.0"</span><span className="text-text-base/70">)</span>
+        <span className="text-[#61afef]">implementation</span><span className="text-text-base/70">(</span><span className="text-[#98c379]">"dev.reicon:reicon-compose:main-SNAPSHOT"</span><span className="text-text-base/70">)</span><span className="text-text-base/40"> // or a release tag like v2.0.1</span>
       </SyntaxBlock>
     </>
   );

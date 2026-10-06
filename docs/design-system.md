@@ -93,9 +93,9 @@ import ClayButton from './components/ClayButton';
 ```
 
 **Variants:**
-- `primary` — White background, dark text
-- `secondary` — Glass/transparent with border
-- `accent` — Purple gradient background
+- `primary` - White background, dark text
+- `secondary` - Glass/transparent with border
+- `accent` - Purple gradient background
 
 ### Icon Card
 

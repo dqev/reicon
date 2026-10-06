@@ -16,10 +16,10 @@ Make sure the CDN script is loaded before any `<re-icon>` elements. Place the sc
 ## 2. Wrong icon weight showing
 The `weight` prop is case-sensitive in the React/Vue packages. Use `"Outline"` or `"Filled"` (PascalCase). In the CDN, use lowercase: `"outline"` or `"filled"`.
 ```jsx
-// ✅ React / Vue — PascalCase
+// ✅ React / Vue - PascalCase
 <Star weight="Filled" />
 
-// ✅ CDN — lowercase
+// ✅ CDN - lowercase
 <re-icon icon="star" weight="filled"></re-icon>
 ```
 
@@ -38,7 +38,7 @@ import { Home } from 'reicon';
 ---
 
 ## 4. Bundle size is too large
-Avoid wildcard or star imports — they pull in every icon and defeat tree-shaking.
+Avoid wildcard or star imports - they pull in every icon and defeat tree-shaking.
 ```javascript
 // ❌ Pulls in everything
 import * as Icons from 'reicon';

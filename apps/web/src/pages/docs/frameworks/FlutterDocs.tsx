@@ -31,7 +31,7 @@ export default function FlutterDocs({ markdownContent, copiedField, onCopy }: Pr
       <ul className="text-text-base/60 text-[15px] leading-[1.8] mb-8 space-y-1 list-disc list-inside">
         <li>Access all 2700+ icons in both Outline and Filled weights</li>
         <li>Use raw SVG path data with any SVG renderer</li>
-        <li>Zero dependencies — pure Dart, works on all platforms</li>
+        <li>Zero dependencies - pure Dart, works on all platforms</li>
         <li>Full autocompletion with all icon names as getters</li>
         <li>Look up icons by name at runtime</li>
       </ul>

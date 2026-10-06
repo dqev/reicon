@@ -11,7 +11,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, '../dist');
 
 async function main() {
-  if (!existsSync(DIST)) { console.error('dist/ not found — run vite build first'); process.exit(1); }
+  if (!existsSync(DIST)) { console.error('dist/ not found - run vite build first'); process.exit(1); }
 
   const srcFavicon = resolve(__dirname, '../apps/web/public/favicon');
   const destFavicon = resolve(DIST, 'favicon');

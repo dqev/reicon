@@ -1,6 +1,6 @@
 import type { IconEntry, IconIndex, IconWeight, SearchResult } from './types.js';
 
-// Only flag clearly conversational strings — short "add home icon" should be fine
+// Only flag clearly conversational strings - short "add home icon" should be fine
 const SENTENCE_MARKERS = /\?|!|\.{2,}/;
 const SENTENCE_WORDS = /\b(please|could|would|want|need|show|find|give|get me|looking for|i am|i'm|can you|help me|what is)\b/i;
 
@@ -1177,7 +1177,7 @@ function synonymBoost(query: string, name: string): number {
   return 3000 - idx * 100;
 }
 
-// Fuzzy partial match — how many chars of `token` appear sequentially in `str`
+// Fuzzy partial match - how many chars of `token` appear sequentially in `str`
 function fuzzyScore(str: string, token: string): number {
   let ti = 0;
   let hits = 0;
@@ -1229,7 +1229,7 @@ function scoreIcon(icon: IconEntry, query: string, tokens: string[], weight?: Ic
     if (tagsNorm.some((t) => t.includes(token))) score += 300;
     // Category match
     if (catNorm.includes(token)) score += 150;
-    // Fuzzy fallback — only if no direct match
+    // Fuzzy fallback - only if no direct match
     const directMatch = name.includes(token) || tagsNorm.some((t) => t.includes(token));
     if (!directMatch) {
       const fuzz = fuzzyScore(name, token);

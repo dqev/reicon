@@ -39,7 +39,7 @@ export default function FaqHelmet() {
             'name': 'What is Reicon?',
             'acceptedAnswer': {
               '@type': 'Answer',
-              'text': 'Reicon is a free, open-source icon library built with obsessive precision. Every icon is pixel-perfect and handcrafted — no auto-generation.'
+              'text': 'Reicon is a free, open-source icon library built with obsessive precision. Every icon is pixel-perfect and handcrafted - no auto-generation.'
             }
           },
           {
@@ -79,7 +79,7 @@ export default function FaqHelmet() {
             'name': 'Is Reicon the same as ReIcon by Sordum?',
             'acceptedAnswer': {
               '@type': 'Answer',
-              'text': 'No. Reicon (reicon.dev) is a free, open-source SVG icon library for designers and developers. ReIcon by Sordum.org is a completely different product — a Windows utility for restoring desktop icon layouts. They are unrelated.'
+              'text': 'No. Reicon (reicon.dev) is a free, open-source SVG icon library for designers and developers. ReIcon by Sordum.org is a completely different product - a Windows utility for restoring desktop icon layouts. They are unrelated.'
             }
           }
         ]

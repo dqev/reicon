@@ -1,4 +1,4 @@
-// Auto-generated — do not edit
+// Auto-generated – do not edit
 
 export interface IconProps {
   /** Primary icon color. Default: inherits from CSS */

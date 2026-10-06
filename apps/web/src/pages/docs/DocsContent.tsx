@@ -125,7 +125,7 @@ export default function DocsContent({
     <main ref={contentRef} className="flex-1 min-w-0 px-0 md:px-6 lg:px-8 xl:px-10 pt-0 pb-36 lg:pb-12 overflow-x-hidden">
       <div className="w-full max-w-none">
 
-            {/* What is Reicon — shown on base /docs route */}
+            {/* What is Reicon - shown on base /docs route */}
             {!fwParam && (
               <>
                 <section id="what-is-reicon" data-section className="mb-12 scroll-mt-24">
@@ -149,7 +149,7 @@ export default function DocsContent({
               </>
             )}
 
-            {/* Framework selector grid — shown on base /docs route */}
+            {/* Framework selector grid - shown on base /docs route */}
             {!fwParam ? (
               <section className="mb-12">
                 <h2 className="text-xl font-display font-medium text-white mb-6 tracking-tight">Choose an Integration</h2>
@@ -199,7 +199,7 @@ export default function DocsContent({
             )}
 
 
-        {/* Shared docs sections — shown ONLY on framework pages */}
+        {/* Shared docs sections - shown ONLY on framework pages */}
         {fwParam && !isStandaloneFramework(framework) && (
           <>
             <hr className="border-text-base/6 mb-12" />

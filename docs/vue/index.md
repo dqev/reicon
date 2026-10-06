@@ -87,7 +87,7 @@ const currentIcon = shallowRef(Home);
 ---
 
 ## Nuxt 3
-Works out of the box with Nuxt 3 — just import and use. No plugins or configuration needed.
+Works out of the box with Nuxt 3 - just import and use. No plugins or configuration needed.
 ```html
 <script setup>
 import { Home } from 'reicon-vue';

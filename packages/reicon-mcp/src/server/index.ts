@@ -23,7 +23,7 @@ server.tool(
   ].join(' '),
   {
     query: z.string().describe(
-      'Keyword(s) or phrase — e.g. "cart", "user circle", "volume up", "credit card", "go back", "delete". Handles synonyms, misspellings, and multi-word queries.',
+      'Keyword(s) or phrase - e.g. "cart", "user circle", "volume up", "credit card", "go back", "delete". Handles synonyms, misspellings, and multi-word queries.',
     ),
     weight: z
       .enum(['Outline', 'Filled'])

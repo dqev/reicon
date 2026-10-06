@@ -7,7 +7,7 @@
 
 <br/>
 
-### Official Reicon core package — open-source icon library for designers & developers
+### Official Reicon core package – open-source icon library for designers & developers
 
 [![npm](https://img.shields.io/npm/v/reicon?style=flat-square&label=reicon&color=9B8AFB)](https://www.npmjs.com/package/reicon)
 [![Docs](https://img.shields.io/badge/Docs-reicon.dev-9B8AFB?style=flat-square)](https://reicon.dev/docs/vanilla)

@@ -176,7 +176,7 @@ export default function MobileMenu({ stars }: MobileMenuProps) {
                     rel="noopener noreferrer"
                     onClick={closeMenu}
                   >
-                    GitHub ({stars ? (stars >= 1000 ? `${(stars / 1000).toFixed(1)}k` : stars) : '120'}★)
+                    GitHub ({stars ? (stars >= 1000 ? `${(stars / 1000).toFixed(1)}k` : stars) : '-'}★)
                   </a>
                 </li>
               </ul>

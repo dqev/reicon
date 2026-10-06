@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * build.cjs — Generates the `reicon-svelte` Svelte package from icondata.json
+ * build.cjs – Generates the `reicon-svelte` Svelte package from icondata.json
  *
  * Usage:  node packages/reicon-svelte/scripts/build.cjs  (or: npm run build:svelte)
  *
@@ -139,7 +139,7 @@ ${wEntries}
   @name ${icon.pascal}
   @description Reicon Svelte icon component, renders an SVG Element.
   @preview ![${icon.pascal}](${previewUri}) - https://reicon.dev/icons/${kebab}
-  @see https://reicon.dev/docs — Documentation
+  @see https://reicon.dev/docs – Documentation
 -->
 <Icon {size} {color} {weight} {strokeWidth} {iconData} {...$$restProps} />
 `;
@@ -155,7 +155,7 @@ import { IconProps } from '../index';
  * @name ${icon.pascal}
  * @description Reicon Svelte icon component, renders an SVG Element.
  * @preview ![${icon.pascal}](${previewUri}) - https://reicon.dev/icons/${kebab}
- * @see https://reicon.dev/docs — Documentation
+ * @see https://reicon.dev/docs – Documentation
  */
 export default class ${icon.pascal} extends SvelteComponent<IconProps, any, any> {}
 `;
@@ -167,7 +167,7 @@ export default class ${icon.pascal} extends SvelteComponent<IconProps, any, any>
 }
 
 // ── index.js (ESM barrel in src/) ──────────────────────────────────────────
-const indexJS = `// Auto-generated barrel — do not edit
+const indexJS = `// Auto-generated barrel – do not edit
 export { default as Icon } from './Icon.svelte';
 
 ${barrelExports.join('\n')}
@@ -176,7 +176,7 @@ ${barrelExports.join('\n')}
 fs.writeFileSync(path.join(SRC, 'index.js'), indexJS);
 
 // ── index.d.ts (types in src/) ─────────────────────────────────────────────
-const indexDTS = `// Auto-generated — do not edit
+const indexDTS = `// Auto-generated – do not edit
 import { SvelteComponent } from 'svelte';
 
 export interface IconProps {
@@ -288,7 +288,7 @@ fs.writeFileSync(path.join(DIST, 'package.json'), JSON.stringify(pkg, null, 2) +
 // ── README.md ──────────────────────────────────────────────────────────────
 const readme = `<p align="center">
   <a href="https://reicon.dev">
-    <img src="https://reicon.dev/readme-banner.png" alt="Reicon Svelte — SVG Icon Library for Svelte" width="100%" />
+    <img src="https://reicon.dev/readme-banner.png" alt="Reicon Svelte – SVG Icon Library for Svelte" width="100%" />
   </a>
 </p>
 
@@ -315,7 +315,7 @@ const readme = `<p align="center">
   <a href="#typescript">TypeScript</a>
 </p>
 
-**Reicon Svelte** is the official Svelte package for <a href="https://reicon.dev">Reicon</a> — a free, open-source SVG icon library featuring ${icons.length}+ handcrafted, grid-aligned icons. Every component is tree-shakeable, fully TypeScript-ready, and ships with zero dependencies.
+**Reicon Svelte** is the official Svelte package for <a href="https://reicon.dev">Reicon</a> – a free, open-source SVG icon library featuring ${icons.length}+ handcrafted, grid-aligned icons. Every component is tree-shakeable, fully TypeScript-ready, and ships with zero dependencies.
 
 | 🔗 &nbsp; Resource | Link |
 |---|---|
@@ -362,7 +362,7 @@ yarn add reicon-svelte
 
 ### Weights
 
-Every icon ships in two weights — **Outline** (default) and **Filled**:
+Every icon ships in two weights – **Outline** (default) and **Filled**:
 
 \`\`\`svelte
 <Home />                        <!-- Outline (default) -->
@@ -388,7 +388,7 @@ import ShieldCheck from 'reicon-svelte/icons/ShieldCheck.svelte';
 
 ### All SVG attributes are supported
 
-Pass any standard SVG attribute — \`class\`, \`style\`, \`on:click\`, \`aria-*\`, etc.:
+Pass any standard SVG attribute – \`class\`, \`style\`, \`on:click\`, \`aria-*\`, etc.:
 
 \`\`\`svelte
 <Home
@@ -408,11 +408,11 @@ Pass any standard SVG attribute — \`class\`, \`style\`, \`on:click\`, \`aria-*
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | \`size\` | \`number | string\` | \`24\` | Icon width & height (number = px) |
-| \`color\` | \`string\` | — | Primary icon stroke/fill color. Leave unset to use CSS class. |
+| \`color\` | \`string\` | – | Primary icon stroke/fill color. Leave unset to use CSS class. |
 | \`weight\` | \`'Outline' | 'Filled'\` | \`'Outline'\` | Icon style variant |
-| \`strokeWidth\` | \`number | string\` | — | Override the default stroke width |
-| \`class\` | \`string\` | — | Additional CSS class on the \`<svg>\` element |
-| \`style\` | \`string\` | — | Additional inline styles |
+| \`strokeWidth\` | \`number | string\` | – | Override the default stroke width |
+| \`class\` | \`string\` | – | Additional CSS class on the \`<svg>\` element |
+| \`style\` | \`string\` | – | Additional inline styles |
 
 Any valid SVG attribute (e.g. \`id\`, \`aria-*\`) is forwarded to the underlying \`<svg>\` element.
 
@@ -420,13 +420,13 @@ Any valid SVG attribute (e.g. \`id\`, \`aria-*\`) is forwarded to the underlying
 
 ## Tree-shaking
 
-Every icon is a standalone ES module. Modern bundlers — **Vite**, **Webpack**, **Rollup**, **esbuild** — automatically tree-shake unused icons, keeping only what you import.
+Every icon is a standalone ES module. Modern bundlers – **Vite**, **Webpack**, **Rollup**, **esbuild** – automatically tree-shake unused icons, keeping only what you import.
 
 \`\`\`js
 // ✅ Only Home is included in your production bundle
 import { Home } from 'reicon-svelte';
 
-// ✅ Even smaller — direct path import skips the barrel file entirely
+// ✅ Even smaller – direct path import skips the barrel file entirely
 import Home from 'reicon-svelte/icons/Home.svelte';
 \`\`\`
 
@@ -452,7 +452,7 @@ Browse and search all ${icons.length}+ icons at <a href="https://reicon.dev">rei
 
 ## TypeScript
 
-Full type declarations ship with the package — no separate \`@types/\` installation needed.
+Full type declarations ship with the package – no separate \`@types/\` installation needed.
 
 \`\`\`ts
 import { Home, type IconProps, type IconWeight } from 'reicon-svelte';
@@ -472,13 +472,13 @@ const props: IconProps = { size: 32, color: '#d97757', weight };
 
 ## Features
 
-- **${icons.length}+ icons** — Handcrafted, pixel-perfect SVGs across a wide range of categories
-- **Two weights** — Outline and Filled, with consistent 24×24 grid alignment
-- **Tree-shakeable** — Import only what you use; every icon is a standalone ES module
-- **Zero dependencies** — No runtime overhead beyond Svelte itself
-- **TypeScript-ready** — Full type declarations included, no extra packages needed
-- **SVG attribute passthrough** — All standard SVG props (\`class\`, \`style\`, \`aria-*\`, etc.) are forwarded
-- **MIT licensed** — Free for personal and commercial use
+- **${icons.length}+ icons** – Handcrafted, pixel-perfect SVGs across a wide range of categories
+- **Two weights** – Outline and Filled, with consistent 24×24 grid alignment
+- **Tree-shakeable** – Import only what you use; every icon is a standalone ES module
+- **Zero dependencies** – No runtime overhead beyond Svelte itself
+- **TypeScript-ready** – Full type declarations included, no extra packages needed
+- **SVG attribute passthrough** – All standard SVG props (\`class\`, \`style\`, \`aria-*\`, etc.) are forwarded
+- **MIT licensed** – Free for personal and commercial use
 
 ---
 

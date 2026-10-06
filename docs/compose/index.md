@@ -22,7 +22,8 @@ dependencyResolutionManagement {
 }
 
 // app/build.gradle.kts
-implementation("dev.reicon:reicon-compose:1.0.0")
+// main-SNAPSHOT tracks the latest build; a release tag (e.g. v2.0.1) works too.
+implementation("dev.reicon:reicon-compose:main-SNAPSHOT")
 ```
 
 ---
@@ -70,14 +71,14 @@ ReiconIcon(Home.Outline, contentDescription = null, modifier = Modifier.padding(
 ---
 
 ## Direct Import for Smaller Bundles
-For the absolute smallest APK size, each icon lives in its own file, so R8 removes every icon you don't reference. No extra configuration needed — just don't import what you don't use.
+For the absolute smallest APK size, each icon lives in its own file, so R8 removes every icon you don't reference. No extra configuration needed - just don't import what you don't use.
 
 > **Tip:** Per-icon files are recommended for production apps where APK size matters. Each icon is its own object, so the compiler can't accidentally pull in other icons.
 
 ---
 
 ## Using with Material3
-Reicon works seamlessly with Material3. Use the `tint` parameter or inherit the content color — icons default to `LocalContentColor.current`, so `contentColor` from buttons, list items, and app bars applies out of the box.
+Reicon works seamlessly with Material3. Use the `tint` parameter or inherit the content color - icons default to `LocalContentColor.current`, so `contentColor` from buttons, list items, and app bars applies out of the box.
 ```kotlin
 IconButton(onClick = { /* ... */ }) {
     ReiconIcon(Bell.Outline, contentDescription = "Notifications")
@@ -124,4 +125,4 @@ fun Navbar() {
 }
 ```
 
-> **Note:** All icons are plain `ImageVector`s and work with any Compose renderer — Material2, Material3, Canvas `drawVector`, and Wear Compose — out of the box.
+> **Note:** All icons are plain `ImageVector`s and work with any Compose renderer - Material2, Material3, Canvas `drawVector`, and Wear Compose - out of the box.

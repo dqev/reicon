@@ -7,7 +7,7 @@
 
 <br/>
 
-### Official Reicon package for React — open-source icon library for designers & developers
+### Official Reicon package for React – open-source icon library for designers & developers
 
 [![npm](https://img.shields.io/npm/v/reicon-react?style=flat-square&label=reicon-react&color=9B8AFB)](https://www.npmjs.com/package/reicon-react)
 [![Docs](https://img.shields.io/badge/Docs-reicon.dev-9B8AFB?style=flat-square)](https://reicon.dev/docs/react)

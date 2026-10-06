@@ -64,7 +64,7 @@ function generateIcons() {
     sections.push(lines.join('\n'));
   }
 
-  const output = `# Reicon — Complete Icon Names & Component Mapping
+  const output = `# Reicon - Complete Icon Names & Component Mapping
 
 This file lists every icon in the Reicon SVG icon library by category. Use it to look up the correct import name (PascalCase) or CDN attribute value (kebab-case) for any icon.
 

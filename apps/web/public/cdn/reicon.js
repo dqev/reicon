@@ -1,6 +1,6 @@
 /*!
- * Reicon CDN — drop-in web component for 1000+ icons, 2 weights (Outline & Filled).
- * ALL icon data is inlined — zero network fetch, instant rendering.
+ * Reicon CDN - drop-in web component for 1000+ icons, 2 weights (Outline & Filled).
+ * ALL icon data is inlined - zero network fetch, instant rendering.
  *
  *   <re-icon icon="home"></re-icon>
  *   <re-icon icon="home" weight="filled" size="32" color="#d97757"></re-icon>
@@ -12,7 +12,7 @@
  *
  * JS API:
  *   Reicon.preload([...names])     warm cache for given icons
- *   Reicon.ready                   Promise (resolves immediately — data is inline)
+ *   Reicon.ready                   Promise (resolves immediately - data is inline)
  *   Reicon.icons                   Array of all icon names
  *   Reicon.categories              Array of all category names
  */

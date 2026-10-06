@@ -70,7 +70,7 @@ export default function IconDetail() {
             </nav>
           </div>
 
-          <h1 className="sr-only">{pascalName} icon — Reicon</h1>
+          <h1 className="sr-only">{pascalName} icon - Reicon</h1>
 
           <div className="grid lg:grid-cols-[380px_minmax(0,1fr)] gap-6 lg:gap-8 items-start">
             <IconPreview
