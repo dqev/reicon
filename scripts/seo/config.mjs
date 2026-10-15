@@ -225,6 +225,14 @@ export const ROUTES = [
     priority: '0.3',
     changefreq: 'yearly',
   },
+  {
+    path: '/brand',
+    title: 'Reicon Brand Guidelines - Reicon',
+    description: 'Official Reicon brand guidelines: logo usage, colors, typography, and UI rules. Do and don\u2019t examples.',
+    ogImage: og('og-image.png'),
+    priority: '0.3',
+    changefreq: 'yearly',
+  },
 ];
 
 // ── Site-wide JSON-LD (injected into index.html) ──────────────────────────────

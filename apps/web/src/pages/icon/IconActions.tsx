@@ -99,6 +99,7 @@ export default function IconActions({
                     <input
                       type="text"
                       value={customColor}
+                      aria-label="Hex color"
                       onChange={(e) => {
                         const val = e.target.value;
                         if (val.startsWith('#')) {

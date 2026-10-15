@@ -538,25 +538,27 @@ h6 {
 .clay-secondary,
 .clay-accent,
 .skill-btn--secondary {
-  color: #ffffff;
+  color: #0d0d12;
+  font-weight: 550;
   background: #9B8AFB;
   box-shadow:
-    0 1px 3px 0 rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    0 1px 3px 0 rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.35),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
 .clay-secondary:hover,
 .clay-accent:hover,
 .skill-btn--secondary:hover {
   background: #a899fb;
+  color: #050508;
 }
 
 .clay-secondary:active,
 .clay-accent:active,
 .skill-btn--secondary:active {
   background: #8875f9;
+  color: #050508;
 }
 
 /* ─── Card Inset Shadows ─── */
@@ -854,7 +856,7 @@ h6 {
 }
 
 .brand-word-dim {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.72);
   font-weight: 400;
 }
 
@@ -1378,22 +1380,20 @@ re-icon {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 260px;
+  max-width: 340px;
 }
 
 .footer-brand-logo {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  opacity: 0.7;
   text-decoration: none;
   color: var(--text);
-  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1), opacity 150ms ease;
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
   transform-origin: center;
 }
 
 .footer-brand-logo:hover {
-  opacity: 1;
   transform: scale(1.02);
 }
 
@@ -1421,6 +1421,59 @@ re-icon {
   text-wrap: balance;
 }
 
+.footer-npm {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-variant-numeric: tabular-nums;
+  width: max-content;
+  max-width: 100%;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 150ms var(--ease-smooth-out);
+}
+
+.footer-npm:hover {
+  color: var(--text);
+}
+
+.footer-npm-logo {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.footer-npm-text {
+  white-space: nowrap;
+}
+
+.ui-file-icon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .footer-brand {
+    max-width: 100%;
+  }
+
+  .footer-npm {
+    font-size: 12px;
+    gap: 5px;
+  }
+
+  .footer-npm-logo {
+    width: 14px;
+    height: 14px;
+  }
+}
+
 .footer-cols {
   display: flex;
   gap: 56px;
@@ -1435,7 +1488,7 @@ re-icon {
 .footer-col-title {
   margin: 0 0 2px;
   font-weight: 500;
-  color: color-mix(in srgb, var(--text-muted) 70%, transparent);
+  color: var(--text-muted);
 }
 
 .footer-col a {
@@ -1480,7 +1533,7 @@ re-icon {
   margin: 0;
   font-size: 11px;
   line-height: 16px;
-  color: color-mix(in srgb, var(--text-faint) 80%, transparent);
+  color: var(--text-faint);
 }
 
 .footer-thanks a {

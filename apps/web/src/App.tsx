@@ -23,6 +23,7 @@ const NotFound = lazyWithRetry(() => import('./pages/not-found/NotFound'));
 const Terms = lazyWithRetry(() => import('./pages/terms/Terms'));
 const Privacy = lazyWithRetry(() => import('./pages/privacy/Privacy'));
 const LicensePage = lazyWithRetry(() => import('./pages/license/LicensePage'));
+const BrandPage = lazyWithRetry(() => import('./pages/brand/BrandPage'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -31,7 +32,7 @@ function ScrollToTop() {
 }
 
 const VALID_ROUTES = [
-  '/', '/icons', '/packages', '/faq', '/support', '/terms', '/privacy', '/license',
+  '/', '/icons', '/packages', '/faq', '/support', '/terms', '/privacy', '/license', '/brand',
   '/flags', '/brands', '/glass'
 ];
 
@@ -88,6 +89,7 @@ function Layout() {
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/license" element={<LicensePage />} />
+            <Route path="/brand" element={<BrandPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           {!hideFooter && <Footer />}

@@ -11,7 +11,7 @@ const INTEGRATIONS = [
   {
     to: '/docs/react',
     title: 'React',
-    icon: <SiReact className="text-[#61DAFB] shrink-0" size={16} />,
+    icon: <SiReact className="text-[#61DAFB] shrink-0" size={16} title="React" aria-hidden="true" />,
   },
   {
     to: '/docs/angular',
@@ -41,12 +41,12 @@ const INTEGRATIONS = [
   {
     to: '/docs/react-native',
     title: 'React Native',
-    icon: <FaReact className="text-[#61DAFB] shrink-0" size={16} />,
+    icon: <FaReact className="text-[#61DAFB] shrink-0" size={16} title="React Native" aria-hidden="true" />,
   },
   {
     to: '/docs/vanilla',
     title: 'JavaScript',
-    icon: <SiJavascript className="text-[#F7DF1E] shrink-0" size={15} />,
+    icon: <SiJavascript className="text-[#F7DF1E] shrink-0" size={15} title="JavaScript" aria-hidden="true" />,
   },
   {
     to: '/docs/vscode',
@@ -118,13 +118,13 @@ export default function Hero(_props: Props = {}) {
 
         {/* Integrations Infinite Marquee Ribbon */}
         <div className="mt-12 md:mt-16 pt-2 flex flex-col items-center justify-center gap-4 select-none w-full max-w-[780px] mx-auto overflow-hidden">
-          <span className="text-[13px] text-white/40 font-normal font-sans text-center">
+          <span className="text-[13px] text-white/70 font-normal font-sans text-center">
             Frameworks &amp; tools supported by Reicon
           </span>
 
           <div className="hero-marquee-container w-full overflow-hidden py-1">
             <div className="hero-marquee-track flex gap-3 items-center">
-              {/* Set 1 */}
+              {/* Set 1: Accessible semantic links */}
               {INTEGRATIONS.map((item, idx) => (
                 <Link
                   key={`int-1-${idx}`}
@@ -132,25 +132,27 @@ export default function Hero(_props: Props = {}) {
                   title={item.title}
                   className="hero-integration-pill"
                 >
-                  {item.icon}
+                  <span aria-hidden="true" className="inline-flex shrink-0 items-center justify-center">
+                    {item.icon}
+                  </span>
                   <span>{item.title}</span>
                 </Link>
               ))}
 
-              {/* Set 2 (seamless duplication for infinite loop) */}
-              {INTEGRATIONS.map((item, idx) => (
-                <Link
-                  key={`int-2-${idx}`}
-                  to={item.to}
-                  title={item.title}
-                  className="hero-integration-pill"
-                  aria-hidden="true"
-                  tabIndex={-1}
-                >
-                  {item.icon}
-                  <span>{item.title}</span>
-                </Link>
-              ))}
+              {/* Set 2: Purely visual duplication for infinite loop */}
+              <div className="contents" aria-hidden="true">
+                {INTEGRATIONS.map((item, idx) => (
+                  <span
+                    key={`int-2-${idx}`}
+                    className="hero-integration-pill pointer-events-none select-none"
+                  >
+                    <span className="inline-flex shrink-0 items-center justify-center">
+                      {item.icon}
+                    </span>
+                    <span>{item.title}</span>
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>

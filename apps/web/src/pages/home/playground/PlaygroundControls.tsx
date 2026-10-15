@@ -106,14 +106,16 @@ export default function PlaygroundControls({
       {/* Size Control */}
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <label className="text-[12px] font-medium text-white/70">Size</label>
+          <label htmlFor="playground-icon-size" className="text-[12px] font-medium text-white/70">Size</label>
           <span className="text-[12px] font-mono text-white/50">{size}px</span>
         </div>
         <input
+          id="playground-icon-size"
           type="range"
           min={80}
           max={180}
           value={size}
+          aria-label="Icon size"
           onChange={(e) => onChangeSize(Number(e.target.value))}
           className="w-full h-1 bg-white/15 rounded-full appearance-none accent-white cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:transition-transform hover:[&::-webkit-slider-thumb]:scale-110"
         />

@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 
-// Math and Geometry Helpers from hairline engine (hero-isometric.html)
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
 const rad = (d: number) => (d * Math.PI) / 180;
 const r2 = (n: number) => Math.round(n * 100) / 100;
