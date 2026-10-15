@@ -140,11 +140,19 @@ export default function IconPreview({
 
         <div>
           <div className="flex justify-between mb-2">
-            <label className="text-xs text-white/50 font-medium">Size</label>
+            <label htmlFor="icon-preview-size" className="text-xs text-white/50 font-medium">Size</label>
             <span className="text-xs text-white/40 font-mono">{previewSize}px</span>
           </div>
-          <input type="range" min={16} max={256} value={previewSize} onChange={(e) => onSetPreviewSize(Number(e.target.value))}
-            className="w-full h-1.5 rounded-full appearance-none bg-white/10 accent-[#9B8AFB] cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#9B8AFB] [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(155,138,251,0.6)]" />
+          <input
+            id="icon-preview-size"
+            type="range"
+            min={16}
+            max={256}
+            value={previewSize}
+            aria-label="Icon preview size"
+            onChange={(e) => onSetPreviewSize(Number(e.target.value))}
+            className="w-full h-1.5 rounded-full appearance-none bg-white/10 accent-[#9B8AFB] cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#9B8AFB] [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(155,138,251,0.6)]"
+          />
         </div>
       </div>
     </motion.div>

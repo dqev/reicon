@@ -5,7 +5,7 @@ import ClayButton from '@/components/ui/Button';
 
 export default function NotFound() {
   return (
-    <div className="flex-1 flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-4 text-center py-20">
+    <main className="flex-1 flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-4 text-center py-20">
       <Helmet>
         <title>404 - Page Not Found | Reicon</title>
         <meta name="robots" content="noindex" />
@@ -27,15 +27,13 @@ export default function NotFound() {
       </p>
 
       <div className="flex items-center justify-center gap-3 flex-wrap">
-        <ClayButton to="/icons" variant="secondary" className="skill-btn skill-btn--secondary">
-          <Search3 size={15} />
-          <span>Browse Icons</span>
-        </ClayButton>
         <ClayButton to="/" variant="primary" className="skill-btn skill-btn--primary">
-          <ArrowLeft size={15} />
           <span>Go Home</span>
         </ClayButton>
+        <ClayButton to="/icons" variant="secondary" className="skill-btn skill-btn--secondary">
+          <span>Browse Icons</span>
+        </ClayButton>
       </div>
-    </div>
+    </main>
   );
 }

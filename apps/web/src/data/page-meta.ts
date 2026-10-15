@@ -34,6 +34,7 @@ export const PAGE_META: Record<string, PageMeta> = {
   '/terms': { title: 'Reicon Terms of Service - Reicon', description: 'Terms of service for using the Reicon open-source icon library.', url: 'https://reicon.dev/terms', ogImage: 'https://reicon.dev/og/terms.png' },
   '/privacy': { title: 'Reicon Privacy Policy - Reicon', description: 'Privacy policy for Reicon. Learn how we handle your data.', url: 'https://reicon.dev/privacy', ogImage: 'https://reicon.dev/og/privacy.png' },
   '/license': { title: 'Reicon MIT License - Reicon', description: 'Reicon is free and open-source under the MIT license. Use in personal and commercial projects.', url: 'https://reicon.dev/license', ogImage: 'https://reicon.dev/og/license.png' },
+  '/brand': { title: 'Reicon Brand Guidelines - Reicon', description: 'Official Reicon brand guidelines: logo usage, colors, typography, and UI rules. Do and don’t examples.', url: 'https://reicon.dev/brand', ogImage: 'https://reicon.dev/og/og-image.png' },
 };
 
 /** Framework-specific docs meta (keyed by framework ID, e.g. "react", "flutter") */

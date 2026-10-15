@@ -36,7 +36,7 @@ export const FigmaIcon = ({ size = 16 }: { size?: number }) => (
 );
 
 export const McpIcon = ({ size = 16 }: { size?: number }) => (
-    <SiModelcontextprotocol className="text-[#9B8AFB]" size={size} />
+    <SiModelcontextprotocol className="text-[#9B8AFB]" size={size} title="MCP" aria-hidden="true" />
 );
 
 export const FlutterIcon = ({ size = 16 }: { size?: number }) => (
@@ -69,6 +69,7 @@ const SvgIcon = ({ size = 16 }: { size?: number }) => (
 
 const AngularIcon = ({ size = 16 }: { size?: number }) => (
     <svg width={size} height={size} viewBox="0 0 250 250" role="img" aria-label="Angular">
+        <title>Angular</title>
         <path fill="#dd0031" d="m125 0 125 44.5-19.1 165.7L125 250 19.1 210.2 0 44.5z" />
         <path fill="#c3002f" d="M125 0v250l105.9-39.8L250 44.5z" />
         <path fill="#fff" d="m125 29.2-77.9 174h29.1l15.7-39.2h66.1l15.7 39.2h29.1L125 29.2Zm0 50.6 22.8 57h-45.6l22.8-57Z" />

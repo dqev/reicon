@@ -1,4 +1,61 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+
+const NPM_PACKAGE = 'reicon-react';
+
+function formatCount(n: number): string {
+  return n.toLocaleString('en-US');
+}
+
+function FooterNpmStats() {
+  const [total, setTotal] = useState<number | null>(null);
+  const [weekly, setWeekly] = useState<number | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    const today = new Date().toISOString().slice(0, 10);
+
+    Promise.all([
+      fetch(`https://api.npmjs.org/downloads/point/2015-01-01:${today}/${NPM_PACKAGE}`).then((res) => {
+        if (!res.ok) throw new Error('total fetch failed');
+        return res.json();
+      }),
+      fetch(`https://api.npmjs.org/downloads/point/last-week/${NPM_PACKAGE}`).then((res) => {
+        if (!res.ok) throw new Error('weekly fetch failed');
+        return res.json();
+      }),
+    ])
+      .then(([totalData, weeklyData]) => {
+        if (!isMounted) return;
+        if (typeof totalData?.downloads === 'number') setTotal(totalData.downloads);
+        if (typeof weeklyData?.downloads === 'number') setWeekly(weeklyData.downloads);
+      })
+      .catch(() => {
+        // Keep footer clean when offline / API blocked — render nothing.
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  if (total === null || weekly === null) return null;
+
+  return (
+    <a
+      href={`https://www.npmjs.com/package/${NPM_PACKAGE}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="footer-npm"
+      aria-label={`${formatCount(total)} total downloads of ${NPM_PACKAGE} on npm, ${formatCount(weekly)} in the last week`}
+    >
+      <img src="/framework-logos/npm.svg" alt="" width="16" height="16" className="footer-npm-logo" aria-hidden="true" />
+      <span className="footer-npm-text">
+        {formatCount(total)} downloads on npm, {formatCount(weekly)} in the last week
+      </span>
+    </a>
+  );
+}
 
 export default function Footer() {
   return (
@@ -17,11 +74,12 @@ export default function Footer() {
           <p className="footer-tagline">
             High-crafted vector icons for modern web applications.
           </p>
+          <FooterNpmStats />
         </div>
 
         <div className="footer-cols">
           <div className="footer-col">
-            <h4 className="footer-col-title">Libraries</h4>
+            <h3 className="footer-col-title">Libraries</h3>
             <Link to="/docs/react">React</Link>
             <Link to="/docs/angular">Angular</Link>
             <Link to="/docs/vue">Vue</Link>
@@ -32,15 +90,16 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4 className="footer-col-title">Product</h4>
+            <h3 className="footer-col-title">Product</h3>
             <Link to="/">Home</Link>
             <Link to="/icons">Icons</Link>
             <Link to="/docs">How to use</Link>
+            <Link to="/brand">Brand</Link>
             <Link to="/faq">FAQs</Link>
           </div>
 
           <div className="footer-col">
-            <h4 className="footer-col-title">Legal &amp; Account</h4>
+            <h3 className="footer-col-title">Legal &amp; Account</h3>
             <a href="https://github.com/dqev/reicon" target="_blank" rel="noopener noreferrer">GitHub</a>
             <Link to="/license">License</Link>
             <Link to="/terms">Terms</Link>
@@ -69,6 +128,8 @@ export default function Footer() {
           <img
             src="/extra/Diet-coke.svg"
             alt="Diet Coke"
+            width="31"
+            height="12"
             className="h-3 w-auto inline-block align-middle ml-0.5 relative -top-[1px]"
           />
         </p>

@@ -10,5 +10,5 @@ export default function SupportPage() {
     navigate('/', { replace: true });
   }, [navigate]);
 
-  return <div className="flex-1 flex items-center justify-center min-h-[50vh] text-text-base/60">Opening Dodo Payments Checkout...</div>;
+  return <main className="flex-1 flex items-center justify-center min-h-[50vh] text-text-base/60">Opening Dodo Payments Checkout...</main>;
 }

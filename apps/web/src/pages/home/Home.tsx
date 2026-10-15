@@ -18,7 +18,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="flex-1">
+    <main className="flex-1">
       <Helmet>
         <title>Reicon - Open-Source Icon Library for Designers &amp; Developers</title>
         <meta name="description" content="Open-Source Icon Library for Designers &amp; Developers" />
@@ -83,6 +83,6 @@ export default function HomePage() {
       <FAQ />
 
       <div className="h-5 md:h-12" />
-    </div>
+    </main>
   );
 }

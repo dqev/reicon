@@ -47,6 +47,7 @@ export default function IconSearchBar({
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search arrow, user, star..."
+          aria-label="Search icons"
           className="w-full bg-white/[0.05] border border-white/[0.04] rounded-full pl-10 pr-9 py-2.5 text-sm text-[#fbfbfb] placeholder:text-[#9a9a9a] outline-none focus:bg-white/[0.09] transition-all"
         />
         {searchQuery && (

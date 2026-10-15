@@ -463,6 +463,7 @@ function Sidebar({
                   <input
                     type="text"
                     value={activeColor || '#9B8AFB'}
+                    aria-label="Hex color"
                     onChange={(e) => {
                       const val = e.target.value;
                       if (val.startsWith('#')) {
