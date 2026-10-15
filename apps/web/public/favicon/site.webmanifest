@@ -1,20 +1,21 @@
 {
-  "name": "Your Great Website",
-  "short_name": "WebSite",
+  "name": "Reicon",
+  "short_name": "Reicon",
+  "description": "Free, open-source SVG icon library for designers and developers.",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
+      "src": "/favicon/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-512x512.png",
+      "src": "/favicon/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "theme_color": "#181818",
-  "background_color": "#181818",
+  "theme_color": "#121212",
+  "background_color": "#121212",
   "display": "standalone",
   "start_url": "/"
 }

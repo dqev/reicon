@@ -72,7 +72,7 @@ export default function Footer() {
             </span>
           </Link>
           <p className="footer-tagline">
-            High-crafted vector icons for modern web applications.
+            Open-Source Icon Library for Designers & Developers.
           </p>
           <FooterNpmStats />
         </div>
