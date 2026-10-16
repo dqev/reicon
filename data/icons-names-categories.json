@@ -496,6 +496,10 @@
     "category": "arrows"
   },
   {
+    "name": "arrow-corner-down-right",
+    "category": "arrows"
+  },
+  {
     "name": "arrow-to-down-left",
     "category": "arrows-action"
   },
@@ -2533,6 +2537,10 @@
   },
   {
     "name": "sort-time",
+    "category": "list"
+  },
+  {
+    "name": "list-plus",
     "category": "list"
   },
   {
@@ -7636,6 +7644,10 @@
     "category": "school"
   },
   {
+    "name": "books",
+    "category": "school"
+  },
+  {
     "name": "search",
     "category": "search"
   },
@@ -9948,6 +9960,10 @@
     "category": "ui"
   },
   {
+    "name": "grip-vertical",
+    "category": "ui"
+  },
+  {
     "name": "facial-recognition",
     "category": "users"
   },
@@ -10565,6 +10581,10 @@
   },
   {
     "name": "wallpaper",
+    "category": "video"
+  },
+  {
+    "name": "guitar",
     "category": "video"
   },
   {
