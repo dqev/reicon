@@ -4,6 +4,8 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 import SmoothScroll from './components/layout/SmoothScroll';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import NoticeBanner from './components/layout/NoticeBanner';
+import { SponsorCheckoutProvider } from './components/layout/SponsorCheckout';
 import ErrorBoundary from './components/ui/ErrorBoundary';
 import { ThemeProvider } from './components/layout/ThemeContext';
 import { lazyWithRetry } from './lib/lazyWithRetry';
@@ -19,6 +21,7 @@ const DocsPage = lazyWithRetry(() => import('./pages/docs/DocsPage'));
 const PackagesPage = lazyWithRetry(() => import('./pages/packages/PackagesPage'));
 const FaqPage = lazyWithRetry(() => import('./pages/faq/FaqPage'));
 const SupportPage = lazyWithRetry(() => import('./pages/support/SupportPage'));
+const NoticePage = lazyWithRetry(() => import('./pages/notice/NoticePage'));
 const NotFound = lazyWithRetry(() => import('./pages/not-found/NotFound'));
 const Terms = lazyWithRetry(() => import('./pages/terms/Terms'));
 const Privacy = lazyWithRetry(() => import('./pages/privacy/Privacy'));
@@ -32,7 +35,7 @@ function ScrollToTop() {
 }
 
 const VALID_ROUTES = [
-  '/', '/icons', '/packages', '/faq', '/support', '/terms', '/privacy', '/license', '/brand',
+  '/', '/icons', '/packages', '/faq', '/support', '/notice', '/terms', '/privacy', '/license', '/brand',
   '/flags', '/brands', '/glass'
 ];
 
@@ -65,6 +68,7 @@ function Layout() {
 
   return (
     <div className="min-h-screen bg-bg-base flex flex-col">
+      <NoticeBanner />
       <Header />
       <ErrorBoundary>
         <Suspense fallback={<div className="flex-1" />}>
@@ -84,6 +88,7 @@ function Layout() {
             <Route path="/packages" element={<PackagesPage />} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/support" element={<SupportPage />} />
+            <Route path="/notice" element={<NoticePage />} />
             <Route path="/sponsor" element={<Navigate to="/support" replace />} />
             <Route path="/donate" element={<Navigate to="/support" replace />} />
             <Route path="/terms" element={<Terms />} />
@@ -103,11 +108,13 @@ export default function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
-        <SmoothScroll>
-          <ScrollToTop />
-          <Layout />
-          <SpeedInsights />
-        </SmoothScroll>
+        <SponsorCheckoutProvider>
+          <SmoothScroll>
+            <ScrollToTop />
+            <Layout />
+            <SpeedInsights />
+          </SmoothScroll>
+        </SponsorCheckoutProvider>
       </BrowserRouter>
     </ThemeProvider>
   );

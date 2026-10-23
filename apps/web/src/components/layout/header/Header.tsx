@@ -111,6 +111,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(function Header({ className 
             <Link to="/icons" className={`nav-pill ${pathname === '/icons' ? 'nav-pill--active' : ''}`}>Icons</Link>
             <Link to="/docs" className={`nav-pill ${pathname.startsWith('/docs') ? 'nav-pill--active' : ''}`}>Docs</Link>
             <Link to="/packages" className={`nav-pill ${pathname === '/packages' ? 'nav-pill--active' : ''}`}>Packages</Link>
+            <Link to="/notice" className={`nav-pill nav-pill--notice ${pathname === '/notice' ? 'nav-pill--active' : ''}`}>Notice</Link>
           </nav>
         </div>
 

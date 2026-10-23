@@ -202,6 +202,14 @@ export const ROUTES = [
     changefreq: 'monthly',
   },
   {
+    path: '/notice',
+    title: 'Reicon May Shut Down - A Notice From the Founder',
+    description: 'Reicon may shut down if it does not find support to cover its domain and running costs. Read the full notice from the founder.',
+    ogImage: og('notice.png'),
+    priority: '0.6',
+    changefreq: 'weekly',
+  },
+  {
     path: '/terms',
     title: 'Reicon Terms of Service - Reicon',
     description: 'Terms of service for using the Reicon open-source icon library.',
@@ -321,5 +329,5 @@ export const VOLATILE_ROUTES = new Set([
   '/', '/icons', '/docs', '/docs/react', '/docs/react-native',
   '/docs/vue', '/docs/svelte', '/docs/astro', '/docs/vanilla', '/docs/angular', '/docs/figma',
   '/docs/vscode', '/docs/mcp', '/docs/svg', '/docs/flutter', '/docs/compose',
-  '/packages', '/support',
+  '/packages', '/support', '/notice',
 ]);

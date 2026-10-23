@@ -793,6 +793,101 @@ h6 {
   stroke: var(--hl-mid);
 }
 
+/* Site notice bar */
+.notice-bar {
+  position: relative;
+  z-index: 104;
+  width: 100%;
+  background: #171717;
+  border-bottom: 1px solid #262626;
+}
+
+body.menu-open .notice-bar,
+body.menu-closing .notice-bar {
+  display: none;
+}
+
+.notice-bar-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 8px 48px;
+  box-sizing: border-box;
+}
+
+.notice-bar-label {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.notice-bar-text {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #b5b5b5;
+  text-align: center;
+}
+
+.notice-bar-text a {
+  color: #ededed;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 150ms ease;
+}
+
+.notice-bar-text a:hover {
+  color: #ffffff;
+}
+
+.notice-bar-close {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background 150ms ease, color 150ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.notice-bar-close:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+@media (max-width: 639px) {
+  .notice-bar-inner {
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 8px 40px 8px 16px;
+  }
+
+  .notice-bar-text {
+    font-size: 11.5px;
+    text-align: left;
+  }
+}
+
 /* ─── Header Navigation (Exact new-deisgn.html) ─── */
 .site-nav {
   position: sticky;
@@ -913,6 +1008,16 @@ h6 {
 .nav-pill--active {
   color: var(--text);
   background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-pill--notice {
+  color: #c8bdff;
+}
+
+.nav-pill--notice:hover,
+.nav-pill--notice.nav-pill--active {
+  color: #ffffff;
+  background: rgba(155, 138, 251, 0.14);
 }
 
 .nav-search {
@@ -1240,6 +1345,10 @@ body.menu-open .mobile-menu {
 
 .mobile-menu-link--5 {
   transition-delay: 160ms;
+}
+
+.mobile-menu-link--6 {
+  transition-delay: 200ms;
 }
 
 .mobile-menu-link--pro {

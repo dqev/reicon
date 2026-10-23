@@ -164,13 +164,18 @@ export default function MobileMenu({ stars }: MobileMenuProps) {
                   </Link>
                 </li>
                 <li>
-                  <Link className="mobile-menu-link mobile-menu-link--4" to="/support" onClick={closeMenu}>
+                  <Link className="mobile-menu-link mobile-menu-link--4" to="/notice" onClick={closeMenu}>
+                    Notice
+                  </Link>
+                </li>
+                <li>
+                  <Link className="mobile-menu-link mobile-menu-link--5" to="/support" onClick={closeMenu}>
                     Support
                   </Link>
                 </li>
                 <li>
                   <a
-                    className="mobile-menu-link mobile-menu-link--5 mobile-menu-link--pro"
+                    className="mobile-menu-link mobile-menu-link--6 mobile-menu-link--pro"
                     href="https://github.com/dqev/reicon"
                     target="_blank"
                     rel="noopener noreferrer"
