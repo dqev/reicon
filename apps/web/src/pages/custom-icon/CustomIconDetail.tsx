@@ -386,7 +386,7 @@ export default function CustomIconDetail({ type }: Props) {
               {/* Inset Customize Box (Matching IconPreview.tsx lines 118-149) */}
               <div className="bg-[#121212] border border-white/[0.06] rounded-2xl p-4 flex flex-col gap-4 card-inset">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] uppercase tracking-[0.1em] text-white/40 font-mono font-semibold">
+                  <span className="text-[11px] uppercase tracking-[0.1em] text-white/40 font-mono">
                     Customize
                   </span>
                   <button

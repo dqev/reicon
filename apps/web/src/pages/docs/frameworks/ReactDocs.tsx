@@ -44,7 +44,7 @@ export default function ReactDocs({ markdownContent, copiedField, onCopy }: Prop
       <ComponentApi copiedField={copiedField} onCopy={onCopy} />
 
       {/* Direct Import for Smaller Bundles */}
-      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Direct Import for Smaller Bundles</h3>
+      <h3 className="text-lg font-display font-medium text-text-base mb-4 mt-10">Direct Import for Smaller Bundles</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         For the absolute smallest bundle size, you can import each icon directly from its own module. This guarantees only that single icon's code is included, which is ideal for production apps.
       </p>
@@ -60,13 +60,13 @@ export default function ReactDocs({ markdownContent, copiedField, onCopy }: Prop
       </SyntaxBlock>
 
       <div className="mt-4 bg-[#9B8AFB]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
-        <span className="text-[#9B8AFB] font-semibold">Tip:</span> Direct imports are recommended for production apps where bundle size matters. Each icon is its own module, so the bundler can't accidentally pull in other icons.
+        <span className="text-[#9B8AFB] font-medium">Tip:</span> Direct imports are recommended for production apps where bundle size matters. Each icon is its own module, so the bundler can't accidentally pull in other icons.
       </div>
 
       <Theming copiedField={copiedField} onCopy={onCopy} />
 
       {/* Full Component Example */}
-      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Full Component Example</h3>
+      <h3 className="text-lg font-display font-medium text-text-base mb-4 mt-10">Full Component Example</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         Here's a complete example of a React component using multiple Reicon icons with different configurations.
       </p>
@@ -111,7 +111,7 @@ export default function ReactDocs({ markdownContent, copiedField, onCopy }: Prop
       </SyntaxBlock>
 
       <div className="mt-6 bg-[#61DAFB]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
-        <span className="text-[#61DAFB] font-semibold">Note:</span> All icon components are SSR-compatible and work with Next.js, Remix, and other React frameworks out of the box.
+        <span className="text-[#61DAFB] font-medium">Note:</span> All icon components are SSR-compatible and work with Next.js, Remix, and other React frameworks out of the box.
       </div>
     </section>
   );

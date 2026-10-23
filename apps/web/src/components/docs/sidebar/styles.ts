@@ -34,7 +34,7 @@ export const docsSidebarStyles = `
     gap: 0.5rem;
     margin-bottom: 0.375rem;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-more-muted);
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -117,4 +117,15 @@ export const docsSidebarStyles = `
     transition: background-color 0.3s ease;
   }
   #otp-sidebar::-webkit-scrollbar { display: none; }
+
+  /* ── HEADINGS IN DOCS: USE SANS (FONT-SANS) ── */
+  main h1,
+  main h2,
+  main h3,
+  main h4,
+  main h5,
+  main h6 {
+    font-family: var(--font-sans) !important;
+    font-weight: 500;
+  }
 `;

@@ -85,7 +85,7 @@ export function TooltipOverlay() {
             >
               <div className="px-2.5 py-1">
                 <motion.div layout="preserve-aspect">
-                  <p className="text-[12px] font-semibold text-[var(--tooltip-text)] tracking-tight whitespace-nowrap">
+                  <p className="text-[12px] font-medium text-[var(--tooltip-text)] tracking-tight whitespace-nowrap">
                     {rendered.data.label}
                   </p>
                 </motion.div>

@@ -22,7 +22,7 @@ export default function SyntaxBlock({
     <figure className="reicon-cb relative my-4 overflow-hidden rounded-xl bg-white/[0.03] text-sm">
       {/* Title bar */}
       <div className="relative flex items-center justify-between w-full h-10 pl-5 pr-1.5">
-        <div className="flex items-center gap-2 truncate text-[13px] font-mono font-medium text-white/70">
+        <div className="flex items-center gap-2 truncate text-[13px] font-mono text-white/70">
           {icon && (
             <span className="inline-flex items-center justify-center text-[#9B8AFB] [&>svg]:w-3.5 [&>svg]:h-3.5">
               {icon}

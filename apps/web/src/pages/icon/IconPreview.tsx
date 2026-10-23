@@ -117,7 +117,7 @@ export default function IconPreview({
 
       <div className="bg-[#121212] border border-white/[0.06] rounded-2xl p-4 flex flex-col gap-4 card-inset">
         <div className="flex items-center justify-between">
-          <span className="text-[11px] uppercase tracking-[0.1em] text-white/40 font-mono font-semibold">Customize</span>
+          <span className="text-[11px] uppercase tracking-[0.1em] text-white/40 font-mono">Customize</span>
           <button onClick={onReset} title="Reset" aria-label="Reset" className="w-7 h-7 flex items-center justify-center rounded-full text-white/40 hover:text-white hover:bg-white/[0.08] transition-colors cursor-pointer">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-6.5 2.8L3 8" /><path d="M3 3v5h5" /></svg>
           </button>
@@ -131,7 +131,7 @@ export default function IconPreview({
                 className={`flex-1 px-3 py-2 rounded-full text-xs font-medium transition-all cursor-pointer flex items-center justify-center gap-1.5 ${activeWeight === w ? 'bg-[#9B8AFB] text-white border border-[#9B8AFB]' : 'bg-[#2a2a2a] text-white/50 border border-white/10 hover:text-white hover:bg-[#323232]'}`}>
                 <span>{w.charAt(0).toUpperCase() + w.slice(1)}</span>
                 {w === 'duotone' && (
-                  <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-white/20 text-white">Beta</span>
+                  <span className="text-[9px] font-medium uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-white/20 text-white">Beta</span>
                 )}
               </button>
             ))}

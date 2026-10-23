@@ -14,8 +14,8 @@ export default function NotFound() {
       {/* Icon // 404 inline */}
       <div className="flex items-center justify-center gap-2.5 sm:gap-3.5 mb-5 select-none">
         <img src="/favicon/favicon.svg" alt="Reicon" loading="lazy" className="w-9 h-9 sm:w-11 sm:h-11 shrink-0 select-none pointer-events-none" />
-        <span className="font-mono text-[34px] sm:text-[44px] font-light text-white/20 tracking-tighter leading-none relative -top-[1px]">|</span>
-        <span className="font-sans font-medium text-[42px] sm:text-[54px] font-normal text-white/30 leading-none">404</span>
+        <span className="font-mono text-[34px] sm:text-[44px] font-normal text-white/20 tracking-tighter leading-none relative -top-[1px]">|</span>
+        <span className="font-sans text-[42px] sm:text-[54px] font-normal text-white/30 leading-none">404</span>
       </div>
 
       <h1 className="font-sans font-medium text-[24px] sm:text-[32px] text-white leading-[1.2] mb-3">

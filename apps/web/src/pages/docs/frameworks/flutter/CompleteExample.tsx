@@ -8,7 +8,7 @@ interface Props {
 export default function CompleteExample({ copiedField, onCopy }: Props) {
   return (
     <>
-      <h3 id="flutter-complete" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="flutter-complete" data-section className="text-lg font-display font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Full Widget Example
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -83,7 +83,7 @@ export default function CompleteExample({ copiedField, onCopy }: Props) {
       </SyntaxBlock>
 
       <div className="mt-4 bg-[#47C5FB]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
-        <span className="text-[#47C5FB] font-semibold">Note:</span> This widget works on Android, iOS, Web, macOS, Windows, and Linux - Reicon icons are pure Dart with zero native dependencies.
+        <span className="text-[#47C5FB] font-medium">Note:</span> This widget works on Android, iOS, Web, macOS, Windows, and Linux - Reicon icons are pure Dart with zero native dependencies.
       </div>
     </>
   );

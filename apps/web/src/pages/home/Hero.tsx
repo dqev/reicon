@@ -76,14 +76,14 @@ interface Props {
 
 export default function Hero(_props: Props = {}) {
   return (
-    <section className="relative w-full flex flex-col items-center justify-center pt-4 pb-6 md:pt-8 md:pb-12 px-4 sm:px-6">
+    <section className="hero-section relative w-full flex flex-col items-center justify-center px-4 sm:px-6">
       <div className="w-full max-w-[1160px] mx-auto flex flex-col">
         {/* Main 2-column hero: Left text/actions, Right isometric illustration */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-8 items-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] gap-8 md:gap-6 items-center">
           {/* Left Column - below the illustration on mobile */}
-          <div className="hero-left-col order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left lg:pl-16 xl:pl-24">
+          <div className="hero-left-col order-2 md:order-1 flex flex-col items-center md:items-start text-center md:text-left">
             {/* Top hero badge */}
-            <div className="hero-badge flex items-center justify-center gap-1.5 leading-none font-sans font-normal text-[13px] self-center lg:self-start">
+            <div className="hero-badge flex items-center justify-center gap-1.5 leading-none font-sans font-normal text-[13px] self-center md:self-start">
               <Sparkles size={14} color="#9B8AFB" weight="Filled" className="shrink-0" />
               <span className="leading-none font-sans font-normal">v2 is live</span>
             </div>
@@ -111,13 +111,13 @@ export default function Hero(_props: Props = {}) {
           </div>
 
           {/* Right Column: Isometric Illustration - first on mobile */}
-          <div className="w-full order-1 lg:order-2 flex items-center justify-center lg:justify-end">
+          <div className="w-full order-1 md:order-2 flex items-center justify-center lg:justify-end">
             <HeroIsometric />
           </div>
         </div>
 
         {/* Integrations Infinite Marquee Ribbon */}
-        <div className="mt-12 md:mt-16 pt-2 flex flex-col items-center justify-center gap-4 select-none w-full max-w-[780px] mx-auto overflow-hidden">
+        <div className="hero-marquee-wrap pt-2 flex flex-col items-center justify-center gap-4 select-none w-full max-w-[780px] mx-auto overflow-hidden">
           <span className="text-[13px] text-white/70 font-normal font-sans text-center">
             Frameworks &amp; tools supported by Reicon
           </span>

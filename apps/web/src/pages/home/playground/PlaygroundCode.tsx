@@ -20,7 +20,7 @@ export default function PlaygroundCode({
     <div className="flex flex-col gap-4">
       <div>
         <div className="flex items-center justify-between mb-3">
-          <span className="text-[11px] uppercase tracking-[0.08em] text-white/30 font-semibold">ICONS</span>
+          <span className="text-[11px] uppercase tracking-[0.08em] text-white/30 font-medium">ICONS</span>
         </div>
         <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 border-l border-t border-white/[0.05] rounded-[16px] overflow-hidden">
           {icons.map((name) => {

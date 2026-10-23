@@ -72,7 +72,7 @@ export default function DesktopFilterDropdown({ sortBy, onSortChange }: DesktopF
             {/* Top caret arrow pointer */}
             <div className="absolute -top-1.5 right-3.5 w-3 h-3 bg-[#202020] border-t border-l border-white/[0.06] rotate-45 z-10 pointer-events-none" />
 
-            <div className="px-3 py-1.5 border-b border-text-base/6 text-[11px] font-semibold tracking-wider text-text-base/40 uppercase">
+            <div className="px-3 py-1.5 border-b border-text-base/6 text-[11px] font-medium tracking-wider text-text-base/40 uppercase">
               Sort Order
             </div>
 
@@ -90,7 +90,7 @@ export default function DesktopFilterDropdown({ sortBy, onSortChange }: DesktopF
                     }}
                     className={`w-full flex items-center justify-between px-3 py-2 text-left text-xs font-medium transition-colors cursor-pointer rounded-xl ${
                       isSelected
-                        ? 'text-[#9B8AFB] bg-[#9B8AFB]/10 font-semibold'
+                        ? 'text-[#9B8AFB] bg-[#9B8AFB]/10 font-medium'
                         : 'text-text-base/70 hover:text-text-base hover:bg-text-base/5'
                     }`}
                   >

@@ -86,7 +86,7 @@ function FeatureItem({ icon, title, description }: { icon: ReactNode; title: str
       <div className="flex items-center justify-center text-[#ffffff] mb-3">
         {icon}
       </div>
-      <h3 className="font-sans font-semibold text-[16px] sm:text-[17px] text-[#ffffff] mb-2">{title}</h3>
+      <h3 className="font-sans font-medium text-[16px] sm:text-[17px] text-[#ffffff] mb-2">{title}</h3>
       <p className="text-[14px] text-[#8f8f8f] leading-[1.6] max-w-[300px] mx-auto">{description}</p>
     </div>
   );
@@ -94,11 +94,11 @@ function FeatureItem({ icon, title, description }: { icon: ReactNode; title: str
 
 export default function Features() {
   return (
-    <section id="features" className="reveal max-w-[1080px] mx-auto px-5 md:px-10 pt-8 md:pt-12 pb-14 md:pb-20">
-      <h2 className="font-sans font-normal text-[22px] sm:text-[26px] text-[#fefefe] tracking-[-0.02em] text-center mb-12 sm:mb-16">
+    <section id="features" className="reveal max-w-[1160px] mx-auto px-5 md:px-10 pt-6 md:pt-8 pb-12 md:pb-16">
+      <h2 className="font-sans font-normal text-[22px] sm:text-[26px] text-[#fefefe] tracking-[-0.02em] text-center mb-8 sm:mb-10 md:mb-12">
         Features
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-14">
         <FeatureItem
           icon={<LayerIcon size={28} />}
           title="Pixel Perfect"

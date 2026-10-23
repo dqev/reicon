@@ -47,7 +47,7 @@ export default function DocsMobileNav({
                 <div className="px-4 pt-4 pb-3 max-h-[50vh] overflow-y-auto bg-[var(--dropdown-bg)]">
                     {/* Framework switch */}
                     <div className="mb-4">
-                        <h3 className="text-[10px] font-semibold text-text-base/40 uppercase tracking-wider mb-1.5 px-1">Framework</h3>
+                        <h3 className="text-[10px] font-medium text-text-base/40 uppercase tracking-wider mb-1.5 px-1">Framework</h3>
                         <div ref={frameworkListRef} className="flex gap-2 overflow-x-auto pb-3 whitespace-nowrap scrollbar-none">
                             {FRAMEWORKS.map((fw) => {
                                 const isActive = framework === fw.id;
@@ -56,7 +56,7 @@ export default function DocsMobileNav({
                                         key={fw.id}
                                         data-active={isActive}
                                         onClick={() => onFrameworkSwitch(fw.id)}
-                                        className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-colors shrink-0 cursor-pointer ${
+                                        className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors shrink-0 cursor-pointer ${
                                             isActive ? 'bg-text-base/10 text-text-base' : 'text-text-base/40 hover:text-text-base/60'
                                         }`}
                                     >

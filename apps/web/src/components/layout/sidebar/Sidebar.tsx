@@ -549,7 +549,7 @@ function Sidebar({
         data-lenis-prevent
       >
         <div className="reicon-sidebar-drawer-head">
-          <span style={{ fontWeight: 600, fontSize: '14px', color: 'var(--text-base)' }}>
+          <span style={{ fontWeight: 500, fontSize: '14px', color: 'var(--text-base)' }}>
             Filters
           </span>
           {onClose && (

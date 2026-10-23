@@ -117,7 +117,7 @@ function RuleCard({
         {children}
       </div>
       <div className="px-5 py-4">
-        <p className="font-sans font-semibold text-[15px] text-[#ffffff]">{title}</p>
+        <p className="font-sans font-medium text-[15px] text-[#ffffff]">{title}</p>
         <p className="mt-1.5 text-[14px] leading-[1.6] text-[#8f8f8f]">{body}</p>
       </div>
     </div>
@@ -143,7 +143,7 @@ function Swatch({ hex, name, usage }: { hex: string; name: string; usage: string
       <div className="h-[84px] w-full" style={{ backgroundColor: hex }} />
       <div className="px-4 py-3 flex items-center justify-between gap-2">
         <div className="min-w-0">
-          <p className="font-sans font-semibold text-[14px] text-[#ffffff] truncate">{name}</p>
+          <p className="font-sans font-medium text-[14px] text-[#ffffff] truncate">{name}</p>
           <p className="text-[12px] text-white/45 truncate font-mono">{hex}</p>
           <p className="text-[12px] text-[#8f8f8f] truncate">{usage}</p>
         </div>
@@ -222,7 +222,7 @@ export default function BrandPage() {
 
         <div className="grid sm:grid-cols-3 gap-4 md:gap-5 mt-4 md:mt-5">
           <div className="rounded-[24px] bg-[#1a1a1a] card-inset p-6">
-            <p className="font-sans font-semibold text-[15px] text-[#ffffff] mb-4">Clearspace</p>
+            <p className="font-sans font-medium text-[15px] text-[#ffffff] mb-4">Clearspace</p>
             <div className="flex items-center justify-center py-2">
               <div className="border border-dashed border-[#9B8AFB]/50 rounded-lg p-5 relative">
                 <span className="absolute -top-2 left-3 bg-[#1a1a1a] px-1 text-[10px] text-[#9B8AFB] font-mono">x</span>
@@ -235,7 +235,7 @@ export default function BrandPage() {
             </p>
           </div>
           <div className="rounded-[24px] bg-[#1a1a1a] card-inset p-6">
-            <p className="font-sans font-semibold text-[15px] text-[#ffffff] mb-4">Minimum size</p>
+            <p className="font-sans font-medium text-[15px] text-[#ffffff] mb-4">Minimum size</p>
             <div className="flex items-end justify-center gap-6 py-2 min-h-[84px]">
               <span className="flex flex-col items-center gap-1.5">
                 <img src="/favicon/favicon.svg" alt="32px" width="32" height="32" />
@@ -255,7 +255,7 @@ export default function BrandPage() {
             </p>
           </div>
           <div className="rounded-[24px] bg-[#1a1a1a] card-inset p-6">
-            <p className="font-sans font-semibold text-[15px] text-[#ffffff] mb-4">Download assets</p>
+            <p className="font-sans font-medium text-[15px] text-[#ffffff] mb-4">Download assets</p>
             <div className="flex flex-col gap-2">
               {[
                 { label: 'Reicon mark', format: 'SVG', href: '/favicon/favicon.svg' },
@@ -351,21 +351,21 @@ export default function BrandPage() {
         title="Accent + dark canvas"
         lede="Reicon purple #9B8AFB is the only accent. Everything else is neutral dark surfaces and white text. Tap any swatch to copy its hex."
       >
-        <p className="font-sans font-semibold text-[16px] text-[#ffffff] mb-4 text-center">Accent scale</p>
+        <p className="font-sans font-medium text-[16px] text-[#ffffff] mb-4 text-center">Accent scale</p>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           <Swatch hex="#9B8AFB" name="Accent" usage="CTAs · links · active" />
           <Swatch hex="#A899FB" name="Accent hover" usage="Button hover" />
           <Swatch hex="#8875F9" name="Accent active" usage="Button pressed" />
           <Swatch hex="#35BA00" name="Success" usage="Live dots · ok states" />
         </div>
-        <p className="font-sans font-semibold text-[16px] text-[#ffffff] mb-4 mt-10 text-center">Surfaces</p>
+        <p className="font-sans font-medium text-[16px] text-[#ffffff] mb-4 mt-10 text-center">Surfaces</p>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           <Swatch hex="#121212" name="Base" usage="Page background" />
           <Swatch hex="#131313" name="Stage" usage="Hero canvas" />
           <Swatch hex="#181818" name="Card" usage="Cards · badges" />
           <Swatch hex="#202020" name="Menu" usage="Dropdowns · hover" />
         </div>
-        <p className="font-sans font-semibold text-[16px] text-[#ffffff] mb-4 mt-10 text-center">Text &amp; line</p>
+        <p className="font-sans font-medium text-[16px] text-[#ffffff] mb-4 mt-10 text-center">Text &amp; line</p>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           <Swatch hex="#FFFFFF" name="Text" usage="Headings · strong" />
           <Swatch hex="#EDEDED" name="Icon" usage="Icon color" />

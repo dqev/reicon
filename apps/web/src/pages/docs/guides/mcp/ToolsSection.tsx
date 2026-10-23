@@ -9,7 +9,7 @@ interface ToolsSectionProps {
 export default function ToolsSection({ copiedField, onCopy }: ToolsSectionProps) {
   return (
     <>
-      <h3 id="mcp-agent-workflow" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="mcp-agent-workflow" data-section className="text-lg font-display font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Agent Workflow
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-6">
@@ -18,7 +18,7 @@ export default function ToolsSection({ copiedField, onCopy }: ToolsSectionProps)
 
       <div className="space-y-6 text-[14px] text-text-base/50 leading-relaxed mb-8">
         <div className="flex gap-4">
-          <div className="w-6 h-6 rounded-full bg-text-base/10 text-text-base font-bold flex items-center justify-center shrink-0 text-xs mt-1">1</div>
+          <div className="w-6 h-6 rounded-full bg-text-base/10 text-text-base font-medium flex items-center justify-center shrink-0 text-xs mt-1">1</div>
           <div className="flex-1">
             <h4 className="text-text-base font-medium mb-1">Search with concise keywords</h4>
             <p className="mb-3">Use short, specific query terms like <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded text-[12px]">cart</code> or <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded text-[12px]">settings</code> - not full sentences.</p>
@@ -27,7 +27,7 @@ export default function ToolsSection({ copiedField, onCopy }: ToolsSectionProps)
               onCopy={() => onCopy(SEARCH_TOOL, 'mcp-search-tool')}
               copied={copiedField === 'mcp-search-tool'}
             >
-              <span className="text-[#61afef] font-semibold">search_icons</span>
+              <span className="text-[#61afef] font-medium">search_icons</span>
               <span className="text-text-base/40">(</span>
               <span className="text-text-base/40">{'{ '}</span>
               <span className="text-[#e06c75]">query</span>
@@ -44,7 +44,7 @@ export default function ToolsSection({ copiedField, onCopy }: ToolsSectionProps)
         </div>
 
         <div className="flex gap-4">
-          <div className="w-6 h-6 rounded-full bg-text-base/10 text-text-base font-bold flex items-center justify-center shrink-0 text-xs mt-1">2</div>
+          <div className="w-6 h-6 rounded-full bg-text-base/10 text-text-base font-medium flex items-center justify-center shrink-0 text-xs mt-1">2</div>
           <div className="flex-1">
             <h4 className="text-text-base font-medium mb-1">Apply the chosen icon</h4>
             <p className="mb-3">Generates the matching <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded text-[12px]">importStatement</code> and <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded text-[12px]">usageSnippet</code> for the agent to insert directly.</p>
@@ -53,7 +53,7 @@ export default function ToolsSection({ copiedField, onCopy }: ToolsSectionProps)
               onCopy={() => onCopy(APPLY_TOOL, 'mcp-apply-tool')}
               copied={copiedField === 'mcp-apply-tool'}
             >
-              <span className="text-[#61afef] font-semibold">apply_icon</span>
+              <span className="text-[#61afef] font-medium">apply_icon</span>
               <span className="text-text-base/40">(</span>
               <span className="text-text-base/40">{'{'}</span>
               {'\n  '}
@@ -88,7 +88,7 @@ export default function ToolsSection({ copiedField, onCopy }: ToolsSectionProps)
         </div>
       </div>
 
-      <h3 id="mcp-tools-reference" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="mcp-tools-reference" data-section className="text-lg font-display font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Tools Reference
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">

@@ -34,7 +34,7 @@ export default function VscodeDocs({ markdownContent, copiedField, onCopy }: Pro
       </ul>
 
       {/* Installation */}
-      <h3 id="vscode-installation" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="vscode-installation" data-section className="text-lg font-display font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Installation
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -68,7 +68,7 @@ export default function VscodeDocs({ markdownContent, copiedField, onCopy }: Pro
       </SyntaxBlock>
 
       {/* Workflow & Sidebar Panel */}
-      <h3 id="vscode-workflow" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="vscode-workflow" data-section className="text-lg font-display font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Workflow &amp; Sidebar Panel
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-6">
@@ -77,7 +77,7 @@ export default function VscodeDocs({ markdownContent, copiedField, onCopy }: Pro
 
       <div className="space-y-6 text-[14px] text-text-base/50 leading-relaxed mb-12">
         <div className="flex gap-4">
-          <div className="w-6 h-6 rounded-full bg-text-base/10 text-text-base font-bold flex items-center justify-center shrink-0 text-xs mt-1">
+          <div className="w-6 h-6 rounded-full bg-text-base/10 text-text-base font-medium flex items-center justify-center shrink-0 text-xs mt-1">
             1
           </div>
           <div className="flex-1">
@@ -87,7 +87,7 @@ export default function VscodeDocs({ markdownContent, copiedField, onCopy }: Pro
         </div>
 
         <div className="flex gap-4">
-          <div className="w-6 h-6 rounded-full bg-text-base/10 text-text-base font-bold flex items-center justify-center shrink-0 text-xs mt-1">
+          <div className="w-6 h-6 rounded-full bg-text-base/10 text-text-base font-medium flex items-center justify-center shrink-0 text-xs mt-1">
             2
           </div>
           <div className="flex-1">
@@ -97,7 +97,7 @@ export default function VscodeDocs({ markdownContent, copiedField, onCopy }: Pro
         </div>
 
         <div className="flex gap-4">
-          <div className="w-6 h-6 rounded-full bg-text-base/10 text-text-base font-bold flex items-center justify-center shrink-0 text-xs mt-1">
+          <div className="w-6 h-6 rounded-full bg-text-base/10 text-text-base font-medium flex items-center justify-center shrink-0 text-xs mt-1">
             3
           </div>
           <div className="flex-1">
@@ -107,7 +107,7 @@ export default function VscodeDocs({ markdownContent, copiedField, onCopy }: Pro
         </div>
 
         <div className="flex gap-4">
-          <div className="w-6 h-6 rounded-full bg-text-base/10 text-text-base font-bold flex items-center justify-center shrink-0 text-xs mt-1">
+          <div className="w-6 h-6 rounded-full bg-text-base/10 text-text-base font-medium flex items-center justify-center shrink-0 text-xs mt-1">
             4
           </div>
           <div className="flex-1">
@@ -118,7 +118,7 @@ export default function VscodeDocs({ markdownContent, copiedField, onCopy }: Pro
       </div>
 
       {/* Snippet Formats */}
-      <h3 id="vscode-snippets" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="vscode-snippets" data-section className="text-lg font-display font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Snippet Formats &amp; Autocomplete
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -136,7 +136,7 @@ export default function VscodeDocs({ markdownContent, copiedField, onCopy }: Pro
       </SyntaxBlock>
 
       {/* Antigravity IDE Integration */}
-      <h3 id="vscode-antigravity" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="vscode-antigravity" data-section className="text-lg font-display font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Antigravity IDE &amp; AI Agent Integration
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
@@ -148,7 +148,7 @@ export default function VscodeDocs({ markdownContent, copiedField, onCopy }: Pro
           <img src="/framework-logos/antigravity.svg" alt="Google Antigravity" className="w-8 h-8 object-contain" />
         </div>
         <div className="space-y-1">
-          <h4 className="text-[14px] font-semibold text-text-base">Built for Google Antigravity Agent Workflows</h4>
+          <h4 className="text-[14px] font-medium text-text-base">Built for Google Antigravity Agent Workflows</h4>
           <p className="text-[13px] text-text-base/60 leading-relaxed">
             Google Antigravity IDE supports Open VSX extensions natively. Pair <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[11px]">dqev.reicon</code> with <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[11px]">reicon-mcp</code> to allow Antigravity AI agents to search, preview, and write native icons directly into your workspace.
           </p>
@@ -156,7 +156,7 @@ export default function VscodeDocs({ markdownContent, copiedField, onCopy }: Pro
       </div>
 
       {/* Shortcuts & Settings */}
-      <h3 id="vscode-shortcuts" data-section className="text-lg font-sans font-medium text-text-base mb-4 mt-10 scroll-mt-24">
+      <h3 id="vscode-shortcuts" data-section className="text-lg font-display font-medium text-text-base mb-4 mt-10 scroll-mt-24">
         Shortcuts &amp; Extension Settings
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">

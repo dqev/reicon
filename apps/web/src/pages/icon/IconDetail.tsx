@@ -126,7 +126,7 @@ export default function IconDetail() {
               />
 
               <div>
-                <h3 className="text-[11px] font-mono font-semibold tracking-[0.1em] text-white/40 uppercase mb-2">Props</h3>
+                <h3 className="text-[11px] font-mono tracking-[0.1em] text-white/40 uppercase mb-2">Props</h3>
                 <TypeTable rows={[
                   { prop: 'size', type: 'number | string', default: '24', description: 'Icon size in pixels' },
                   { prop: 'color', type: 'string', default: 'currentColor', description: 'Any valid CSS color' },

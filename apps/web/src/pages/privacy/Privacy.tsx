@@ -92,19 +92,19 @@ export default function Privacy() {
 
         <div className="space-y-8 text-[15px] text-text-base/60 leading-relaxed">
           <section>
-            <h2 className="text-lg font-semibold text-text-base mb-3">1. Overview</h2>
+            <h2 className="text-lg font-medium text-text-base mb-3">1. Overview</h2>
             <p>Reicon (<a href="https://reicon.dev" className="text-[#9B8AFB] hover:underline">reicon.dev</a>) is committed to protecting your privacy. This policy explains what information we collect, how we use it, and your rights regarding that information.</p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-text-base mb-3">2. Information We Collect</h2>
+            <h2 className="text-lg font-medium text-text-base mb-3">2. Information We Collect</h2>
             <p><strong className="text-text-base/80">Analytics Data:</strong> We may use privacy-respecting analytics to understand how visitors use the website. This may include page views, referral sources, browser type, and approximate geographic location. No personally identifiable information is collected through analytics.</p>
             <p className="mt-3"><strong className="text-text-base/80">CDN Logs:</strong> Our CDN provider may collect standard server logs (IP addresses, request timestamps, and requested resources) for security and performance purposes. These logs are retained temporarily and are not used for tracking or profiling.</p>
             <p className="mt-3"><strong className="text-text-base/80">Contact Information:</strong> If you contact us via email, we collect your email address and any information you voluntarily provide in your message.</p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-text-base mb-3">3. Information We Do NOT Collect</h2>
+            <h2 className="text-lg font-medium text-text-base mb-3">3. Information We Do NOT Collect</h2>
             <ul className="list-disc list-inside space-y-1 text-text-base/50">
               <li>We do not require account creation or login</li>
               <li>We do not collect payment information</li>
@@ -115,7 +115,7 @@ export default function Privacy() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-text-base mb-3">4. Third-Party Services</h2>
+            <h2 className="text-lg font-medium text-text-base mb-3">4. Third-Party Services</h2>
             <p>The website may use the following third-party services:</p>
             <ul className="list-disc list-inside mt-2 space-y-1 text-text-base/50">
               <li><strong className="text-text-base/70">Vercel</strong> - Hosting and deployment</li>
@@ -126,12 +126,12 @@ export default function Privacy() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-text-base mb-3">5. Data Retention</h2>
+            <h2 className="text-lg font-medium text-text-base mb-3">5. Data Retention</h2>
             <p>We retain analytics data in aggregated, anonymized form. CDN server logs are retained for a limited period for security purposes. Contact emails are retained only as long as necessary to address your inquiry.</p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-text-base mb-3">6. Your Rights</h2>
+            <h2 className="text-lg font-medium text-text-base mb-3">6. Your Rights</h2>
             <p>You have the right to:</p>
             <ul className="list-disc list-inside mt-2 space-y-1 text-text-base/50">
               <li>Request information about what data we hold about you</li>
@@ -141,17 +141,17 @@ export default function Privacy() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-text-base mb-3">7. Children's Privacy</h2>
+            <h2 className="text-lg font-medium text-text-base mb-3">7. Children's Privacy</h2>
             <p>Reicon does not knowingly collect information from children under 13. If you believe we have inadvertently collected such information, please contact us and we will promptly delete it.</p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-text-base mb-3">8. Changes to This Policy</h2>
+            <h2 className="text-lg font-medium text-text-base mb-3">8. Changes to This Policy</h2>
             <p>We may update this privacy policy from time to time. Changes will be posted on this page with an updated revision date.</p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-text-base mb-3">9. Contact</h2>
+            <h2 className="text-lg font-medium text-text-base mb-3">9. Contact</h2>
             <p>For privacy-related questions or requests, contact us at <a href="mailto:hello@reicon.dev" className="text-[#9B8AFB] hover:underline">hello@reicon.dev</a>.</p>
           </section>
         </div>

@@ -105,7 +105,7 @@ function TypeTableStyles() {
         background: #141414;
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         border-inline-start: 1px solid rgba(255, 255, 255, 0.04);
-        font-weight: 600;
+        font-weight: 400;
         font-size: 11px;
         font-family: var(--font-mono);
         text-transform: uppercase;
@@ -158,7 +158,7 @@ function TypeTableStyles() {
         background: rgba(155, 138, 251, 0.15);
         color: #9B8AFB;
         border-color: rgba(155, 138, 251, 0.35);
-        font-weight: 500;
+        font-weight: 400;
       }
 
       .reicon-tt-chip--deprecated {

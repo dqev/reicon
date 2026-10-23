@@ -123,7 +123,7 @@ export default function AdvancedUsage({ copiedField, onCopy }: Props) {
       </SyntaxBlock>
 
       {/* Styling with CSS */}
-      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Styling with CSS</h3>
+      <h3 className="text-lg font-display font-medium text-text-base mb-4 mt-10">Styling with CSS</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         The <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">{'<re-icon>'}</code> element acts like an inline block. It automatically inherits its parent's text color, allowing CSS utility-classes to adjust color naturally.
       </p>
@@ -155,7 +155,7 @@ export default function AdvancedUsage({ copiedField, onCopy }: Props) {
       </SyntaxBlock>
 
       {/* Full HTML Example */}
-      <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Full Example HTML Page</h3>
+      <h3 className="text-lg font-display font-medium text-text-base mb-4 mt-10">Full Example HTML Page</h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
         A complete HTML document importing Reicon via CDN and showcasing customizations:
       </p>
@@ -188,7 +188,7 @@ export default function AdvancedUsage({ copiedField, onCopy }: Props) {
       </SyntaxBlock>
 
       <div className="mt-6 bg-[#F7DF1E]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
-        <span className="text-[#F7DF1E] font-semibold">Note:</span> If you are compiling your project with modern bundlers (e.g. Vite, Webpack, rollup), prefer installing via <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded font-mono">npm install reicon</code> to enjoy full tree-shaking, static typing, and faster loading speeds.
+        <span className="text-[#F7DF1E] font-medium">Note:</span> If you are compiling your project with modern bundlers (e.g. Vite, Webpack, rollup), prefer installing via <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded font-mono">npm install reicon</code> to enjoy full tree-shaking, static typing, and faster loading speeds.
       </div>
     </>
   );

@@ -116,12 +116,12 @@ export default function LicensePage() {
 
         <div className="space-y-8 text-[15px] text-white/60 leading-relaxed">
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">MIT License</h2>
+            <h2 className="text-lg font-medium text-white mb-3">MIT License</h2>
             <p>Reicon icons and the <code className="text-white/80 bg-white/[0.06] px-1.5 py-0.5 rounded text-[13px]">reicon</code> package are released under the MIT License - one of the most permissive open-source licenses available.</p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">What You Can Do</h2>
+            <h2 className="text-lg font-medium text-white mb-3">What You Can Do</h2>
             <ul className="list-disc list-inside space-y-1.5 text-white/60">
               <li>Use the icons in personal and commercial projects</li>
               <li>Modify the icons to suit your needs</li>
@@ -132,7 +132,7 @@ export default function LicensePage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">What We Ask</h2>
+            <h2 className="text-lg font-medium text-white mb-3">What We Ask</h2>
             <ul className="list-disc list-inside space-y-1.5 text-white/60">
               <li>Include the copyright notice and license text in copies of the software</li>
               <li>Attribution is appreciated but not required</li>
@@ -141,7 +141,7 @@ export default function LicensePage() {
 
           <section>
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-lg font-semibold text-white">Full License Text</h2>
+              <h2 className="text-lg font-medium text-white">Full License Text</h2>
               <button
                 onClick={handleCopy}
                 className="flex items-center gap-1.5 text-[12px] font-medium text-white/80 hover:text-white transition-colors px-3 h-8 rounded-full bg-white/[0.07] hover:bg-white/10 cursor-pointer border-0"
@@ -157,7 +157,7 @@ export default function LicensePage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-text-base mb-3">Credits & Attribution</h2>
+            <h2 className="text-lg font-medium text-text-base mb-3">Credits & Attribution</h2>
             <p className="mb-3">
               Reicon is built using the base icon sets from the following libraries:
             </p>
@@ -186,7 +186,7 @@ export default function LicensePage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-text-base mb-3">Questions?</h2>
+            <h2 className="text-lg font-medium text-text-base mb-3">Questions?</h2>
             <p>If you have questions about licensing, contact us at <a href="mailto:hello@reicon.dev" className="text-[#9B8AFB] hover:underline">hello@reicon.dev</a>.</p>
           </section>
         </div>

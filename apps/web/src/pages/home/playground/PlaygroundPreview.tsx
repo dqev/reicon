@@ -12,7 +12,7 @@ export default function PlaygroundPreview({
   pascalName: string;
 }) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full max-w-[340px] mx-auto lg:max-w-none">
       <div
         className="relative w-full aspect-square border border-white/[0.08] rounded-[16px] flex items-center justify-center overflow-hidden"
         style={{

@@ -43,13 +43,13 @@ export default function IconActions({
 
       <div>
         <div className="flex items-center justify-between mb-1.5">
-          <span className="text-[11px] text-white/40 uppercase tracking-[0.1em] font-mono font-semibold">Export size</span>
+          <span className="text-[11px] text-white/40 uppercase tracking-[0.1em] font-mono">Export size</span>
           <span className="text-xs text-white/50 font-mono">{exportSize}px</span>
         </div>
         <div className="flex flex-wrap gap-1.5">
           {EXPORT_SIZES.map((s) => (
             <button key={s} onClick={() => onSetExportSize(s)}
-              className={`flex-1 min-w-[38px] text-xs font-mono font-medium py-1 px-2 rounded-full border transition-all cursor-pointer ${exportSize === s ? 'bg-[#9B8AFB] border-[#9B8AFB] text-white' : 'bg-[#2a2a2a] border-white/10 text-white/50 hover:text-white hover:bg-[#323232]'}`}>
+              className={`flex-1 min-w-[38px] text-xs font-mono py-1 px-2 rounded-full border transition-all cursor-pointer ${exportSize === s ? 'bg-[#9B8AFB] border-[#9B8AFB] text-white' : 'bg-[#2a2a2a] border-white/10 text-white/50 hover:text-white hover:bg-[#323232]'}`}>
               {s}
             </button>
           ))}

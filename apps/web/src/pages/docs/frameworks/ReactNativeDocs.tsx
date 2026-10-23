@@ -42,7 +42,7 @@ export default function ReactNativeDocs({ markdownContent, copiedField, onCopy }
             <Theming onCopy={onCopy} copiedField={copiedField} />
 
             <div className="mt-6 bg-[#61DAFB]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
-                <span className="text-[#61DAFB] font-semibold">Note:</span> All icons work seamlessly with both Expo and bare React Native projects. Supports iOS and Android out of the box.
+                <span className="text-[#61DAFB] font-medium">Note:</span> All icons work seamlessly with both Expo and bare React Native projects. Supports iOS and Android out of the box.
             </div>
         </section>
     );

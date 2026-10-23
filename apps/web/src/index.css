@@ -3,7 +3,7 @@
 @font-face {
   font-family: "Saans";
   src: url("/font/Saans-Medium.woff2") format("woff2");
-  font-weight: 400 500;
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
@@ -375,7 +375,7 @@ h6 {
   gap: 0.5rem;
   margin-bottom: 0.375rem;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-more-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -538,8 +538,8 @@ h6 {
 .clay-secondary,
 .clay-accent,
 .skill-btn--secondary {
-  color: #0d0d12;
-  font-weight: 550;
+  color: #ffffff;
+  font-weight: 500;
   background: #9B8AFB;
   box-shadow:
     0 1px 3px 0 rgba(0, 0, 0, 0.08),
@@ -551,14 +551,14 @@ h6 {
 .clay-accent:hover,
 .skill-btn--secondary:hover {
   background: #a899fb;
-  color: #050508;
+  color: #ffffff;
 }
 
 .clay-secondary:active,
 .clay-accent:active,
 .skill-btn--secondary:active {
   background: #8875f9;
-  color: #050508;
+  color: #ffffff;
 }
 
 /* ─── Card Inset Shadows ─── */
@@ -583,9 +583,13 @@ h6 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 32px;
-  padding-bottom: 12px;
+  padding-top: clamp(12px, 2.2vh, 28px);
+  padding-bottom: clamp(12px, 2.6vh, 36px);
   text-align: center;
+}
+
+.hero-marquee-wrap {
+  margin-top: clamp(24px, 4.6vh, 56px);
 }
 
 .hero-badge {
@@ -626,8 +630,8 @@ h6 {
 .header .title {
   margin-top: 0;
   font-family: var(--font-display);
-  font-size: 42px;
-  line-height: 45px;
+  font-size: clamp(30px, 4vw, 34px);
+  line-height: 1.08;
   font-weight: 500;
   letter-spacing: -0.21px;
   color: #fefefe;
@@ -657,21 +661,43 @@ h6 {
 }
 
 /* ─── Hero Left Column Layout ─── */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .hero-left-col {
-    padding-left: 80px;
+    align-items: flex-start;
+    padding-left: clamp(0px, 1.2vw, 16px);
   }
 
   .hero-left-col .hero-title {
     text-align: left;
-    max-width: 600px;
-    font-size: 44px;
-    line-height: 48px;
+    max-width: 100%;
+    font-size: clamp(30px, 3.6vw, 34px);
   }
 
   .hero-left-col .hero-subtitle {
     text-align: left;
-    max-width: 460px;
+    max-width: 470px;
+  }
+
+  .hero-left-col .skill-cta-row {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-left-col {
+    padding-left: clamp(16px, 2.5vw, 48px);
+  }
+
+  .hero-left-col .hero-title {
+    text-align: left;
+    max-width: 560px;
+    font-size: clamp(34px, 3.4vw, 44px);
+    line-height: 1.1;
+  }
+
+  .hero-left-col .hero-subtitle {
+    text-align: left;
+    max-width: 470px;
   }
 
   .hero-left-col .skill-cta-row {
@@ -681,7 +707,7 @@ h6 {
 
 @media (min-width: 1280px) {
   .hero-left-col {
-    padding-left: 6rem;
+    padding-left: clamp(24px, 2.8vw, 56px);
   }
 }
 

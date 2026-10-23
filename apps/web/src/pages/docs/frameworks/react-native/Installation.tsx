@@ -8,7 +8,7 @@ interface Props {
 export default function Installation({ copiedField, onCopy }: Props) {
     return (
         <>
-            <h3 className="text-lg font-sans font-medium text-text-base mb-4 mt-10">Installation</h3>
+            <h3 className="text-lg font-display font-medium text-text-base mb-4 mt-10">Installation</h3>
             <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
                 Install both <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">reicon-react-native</code> and <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">react-native-svg</code> as the package requires SVG support.
             </p>
@@ -20,11 +20,11 @@ export default function Installation({ copiedField, onCopy }: Props) {
             />
 
             <div className="mt-4 bg-[#61DAFB]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
-                <span className="text-[#61DAFB] font-semibold">For Expo:</span> Run <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">npx expo install react-native-svg</code> instead.
+                <span className="text-[#61DAFB] font-medium">For Expo:</span> Run <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">npx expo install react-native-svg</code> instead.
             </div>
 
             <div className="mt-4 bg-[#61DAFB]/6 rounded-xl p-4 text-[13px] text-text-base/60 leading-relaxed border-0">
-                <span className="text-[#61DAFB] font-semibold">For iOS:</span> After installing, run <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">cd ios && pod install</code> to link native dependencies.
+                <span className="text-[#61DAFB] font-medium">For iOS:</span> After installing, run <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">cd ios && pod install</code> to link native dependencies.
             </div>
         </>
     );

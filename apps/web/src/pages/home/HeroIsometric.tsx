@@ -499,7 +499,7 @@ export default function HeroIsometric({ value = 32 }: { value?: number }) {
   return (
     <div
       ref={containerRef}
-      className="hero-hairline-stage relative w-full max-w-[460px] sm:max-w-[500px] lg:max-w-[540px] aspect-[5/3] select-none mx-auto"
+      className="hero-hairline-stage relative w-full max-w-[min(88vw,440px)] sm:max-w-[min(82vw,480px)] lg:max-w-[clamp(380px,40vw,520px)] aspect-[5/3] select-none mx-auto"
       style={{ cursor: 'grab' }}
       role="img"
       aria-label="Interactive isometric peg grid animation"
