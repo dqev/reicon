@@ -35,7 +35,6 @@ export default function NoticePage() {
 
       <main className="max-w-[820px] mx-auto w-full flex flex-1 flex-col px-5 md:px-10 pt-10 md:pt-16 pb-20 overflow-x-hidden">
         <article className="max-w-[680px] mx-auto w-full">
-          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#9B8AFB] mb-5">Notice</p>
 
           <h1 className="font-display text-[32px] sm:text-[46px] leading-[1.05] tracking-[-0.03em] text-[#fefefe] mb-5">
             Reicon may shut down.
