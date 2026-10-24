@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { FRAMEWORKS, Framework } from '@/components/docs/framework/constants';
 import { getFrameworkSectionId, getFrameworkLabel, getOnThisPageSections, isStandaloneFramework } from '@/components/docs/framework/helpers';
+import { track } from '@/lib/analytics';
 
 import vanillaDocs from '@docs/javascript/index.md?raw';
 import reactDocs from '@docs/react/index.md?raw';
@@ -99,6 +100,10 @@ export function useDocs() {
         document.body.removeChild(ta);
       }
       setCopiedField(field);
+      if (field.startsWith('install-')) {
+        const pkg = text.replace(/^(pnpm add|npm install|yarn add|bun add)\s+/, '').trim().split(/\s+/)[0];
+        if (pkg) track('install_copy', { package: pkg });
+      }
       setTimeout(() => setCopiedField(null), 2000);
     } catch {
       setCopiedField(null);

@@ -14,6 +14,7 @@ import { SortOption } from '@/components/ui/DesktopFilterDropdown';
 import type { CustomSvgIcon } from '@/components/ui/CustomSvgCard';
 import { loadGlassIcons } from '@/lib/glass-icons';
 import { warmGlassCache } from '@/utils/glassCache';
+import { track } from '@/lib/analytics';
 
 const LS_ICONS = 'reicon-icons-cache';
 const LS_MAP = 'reicon-map-cache';
@@ -239,6 +240,17 @@ export default function IconsPage() {
 
   const deferredQuery = useDeferredValue(searchQuery);
   const searchResults = useIconSearch(deferredQuery, 500);
+  const lastTrackedSearch = useRef('');
+
+  useEffect(() => {
+    const q = deferredQuery.trim();
+    if (q.length < 2 || q === lastTrackedSearch.current) return;
+    const timer = window.setTimeout(() => {
+      lastTrackedSearch.current = q;
+      track('icon_search', { search_term: q });
+    }, 800);
+    return () => window.clearTimeout(timer);
+  }, [deferredQuery]);
 
   // Filter normal icons
   const filteredIcons = useMemo(() => {

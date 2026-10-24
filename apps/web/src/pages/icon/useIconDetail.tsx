@@ -7,6 +7,7 @@ import { AngularIcon } from '@/components/docs/framework/icons';
 import { VueLogo, FlutterLogo, ComposeLogo, AstroLogo, CdnLogo } from './Snippets';
 import { loadIconData } from '@/lib/icon-data';
 import { waitForReicon } from '@/lib/reicon-loader';
+import { track } from '@/lib/analytics';
 import {
   copyToClipboard as copyUtils,
   copySvg as copySvgUtils,
@@ -58,23 +59,33 @@ export default function useIconDetail() {
   }, []);
 
   const handleCopy = useCallback((text: string, field: string) => {
+    if (name && (field === 'jsx' || field.startsWith('code-'))) {
+      track('icon_copy', {
+        icon_name: name,
+        format: field === 'jsx' ? 'jsx' : field.slice(5),
+      });
+    }
     return copyUtils(text, field, setCopiedField, flashToast);
-  }, [flashToast]);
+  }, [name, flashToast]);
 
-  const handleCopySvg = useCallback(() => {
-    return copySvgUtils(name || '', activeWeight, useCustomColor, customColor, setCopiedField, flashToast, exportSize);
+  const handleCopySvg = useCallback(async () => {
+    await copySvgUtils(name || '', activeWeight, useCustomColor, customColor, setCopiedField, flashToast, exportSize);
+    if (name) track('icon_copy', { icon_name: name, format: 'svg' });
   }, [name, activeWeight, useCustomColor, customColor, flashToast, exportSize]);
 
-  const handleDownloadSvg = useCallback(() => {
-    return downloadSvgUtils(name || '', activeWeight, exportSize, useCustomColor, customColor, flashToast);
+  const handleDownloadSvg = useCallback(async () => {
+    await downloadSvgUtils(name || '', activeWeight, exportSize, useCustomColor, customColor, flashToast);
+    if (name) track('icon_download', { icon_name: name, format: 'svg' });
   }, [name, activeWeight, exportSize, useCustomColor, customColor, flashToast]);
 
-  const handleDownloadPng = useCallback(() => {
-    return downloadPngUtils(name || '', activeWeight, exportSize, useCustomColor, customColor, flashToast);
+  const handleDownloadPng = useCallback(async () => {
+    await downloadPngUtils(name || '', activeWeight, exportSize, useCustomColor, customColor, flashToast);
+    if (name) track('icon_download', { icon_name: name, format: 'png' });
   }, [name, activeWeight, exportSize, useCustomColor, customColor, flashToast]);
 
-  const handleDownloadWebp = useCallback(() => {
-    return downloadWebpUtils(name || '', activeWeight, exportSize, useCustomColor, customColor, flashToast);
+  const handleDownloadWebp = useCallback(async () => {
+    await downloadWebpUtils(name || '', activeWeight, exportSize, useCustomColor, customColor, flashToast);
+    if (name) track('icon_download', { icon_name: name, format: 'webp' });
   }, [name, activeWeight, exportSize, useCustomColor, customColor, flashToast]);
 
   const reset = useCallback(() => {
