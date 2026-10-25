@@ -5,6 +5,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { PostHog } from 'posthog-node';
 import { ROUTES } from './seo/config.mjs';
+import { buildDetailRoutes } from './seo/detail-routes.mjs';
 import { SITE, buildMeta, injectMeta, fixFavicons, toTitle } from './seo/meta.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -34,6 +35,17 @@ async function main() {
     if (removed > 0) console.log(`✓ removed ${removed} hashed favicon assets`);
   }
 
+  function writePage(route, html) {
+    const outDir = route.outDir ?? route.path.replace(/^\//, '');
+    if (!outDir) {
+      writeFileSync(resolve(DIST, 'index.html'), html, 'utf-8');
+      return;
+    }
+    const dir = resolve(DIST, outDir);
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(resolve(dir, 'index.html'), html, 'utf-8');
+  }
+
   for (const route of ROUTES) {
     const url = route.path === '/' ? `${SITE}/` : `${SITE}${route.path}`;
     const parts = route.path.split('/').filter(Boolean);
@@ -45,19 +57,35 @@ async function main() {
     }
     const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: crumbs };
     const meta = buildMeta({ title: route.title, desc: route.description, url, ogImage: route.ogImage, breadcrumb });
-    const html = injectMeta(baseHtml, meta);
-    if (route.path === '/') {
-      writeFileSync(resolve(DIST, 'index.html'), html, 'utf-8');
-    } else {
-      const dir = resolve(DIST, route.path.replace(/^\//, ''));
-      mkdirSync(dir, { recursive: true });
-      writeFileSync(resolve(dir, 'index.html'), html, 'utf-8');
-    }
+    writePage(route, injectMeta(baseHtml, meta));
   }
   console.log(`✓ ${ROUTES.length} static pages`);
 
+  const stripFaqJsonLd = (html) =>
+    html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g, (block, body) =>
+      /"@type"\s*:\s*"FAQPage"/.test(body) ? '' : block
+    );
+
+  const detailBaseHtml = stripFaqJsonLd(baseHtml);
+  const detailRoutes = buildDetailRoutes();
+  for (const route of detailRoutes) {
+    const url = `${SITE}${route.path}`;
+    const meta = buildMeta({
+      title: route.title,
+      desc: route.description,
+      url,
+      ogImage: route.ogImage,
+      keywords: route.keywords,
+      jsonLd: route.jsonLd,
+      breadcrumb: route.breadcrumb,
+      isIconPage: route.isIconPage,
+    });
+    writePage(route, injectMeta(detailBaseHtml, meta));
+  }
+  console.log(`✓ ${detailRoutes.length} detail pages`);
+
   const ph = new PostHog(process.env.POSTHOG_API_KEY, { host: process.env.POSTHOG_HOST, flushAt: 1, flushInterval: 0 });
-  ph.capture({ distinctId: 'build-system', event: 'prerender complete', properties: { static: ROUTES.length } });
+  ph.capture({ distinctId: 'build-system', event: 'prerender complete', properties: { static: ROUTES.length, detail: detailRoutes.length } });
   await ph.shutdown();
 }
 

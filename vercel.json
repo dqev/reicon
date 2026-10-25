@@ -206,7 +206,7 @@
       ]
     },
     {
-      "source": "/sitemap.xml",
+      "source": "/(sitemap.*\\.xml)",
       "headers": [
         {
           "key": "Content-Type",

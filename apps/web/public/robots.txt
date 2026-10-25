@@ -62,4 +62,4 @@ User-agent: cohere-ai
 Allow: /
 
 # ── Sitemaps ───────────────────────────────────────────────────────────
-Sitemap: https://reicon.dev/sitemap.xml
+Sitemap: https://reicon.dev/sitemap-index.xml
