@@ -1,4 +1,8 @@
 # Sub-packages (generated icon libraries & packages)
+# Never upload installed deps or package build output.
+**/node_modules/
+/packages/*/dist/
+/apps/*/dist/
 
 # Local build, dev, and cache outputs
 /dist/
