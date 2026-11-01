@@ -1,7 +1,131 @@
+import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { PAGE_META } from '@/data/page-meta';
 import ClayButton from '@/components/ui/Button';
+
+const SEARCH_STATS = [
+  { label: 'Clicks', value: '5.45k' },
+  { label: 'Impressions', value: '94.7k' },
+  { label: 'Average CTR', value: '5.8%' },
+  { label: 'Average position', value: '17.9' },
+];
+
+const ANALYTICS_STATS = [
+  { label: 'Total users', value: '2.9k' },
+  { label: 'Active users', value: '2.9k' },
+  { label: 'Event count', value: '35k' },
+  { label: 'Busiest day', value: '1.7k' },
+];
+
+function PerformanceFigure({
+  label,
+  period,
+  src,
+  alt,
+  width,
+  height,
+  stats,
+}: {
+  label: string;
+  period: string;
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  stats: { label: string; value: string }[];
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const closeRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false);
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', onKeyDown);
+    closeRef.current?.focus();
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [isOpen]);
+
+  return (
+    <>
+      <figure className="overflow-hidden rounded-[24px] bg-[#1a1a1a] card-inset">
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-b border-white/[0.06] px-5 py-4 sm:px-7">
+          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#767676]">{label}</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#5e5e5e]">{period}</span>
+        </div>
+        <button
+          type="button"
+          onClick={() => setIsOpen(true)}
+          aria-label={`View ${label} chart full screen`}
+          className="block w-full cursor-zoom-in border-0 bg-white p-0"
+        >
+          <img
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            loading="lazy"
+            decoding="async"
+            className="block w-full h-auto"
+          />
+        </button>
+        <figcaption className="grid grid-cols-2 gap-px bg-white/[0.06] sm:grid-cols-4">
+          {stats.map((stat) => (
+            <div key={stat.label} className="bg-[#1a1a1a] px-5 py-4 sm:px-7">
+              <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#767676]">{stat.label}</div>
+              <div className="mt-1.5 font-display text-[20px] font-medium leading-none tracking-[-0.01em] text-[#ededed]">
+                {stat.value}
+              </div>
+            </div>
+          ))}
+        </figcaption>
+      </figure>
+
+      {isOpen &&
+        createPortal(
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${label} chart full screen`}
+            onClick={() => setIsOpen(false)}
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-[#050505] p-4 sm:p-8"
+          >
+            <button
+              ref={closeRef}
+              type="button"
+              onClick={() => setIsOpen(false)}
+              aria-label="Close full screen chart"
+              className="absolute right-4 top-4 sm:right-6 sm:top-6 flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.08] text-[#ededed] transition-colors hover:bg-white/[0.16] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3.5 3.5l9 9m0-9l-9 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+            </button>
+            <img
+              src={src}
+              alt={alt}
+              width={width}
+              height={height}
+              onClick={(event) => event.stopPropagation()}
+              className="max-h-[80vh] max-w-[92vw] h-auto w-auto object-contain"
+            />
+          </div>,
+          document.body,
+        )}
+    </>
+  );
+}
 
 export default function NoticePage() {
   return (
@@ -33,7 +157,7 @@ export default function NoticePage() {
         })}</script>
       </Helmet>
 
-      <main className="max-w-[820px] mx-auto w-full flex flex-1 flex-col px-5 md:px-10 pt-10 md:pt-16 pb-20 overflow-x-hidden">
+      <main className="max-w-[1080px] mx-auto w-full flex flex-1 flex-col px-5 md:px-10 pt-10 md:pt-16 pb-20 overflow-x-hidden">
         <article className="max-w-[680px] mx-auto w-full">
 
           <h1 className="font-display text-[32px] sm:text-[46px] leading-[1.05] tracking-[-0.03em] text-[#fefefe] mb-5">
@@ -77,6 +201,45 @@ export default function NoticePage() {
                   I did not build this to make money. I built it because I wanted a good icon library that anyone
                   could use for free. I still want that. The problem is that free for users is not free to run.
                 </p>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#767676] mb-3">
+                What the numbers look like
+              </h2>
+              <div className="space-y-4 text-[15px] sm:text-[16px] leading-[1.8] text-[#b5b5b5]">
+                <p>
+                  Reicon is small, but it is not unused. These are the real numbers from Google Analytics and Google
+                  Search Console, not estimates.
+                </p>
+                <p>
+                  In the last seven days, 2.9k people used the site and generated 35k events. In Google Search over the
+                  last three months, Reicon appeared 94.7k times, received 5.45k clicks and held a 5.8% click-through
+                  rate. The average position of 17.9 means most of that traffic still lands on the second page of
+                  results, so there is room to grow if the project continues.
+                </p>
+              </div>
+
+              <div className="mt-6 space-y-4 lg:relative lg:left-1/2 lg:w-[min(1000px,calc(100vw-80px))] lg:-translate-x-1/2">
+                <PerformanceFigure
+                  label="Google Search Console"
+                  period="31 Jul - 27 Oct 2026"
+                  src="/readme-assets/search.webp"
+                  alt="Google Search Console performance chart. Total clicks 5.45k, total impressions 94.7k, average CTR 5.8%, average position 17.9. Daily clicks and impressions from 31 July to 27 October 2026."
+                  width={2656}
+                  height={1210}
+                  stats={SEARCH_STATS}
+                />
+                <PerformanceFigure
+                  label="Google Analytics"
+                  period="25 - 31 Oct 2026"
+                  src="/readme-assets/analytics.webp"
+                  alt="Google Analytics report for the last seven days. Total users 2.9k, active users 2.9k, event count 35k and zero key events, with a peak of about 1.7k users on 26 October."
+                  width={1634}
+                  height={858}
+                  stats={ANALYTICS_STATS}
+                />
               </div>
             </section>
 
