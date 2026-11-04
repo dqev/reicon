@@ -4,6 +4,7 @@ import Hero from './Hero';
 import Features from './Features';
 import Playground from './Playground';
 import Testimonials from './Testimonials';
+import SponsoredBy from './SponsoredBy';
 import FAQ from './FAQ';
 
 export default function HomePage() {
@@ -79,6 +80,8 @@ export default function HomePage() {
       <Playground />
 
       <Testimonials />
+
+      <SponsoredBy />
 
       <FAQ />
 
