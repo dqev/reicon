@@ -65,3 +65,9 @@ Thanks to [Vercel](https://vercel.com/?utm_source=reicon&utm_campaign=oss) for s
 <a href="https://vercel.com/?utm_source=reicon&utm_campaign=oss">
   <img src="https://vercel.com/button" alt="Powered by Vercel" height="32" />
 </a>
+
+Thanks to [UI Goodies](https://uigoodies.com/?utm_source=reicon) for sponsoring Reicon.
+
+<a href="https://uigoodies.com/?utm_source=reicon">
+  <img src="apps/web/public/ui/ui-goodies-logo.svg" alt="UI Goodies" height="28" />
+</a>
