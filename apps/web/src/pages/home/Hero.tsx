@@ -108,6 +108,24 @@ export default function Hero(_props: Props = {}) {
                 <span>Get Started</span>
               </ClayButton>
             </div>
+
+            {/* Diamond sponsor credit */}
+            <div className="mt-4 flex items-center gap-2.5 self-center md:self-start">
+              <span className="text-[12px] text-[#8f8f8f]">Sponsored by</span>
+              <a
+                href="https://uigoodies.com/?utm_source=reicon"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Diamond sponsor: Ui Goodies"
+                className="inline-flex items-center transition-opacity hover:opacity-70"
+              >
+                <img
+                  src="/ui/ui-goodies-logo.svg"
+                  alt="Ui Goodies"
+                  className="h-5 w-auto shrink-0"
+                />
+              </a>
+            </div>
           </div>
 
           {/* Right Column: Isometric Illustration - first on mobile */}
