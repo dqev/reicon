@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Hero from './Hero';
-import Features from './Features';
 import Playground from './Playground';
+import HowItWorks from './HowItWorks';
 import Testimonials from './Testimonials';
 import SponsoredBy from './SponsoredBy';
 import FAQ from './FAQ';
+import FrameworksMarquee from './FrameworksMarquee';
 
 export default function HomePage() {
   // Scroll-reveal for sections
@@ -75,7 +76,7 @@ export default function HomePage() {
 
       <Hero />
 
-      <Features />
+      <HowItWorks />
 
       <Playground />
 
@@ -84,6 +85,8 @@ export default function HomePage() {
       <SponsoredBy />
 
       <FAQ />
+
+      <FrameworksMarquee />
 
       <div className="h-5 md:h-12" />
     </main>

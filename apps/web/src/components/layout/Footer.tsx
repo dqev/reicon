@@ -1,43 +1,8 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
-const NPM_PACKAGE = 'reicon-react';
-
-function formatCount(n: number): string {
-  return n.toLocaleString('en-US');
-}
+import { NPM_PACKAGE, formatCount, useNpmDownloads } from '@/hooks/useNpmDownloads';
 
 function FooterNpmStats() {
-  const [total, setTotal] = useState<number | null>(null);
-  const [weekly, setWeekly] = useState<number | null>(null);
-
-  useEffect(() => {
-    let isMounted = true;
-    const today = new Date().toISOString().slice(0, 10);
-
-    Promise.all([
-      fetch(`https://api.npmjs.org/downloads/point/2015-01-01:${today}/${NPM_PACKAGE}`).then((res) => {
-        if (!res.ok) throw new Error('total fetch failed');
-        return res.json();
-      }),
-      fetch(`https://api.npmjs.org/downloads/point/last-week/${NPM_PACKAGE}`).then((res) => {
-        if (!res.ok) throw new Error('weekly fetch failed');
-        return res.json();
-      }),
-    ])
-      .then(([totalData, weeklyData]) => {
-        if (!isMounted) return;
-        if (typeof totalData?.downloads === 'number') setTotal(totalData.downloads);
-        if (typeof weeklyData?.downloads === 'number') setWeekly(weeklyData.downloads);
-      })
-      .catch(() => {
-        // Keep footer clean when offline / API blocked — render nothing.
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  const { total, weekly } = useNpmDownloads();
 
   if (total === null || weekly === null) return null;
 

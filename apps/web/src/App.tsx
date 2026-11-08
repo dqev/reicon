@@ -4,7 +4,6 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 import SmoothScroll from './components/layout/SmoothScroll';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
-import NoticeBanner from './components/layout/NoticeBanner';
 import { SponsorCheckoutProvider } from './components/layout/SponsorCheckout';
 import ErrorBoundary from './components/ui/ErrorBoundary';
 import { ThemeProvider } from './components/layout/ThemeContext';
@@ -68,7 +67,6 @@ function Layout() {
 
   return (
     <div className="min-h-screen bg-bg-base flex flex-col">
-      <NoticeBanner />
       <Header />
       <ErrorBoundary>
         <Suspense fallback={<div className="flex-1" />}>

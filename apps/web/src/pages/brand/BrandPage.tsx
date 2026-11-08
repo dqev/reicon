@@ -201,7 +201,7 @@ export default function BrandPage() {
           Brand guidelines.
         </h1>
         <p className="hero-subtitle">
-          One accent, one dark canvas, one display typeface — and icons only from
+          One accent, one dark canvas, one display typeface - and icons only from
           Reicon. Follow these rules anywhere the brand appears.
         </p>
       </section>
@@ -297,7 +297,7 @@ export default function BrandPage() {
       {/* ── Logo misuse ── */}
       <Section
         title="Use it like this, not like these"
-        lede="Every example below is rendered live from the real logo file — the “don't” tiles apply exactly one forbidden transformation."
+        lede="Every example below is rendered live from the real logo file - the “don't” tiles apply exactly one forbidden transformation."
       >
         <p className="text-[14px] font-medium text-emerald-200/80 mb-4 flex items-center justify-center gap-1.5">
           <CheckCircle size={15} /> Correct usage
@@ -374,7 +374,7 @@ export default function BrandPage() {
         </div>
         <div className="max-w-[760px] mx-auto mt-8 rounded-[24px] bg-[#1a1a1a] card-inset p-6 text-[14px] leading-[1.6] text-[#8f8f8f] text-center">
           <span className="text-white font-medium">Rules. </span>
-          Accent is for action and emphasis only — never body text or large fills.
+          Accent is for action and emphasis only - never body text or large fills.
           Text lives on the white scale; never introduce new hues for UI chrome.
         </div>
       </Section>
@@ -382,7 +382,7 @@ export default function BrandPage() {
       {/* ── Typography ── */}
       <Section
         title="Saans for display, Inter for text"
-        lede="Headlines are set in Saans Medium. Everything else — body, buttons, nav — is Inter. Code is Roboto Mono."
+        lede="Headlines are set in Saans Medium. Everything else - body, buttons, nav - is Inter. Code is Roboto Mono."
       >
         <div>
           <p className="text-[12px] font-mono text-[#9B8AFB] mb-2 text-center">Saans · Display · Medium 500</p>
@@ -423,7 +423,7 @@ export default function BrandPage() {
       {/* ── Interface ── */}
       <Section
         title="Pills, chips and quiet cards"
-        lede="Live components from this site. Buttons are fully rounded pills, cards are quiet dark panels with inset hairlines — never heavy borders."
+        lede="Live components from this site. Buttons are fully rounded pills, cards are quiet dark panels with inset hairlines - never heavy borders."
       >
         <div className="flex flex-col items-center gap-6">
           <div className="flex flex-wrap items-center justify-center gap-3">
@@ -447,7 +447,7 @@ export default function BrandPage() {
       {/* ── Icons ── */}
       <Section
         title="The interface icon set"
-        lede="Every sidebar, TOC and control glyph — served as SVG from /ui and rendered live below. Sidebar icons use currentColor at 13–14px; feature artwork renders at 28px."
+        lede="Every sidebar, TOC and control glyph - served as SVG from /ui and rendered live below. Sidebar icons use currentColor at 13–14px; feature artwork renders at 28px."
       >
         <div>
           <div className="rounded-2xl bg-white/[0.03] px-6 py-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-6">
@@ -456,7 +456,7 @@ export default function BrandPage() {
             ))}
           </div>
           <div className="mt-4 rounded-2xl bg-white/[0.03] p-4 text-center text-[13px] text-[#8f8f8f]">
-            currentColor only · 1.5px stroke · 24px grid — icons inherit surrounding text color
+            currentColor only · 1.5px stroke · 24px grid - icons inherit surrounding text color
           </div>
         </div>
       </Section>
@@ -468,7 +468,7 @@ export default function BrandPage() {
             Questions about the brand?
           </h2>
           <p className="text-[14px] text-[#8f8f8f] leading-[1.6] max-w-[520px]">
-            Press, partnerships and takedown requests — we reply within a few days.
+            Press, partnerships and takedown requests - we reply within a few days.
           </p>
           <a href="mailto:hello@reicon.dev" className="clay-btn clay-accent">
             hello@reicon.dev

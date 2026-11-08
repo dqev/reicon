@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { HexColorPicker } from 'react-colorful';
 import { subscribeIcons } from '@/utils/iconDataLoader';
 import './sidebar.css';
 
 interface SidebarProps {
   activeSet: string;
-  onSetChange: (set: string) => void;
+  onSetChange: (set: string, source?: 'ui' | 'glass') => void;
   activeStyle: string;
   onStyleChange: (style: string) => void;
   activeSize: string;
@@ -16,6 +15,7 @@ interface SidebarProps {
   isOpen?: boolean;
   onClose?: () => void;
   collapsed?: boolean;
+  glassRoute?: boolean;
 }
 
 interface SetDefinition {
@@ -135,8 +135,8 @@ function Sidebar({
   isOpen = false,
   onClose,
   collapsed = false,
+  glassRoute = false,
 }: SidebarProps) {
-  const navigate = useNavigate();
   const [uiCategories, setUiCategories] = useState<string[]>(DEFAULT_UI_CATEGORIES);
   const [expandedSets, setExpandedSets] = useState<Record<string, boolean>>({});
   const [isColorPickerOpen, setIsColorPickerOpen] = useState(false);
@@ -197,13 +197,8 @@ function Sidebar({
         ...prev,
         [set.id]: !prev[set.id],
       }));
-      onSetChange(set.id === 'ui' ? 'all' : set.id);
-      if (set.path) {
-        navigate(set.path);
-      }
-    } else if (set.path) {
-      onSetChange(set.id);
-      navigate(set.path);
+      const source = set.id === 'glass' ? 'glass' : 'ui';
+      onSetChange(set.id === 'ui' ? 'all' : 'glass', source);
     } else {
       onSetChange(set.id);
     }
@@ -211,7 +206,10 @@ function Sidebar({
 
   const isSetSelected = (set: SetDefinition) => {
     if (set.id === 'ui') {
-      return activeSet === 'ui' || activeSet === 'all';
+      return !glassRoute && (activeSet === 'ui' || activeSet === 'all');
+    }
+    if (set.id === 'glass') {
+      return glassRoute || activeSet === 'glass';
     }
     return activeSet === set.id;
   };
@@ -275,16 +273,15 @@ function Sidebar({
                         type="button"
                         onClick={() => {
                           if (set.id === 'glass') {
-                            onSetChange('glass');
-                            navigate('/glass');
+                            onSetChange('glass', 'glass');
                           } else {
-                            onSetChange('all');
-                            navigate('/icons');
+                            onSetChange('all', 'ui');
                           }
                         }}
                         className={`sidebar-subcat-btn ${
-                          (set.id === 'ui' && (activeSet === 'all' || activeSet === 'ui')) ||
-                          (set.id === 'glass' && activeSet === 'glass')
+                          (set.id === 'glass'
+                            ? glassRoute && activeSet === 'glass'
+                            : !glassRoute && (activeSet === 'all' || activeSet === 'ui'))
                             ? 'active'
                             : ''
                         }`}
@@ -292,19 +289,14 @@ function Sidebar({
                         All Categories
                       </button>
                       {uiCategories.map((cat) => {
-                        const isCatActive = activeSet === cat;
+                        const isCatActive = set.id === 'glass'
+                          ? glassRoute && activeSet === cat
+                          : !glassRoute && activeSet === cat;
                         return (
                           <button
                             key={cat}
                             type="button"
-                            onClick={() => {
-                              onSetChange(cat);
-                              if (set.id === 'glass') {
-                                navigate(`/glass?category=${cat}`);
-                              } else {
-                                navigate(`/icons?category=${cat}`);
-                              }
-                            }}
+                            onClick={() => onSetChange(cat, set.id === 'glass' ? 'glass' : 'ui')}
                             className={`sidebar-subcat-btn ${isCatActive ? 'active' : ''}`}
                           >
                             {formatCategoryName(cat)}
@@ -341,7 +333,8 @@ function Sidebar({
     </div>
   );
 
-  const isCustomSet = activeSet === 'flags' || activeSet === 'social-media' || activeSet === 'glass';
+  const isGlassActive = glassRoute || activeSet === 'glass';
+  const isCustomSet = activeSet === 'flags' || activeSet === 'social-media' || isGlassActive;
 
   const renderTools = () => (
     <div className="flex flex-col">
@@ -419,7 +412,7 @@ function Sidebar({
       )}
 
       {/* ─── Color Tool Section (Single Button with react-colorful Picker on Glass Page) ─── */}
-      {activeSet === 'glass' && (
+      {isGlassActive && (
         <div className="flex flex-col mb-3 relative">
           <div className="sidebar-tool-card">
             <button

@@ -79,7 +79,7 @@ export default function Playground({ theme }: { theme?: string }) {
   const reset = () => { setColor('#ffffff'); setSize(80); setWeight('outline'); };
 
   return (
-    <section className="reveal max-w-[1160px] mx-auto px-4 sm:px-6 md:px-10 py-10 md:py-14">
+    <section id="playground" className="reveal max-w-[1160px] mx-auto px-4 sm:px-6 md:px-10 py-10 md:py-14">
       <h2 className="font-sans font-normal text-[22px] sm:text-[26px] text-[#fefefe] tracking-[-0.02em] text-center mb-8 sm:mb-10 md:mb-12">
         Playground
       </h2>

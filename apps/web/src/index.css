@@ -583,13 +583,82 @@ h6 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: clamp(12px, 2.2vh, 28px);
-  padding-bottom: clamp(12px, 2.6vh, 36px);
+  justify-content: flex-start;
+  min-height: calc(100vh - 67px);
+  min-height: calc(100svh - 67px);
+  padding-top: 20px;    /* ← adjust hero top space here */
+  padding-bottom: 40px; /* ← adjust hero bottom space here */
   text-align: center;
+  overflow: hidden;
+}
+
+/* Precision Drafting Crosshair Grid (Bespoke, CAD / viewfinder feel, NOT generic square lines) */
+.hero-blueprint-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px, 64px 64px, 64px 64px;
+  background-position: center top;
+  mask-image: radial-gradient(ellipse 65% 55% at 50% 38%, black 15%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 65% 55% at 50% 38%, black 15%, transparent 75%);
+  opacity: 0.7;
+  z-index: 0;
+}
+
+/* Ambient Vector Aura & Horizon Curve */
+.hero-vector-stage-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-vector-stage-bg .vector-ring-1 {
+  position: absolute;
+  top: 15%;
+  right: -5%;
+  width: clamp(520px, 50vw, 760px);
+  height: clamp(520px, 50vw, 760px);
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.035);
+  mask-image: radial-gradient(circle at 60% 50%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at 60% 50%, black 20%, transparent 70%);
+}
+
+.hero-vector-stage-bg .vector-ring-2 {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: clamp(380px, 36vw, 540px);
+  height: clamp(380px, 36vw, 540px);
+  border-radius: 50%;
+  border: 1px solid rgba(155, 138, 251, 0.025);
+  mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 70%);
+}
+
+/* Grounding backlight for 3D Isometric stage (Soft, restrained, reduced spread) */
+.hero-isometric-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(155, 138, 251, 0.07) 0%, rgba(155, 138, 251, 0.015) 45%, transparent 65%);
+  filter: blur(28px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-marquee-wrap {
-  margin-top: clamp(24px, 4.6vh, 56px);
+  margin-top: 0;
 }
 
 .hero-badge {

@@ -99,7 +99,8 @@ export default function IconsPage() {
   }, [showToast]);
 
   const isGlassRoute = location.pathname.toLowerCase() === '/glass';
-  const isCustomSet = activeSet === 'flags' || activeSet === 'social-media' || activeSet === 'glass' || isGlassRoute;
+  const isGlass = activeSet === 'glass' || isGlassRoute;
+  const isCustomSet = activeSet === 'flags' || activeSet === 'social-media' || isGlass;
 
   const handleStyleChange = (style: string) => {
     setActiveStyle(style);
@@ -108,7 +109,7 @@ export default function IconsPage() {
     setSearchParams(newParams, { replace: true });
   };
 
-  const handleSetChange = (set: string) => {
+  const handleSetChange = (set: string, source: 'ui' | 'glass' = isGlassRoute ? 'glass' : 'ui') => {
     if (set === 'flags') {
       setActiveSet('flags');
       navigate('/flags');
@@ -126,6 +127,11 @@ export default function IconsPage() {
     }
 
     setActiveSet(set);
+    if (source === 'glass' && (set === 'all' || set === 'ui')) {
+      navigate('/glass');
+      return;
+    }
+
     const newParams = new URLSearchParams();
     const w = searchParams.get('weight');
     if (w) newParams.set('weight', w);
@@ -133,7 +139,7 @@ export default function IconsPage() {
       newParams.set('category', set);
     }
     const query = newParams.toString();
-    const basePath = isGlassRoute ? '/glass' : '/icons';
+    const basePath = source === 'glass' ? '/glass' : '/icons';
     navigate(`${basePath}${query ? `?${query}` : ''}`);
   };
 
@@ -206,7 +212,7 @@ export default function IconsPage() {
           console.error('Failed to load brands:', err);
           setCustomLoading(false);
         });
-    } else if (activeSet === 'glass' && !glassData) {
+    } else if (isGlassRoute && !glassData) {
       setCustomLoading(true);
       loadGlassIcons()
         .then((list) => {
@@ -219,7 +225,7 @@ export default function IconsPage() {
           setCustomLoading(false);
         });
     }
-  }, [activeSet, flagsData, brandsData, glassData]);
+  }, [activeSet, isGlassRoute, flagsData, brandsData, glassData]);
 
   // Grid-only loading loop when switching sections (sidebar/search stay visible).
   const [sectionLoading, setSectionLoading] = useState(false);
@@ -285,7 +291,6 @@ export default function IconsPage() {
   // Filter & sort custom icons (Flags, Brands, Glass)
   const filteredCustomIcons = useMemo(() => {
     if (!isCustomSet) return null;
-    const isGlass = activeSet === 'glass' || isGlassRoute;
     const source =
       activeSet === 'flags'
         ? (flagsData || [])
@@ -315,7 +320,7 @@ export default function IconsPage() {
       return [...list].sort((a, b) => b.name.localeCompare(a.name));
     }
     return [...list].sort((a, b) => a.name.localeCompare(b.name));
-  }, [isCustomSet, isGlassRoute, activeSet, flagsData, brandsData, glassData, deferredQuery, sortBy]);
+  }, [isCustomSet, isGlass, activeSet, flagsData, brandsData, glassData, deferredQuery, sortBy]);
 
   useEffect(() => {
     if (window.Reicon?.preload && sortedIcons.length > 0 && !isCustomSet) {
@@ -326,7 +331,14 @@ export default function IconsPage() {
   const displaySize = parseInt(activeSize) || 32;
   const displayWeight = activeStyle === 'Filled' ? 'filled' : 'outline';
 
-  const isReady = isCustomSet ? (!customLoading && filteredCustomIcons !== null) : ready;
+  const customDataReady = isGlass
+    ? glassData !== null
+    : activeSet === 'flags'
+    ? flagsData !== null
+    : activeSet === 'social-media'
+    ? brandsData !== null
+    : true;
+  const isReady = isCustomSet ? (!customLoading && customDataReady) : ready;
   const currentCount = isCustomSet
     ? (filteredCustomIcons ? filteredCustomIcons.length : 0)
     : sortedIcons.length;
@@ -361,6 +373,7 @@ export default function IconsPage() {
           isOpen={sidebarOpen}
           onClose={() => setSidebarOpen(false)}
           collapsed={sidebarCollapsed}
+          glassRoute={isGlassRoute}
         />
 
         <main className={`flex-1 pb-4 md:pb-6 px-0 md:pr-0 ${sidebarCollapsed ? 'md:pl-0' : 'md:pl-6'} transition-all duration-300 ease-in-out`}>
@@ -381,7 +394,7 @@ export default function IconsPage() {
           <IconGrid
             filteredIcons={sortedIcons}
             customIcons={isCustomSet ? filteredCustomIcons : null}
-            customSetType={activeSet === 'flags' ? 'flag' : (activeSet === 'glass' || isGlassRoute) ? 'glass' : 'brand'}
+            customSetType={activeSet === 'flags' ? 'flag' : isGlass ? 'glass' : 'brand'}
             glassColor={glassColor}
             activeStyle={activeStyle}
             displaySize={displaySize}
