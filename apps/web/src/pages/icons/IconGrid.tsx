@@ -7,8 +7,14 @@ import { IconTooltipProvider } from '@/components/ui/IconTooltip';
 import type { DuotoneIconInfo } from '@/hooks/useDuotoneData';
 import { warmGlassCache } from '@/utils/glassCache';
 
-const INITIAL_BATCH = 120;
-const STEP_BATCH = 160;
+// 144 items per batch cleanly divides across all responsive grid column layouts (3, 6, 8, 9, 12, 16)
+const INITIAL_BATCH = 144;
+const STEP_BATCH = 144;
+
+// Continuous runway buffer (in px): trigger loading the next batch when the user
+// is within 1600px of the bottom (approx. 1.5 - 2 screen heights ahead) so scrolling
+// is completely seamless and never interrupted.
+const RUNWAY_THRESHOLD = 1600;
 
 interface IconGridProps {
   filteredIcons: string[];
@@ -129,7 +135,73 @@ export default function IconGrid({
 
   const hasMore = visibleCount < totalCards;
 
-  // Stable IntersectionObserver for continuous, smooth infinite scroll like before
+  // Central loadMore callback guarded against exceeding totalCards
+  const loadMore = useCallback(() => {
+    setVisibleCount((prev) => {
+      if (prev >= totalCards) return prev;
+      return Math.min(prev + STEP_BATCH, totalCards);
+    });
+  }, [totalCards]);
+
+  // Check remaining scroll distance to bottom and maintain continuous runway
+  const checkRunway = useCallback(() => {
+    if (visibleCount >= totalCards) return;
+
+    const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+    const viewportHeight = window.innerHeight;
+    const documentHeight = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight,
+      document.documentElement.offsetHeight
+    );
+
+    const remaining = documentHeight - (scrollY + viewportHeight);
+
+    // If remaining content is less than RUNWAY_THRESHOLD, load next batch ahead of time
+    if (remaining < RUNWAY_THRESHOLD) {
+      loadMore();
+    }
+  }, [visibleCount, totalCards, loadMore]);
+
+  // Continuous runway check: whenever visibleCount changes, check if we still need
+  // more icons to fulfill the threshold (e.g. large monitors or fast scroll)
+  useEffect(() => {
+    if (visibleCount >= totalCards) return;
+
+    const rafId = requestAnimationFrame(() => {
+      checkRunway();
+    });
+
+    return () => cancelAnimationFrame(rafId);
+  }, [visibleCount, totalCards, checkRunway]);
+
+  // Passive high-frequency scroll & resize listeners for silky-smooth infinite stream
+  useEffect(() => {
+    if (!hasMore) return;
+
+    let rafId: number | null = null;
+    const onScrollOrResize = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        checkRunway();
+      });
+    };
+
+    window.addEventListener('scroll', onScrollOrResize, { passive: true });
+    window.addEventListener('resize', onScrollOrResize, { passive: true });
+
+    // Initial check on mount
+    onScrollOrResize();
+
+    return () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', onScrollOrResize);
+      window.removeEventListener('resize', onScrollOrResize);
+    };
+  }, [hasMore, checkRunway]);
+
+  // Complementary IntersectionObserver on sentinel
   const sentinelRef = useCallback(
     (node: HTMLDivElement | null) => {
       if (observerRef.current) {
@@ -141,15 +213,15 @@ export default function IconGrid({
       const observer = new IntersectionObserver(
         (entries) => {
           if (entries[0]?.isIntersecting) {
-            setVisibleCount((prev) => Math.min(prev + STEP_BATCH, totalCards));
+            loadMore();
           }
         },
-        { rootMargin: '1000px' }
+        { rootMargin: '1200px 0px 1200px 0px' }
       );
       observer.observe(node);
       observerRef.current = observer;
     },
-    [totalCards]
+    [loadMore]
   );
 
   // Clean up observer on unmount
@@ -270,9 +342,11 @@ export default function IconGrid({
       {hasMore && (
         <div
           ref={sentinelRef}
-          className="flex justify-center py-8 h-10 w-full min-h-[40px] opacity-0"
+          className="flex justify-center items-center py-8 h-12 w-full min-h-[48px] select-none pointer-events-none"
           aria-hidden="true"
-        />
+        >
+          <span className="h-4 w-4 animate-spin rounded-full border border-white/20 border-t-[#9B8AFB] opacity-40" />
+        </div>
       )}
     </>
   );

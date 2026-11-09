@@ -19,7 +19,7 @@ import { track } from '@/lib/analytics';
 const LS_ICONS = 'reicon-icons-cache';
 const LS_MAP = 'reicon-map-cache';
 
-const BATCH_SIZE = 60;
+const BATCH_SIZE = 144;
 
 function loadCache(): { icons: string[]; categoryMap: Record<string, string> } {
   try {

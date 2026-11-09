@@ -154,7 +154,7 @@ export default function SponsoredBy() {
                 </span>
               )}
               {sponsor.tier === 'silver' && (
-                <span className="inline-flex items-center justify-center h-7 px-3 rounded-full bg-white/[0.10] text-[#e2e8f0] text-[12px] font-medium shrink-0 border-0 select-none">
+                <span className="inline-flex items-center justify-center h-7 px-3 rounded-full bg-[rgba(226,232,240,0.16)] text-[#E2E8F0] text-[12px] font-medium shrink-0 border-0 select-none">
                   Silver Sponsor
                 </span>
               )}
