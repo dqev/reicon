@@ -5,7 +5,7 @@ interface SponsorItem {
   url: string;
   role: string;
   description: string;
-  isGolden?: boolean;
+  tier?: 'gold' | 'silver';
   logo: React.ReactNode;
 }
 
@@ -16,7 +16,7 @@ const SPONSORS: SponsorItem[] = [
     role: 'uigoodies.com',
     description:
       'The best curated resources and tools for UI & UX designers, creators, and developers. Discover top UI kits, icons, tools, mockups, and typography.',
-    isGolden: true,
+    tier: 'gold',
     logo: (
       <svg viewBox="0 0 83 110" className="w-5 h-5 fill-[#FF7139]" aria-hidden="true">
         <path
@@ -29,12 +29,26 @@ const SPONSORS: SponsorItem[] = [
     ),
   },
   {
+    name: 'beUI Pro',
+    url: 'https://beui.dev/?utm_source=reicon',
+    role: 'beui.dev',
+    description:
+      'Premium animated blocks, screens, and templates for React, Next.js, and React Native, with live previews and source code you own.',
+    tier: 'silver',
+    logo: (
+      <img
+        src="/ui/beui-logo.svg"
+        alt="beUI Pro logo"
+        className="h-full max-w-none object-cover object-left rounded-full"
+      />
+    ),
+  },
+  {
     name: 'Motion Video',
     url: 'https://motionvideo.xyz/',
     role: 'motionvideo.xyz',
     description:
       'AI-powered motion design platform and directory showcasing curated motion videos, creative-code examples, showreels, and agent skills.',
-    isGolden: false,
     logo: (
       <img
         src="/ui/motionvideo.svg"
@@ -52,14 +66,16 @@ export default function SponsoredBy() {
         Sponsored by
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-[18px] max-w-[840px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-[18px] max-w-[1120px] mx-auto">
         {SPONSORS.map((sponsor, i) => (
           <div
             key={i}
             className={`relative flex flex-col justify-between gap-6 p-7 sm:p-8 rounded-[24px] bg-[#1a1a1a] min-h-[240px] transition-all duration-200 ${
-              sponsor.isGolden
+              sponsor.tier === 'gold'
                 ? 'border border-[#d4af37]/50 hover:border-[#d4af37]/75'
-                : 'card-inset hover:bg-[#1e1e1e]'
+                : sponsor.tier === 'silver'
+                  ? 'border border-[#c0c0c0]/45 hover:border-[#c0c0c0]/75'
+                  : 'card-inset hover:bg-[#1e1e1e]'
             }`}
           >
             {/* External Website Link */}
@@ -69,9 +85,11 @@ export default function SponsoredBy() {
               rel="noopener noreferrer"
               aria-label={`Visit ${sponsor.name}`}
               className={`absolute top-6 right-6 w-3.5 h-3.5 transition-colors ${
-                sponsor.isGolden
+                sponsor.tier === 'gold'
                   ? 'text-[#d4af37]/60 hover:text-[#d4af37]'
-                  : 'text-white/20 hover:text-white/60'
+                  : sponsor.tier === 'silver'
+                    ? 'text-[#c0c0c0]/70 hover:text-[#e0e0e0]'
+                    : 'text-white/20 hover:text-white/60'
               }`}
             >
               <svg
@@ -88,12 +106,12 @@ export default function SponsoredBy() {
               </svg>
             </a>
 
-            {/* Description Text (matching Testimonials.tsx) */}
+            {/* Description Text */}
             <p className="text-[15px] sm:text-[16px] leading-[1.55] text-[#c9c9c9] pr-6 flex-1 m-0">
               {sponsor.description}
             </p>
 
-            {/* Sponsor Info Row (with right-side pill for UI Goodies) */}
+            {/* Sponsor Info Row */}
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-3 min-w-0">
                 <a
@@ -105,9 +123,11 @@ export default function SponsoredBy() {
                 >
                   <span
                     className={`relative w-9 h-9 rounded-full flex items-center justify-center text-[13px] font-medium overflow-hidden shrink-0 ${
-                      sponsor.isGolden
+                      sponsor.tier === 'gold'
                         ? 'bg-white shadow-sm ring-1 ring-[#d4af37]/40'
-                        : 'bg-white/[0.06] text-white/70'
+                        : sponsor.tier === 'silver'
+                          ? 'bg-white/[0.08] shadow-sm ring-1 ring-[#c0c0c0]/40'
+                          : 'bg-white/[0.06] text-white/70'
                     }`}
                   >
                     {sponsor.logo}
@@ -127,10 +147,15 @@ export default function SponsoredBy() {
                 </div>
               </div>
 
-              {/* Pill in right side of bottom */}
-              {sponsor.isGolden && (
+              {/* Tier Pill */}
+              {sponsor.tier === 'gold' && (
                 <span className="inline-flex items-center justify-center h-7 px-3 rounded-full bg-[rgba(245,166,35,0.18)] text-[#F5A623] text-[12px] font-medium shrink-0 border-0 select-none">
                   Gold Sponsor
+                </span>
+              )}
+              {sponsor.tier === 'silver' && (
+                <span className="inline-flex items-center justify-center h-7 px-3 rounded-full bg-white/[0.10] text-[#e2e8f0] text-[12px] font-medium shrink-0 border-0 select-none">
+                  Silver Sponsor
                 </span>
               )}
             </div>

@@ -62,22 +62,35 @@ export default function Hero(_props: Props = {}) {
           </div>
         </div>{/* end flex-1 centering wrapper */}
 
-        {/* Centered Sponsor at the bottom of Hero (clean, no button bg, larger size) */}
-        <div className="flex items-center justify-center pb-6 pt-3">
+        {/* Centered Sponsors in a single line at the bottom of Hero */}
+        <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-7 pb-6 pt-3 select-none">
+          <span className="text-[12px] sm:text-[13px] text-[#737373] font-normal tracking-[-0.01em]">
+            Sponsored by :
+          </span>
           <a
             href="https://uigoodies.com/?utm_source=reicon"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Official Sponsor: Ui Goodies"
-            className="group inline-flex items-center gap-3 transition-opacity hover:opacity-80"
+            aria-label="Sponsor: Ui Goodies"
+            className="inline-flex items-center opacity-60 hover:opacity-100 transition-opacity duration-200"
           >
-            <span className="text-[14px] sm:text-[15px] text-[#8f8f8f] font-normal tracking-[-0.01em]">
-              Sponsored by
-            </span>
             <img
               src="/ui/ui-goodies-logo.svg"
               alt="Ui Goodies"
-              className="h-6 sm:h-7 w-auto shrink-0"
+              className="h-4.5 sm:h-5 w-auto grayscale brightness-125"
+            />
+          </a>
+          <a
+            href="https://pro.beui.dev/?utm_source=reicon"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Sponsor: beUI Pro"
+            className="inline-flex items-center opacity-60 hover:opacity-100 transition-opacity duration-200"
+          >
+            <img
+              src="/ui/beuipro.svg"
+              alt="beUI Pro"
+              className="h-4.5 sm:h-5 w-auto grayscale brightness-125"
             />
           </a>
         </div>
