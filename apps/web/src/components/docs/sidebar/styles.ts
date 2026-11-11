@@ -2,11 +2,10 @@
 export const docsSidebarStyles = `
   #docs-sidebar {
     width: 14rem;
-    height: calc(100vh - 3.5rem);
-    position: sticky;
-    top: 3.5rem;
-    align-self: flex-start;
-    overflow-y: auto;
+    position: fixed;
+    top: 5.25rem;
+    left: max(calc((100vw - 1240px) / 2 + 2.5rem), 2.5rem);
+    overflow-y: visible;
     padding: 0.25rem 0.5rem 2rem 0;
     margin-left: 0;
     z-index: 30;
@@ -103,11 +102,10 @@ export const docsSidebarStyles = `
   /* ── RIGHT SIDEBAR: ON THIS PAGE ── */
   #otp-sidebar {
     width: 14rem;
-    height: calc(100vh - 3.5rem);
-    position: sticky;
-    top: 3.5rem;
-    align-self: flex-start;
-    overflow-y: auto;
+    position: fixed;
+    top: 5.25rem;
+    right: max(calc((100vw - 1240px) / 2 + 2.5rem), 2.5rem);
+    overflow-y: visible;
     padding: 0.25rem 0 2rem 0.5rem;
     margin-right: 0;
     z-index: 30;
@@ -117,6 +115,15 @@ export const docsSidebarStyles = `
     transition: background-color 0.3s ease;
   }
   #otp-sidebar::-webkit-scrollbar { display: none; }
+
+  /* Keep the article in the space the fixed sidebars would otherwise occupy. */
+  @media (min-width: 1024px) {
+    #docs-content { margin-left: 14rem; }
+  }
+
+  @media (min-width: 1280px) {
+    #docs-content { margin-right: 14rem; }
+  }
 
   /* ── HEADINGS IN DOCS: USE SANS (FONT-SANS) ── */
   main h1,
