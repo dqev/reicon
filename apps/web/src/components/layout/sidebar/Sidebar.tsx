@@ -70,6 +70,7 @@ const DEFAULT_UI_CATEGORIES = [
 const SETS: SetDefinition[] = [
   { id: 'ui', label: 'UI', expandable: true, path: '/icons' },
   { id: 'glass', label: 'Glass', expandable: true, path: '/glass' },
+  { id: 'file-icons', label: 'File Icons', path: '/file-icons' },
   { id: 'flags', label: 'Flags', path: '/flags' },
   { id: 'social-media', label: 'Social Media', path: '/brands' },
 ];
@@ -334,7 +335,11 @@ function Sidebar({
   );
 
   const isGlassActive = glassRoute || activeSet === 'glass';
-  const isCustomSet = activeSet === 'flags' || activeSet === 'social-media' || isGlassActive;
+  const isCustomSet =
+    activeSet === 'flags' ||
+    activeSet === 'social-media' ||
+    activeSet === 'file-icons' ||
+    isGlassActive;
 
   const renderTools = () => (
     <div className="flex flex-col">

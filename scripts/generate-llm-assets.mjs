@@ -13,7 +13,16 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const ICON_NAMES_JSON = resolve(__dirname, 'icon-names.json');
 const CATS_JSON = resolve(__dirname, '../data/icons-names-categories.json');
+const FILE_ICONS_JSON = resolve(__dirname, '../data/file-icons.json');
 const OUTPUT_FILE = resolve(__dirname, '../apps/web/public/llms-icons.txt');
+const FILE_OUTPUT_FILE = resolve(__dirname, '../apps/web/public/llms-file-icons.txt');
+
+function toPascalCase(str) {
+  return str
+    .split('-')
+    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+    .join('');
+}
 
 function generateIcons() {
   console.log('Generating LLM Icon Directory...');
@@ -88,4 +97,56 @@ ${sections.join('\n\n')}
   console.log(`Successfully generated LLM Icon Directory containing ${totalCount} mappings to ${OUTPUT_FILE}`);
 }
 
+function generateFileIcons() {
+  console.log('Generating LLM File Icon Directory...');
+
+  if (!existsSync(FILE_ICONS_JSON)) {
+    return;
+  }
+
+  const data = JSON.parse(readFileSync(FILE_ICONS_JSON, 'utf-8'));
+  const sourceIcons = Array.isArray(data.icons) ? data.icons : [];
+  const pascalLowerSet = new Set();
+  const items = [];
+
+  for (const icon of sourceIcons) {
+    const kebab = String(icon.name || '').trim();
+    const path = String(icon.path || '').trim();
+    if (!kebab || !path) continue;
+
+    let pascal = toPascalCase(kebab);
+    if (/^[0-9]/.test(pascal)) pascal = 'Icon' + pascal;
+    if (pascalLowerSet.has(pascal.toLowerCase())) pascal += 'File';
+    pascalLowerSet.add(pascal.toLowerCase());
+
+    items.push({ kebab, pascal });
+  }
+
+  items.sort((a, b) => a.kebab.localeCompare(b.kebab));
+
+  const output = `# Reicon File Icons - Complete Names & Import Mapping
+
+This file lists every icon in the Reicon file icon set. Use it to look up the correct import name (PascalCase) or CDN attribute value (kebab-case).
+
+**Quick lookup**: Find the icon's kebab-case name below, then:
+- **Package**: import the PascalCase name from \`reicon-file\`
+- **CDN**: use the kebab-case name as-is: \`<re-file icon="github">\`
+
+## Stats
+- **Total**: ${items.length} file icons
+- **Grid**: 1024×1024 px
+- **Styles**: Single color, filled paths
+
+---
+
+## File Icon Directory
+
+${items.map((item) => `- ${item.kebab} -> ${item.pascal}`).join('\n')}
+`;
+
+  writeFileSync(FILE_OUTPUT_FILE, output, 'utf-8');
+  console.log(`Successfully generated LLM File Icon Directory containing ${items.length} mappings to ${FILE_OUTPUT_FILE}`);
+}
+
 generateIcons();
+generateFileIcons();

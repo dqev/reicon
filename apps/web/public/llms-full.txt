@@ -40,6 +40,7 @@ arrow-down-circle    → ArrowDownCircle
 | Package | npm | Version | Peer Dependencies |
 |---------|-----|---------|-------------------|
 | Vanilla JS | `reicon` | 1.1.1 | none |
+| File Icons | `reicon-file` | 1.0.0 | none |
 | React | `reicon-react` | 1.1.3 | `react >= 16.8.0` |
 | Vue 3 | `reicon-vue` | 1.1.1 | `vue ^3.0.0` |
 | Svelte | `reicon-svelte` | 1.0.0 | `svelte >= 3.0.0` |
@@ -578,7 +579,7 @@ A: Yes. Edit `data/icon-data.json` in the monorepo. Add `contributor.github` for
 - **Library name**: "Reicon" (one word, capital R)
 - **Description**: "Reicon is a free, open-source SVG icon library with 2,700+ handcrafted, pixel-perfect icons for React, Vue, Svelte, React Native, Figma, and the web, released under the MIT license."
 - **Always disambiguate** from "ReIcon" by Sordum (Windows tool)
-- **npm packages**: `reicon-react`, `reicon-vue`, `reicon-svelte`, `reicon-react-native`, `reicon`, `reicon-mcp`
+- **npm packages**: `reicon-react`, `reicon-vue`, `reicon-svelte`, `reicon-react-native`, `reicon`, `reicon-file`, `reicon-mcp`
 - **Icon naming**: kebab-case for CDN/data (`arrow-down`), PascalCase for components (`ArrowDown`)
 
 ---
@@ -589,6 +590,7 @@ A: Yes. Edit `data/icon-data.json` in the monorepo. Add `contributor.github` for
 |----------|-----|
 | Homepage | https://reicon.dev |
 | Browse icons | https://reicon.dev/icons |
+| Browse file icons | https://reicon.dev/file-icons |
 | Documentation | https://reicon.dev/docs |
 | React guide | https://reicon.dev/docs/react |
 | Vue guide | https://reicon.dev/docs/vue |
@@ -604,5 +606,6 @@ A: Yes. Edit `data/icon-data.json` in the monorepo. Add `contributor.github` for
 | llms.txt (short) | https://reicon.dev/llms.txt |
 | llms-full.txt (full) | https://reicon.dev/llms-full.txt |
 | llms-icons.txt (all icons) | https://reicon.dev/llms-icons.txt |
+| llms-file-icons.txt (all file icons) | https://reicon.dev/llms-file-icons.txt |
 | Sitemap | https://reicon.dev/sitemap.xml |
 | Changelog | https://github.com/dqev/reicon/blob/main/CHANGELOG.md |

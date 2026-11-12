@@ -15,7 +15,7 @@ export interface CustomSvgIcon {
 interface CustomSvgCardProps {
   icon: CustomSvgIcon;
   size?: number;
-  setType?: 'brand' | 'flag' | 'glass';
+  setType?: 'brand' | 'flag' | 'glass' | 'file';
   color?: string;
   onClick?: () => void;
   onSelect?: (name: string) => void;
@@ -49,6 +49,8 @@ function CustomSvgCard({ icon, size = 40, setType = 'brand', color, onClick, onS
       ? `/flags/${slug}`
       : setType === 'glass'
       ? `/glass/${slug}`
+      : setType === 'file'
+      ? `/file-icons/${slug}`
       : `/brands/${slug}`;
 
   const isGlass = setType === 'glass';

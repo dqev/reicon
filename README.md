@@ -10,14 +10,19 @@
 
 <br/>
 
-[![Website](https://img.shields.io/badge/Website-reicon.dev-9B8AFB?style=flat-square)](https://reicon.dev)
-[![Docs](https://img.shields.io/badge/Docs-read-9B8AFB?style=flat-square)](https://reicon.dev/docs)
-[![npm](https://img.shields.io/npm/v/reicon-react?style=flat-square&label=reicon-react&color=9B8AFB)](https://www.npmjs.com/package/reicon-react)
-[![License](https://img.shields.io/badge/License-MIT-9B8AFB?style=flat-square)](LICENSE)
 
-[**Browse icons →**](https://reicon.dev/icons) · [**Documentation →**](https://reicon.dev/docs) · [**Packages →**](#packages)
+<p align="center">
+  <a href="https://reicon.dev"><img src="https://shieldcn.dev/badge/Website-reicon.dev-27272a.svg?variant=secondary&logo=googlechrome&logoColor=9B8AFB" alt="Website" /></a>
+  <a href="https://reicon.dev/docs"><img src="https://shieldcn.dev/badge/Docs-read-27272a.svg?variant=secondary&logo=readthedocs&logoColor=9B8AFB" alt="Documentation" /></a>
+  <a href="https://www.npmjs.com/package/reicon-react"><img src="https://shieldcn.dev/npm/reicon-react.svg?variant=secondary&logo=npm&logoColor=CB3837" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/reicon-react"><img src="https://shieldcn.dev/npm/dm/reicon-react.svg?variant=secondary&logo=npm&logoColor=CB3837" alt="npm monthly downloads" /></a>
+  <a href="https://github.com/dqev/reicon"><img src="https://shieldcn.dev/github/stars/dqev/reicon.svg?variant=secondary&logo=github&logoColor=ffffff" alt="GitHub stars" /></a>
+  <a href="LICENSE"><img src="https://shieldcn.dev/github/license/dqev/reicon.svg?variant=secondary&logo=opensourceinitiative&logoColor=3DA639" alt="MIT license" /></a>
+</p>
 
-</div>
+<br/>
+
+<img src="apps/web/public/readme-assets/sponsors.png" alt="Loved and Sponsored by UI Goodies, beUI Pro, and MotionVideo" width="542" />
 
 <br/>
 
@@ -25,18 +30,18 @@
 
 | Logo | Package | Version | Downloads | Links |
 | ---- | ------- | ------- | --------- | ----- |
-| <img src="apps/web/public/framework-logos/js.svg" alt="JS logo" width="36"> | **`reicon`** | [![npm](https://img.shields.io/npm/v/reicon)](https://www.npmjs.com/package/reicon) | ![NPM Downloads](https://img.shields.io/npm/dm/reicon) | [Docs](https://reicon.dev/docs/vanilla) · [Source](./packages/reicon) |
-| <img src="apps/web/public/framework-logos/react.svg" alt="React logo" width="36"> | **`reicon-react`** | [![npm](https://img.shields.io/npm/v/reicon-react)](https://www.npmjs.com/package/reicon-react) | ![NPM Downloads](https://img.shields.io/npm/dm/reicon-react) | [Docs](https://reicon.dev/docs/react) · [Source](./packages/reicon-react) |
-| <img src="apps/web/public/framework-logos/angular.svg" alt="Angular logo" width="36"> | **`reicon-angular`** | [![npm](https://img.shields.io/npm/v/reicon-angular)](https://www.npmjs.com/package/reicon-angular) | ![NPM Downloads](https://img.shields.io/npm/dm/reicon-angular) | [Docs](https://reicon.dev/docs/angular) · [Source](./packages/reicon-angular) |
-| <img src="apps/web/public/framework-logos/react-native.svg" alt="React Native logo" width="36"> | **`reicon-react-native`** | [![npm](https://img.shields.io/npm/v/reicon-react-native)](https://www.npmjs.com/package/reicon-react-native) | ![NPM Downloads](https://img.shields.io/npm/dm/reicon-react-native) | [Docs](https://reicon.dev/docs/react-native) · [Source](./packages/reicon-react-native) |
-| <img src="apps/web/public/framework-logos/vue.svg" alt="Vue logo" width="36"> | **`reicon-vue`** | [![npm](https://img.shields.io/npm/v/reicon-vue)](https://www.npmjs.com/package/reicon-vue) | ![NPM Downloads](https://img.shields.io/npm/dm/reicon-vue) | [Docs](https://reicon.dev/docs/vue) · [Source](./packages/reicon-vue) |
-| <img src="apps/web/public/framework-logos/svelte.svg" alt="Svelte logo" width="36"> | **`reicon-svelte`** | [![npm](https://img.shields.io/npm/v/reicon-svelte)](https://www.npmjs.com/package/reicon-svelte) | ![NPM Downloads](https://img.shields.io/npm/dm/reicon-svelte) | [Docs](https://reicon.dev/docs/svelte) · [Source](./packages/reicon-svelte) |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="apps/web/public/framework-logos/astro.svg" /><img src="apps/web/public/framework-logos/astro.svg" alt="Astro logo" width="36"></picture> | **`reicon-astro`** | [![npm](https://img.shields.io/npm/v/reicon-astro)](https://www.npmjs.com/package/reicon-astro) | ![NPM Downloads](https://img.shields.io/npm/dm/reicon-astro) | [Docs](https://reicon.dev/docs/astro) · [Source](./packages/reicon-astro) |
-| <img src="apps/web/public/framework-logos/flutter.svg" alt="Flutter logo" width="36"> | **`reicon-flutter`** | [![pub.dev](https://img.shields.io/badge/pub.dev-reicon-blue)](https://pub.dev/packages/reicon) | ![Flutter Ready](https://img.shields.io/badge/flutter-ready-blue) | [Docs](https://reicon.dev/docs/flutter) · [Source](./packages/reicon-flutter) |
-| <img src="apps/web/public/framework-logos/compose.svg" alt="Compose logo" width="36"> | **`reicon-compose`** | ![Maven](https://img.shields.io/badge/maven-reicon--compose-3DDC84) | ![Compose Ready](https://img.shields.io/badge/compose-ready-3DDC84) | [Docs](https://reicon.dev/docs/compose) · [Source](./packages/reicon-compose) |
-| <img src="apps/web/public/framework-logos/mcp.svg" alt="MCP logo" width="36"> | **`reicon-mcp`** | [![npm](https://img.shields.io/npm/v/reicon-mcp)](https://www.npmjs.com/package/reicon-mcp) | ![NPM Downloads](https://img.shields.io/npm/dm/reicon-mcp) | [Docs](https://reicon.dev/docs/mcp) · [Source](./packages/reicon-mcp) |
-| <img src="apps/web/public/framework-logos/figma.svg" alt="Figma logo" width="36"> | **`reicon-figma`** | [![Figma](https://img.shields.io/badge/Figma-Plugin-F24E1E)](https://www.figma.com/community/plugin/reicon) | ![Figma Ready](https://img.shields.io/badge/Figma-Ready-1ABCFE) | [Docs](https://reicon.dev/docs/figma) · [Source](./packages/reicon-figma) |
-| <img src="apps/web/public/framework-logos/vscode.svg" alt="VS Code logo" width="36"> | **`reicon-vscode`** | [![VS Code](https://img.shields.io/badge/VS_Code-Extension-0277bd)](https://marketplace.visualstudio.com) | ![VS Code Ready](https://img.shields.io/badge/VS_Code-Ready-007acc) | [Docs](https://reicon.dev/docs/vscode) · [Source](./packages/reicon-vscode) |
+| <img src="apps/web/public/framework-logos/js.svg" alt="JS logo" width="36"> | **`reicon`** | [![npm version](https://shieldcn.dev/npm/reicon.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837)](https://www.npmjs.com/package/reicon) | ![npm monthly downloads](https://shieldcn.dev/npm/dm/reicon.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837) | [Docs](https://reicon.dev/docs/vanilla) · [Source](./packages/reicon) |
+| <img src="apps/web/public/framework-logos/react.svg" alt="React logo" width="36"> | **`reicon-react`** | [![npm version](https://shieldcn.dev/npm/reicon-react.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837)](https://www.npmjs.com/package/reicon-react) | ![npm monthly downloads](https://shieldcn.dev/npm/dm/reicon-react.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837) | [Docs](https://reicon.dev/docs/react) · [Source](./packages/reicon-react) |
+| <img src="apps/web/public/framework-logos/angular.svg" alt="Angular logo" width="36"> | **`reicon-angular`** | [![npm version](https://shieldcn.dev/npm/reicon-angular.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837)](https://www.npmjs.com/package/reicon-angular) | ![npm monthly downloads](https://shieldcn.dev/npm/dm/reicon-angular.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837) | [Docs](https://reicon.dev/docs/angular) · [Source](./packages/reicon-angular) |
+| <img src="apps/web/public/framework-logos/react-native.svg" alt="React Native logo" width="36"> | **`reicon-react-native`** | [![npm version](https://shieldcn.dev/npm/reicon-react-native.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837)](https://www.npmjs.com/package/reicon-react-native) | ![npm monthly downloads](https://shieldcn.dev/npm/dm/reicon-react-native.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837) | [Docs](https://reicon.dev/docs/react-native) · [Source](./packages/reicon-react-native) |
+| <img src="apps/web/public/framework-logos/vue.svg" alt="Vue logo" width="36"> | **`reicon-vue`** | [![npm version](https://shieldcn.dev/npm/reicon-vue.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837)](https://www.npmjs.com/package/reicon-vue) | ![npm monthly downloads](https://shieldcn.dev/npm/dm/reicon-vue.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837) | [Docs](https://reicon.dev/docs/vue) · [Source](./packages/reicon-vue) |
+| <img src="apps/web/public/framework-logos/svelte.svg" alt="Svelte logo" width="36"> | **`reicon-svelte`** | [![npm version](https://shieldcn.dev/npm/reicon-svelte.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837)](https://www.npmjs.com/package/reicon-svelte) | ![npm monthly downloads](https://shieldcn.dev/npm/dm/reicon-svelte.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837) | [Docs](https://reicon.dev/docs/svelte) · [Source](./packages/reicon-svelte) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="apps/web/public/framework-logos/astro.svg" /><img src="apps/web/public/framework-logos/astro.svg" alt="Astro logo" width="36"></picture> | **`reicon-astro`** | [![npm version](https://shieldcn.dev/npm/reicon-astro.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837)](https://www.npmjs.com/package/reicon-astro) | ![npm monthly downloads](https://shieldcn.dev/npm/dm/reicon-astro.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837) | [Docs](https://reicon.dev/docs/astro) · [Source](./packages/reicon-astro) |
+| <img src="apps/web/public/framework-logos/flutter.svg" alt="Flutter logo" width="36"> | **`reicon-flutter`** | [![pub.dev](https://shieldcn.dev/badge/pub.dev-reicon-27272a.svg?variant=secondary&size=xs&logo=dart&logoColor=0175C2)](https://pub.dev/packages/reicon) | ![Flutter Ready](https://shieldcn.dev/badge/Flutter-Ready-27272a.svg?variant=secondary&size=xs&logo=flutter&logoColor=02569B) | [Docs](https://reicon.dev/docs/flutter) · [Source](./packages/reicon-flutter) |
+| <img src="apps/web/public/framework-logos/compose.svg" alt="Compose logo" width="36"> | **`reicon-compose`** | ![Maven](https://shieldcn.dev/badge/Maven-reicon--compose-27272a.svg?variant=secondary&size=xs&logo=apachemaven&logoColor=C71A36) | ![Compose Ready](https://shieldcn.dev/badge/Compose-Ready-27272a.svg?variant=secondary&size=xs&logo=jetpackcompose&logoColor=4285F4) | [Docs](https://reicon.dev/docs/compose) · [Source](./packages/reicon-compose) |
+| <img src="apps/web/public/framework-logos/mcp.svg" alt="MCP logo" width="36"> | **`reicon-mcp`** | [![npm version](https://shieldcn.dev/npm/reicon-mcp.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837)](https://www.npmjs.com/package/reicon-mcp) | ![npm monthly downloads](https://shieldcn.dev/npm/dm/reicon-mcp.svg?variant=secondary&size=xs&logo=npm&logoColor=CB3837) | [Docs](https://reicon.dev/docs/mcp) · [Source](./packages/reicon-mcp) |
+| <img src="apps/web/public/framework-logos/figma.svg" alt="Figma logo" width="36"> | **`reicon-figma`** | [![Figma Plugin](https://shieldcn.dev/badge/Figma-Plugin-27272a.svg?variant=secondary&size=xs&logo=figma&logoColor=F24E1E)](https://www.figma.com/community/plugin/reicon) | ![Figma Ready](https://shieldcn.dev/badge/Figma-Ready-27272a.svg?variant=secondary&size=xs&logo=figma&logoColor=1ABCFE) | [Docs](https://reicon.dev/docs/figma) · [Source](./packages/reicon-figma) |
+| <img src="apps/web/public/framework-logos/vscode.svg" alt="VS Code logo" width="36"> | **`reicon-vscode`** | [![VS Code Extension](https://shieldcn.dev/badge/VS_Code-Extension-27272a.svg?variant=secondary&size=xs&logo=visualstudiocode&logoColor=007ACC)](https://marketplace.visualstudio.com) | ![VS Code Ready](https://shieldcn.dev/badge/VS_Code-Ready-27272a.svg?variant=secondary&size=xs&logo=visualstudiocode&logoColor=007ACC) | [Docs](https://reicon.dev/docs/vscode) · [Source](./packages/reicon-vscode) |
 
 ## Contributing
 
@@ -58,16 +63,4 @@ Reicon base icons are built using elements from:
 * [Solar Icons](https://solar-icons.vercel.app/) designed by **480 Design** (CC BY 4.0)
 * [Zappicon](https://zappicon.com/)
 
-## Sponsors
-
-Thanks to [Vercel](https://vercel.com/?utm_source=reicon&utm_campaign=oss) for supporting open-source software and hosting Reicon.
-
-<a href="https://vercel.com/?utm_source=reicon&utm_campaign=oss">
-  <img src="https://vercel.com/button" alt="Powered by Vercel" height="32" />
-</a>
-
-Thanks to [UI Goodies](https://uigoodies.com/?utm_source=reicon) for sponsoring Reicon.
-
-<a href="https://uigoodies.com/?utm_source=reicon">
-  <img src="apps/web/public/ui/ui-goodies-logo.svg" alt="UI Goodies" height="28" />
-</a>
+</div>

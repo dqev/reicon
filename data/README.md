@@ -81,6 +81,24 @@ When `contributor.github` is set, the icon detail page on reicon.dev automatical
 
 A `{ "<icon-name>": ["tag", "tag"] }` map for enriching search / SEO metadata outside of `icon-data.json`. Build scripts merge it on top of each icon's inline `description` array when the file is present.
 
+### `file-icons.json`
+
+Standalone dataset for the **File Icons** set (file-type logos rendered from a single path, `0 0 1024 1024` viewBox). It is consumed by `packages/reicon-file` and the website's `/file-icons` page.
+
+```jsonc
+{
+  "name": "file-icons",
+  "viewBox": "0 0 1024 1024",
+  "size": 256,
+  "count": 920,
+  "icons": [
+    { "name": "github", "path": "M960 521.3Q960 614.7…" }
+  ]
+}
+```
+
+Run `npm run compress:files` after editing to trim names, collapse path whitespace, drop duplicates, and keep `count` in sync.
+
 ---
 
 ## How it's consumed
@@ -89,6 +107,7 @@ A `{ "<icon-name>": ["tag", "tag"] }` map for enriching search / SEO metadata ou
 | :---- | :------- | :------- | :---------- |
 | Website + CDN bundle | `packages/reicon/scripts/build.cjs` | `npm run build` | Automatic on every deploy |
 | `packages/reicon/dist` (npm) | `packages/reicon/scripts/build.cjs` | `npm run build:js` | **Maintainer only** |
+| `packages/reicon-file/dist` (npm) | `packages/reicon-file/scripts/build.cjs` | `npm run build:file` | **Maintainer only** |
 | `packages/reicon-react/dist` (npm) | `packages/reicon-react/scripts/build.cjs` | `npm run build:react` | **Maintainer only** |
 | `packages/reicon-vue/dist` (npm) | `packages/reicon-vue/scripts/build.cjs` | `npm run build:vue` | **Maintainer only** |
 | `packages/reicon-svelte/dist` (npm) | `packages/reicon-svelte/scripts/build.cjs` | `npm run build:svelte` | **Maintainer only** |

@@ -19,7 +19,7 @@ const RUNWAY_THRESHOLD = 1600;
 interface IconGridProps {
   filteredIcons: string[];
   customIcons?: CustomSvgIcon[] | null;
-  customSetType?: 'brand' | 'flag' | 'glass';
+  customSetType?: 'brand' | 'flag' | 'glass' | 'file';
   glassColor?: string;
   activeStyle: string;
   displaySize: number;

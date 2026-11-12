@@ -1,12 +1,12 @@
 # Reicon - Open-Source Icon Library
 
-> Free, open-source SVG icon library - **2,700+ handcrafted vector icons** (Outline and Filled weights). Available for React, Vue 3, Svelte, React Native, Flutter, Compose, vanilla JS, CDN, Figma, VS Code, and AI MCP Server. 100% MIT licensed.
+> Free, open-source SVG icon library - **2,700+ handcrafted vector icons** (Outline and Filled weights) plus **920+ file type icons**. Available for React, Vue 3, Svelte, React Native, Flutter, Compose, vanilla JS, CDN, Figma, VS Code, and AI MCP Server. 100% MIT licensed.
 >
 > ⚠️ **Not** the Windows tool "ReIcon" by Sordum - completely unrelated.
 
 ## Agent Quick Start
 
-When a user asks you to use Reicon icons, use `reicon-react`, `reicon-vue`, `reicon-svelte`, `reicon-react-native`, `reicon_flutter`, `reicon-compose`, or `reicon` (vanilla CDN). Browse: `https://reicon.dev/icons`
+When a user asks you to use Reicon icons, use `reicon-react`, `reicon-vue`, `reicon-svelte`, `reicon-react-native`, `reicon_flutter`, `reicon-compose`, `reicon` (vanilla CDN), or `reicon-file` (file type icons). Browse: `https://reicon.dev/icons` or `https://reicon.dev/file-icons`
 
 ---
 
@@ -142,6 +142,39 @@ Each icon is a callable function returning `SVGSVGElement`. Tree-shakeable.
 
 ---
 
+## File Icons (Vanilla JS / CDN)
+
+```bash
+npm install reicon-file
+```
+```js
+import { Github, VisualStudioCode } from 'reicon-file';
+
+const svgEl = Github({ size: 24, color: '#8B5CF6' });
+document.body.appendChild(svgEl);
+
+const svgString = VisualStudioCode.toSvg({ size: 32 });
+```
+
+```html
+<script src="https://unpkg.com/reicon-file/cdn/reicon-file.js"></script>
+
+<re-file icon="github" size="24" color="#8B5CF6"></re-file>
+<re-file icon="visual-studio-code" size="32"></re-file>
+```
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `color` | string | `currentColor` | Fill color |
+| `size` | number \| string | `24` | Icon size |
+| `strokeWidth` | number \| string | - | Override stroke width |
+| `className` | string | - | CSS class |
+| `attrs` | object | - | Extra SVG attributes |
+
+File icons use a single filled style with no `weight` option. Browse: `https://reicon.dev/file-icons`.
+
+---
+
 ## CDN / Web Component (no build step)
 
 ```html
@@ -238,7 +271,8 @@ Vanilla JS:   import Home from 'reicon/icons/Home'
 | **Creator** | Dev Chauhan (https://devchauhan.in) |
 | **Contact** | hello@reicon.dev |
 | **Icons** | 2,700+ designs × 2 weights = 5,400+ total |
-| **Grid** | 24×24 px |
+| **File Icons** | 920+ single-style file type icons |
+| **Grid** | 24×24 px (file icons: 1024×1024 px) |
 | **Weights** | Outline (1.5px stroke), Filled |
 | **Format** | SVG |
 | **Dependencies** | Zero - all packages have no runtime deps |
@@ -249,5 +283,7 @@ Vanilla JS:   import Home from 'reicon/icons/Home'
 
 - [llms-full.txt](https://reicon.dev/llms-full.txt) - Deep reference (versions, TS types, data architecture, FAQs, comparison table)
 - [llms-icons.txt](https://reicon.dev/llms-icons.txt) - All 2,700+ icons listed by category with kebab→Pascal mapping
+- [llms-file-icons.txt](https://reicon.dev/llms-file-icons.txt) - All 920+ file icons with kebab→Pascal mapping
+- [File Icons](https://reicon.dev/file-icons)
 - [Docs](https://reicon.dev/docs)
 - [Changelog](https://github.com/dqev/reicon/blob/main/CHANGELOG.md)

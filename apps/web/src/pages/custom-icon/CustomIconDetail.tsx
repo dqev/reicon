@@ -5,11 +5,12 @@ import { motion, AnimatePresence } from 'motion/react';
 import type { CustomSvgIcon } from '@/components/ui/CustomSvgCard';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import { loadGlassIcons, getGlassStandaloneSvg } from '@/lib/glass-icons';
+import { loadFileIcons } from '@/lib/file-icons';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 interface Props {
-  type: 'brand' | 'flag' | 'glass';
+  type: 'brand' | 'flag' | 'glass' | 'file';
 }
 
 function formatIconName(name: string): string {
@@ -137,8 +138,9 @@ export default function CustomIconDetail({ type }: Props) {
   const isBrand = type === 'brand';
   const isFlag = type === 'flag';
   const isGlass = type === 'glass';
-  const parentLabel = isGlass ? 'Glass' : isBrand ? 'Brands' : 'Flags';
-  const parentUrl = isGlass ? '/glass' : isBrand ? '/brands' : '/flags';
+  const isFile = type === 'file';
+  const parentLabel = isGlass ? 'Glass' : isBrand ? 'Brands' : isFile ? 'File Icons' : 'Flags';
+  const parentUrl = isGlass ? '/glass' : isBrand ? '/brands' : isFile ? '/file-icons' : '/flags';
 
   const flashToast = useCallback((msg: string) => {
     setToast(msg);
@@ -156,6 +158,8 @@ export default function CustomIconDetail({ type }: Props) {
 
     const loadPromise = isGlass
       ? loadGlassIcons()
+      : isFile
+      ? loadFileIcons()
       : isBrand
       ? import('@/data/brands.json').then((mod) => (mod.default?.icons || (mod as any).icons || []) as CustomSvgIcon[])
       : import('@/data/flag.json').then((mod) => (mod.default?.icons || (mod as any).icons || []) as CustomSvgIcon[]);
@@ -175,7 +179,7 @@ export default function CustomIconDetail({ type }: Props) {
     return () => {
       cancelled = true;
     };
-  }, [isBrand, isGlass]);
+  }, [isBrand, isGlass, isFile]);
 
   // Find target icon
   const icon = useMemo(() => {
@@ -281,7 +285,7 @@ export default function CustomIconDetail({ type }: Props) {
   if (!icon) {
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center px-4 text-center">
-        <h1 className="text-xl font-medium text-white mb-2">{isGlass ? 'Glass' : isBrand ? 'Brand' : 'Flag'} Icon Not Found</h1>
+        <h1 className="text-xl font-medium text-white mb-2">{isGlass ? 'Glass' : isBrand ? 'Brand' : isFile ? 'File' : 'Flag'} Icon Not Found</h1>
         <p className="text-sm text-text-muted mb-6">Could not find icon &quot;{paramName}&quot;.</p>
         <button
           onClick={() => navigate(parentUrl)}
@@ -296,15 +300,15 @@ export default function CustomIconDetail({ type }: Props) {
   return (
     <div className="flex-1">
       <Helmet>
-        <title>{`${displayName} ${isGlass ? 'Glass' : isBrand ? 'Brand Logo' : 'Flag'} Icon SVG - Reicon`}</title>
+        <title>{`${displayName} ${isGlass ? 'Glass' : isBrand ? 'Brand Logo' : isFile ? 'File' : 'Flag'} Icon SVG - Reicon`}</title>
         <meta
           name="description"
-          content={`Download or copy free ${displayName} vector ${isGlass ? 'glass' : isBrand ? 'brand logo' : 'flag'} SVG icon. Optimized, lossless, high-fidelity SVG code.`}
+          content={`Download or copy free ${displayName} vector ${isGlass ? 'glass' : isBrand ? 'brand logo' : isFile ? 'file' : 'flag'} SVG icon. Optimized, lossless, high-fidelity SVG code.`}
         />
-        <meta property="og:title" content={`${displayName} ${isGlass ? 'Glass' : isBrand ? 'Brand Logo' : 'Flag'} Icon SVG - Reicon`} />
+        <meta property="og:title" content={`${displayName} ${isGlass ? 'Glass' : isBrand ? 'Brand Logo' : isFile ? 'File' : 'Flag'} Icon SVG - Reicon`} />
         <meta
           property="og:description"
-          content={`Download or copy free ${displayName} vector ${isGlass ? 'glass' : isBrand ? 'brand logo' : 'flag'} SVG icon.`}
+          content={`Download or copy free ${displayName} vector ${isGlass ? 'glass' : isBrand ? 'brand logo' : isFile ? 'file' : 'flag'} SVG icon.`}
         />
       </Helmet>
 
@@ -341,7 +345,7 @@ export default function CustomIconDetail({ type }: Props) {
             </nav>
           </div>
 
-          <h1 className="sr-only">{displayName} {isBrand ? 'brand' : 'flag'} icon - Reicon</h1>
+          <h1 className="sr-only">{displayName} {isBrand ? 'brand' : isFile ? 'file' : 'flag'} icon - Reicon</h1>
 
           {/* Main 2-column layout matching IconDetail */}
           <div className="grid lg:grid-cols-[380px_minmax(0,1fr)] gap-6 lg:gap-8 items-start">
@@ -379,7 +383,7 @@ export default function CustomIconDetail({ type }: Props) {
                   {displayName}
                 </h2>
                 <p className="text-xs text-white/40 mt-0.5 font-sans">
-                  {isBrand ? 'Brand Logo' : isGlass ? 'Glass Icon' : 'Flag Icon'}
+                  {isBrand ? 'Brand Logo' : isGlass ? 'Glass Icon' : isFile ? 'File Icon' : 'Flag Icon'}
                 </p>
               </div>
 

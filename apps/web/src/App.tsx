@@ -4,6 +4,7 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 import SmoothScroll from './components/layout/SmoothScroll';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import PromoBanner from './components/layout/PromoBanner';
 import { SponsorCheckoutProvider } from './components/layout/SponsorCheckout';
 import ErrorBoundary from './components/ui/ErrorBoundary';
 import { ThemeProvider } from './components/layout/ThemeContext';
@@ -15,6 +16,7 @@ const IconDetail = lazyWithRetry(() => import('./pages/icon/IconDetail'));
 const BrandDetail = lazyWithRetry(() => import('./pages/custom-icon/BrandDetail'));
 const FlagDetail = lazyWithRetry(() => import('./pages/custom-icon/FlagDetail'));
 const GlassDetail = lazyWithRetry(() => import('./pages/custom-icon/GlassDetail'));
+const FileDetail = lazyWithRetry(() => import('./pages/custom-icon/FileDetail'));
 
 const DocsPage = lazyWithRetry(() => import('./pages/docs/DocsPage'));
 const PackagesPage = lazyWithRetry(() => import('./pages/packages/PackagesPage'));
@@ -35,7 +37,7 @@ function ScrollToTop() {
 
 const VALID_ROUTES = [
   '/', '/icons', '/packages', '/faq', '/support', '/notice', '/terms', '/privacy', '/license', '/brand',
-  '/flags', '/brands', '/glass'
+  '/flags', '/brands', '/glass', '/file-icons'
 ];
 
 function isKnownRoute(pathname: string) {
@@ -46,6 +48,7 @@ function isKnownRoute(pathname: string) {
     pathname.startsWith('/brands/') ||
     pathname.startsWith('/flags/') ||
     pathname.startsWith('/glass/') ||
+    pathname.startsWith('/file-icons/') ||
     pathname.startsWith('/docs')
   ) {
     return true;
@@ -62,6 +65,7 @@ function Layout() {
     pathname === '/flags' ||
     pathname === '/brands' ||
     pathname === '/glass' ||
+    pathname === '/file-icons' ||
     pathname.startsWith('/docs') ||
     pathname === '/faq';
 
@@ -76,10 +80,12 @@ function Layout() {
             <Route path="/flags" element={<IconsPage />} />
             <Route path="/brands" element={<IconsPage />} />
             <Route path="/glass" element={<IconsPage />} />
+            <Route path="/file-icons" element={<IconsPage />} />
             <Route path="/icon/:name" element={<IconDetail />} />
             <Route path="/brands/:name" element={<BrandDetail />} />
             <Route path="/flags/:name" element={<FlagDetail />} />
             <Route path="/glass/:name" element={<GlassDetail />} />
+            <Route path="/file-icons/:name" element={<FileDetail />} />
 
             <Route path="/docs" element={<DocsPage />} />
             <Route path="/docs/:framework" element={<DocsPage />} />
@@ -98,6 +104,7 @@ function Layout() {
           {!hideFooter && <Footer />}
         </Suspense>
       </ErrorBoundary>
+      <PromoBanner />
     </div>
   );
 }

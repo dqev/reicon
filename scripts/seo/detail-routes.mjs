@@ -1,7 +1,7 @@
 /**
  * detail-routes.mjs - Build-time route definitions for every detail page
- * (icons, brands, flags, glass) so the generated static HTML carries the
- * correct per-page meta instead of falling back to the home page tags.
+ * (icons, brands, flags, glass, file-icons) so the generated static HTML
+ * carries the correct per-page meta instead of falling back to the home page tags.
  *
  * Data sources (single source of truth):
  *   - scripts/icon-names.json            icon slug -> PascalCase name
@@ -9,6 +9,7 @@
  *   - data/brands.json                   brand icons
  *   - data/flag.json                     flag icons
  *   - data/filled.json                   glass icons
+ *   - data/file-icons.json               file type icons
  */
 
 import { readFileSync } from 'fs';
@@ -195,6 +196,17 @@ function flagRoutes() {
   });
 }
 
+function fileIconRoutes() {
+  const data = readJson('data/file-icons.json');
+  return customIconRoutes({
+    parentPath: 'file-icons',
+    parentLabel: 'File Icons',
+    label: 'File',
+    descriptionLabel: 'file',
+    items: data.icons || [],
+  });
+}
+
 function glassRoutes() {
   const data = readJson('data/filled.json');
   const seen = new Set();
@@ -219,5 +231,5 @@ function glassRoutes() {
 }
 
 export function buildDetailRoutes() {
-  return [...iconRoutes(), ...brandRoutes(), ...flagRoutes(), ...glassRoutes()];
+  return [...iconRoutes(), ...brandRoutes(), ...flagRoutes(), ...glassRoutes(), ...fileIconRoutes()];
 }

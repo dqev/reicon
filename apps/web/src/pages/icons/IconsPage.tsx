@@ -13,6 +13,7 @@ import { useDuotoneData } from '@/hooks/useDuotoneData';
 import { SortOption } from '@/components/ui/DesktopFilterDropdown';
 import type { CustomSvgIcon } from '@/components/ui/CustomSvgCard';
 import { loadGlassIcons } from '@/lib/glass-icons';
+import { loadFileIcons } from '@/lib/file-icons';
 import { warmGlassCache } from '@/utils/glassCache';
 import { track } from '@/lib/analytics';
 
@@ -54,6 +55,7 @@ export default function IconsPage() {
     const p = location.pathname.toLowerCase();
     if (p === '/flags') return 'flags';
     if (p === '/brands') return 'social-media';
+    if (p === '/file-icons') return 'file-icons';
     const cat = searchParams.get('category') || searchParams.get('set');
     if (p === '/glass') return cat || 'glass';
     return cat || 'all';
@@ -82,6 +84,7 @@ export default function IconsPage() {
   const [flagsData, setFlagsData] = useState<CustomSvgIcon[] | null>(null);
   const [brandsData, setBrandsData] = useState<CustomSvgIcon[] | null>(null);
   const [glassData, setGlassData] = useState<CustomSvgIcon[] | null>(null);
+  const [fileData, setFileData] = useState<CustomSvgIcon[] | null>(null);
   const [customLoading, setCustomLoading] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
 
@@ -100,7 +103,11 @@ export default function IconsPage() {
 
   const isGlassRoute = location.pathname.toLowerCase() === '/glass';
   const isGlass = activeSet === 'glass' || isGlassRoute;
-  const isCustomSet = activeSet === 'flags' || activeSet === 'social-media' || isGlass;
+  const isCustomSet =
+    activeSet === 'flags' ||
+    activeSet === 'social-media' ||
+    activeSet === 'file-icons' ||
+    isGlass;
 
   const handleStyleChange = (style: string) => {
     setActiveStyle(style);
@@ -118,6 +125,11 @@ export default function IconsPage() {
     if (set === 'social-media') {
       setActiveSet('social-media');
       navigate('/brands');
+      return;
+    }
+    if (set === 'file-icons') {
+      setActiveSet('file-icons');
+      navigate('/file-icons');
       return;
     }
     if (set === 'glass') {
@@ -212,6 +224,17 @@ export default function IconsPage() {
           console.error('Failed to load brands:', err);
           setCustomLoading(false);
         });
+    } else if (activeSet === 'file-icons' && !fileData) {
+      setCustomLoading(true);
+      loadFileIcons()
+        .then((list) => {
+          setFileData(list);
+          setCustomLoading(false);
+        })
+        .catch((err) => {
+          console.error('Failed to load file icons:', err);
+          setCustomLoading(false);
+        });
     } else if (isGlassRoute && !glassData) {
       setCustomLoading(true);
       loadGlassIcons()
@@ -225,7 +248,7 @@ export default function IconsPage() {
           setCustomLoading(false);
         });
     }
-  }, [activeSet, isGlassRoute, flagsData, brandsData, glassData]);
+  }, [activeSet, isGlassRoute, flagsData, brandsData, fileData, glassData]);
 
   // Grid-only loading loop when switching sections (sidebar/search stay visible).
   const [sectionLoading, setSectionLoading] = useState(false);
@@ -296,6 +319,8 @@ export default function IconsPage() {
         ? (flagsData || [])
         : isGlass
         ? (glassData || [])
+        : activeSet === 'file-icons'
+        ? (fileData || [])
         : (brandsData || []);
     const q = deferredQuery.trim().toLowerCase();
     let list = source;
@@ -320,7 +345,7 @@ export default function IconsPage() {
       return [...list].sort((a, b) => b.name.localeCompare(a.name));
     }
     return [...list].sort((a, b) => a.name.localeCompare(b.name));
-  }, [isCustomSet, isGlass, activeSet, flagsData, brandsData, glassData, deferredQuery, sortBy]);
+  }, [isCustomSet, isGlass, activeSet, flagsData, brandsData, fileData, glassData, deferredQuery, sortBy]);
 
   useEffect(() => {
     if (window.Reicon?.preload && sortedIcons.length > 0 && !isCustomSet) {
@@ -337,6 +362,8 @@ export default function IconsPage() {
     ? flagsData !== null
     : activeSet === 'social-media'
     ? brandsData !== null
+    : activeSet === 'file-icons'
+    ? fileData !== null
     : true;
   const isReady = isCustomSet ? (!customLoading && customDataReady) : ready;
   const currentCount = isCustomSet
@@ -394,7 +421,15 @@ export default function IconsPage() {
           <IconGrid
             filteredIcons={sortedIcons}
             customIcons={isCustomSet ? filteredCustomIcons : null}
-            customSetType={activeSet === 'flags' ? 'flag' : isGlass ? 'glass' : 'brand'}
+            customSetType={
+              activeSet === 'flags'
+                ? 'flag'
+                : isGlass
+                ? 'glass'
+                : activeSet === 'file-icons'
+                ? 'file'
+                : 'brand'
+            }
             glassColor={glassColor}
             activeStyle={activeStyle}
             displaySize={displaySize}

@@ -46,6 +46,7 @@ async function main() {
     glass: detailRoutes.filter((r) => r.path.startsWith('/glass/')),
     brands: detailRoutes.filter((r) => r.path.startsWith('/brands/')),
     flags: detailRoutes.filter((r) => r.path.startsWith('/flags/')),
+    'file-icons': detailRoutes.filter((r) => r.path.startsWith('/file-icons/')),
   };
 
   const sitemaps = [{ file: 'sitemap.xml', count: entries.length }];

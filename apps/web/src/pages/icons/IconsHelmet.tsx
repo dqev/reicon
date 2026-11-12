@@ -13,6 +13,8 @@ export default function IconsHelmet() {
       ? 'Country Flags'
       : pathname === '/brands'
       ? 'Brands & Social Media'
+      : pathname === '/file-icons'
+      ? 'File Icons'
       : 'Icons';
 
   return (
@@ -20,7 +22,7 @@ export default function IconsHelmet() {
       <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
       <link rel="canonical" href={meta.url} />
-      <meta name="keywords" content="free icons, SVG icons, icon library, browse icons, glass icons, flag icons, brand logos, reicon" />
+      <meta name="keywords" content="free icons, SVG icons, icon library, browse icons, glass icons, flag icons, brand logos, file icons, file type icons, reicon" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={meta.url} />
       <meta property="og:site_name" content="Reicon" />

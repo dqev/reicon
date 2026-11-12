@@ -1,6 +1,6 @@
 import { FaReact } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io5';
-import { VscVscodeInsiders } from 'react-icons/vsc';
+import { VscFile, VscVscodeInsiders } from 'react-icons/vsc';
 import { AngularIcon, AstroIcon, FigmaIcon, FlutterIcon, ComposeIcon, McpIcon, SvelteIcon, VueIcon, SvgIcon } from '@/components/docs/framework/icons';
 import { AntigravityIcon } from '../home/icons';
 
@@ -30,6 +30,18 @@ export const PACKAGES: PackageItem[] = [
         guideUrl: '/docs/vanilla',
         badge: { label: 'Web Component', color: '#F7DF1E' },
         version: 'v1.2.5',
+    },
+    {
+        id: 'file-icons',
+        name: 'reicon-file',
+        npmPkg: 'reicon-file',
+        description: '920+ file type and developer tool icons as raw SVG paths for web and JavaScript applications.',
+        icon: <VscFile className="text-[#8B5CF6]" size={48} />,
+        npmUrl: 'https://www.npmjs.com/package/reicon-file',
+        sourceUrl: 'https://github.com/dqev/reicon/tree/main/packages/reicon-file',
+        guideUrl: '/file-icons',
+        badge: { label: 'File Icons', color: '#8B5CF6' },
+        version: 'v1.0.0',
     },
     {
         id: 'react',

@@ -1,0 +1,9 @@
+{
+  "name": "reicon-file",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Vanilla JS file icon package for Reicon.",
+  "scripts": {
+    "build": "node scripts/build.cjs"
+  }
+}

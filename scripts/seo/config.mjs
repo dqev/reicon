@@ -66,6 +66,14 @@ export const ROUTES = [
     changefreq: 'weekly',
   },
   {
+    path: '/file-icons',
+    title: 'Free File Type & File Format SVG Icons - Reicon',
+    description: 'Browse 920+ free, open-source file type SVG icons for documents, folders, code, archives, media, and developer tools. MIT licensed.',
+    ogImage: og('file-icons.png'),
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
     path: '/docs',
     title: 'Reicon Docs - Get Started',
     description: 'Get started with Reicon. Install and use icons in React, Angular, Vue, Svelte, Flutter, Figma, VS Code, and MCP.',
@@ -180,7 +188,7 @@ export const ROUTES = [
   {
     path: '/packages',
     title: 'Reicon Packages - Reicon',
-    description: 'Official Reicon packages for React, Angular, React Native, Vue, Svelte, Flutter, and JavaScript.',
+    description: 'Official Reicon packages for React, Angular, React Native, Vue, Svelte, Flutter, JavaScript, and file icons.',
     ogImage: og('packages.png'),
     priority: '0.7',
     changefreq: 'monthly',
@@ -329,5 +337,5 @@ export const VOLATILE_ROUTES = new Set([
   '/', '/icons', '/docs', '/docs/react', '/docs/react-native',
   '/docs/vue', '/docs/svelte', '/docs/astro', '/docs/vanilla', '/docs/angular', '/docs/figma',
   '/docs/vscode', '/docs/mcp', '/docs/svg', '/docs/flutter', '/docs/compose',
-  '/packages', '/support', '/notice',
+  '/packages', '/support', '/notice', '/file-icons',
 ]);
