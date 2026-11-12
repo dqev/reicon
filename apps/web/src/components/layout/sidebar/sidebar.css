@@ -2,9 +2,9 @@
 
 #nd-sidebar {
   width: 14.5rem;
-  height: calc(100vh - 4.25rem);
+  height: calc(100vh - 5.25rem);
   position: sticky;
-  top: 4.25rem;
+  top: 5.25rem;
   align-self: flex-start;
   display: flex;
   flex-direction: column;
