@@ -5,7 +5,9 @@ export const docsSidebarStyles = `
     position: fixed;
     top: 5.25rem;
     left: max(calc((100vw - 1240px) / 2 + 2.5rem), 2.5rem);
-    overflow-y: visible;
+    max-height: calc(100vh - 6.25rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     padding: 0.25rem 0.5rem 2rem 0;
     margin-left: 0;
     z-index: 30;
@@ -105,7 +107,9 @@ export const docsSidebarStyles = `
     position: fixed;
     top: 5.25rem;
     right: max(calc((100vw - 1240px) / 2 + 2.5rem), 2.5rem);
-    overflow-y: visible;
+    max-height: calc(100vh - 6.25rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     padding: 0.25rem 0 2rem 0.5rem;
     margin-right: 0;
     z-index: 30;
