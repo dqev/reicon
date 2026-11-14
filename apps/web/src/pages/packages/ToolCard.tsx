@@ -10,15 +10,6 @@ export default function ToolCard({ tool }: { tool: ToolItem }) {
             {tool.icon}
           </Link>
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span
-              className="chip"
-              style={{
-                backgroundColor: `${tool.badge.color}24`,
-                color: tool.badge.color,
-              }}
-            >
-              {tool.badge.label}
-            </span>
             <span className="chip" style={{ backgroundColor: 'rgba(255, 255, 255, 0.08)', color: 'rgba(255, 255, 255, 0.8)' }}>
               {tool.version}
             </span>

@@ -43,17 +43,6 @@ export default function PackageCard({ pkg }: { pkg: PackageItem }) {
             {pkg.icon}
           </Link>
           <div className="flex items-center gap-1.5 flex-wrap">
-            {pkg.badge && (
-              <span
-                className="chip"
-                style={{
-                  backgroundColor: `${pkg.badge.color}24`,
-                  color: pkg.badge.color,
-                }}
-              >
-                {pkg.badge.label}
-              </span>
-            )}
             <PackageVersionChip npmPkg={pkg.npmPkg} fallback={pkg.version} />
           </div>
         </div>
