@@ -1,6 +1,8 @@
+import { useEffect, useRef, useState } from 'react';
 import ClayButton from '@/components/ui/Button';
 import HeroIsometric from './HeroIsometric';
 import { formatCount, useNpmDownloads } from '@/hooks/useNpmDownloads';
+import promptMarkdown from '@/docs/PROMPT.md?raw';
 
 interface Props {
   stars?: number | null;
@@ -8,6 +10,36 @@ interface Props {
 
 export default function Hero(_props: Props = {}) {
   const { total } = useNpmDownloads();
+  const [copied, setCopied] = useState(false);
+  const resetTimer = useRef<number | null>(null);
+
+  useEffect(
+    () => () => {
+      if (resetTimer.current) window.clearTimeout(resetTimer.current);
+    },
+    []
+  );
+
+  const copyPrompt = async () => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(promptMarkdown);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = promptMarkdown;
+        ta.style.cssText = 'position:fixed;opacity:0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      setCopied(true);
+      if (resetTimer.current) window.clearTimeout(resetTimer.current);
+      resetTimer.current = window.setTimeout(() => setCopied(false), 1600);
+    } catch {
+      /* clipboard unavailable */
+    }
+  };
 
   return (
     <section className="hero-section relative w-full flex flex-col items-center px-4 sm:px-6">
@@ -51,6 +83,18 @@ export default function Hero(_props: Props = {}) {
                 <ClayButton to="/docs" variant="secondary" className="skill-btn skill-btn--secondary">
                   <span>Get Started</span>
                 </ClayButton>
+
+                <button
+                  type="button"
+                  onClick={copyPrompt}
+                  className="clay-btn clay-primary skill-btn skill-btn--primary"
+                  aria-label="Copy prompt"
+                >
+                  <span className="prompt-copy-label">
+                    <span className={copied ? 'prompt-copy-hidden' : undefined}>Prompt</span>
+                    <span className={copied ? undefined : 'prompt-copy-hidden'}>Copied!</span>
+                  </span>
+                </button>
               </div>
             </div>
 

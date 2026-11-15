@@ -481,6 +481,25 @@ h6 {
   font-size: 13px;
 }
 
+.prompt-copy-label {
+  display: inline-grid;
+}
+
+.prompt-copy-label > span {
+  grid-area: 1 / 1;
+  transition: opacity 180ms var(--ease-smooth-out);
+}
+
+.prompt-copy-label > .prompt-copy-hidden {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prompt-copy-label > span {
+    transition-duration: 1ms;
+  }
+}
+
 .sponsor-btn-desktop {
   display: none !important;
 }
@@ -724,6 +743,7 @@ h6 {
 .header .skill-cta-row {
   margin-top: 20px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 11px;
@@ -1752,10 +1772,28 @@ re-icon {
   text-decoration-color: currentColor;
 }
 
+.footer-art {
+  width: 100vw;
+  margin: 8px 0 -40px calc(50% - 50vw);
+  line-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.footer-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 @media (max-width: 720px) {
   .footer {
     margin-top: 64px;
     padding: 0 20px 48px;
+  }
+
+  .footer-art {
+    margin-bottom: -48px;
   }
 
   .footer-top {

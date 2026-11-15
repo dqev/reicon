@@ -90,7 +90,7 @@ export default function Footer() {
         <p className="footer-thanks inline-flex items-center gap-1.5 flex-wrap">
           <span>Built for designers &amp; developers in</span>
           <span className="inline-block mx-0.5 text-sm" title="India" aria-label="India">🇮🇳</span>
-          <span>and</span>
+          <span>with</span>
           <img
             src="/extra/Diet-coke.svg"
             alt="Diet Coke"
@@ -99,6 +99,18 @@ export default function Footer() {
             className="h-3 w-auto inline-block align-middle ml-0.5 relative -top-[1px]"
           />
         </p>
+      </div>
+
+      <div className="footer-art">
+        <img
+          src="/ui/footer.webp"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          width="2172"
+          height="724"
+        />
       </div>
     </footer>
   );
