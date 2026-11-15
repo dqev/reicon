@@ -1514,6 +1514,16 @@ body.menu-open {
   touch-action: none;
 }
 
+/* Locking html/body overflow disables position: sticky, so pin the header
+   while the menu is open to keep the logo and close button visible. */
+body.menu-open .site-nav,
+body.menu-closing .site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 @media (max-width: 639px) {
   .site-nav-menu {
     display: none;

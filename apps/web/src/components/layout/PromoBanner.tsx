@@ -1,9 +1,27 @@
 import { useState } from 'react';
 
 const PROMO_URL = 'https://3dicons.reicon.dev/';
+const DISMISS_KEY = 'reicon:3dicons-promo-dismissed';
+
+function getDismissed(): boolean {
+  try {
+    return localStorage.getItem(DISMISS_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
 
 export default function PromoBanner() {
-  const [dismissed, setDismissed] = useState(false);
+  const [dismissed, setDismissed] = useState(getDismissed);
+
+  const dismiss = () => {
+    setDismissed(true);
+    try {
+      localStorage.setItem(DISMISS_KEY, '1');
+    } catch {
+      /* storage unavailable - ignore */
+    }
+  };
 
   if (dismissed) return null;
 
@@ -47,7 +65,7 @@ export default function PromoBanner() {
 
       <button
         type="button"
-        onClick={() => setDismissed(true)}
+        onClick={dismiss}
         aria-label="Dismiss 3D Icons promotion"
         className="absolute right-2.5 top-2.5 z-10 flex h-7 w-7 items-center justify-center rounded-full border border-white/15 bg-black/50 text-white/80 backdrop-blur-md transition-colors hover:bg-black/70 hover:text-white"
       >

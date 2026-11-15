@@ -21,8 +21,8 @@ export default function MobileMenu({ stars }: MobileMenuProps) {
       document.body.classList.remove('menu-open');
       document.documentElement.classList.remove('menu-open');
       document.body.classList.add('menu-closing');
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
       const timer = setTimeout(() => {
         document.body.classList.remove('menu-closing');
         setIsClosing(false);
