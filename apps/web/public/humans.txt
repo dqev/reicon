@@ -1,6 +1,6 @@
 /* TEAM */
 Creator: Dev Chauhan
-Site: https://devchauhan.in
+Site: https://devc.in
 Contact: hello@reicon.dev
 
 /* SITE */

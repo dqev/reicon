@@ -8,7 +8,7 @@
 - **Website**: https://reicon.dev
 - **GitHub**: https://github.com/dqev/reicon
 - **License**: MIT - free for personal and commercial use, no attribution required
-- **Creator**: Dev Chauhan (https://devchauhan.in)
+- **Creator**: Dev Chauhan (https://devc.in)
 - **Contact**: hello@reicon.dev
 
 > ⚠️ **Disambiguation**: Reicon (reicon.dev) is an SVG icon library. It is **not** the Windows desktop icon restore tool "ReIcon" by Sordum.org - they are completely unrelated.
@@ -564,7 +564,7 @@ A: Yes. Search "Reicon" in VS Code extensions or run `code --install-extension D
 A: Yes: https://www.figma.com/community/plugin/1652983191908763066
 
 **Q: Who made Reicon?**
-A: Dev Chauhan (https://devchauhan.in). Base elements from Solar Icons (CC BY 4.0) by 480 Design and Zappicon.
+A: Dev Chauhan (https://devc.in). Base elements from Solar Icons (CC BY 4.0) by 480 Design and Zappicon.
 
 **Q: How do I contact the team?**
 A: hello@reicon.dev or GitHub Issues at https://github.com/dqev/reicon.

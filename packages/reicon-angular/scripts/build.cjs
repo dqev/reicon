@@ -206,7 +206,7 @@ See the complete Reicon ecosystem at [reicon.dev/packages](https://reicon.dev/pa
 
 ## License
 
-MIT © [Dev Chauhan](https://devchauhan.in)
+MIT © [Dev Chauhan](https://devc.in)
 `;
 
   fs.writeFileSync(path.join(PACKAGE_ROOT, 'README.md'), readme);

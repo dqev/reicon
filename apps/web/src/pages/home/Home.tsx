@@ -48,7 +48,7 @@ export default function HomePage() {
           "description": "A free, open-source SVG icon library with 2,700+ handcrafted, pixel-perfect icons in two weights (Outline and Filled).",
           "url": "https://reicon.dev",
           "license": "https://opensource.org/licenses/MIT",
-          "creator": { "@type": "Person", "name": "Dev Chauhan", "url": "https://devchauhan.in" },
+          "creator": { "@type": "Person", "name": "Dev Chauhan", "url": "https://devc.in" },
           "keywords": ["SVG icons", "React icons", "Angular icons", "React Native icons", "Vue icons", "Svelte icons", "Figma icons", "open source", "MIT"],
           "isAccessibleForFree": true,
           "distribution": [

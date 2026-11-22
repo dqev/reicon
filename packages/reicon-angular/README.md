@@ -81,4 +81,4 @@ See the complete Reicon ecosystem at [reicon.dev/packages](https://reicon.dev/pa
 
 ## License
 
-MIT © [Dev Chauhan](https://devchauhan.in)
+MIT © [Dev Chauhan](https://devc.in)

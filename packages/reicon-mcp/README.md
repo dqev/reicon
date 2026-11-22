@@ -66,4 +66,4 @@ From the monorepo root:
 npm run build:mcp
 ```
 
-MIT © [Dev Chauhan](https://devchauhan.in)
+MIT © [Dev Chauhan](https://devc.in)

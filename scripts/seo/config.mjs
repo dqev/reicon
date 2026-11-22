@@ -266,7 +266,7 @@ export const GLOBAL_JSON_LD = [
     'operatingSystem': 'Web, Node.js',
     'offers': { '@type': 'Offer', 'price': '0', 'priceCurrency': 'USD' },
     'license': 'https://opensource.org/licenses/MIT',
-    'creator': { '@type': 'Person', 'name': 'Dev Chauhan', 'url': 'https://devchauhan.in' },
+    'creator': { '@type': 'Person', 'name': 'Dev Chauhan', 'url': 'https://devc.in' },
     'sameAs': ['https://github.com/dqev/reicon', 'https://github.com/reicon-dev'],
   },
   {

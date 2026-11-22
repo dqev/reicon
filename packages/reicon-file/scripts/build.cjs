@@ -643,8 +643,8 @@ const pkg = {
   ],
   author: {
     name: 'devchauhan',
-    email: 'dev@devchauhan.in',
-    url: 'https://devchauhan.in',
+    email: 'dev@devc.in',
+    url: 'https://devc.in',
   },
   license: 'MIT',
   repository: { type: 'git', url: 'https://github.com/dqev/reicon.git' },

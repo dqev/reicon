@@ -221,6 +221,6 @@ const props: IconProps = { size: 32, color: '#d97757', weight };
 
 ## License
 
-MIT © [Dev Chauhan](https://devchauhan.in)
+MIT © [Dev Chauhan](https://devc.in)
 
 Free to use in personal and commercial projects. Attribution is appreciated but not required.

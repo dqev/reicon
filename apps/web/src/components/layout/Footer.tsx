@@ -79,7 +79,7 @@ export default function Footer() {
         <p className="footer-credit">
           <span className="footer-muted">Created by</span>
           <a
-            href="https://devchauhan.in"
+            href="https://devc.in"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-name"

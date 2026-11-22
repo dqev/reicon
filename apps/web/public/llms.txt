@@ -268,7 +268,7 @@ Vanilla JS:   import Home from 'reicon/icons/Home'
 | **Website** | https://reicon.dev |
 | **GitHub** | https://github.com/dqev/reicon |
 | **License** | MIT (free, no attribution needed) |
-| **Creator** | Dev Chauhan (https://devchauhan.in) |
+| **Creator** | Dev Chauhan (https://devc.in) |
 | **Contact** | hello@reicon.dev |
 | **Icons** | 2,700+ designs × 2 weights = 5,400+ total |
 | **File Icons** | 920+ single-style file type icons |

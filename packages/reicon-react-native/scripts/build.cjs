@@ -252,8 +252,8 @@ const pkg = {
   ],
   author: {
     name: 'devchauhan',
-    email: 'dev@devchauhan.in',
-    url: 'https://devchauhan.in',
+    email: 'dev@devc.in',
+    url: 'https://devc.in',
   },
   license: 'MIT',
   repository: { type: 'git', url: 'https://github.com/dqev/reicon.git' },
@@ -437,7 +437,7 @@ const props: IconProps = { size: 32, color: '#d97757', weight };
 
 ## License
 
-MIT © [Dev Chauhan](https://devchauhan.in)
+MIT © [Dev Chauhan](https://devc.in)
 
 Free to use in personal and commercial projects.
 `;

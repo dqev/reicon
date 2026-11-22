@@ -204,6 +204,6 @@ Browse and search all 2674+ icons at <a href="https://reicon.dev">reicon.dev</a>
 
 ## License
 
-MIT © [Dev Chauhan](https://devchauhan.in)
+MIT © [Dev Chauhan](https://devc.in)
 
 Free to use in personal and commercial projects. Attribution is appreciated but not required.
