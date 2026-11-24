@@ -1,3 +1,5 @@
+import type { Prediction } from 'gpu-icons-search';
+
 export type IconWeight = 'Outline' | 'Filled';
 
 export type Framework = 'react' | 'react-native' | 'vue' | 'svelte' | 'html' | 'svg';
@@ -26,6 +28,12 @@ export interface SearchResult {
   category: string;
   tags: string[];
   score: number;
+}
+
+export interface SearchOptions {
+  weight?: IconWeight;
+  limit?: number;
+  predictions?: Prediction[];
 }
 
 export interface ApplyIconInput {

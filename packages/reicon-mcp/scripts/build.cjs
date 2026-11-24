@@ -7,8 +7,10 @@ const { execSync } = require('child_process');
 const ROOT = path.join(__dirname, '..');
 const DATA_PATH = path.join(__dirname, '..', '..', '..', 'data', 'icon-data.json');
 const INDEX_OUT = path.join(ROOT, 'src', 'data', 'icon-index.json');
+const MODEL_SRC = path.join(ROOT, 'src', 'data', 'model.bin');
 const DIST_DATA = path.join(ROOT, 'dist', 'data');
 const DIST_INDEX = path.join(DIST_DATA, 'icon-index.json');
+const DIST_MODEL = path.join(DIST_DATA, 'model.bin');
 
 function generateTags(name, description) {
   const tags = new Set();
@@ -94,6 +96,10 @@ fs.writeFileSync(INDEX_OUT, JSON.stringify(index) + '\n');
 
 fs.mkdirSync(DIST_DATA, { recursive: true });
 fs.copyFileSync(INDEX_OUT, DIST_INDEX);
+if (fs.existsSync(MODEL_SRC)) {
+  fs.copyFileSync(MODEL_SRC, DIST_MODEL);
+  console.log('Copied model.bin to dist/data/model.bin');
+}
 
 console.log(`Wrote ${index.icons.length} icons to icon-index.json`);
 
@@ -127,6 +133,7 @@ const pkg = {
   },
   dependencies: {
     '@modelcontextprotocol/sdk': '^1.12.0',
+    'gpu-icons-search': '^0.2.0',
     'zod': '^3.24.0',
   },
   engines: {

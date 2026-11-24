@@ -8,22 +8,22 @@ import { handleViewIcon } from './tools/view-icon.js';
 
 const server = new McpServer({
   name: 'reicon-mcp',
-  version: '1.1.0',
+  version: '1.2.0',
 });
 
 server.tool(
   'search_icons',
   [
-    'Search 2,700+ Reicon icons by any keyword, phrase, or description.',
-    'Understands synonyms ("round" → circle, "del" → delete/trash), misspellings ("calender" → calendar),',
-    'multi-word queries ("user circle", "credit card", "volume up"), and name parts ("up" → arrow-up).',
-    'Returns ranked matches. Short specific terms work best but full phrases also work.',
+    'Search 2,700+ Reicon icons by any keyword, phrase, or semantic description.',
+    'Powered by neural vector search and synonym expansion. Understands concepts ("padlock" → lock, "cinema/film" → video/movie, "appointment" → calendar),',
+    'synonyms ("round" → circle, "del" → delete/trash), misspellings ("calandar" → calendar), and multi-word queries ("user circle", "credit card", "volume up").',
+    'Returns ranked matches. Short specific terms or conceptual descriptions work best.',
     'After getting results, pick the highest-scoring match and call apply_icon directly.',
     'Only call view_icon first if you need to inspect the raw SVG before generating code.',
   ].join(' '),
   {
     query: z.string().describe(
-      'Keyword(s) or phrase - e.g. "cart", "user circle", "volume up", "credit card", "go back", "delete". Handles synonyms, misspellings, and multi-word queries.',
+      'Keyword(s), concept, or phrase - e.g. "padlock", "cinema", "appointment", "cart", "user circle", "delete". Handles semantic concepts, synonyms, and misspellings.',
     ),
     weight: z
       .enum(['Outline', 'Filled'])
@@ -38,7 +38,7 @@ server.tool(
       .describe('Max results to return. Defaults to 8.'),
   },
   async (args) => {
-    const result = handleSearchIcons(args);
+    const result = await handleSearchIcons(args);
     return {
       content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
     };

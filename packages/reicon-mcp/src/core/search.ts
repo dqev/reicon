@@ -1,4 +1,4 @@
-import type { IconEntry, IconIndex, IconWeight, SearchResult } from './types.js';
+import type { IconEntry, IconIndex, IconWeight, SearchOptions, SearchResult } from './types.js';
 
 // Only flag clearly conversational strings - short "add home icon" should be fine
 const SENTENCE_MARKERS = /\?|!|\.{2,}/;
@@ -1252,7 +1252,7 @@ function scoreIcon(icon: IconEntry, query: string, tokens: string[], weight?: Ic
 export function searchIcons(
   index: IconIndex,
   query: string,
-  options: { weight?: IconWeight; limit?: number } = {},
+  options: SearchOptions = {},
 ): { results: SearchResult[]; instruction: string } | { error: string } {
   if (isSentenceQuery(query)) {
     return {
@@ -1264,14 +1264,16 @@ export function searchIcons(
   const limit = options.limit ?? 8;
   const tokens = tokenize(query);
   const weights: IconWeight[] = options.weight ? [options.weight] : ['Outline', 'Filled'];
-  const results: SearchResult[] = [];
+  const scoreMap = new Map<string, SearchResult>();
 
+  // 1. Primary pass: Match directly against user/agent query
   for (const icon of index.icons) {
     for (const weight of weights) {
       if (!icon.weights[weight]) continue;
       const score = scoreIcon(icon, query, tokens, weight);
       if (score > 0) {
-        results.push({
+        const key = `${icon.name}:${weight}`;
+        scoreMap.set(key, {
           name: icon.name,
           weight,
           category: icon.category,
@@ -1282,21 +1284,67 @@ export function searchIcons(
     }
   }
 
+  // 2. Secondary pass: Semantic predictions from gpu-icons-search neural model
+  if (options.predictions && options.predictions.length > 0) {
+    for (const pred of options.predictions) {
+      const predWord = pred.word.toLowerCase().trim();
+      if (!predWord) continue;
+      const predTokens = tokenize(predWord);
+
+      const baseWeight = pred.kind === 'correction'
+        ? 0.85
+        : pred.kind === 'completion'
+        ? 0.75
+        : Math.min(0.65, Math.max(0.25, pred.score * 1.1));
+
+      for (const icon of index.icons) {
+        for (const weight of weights) {
+          if (!icon.weights[weight]) continue;
+          const predScore = scoreIcon(icon, predWord, predTokens, weight);
+          if (predScore > 0) {
+            const key = `${icon.name}:${weight}`;
+            const scaledScore = Math.round(predScore * baseWeight);
+            const existing = scoreMap.get(key);
+            if (existing) {
+              // Direct query already matched: give a relevance boost
+              existing.score += Math.round(scaledScore * 0.25);
+            } else {
+              // Found via neural prediction
+              scoreMap.set(key, {
+                name: icon.name,
+                weight,
+                category: icon.category,
+                tags: icon.tags,
+                score: scaledScore,
+              });
+            }
+          }
+        }
+      }
+    }
+  }
+
+  const results = Array.from(scoreMap.values());
   results.sort((a, b) => b.score - a.score || a.name.length - b.name.length);
 
-  const seen = new Set<string>();
+  const seenNames = new Set<string>();
   const deduped: SearchResult[] = [];
   for (const r of results) {
-    const key = `${r.name}:${r.weight}`;
-    if (seen.has(key)) continue;
-    seen.add(key);
+    // If no weight was specified by agent, prioritize showing distinct icons rather than duplicate weights
+    if (!options.weight && seenNames.has(r.name)) {
+      continue;
+    }
+    seenNames.add(r.name);
     deduped.push(r);
     if (deduped.length >= limit) break;
   }
 
   if (deduped.length === 0) {
+    const hint = options.predictions && options.predictions.length > 0
+      ? ` (Searched with related concepts: ${options.predictions.slice(0, 3).map((p) => p.word).join(', ')})`
+      : '';
     return {
-      error: `No icons found for "${query}". Try a shorter or different keyword.`,
+      error: `No icons found for "${query}"${hint}. Try a shorter or different keyword.`,
     };
   }
 

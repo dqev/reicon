@@ -138,7 +138,7 @@ export const PACKAGES: PackageItem[] = [
         npmUrl: 'https://www.npmjs.com/package/reicon-mcp',
         sourceUrl: 'https://github.com/dqev/reicon/tree/main/packages/reicon-mcp',
         guideUrl: '/docs/mcp',
-        version: 'v1.1.103',
+        version: 'v1.2.0',
     },
 ];
 

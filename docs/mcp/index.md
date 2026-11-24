@@ -3,7 +3,7 @@
 The `reicon-mcp` package exposes Reicon icons to AI agents and automation tools through the Model Context Protocol. Agents can search the icon library, inspect SVG markup, and generate copy-pasteable code snippets for React, Vue, Svelte, HTML, or raw SVG without human intervention.
 
 ## What you can accomplish
-- Search 2,700+ icons by keyword with ranked results
+- Search 2,700+ icons by keyword, concept, or natural language description via offline neural search
 - Preview raw SVG markup before applying an icon
 - Generate framework-specific import and docs snippets
 - Browse icons by category
@@ -91,7 +91,7 @@ The tool returns `{ importStatement, docsSnippet }`. The agent uses its own file
 
 Input: `{ query: string, weight?: "Outline" | "Filled", limit?: number }`
 
-Returns ranked results with `name`, `weight`, `category`, `tags`, and `score`. Queries that look like full sentences are rejected. Use short keywords like `cart`, `user`, or `settings`.
+Returns ranked results with `name`, `weight`, `category`, `tags`, and `score`. Powered by offline neural semantic embeddings and synonym expansion (e.g. `padlock` matches `lock`, `cinema` matches `film`, `appointment` matches `calendar`). Queries that look like full conversational sentences are rejected. Use short keywords or conceptual descriptions like `padlock`, `cinema`, `cart`, `user`, or `settings`.
 
 ### view_icon
 
