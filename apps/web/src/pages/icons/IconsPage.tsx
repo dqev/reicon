@@ -51,6 +51,9 @@ export default function IconsPage() {
   const [allIcons, setAllIcons] = useState<string[]>(() => cached.icons);
   const initialQuery = searchParams.get('q') || searchParams.get('search') || '';
   const [searchQuery, setSearchQuery] = useState(initialQuery);
+  const searchQueryRef = useRef(searchQuery);
+  searchQueryRef.current = searchQuery;
+  const lastSyncedQRef = useRef(initialQuery);
   
   const getSetFromLocation = useCallback(() => {
     const p = location.pathname.toLowerCase();
@@ -109,10 +112,22 @@ export default function IconsPage() {
   }, []);
 
   const handleSearchClear = useCallback(() => {
+    lastSyncedQRef.current = '';
     setSearchQuery('');
     setSearchParams((prev) => {
       const next = new URLSearchParams(prev);
       next.delete('q');
+      next.delete('search');
+      return next;
+    }, { replace: true });
+  }, [setSearchParams]);
+
+  const handleSelectPrediction = useCallback((word: string) => {
+    lastSyncedQRef.current = word;
+    setSearchQuery(word);
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      next.set('q', word);
       next.delete('search');
       return next;
     }, { replace: true });
@@ -193,7 +208,10 @@ export default function IconsPage() {
     setActiveSet((prev) => (prev !== nextSet ? nextSet : prev));
 
     const urlQ = searchParams.get('q') || searchParams.get('search') || '';
-    setSearchQuery((prev) => (prev !== urlQ ? urlQ : prev));
+    if (urlQ !== lastSyncedQRef.current) {
+      lastSyncedQRef.current = urlQ;
+      setSearchQuery(urlQ);
+    }
 
     const urlSort = (searchParams.get('sort')?.toLowerCase() === 'za' ? 'za' : 'az') as SortOption;
     setSortBy((prev) => (prev !== urlSort ? urlSort : prev));
@@ -202,9 +220,31 @@ export default function IconsPage() {
   // Persist current route with full query in sessionStorage for detail back navigation
   useEffect(() => {
     try {
-      sessionStorage.setItem('reicon_last_icons_url', location.pathname + location.search);
+      const p = new URLSearchParams(searchParams);
+      const q = searchQuery.trim();
+      if (q) p.set('q', q);
+      else { p.delete('q'); p.delete('search'); }
+      sessionStorage.setItem('reicon_last_icons_url', `${location.pathname}?${p.toString()}`);
     } catch {}
-  }, [location.pathname, location.search]);
+  }, [searchQuery, location.pathname, searchParams]);
+
+  // Flush pending query to browser history entry right before unmounting
+  useEffect(() => {
+    return () => {
+      const trimmed = searchQueryRef.current.trim();
+      try {
+        const url = new URL(window.location.href);
+        if (trimmed) {
+          url.searchParams.set('q', trimmed);
+          url.searchParams.delete('search');
+        } else {
+          url.searchParams.delete('q');
+          url.searchParams.delete('search');
+        }
+        window.history.replaceState(window.history.state, '', url.toString());
+      } catch {}
+    };
+  }, []);
 
   // Redirect legacy or query-based /icons?category=flags to /flags, social-media to /brands, glass to /glass
   useEffect(() => {
@@ -311,24 +351,29 @@ export default function IconsPage() {
   const { results: searchResults, predictions } = useSemanticIconSearch(deferredQuery, 500);
   const lastTrackedSearch = useRef('');
 
-  // Sync deferred query to URL searchParams without polluting history
+  // Debounced URL sync: only updates URL 300ms after user pauses typing
   useEffect(() => {
-    const trimmed = deferredQuery.trim();
-    const currentQ = searchParams.get('q') || searchParams.get('search') || '';
-    if (trimmed === currentQ) return;
-
-    setSearchParams((prev) => {
-      const next = new URLSearchParams(prev);
-      if (trimmed) {
-        next.set('q', trimmed);
-        next.delete('search');
-      } else {
-        next.delete('q');
-        next.delete('search');
+    const timer = window.setTimeout(() => {
+      const trimmed = searchQuery.trim();
+      const currentQ = searchParams.get('q') || searchParams.get('search') || '';
+      if (trimmed !== currentQ) {
+        lastSyncedQRef.current = trimmed;
+        setSearchParams((prev) => {
+          const next = new URLSearchParams(prev);
+          if (trimmed) {
+            next.set('q', trimmed);
+            next.delete('search');
+          } else {
+            next.delete('q');
+            next.delete('search');
+          }
+          return next;
+        }, { replace: true });
       }
-      return next;
-    }, { replace: true });
-  }, [deferredQuery, searchParams, setSearchParams]);
+    }, 300);
+
+    return () => window.clearTimeout(timer);
+  }, [searchQuery, searchParams, setSearchParams]);
 
   useEffect(() => {
     const q = deferredQuery.trim();
@@ -475,7 +520,7 @@ export default function IconsPage() {
               sortBy={sortBy}
               onSortChange={handleSortChange}
               predictions={predictions}
-              onSelectPrediction={setSearchQuery}
+              onSelectPrediction={handleSelectPrediction}
             />
 
             <IconCount count={currentCount} ready={isReady && !sectionLoading} />
