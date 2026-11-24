@@ -1,5 +1,5 @@
 import SyntaxBlock from '@/components/docs/SyntaxBlock';
-import { MCP_CONFIG, MCP_DEV_CONFIG } from './config';
+import { MCP_CONFIG, MCP_DEV_CONFIG, RECOMMENDED_PROMPT } from './config';
 
 interface SetupSectionProps {
   copiedField: string | null;
@@ -78,6 +78,21 @@ export default function SetupSection({ copiedField, onCopy }: SetupSectionProps)
         <span className="text-text-base/40">{'}'}</span>
         {'\n'}
         <span className="text-text-base/40">{'}'}</span>
+      </SyntaxBlock>
+
+      <h3 id="mcp-agent-prompt" data-section className="text-lg font-display font-medium text-text-base mb-4 mt-10 scroll-mt-24">
+        Recommended Agent Prompt
+      </h3>
+      <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
+        Add this single prompt to your project instructions (<code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">.cursorrules</code>, Claude Project instructions, or agent system prompt) so your AI assistant knows how to search and apply Reicon icons cleanly:
+      </p>
+
+      <SyntaxBlock
+        title="agent prompt"
+        onCopy={() => onCopy(RECOMMENDED_PROMPT, 'mcp-agent-prompt')}
+        copied={copiedField === 'mcp-agent-prompt'}
+      >
+        <span className="text-[#98c379]">{RECOMMENDED_PROMPT}</span>
       </SyntaxBlock>
     </>
   );

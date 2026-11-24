@@ -33,7 +33,7 @@ export default function McpDocs({ markdownContent, copiedField, onCopy }: Props)
 
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">What you can accomplish:</p>
       <ul className="text-text-base/60 text-[15px] leading-[1.8] mb-8 space-y-1 list-disc list-inside">
-        <li>Search 2,700+ icons by keyword with ranked results</li>
+        <li>Search 2,700+ icons by keyword, concept, or description via offline neural search</li>
         <li>Preview raw SVG markup before applying an icon</li>
         <li>Generate framework-specific import and usage snippets</li>
         <li>Browse icons by category</li>
@@ -129,11 +129,11 @@ export default function McpDocs({ markdownContent, copiedField, onCopy }: Props)
         Offline Operation
       </h3>
       <p className="text-text-base/60 text-[15px] leading-[1.8] mb-4">
-        The search index is bundled at build time from <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">data/icon-data.json</code>. No network calls are made at runtime - once installed, the server works fully offline.
+        The search index and semantic vector model weights are bundled at build time. All semantic search calculations run locally in Node.js in under 1 ms with zero external network calls.
       </p>
 
       <div className="mt-4 bg-text-base/3 border border-text-base/6 rounded-xl p-4 text-[13px] text-text-base/50 leading-relaxed mb-12">
-        <span className="text-text-base/70 font-medium">Rebuilding:</span> Rebuild with <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">npm run build:mcp</code> after the icon dataset changes to refresh the bundled index.
+        <span className="text-text-base/70 font-medium">Rebuilding:</span> Rebuild with <code className="text-text-base/70 bg-text-base/6 px-1.5 py-0.5 rounded text-[12px]">npm run build:mcp</code> after the icon dataset changes to refresh the bundled index and weights.
       </div>
     </section>
   );

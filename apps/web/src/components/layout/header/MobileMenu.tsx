@@ -164,7 +164,12 @@ export default function MobileMenu({ stars }: MobileMenuProps) {
                   </Link>
                 </li>
                 <li>
-                  <Link className="mobile-menu-link mobile-menu-link--4" to="/notice" onClick={closeMenu}>
+                  <Link className="mobile-menu-link mobile-menu-link--4" to="/blog" onClick={closeMenu}>
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link className="mobile-menu-link mobile-menu-link--5" to="/notice" onClick={closeMenu}>
                     Notice
                   </Link>
                 </li>

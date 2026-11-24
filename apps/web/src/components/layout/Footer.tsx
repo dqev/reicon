@@ -59,6 +59,7 @@ export default function Footer() {
             <Link to="/">Home</Link>
             <Link to="/icons">Icons</Link>
             <Link to="/docs">How to use</Link>
+            <Link to="/blog">Blog</Link>
             <Link to="/brand">Brand</Link>
             <Link to="/notice">Notice</Link>
             <Link to="/faq">FAQs</Link>

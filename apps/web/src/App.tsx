@@ -20,6 +20,8 @@ const FileDetail = lazyWithRetry(() => import('./pages/custom-icon/FileDetail'))
 
 const DocsPage = lazyWithRetry(() => import('./pages/docs/DocsPage'));
 const PackagesPage = lazyWithRetry(() => import('./pages/packages/PackagesPage'));
+const BlogPage = lazyWithRetry(() => import('./pages/blog/BlogPage'));
+const BlogPostPage = lazyWithRetry(() => import('./pages/blog/BlogPostPage'));
 const FaqPage = lazyWithRetry(() => import('./pages/faq/FaqPage'));
 const SupportPage = lazyWithRetry(() => import('./pages/support/SupportPage'));
 const NoticePage = lazyWithRetry(() => import('./pages/notice/NoticePage'));
@@ -36,7 +38,7 @@ function ScrollToTop() {
 }
 
 const VALID_ROUTES = [
-  '/', '/icons', '/packages', '/faq', '/support', '/notice', '/terms', '/privacy', '/license', '/brand',
+  '/', '/icons', '/packages', '/blog', '/faq', '/support', '/notice', '/terms', '/privacy', '/license', '/brand',
   '/flags', '/brands', '/glass', '/file-icons'
 ];
 
@@ -49,7 +51,8 @@ function isKnownRoute(pathname: string) {
     pathname.startsWith('/flags/') ||
     pathname.startsWith('/glass/') ||
     pathname.startsWith('/file-icons/') ||
-    pathname.startsWith('/docs')
+    pathname.startsWith('/docs') ||
+    pathname.startsWith('/blog')
   ) {
     return true;
   }
@@ -90,6 +93,8 @@ function Layout() {
             <Route path="/docs" element={<DocsPage />} />
             <Route path="/docs/:framework" element={<DocsPage />} />
             <Route path="/packages" element={<PackagesPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/support" element={<SupportPage />} />
             <Route path="/notice" element={<NoticePage />} />

@@ -20,8 +20,8 @@ export default function ToolsSection({ copiedField, onCopy }: ToolsSectionProps)
         <div className="flex gap-4">
           <div className="w-6 h-6 rounded-full bg-text-base/10 text-text-base font-medium flex items-center justify-center shrink-0 text-xs mt-1">1</div>
           <div className="flex-1">
-            <h4 className="text-text-base font-medium mb-1">Search with concise keywords</h4>
-            <p className="mb-3">Use short, specific query terms like <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded text-[12px]">cart</code> or <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded text-[12px]">settings</code> - not full sentences.</p>
+            <h4 className="text-text-base font-medium mb-1">Search with keywords or concepts</h4>
+            <p className="mb-3">Use keywords or conceptual descriptions like <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded text-[12px]">padlock</code>, <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded text-[12px]">cinema</code>, or <code className="text-text-base/70 bg-text-base/6 px-1 py-0.5 rounded text-[12px]">cart</code>. Offline neural search automatically expands synonyms and corrects typos.</p>
             <SyntaxBlock
               title="search_icons"
               onCopy={() => onCopy(SEARCH_TOOL, 'mcp-search-tool')}
@@ -32,7 +32,7 @@ export default function ToolsSection({ copiedField, onCopy }: ToolsSectionProps)
               <span className="text-text-base/40">{'{ '}</span>
               <span className="text-[#e06c75]">query</span>
               <span className="text-text-base/40">: </span>
-              <span className="text-[#98c379]">"heart"</span>
+              <span className="text-[#98c379]">"padlock"</span>
               <span className="text-text-base/40">, </span>
               <span className="text-[#e06c75]">weight</span>
               <span className="text-text-base/40">: </span>
@@ -108,7 +108,7 @@ export default function ToolsSection({ copiedField, onCopy }: ToolsSectionProps)
             <tr className="border-b border-text-base/6">
               <td className="px-5 py-3 font-mono text-text-base/70">search_icons</td>
               <td className="px-5 py-3"><code className="text-[12px]">query</code>, optional <code className="text-[12px]">weight</code>, <code className="text-[12px]">limit</code></td>
-              <td className="px-5 py-3">Ranked matches with name, weight, category, tags, score</td>
+              <td className="px-5 py-3">Ranked matches with name, weight, category, tags, score (powered by offline neural vector search)</td>
             </tr>
             <tr className="border-b border-text-base/6">
               <td className="px-5 py-3 font-mono text-text-base/70">view_icon</td>
