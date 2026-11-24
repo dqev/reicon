@@ -49,7 +49,8 @@ export default function IconsPage() {
 
   const cached = useMemo(() => loadCache(), []);
   const [allIcons, setAllIcons] = useState<string[]>(() => cached.icons);
-  const [searchQuery, setSearchQuery] = useState('');
+  const initialQuery = searchParams.get('q') || searchParams.get('search') || '';
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
   
   const getSetFromLocation = useCallback(() => {
     const p = location.pathname.toLowerCase();
@@ -77,8 +78,22 @@ export default function IconsPage() {
   const [ready, setReady] = useState(() => cached.icons.length > 0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [sortBy, setSortBy] = useState<SortOption>('az');
+  const initialSort = (searchParams.get('sort')?.toLowerCase() === 'za' ? 'za' : 'az') as SortOption;
+  const [sortBy, setSortBy] = useState<SortOption>(initialSort);
   const [loadError, setLoadError] = useState<string | null>(null);
+
+  const handleSortChange = useCallback((newSort: SortOption) => {
+    setSortBy(newSort);
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      if (newSort === 'za') {
+        next.set('sort', 'za');
+      } else {
+        next.delete('sort');
+      }
+      return next;
+    }, { replace: true });
+  }, [setSearchParams]);
 
   // Custom icon sets (Flags, Brands, and Glass)
   const [flagsData, setFlagsData] = useState<CustomSvgIcon[] | null>(null);
@@ -95,7 +110,13 @@ export default function IconsPage() {
 
   const handleSearchClear = useCallback(() => {
     setSearchQuery('');
-  }, []);
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      next.delete('q');
+      next.delete('search');
+      return next;
+    }, { replace: true });
+  }, [setSearchParams]);
 
   const handleIconCopy = useCallback((name: string) => {
     showToast(`${name} SVG copied!`);
@@ -117,36 +138,42 @@ export default function IconsPage() {
   };
 
   const handleSetChange = (set: string, source: 'ui' | 'glass' = isGlassRoute ? 'glass' : 'ui') => {
+    const currentQ = searchParams.get('q') || searchParams.get('search') || '';
+    const qParam = currentQ ? `?q=${encodeURIComponent(currentQ)}` : '';
+
     if (set === 'flags') {
       setActiveSet('flags');
-      navigate('/flags');
+      navigate(`/flags${qParam}`);
       return;
     }
     if (set === 'social-media') {
       setActiveSet('social-media');
-      navigate('/brands');
+      navigate(`/brands${qParam}`);
       return;
     }
     if (set === 'file-icons') {
       setActiveSet('file-icons');
-      navigate('/file-icons');
+      navigate(`/file-icons${qParam}`);
       return;
     }
     if (set === 'glass') {
       setActiveSet('glass');
-      navigate('/glass');
+      navigate(`/glass${qParam}`);
       return;
     }
 
     setActiveSet(set);
     if (source === 'glass' && (set === 'all' || set === 'ui')) {
-      navigate('/glass');
+      navigate(`/glass${qParam}`);
       return;
     }
 
     const newParams = new URLSearchParams();
     const w = searchParams.get('weight');
     if (w) newParams.set('weight', w);
+    if (currentQ) newParams.set('q', currentQ);
+    const sort = searchParams.get('sort');
+    if (sort) newParams.set('sort', sort);
     if (set !== 'all' && set !== 'ui') {
       newParams.set('category', set);
     }
@@ -164,7 +191,20 @@ export default function IconsPage() {
 
     const nextSet = getSetFromLocation();
     setActiveSet((prev) => (prev !== nextSet ? nextSet : prev));
+
+    const urlQ = searchParams.get('q') || searchParams.get('search') || '';
+    setSearchQuery((prev) => (prev !== urlQ ? urlQ : prev));
+
+    const urlSort = (searchParams.get('sort')?.toLowerCase() === 'za' ? 'za' : 'az') as SortOption;
+    setSortBy((prev) => (prev !== urlSort ? urlSort : prev));
   }, [searchParams, getSetFromLocation]);
+
+  // Persist current route with full query in sessionStorage for detail back navigation
+  useEffect(() => {
+    try {
+      sessionStorage.setItem('reicon_last_icons_url', location.pathname + location.search);
+    } catch {}
+  }, [location.pathname, location.search]);
 
   // Redirect legacy or query-based /icons?category=flags to /flags, social-media to /brands, glass to /glass
   useEffect(() => {
@@ -270,6 +310,25 @@ export default function IconsPage() {
   const deferredQuery = useDeferredValue(searchQuery);
   const { results: searchResults, predictions } = useSemanticIconSearch(deferredQuery, 500);
   const lastTrackedSearch = useRef('');
+
+  // Sync deferred query to URL searchParams without polluting history
+  useEffect(() => {
+    const trimmed = deferredQuery.trim();
+    const currentQ = searchParams.get('q') || searchParams.get('search') || '';
+    if (trimmed === currentQ) return;
+
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      if (trimmed) {
+        next.set('q', trimmed);
+        next.delete('search');
+      } else {
+        next.delete('q');
+        next.delete('search');
+      }
+      return next;
+    }, { replace: true });
+  }, [deferredQuery, searchParams, setSearchParams]);
 
   useEffect(() => {
     const q = deferredQuery.trim();
@@ -414,7 +473,7 @@ export default function IconsPage() {
               isCollapsed={sidebarCollapsed}
               onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
               sortBy={sortBy}
-              onSortChange={setSortBy}
+              onSortChange={handleSortChange}
               predictions={predictions}
               onSelectPrediction={setSearchQuery}
             />

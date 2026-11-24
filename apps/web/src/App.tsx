@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useNavigationType, Navigate } from 'react-router-dom';
 import { useEffect, Suspense } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import SmoothScroll from './components/layout/SmoothScroll';
@@ -33,7 +33,14 @@ const BrandPage = lazyWithRetry(() => import('./pages/brand/BrandPage'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  const navType = useNavigationType();
+
+  useEffect(() => {
+    if (navType !== 'POP') {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, navType]);
+
   return null;
 }
 

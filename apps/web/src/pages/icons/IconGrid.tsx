@@ -49,7 +49,22 @@ export default function IconGrid({
   duotoneLoading,
   onIconCopy,
 }: IconGridProps) {
-  const [visibleCount, setVisibleCount] = useState(INITIAL_BATCH);
+  const [visibleCount, setVisibleCount] = useState(() => {
+    try {
+      const saved = sessionStorage.getItem('reicon_last_visible_count');
+      if (saved) {
+        const parsed = parseInt(saved, 10);
+        if (parsed > INITIAL_BATCH) return parsed;
+      }
+    } catch {}
+    return INITIAL_BATCH;
+  });
+
+  useEffect(() => {
+    try {
+      sessionStorage.setItem('reicon_last_visible_count', String(visibleCount));
+    } catch {}
+  }, [visibleCount]);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   // Stabilize callbacks with useRef to avoid breaking React.memo on cards

@@ -250,11 +250,19 @@ export default function CustomIconDetail({ type }: Props) {
     [flashToast]
   );
 
+  const backUrl = (() => {
+    try {
+      return sessionStorage.getItem('reicon_last_icons_url') || parentUrl;
+    } catch {
+      return parentUrl;
+    }
+  })();
+
   const handleBack = () => {
     if (window.history.state && window.history.state.idx > 0) {
       navigate(-1);
     } else {
-      navigate(parentUrl);
+      navigate(backUrl);
     }
   };
 
@@ -337,7 +345,7 @@ export default function CustomIconDetail({ type }: Props) {
             <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs font-mono text-white/40 min-w-0">
               <Link to="/icons" className="hover:text-white/70 transition-colors shrink-0">icon</Link>
               <span className="text-white/20 shrink-0" aria-hidden="true">/</span>
-              <Link to={parentUrl} className="hover:text-white/70 transition-colors shrink-0">
+              <Link to={backUrl} className="hover:text-white/70 transition-colors shrink-0">
                 {parentLabel.toLowerCase()}
               </Link>
               <span className="text-white/20 shrink-0" aria-hidden="true">/</span>
