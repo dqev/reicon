@@ -20,9 +20,17 @@ export interface SearchResult {
   score: number;
 }
 
+export interface SearchPrediction {
+  word: string;
+  score: number;
+  from: string;
+  kind: 'completion' | 'correction' | 'related';
+}
+
 export interface SearchOptions {
   limit?: number;
   category?: string;
+  predictions?: SearchPrediction[];
 }
 
 /** Pre-computed synonym expansions for common developer and design terms */
@@ -1235,6 +1243,7 @@ function scoreIconEntry(
 
 /**
  * Main search function to query icons from the index.
+ * Incorporates both direct query matching and semantic predictions from gpu-icons-search.
  */
 export function executeSearch(
   query: string,
@@ -1246,8 +1255,9 @@ export function executeSearch(
 
   const limit = options.limit ?? 500;
   const tokens = tokenize(trimmed);
-  const results: SearchResult[] = [];
+  const scoreMap = new Map<string, { entry: SearchIndexEntry; score: number }>();
 
+  // 1. Primary pass: Match against the user's typed query
   for (const entry of index) {
     if (options.category && options.category !== 'all' && entry.c !== options.category) {
       continue;
@@ -1255,27 +1265,60 @@ export function executeSearch(
 
     const score = scoreIconEntry(entry, trimmed, tokens);
     if (score > 0) {
-      results.push({
-        name: entry.n,
-        category: entry.c,
-        tags: entry.t,
-        score,
-      });
+      scoreMap.set(entry.n, { entry, score });
     }
+  }
+
+  // 2. Secondary pass: Semantic predictions from gpu-icons-search
+  if (options.predictions && options.predictions.length > 0) {
+    for (const pred of options.predictions) {
+      const predWord = pred.word.toLowerCase().trim();
+      if (!predWord) continue;
+      const predTokens = tokenize(predWord);
+
+      // Weight multiplier based on prediction type & score
+      // - correction (e.g. "calandar" -> "calendar"): high multiplier
+      // - completion (e.g. "hom" -> "home"): high multiplier
+      // - related (e.g. "movie" -> "film"): scaled by prediction score
+      const baseWeight = pred.kind === 'correction'
+        ? 0.85
+        : pred.kind === 'completion'
+        ? 0.75
+        : Math.min(0.65, Math.max(0.25, pred.score * 1.1));
+
+      for (const entry of index) {
+        if (options.category && options.category !== 'all' && entry.c !== options.category) {
+          continue;
+        }
+
+        const predScore = scoreIconEntry(entry, predWord, predTokens);
+        if (predScore > 0) {
+          const scaledScore = Math.round(predScore * baseWeight);
+          const existing = scoreMap.get(entry.n);
+          if (existing) {
+            // Already matched by typed query: give a boost
+            existing.score += Math.round(scaledScore * 0.25);
+          } else {
+            // Found via semantic prediction
+            scoreMap.set(entry.n, { entry, score: scaledScore });
+          }
+        }
+      }
+    }
+  }
+
+  const results: SearchResult[] = [];
+  for (const { entry, score } of scoreMap.values()) {
+    results.push({
+      name: entry.n,
+      category: entry.c,
+      tags: entry.t,
+      score,
+    });
   }
 
   // Sort by score descending, then by name length ascending
   results.sort((a, b) => b.score - a.score || a.name.length - b.name.length);
 
-  // Deduplicate by name
-  const seen = new Set<string>();
-  const deduped: SearchResult[] = [];
-  for (const r of results) {
-    if (seen.has(r.name)) continue;
-    seen.add(r.name);
-    deduped.push(r);
-    if (deduped.length >= limit) break;
-  }
-
-  return deduped;
+  return results.slice(0, limit);
 }

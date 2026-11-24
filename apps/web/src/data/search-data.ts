@@ -1,7 +1,7 @@
 import searchIndex from './search-index.json';
-import { executeSearch, type SearchIndexEntry, type SearchResult } from '../utils/search';
+import { executeSearch, type SearchIndexEntry, type SearchOptions, type SearchResult } from '../utils/search';
 
-export type { SearchResult };
+export type { SearchResult, SearchOptions };
 
 const index: SearchIndexEntry[] = searchIndex as SearchIndexEntry[];
 
@@ -11,7 +11,7 @@ function getSearchIndex(): SearchIndexEntry[] {
 
 export function searchIcons(
   query: string,
-  options: { limit?: number; category?: string } = {},
+  options: SearchOptions = {},
 ): SearchResult[] {
   return executeSearch(query, index, options);
 }

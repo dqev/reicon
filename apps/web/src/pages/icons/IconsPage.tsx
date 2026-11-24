@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useDeferredValue, useCallback, useRef } from 'react';
-import { useIconSearch } from '@/hooks/useIconSearch';
+import { useSemanticIconSearch } from '@/hooks/useIconSearch';
 import { useSearchParams, useLocation, useNavigate } from 'react-router-dom';
 import Sidebar from '@/components/layout/Sidebar';
 import IconsHelmet from './IconsHelmet';
@@ -268,7 +268,7 @@ export default function IconsPage() {
   }, [activeSet]);
 
   const deferredQuery = useDeferredValue(searchQuery);
-  const searchResults = useIconSearch(deferredQuery, 500);
+  const { results: searchResults, predictions } = useSemanticIconSearch(deferredQuery, 500);
   const lastTrackedSearch = useRef('');
 
   useEffect(() => {
@@ -334,18 +334,20 @@ export default function IconsPage() {
     }
 
     if (q) {
+      const predWords = predictions.map((p) => p.word.toLowerCase());
       list = list.filter((icon) => {
         const nameMatch = icon.name.toLowerCase().includes(q);
         const tagsMatch = icon.tags ? icon.tags.toLowerCase().includes(q) : false;
         const urlMatch = icon.url ? icon.url.toLowerCase().includes(q) : false;
-        return nameMatch || tagsMatch || urlMatch;
+        if (nameMatch || tagsMatch || urlMatch) return true;
+        return predWords.some((w) => icon.name.toLowerCase().includes(w) || (icon.tags ? icon.tags.toLowerCase().includes(w) : false));
       });
     }
     if (sortBy === 'za') {
       return [...list].sort((a, b) => b.name.localeCompare(a.name));
     }
     return [...list].sort((a, b) => a.name.localeCompare(b.name));
-  }, [isCustomSet, isGlass, activeSet, flagsData, brandsData, fileData, glassData, deferredQuery, sortBy]);
+  }, [isCustomSet, isGlass, activeSet, flagsData, brandsData, fileData, glassData, deferredQuery, sortBy, predictions]);
 
   useEffect(() => {
     if (window.Reicon?.preload && sortedIcons.length > 0 && !isCustomSet) {
@@ -413,6 +415,8 @@ export default function IconsPage() {
               onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
               sortBy={sortBy}
               onSortChange={setSortBy}
+              predictions={predictions}
+              onSelectPrediction={setSearchQuery}
             />
 
             <IconCount count={currentCount} ready={isReady && !sectionLoading} />

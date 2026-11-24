@@ -50,6 +50,7 @@
     "@vercel/speed-insights": "^2.0.0",
     "@vitejs/plugin-react": "^5.0.4",
     "dodopayments-checkout": "^1.9.9",
+    "gpu-icons-search": "^0.2.0",
     "motion": "^12.40.0",
     "react": "^19.0.1",
     "react-colorful": "^5.7.0",

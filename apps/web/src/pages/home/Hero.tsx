@@ -109,7 +109,7 @@ export default function Hero(_props: Props = {}) {
         {/* Centered Sponsors in a single line at the bottom of Hero */}
         <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-7 pb-6 pt-3 select-none">
           <span className="text-[12px] sm:text-[13px] text-[#737373] font-normal tracking-[-0.01em]">
-            Sponsored by :
+            Sponsored by
           </span>
           <a
             href="https://uigoodies.com/?utm_source=reicon"
@@ -125,7 +125,7 @@ export default function Hero(_props: Props = {}) {
             />
           </a>
           <a
-            href="https://pro.beui.dev/?utm_source=reicon"
+            href="https://beui.dev/?utm_source=reicon"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Sponsor: beUI Pro"
