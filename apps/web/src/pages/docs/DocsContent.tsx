@@ -122,7 +122,7 @@ export default function DocsContent({
   const isFlutter = framework === 'flutter';
 
   return (
-    <main ref={contentRef} className="flex-1 min-w-0 px-0 md:px-6 lg:px-8 xl:px-10 pt-0 pb-36 lg:pb-12 overflow-x-hidden">
+    <main id="docs-content" ref={contentRef} className="flex-1 min-w-0 px-0 md:px-6 lg:px-8 xl:px-10 pt-0 pb-36 lg:pb-12 overflow-x-hidden">
       <div className="w-full max-w-none">
 
             {/* What is Reicon - shown on base /docs route */}
