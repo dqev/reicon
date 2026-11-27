@@ -263,12 +263,26 @@ export default function IconsPage() {
     let cancelled = false;
     (async () => {
       try {
-        await Promise.all([loadIconData(), waitForReicon()]);
+        const [iconData] = await Promise.all([loadIconData(), waitForReicon()]);
         if (cancelled) return;
-        if (window.Reicon?.icons) {
+        const newCatMap: Record<string, string> = {};
+        if (iconData?.searchIndex) {
+          for (const entry of iconData.searchIndex) {
+            newCatMap[entry.n] = entry.c;
+          }
+        }
+        if (window.Reicon?.categoryMap) {
+          Object.assign(newCatMap, window.Reicon.categoryMap);
+        }
+        setCategoryMap(newCatMap);
+
+        if (window.Reicon?.icons && window.Reicon.icons.length > 0) {
           setAllIcons(window.Reicon.icons);
-          saveCache(window.Reicon.icons, window.Reicon.categoryMap);
-          setCategoryMap(window.Reicon.categoryMap);
+          saveCache(window.Reicon.icons, newCatMap);
+        } else if (iconData?.searchIndex) {
+          const names = iconData.searchIndex.map((e) => e.n);
+          setAllIcons(names);
+          saveCache(names, newCatMap);
         }
         setReady(true);
       } catch {
@@ -330,22 +344,31 @@ export default function IconsPage() {
     }
   }, [activeSet, isGlassRoute, flagsData, brandsData, fileData, glassData]);
 
-  // Grid-only loading loop when switching sections (sidebar/search stay visible).
+  const getSectionGroup = (set: string, isGlass: boolean) => {
+    if (isGlass || set === 'glass') return 'glass';
+    if (set === 'flags') return 'flags';
+    if (set === 'social-media') return 'social-media';
+    if (set === 'file-icons') return 'file-icons';
+    return 'ui';
+  };
+
+  // Grid-only loading loop when switching top-level sections (sidebar/search stay visible).
   const [sectionLoading, setSectionLoading] = useState(false);
   const sectionTimer = useRef(0);
-  const sectionMounted = useRef(false);
+  const prevSectionGroupRef = useRef<string>(getSectionGroup(initialSet, isGlassRoute));
+
   useEffect(() => {
-    if (!sectionMounted.current) {
-      sectionMounted.current = true;
+    const currentGroup = getSectionGroup(activeSet, isGlassRoute);
+    if (prevSectionGroupRef.current === currentGroup) {
       return;
     }
+    prevSectionGroupRef.current = currentGroup;
+
     setSectionLoading(true);
     window.clearTimeout(sectionTimer.current);
-    // Keep the grid loader visible long enough to be seen, even when the
-    // next section (e.g. Flags) resolves almost instantly from cache.
-    sectionTimer.current = window.setTimeout(() => setSectionLoading(false), 900);
+    sectionTimer.current = window.setTimeout(() => setSectionLoading(false), 200);
     return () => window.clearTimeout(sectionTimer.current);
-  }, [activeSet]);
+  }, [activeSet, isGlassRoute]);
 
   const deferredQuery = useDeferredValue(searchQuery);
   const { results: searchResults, predictions } = useSemanticIconSearch(deferredQuery, 500);
@@ -391,8 +414,6 @@ export default function IconsPage() {
     if (activeSet !== 'all' && activeSet !== 'ui') {
       if (Object.keys(categoryMap).length > 0) {
         icons = icons.filter((name) => categoryMap[name] === activeSet);
-      } else {
-        icons = [];
       }
     }
     const q = deferredQuery.trim().toLowerCase();

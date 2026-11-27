@@ -230,7 +230,30 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/cdn/reicon.js",
+      "destination": "https://unpkg.com/reicon@latest/cdn/reicon.js",
+      "permanent": false
+    },
+    {
+      "source": "/cdn/:path*",
+      "destination": "https://unpkg.com/reicon@latest/cdn/:path*",
+      "permanent": false
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/((?!llms|robots|sitemap|assets|font|og|favicon).*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": ".*text/markdown.*"
+        }
+      ],
+      "destination": "/llms.txt"
+    },
     {
       "source": "/cdn-proxy/:path*",
       "destination": "https://cdn.reicon.dev/:path*"

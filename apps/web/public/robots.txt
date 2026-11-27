@@ -6,6 +6,12 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /cdn/
+Disallow: /model.bin
+
+# ── Block aggressive scrapers that abuse bandwidth ─────────────────────
+User-agent: Bytespider
+Disallow: /
 
 # ── Search engine crawlers (explicit allow, no crawl-delay) ────────────
 User-agent: Googlebot

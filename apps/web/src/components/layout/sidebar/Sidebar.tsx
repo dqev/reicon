@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { HexColorPicker } from 'react-colorful';
 import { subscribeIcons } from '@/utils/iconDataLoader';
+import { loadIconData } from '@/lib/icon-data';
 import './sidebar.css';
 
 interface SidebarProps {
@@ -139,8 +140,21 @@ function Sidebar({
   glassRoute = false,
 }: SidebarProps) {
   const [uiCategories, setUiCategories] = useState<string[]>(DEFAULT_UI_CATEGORIES);
-  const [expandedSets, setExpandedSets] = useState<Record<string, boolean>>({});
+  const [expandedSets, setExpandedSets] = useState<Record<string, boolean>>(() => {
+    if (glassRoute || activeSet === 'glass') {
+      return { glass: true };
+    }
+    return { ui: true };
+  });
   const [isColorPickerOpen, setIsColorPickerOpen] = useState(false);
+
+  useEffect(() => {
+    if (glassRoute || activeSet === 'glass') {
+      setExpandedSets((prev) => (prev.glass ? prev : { ...prev, glass: true }));
+    } else if (activeSet === 'ui' || activeSet === 'all' || uiCategories.includes(activeSet)) {
+      setExpandedSets((prev) => (prev.ui ? prev : { ...prev, ui: true }));
+    }
+  }, [activeSet, glassRoute, uiCategories]);
 
   const isFlagsSet = activeSet === 'flags';
   const sizeOptions = isFlagsSet ? FLAG_SIZE_OPTIONS_LIST : SIZE_OPTIONS_LIST;
@@ -162,6 +176,15 @@ function Sidebar({
       }
     }
     loadCategories();
+    loadIconData().then((data) => {
+      if (data?.searchIndex) {
+        const unique = Array.from(new Set(data.searchIndex.map((x) => x.c).filter(Boolean))).sort();
+        if (unique.length > 0) {
+          setUiCategories(unique);
+        }
+      }
+    }).catch(() => {});
+
     const unsub = subscribeIcons(loadCategories);
     return () => unsub();
   }, []);
@@ -202,15 +225,16 @@ function Sidebar({
       onSetChange(set.id === 'ui' ? 'all' : 'glass', source);
     } else {
       onSetChange(set.id);
+      onClose?.();
     }
   };
 
   const isSetSelected = (set: SetDefinition) => {
     if (set.id === 'ui') {
-      return !glassRoute && (activeSet === 'ui' || activeSet === 'all');
+      return !glassRoute && (activeSet === 'ui' || activeSet === 'all' || uiCategories.includes(activeSet));
     }
     if (set.id === 'glass') {
-      return glassRoute || activeSet === 'glass';
+      return glassRoute || activeSet === 'glass' || (glassRoute && uiCategories.includes(activeSet));
     }
     return activeSet === set.id;
   };
@@ -278,6 +302,7 @@ function Sidebar({
                           } else {
                             onSetChange('all', 'ui');
                           }
+                          onClose?.();
                         }}
                         className={`sidebar-subcat-btn ${
                           (set.id === 'glass'
@@ -297,7 +322,10 @@ function Sidebar({
                           <button
                             key={cat}
                             type="button"
-                            onClick={() => onSetChange(cat, set.id === 'glass' ? 'glass' : 'ui')}
+                            onClick={() => {
+                              onSetChange(cat, set.id === 'glass' ? 'glass' : 'ui');
+                              onClose?.();
+                            }}
                             className={`sidebar-subcat-btn ${isCatActive ? 'active' : ''}`}
                           >
                             {formatCategoryName(cat)}
@@ -313,7 +341,10 @@ function Sidebar({
                         <button
                           key={cat}
                           type="button"
-                          onClick={() => onSetChange(catId)}
+                          onClick={() => {
+                            onSetChange(catId);
+                            onClose?.();
+                          }}
                           className={`sidebar-subcat-btn ${isCatActive ? 'active' : ''}`}
                         >
                           {cat}
