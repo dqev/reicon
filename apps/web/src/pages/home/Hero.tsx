@@ -137,6 +137,19 @@ export default function Hero(_props: Props = {}) {
               className="h-4.5 sm:h-5 w-auto grayscale brightness-125"
             />
           </a>
+          <a
+            href="https://serveros.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Sponsor: ServerOS"
+            className="inline-flex items-center opacity-60 hover:opacity-100 transition-opacity duration-200"
+          >
+            <img
+              src="/ui/serverOS-word.svg"
+              alt="ServerOS"
+              className="h-4.5 sm:h-5 w-auto grayscale brightness-125"
+            />
+          </a>
         </div>
       </div>
     </section>

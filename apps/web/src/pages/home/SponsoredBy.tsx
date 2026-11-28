@@ -44,6 +44,21 @@ const SPONSORS: SponsorItem[] = [
     ),
   },
   {
+    name: 'ServerOS',
+    url: 'https://serveros.com/',
+    role: 'serveros.com',
+    description:
+      'Deploy applications, manage services, monitor infrastructure and fix problems on the servers you already own, or on hardware from us.',
+    tier: 'silver',
+    logo: (
+      <img
+        src="/ui/serveros-logo.svg"
+        alt="ServerOS logo"
+        className="w-5 h-5 object-contain"
+      />
+    ),
+  },
+  {
     name: 'Motion Video',
     url: 'https://motionvideo.xyz/',
     role: 'motionvideo.xyz',
@@ -66,7 +81,7 @@ export default function SponsoredBy() {
         Sponsored by
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-[18px] max-w-[1120px] mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-[18px] max-w-[1120px] mx-auto">
         {SPONSORS.map((sponsor, i) => (
           <div
             key={i}
